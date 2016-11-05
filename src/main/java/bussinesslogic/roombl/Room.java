@@ -1,34 +1,29 @@
+/**
+ * @author huangxiao
+ * 2016年11月6日
+ */
 package bussinesslogic.roombl;
 
 import java.util.ArrayList;
 
-import bussinesslogicservice.roomblservice.RoomBLService;
 import util.ResultMessage;
 import vo.RoomVO;
 
-public class RoomController implements RoomBLService{
-
-	@Override
+public class Room {
+	
 	public ResultMessage importRoom(ArrayList<RoomVO> importRoomList) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArrayList<RoomVO> getRoom(String hotelID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ResultMessage checkIn(String roomID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ResultMessage checkOut(String roomID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

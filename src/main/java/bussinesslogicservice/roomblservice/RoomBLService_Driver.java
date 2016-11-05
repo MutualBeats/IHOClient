@@ -21,12 +21,12 @@ public class RoomBLService_Driver {
 		else
 			System.out.println("Failed\n");
 		
-		result = roomBLService.checkIn("3B323", "2016/11/4");
+		result = roomBLService.checkIn("3B323");
 		if(result == ResultMessage.RoomUpdateSuccess)
 			System.out.println("Success\n");
 		else
 			System.out.println("Failed\n");
-		result = roomBLService.checkOut("3B323", "2016/11/4");
+		result = roomBLService.checkOut("3B323");
 		if(result == ResultMessage.RoomUpdateSuccess)
 			System.out.println("Success\n");
 		else
