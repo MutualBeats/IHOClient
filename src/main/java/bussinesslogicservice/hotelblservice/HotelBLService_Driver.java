@@ -35,14 +35,14 @@ public class HotelBLService_Driver {
 		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", "锦都金鼎大酒店", 0, 0);
 		ArrayList<HotelVO> hotelList = hotelBLService.showHotelListData(sc);
 		for (HotelVO hotelVO : hotelList)
-			System.out.println(hotelVO.hotelName + '\t'  + hotelVO.address + '\t' + hotelVO.starLevel + '\t' + hotelVO.score + '\n');
+			System.out.println(hotelVO.hotelName + '\t' + hotelVO.address + '\t' + hotelVO.starLevel + '\t' + hotelVO.score + '\n');
 		
 		HotelEvaluationVO vo2 = new HotelEvaluationVO("00000001", "丁二玉", "2016/10/16", 5, "强，无敌！");
 		result = hotelBLService.evaluateHotel(vo2);
 		if(result == ResultMessage.EvaluateSuccess)
 			System.out.println("Evaluate succeed!\n");
 		else 
-			System.out.println("Hotel doesn't exists\n");
+			System.out.println("Hotel doesn't exists!\n");
 	}
 
 }

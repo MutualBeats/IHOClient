@@ -51,7 +51,7 @@ public class RoomBlTest {
 	
 	@Test
 	public void testCheckIn() {
-		assertEquals(ResultMessage.UpdateSucceed, room.checkIn(vo.hotelID, vo.roomNumber));
+		assertEquals(ResultMessage.RoomUpdateSuccess, room.checkIn(vo.hotelID, vo.roomNumber));
 	}
 	
 	@Test
