@@ -1,6 +1,10 @@
 package orderbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +16,7 @@ import bussinesslogic.roombl.MockRoom;
 import bussinesslogic.usebl.MockClient;
 import util.MemberType;
 import util.OrderState;
+import util.ResultMessage;
 import util.RoomType;
 import vo.OrderMakeVO;
 import vo.OrderVO;
@@ -49,6 +54,69 @@ public class OrderBlTest {
 	
 	@Test
 	public void testExcute() {
-		
+		assertEquals(ResultMessage.ExcuteSucceed, order.excuteOrder(vo.orderId));
+		vo = order.queryOrderById(vo.orderId);
+		assertEquals(OrderState.Excute, vo.orderState);
 	}
+	
+	@Test
+	public void testPutUp() {
+		vo = new OrderVO("1234567890123458", "1234567891", "WoDeTian", "98765432125", MemberType.Enterprise, OrderState.Exception, "12345678", "和园宾馆", "3B347",RoomType.Double, 1,10000 ,-1000, "2016/10/17", "", "", "2016/10/17", "2016/10/19", "2016/10/17","2015/10/18",1,false);
+		order.putUpOrder(vo.orderId);
+		vo = order.queryOrderById(vo.orderId);
+		assertEquals(OrderState.Excute, vo.orderState);
+	}
+	
+	@Test
+	public void testQueryOrder() {
+		OrderVO vo2 = order.queryOrderById(vo.orderId);
+		assertEquals(vo.userName, vo2.userName);
+		assertEquals(vo.makeTime, vo2.makeTime);
+		ArrayList<OrderVO> list;
+		list = order.queryHotelOrder(vo.hotelId);
+		boolean contain = false;
+		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
+			OrderVO each = it.next();
+			if(each.orderId.equals(vo.orderId)) {
+				contain = true;
+			}
+		}
+		if(! contain) {
+			fail();
+		}
+		list = order.queryUserOrder(vo.userId);
+		contain = false;
+		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
+			OrderVO each = it.next();
+			if(each.orderId.equals(vo.orderId)) {
+				contain = true;
+			}
+		}
+		if(! contain) {
+			fail();
+		}
+		list = order.queryOrderByHotel(vo.hotelId, vo.userId);
+		contain = false;
+		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
+			OrderVO each = it.next();
+			if(each.orderId.equals(vo.orderId)) {
+				contain = true;
+			}
+		}
+		if(! contain) {
+			fail();
+		}
+		list = order.queryRoomOrder(vo.hotelId, "3B346");
+		contain = false;
+		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
+			OrderVO each = it.next();
+			if(each.orderId.equals(vo.orderId)) {
+				contain = true;
+			}
+		}
+		if(! contain) {
+			fail();
+		}
+	}
+	
 }

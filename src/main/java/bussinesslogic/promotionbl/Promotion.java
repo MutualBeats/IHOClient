@@ -2,7 +2,6 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
-import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.ResultMessage;
 import vo.PromotionVO;
 

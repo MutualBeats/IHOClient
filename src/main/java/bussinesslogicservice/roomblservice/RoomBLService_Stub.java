@@ -2,7 +2,10 @@ package bussinesslogicservice.roomblservice;
 
 import java.util.ArrayList;
 
-import util.*;
+import util.ResultMessage;
+import util.RoomCheckRecord;
+import util.RoomConditionOfDate;
+import util.RoomType;
 import vo.RoomVO;
 
 public class RoomBLService_Stub implements RoomBLService {

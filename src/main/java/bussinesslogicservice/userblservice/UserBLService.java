@@ -1,9 +1,9 @@
 package bussinesslogicservice.userblservice;
 
-import vo.ClientVO;
-import vo.StaffVO;
-import vo.MarketerVO;
 import util.ResultMessage;
+import vo.ClientVO;
+import vo.MarketerVO;
+import vo.StaffVO;
 
 public interface UserBLService {
 	/*

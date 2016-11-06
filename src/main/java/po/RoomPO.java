@@ -6,7 +6,9 @@ package po;
 
 import java.util.ArrayList;
 
-import util.*;
+import util.RoomCheckRecord;
+import util.RoomConditionOfDate;
+import util.RoomType;
 
 public class RoomPO {
 	/**
