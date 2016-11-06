@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.ResultMessage;
+import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
 public class PromotionController implements PromotionBLService{
@@ -33,9 +34,15 @@ public class PromotionController implements PromotionBLService{
 	}
 
 	@Override
-	public void levelMake(ArrayList<Integer> level) {
+	public ResultMessage cancel(String promotionID) {
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+
+	@Override
+	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

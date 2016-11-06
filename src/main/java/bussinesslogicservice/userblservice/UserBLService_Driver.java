@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import vo.ClientVO;
 import vo.MarketerVO;
+import vo.MemberVO;
 import vo.StaffVO;
 
 public class UserBLService_Driver {
 	public void drive(UserBLService userBLService){
 		ResultMessage result;
+		
 		/*
 		 * 获取用户信息
 		 */
@@ -88,5 +90,27 @@ public class UserBLService_Driver {
 			System.out.println("Signup successfully");
 		else
 			System.out.println("Signup failed");
+		
+		MemberVO vo5=new MemberVO("1234567890", "腾讯企业",2);
+		MemberVO vo4=new MemberVO("1234567891", "1997.01.01",1);
+		
+			result=userBLService.businessRegister(vo5);
+			System.out.println(result.toString());
+			
+			result=userBLService.originalRegister(vo4);
+			System.out.println(result.toString());
+			
+			userBLService.get("1234567890", vo5);
+			
+			userBLService.levelLook("1234567891", vo4);
+			
+			ArrayList<Integer> levelList = new ArrayList<>();
+			levelList.add(20);
+			levelList.add(1);
+			userBLService.levelUpdate(levelList, 20);
+		
+	
 	}
+	
 }
+

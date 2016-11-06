@@ -1,12 +1,11 @@
 package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
-
+import vo.OrderPromotionConditionVO;
 import util.ResultMessage;
 import vo.PromotionVO;
 
 public class Promotionbl_Stub implements PromotionBLService{
-	
 	/*
 	 * 添加酒店促销策略
 	 */
@@ -51,7 +50,11 @@ public class Promotionbl_Stub implements PromotionBLService{
 		return list;
 	}
 	@Override
-	public void levelMake(ArrayList<Integer> level) {
-		System.out.println("Make Successful!");
+	public ResultMessage cancel(String promotionID){
+		return null;
+	}
+
+	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo){
+		return null;
 	}
 }

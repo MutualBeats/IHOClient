@@ -1,4 +1,4 @@
-package bussinesslogicservice.memberblservice;
+package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import po.MemberPO;
 import util.ResultMessage;
 import vo.MemberVO;
 
-public interface MemberLogicService {
+public interface MemberBLService {
 	/*
 	 * 注册企业会员
 	 */

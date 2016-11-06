@@ -2,6 +2,8 @@ package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
 
+import javax.print.CancelablePrintJob;
+
 import vo.PromotionVO;
 
 public class Promotionbl_Drive {
@@ -16,7 +18,7 @@ public class Promotionbl_Drive {
 			promotionLogicService.webLook();
 			ArrayList<Integer> level=new ArrayList<>();
 			level.add(1);
-			promotionLogicService.levelMake(level);
+			promotionLogicService.cancel("123456789");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

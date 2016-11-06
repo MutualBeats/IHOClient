@@ -2,6 +2,7 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
+import vo.OrderPromotionConditionVO;
 import util.ResultMessage;
 import vo.PromotionVO;
 
@@ -27,9 +28,11 @@ public class Promotion {
 		return null;
 	}
 
-	public void levelMake(ArrayList<Integer> level) {
-		// TODO Auto-generated method stub
-		
+	public ResultMessage cancel(String promotionID){
+		return null;
 	}
 
+	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo){
+		return null;
+	}
 }

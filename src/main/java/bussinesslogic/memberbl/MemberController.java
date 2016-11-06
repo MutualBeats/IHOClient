@@ -2,12 +2,12 @@ package bussinesslogic.memberbl;
 
 import java.util.ArrayList;
 
-import bussinesslogicservice.memberblservice.MemberLogicService;
+import bussinesslogicservice.userblservice.MemberBLService;
 import po.MemberPO;
 import util.ResultMessage;
 import vo.MemberVO;
 
-public class MemberController implements MemberLogicService{
+public class MemberController implements MemberBLService{
 
 	@Override
 	public ResultMessage businessRegister(MemberVO vo) {

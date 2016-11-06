@@ -1,10 +1,11 @@
 package dataservice.userdataservice;
 
+
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import po.ClientPO;
 import po.MarketerPO;
+import po.MemberPO;
 import po.StaffPO;
 
 public class UserDataService_Stub implements UserDataService{
@@ -39,7 +40,7 @@ public class UserDataService_Stub implements UserDataService{
 
 	@Override
 	public ClientPO findClientData(String ClientID) throws RemoteException {
-		return new ClientPO("0000000001", "admin", "123456789", 100, new ArrayList<String>());
+		return new ClientPO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2));
 	}
 
 	@Override

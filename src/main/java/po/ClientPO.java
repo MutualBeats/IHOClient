@@ -1,6 +1,6 @@
 package po;
 
-import java.util.ArrayList;
+
 
 public class ClientPO {
 	/*
@@ -22,27 +22,28 @@ public class ClientPO {
 	/*
 	 *用户会员信息 
 	 */
-	private ArrayList<String> memberInfo;
-	/*
-	 * 构造方法
+	private MemberPO member;
+	/**
 	 * @param clientID
 	 * @param clientname
 	 * @param tel_number
 	 * @param credit
-	 * @param memberInfo
+	 * @param member
 	 */
-	public ClientPO(String clientID, String clientname, String tel_number, int credit, ArrayList<String> memberInfo){
+	public ClientPO(String clientID, String clientname, String tel_number, int credit, MemberPO member) {
+		super();
 		this.clientID = clientID;
 		this.clientname = clientname;
 		this.tel_number = tel_number;
 		this.credit = credit;
-		this.memberInfo = memberInfo;
+		this.member = member;
 	}
-	public ArrayList<String> getMemberInfo() {
-		return memberInfo;
+	
+	public MemberPO getMember() {
+		return member;
 	}
-	public void setMemberInfo(ArrayList<String> memberInfo) {
-		this.memberInfo = memberInfo;
+	public void setMember(MemberPO member) {
+		this.member = member;
 	}
 	public String getClientID() {
 		return clientID;

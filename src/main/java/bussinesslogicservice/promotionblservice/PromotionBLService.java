@@ -3,6 +3,7 @@ package bussinesslogicservice.promotionblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
+import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
 public interface PromotionBLService {
@@ -24,7 +25,11 @@ public interface PromotionBLService {
 	 */
 	public ArrayList<PromotionVO> webLook();
 	/*
-	 * 计算会员等级制度
+	 * 撤销促销策略
 	 */
-	public void levelMake (ArrayList <Integer> level);
+	public ResultMessage cancel(String promotionID);
+	/*
+	 * 获得当前可用的促销策略
+	 */
+	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo);
 }
