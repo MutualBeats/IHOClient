@@ -74,43 +74,20 @@ public class OrderBlTest {
 		assertEquals(vo.makeTime, vo2.makeTime);
 		ArrayList<OrderVO> list;
 		list = order.queryHotelOrder(vo.hotelId);
-		boolean contain = false;
-		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
-			OrderVO each = it.next();
-			if(each.orderId.equals(vo.orderId)) {
-				contain = true;
-			}
-		}
-		if(! contain) {
-			fail();
-		}
+		find(list.iterator(), vo.orderId);
 		list = order.queryUserOrder(vo.userId);
-		contain = false;
-		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
-			OrderVO each = it.next();
-			if(each.orderId.equals(vo.orderId)) {
-				contain = true;
-			}
-		}
-		if(! contain) {
-			fail();
-		}
+		find(list.iterator(), vo.orderId);
 		list = order.queryOrderByHotel(vo.hotelId, vo.userId);
-		contain = false;
-		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
-			OrderVO each = it.next();
-			if(each.orderId.equals(vo.orderId)) {
-				contain = true;
-			}
-		}
-		if(! contain) {
-			fail();
-		}
+		find(list.iterator(), vo.orderId);
 		list = order.queryRoomOrder(vo.hotelId, "3B346");
-		contain = false;
-		for(Iterator<OrderVO> it = list.iterator(); it.hasNext(); ){
+		find(list.iterator(), vo.orderId);
+	}
+	
+	private void find(Iterator<OrderVO> it, String orderId) {
+		boolean contain = false;
+		for(; it.hasNext(); ){
 			OrderVO each = it.next();
-			if(each.orderId.equals(vo.orderId)) {
+			if(each.orderId.equals(orderId)) {
 				contain = true;
 			}
 		}
