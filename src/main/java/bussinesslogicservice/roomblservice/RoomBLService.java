@@ -21,9 +21,9 @@ public interface RoomBLService {
 	/**
 	 * 客户入住
 	 */
-	public ResultMessage checkIn(String roomID);
+	public ResultMessage checkIn(String hotelID, String roomID);
 	/**
 	 * 客户退房
 	 */
-	public ResultMessage checkOut(String roomID);
+	public ResultMessage checkOut(String hotelID, String roomID);
 }

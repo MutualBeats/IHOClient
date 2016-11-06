@@ -21,13 +21,13 @@ public class RoomController implements RoomBLService{
 	}
 
 	@Override
-	public ResultMessage checkIn(String roomID) {
+	public ResultMessage checkIn(String hotelID, String roomID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage checkOut(String roomID) {
+	public ResultMessage checkOut(String hotelID, String roomID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -48,14 +48,15 @@ public class RoomBLService_Stub implements RoomBLService {
 	
 	// 客户入住
 	@Override
-	public ResultMessage checkIn(String roomID) {
+	public ResultMessage checkIn(String hotelID, String roomID) {
 		return ResultMessage.RoomUpdateSuccess;
 	}
 	
 	// 客户退房
 	@Override
-	public ResultMessage checkOut(String roomID) {
+	public ResultMessage checkOut(String hotelID, String roomID) {
 		return ResultMessage.RoomUpdateSuccess;
 	}
+	
 }
 

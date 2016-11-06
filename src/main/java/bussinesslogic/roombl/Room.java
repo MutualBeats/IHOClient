@@ -19,11 +19,11 @@ public class Room {
 		return null;
 	}
 
-	public ResultMessage checkIn(String roomID) {
+	public ResultMessage checkIn(String hotelID, String roomID) {
 		return null;
 	}
 
-	public ResultMessage checkOut(String roomID) {
+	public ResultMessage checkOut(String hotelID, String roomID) {
 		return null;
 	}
 
