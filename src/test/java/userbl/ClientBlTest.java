@@ -1,13 +1,13 @@
 package userbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.usebl.Client;
+import bussinesslogic.usebl.client.Client;
 import util.ResultMessage;
 import vo.ClientVO;
 

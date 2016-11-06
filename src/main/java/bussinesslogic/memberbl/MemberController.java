@@ -22,25 +22,19 @@ public class MemberController implements MemberBLService{
 	}
 
 	@Override
-	public void levelLook(String name, MemberVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public MemberPO get(String name, MemberVO vo) {
+	public MemberVO get(String memberID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void levelUpdate(ArrayList<Integer> levelList, int level) {
+	public ResultMessage levelUpdate(ArrayList<Integer> levelList, int level) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public MemberPO update(String name, MemberVO vo) {
+	public ResultMessage update(String memberID, MemberVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
