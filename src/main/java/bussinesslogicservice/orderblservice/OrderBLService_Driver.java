@@ -6,6 +6,7 @@ import util.MemberType;
 import util.OrderState;
 import util.ResultMessage;
 import util.RoomType;
+import vo.OrderMakeVO;
 import vo.OrderVO;
 
 public class OrderBLService_Driver {
@@ -19,8 +20,10 @@ public class OrderBLService_Driver {
 		result = orderBLService.putUpOrder(vo3.orderId);
 		System.out.println(result.toString());
 		
-		result = orderBLService.makeOrder(vo2);
-		System.out.println(result.toString());
+		OrderMakeVO vo = new OrderMakeVO("1234567891","12345678", "和园宾馆", "3B347", RoomType.Double, 10000,"2016/10/14", "2016/10/14","2015/10/15",1,4,false);
+		
+		vo2 = orderBLService.makeOrder(vo);
+		System.out.println(vo2.userName);
 		
 		result = orderBLService.cancelOrder(vo1.orderId);
 		System.out.println(result.toString());

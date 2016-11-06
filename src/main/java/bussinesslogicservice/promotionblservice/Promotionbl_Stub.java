@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import vo.PromotionVO;
 
-public class Promotionbl_Stub implements PromotionLogicService{
+public class Promotionbl_Stub implements PromotionBLService{
 	
 	/*
 	 * 添加酒店促销策略

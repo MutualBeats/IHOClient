@@ -6,6 +6,7 @@ import util.MemberType;
 import util.OrderState;
 import util.ResultMessage;
 import util.RoomType;
+import vo.OrderMakeVO;
 import vo.OrderVO;
 
 public class OrderBLService_Stub implements OrderBLService{
@@ -88,11 +89,11 @@ public class OrderBLService_Stub implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage makeOrder(OrderVO vo) {
-		if(vo.userId.equals(orderId)) {
-			return ResultMessage.MakeSucceed;
+	public OrderVO makeOrder(OrderMakeVO vo) {
+		if(vo.userId.equals(userId)) {
+			return null;
 		}
-		return ResultMessage.MakeFailed;
+		return null;
 	}
 
 	@Override

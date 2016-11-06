@@ -3,6 +3,7 @@ package bussinesslogicservice.orderblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
+import vo.OrderMakeVO;
 import vo.OrderVO;
 
 public interface OrderBLService {
@@ -13,7 +14,7 @@ public interface OrderBLService {
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage makeOrder(OrderVO vo);
+	public OrderVO makeOrder(OrderMakeVO vo);
 	/**
 	 * 更新订单
 	 * 

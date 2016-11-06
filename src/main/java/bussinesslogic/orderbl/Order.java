@@ -7,8 +7,26 @@ import util.ResultMessage;
 import vo.OrderMakeVO;
 import vo.OrderVO;
 
-public class OrderController implements OrderBLService{
+public class Order implements OrderBLService{
+	
+	private UserInfo userInfo;
+	private CreditUpdate credit;
+	private PromotionGet promotion;
+	private RoomUpdate room;
 
+	/**
+	 * @param userInfo
+	 * @param credit
+	 * @param promotion
+	 * @param room
+	 */
+	public Order(UserInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
+		super();
+		this.userInfo = userInfo;
+		this.credit = credit;
+		this.promotion = promotion;
+		this.room = room;
+	}
 
 	@Override
 	public ResultMessage cancelOrder(String orderId) {
@@ -64,5 +82,4 @@ public class OrderController implements OrderBLService{
 		return null;
 	}
 
-	
 }

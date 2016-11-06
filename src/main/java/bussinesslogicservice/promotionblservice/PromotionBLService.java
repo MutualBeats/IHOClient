@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import vo.PromotionVO;
 
-public interface PromotionLogicService {
+public interface PromotionBLService {
 
 	/*
 	 * 添加酒店促销策略

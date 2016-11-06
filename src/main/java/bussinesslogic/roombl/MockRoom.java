@@ -4,9 +4,10 @@
  */
 package bussinesslogic.roombl;
 
+import bussinesslogic.orderbl.RoomUpdate;
 import util.ResultMessage;
 
-public class MockRoom extends Room {
+public class MockRoom extends Room implements RoomUpdate{
 
 	public MockRoom() {
 	}
