@@ -3,6 +3,7 @@ package bussinesslogicservice.promotionblservice;
 import java.util.ArrayList;
 
 import vo.MemberVO;
+import vo.PromotionVO;
 
 public interface MemberPromotionBLservice {
 	/*
@@ -16,6 +17,6 @@ public interface MemberPromotionBLservice {
 	/*
 	 * 获取会员折扣信息
 	 * */
-	public MemberVO getDiscount (String userID);
+	public PromotionVO getDiscount (String userID);
 	
 }

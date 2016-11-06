@@ -1,6 +1,9 @@
 package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import po.PromotionPO;
 import vo.OrderPromotionConditionVO;
 import util.ResultMessage;
 import vo.PromotionVO;
@@ -25,13 +28,6 @@ public class Promotionbl_Stub implements PromotionBLService{
 			return ResultMessage.HotelAddFail;
 	}
 	
-	/*
-	 * 计算会员等级制度
-	 */
-	public void levelCalculate(ArrayList<Integer> levelList) {
-		// TODO Auto-generated method stub
-		System.out.println("Calculate Successful!");
-	}
 	@Override
 	public ArrayList<PromotionVO> hotelLook(String hotelId) {
 		PromotionVO vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
@@ -42,19 +38,26 @@ public class Promotionbl_Stub implements PromotionBLService{
 	}
 	@Override
 	public ArrayList<PromotionVO> webLook() {
-		PromotionVO vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
+//		PromotionVO vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
 		PromotionVO vo2=new PromotionVO("123456780", "双十一全网特价","123456","2016/10/10","2016/10/20",0.1);
 		ArrayList<PromotionVO> list = new ArrayList<>();
-		list.add(vo1);
+//		list.add(vo1);
 		list.add(vo2);
 		return list;
 	}
 	@Override
 	public ResultMessage cancel(String promotionID){
-		return null;
+		PromotionVO vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
+		if (promotionID.equals(vo1.id))
+			return ResultMessage.CancelSucceed;
+		else
+			return ResultMessage.CancelFailed;
 	}
 
 	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo){
-		return null;
+		PromotionVO vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
+		ArrayList<PromotionVO> promotionPO=new ArrayList<PromotionVO>();
+		promotionPO.add(vo1);
+		return promotionPO;
 	}
 }
