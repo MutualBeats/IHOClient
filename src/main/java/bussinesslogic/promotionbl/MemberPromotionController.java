@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.promotionblservice.MemberPromotionBLservice;
 import vo.MemberVO;
+import vo.PromotionVO;
 
 public class MemberPromotionController implements MemberPromotionBLservice{
 
@@ -20,7 +21,7 @@ public class MemberPromotionController implements MemberPromotionBLservice{
 	}
 
 	@Override
-	public MemberVO getDiscount(String userID) {
+	public PromotionVO getDiscount(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
