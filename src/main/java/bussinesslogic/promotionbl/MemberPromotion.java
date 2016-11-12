@@ -3,6 +3,7 @@ package bussinesslogic.promotionbl;
 import java.util.ArrayList;
 
 import vo.MemberVO;
+import vo.PromotionVO;
 
 public class MemberPromotion {
 	/*
@@ -20,7 +21,7 @@ public class MemberPromotion {
 	/*
 	 * 获取会员折扣信息
 	 * */
-	public MemberVO getDiscount (String userID){
+	public PromotionVO getDiscount (String userID){
 		return null;
 	}
 }
