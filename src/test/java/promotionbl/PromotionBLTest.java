@@ -1,6 +1,6 @@
 package promotionbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.promotionbl.Promotion;
-import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.ResultMessage;
 import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;

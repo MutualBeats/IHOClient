@@ -2,7 +2,6 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import po.MemberPO;
 import util.ResultMessage;
 import vo.MemberVO;
 

@@ -2,8 +2,8 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
-import vo.OrderPromotionConditionVO;
 import util.ResultMessage;
+import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
 public class Promotion {

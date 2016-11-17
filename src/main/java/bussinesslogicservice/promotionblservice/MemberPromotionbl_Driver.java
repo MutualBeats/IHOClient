@@ -2,7 +2,6 @@ package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
 
-import po.PromotionPO;
 import vo.MemberVO;
 import vo.PromotionVO;
 

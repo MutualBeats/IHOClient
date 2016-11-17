@@ -2,8 +2,6 @@ package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
 
-import javax.print.CancelablePrintJob;
-
 import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 

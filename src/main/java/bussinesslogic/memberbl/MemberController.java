@@ -3,7 +3,6 @@ package bussinesslogic.memberbl;
 import java.util.ArrayList;
 
 import bussinesslogicservice.userblservice.MemberBLService;
-import po.MemberPO;
 import util.ResultMessage;
 import vo.MemberVO;
 

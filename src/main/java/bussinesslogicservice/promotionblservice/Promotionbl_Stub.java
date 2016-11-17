@@ -1,11 +1,9 @@
 package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import po.PromotionPO;
-import vo.OrderPromotionConditionVO;
 import util.ResultMessage;
+import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
 public class Promotionbl_Stub implements PromotionBLService{
