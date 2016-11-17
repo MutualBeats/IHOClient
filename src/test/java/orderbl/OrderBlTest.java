@@ -13,7 +13,7 @@ import bussinesslogic.creditbl.MockCredit;
 import bussinesslogic.orderbl.Order;
 import bussinesslogic.promotionbl.MockPromotion;
 import bussinesslogic.roombl.MockRoom;
-import bussinesslogic.usebl.MockClient;
+import bussinesslogic.usebl.client.MockClient;
 import util.MemberType;
 import util.OrderState;
 import util.ResultMessage;
