@@ -1,7 +1,6 @@
-package bussinesslogic.usebl;
+package bussinesslogic.usebl.client;
 
 import bussinesslogic.orderbl.UserInfo;
-import bussinesslogic.usebl.client.Client;
 import po.ClientPO;
 
 public class MockClient extends Client implements UserInfo {

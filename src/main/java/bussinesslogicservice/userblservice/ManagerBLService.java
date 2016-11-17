@@ -7,6 +7,10 @@ import vo.StaffVO;
 
 public interface ManagerBLService {
 	/*
+	 * 登录
+	 */
+	public ResultMessage Login(String ID, String password);
+	/*
 	 * 获取用户信息
 	 */
 	public ClientVO showClientData (String clientID);

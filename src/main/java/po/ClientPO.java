@@ -1,7 +1,5 @@
 package po;
 
-
-
 public class ClientPO {
 	/*
 	 * 用户ID

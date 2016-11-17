@@ -1,4 +1,4 @@
-package bussinesslogic.usebl;
+package bussinesslogic.usebl.Manager;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
 import util.ResultMessage;
@@ -7,6 +7,12 @@ import vo.MarketerVO;
 import vo.StaffVO;
 
 public class ManagerController implements ManagerBLService {
+
+	@Override
+	public ResultMessage Login(String ID, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public ClientVO showClientData(String clientID) {

@@ -1,4 +1,4 @@
-package bussinesslogic.usebl;
+package bussinesslogic.usebl.Manager;
 
 import util.ResultMessage;
 import vo.ClientVO;
@@ -7,6 +7,11 @@ import vo.StaffVO;
 
 public class Manager {
 
+	public ResultMessage Login(String ID, String password) {
+		//TODO 
+		return null;
+	}
+	
 	public ClientVO showClientData(String clientID) {
 		// TODO Auto-generated method stub
 		return null;
