@@ -12,7 +12,10 @@ import dataservice.hoteldataservice.HotelDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionDataService;
 import dataservice.roomdataservice.RoomDataService;
-import dataservice.userdataservice.UserDataService;
+import dataservice.userdataservice.ClientDataService;
+import dataservice.userdataservice.ManagerDataService;
+import dataservice.userdataservice.MarketerDataService;
+import dataservice.userdataservice.StaffDataService;
 
 public interface DataFactory extends Remote{
 	
@@ -26,6 +29,12 @@ public interface DataFactory extends Remote{
 	
 	public RoomDataService getRoomDatabase() throws RemoteException;
 	
-	public UserDataService getUserDatabase() throws RemoteException;
+	public ClientDataService getClientDatabase() throws RemoteException;
+	
+	public MarketerDataService getMarketerDatabase() throws RemoteException;
+	
+	public StaffDataService getStaffDatabase() throws RemoteException;
+	
+	public ManagerDataService getManagerDatabase() throws RemoteException;
 	
 }
