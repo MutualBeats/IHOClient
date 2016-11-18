@@ -3,7 +3,7 @@ package dataservice.userdataservice;
 
 import java.rmi.RemoteException;
 
-import po.ClientVO;
+import po.ClientPO;
 import po.MarketerPO;
 import po.MemberPO;
 import po.StaffPO;
@@ -39,8 +39,8 @@ public class UserDataService_Stub implements UserDataService{
 			}
 
 	@Override
-	public ClientVO findClientData(String ClientID) throws RemoteException {
-		return new ClientVO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2));
+	public ClientPO findClientData(String ClientID) throws RemoteException {
+		return new ClientPO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2));
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class UserDataService_Stub implements UserDataService{
 	}
 
 	@Override
-	public void updateClientData(ClientVO po) throws RemoteException {
+	public void updateClientData(ClientPO po) throws RemoteException {
 		System.out.println("Update successfully.");
 	}
 
@@ -87,7 +87,7 @@ public class UserDataService_Stub implements UserDataService{
 	}
 
 	@Override
-	public void insertClient(ClientVO po, String password) throws RemoteException {
+	public void insertClient(ClientPO po, String password) throws RemoteException {
 		System.out.println("Insert successfully.");
 	}	
 }

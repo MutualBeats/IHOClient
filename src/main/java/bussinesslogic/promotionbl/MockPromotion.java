@@ -3,12 +3,12 @@ package bussinesslogic.promotionbl;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.PromotionGet;
-import po.PromotionVO;
+import po.PromotionPO;
 
 public class MockPromotion extends Promotion implements PromotionGet {
 
 	@Override
-	public Iterator<PromotionVO> getPromotion() {
+	public Iterator<PromotionPO> getPromotion() {
 		return null;
 	}
 

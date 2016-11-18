@@ -2,7 +2,7 @@ package bussinesslogic.orderbl;
 
 import java.util.Iterator;
 
-import po.PromotionVO;
+import po.PromotionPO;
 
 public interface PromotionGet {
 	
@@ -11,6 +11,6 @@ public interface PromotionGet {
 	 * 
 	 * @return
 	 */
-	public Iterator<PromotionVO>  getPromotion();
+	public Iterator<PromotionPO>  getPromotion();
 	
 }

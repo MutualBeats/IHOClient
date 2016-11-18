@@ -1,9 +1,9 @@
 package bussinesslogic.orderbl;
 
-import po.ClientVO;
+import po.ClientPO;
 
 public interface UserInfo {
 	
-	public ClientVO getUserInfo();
+	public ClientPO getUserInfo();
 	
 }

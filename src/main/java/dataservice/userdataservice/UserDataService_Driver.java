@@ -2,7 +2,7 @@ package dataservice.userdataservice;
 
 import java.rmi.RemoteException;
 
-import po.ClientVO;
+import po.ClientPO;
 import po.MarketerPO;
 import po.MemberPO;
 import po.StaffPO;
@@ -12,7 +12,7 @@ public class UserDataService_Driver {
 		/*
 		 * 获取ClientPO内部数据
 		 */
-		ClientVO po1 = userDataService.findClientData("0000000001");
+		ClientPO po1 = userDataService.findClientData("0000000001");
 		System.out.println(po1.getClientID());
 		System.out.println(po1.getClientname());
 		System.out.println(po1.getTel_number());
@@ -34,7 +34,7 @@ public class UserDataService_Driver {
 		/*
 		 * 在数据库中更新一个ClientPO记录
 		 */
-		userDataService.updateClientData(new ClientVO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2)));
+		userDataService.updateClientData(new ClientPO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2)));
 		/*
 		 * 在数据库中更新一个StaffPO记录
 		 */
@@ -62,6 +62,6 @@ public class UserDataService_Driver {
 		/*
 		 * 在数据库中生成一个clientPO记录
 		 */
-		userDataService.insertClient(new ClientVO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2)), "123456");
+		userDataService.insertClient(new ClientPO("0000000001", "admin", "123456789", 100, new MemberPO("1234567890", "腾讯企业",2)), "123456");
 	}
 }
