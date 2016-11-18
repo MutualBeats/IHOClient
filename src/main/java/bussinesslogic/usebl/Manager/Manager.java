@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.Manager;
+package bussinesslogic.usebl.manager;
 
 import util.ResultMessage;
 import vo.ClientVO;

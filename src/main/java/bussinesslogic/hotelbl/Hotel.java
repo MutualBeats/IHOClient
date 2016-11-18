@@ -13,6 +13,8 @@ import vo.HotelVO;
 
 public class Hotel {
 	
+	
+	
 	public HotelVO showHotelData(String hotelID) {
 		// TODO Auto-generated method stub
 		return null;

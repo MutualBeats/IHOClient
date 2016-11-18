@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.usebl.Manager.Manager;
+import bussinesslogic.usebl.manager.Manager;
 import util.ResultMessage;
 import vo.ClientVO;
 import vo.MarketerVO;

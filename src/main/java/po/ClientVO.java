@@ -1,6 +1,6 @@
 package po;
 
-public class ClientPO {
+public class ClientVO {
 	/*
 	 * 用户ID
 	 */
@@ -28,7 +28,7 @@ public class ClientPO {
 	 * @param credit
 	 * @param member
 	 */
-	public ClientPO(String clientID, String clientname, String tel_number, int credit, MemberPO member) {
+	public ClientVO(String clientID, String clientname, String tel_number, int credit, MemberPO member) {
 		super();
 		this.clientID = clientID;
 		this.clientname = clientname;

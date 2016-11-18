@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.usebl.Marketer.Marketer;
+import bussinesslogic.usebl.marketer.Marketer;
 import vo.MarketerVO;
 
 public class MarketerBlTest {

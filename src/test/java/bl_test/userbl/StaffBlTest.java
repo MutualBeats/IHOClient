@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.usebl.Staff.Staff;
+import bussinesslogic.usebl.staff.Staff;
 import vo.StaffVO;
 
 public class StaffBlTest {

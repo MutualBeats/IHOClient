@@ -8,22 +8,25 @@ import vo.CreditVO;
 
 public class CreditController implements CreditBLService{
 
+	private Credit credit;
+	
+	public CreditController(Credit credit) {
+		this.credit = credit;
+	}
+	
 	@Override
 	public ResultMessage increaseCredit(String clientID, int value) {
-		// TODO Auto-generated method stub
-		return null;
+		return credit.increaseCredit(clientID, value);
 	}
 
 	@Override
 	public ResultMessage decreaseCredit(String clientID, int value) {
-		// TODO Auto-generated method stub
-		return null;
+		return credit.decreaseCredit(clientID, value);
 	}
 
 	@Override
 	public ArrayList<CreditVO> checkCreditRecord(String clientID) {
-		// TODO Auto-generated method stub
-		return null;
+		return credit.checkCreditRecord(clientID);
 	}
 	
 }

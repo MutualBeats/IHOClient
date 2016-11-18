@@ -1,6 +1,6 @@
 package bussinesslogic.usebl.client;
 
-import bussinesslogic.usebl.Manager.Entrust.Client2Manager;
+import bussinesslogic.usebl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.ResultMessage;
 import vo.ClientVO;

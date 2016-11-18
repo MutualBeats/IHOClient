@@ -2,7 +2,7 @@ package dataservice.userdataservice;
 
 import java.rmi.RemoteException;
 
-import po.ClientPO;
+import po.ClientVO;
 import po.MarketerPO;
 import po.StaffPO;
 
@@ -10,7 +10,7 @@ public interface UserDataService {
 	/*
 	 * 获取ClientPO内部数据
 	 */
-	public ClientPO findClientData(String ClientID) throws RemoteException;
+	public ClientVO findClientData(String ClientID) throws RemoteException;
 	/*
 	 * 获取StaffPO内部数据
 	 */
@@ -22,7 +22,7 @@ public interface UserDataService {
 	/*t
 	 * 在数据库中更新一个ClientPO记录
 	 */
-	public void updateClientData(ClientPO po) throws RemoteException;
+	public void updateClientData(ClientVO po) throws RemoteException;
 	/*
 	 * 在数据库中更新一个StaffPO记录
 	 */
@@ -46,5 +46,5 @@ public interface UserDataService {
 	/*
 	 * 在数据库中生成一个clientPO记录
 	 */
-	public void insertClient(ClientPO po, String password) throws RemoteException;
+	public void insertClient(ClientVO po, String password) throws RemoteException;
 }

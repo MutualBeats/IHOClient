@@ -1,12 +1,12 @@
 package bussinesslogic.usebl.client;
 
 import bussinesslogic.orderbl.UserInfo;
-import po.ClientPO;
+import po.ClientVO;
 
 public class MockClient extends Client implements UserInfo {
 
 	@Override
-	public ClientPO getUserInfo() {
+	public ClientVO getUserInfo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
