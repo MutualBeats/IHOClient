@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.Manager.Entrust;
+package bussinesslogic.usebl.manager.entrust;
 
 import vo.ClientVO;
 

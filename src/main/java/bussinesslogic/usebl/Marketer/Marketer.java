@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.Marketer;
+package bussinesslogic.usebl.marketer;
 
 import util.ResultMessage;
 import vo.MarketerVO;

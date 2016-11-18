@@ -1,6 +1,6 @@
-package bussinesslogic.usebl.Marketer;
+package bussinesslogic.usebl.marketer;
 
-import bussinesslogic.usebl.Manager.Entrust.Marketer2Manager;
+import bussinesslogic.usebl.manager.entrust.Marketer2Manager;
 import bussinesslogicservice.userblservice.MarketerBLService;
 import util.ResultMessage;
 import vo.MarketerVO;

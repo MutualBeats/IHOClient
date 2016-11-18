@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.Staff;
+package bussinesslogic.usebl.staff;
 
 import util.ResultMessage;
 import vo.StaffVO;

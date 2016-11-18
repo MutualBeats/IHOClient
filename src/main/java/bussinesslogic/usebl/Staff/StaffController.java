@@ -1,6 +1,6 @@
-package bussinesslogic.usebl.Staff;
+package bussinesslogic.usebl.staff;
 
-import bussinesslogic.usebl.Manager.Entrust.Staff2Manager;
+import bussinesslogic.usebl.manager.entrust.Staff2Manager;
 import bussinesslogicservice.userblservice.StaffBLService;
 import util.ResultMessage;
 import vo.StaffVO;
