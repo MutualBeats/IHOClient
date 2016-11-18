@@ -3,6 +3,7 @@ package bussinesslogic.orderbl;
 import java.util.ArrayList;
 
 import bussinesslogicservice.orderblservice.OrderBLService;
+import po.OrderPO;
 import util.ResultMessage;
 import vo.OrderMakeVO;
 import vo.OrderVO;
@@ -13,7 +14,7 @@ public class Order implements OrderBLService{
 	private CreditUpdate credit;
 	private PromotionGet promotion;
 	private RoomUpdate room;
-
+	private OrderPO orderPO;
 	/**
 	 * @param userInfo
 	 * @param credit
@@ -26,6 +27,7 @@ public class Order implements OrderBLService{
 		this.credit = credit;
 		this.promotion = promotion;
 		this.room = room;
+		orderPO = null;
 	}
 
 	@Override

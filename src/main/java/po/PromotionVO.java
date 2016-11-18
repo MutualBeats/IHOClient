@@ -2,7 +2,7 @@ package po;
 
 import java.util.ArrayList;
 
-public class PromotionPO {
+public class PromotionVO {
 	private String promotionId;
 	private String message;
 	private String id;
@@ -56,7 +56,7 @@ public class PromotionPO {
 	 * @param discount
 	 * @param levelList
 	 */
-	public PromotionPO(String promotionId, String message, String id, String startTime, String endTime, double discount) {
+	public PromotionVO(String promotionId, String message, String id, String startTime, String endTime, double discount) {
 		super();
 		this.promotionId = promotionId;
 		this.message = message;
@@ -69,7 +69,7 @@ public class PromotionPO {
 		return levelList;
 	}
 	public static void setLevelList(ArrayList<Integer> levelList) {
-		PromotionPO.levelList = levelList;
+		PromotionVO.levelList = levelList;
 	}
 	
 }

@@ -7,6 +7,8 @@ public class Initialization {
 	
 	public static void init() {
 		
+		
+		
 	}
 	
 }

@@ -2,15 +2,26 @@ package bussinesslogic.creditbl;
 
 import java.util.ArrayList;
 
+import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogicservice.creditblservice.CreditBLService;
 import util.ResultMessage;
 import vo.CreditVO;
 
-public class CreditController implements CreditBLService{
+public class CreditController implements CreditBLService, CreditUpdate{
 
+	private final static CreditController CREDIT_CONTROLLER = new CreditController(new Credit());
+	
+	public static CreditBLService getCreditBLServiceInstance() {
+		return CREDIT_CONTROLLER;
+	}
+	
+	public static CreditUpdate getCreditUpdateInstance() {
+		return CREDIT_CONTROLLER;
+	}
+	
 	private Credit credit;
 	
-	public CreditController(Credit credit) {
+	private CreditController(Credit credit) {
 		this.credit = credit;
 	}
 	

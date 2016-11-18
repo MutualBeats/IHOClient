@@ -6,6 +6,7 @@ package bussinesslogic.hotelbl;
 
 import java.util.ArrayList;
 
+import po.HotelPO;
 import util.ResultMessage;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
@@ -13,7 +14,7 @@ import vo.HotelVO;
 
 public class Hotel {
 	
-	
+	private HotelPO hotelPO = null;
 	
 	public HotelVO showHotelData(String hotelID) {
 		// TODO Auto-generated method stub

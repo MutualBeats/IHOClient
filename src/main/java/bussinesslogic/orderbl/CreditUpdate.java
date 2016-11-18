@@ -1,13 +1,17 @@
 package bussinesslogic.orderbl;
 
+import util.ResultMessage;
+
 public interface CreditUpdate {
 	
 	/**
 	 * Update the credit of current client;
 	 * And make a credit record in credit
 	 * 
-	 * @param value : the value of order, positive means add, negative means sub.
+	 * @param value : the value of order
 	 */
-	public void update (int value);
+	public ResultMessage increaseCredit(String clientID, int value) ;
+
+	public ResultMessage decreaseCredit(String clientID, int value);
 	
 }

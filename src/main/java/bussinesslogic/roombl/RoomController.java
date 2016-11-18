@@ -2,11 +2,12 @@ package bussinesslogic.roombl;
 
 import java.util.ArrayList;
 
+import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogicservice.roomblservice.RoomBLService;
 import util.ResultMessage;
 import vo.RoomVO;
 
-public class RoomController implements RoomBLService{
+public class RoomController implements RoomBLService, RoomUpdate{
 
 	@Override
 	public ResultMessage importRoom(ArrayList<RoomVO> importRoomList) {

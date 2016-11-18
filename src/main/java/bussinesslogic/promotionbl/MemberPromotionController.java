@@ -1,12 +1,14 @@
 package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.MemberPromotionBLservice;
 import vo.MemberVO;
 import vo.PromotionVO;
 
-public class MemberPromotionController implements MemberPromotionBLservice{
+public class MemberPromotionController implements MemberPromotionBLservice, PromotionGet{
 
 	@Override
 	public ArrayList<Integer> levelMake(MemberVO vo) {
@@ -22,6 +24,12 @@ public class MemberPromotionController implements MemberPromotionBLservice{
 
 	@Override
 	public PromotionVO getDiscount(String userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterator<po.PromotionVO> getPromotion() {
 		// TODO Auto-generated method stub
 		return null;
 	}
