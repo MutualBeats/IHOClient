@@ -13,10 +13,13 @@ public class DataFactoryHelper{
 	
 	private final static int port = 8888;
 	
-	private static DataFactory factory;
+	private static DataFactory factory = null;
 	
 	private DataFactoryHelper(){
-		factory = null;
+	}
+	
+	public static void main(String[] args) {
+		getDataFactoryInstance();
 	}
 	
 	public static synchronized DataFactory getDataFactoryInstance() {
@@ -33,7 +36,7 @@ public class DataFactoryHelper{
 			try {
 				factory = (DataFactory) Naming.lookup("rmi://"+ ip + ":"+port+"/DataFactory");
 			} catch (MalformedURLException | RemoteException | NotBoundException e) {
-				// TODO Auto-generated catch block
+				// TODO 	Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
