@@ -7,53 +7,51 @@ import vo.MarketerVO;
 import vo.StaffVO;
 
 public class ManagerController implements ManagerBLService {
+	
+	private Manager manager;
+	
+	ManagerController(){
+		manager = new Manager();
+	}
 
 	@Override
 	public ResultMessage Login(String ID, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.Login(ID, password);
 	}
 
 	@Override
 	public ClientVO showClientData(String clientID) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.showClientData(clientID);
 	}
 
 	@Override
 	public StaffVO showStaffData(String staffID) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.showStaffData(staffID);
 	}
 
 	@Override
 	public ResultMessage changeStaffData(StaffVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.changeStaffData(vo);
 	}
 
 	@Override
-	public ResultMessage addStaff(StaffVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addStaff(StaffVO vo, String password) {
+		return manager.addStaff(vo, password);
 	}
 
 	@Override
 	public MarketerVO showMarketerData(String marketerID) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.showMarketerData(marketerID);
 	}
 
 	@Override
 	public ResultMessage changeMarketerData(MarketerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.changeMarketerData(vo);
 	}
 
 	@Override
-	public ResultMessage addMarketer(MarketerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addMarketer(MarketerVO vo, String password) {
+		return manager.addMarketer(vo, password);
 	}
 
 }

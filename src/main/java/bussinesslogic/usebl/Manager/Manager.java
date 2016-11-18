@@ -27,7 +27,7 @@ public class Manager {
 		return null;
 	}
 
-	public ResultMessage addStaff(StaffVO vo) {
+	public ResultMessage addStaff(StaffVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -42,7 +42,7 @@ public class Manager {
 		return null;
 	}
 
-	public ResultMessage addMarketer(MarketerVO vo) {
+	public ResultMessage addMarketer(MarketerVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

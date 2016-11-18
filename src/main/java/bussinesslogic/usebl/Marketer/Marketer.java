@@ -17,7 +17,7 @@ public class Marketer {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage addMarketer(MarketerVO vo) {
+	public ResultMessage addMarketer(MarketerVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

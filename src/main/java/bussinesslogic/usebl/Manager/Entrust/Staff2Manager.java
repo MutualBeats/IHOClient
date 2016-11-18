@@ -15,5 +15,5 @@ public interface Staff2Manager {
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage addStaff(StaffVO vo);
+	public ResultMessage addStaff(StaffVO vo, String password);
 }

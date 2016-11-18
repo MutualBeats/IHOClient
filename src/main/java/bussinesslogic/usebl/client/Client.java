@@ -20,7 +20,7 @@ public class Client {
 		return null;
 	}
 
-	public ResultMessage Signup(ClientVO vo) {
+	public ResultMessage Signup(ClientVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

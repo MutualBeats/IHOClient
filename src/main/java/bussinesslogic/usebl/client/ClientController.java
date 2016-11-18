@@ -7,7 +7,7 @@ import vo.ClientVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
 	
-	Client client;
+	private Client client;
 	
 	ClientController(){
 		client = new Client();
@@ -29,8 +29,8 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage Signup(ClientVO vo) {
-		return client.Signup(vo);
+	public ResultMessage Signup(ClientVO vo,  String password) {
+		return client.Signup(vo, password);
 	}
 
 }

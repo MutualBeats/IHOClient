@@ -19,5 +19,5 @@ public interface ClientBLService {
 	/*
 	 * 注册新用户
 	 */
-	public ResultMessage Signup(ClientVO vo);
+	public ResultMessage Signup(ClientVO vo, String password);
 }

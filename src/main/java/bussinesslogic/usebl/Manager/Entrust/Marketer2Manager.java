@@ -15,5 +15,5 @@ public interface Marketer2Manager {
 	/*
 	 * 添加网站营销人员
 	 */
-	public ResultMessage addMarketer(MarketerVO vo);
+	public ResultMessage addMarketer(MarketerVO vo, String password);
 }

@@ -25,7 +25,7 @@ public interface ManagerBLService {
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage addStaff(StaffVO vo);
+	public ResultMessage addStaff(StaffVO vo, String password);
 	/*
 	 * 获取网站营销人员信息
 	 */
@@ -37,5 +37,5 @@ public interface ManagerBLService {
 	/*
 	 * 添加网站营销人员
 	 */
-	public ResultMessage addMarketer(MarketerVO vo);
+	public ResultMessage addMarketer(MarketerVO vo, String password);
 }

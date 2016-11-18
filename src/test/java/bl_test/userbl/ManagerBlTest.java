@@ -50,7 +50,7 @@ public class ManagerBlTest {
 	
 	@Test
 	public void testaddStaff(){
-		assertEquals(ResultMessage.RegisterSuccess, manager.addStaff(this.staffvo));
+		assertEquals(ResultMessage.RegisterSuccess, manager.addStaff(this.staffvo, "123456"));
 	}
 	
 	@Test
@@ -67,6 +67,6 @@ public class ManagerBlTest {
 	
 	@Test
 	public void testaddMarketer(){
-		assertEquals(ResultMessage.RegisterSuccess, manager.addMarketer(this.marketervo));
+		assertEquals(ResultMessage.RegisterSuccess, manager.addMarketer(this.marketervo,"123456"));
 	}
 }

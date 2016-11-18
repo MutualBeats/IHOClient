@@ -18,7 +18,7 @@ public class Staff {
 		return null;
 	}
 
-	public ResultMessage addStaff(StaffVO vo) {
+	public ResultMessage addStaff(StaffVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

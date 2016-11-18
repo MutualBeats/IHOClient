@@ -6,29 +6,31 @@ import util.ResultMessage;
 import vo.MarketerVO;
 
 public class MarketerController implements MarketerBLService , Marketer2Manager {
+	
+	private Marketer marketer;
+	
+	MarketerController(){
+		marketer = new Marketer();
+	}
 
 	@Override
 	public ResultMessage Login(String ID, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return marketer.Login(ID, password);
 	}
 
 	@Override
 	public MarketerVO showData(String marketerID) {
-		// TODO Auto-generated method stub
-		return null;
+		return marketer.showData(marketerID);
 	}
 	
 	@Override
 	public ResultMessage changeData(MarketerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return marketer.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage addMarketer(MarketerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addMarketer(MarketerVO vo, String password) {
+		return marketer.addMarketer(vo, password);
 	}
 
 

@@ -7,28 +7,30 @@ import vo.StaffVO;
 
 public class StaffController implements StaffBLService , Staff2Manager {
 	
+	private Staff staff;
+	
+	StaffController(){
+		staff = new Staff();
+	}
+	
 	@Override
 	public ResultMessage Login(String ID, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return staff.Login(ID, password);
 	}
 
 	@Override
 	public StaffVO showData(String staffID) {
-		// TODO Auto-generated method stub
-		return null;
+		return staff.showData(staffID);
 	}
 	
 	@Override
 	public ResultMessage changeData(StaffVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return staff.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage addStaff(StaffVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addStaff(StaffVO vo, String password) {
+		return staff.addStaff(vo, password);
 	}
 
 }

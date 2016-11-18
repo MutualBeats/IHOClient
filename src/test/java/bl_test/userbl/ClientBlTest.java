@@ -41,6 +41,6 @@ public class ClientBlTest {
 	
 	@Test
 	public void testSignup(){
-		assertEquals(ResultMessage.RegisterSuccess, client.Signup(this.vo));
+		assertEquals(ResultMessage.RegisterSuccess, client.Signup(this.vo, "123456"));
 	}
 }
