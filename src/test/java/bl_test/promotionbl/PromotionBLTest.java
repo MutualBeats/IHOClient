@@ -1,4 +1,4 @@
-package promotionbl;
+package bl_test.promotionbl;
 
 import static org.junit.Assert.assertEquals;
 

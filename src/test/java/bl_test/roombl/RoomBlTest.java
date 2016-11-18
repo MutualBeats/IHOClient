@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年11月6日
  */
-package roombl;
+package bl_test.roombl;
 
 import static org.junit.Assert.assertEquals;
 

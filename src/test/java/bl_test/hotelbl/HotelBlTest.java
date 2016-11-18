@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年11月6日
  */
-package hotelbl;
+package bl_test.hotelbl;
 
 import static org.junit.Assert.assertEquals;
 

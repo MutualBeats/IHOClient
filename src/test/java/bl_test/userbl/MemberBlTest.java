@@ -1,4 +1,4 @@
-package userbl;
+package bl_test.userbl;
 
 import static org.junit.Assert.assertEquals;
 
