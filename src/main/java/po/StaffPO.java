@@ -13,25 +13,20 @@ public class StaffPO {
 	 */
 	private String staffname;
 	/*
-	 * 酒店工作人员所在酒店
-	 */
-	private String hotelname;
-	/*
 	 * 酒店工作人员所在酒店ID
 	 */
-	
 	private String hotelId;
+	
 	/**
 	 * @param staffID
 	 * @param staffname
 	 * @param hotelname
 	 * @param hotelId
 	 */
-	public StaffPO(String staffID, String staffname, String hotelname, String hotelId) {
+	public StaffPO(String staffID, String staffname, String hotelId) {
 		super();
 		this.staffID = staffID;
 		this.staffname = staffname;
-		this.hotelname = hotelname;
 		this.hotelId = hotelId;
 	}
 	
@@ -49,12 +44,6 @@ public class StaffPO {
 	}
 	public void setStaffname(String staffname) {
 		this.staffname = staffname;
-	}
-	public String getHotelname() {
-		return hotelname;
-	}
-	public void setHotelname(String hotelname) {
-		this.hotelname = hotelname;
 	}
 	public String getHotelId() {
 		return hotelId;
