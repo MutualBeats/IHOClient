@@ -6,7 +6,6 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
-import po.HotelEvaluationPO;
 import util.ResultMessage;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
@@ -82,7 +81,7 @@ public class HotelBLService_Stub implements HotelBLService {
 	}
 
 	@Override
-	public ArrayList<HotelEvaluationPO> showHotelEvaluationListData(String hotelID) {
+	public ArrayList<HotelEvaluationVO> showHotelEvaluationListData(String hotelID) {
 		return null;
 	}
 

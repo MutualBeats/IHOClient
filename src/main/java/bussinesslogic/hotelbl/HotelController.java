@@ -3,7 +3,6 @@ package bussinesslogic.hotelbl;
 import java.util.ArrayList;
 
 import bussinesslogicservice.hotelblservice.HotelBLService;
-import po.HotelEvaluationPO;
 import util.ResultMessage;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
@@ -32,7 +31,7 @@ public class HotelController implements HotelBLService {
 	}
 	
 	@Override
-	public ArrayList<HotelEvaluationPO> showHotelEvaluationListData(String hotelID) {
+	public ArrayList<HotelEvaluationVO> showHotelEvaluationListData(String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

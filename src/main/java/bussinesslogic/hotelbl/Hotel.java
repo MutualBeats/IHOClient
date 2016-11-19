@@ -30,7 +30,12 @@ public class Hotel {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	public ArrayList<HotelEvaluationVO> showHotelEvaluationListData(String hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public ResultMessage evaluateHotel(HotelEvaluationVO vo) {
 		// TODO Auto-generated method stub
 		return null;
