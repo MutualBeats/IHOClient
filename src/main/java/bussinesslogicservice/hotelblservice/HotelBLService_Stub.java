@@ -6,6 +6,7 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
+import po.HotelEvaluationPO;
 import util.ResultMessage;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
@@ -78,6 +79,11 @@ public class HotelBLService_Stub implements HotelBLService {
 		if(vo.hotelID.equals("00000001"))
 			return ResultMessage.HotelExist;
 		else return ResultMessage.HotelNotExist;
+	}
+
+	@Override
+	public ArrayList<HotelEvaluationPO> showHotelEvaluationListData(String hotelID) {
+		return null;
 	}
 
 }

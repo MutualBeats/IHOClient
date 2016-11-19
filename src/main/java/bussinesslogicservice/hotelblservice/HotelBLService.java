@@ -6,6 +6,7 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
+import po.HotelEvaluationPO;
 import util.ResultMessage;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
@@ -27,6 +28,11 @@ public interface HotelBLService {
 	 * 显示酒店列表
 	 */
 	public ArrayList<HotelVO> showHotelListData  (SearchCondition sc);
+	
+	/**
+	 * 显示酒店评价列表
+	 */
+	public ArrayList<HotelEvaluationPO> showHotelEvaluationListData(String hotelID);
 	
 	/**
 	 * 评价酒店
