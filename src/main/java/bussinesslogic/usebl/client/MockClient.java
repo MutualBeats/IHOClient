@@ -1,7 +1,7 @@
 package bussinesslogic.usebl.client;
 
 import bussinesslogic.orderbl.ClientInfo;
-import po.ClientVO;
+import vo.ClientVO;
 
 public class MockClient extends Client implements ClientInfo {
 

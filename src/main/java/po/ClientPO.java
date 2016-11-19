@@ -1,6 +1,10 @@
+/**
+ * @version 2016年10月15日
+ * @version 2016年11月19日 添加空构造方法
+ */
 package po;
 
-public class ClientVO {
+public class ClientPO {
 	/*
 	 * 用户ID
 	 */
@@ -21,6 +25,7 @@ public class ClientVO {
 	 *用户会员信息 
 	 */
 	private MemberPO member;
+
 	/**
 	 * @param clientID
 	 * @param clientname
@@ -28,13 +33,16 @@ public class ClientVO {
 	 * @param credit
 	 * @param member
 	 */
-	public ClientVO(String clientID, String clientname, String tel_number, int credit, MemberPO member) {
+	public ClientPO(String clientID, String clientname, String tel_number, int credit, MemberPO member) {
 		super();
 		this.clientID = clientID;
 		this.clientname = clientname;
 		this.tel_number = tel_number;
 		this.credit = credit;
 		this.member = member;
+	}
+	
+	public ClientPO() {
 	}
 	
 	public MemberPO getMember() {
@@ -69,3 +77,4 @@ public class ClientVO {
 	}
 	
 }
+

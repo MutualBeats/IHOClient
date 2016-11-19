@@ -48,7 +48,7 @@ public class PromotionController implements PromotionBLService,PromotionGet{
 	}
 
 	@Override
-	public Iterator<po.PromotionVO> getPromotion() {
+	public Iterator<PromotionVO> getPromotion() {
 		// TODO Auto-generated method stub
 		return null;
 	}

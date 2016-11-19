@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.MemberPO;
-import po.PromotionVO;
+import po.PromotionPO;
 import util.ResultMessage;
 
 public class PromotionDataService_Stub implements PromotionDataService{
@@ -13,7 +13,7 @@ public class PromotionDataService_Stub implements PromotionDataService{
 	 * 添加酒店促销策略
 	 */
 	@Override
-	public ResultMessage hotelAdd(PromotionVO po) throws RemoteException {
+	public ResultMessage hotelAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		if(po.getMessage().equals("双十一全店特价"))
 			return ResultMessage.HotelAddSuccess;
@@ -25,7 +25,7 @@ public class PromotionDataService_Stub implements PromotionDataService{
 	 * 添加网站促销策略
 	 */
 	@Override
-	public ResultMessage webAdd(PromotionVO po) throws RemoteException {
+	public ResultMessage webAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		if(po.getMessage().equals("双十一全网特价"))
 			return ResultMessage.WebAddSuccess;
@@ -38,26 +38,26 @@ public class PromotionDataService_Stub implements PromotionDataService{
 	 * 制定会员等级制度
 	 */
 	@Override
-	public void levelMake(PromotionVO po,MemberPO po2) throws RemoteException {
+	public void levelMake(PromotionPO po,MemberPO po2) throws RemoteException {
 		// TODO Auto-generated method stub
-		if(PromotionVO.getLevelList().contains(po2.getLevel()))
-			System.out.println("The level is "+ PromotionVO.getLevelList().indexOf(po2));
+		if(PromotionPO.getLevelList().contains(po2.getLevel()))
+			System.out.println("The level is "+ PromotionPO.getLevelList().indexOf(po2));
 	}
 
 	@Override
-	public ArrayList<PromotionVO> hotelLook(String hotelId) throws RemoteException {
-		PromotionVO po1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
+	public ArrayList<PromotionPO> hotelLook(String hotelId) throws RemoteException {
+		PromotionPO po1=new PromotionPO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
 //		PromotionPO po2=new PromotionPO("123456780", "双十一全网特价","123456","2016/10/10","2016/10/20",0.1);
-		ArrayList<PromotionVO> list = new ArrayList<>();
+		ArrayList<PromotionPO> list = new ArrayList<>();
 		list.add(po1);
 		return list;
 	}
 
 	@Override
-	public ArrayList<PromotionVO> webLook() throws RemoteException {
-		PromotionVO po1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
-		PromotionVO po2=new PromotionVO("123456780", "双十一全网特价","123456","2016/10/10","2016/10/20",0.1);
-		ArrayList<PromotionVO> list = new ArrayList<>();
+	public ArrayList<PromotionPO> webLook() throws RemoteException {
+		PromotionPO po1=new PromotionPO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
+		PromotionPO po2=new PromotionPO("123456780", "双十一全网特价","123456","2016/10/10","2016/10/20",0.1);
+		ArrayList<PromotionPO> list = new ArrayList<>();
 		list.add(po1);
 		list.add(po2);
 		return list;
