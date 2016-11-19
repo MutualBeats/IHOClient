@@ -7,11 +7,7 @@ import vo.ClientVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
 	
-	private Client client;
-	
-	ClientController(){
-		client = new Client();
-	}
+	private Client client = new Client();
 
 	@Override
 	public ClientVO showData(String clientID) {

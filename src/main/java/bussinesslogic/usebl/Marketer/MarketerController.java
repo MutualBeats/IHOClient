@@ -7,11 +7,7 @@ import vo.MarketerVO;
 
 public class MarketerController implements MarketerBLService , Marketer2Manager {
 	
-	private Marketer marketer;
-	
-	MarketerController(){
-		marketer = new Marketer();
-	}
+	private Marketer marketer = new Marketer();
 
 	@Override
 	public ResultMessage Login(String ID, String password) {

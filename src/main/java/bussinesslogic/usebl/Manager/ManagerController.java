@@ -8,11 +8,8 @@ import vo.StaffVO;
 
 public class ManagerController implements ManagerBLService {
 	
-	private Manager manager;
-	
-	ManagerController(){
-		manager = new Manager();
-	}
+	private Manager manager = new Manager();
+
 
 	@Override
 	public ResultMessage Login(String ID, String password) {

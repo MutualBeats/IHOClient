@@ -7,12 +7,8 @@ import vo.StaffVO;
 
 public class StaffController implements StaffBLService , Staff2Manager {
 	
-	private Staff staff;
-	
-	StaffController(){
-		staff = new Staff();
-	}
-	
+	private Staff staff = new Staff();
+
 	@Override
 	public ResultMessage Login(String ID, String password) {
 		return staff.Login(ID, password);

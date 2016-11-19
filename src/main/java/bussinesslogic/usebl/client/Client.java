@@ -4,9 +4,17 @@ import util.ResultMessage;
 import vo.ClientVO;
 
 public class Client {
+	
+//	public Client(){
+//		try{
+//			
+//		}catch(RemoteException e){
+//			e.printStackTrace();
+//		}
+//	}
 
 	public ClientVO showData(String clientID) {
-		// TODO Auto-generated method stub
+		//TODO
 		return null;
 	}
 

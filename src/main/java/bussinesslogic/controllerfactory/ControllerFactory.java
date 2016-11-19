@@ -11,6 +11,9 @@ import bussinesslogic.promotionbl.PromotionController;
 import bussinesslogic.roombl.RoomController;
 import bussinesslogic.usebl.client.ClientController;
 import bussinesslogic.usebl.manager.ManagerController;
+import bussinesslogic.usebl.manager.entrust.Client2Manager;
+import bussinesslogic.usebl.manager.entrust.Marketer2Manager;
+import bussinesslogic.usebl.manager.entrust.Staff2Manager;
 import bussinesslogic.usebl.marketer.MarketerController;
 import bussinesslogic.usebl.staff.StaffController;
 import bussinesslogicservice.creditblservice.CreditBLService;
@@ -19,6 +22,8 @@ import bussinesslogicservice.orderblservice.OrderBLService;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
 import bussinesslogicservice.roomblservice.RoomBLService;
 import bussinesslogicservice.userblservice.ClientBLService;
+import bussinesslogicservice.userblservice.ManagerBLService;
+import bussinesslogicservice.userblservice.MarketerBLService;
 
 public class ControllerFactory {
 	
@@ -91,11 +96,54 @@ public class ControllerFactory {
 		return roomController;
 	}
 	
-//	public static ClientBLService getClientBLServiceInstance() {
-//		if(clientController == null) {
-//			
-//		}
-//	}
+	public static ClientBLService getClientBLServiceInstance() {
+		if(clientController == null) {
+			clientController = new ClientController();
+		}
+		return clientController;
+	}
+	
+	public static ClientBLService getStaffBLServiceInstance() {
+		if(staffController == null) {
+			staffController = new StaffController();
+		}
+		return clientController;
+	}
+	
+	public static MarketerBLService getMarketerBLServiceInstance() {
+		if(marketerController == null) {
+			marketerController = new MarketerController();
+		}
+		return marketerController;
+	}
+	
+	public static ManagerBLService getManagerBLServiceInstance() {
+		if(managerController == null) {
+			managerController = new ManagerController();
+		}
+		return managerController;
+	}
+	
+	public static Client2Manager getClient2ManagerIstance(){
+		if(clientController == null){
+			clientController = new ClientController();
+		}
+		return clientController;
+	}
+	
+	public static Staff2Manager getStaff2ManagerIstance(){
+		if(staffController == null){
+			staffController = new StaffController();
+		}
+		return staffController;
+	}
+	
+	public static Marketer2Manager getManager2ManagerIstance(){
+		if(marketerController == null){
+			marketerController = new MarketerController();
+		}
+		return marketerController;
+	}
 	
 	public static ClientInfo getClientInfoInstance() {
 		//TODO:
