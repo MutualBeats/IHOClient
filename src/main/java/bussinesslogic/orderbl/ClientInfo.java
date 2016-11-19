@@ -2,7 +2,7 @@ package bussinesslogic.orderbl;
 
 import po.ClientVO;
 
-public interface UserInfo {
+public interface ClientInfo {
 	
 	public ClientVO getUserInfo();
 	

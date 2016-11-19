@@ -9,6 +9,8 @@ import vo.RoomVO;
 
 public class RoomController implements RoomBLService, RoomUpdate{
 
+	private Room room = new Room();
+	
 	@Override
 	public ResultMessage importRoom(ArrayList<RoomVO> importRoomList) {
 		// TODO Auto-generated method stub

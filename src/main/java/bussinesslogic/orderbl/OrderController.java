@@ -2,13 +2,18 @@ package bussinesslogic.orderbl;
 
 import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import util.ResultMessage;
 import vo.OrderMakeVO;
 import vo.OrderVO;
 
 public class OrderController implements OrderBLService{
-
+	
+	private Order order = new Order(ControllerFactory.getClientInfoInstance(), 
+			ControllerFactory.getCreditUpdateInstance(), 
+			ControllerFactory.getPromotionGetInstance(), 
+			ControllerFactory.getRoomUpdateInstance());
 
 	@Override
 	public ResultMessage cancelOrder(String orderId) {

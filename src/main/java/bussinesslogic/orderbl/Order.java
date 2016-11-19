@@ -10,7 +10,7 @@ import vo.OrderVO;
 
 public class Order implements OrderBLService{
 	
-	private UserInfo userInfo;
+	private ClientInfo userInfo;
 	private CreditUpdate credit;
 	private PromotionGet promotion;
 	private RoomUpdate room;
@@ -21,7 +21,7 @@ public class Order implements OrderBLService{
 	 * @param promotion
 	 * @param room
 	 */
-	public Order(UserInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
+	public Order(ClientInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
 		super();
 		this.userInfo = userInfo;
 		this.credit = credit;

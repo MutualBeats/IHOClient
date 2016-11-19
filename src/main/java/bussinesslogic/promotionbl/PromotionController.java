@@ -1,13 +1,15 @@
 package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.ResultMessage;
 import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
-public class PromotionController implements PromotionBLService{
+public class PromotionController implements PromotionBLService,PromotionGet{
 
 	@Override
 	public ResultMessage hotelAdd(PromotionVO vo) {
@@ -41,6 +43,12 @@ public class PromotionController implements PromotionBLService{
 
 	@Override
 	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterator<po.PromotionVO> getPromotion() {
 		// TODO Auto-generated method stub
 		return null;
 	}

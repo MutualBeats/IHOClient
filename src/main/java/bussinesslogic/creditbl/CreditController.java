@@ -8,22 +8,8 @@ import util.ResultMessage;
 import vo.CreditVO;
 
 public class CreditController implements CreditBLService, CreditUpdate{
-
-	private final static CreditController CREDIT_CONTROLLER = new CreditController(new Credit());
 	
-	public static CreditBLService getCreditBLServiceInstance() {
-		return CREDIT_CONTROLLER;
-	}
-	
-	public static CreditUpdate getCreditUpdateInstance() {
-		return CREDIT_CONTROLLER;
-	}
-	
-	private Credit credit;
-	
-	private CreditController(Credit credit) {
-		this.credit = credit;
-	}
+	private Credit credit = new Credit();
 	
 	@Override
 	public ResultMessage increaseCredit(String clientID, int value) {

@@ -10,7 +10,7 @@ import vo.HotelVO;
 
 public class HotelController implements HotelBLService {
 	
-	
+	private Hotel hotel = new Hotel();
 
 	@Override
 	public HotelVO showHotelData(String hotelID) {
