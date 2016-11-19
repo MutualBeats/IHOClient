@@ -1,4 +1,4 @@
-package factory;
+package factory.test_helper;
 
 import java.net.InetAddress;
 import java.net.MalformedURLException;

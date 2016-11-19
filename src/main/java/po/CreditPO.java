@@ -42,6 +42,18 @@ public class CreditPO {
 	
 	public CreditPO() {
 	}
+	/**
+	 * 拷贝构造函数
+	 * @param po
+	 */
+	public static CreditPO copy(CreditPO po) {
+		CreditPO c_po = new CreditPO();
+		c_po.changeTime = po.changeTime;
+		c_po.changeValue = po.changeValue;
+		c_po.clientID = po.clientID;
+		c_po.credit = po.credit;
+		return c_po;
+	}
 	
 	public String getClientID() {
 		return clientID;

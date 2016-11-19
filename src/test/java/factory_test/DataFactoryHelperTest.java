@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 import org.junit.Test;
 
 import dataservice.datafactoryservice.DataFactory;
-import factory.DataFactoryHelper;
+import factory.test_helper.DataFactoryHelper;
 
 /**
  * @author Saltwater

@@ -35,6 +35,6 @@ public enum ResultMessage {
 	ChangeFail, 
 	ChangeSuccess,
 	
-	IllegalInputType,
+	IllegalInputType, CreditIncreaseFailed, CreditIncreaseSuccess, CreditDecreaseFailed, CreditDecreaseSuccess,
 	
 }

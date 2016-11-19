@@ -11,7 +11,7 @@ import vo.CreditVO;
 
 public class CreditBLService_Driver {
 	public void drive(CreditBLService creditBLService) {
-		ResultMessage result;
+		ResultMessage result = null;
 		result = creditBLService.increaseCredit("0000000001", 100);
 		if(result == ResultMessage.ClientExist)
 			System.out.println("Client exists\n");
