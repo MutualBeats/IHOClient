@@ -2,11 +2,12 @@ package factory.datahelper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import bussinesslogic.creditbl.Credit;
 import dataservice.creditdataservice.CreditDataService;
 import po.CreditChangePO;
 import po.CreditPO;
+import vo.CreditVO;
 
 /**
  * @author Saltwater
@@ -44,26 +45,31 @@ public class CreditDataHelper {
 		i_po.setChangeValue(po.getChangeValue());
 		int after_credit = i_po.getCredit() + po.getChangeValue();
 		i_po.setCredit(after_credit);
+		insert(i_po);
+	}
+	
+	private void insert(CreditPO po) {
+		checkAndUpdateCache(po.getClientID());
+		//Cache Update
+		credit_record_cache.add(po);
+		//TODO : 留给结束模块、异常模块完成
 		try {
-			insert(i_po);
+			data_service.insert(po);
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
 		}
 	}
 	
-	private void insert(CreditPO po) throws RemoteException {
-		checkAndUpdateCache(po.getClientID());
-		//Cache Update
-		credit_record_cache.add(po);
-		//TODO : 留给结束模块、异常模块完成
-		data_service.insert(po);
-	}
-	
 
-	public ArrayList<CreditPO> find(String clientID) throws RemoteException {
+	public ArrayList<CreditVO> find(String clientID) {
 		checkAndUpdateCache(clientID);
-		return credit_record_cache;
+		//Copy And Change To VO.
+		ArrayList<CreditVO> record_copy = new ArrayList<>();
+		for(Iterator<CreditPO> it = credit_record_cache.iterator(); it.hasNext();) {
+			record_copy.add(new CreditVO(it.next()));
+		}
+		return record_copy;
 	}
 	
 	public CreditPO getNewestCredit(String clientID) {
@@ -95,7 +101,7 @@ public class CreditDataHelper {
 	 * @return Nesessity for cache update 
 	 */
 	private boolean checkOldCache(String clientID) {
-		if(credit_record_cache == null) {
+		if(credit_record_cache.isEmpty()) {
 			return true;
 		}
 		CreditPO po = credit_record_cache.get(0);

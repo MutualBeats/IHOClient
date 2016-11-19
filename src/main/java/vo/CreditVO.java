@@ -4,6 +4,8 @@
  */
 package vo;
 
+import po.CreditPO;
+
 public class CreditVO {
 	/**
 	 * 客户id
@@ -37,5 +39,9 @@ public class CreditVO {
 		this.changeTime = changeTime;
 		this.changeValue = changeValue;
 		this.credit = credit;
+	}
+
+	public CreditVO(CreditPO po) {
+		this(po.getClientID(), po.getChangeTime(), po.getChangeValue(), po.getCredit());
 	}
 }

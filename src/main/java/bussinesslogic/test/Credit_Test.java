@@ -1,26 +1,29 @@
-package bussinesslogic.creditbl;
+package bussinesslogic.test;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import factory.datahelper.CreditDataHelper;
-import factory.datahelper.DataHelperFactory;
 import po.CreditChangePO;
+import po.CreditPO;
 import util.ResultMessage;
 import util.Time;
 import vo.CreditVO;
 
-public class Credit{
+/**
+ * @author Saltwater
+ * 测试用Credit。
+ * 只更改了Credit 中部分方法可见性和构造函数
+ */
+public class Credit_Test{
 	
+	private CreditPO creditPO = null;
 	private CreditDataHelper credit_data_service;
 	
-	public Credit() {
-		try {
-			credit_data_service = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	/*----------测试用构造函数-----------*/
+	public Credit_Test(CreditDataHelper credit_data_service) {
+		this.credit_data_service = credit_data_service;
 	}
+	/*------------------------------------------*/
 	
 	/**
 	 * Increasee of Credit
