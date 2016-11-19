@@ -31,7 +31,7 @@ public class Credit{
 	 */
 	public ResultMessage increaseCredit(String clientID, int value) {
 		if(value <= 0) {
-			System.err.println("Error ! Value change of credit to increase must be positive !");
+			System.err.print("Error ! Value change of credit to increase must be positive !\r\n");
 			return ResultMessage.CreditIncreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
@@ -41,7 +41,7 @@ public class Credit{
 
 	public ResultMessage decreaseCredit(String clientID, int value) {
 		if(value >= 0) {
-			System.err.println("Error ! Value change of credit to decrease must be negative !");
+			System.err.print("Error ! Value change of credit to decrease must be negative !\r\n");
 			return ResultMessage.CreditDecreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
