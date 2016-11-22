@@ -10,7 +10,6 @@ import org.junit.Test;
 import bussinesslogic.usebl.client.Client;
 import util.ResultMessage;
 import vo.ClientVO;
-import vo.MemberVO;
 
 public class ClientBlTest {
 

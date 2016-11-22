@@ -3,7 +3,6 @@ package bussinesslogic.promotionbl;
 import java.util.ArrayList;
 
 import vo.ClientVO;
-import vo.MemberVO;
 import vo.PromotionVO;
 
 public class MemberPromotion {
@@ -16,7 +15,7 @@ public class MemberPromotion {
 	/*
 	 * 返回会员等级信息
 	 * */
-	public MemberVO getLevel (String userID){
+	public ClientVO getLevel (String userID){
 		return null;
 	}
 	/*
