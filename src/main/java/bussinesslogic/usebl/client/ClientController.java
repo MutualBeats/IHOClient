@@ -1,5 +1,7 @@
 package bussinesslogic.usebl.client;
 
+import java.util.ArrayList;
+
 import bussinesslogic.usebl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.ResultMessage;
@@ -29,4 +31,30 @@ public class ClientController implements ClientBLService , Client2Manager {
 		return client.Signup(vo, password);
 	}
 
+	@Override
+	public ResultMessage businessRegister(ClientVO vo) {
+		return client.businessRegister(vo);
+	}
+
+	@Override
+	public ResultMessage originalRegister(ClientVO vo) {
+		return client.originalRegister(vo);
+	}
+
+	@Override
+	public ClientVO get(String memberID) {
+		return client.get(memberID);
+	}
+
+	@Override
+	public ResultMessage levelUpdate(ArrayList<Integer> levelList, int level) {
+		return client.levelUpdate(levelList, level);
+	}
+
+	@Override
+	public ResultMessage update(String memberID, ClientVO vo) {
+		return client.update(memberID, vo);
+	}
+
+	
 }

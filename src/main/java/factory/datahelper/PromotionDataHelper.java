@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.promotiondataservice.PromotionDataService;
-import po.MemberPO;
+import po.ClientPO;
 import po.PromotionPO;
 import util.ResultMessage;
 
@@ -45,7 +45,7 @@ public class PromotionDataHelper implements PromotionDataService{
 	}
 
 	@Override
-	public void levelMake(PromotionPO po, MemberPO po2) throws RemoteException {
+	public void levelMake(PromotionPO po, ClientPO po2) throws RemoteException {
 		// TODO Auto-generated method stub
 		
 	}

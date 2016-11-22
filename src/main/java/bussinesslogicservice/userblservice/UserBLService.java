@@ -2,11 +2,9 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import po.MemberPO;
 import util.ResultMessage;
 import vo.ClientVO;
 import vo.MarketerVO;
-import vo.MemberVO;
 import vo.StaffVO;
 
 public interface UserBLService {
@@ -53,20 +51,20 @@ public interface UserBLService {
 	/*
 	 * 注册企业会员
 	 */
-	public ResultMessage businessRegister (MemberVO vo);
+	public ResultMessage businessRegister (ClientVO vo);
 	/*
 	 * 注册普通会员
 	 */
-	public ResultMessage originalRegister (MemberVO vo);
+	public ResultMessage originalRegister (ClientVO vo);
 	/*
 	 * 查看会员等级信息
 	 */
-	public void levelLook (String name,MemberVO vo);
+	public void levelLook (String name,ClientVO vo);
 	
 	/*
 	 * 查看会员信息
 	 */
-	public MemberPO get (String name,MemberVO vo);
+	public ClientVO get (String name,ClientVO vo);
 	/*
 	 * 更新会员等级信息
 	 */
@@ -74,5 +72,5 @@ public interface UserBLService {
 	/*
 	 * 更新会员信息
 	 */
-	public MemberPO update(String name,MemberVO vo);
+	public ClientVO update(String name,ClientVO vo);
 }

@@ -22,7 +22,7 @@ public class ManagerBlTest {
 	
 	@Before
 	public void init(){
-		clientvo = new ClientVO("0000000001", "admin", "123456789", 100, new ArrayList<String>());
+		clientvo = new ClientVO("0000000001", "admin", "123456789", 100, "123456789","腾讯企业",2);
 		staffvo = new StaffVO("0000000001", "admin", "hotel","12345678");
 		marketervo = new MarketerVO("0000000001", "admin", "123456789");
 		

@@ -2,6 +2,7 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
+import vo.ClientVO;
 import vo.MemberVO;
 import vo.PromotionVO;
 
@@ -9,7 +10,7 @@ public class MemberPromotion {
 	/*
 	 * 根据输入的信用值划分等级
 	 * */
-	public ArrayList <Integer> levelMake (MemberVO vo){
+	public ArrayList <Integer> levelMake (ClientVO vo){
 		return null;
 	}
 	/*

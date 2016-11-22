@@ -2,11 +2,10 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import po.MemberPO;
+import po.ClientPO;
 import util.ResultMessage;
 import vo.ClientVO;
 import vo.MarketerVO;
-import vo.MemberVO;
 import vo.StaffVO;
 
 public class UserBLService_Stub implements UserBLService{
@@ -15,6 +14,9 @@ public class UserBLService_Stub implements UserBLService{
 	public String clientname;
 	public String client_tel_number;
 	public int credit;
+	public String memberID;
+	public String memberMessage;
+	public int level;
 	
 	public String staffID;
 	public String staffname;
@@ -25,12 +27,16 @@ public class UserBLService_Stub implements UserBLService{
 	public String marketer_tel_number;
 	
 	public UserBLService_Stub(String ClientID,String clientname,String client_tel_number,int credit,
+								String memberID,String memberMessage, int level,
 								String staffID,String staffname,String hotelname, 
 								String marketerID,String marketername,String marketer_tel_number){
 		this.ClientID = ClientID;
 		this.clientname = clientname;
 		this.client_tel_number = client_tel_number;
 		this.credit = credit;
+		this.memberID = memberID;
+		this.memberMessage = memberMessage;
+		this.level = level;
 		this.staffID = staffID;
 		this.staffname = staffname;
 		this.hotelname = hotelname;
@@ -41,7 +47,7 @@ public class UserBLService_Stub implements UserBLService{
 
 	@Override
 	public ClientVO showClientData(String clientID) {
-		return new ClientVO("0000000001", "admin", "123456789", 100, new ArrayList<String>());
+		return new ClientVO("0000000001", "admin", "123456789", 100, "123456789","腾讯企业",2);
 	}
 
 	@Override
@@ -98,30 +104,30 @@ public class UserBLService_Stub implements UserBLService{
 		return ResultMessage.ChangeSuccess;
 	}
 	@Override
-	public ResultMessage businessRegister (MemberVO vo){
+	public ResultMessage businessRegister (ClientVO vo){
 		if(vo.memberMessage.equals("腾讯企业"))
 			return ResultMessage.RegisterSuccess;
 		else 
 			return ResultMessage.RegisterFail;
 	}
 	@Override
-	public ResultMessage originalRegister (MemberVO vo){
+	public ResultMessage originalRegister (ClientVO vo){
 		if(vo.memberMessage.equals("1997.01.01"))
 			return ResultMessage.RegisterSuccess;
 		else 
 			return ResultMessage.RegisterFail;
 	}
 	@Override
-	public void levelLook (String name,MemberVO vo){
+	public void levelLook (String name,ClientVO vo){
 		if(name.equals(vo.memberID))
 			 System.out.println("The level is "+ vo.level);;
 	}
 	
 	@Override
-	public MemberPO get(String name,MemberVO vo) {
+	public ClientVO get(String name,ClientVO vo) {
 		// TODO Auto-generated method stub
 		if(name.equals(vo.memberID))
-			return new MemberPO(name,"腾讯企业",2);
+			return new ClientVO("123456789", "admin", "1234567890", 100, name,"腾讯企业",2);
 		else 
 			return null;
 	}
@@ -134,10 +140,10 @@ public class UserBLService_Stub implements UserBLService{
 	}
 	
 	@Override
-	public MemberPO update(String name,MemberVO vo) {
+	public ClientVO update(String name,ClientVO vo) {
 		// TODO Auto-generated method stub
 		if(name.equals(vo.memberID))
-			return new MemberPO(name,"腾讯企业",2);
+			return new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2);
 		else
 			return null;
 	}

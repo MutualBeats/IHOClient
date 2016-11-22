@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import vo.ClientVO;
 import vo.MarketerVO;
-import vo.MemberVO;
 import vo.StaffVO;
 
 public class UserBLService_Driver {
@@ -23,7 +22,7 @@ public class UserBLService_Driver {
 		/*
 		 * 修改用户信息
 		 */
-		result = userBLService.changeClientData(new ClientVO("0000000001", "admin", "123456789", 100, new ArrayList<String>()));
+		result = userBLService.changeClientData(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
 		if(result==ResultMessage.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
@@ -85,14 +84,14 @@ public class UserBLService_Driver {
 		/*
 		 * 注册新用户
 		 */
-		result = userBLService.Signup(new ClientVO("0000000001", "admin", "123456789", 100, new ArrayList<String>()));
+		result = userBLService.Signup(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
 		if(result==ResultMessage.ChangeSuccess)
 			System.out.println("Signup successfully");
 		else
 			System.out.println("Signup failed");
 		
-		MemberVO vo5=new MemberVO("1234567890", "腾讯企业",2);
-		MemberVO vo4=new MemberVO("1234567891", "1997.01.01",1);
+		ClientVO vo5=new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2);
+		ClientVO vo4=new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2);
 		
 			result=userBLService.businessRegister(vo5);
 			System.out.println(result.toString());

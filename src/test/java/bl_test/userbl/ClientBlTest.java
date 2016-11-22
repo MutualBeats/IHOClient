@@ -10,6 +10,7 @@ import org.junit.Test;
 import bussinesslogic.usebl.client.Client;
 import util.ResultMessage;
 import vo.ClientVO;
+import vo.MemberVO;
 
 public class ClientBlTest {
 
@@ -18,7 +19,7 @@ public class ClientBlTest {
 	
 	@Before
 	public void init(){
-		vo = new ClientVO("0000000001", "admin", "123456789", 100, new ArrayList<String>());
+		vo = new ClientVO("0000000001", "admin", "123456789", 100, "123456789","腾讯企业",2);
 		client = new Client();
 	}
 	
@@ -42,5 +43,33 @@ public class ClientBlTest {
 	@Test
 	public void testSignup(){
 		assertEquals(ResultMessage.RegisterSuccess, client.Signup(this.vo, "123456"));
+	}
+	
+	@Test
+	public void testbusinessRegister(){
+		assertEquals(ResultMessage.RegisterSuccess, client.businessRegister(this.vo));
+	}
+	
+	@Test
+	public void testoriginalRegister(){
+		assertEquals(ResultMessage.RegisterSuccess, client.originalRegister(this.vo));
+	}
+	
+	@Test
+	public void testget(){
+		String memberID = vo.memberID;
+		ClientVO vo = client.get(memberID);
+		assertEquals(this.vo.memberMessage, vo.memberMessage);
+	}
+	
+	@Test
+	public void testlevelUpdate(){
+		assertEquals(ResultMessage.UpdateSucceed, client.levelUpdate(new ArrayList<Integer>(), 1));
+	}
+	
+	@Test
+	public void testupdate(){
+		String memberID = vo.memberID;
+		assertEquals(ResultMessage.UpdateSucceed, client.update(memberID, vo));
 	}
 }
