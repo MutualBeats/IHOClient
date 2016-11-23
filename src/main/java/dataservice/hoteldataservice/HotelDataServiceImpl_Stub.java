@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import po.HotelEvaluationPO;
 import po.HotelPO;
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
 
 public class HotelDataServiceImpl_Stub implements HotelDataService {
@@ -33,21 +32,22 @@ public class HotelDataServiceImpl_Stub implements HotelDataService {
 	}
 
 	@Override
-	public ResultMessage_For_Stub updateHotelData(HotelPO po) throws RemoteException {
+	public ResultMessage_HotelData updateHotelData(HotelPO po) throws RemoteException {
 		System.out.println("Update Hotel Data Succeed!\n");
-		return ResultMessage_For_Stub.UpdateSucceed;
+		return ResultMessage_HotelData.Update_Successful;
+//		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException {
+	public ResultMessage_HotelData insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException {
 		System.out.println("Insert Hotel Evaluation Succeed!\n");
-		return ResultMessage_For_Stub.InsertSucceed;
+		return ResultMessage_HotelData.Evalutaion_Successful;
 	}
 
 	@Override
-	public ResultMessage_For_Stub insertHotel(HotelPO po) throws RemoteException {
+	public ResultMessage_HotelData insertHotel(HotelPO po) throws RemoteException {
 		System.out.println("Insert Hotel Succeed!");
-		return ResultMessage_For_Stub.InsertSucceed;
+		return ResultMessage_HotelData.Add_Hotel_Successful;
 	}
 
 	@Override

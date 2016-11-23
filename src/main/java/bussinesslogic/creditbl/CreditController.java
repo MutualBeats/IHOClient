@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogicservice.creditblservice.CreditBLService;
-import util.credit_result.ResultMessage_CreditBLService;
+import util.result_message.credit.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
 public class CreditController implements CreditBLService, CreditUpdate{

@@ -1,7 +1,7 @@
 package bussinesslogic.creditbl;
 
 import bussinesslogic.orderbl.CreditUpdate;
-import util.credit_result.ResultMessage_CreditBLService;
+import util.result_message.credit.ResultMessage_CreditBLService;
 
 public class MockCredit extends Credit implements CreditUpdate{
 	

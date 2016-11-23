@@ -6,8 +6,8 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
+import util.result_message.hotel.ResultMessage_HotelBLService;
 import vo.HotelEvaluationVO;
 import vo.HotelVO;
 
@@ -21,7 +21,7 @@ public interface HotelBLService {
 	/**
 	 * 修改酒店信息
 	 */
-	public ResultMessage_For_Stub changeHotelData (HotelVO vo);
+	public ResultMessage_HotelBLService changeHotelData (HotelVO vo);
 	
 	/**
 	 * 显示酒店列表
@@ -36,11 +36,11 @@ public interface HotelBLService {
 	/**
 	 * 评价酒店
 	 */
-	public ResultMessage_For_Stub evaluateHotel (HotelEvaluationVO vo);
+	public ResultMessage_HotelBLService evaluateHotel (HotelEvaluationVO vo);
 	
 	/**
 	 * 添加酒店
 	 */
-	public ResultMessage_For_Stub addHotel (HotelVO vo);
+	public ResultMessage_HotelBLService addHotel (HotelVO vo);
 	
 }

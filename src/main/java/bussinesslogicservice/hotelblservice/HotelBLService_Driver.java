@@ -6,8 +6,8 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
+import util.result_message.hotel.ResultMessage_HotelBLService;
 import vo.HotelEvaluationVO;
 import vo.HotelVO;
 
@@ -15,9 +15,9 @@ public class HotelBLService_Driver {
 	
 	public void drive(HotelBLService hotelBLService) {
 		HotelVO vo1 = new HotelVO("00000001", "锦都金鼎大酒店", "如皋市如城镇解放路(如皋市政府对面)", "如皋市", "如城街道", 5, 4.5);
-		ResultMessage_For_Stub result;
+		ResultMessage_HotelBLService result;
 		result = hotelBLService.addHotel(vo1);
-		if(result == ResultMessage_For_Stub.HotelNotExist)
+		if(result == ResultMessage_HotelBLService.Hotel_Not_Exist)
 			System.out.println("Add succeed!\n");
 		else
 			System.out.println("Hotel exist\n");
@@ -27,7 +27,7 @@ public class HotelBLService_Driver {
 		
 		vo1 = new HotelVO("00000001", "锦都金鼎大酒店", "如皋市如城镇解放路(如皋市政府对面)", "如皋市", "如城街道", 5, 4.5);
 		result = hotelBLService.changeHotelData(vo1);
-		if(result == ResultMessage_For_Stub.HotelExist)
+		if(result == ResultMessage_HotelBLService.Change_Successful)
 			System.out.println("Hotel exists\n");
 		else
 			System.out.println("Change Succeed\n");
@@ -39,7 +39,7 @@ public class HotelBLService_Driver {
 		
 		HotelEvaluationVO vo2 = new HotelEvaluationVO("00000001", "丁二玉", "2016/10/16", 5, "强，无敌！");
 		result = hotelBLService.evaluateHotel(vo2);
-		if(result == ResultMessage_For_Stub.EvaluateSuccess)
+		if(result == ResultMessage_HotelBLService.Evaluate_Successful)
 			System.out.println("Evaluate succeed!\n");
 		else 
 			System.out.println("Hotel doesn't exists!\n");

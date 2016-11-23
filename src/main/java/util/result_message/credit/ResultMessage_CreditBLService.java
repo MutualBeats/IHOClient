@@ -1,4 +1,4 @@
-package util.credit_result;
+package util.result_message.credit;
 
 public enum ResultMessage_CreditBLService {
 	Credit_ChangeValue_Positive,

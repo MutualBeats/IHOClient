@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import po.HotelEvaluationPO;
 import po.HotelPO;
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
 
 public interface HotelDataService extends Remote{
@@ -19,11 +18,11 @@ public interface HotelDataService extends Remote{
 	
 	public ArrayList<HotelPO> findHotelListData(SearchCondition sc) throws RemoteException;
 	
-	public ResultMessage_For_Stub updateHotelData(HotelPO po) throws RemoteException;
+	public ResultMessage_HotelData updateHotelData(HotelPO po) throws RemoteException;
 		
-	public ResultMessage_For_Stub insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException;
+	public ResultMessage_HotelData insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException;
 	
-	public ResultMessage_For_Stub insertHotel(HotelPO po) throws RemoteException;
+	public ResultMessage_HotelData insertHotel(HotelPO po) throws RemoteException;
 	
 	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) throws RemoteException;
 

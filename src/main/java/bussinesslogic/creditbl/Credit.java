@@ -7,7 +7,7 @@ import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
 import po.CreditChangePO;
 import util.Time;
-import util.credit_result.ResultMessage_CreditBLService;
+import util.result_message.credit.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
 public class Credit{

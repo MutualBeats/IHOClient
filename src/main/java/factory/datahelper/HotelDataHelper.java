@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import dataservice.hoteldataservice.HotelDataService;
 import po.HotelEvaluationPO;
 import po.HotelPO;
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
+import util.result_message.hotel.ResultMessage_HotelBLService;
 /**
  * @author Saltwater
  * Hotel Data Helper
@@ -41,19 +41,19 @@ public class HotelDataHelper {
 		return null;
 	}
 
-	public void updateHotelData(HotelPO po)  {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public ResultMessage_For_Stub insertHotelEvaluation(HotelEvaluationPO po) {
+	public ResultMessage_HotelBLService updateHotelData(HotelPO po)  {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void insertHotel(HotelPO po)  {
+	public ResultMessage_HotelBLService insertHotelEvaluation(HotelEvaluationPO po) {
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+
+	public ResultMessage_HotelBLService insertHotel(HotelPO po)  {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) {

@@ -6,8 +6,8 @@ package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
 import util.SearchCondition;
+import util.result_message.hotel.ResultMessage_HotelBLService;
 import vo.HotelEvaluationVO;
 import vo.HotelVO;
 
@@ -50,10 +50,10 @@ public class HotelBLService_Stub implements HotelBLService {
 	}
 
 	@Override
-	public ResultMessage_For_Stub changeHotelData(HotelVO vo) {
+	public ResultMessage_HotelBLService changeHotelData(HotelVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_For_Stub.HotelExist;
-		else return ResultMessage_For_Stub.HotelNotExist;
+			return ResultMessage_HotelBLService.Change_Successful;
+		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
 	}
 
 	@Override
@@ -67,17 +67,17 @@ public class HotelBLService_Stub implements HotelBLService {
 	}
 
 	@Override
-	public ResultMessage_For_Stub evaluateHotel(HotelEvaluationVO vo) {
+	public ResultMessage_HotelBLService evaluateHotel(HotelEvaluationVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_For_Stub.EvaluateSuccess;
-		else return ResultMessage_For_Stub.EvaluateFailed;
+			return ResultMessage_HotelBLService.Evaluate_Successful;
+		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
 	}
 
 	@Override
-	public ResultMessage_For_Stub addHotel(HotelVO vo) {
+	public ResultMessage_HotelBLService addHotel(HotelVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_For_Stub.HotelExist;
-		else return ResultMessage_For_Stub.HotelNotExist;
+			return ResultMessage_HotelBLService.Evaluate_Successful;
+		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
 	}
 
 	@Override

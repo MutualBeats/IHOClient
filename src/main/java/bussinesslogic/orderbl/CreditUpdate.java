@@ -1,7 +1,7 @@
 package bussinesslogic.orderbl;
 
 import bussinesslogic.creditbl.ValueChangeException;
-import util.credit_result.ResultMessage_CreditBLService;
+import util.result_message.credit.ResultMessage_CreditBLService;
 
 public interface CreditUpdate {
 	

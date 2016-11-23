@@ -2,7 +2,7 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
-import util.credit_result.ResultMessage_CreditBLService;
+import util.result_message.credit.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
 public class CreditBLService_Stub implements CreditBLService {
