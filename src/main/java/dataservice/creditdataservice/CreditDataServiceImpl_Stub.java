@@ -8,14 +8,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.CreditPO;
-import util.ResultMessage_For_Stub;
 
 public class CreditDataServiceImpl_Stub implements CreditDataService {
 
 	@Override
-	public ResultMessage_For_Stub insert(CreditPO po) throws RemoteException {
+	public ResultMessage_CreditData insert(CreditPO po) throws RemoteException {
 		System.out.print("Insert Succeed!\r\n");
-		return ResultMessage_For_Stub.InsertSucceed;
+		return ResultMessage_CreditData.Update_Successful;
 	}
 
 	@Override

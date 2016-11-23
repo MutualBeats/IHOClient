@@ -2,7 +2,7 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
+import util.credit_result.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
 public class CreditBLService_Stub implements CreditBLService {
@@ -21,18 +21,18 @@ public class CreditBLService_Stub implements CreditBLService {
 	
 	// 增加客户信用
 	@Override
-	public ResultMessage_For_Stub increaseCredit(String clientID, int value) {
+	public ResultMessage_CreditBLService increaseCredit(String clientID, int value) {
 		if(clientID.equals("0000000001"))
-			return ResultMessage_For_Stub.ClientExist;
-		else return ResultMessage_For_Stub.ClientNotExist;
+			return ResultMessage_CreditBLService.Credit_Increase_Successful;
+		else return ResultMessage_CreditBLService.Credit_Increase_Failed;
 	}
 
 	// 减少客户信用
 	@Override
-	public ResultMessage_For_Stub decreaseCredit(String clientID, int value) {
+	public ResultMessage_CreditBLService decreaseCredit(String clientID, int value) {
 		if(clientID.equals("0000000001"))
-			return ResultMessage_For_Stub.ClientExist;
-		else return ResultMessage_For_Stub.ClientNotExist;
+			return ResultMessage_CreditBLService.Credit_Decrease_Successful;
+		else return ResultMessage_CreditBLService.Credit_Decrease_Failed;
 	}
 
 	// 信用记录界面得到客户的信用历史记录

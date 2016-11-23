@@ -1,17 +1,17 @@
 package bussinesslogic.creditbl;
 
 import bussinesslogic.orderbl.CreditUpdate;
-import util.ResultMessage_For_Stub;
+import util.credit_result.ResultMessage_CreditBLService;
 
 public class MockCredit extends Credit implements CreditUpdate{
 	
 	@Override
-	public ResultMessage_For_Stub increaseCredit(String clientID, int value) {
-		return ResultMessage_For_Stub.UpdateSucceed;
+	public ResultMessage_CreditBLService increaseCredit(String clientID, int value) {
+		return ResultMessage_CreditBLService.Credit_Increase_Successful;
 	}
 	
 	@Override
-	public ResultMessage_For_Stub decreaseCredit(String clientID, int value) {
-		return ResultMessage_For_Stub.UpdateSucceed;
+	public ResultMessage_CreditBLService decreaseCredit(String clientID, int value) {
+		return ResultMessage_CreditBLService.Credit_Decrease_Successful;
 	}
 }

@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataservice.creditdataservice.CreditDataService;
+import dataservice.creditdataservice.ResultMessage_CreditData;
 import po.CreditChangePO;
 import po.CreditPO;
-import util.ResultMessage_For_Stub;
+import util.credit_result.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
 /**
@@ -32,15 +33,15 @@ public class CreditDataHelper {
 		this.data_service = data_service;
 	}
 	
-	public ResultMessage_For_Stub increase(CreditChangePO po) {
+	public ResultMessage_CreditBLService increase(CreditChangePO po) {
 		return creditChange(po);
 	}
 	
-	public ResultMessage_For_Stub decrease(CreditChangePO po) {
+	public ResultMessage_CreditBLService decrease(CreditChangePO po) {
 		return creditChange(po);
 	}
 	
-	private ResultMessage_For_Stub creditChange(CreditChangePO po) {
+	private ResultMessage_CreditBLService creditChange(CreditChangePO po) {
 		CreditPO i_po = new CreditPO();
 		i_po.setChangeTime(po.getChangeTime());
 		i_po.setClientID(po.getClientID());
@@ -50,19 +51,24 @@ public class CreditDataHelper {
 		return insert(i_po);
 	}
 	
-	private ResultMessage_For_Stub insert(CreditPO po) {
+	private ResultMessage_CreditBLService insert(CreditPO po) {
 		checkAndUpdateCache(po.getClientID());
 		//Cache Update
 		credit_record_cache.add(po);
 		//TODO : 留给结束模块、异常模块完成
+		ResultMessage_CreditData insert_result = ResultMessage_CreditData.Update_Successful;
 		try {
-			data_service.insert(po);
+			insert_result = data_service.insert(po);
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
-			return ResultMessage_For_Stub.InsertFailed;
+			return ResultMessage_CreditBLService.Credit_Net_Error;
 		}
-		return ResultMessage_For_Stub.InsertSucceed;
+		if(insert_result.equals(ResultMessage_CreditData.Update_Successful)) {
+			return ResultMessage_CreditBLService.Credit_Increase_Successful;
+		} else {
+			return ResultMessage_CreditBLService.Credit_User_Not_Found;
+		}
 	}
 	
 
