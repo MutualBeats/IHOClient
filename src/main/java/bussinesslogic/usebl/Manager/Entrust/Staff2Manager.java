@@ -1,6 +1,6 @@
 package bussinesslogic.usebl.manager.entrust;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.StaffVO;
 
 public interface Staff2Manager {
@@ -11,9 +11,9 @@ public interface Staff2Manager {
 	/*
 	 * 修改酒店工作人员信息
 	 */
-	public ResultMessage changeData (StaffVO vo);
+	public ResultMessage_For_Stub changeData (StaffVO vo);
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage addStaff(StaffVO vo, String password);
+	public ResultMessage_For_Stub addStaff(StaffVO vo, String password);
 }

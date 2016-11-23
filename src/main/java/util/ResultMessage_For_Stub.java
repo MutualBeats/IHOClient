@@ -1,6 +1,6 @@
 package util;
 
-public enum ResultMessage {
+public enum ResultMessage_For_Stub {
 	MakeSucceed,
 	MakeFailed,
 	CancelSucceed,

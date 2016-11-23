@@ -2,14 +2,14 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 import vo.MarketerVO;
 import vo.StaffVO;
 
 public class UserBLService_Driver {
 	public void drive(UserBLService userBLService){
-		ResultMessage result;
+		ResultMessage_For_Stub result;
 		
 		/*
 		 * 获取用户信息
@@ -23,7 +23,7 @@ public class UserBLService_Driver {
 		 * 修改用户信息
 		 */
 		result = userBLService.changeClientData(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
 			System.out.println("Change failed");
@@ -38,7 +38,7 @@ public class UserBLService_Driver {
 		 * 修改酒店工作人员信息
 		 */
 		result = userBLService.changeStaffData(new StaffVO("0000000001", "admin", "hotel","12345678"));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
 			System.out.println("Change failed");
@@ -53,7 +53,7 @@ public class UserBLService_Driver {
 		 * 修改网站营销人员信息
 		 */
 		result = userBLService.changeMarketerData(new MarketerVO("0000000001", "admin", "123456789"));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
 			System.out.println("Change failed");
@@ -61,7 +61,7 @@ public class UserBLService_Driver {
 		 * 添加网站营销人员
 		 */
 		result = userBLService.addMarketer(new MarketerVO("0000000001", "admin", "123456789"));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Add successfully");
 		else
 			System.out.println("Add failed");
@@ -69,7 +69,7 @@ public class UserBLService_Driver {
 		 * 添加酒店工作人员
 		 */
 		result = userBLService.addStaff(new StaffVO("0000000001", "admin", "Hotel","12345678"));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Add successfully");
 		else
 			System.out.println("Add failed");
@@ -77,7 +77,7 @@ public class UserBLService_Driver {
 		 * 用户登录
 		 */
 		result = userBLService.Login("0000000001", "123456");
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Login successfully");
 		else
 			System.out.println("Login failed");
@@ -85,7 +85,7 @@ public class UserBLService_Driver {
 		 * 注册新用户
 		 */
 		result = userBLService.Signup(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
-		if(result==ResultMessage.ChangeSuccess)
+		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Signup successfully");
 		else
 			System.out.println("Signup failed");

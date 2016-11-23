@@ -1,6 +1,6 @@
 package bl_test.creditbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,8 +13,7 @@ import org.junit.Test;
 import bussinesslogic.test.Credit_Test;
 import dataservice.creditdataservice.CreditDataServiceImpl_Stub;
 import factory.datahelper.CreditDataHelper;
-import po.CreditChangePO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.CreditVO;
 
 public class CreditBLTest {
@@ -48,10 +47,10 @@ public class CreditBLTest {
 	
 	@Test
 	public void creditIncreaseTest() {
-		assertEquals(credit.increaseCredit("12345678", -10010), ResultMessage.CreditIncreaseFailed);
+		assertEquals(credit.increaseCredit("12345678", -10010), ResultMessage_For_Stub.CreditIncreaseFailed);
 //		String errorInfo = err_content.toString();
 //		assertEquals(errorInfo, "Error ! Value change of credit to increase must be positive !\r\n");
-		assertEquals(credit.increaseCredit("12345678", 10010), ResultMessage.CreditIncreaseSuccess);
+		assertEquals(credit.increaseCredit("12345678", 10010), ResultMessage_For_Stub.CreditIncreaseSuccess);
 //		String okInfo = out_content.toString();
 //		assertEquals(okInfo, "Find Succeed!\r\nInsert Succeed!\r\n");
 //		credit.in
@@ -59,10 +58,10 @@ public class CreditBLTest {
 	
 	@Test
 	public void creditDecreaseTest() {
-		assertEquals(credit.decreaseCredit("12345678", 10010), ResultMessage.CreditDecreaseFailed);
+		assertEquals(credit.decreaseCredit("12345678", 10010), ResultMessage_For_Stub.CreditDecreaseFailed);
 //		String errorInfo = err_content.toString();
 //		assertEquals(errorInfo, "Error ! Value change of credit to decrease must be negative !\r\n");
-		assertEquals(credit.decreaseCredit("12345678", -10010), ResultMessage.CreditDecreaseSuccess);
+		assertEquals(credit.decreaseCredit("12345678", -10010), ResultMessage_For_Stub.CreditDecreaseSuccess);
 //		String okInfo = out_content.toString();
 //		assertEquals(okInfo, "Find Succeed!\r\nInsert Succeed!\r\n");
 	}

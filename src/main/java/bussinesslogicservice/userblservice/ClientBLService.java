@@ -2,7 +2,7 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 
 public interface ClientBLService {
@@ -13,23 +13,23 @@ public interface ClientBLService {
 	/*
 	 * 修改用户信息
 	 */
-	public ResultMessage changeData (ClientVO vo);
+	public ResultMessage_For_Stub changeData (ClientVO vo);
 	/*
 	 * 用户登录
 	 */
-	public ResultMessage Login(String ID, String password);
+	public ResultMessage_For_Stub Login(String ID, String password);
 	/*
 	 * 注册新用户
 	 */
-	public ResultMessage Signup(ClientVO vo, String password);
+	public ResultMessage_For_Stub Signup(ClientVO vo, String password);
 	/*
 	 * 注册企业会员
 	 */
-	public ResultMessage businessRegister (ClientVO vo);
+	public ResultMessage_For_Stub businessRegister (ClientVO vo);
 	/*
 	 * 注册普通会员
 	 */
-	public ResultMessage originalRegister (ClientVO vo);
+	public ResultMessage_For_Stub originalRegister (ClientVO vo);
 	/*
 	 * 查看会员信息
 	 */
@@ -37,9 +37,9 @@ public interface ClientBLService {
 	/*
 	 * 更新会员等级信息
 	 */
-	public ResultMessage levelUpdate (ArrayList<Integer> levelList,int level);
+	public ResultMessage_For_Stub levelUpdate (ArrayList<Integer> levelList,int level);
 	/*
 	 * 更新会员信息
 	 */
-	public ResultMessage update(String memberID,ClientVO vo);
+	public ResultMessage_For_Stub update(String memberID,ClientVO vo);
 }

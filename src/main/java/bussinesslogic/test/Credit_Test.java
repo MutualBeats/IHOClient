@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import factory.datahelper.CreditDataHelper;
 import po.CreditChangePO;
 import po.CreditPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.Time;
 import vo.CreditVO;
 
@@ -32,24 +32,24 @@ public class Credit_Test{
 	 * @param value
 	 * @return
 	 */
-	public ResultMessage increaseCredit(String clientID, int value) {
+	public ResultMessage_For_Stub increaseCredit(String clientID, int value) {
 		if(value <= 0) {
 			System.err.println("Error ! Value change of credit to increase must be positive !");
-			return ResultMessage.CreditIncreaseFailed;
+			return ResultMessage_For_Stub.CreditIncreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
 		credit_data_service.increase(change);
-		return ResultMessage.CreditIncreaseSuccess;
+		return ResultMessage_For_Stub.CreditIncreaseSuccess;
 	}
 
-	public ResultMessage decreaseCredit(String clientID, int value) {
+	public ResultMessage_For_Stub decreaseCredit(String clientID, int value) {
 		if(value >= 0) {
 			System.err.println("Error ! Value change of credit to decrease must be negative !");
-			return ResultMessage.CreditDecreaseFailed;
+			return ResultMessage_For_Stub.CreditDecreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
 		credit_data_service.decrease(change);
-		return ResultMessage.CreditDecreaseSuccess;
+		return ResultMessage_For_Stub.CreditDecreaseSuccess;
 	}
 
 	public ArrayList<CreditVO> checkCreditRecord(String clientID) {

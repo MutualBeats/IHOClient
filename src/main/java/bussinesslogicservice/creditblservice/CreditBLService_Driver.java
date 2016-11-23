@@ -6,19 +6,19 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.CreditVO;
 
 public class CreditBLService_Driver {
 	public void drive(CreditBLService creditBLService) {
-		ResultMessage result = null;
+		ResultMessage_For_Stub result = null;
 		result = creditBLService.increaseCredit("0000000001", 100);
-		if(result == ResultMessage.ClientExist)
+		if(result == ResultMessage_For_Stub.ClientExist)
 			System.out.println("Client exists\n");
 		else
 			System.out.println("Client doesn't exist\n");
 		result = creditBLService.decreaseCredit("0000000001", 100);
-		if(result == ResultMessage.ClientExist)
+		if(result == ResultMessage_For_Stub.ClientExist)
 			System.out.println("Client exists\n");
 		else
 			System.out.println("Client doesn't exist\n");

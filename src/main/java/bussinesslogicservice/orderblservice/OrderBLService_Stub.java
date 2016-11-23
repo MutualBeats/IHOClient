@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import util.MemberType;
 import util.OrderState;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.RoomType;
 import vo.OrderMakeVO;
 import vo.OrderVO;
@@ -97,27 +97,27 @@ public class OrderBLService_Stub implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage cancelOrder(String orderId) {
+	public ResultMessage_For_Stub cancelOrder(String orderId) {
 		if(orderId.equals(orderId)) {
-			return ResultMessage.CancelSucceed;
+			return ResultMessage_For_Stub.CancelSucceed;
 		}
-		return ResultMessage.CancelFailed;
+		return ResultMessage_For_Stub.CancelFailed;
 	}
 
 	@Override
-	public ResultMessage excuteOrder(String orderId) {
+	public ResultMessage_For_Stub excuteOrder(String orderId) {
 		if (orderId.equals(orderId)) {
-			return ResultMessage.ExcuteSucceed;
+			return ResultMessage_For_Stub.ExcuteSucceed;
 		}
-		return ResultMessage.ExcuteFailed;
+		return ResultMessage_For_Stub.ExcuteFailed;
 	}
 
 	@Override
-	public ResultMessage putUpOrder(String orderId) {
+	public ResultMessage_For_Stub putUpOrder(String orderId) {
 		if(orderId.equals(orderId)) {
-			return ResultMessage.PutUpSucceed;
+			return ResultMessage_For_Stub.PutUpSucceed;
 		}
-		return ResultMessage.PutUpFailed;
+		return ResultMessage_For_Stub.PutUpFailed;
 	}
 
 	@Override

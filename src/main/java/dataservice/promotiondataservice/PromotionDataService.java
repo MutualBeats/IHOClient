@@ -6,17 +6,17 @@ import java.util.ArrayList;
 
 import po.ClientPO;
 import po.PromotionPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public interface PromotionDataService extends Remote{
 	/*
 	 * 添加酒店促销策略
 	 */
-	public ResultMessage hotelAdd (PromotionPO po) throws RemoteException;
+	public ResultMessage_For_Stub hotelAdd (PromotionPO po) throws RemoteException;
 	/*
 	 * 添加网站促销策略
 	 */
-	public ResultMessage webAdd (PromotionPO po) throws RemoteException;
+	public ResultMessage_For_Stub webAdd (PromotionPO po) throws RemoteException;
 	/*
 	 * 查看酒店促销策略
 	 */

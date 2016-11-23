@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.CreditPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public interface CreditDataService extends Remote{
 	/**
@@ -17,7 +17,7 @@ public interface CreditDataService extends Remote{
 	 * @param po
 	 * @throws RemoteException
 	 */
-	public ResultMessage insert(CreditPO po) throws RemoteException;
+	public ResultMessage_For_Stub insert(CreditPO po) throws RemoteException;
 	/**
 	 * Check the Credit Rrecord
 	 * @param clientID

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import po.OrderPO;
 import util.MemberType;
 import util.OrderState;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.RoomType;
 
 public class OrderDataService_Stub implements OrderDataService{
@@ -91,19 +91,19 @@ public class OrderDataService_Stub implements OrderDataService{
 	}
 
 	@Override
-	public ResultMessage insert(OrderPO po) throws RemoteException {
+	public ResultMessage_For_Stub insert(OrderPO po) throws RemoteException {
 		if(po.getHotelName().equals("测试酒店")){
-			return ResultMessage.InsertSucceed;
+			return ResultMessage_For_Stub.InsertSucceed;
 		}
-		return ResultMessage.InsertFailed;
+		return ResultMessage_For_Stub.InsertFailed;
 	}
 
 	@Override
-	public ResultMessage update(OrderPO po) throws RemoteException {
+	public ResultMessage_For_Stub update(OrderPO po) throws RemoteException {
 		if(po.getHotelName().equals("测试酒店")){
-			return ResultMessage.UpdateSucceed;
+			return ResultMessage_For_Stub.UpdateSucceed;
 		}
-		return ResultMessage.UpdateFailed;
+		return ResultMessage_For_Stub.UpdateFailed;
 	}
 
 	@Override
@@ -147,8 +147,8 @@ public class OrderDataService_Stub implements OrderDataService{
 	}
 
 	@Override
-	public ResultMessage putUpOrder(String orderId) throws RemoteException {
-		return ResultMessage.PutUpSucceed;
+	public ResultMessage_For_Stub putUpOrder(String orderId) throws RemoteException {
+		return ResultMessage_For_Stub.PutUpSucceed;
 	}
 	
 	

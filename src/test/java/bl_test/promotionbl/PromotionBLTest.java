@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.promotionbl.Promotion;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
@@ -26,11 +26,11 @@ public class PromotionBLTest {
 	}
 	@Test
 	public void testHotelAdd() {
-		assertEquals(ResultMessage.HotelAddSuccess, promotion.hotelAdd(vo1));
+		assertEquals(ResultMessage_For_Stub.HotelAddSuccess, promotion.hotelAdd(vo1));
 	}
 	@Test
 	public void testWebAdd() {
-		assertEquals(ResultMessage.WebAddSuccess, promotion.webAdd(vo2));
+		assertEquals(ResultMessage_For_Stub.WebAddSuccess, promotion.webAdd(vo2));
 	}
 	@Test
 	public void testHotelLook(){
@@ -45,7 +45,7 @@ public class PromotionBLTest {
 		assertEquals(promotion.webLook(),list);
 	}
 	public void testcancel(){
-		assertEquals(ResultMessage.CancelSucceed, promotion.cancel(vo1.id));
+		assertEquals(ResultMessage_For_Stub.CancelSucceed, promotion.cancel(vo1.id));
 	}
 	public void testGetPromotion(){
 		ArrayList<PromotionVO> list = new ArrayList<>();

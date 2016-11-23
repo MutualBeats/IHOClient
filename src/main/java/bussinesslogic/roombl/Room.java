@@ -6,12 +6,12 @@ package bussinesslogic.roombl;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.RoomVO;
 
 public class Room {
 	
-	public ResultMessage importRoom(ArrayList<RoomVO> importRoomList) {
+	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList) {
 		return null;
 	}
 
@@ -19,11 +19,11 @@ public class Room {
 		return null;
 	}
 
-	public ResultMessage checkIn(String hotelID, String roomID) {
+	public ResultMessage_For_Stub checkIn(String hotelID, String roomID) {
 		return null;
 	}
 
-	public ResultMessage checkOut(String hotelID, String roomID) {
+	public ResultMessage_For_Stub checkOut(String hotelID, String roomID) {
 		return null;
 	}
 

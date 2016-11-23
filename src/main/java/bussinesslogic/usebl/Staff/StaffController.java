@@ -2,7 +2,7 @@ package bussinesslogic.usebl.staff;
 
 import bussinesslogic.usebl.manager.entrust.Staff2Manager;
 import bussinesslogicservice.userblservice.StaffBLService;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.StaffVO;
 
 public class StaffController implements StaffBLService , Staff2Manager {
@@ -10,7 +10,7 @@ public class StaffController implements StaffBLService , Staff2Manager {
 	private Staff staff = new Staff();
 
 	@Override
-	public ResultMessage Login(String ID, String password) {
+	public ResultMessage_For_Stub Login(String ID, String password) {
 		return staff.Login(ID, password);
 	}
 
@@ -20,12 +20,12 @@ public class StaffController implements StaffBLService , Staff2Manager {
 	}
 	
 	@Override
-	public ResultMessage changeData(StaffVO vo) {
+	public ResultMessage_For_Stub changeData(StaffVO vo) {
 		return staff.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage addStaff(StaffVO vo, String password) {
+	public ResultMessage_For_Stub addStaff(StaffVO vo, String password) {
 		return staff.addStaff(vo, password);
 	}
 

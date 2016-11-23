@@ -1,12 +1,11 @@
 package factory.datahelper;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.hoteldataservice.HotelDataService;
 import po.HotelEvaluationPO;
 import po.HotelPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.SearchCondition;
 /**
  * @author Saltwater
@@ -47,7 +46,7 @@ public class HotelDataHelper {
 		
 	}
 
-	public ResultMessage insertHotelEvaluation(HotelEvaluationPO po) {
+	public ResultMessage_For_Stub insertHotelEvaluation(HotelEvaluationPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}

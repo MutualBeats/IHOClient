@@ -1,6 +1,7 @@
 package factory_test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
 

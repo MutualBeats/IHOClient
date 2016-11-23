@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.client.Client;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 
 public class ClientBlTest {
@@ -31,27 +31,27 @@ public class ClientBlTest {
 	
 	@Test
 	public void testChangeData(){
-		assertEquals(ResultMessage.ChangeSuccess, client.changeData(this.vo));
+		assertEquals(ResultMessage_For_Stub.ChangeSuccess, client.changeData(this.vo));
 	}
 	
 	@Test
 	public void testLogin(){
-		assertEquals(ResultMessage.ClientExist, client.Login(this.vo.clientID, "123456"));
+		assertEquals(ResultMessage_For_Stub.ClientExist, client.Login(this.vo.clientID, "123456"));
 	}
 	
 	@Test
 	public void testSignup(){
-		assertEquals(ResultMessage.RegisterSuccess, client.Signup(this.vo, "123456"));
+		assertEquals(ResultMessage_For_Stub.RegisterSuccess, client.Signup(this.vo, "123456"));
 	}
 	
 	@Test
 	public void testbusinessRegister(){
-		assertEquals(ResultMessage.RegisterSuccess, client.businessRegister(this.vo));
+		assertEquals(ResultMessage_For_Stub.RegisterSuccess, client.businessRegister(this.vo));
 	}
 	
 	@Test
 	public void testoriginalRegister(){
-		assertEquals(ResultMessage.RegisterSuccess, client.originalRegister(this.vo));
+		assertEquals(ResultMessage_For_Stub.RegisterSuccess, client.originalRegister(this.vo));
 	}
 	
 	@Test
@@ -63,12 +63,12 @@ public class ClientBlTest {
 	
 	@Test
 	public void testlevelUpdate(){
-		assertEquals(ResultMessage.UpdateSucceed, client.levelUpdate(new ArrayList<Integer>(), 1));
+		assertEquals(ResultMessage_For_Stub.UpdateSucceed, client.levelUpdate(new ArrayList<Integer>(), 1));
 	}
 	
 	@Test
 	public void testupdate(){
 		String memberID = vo.memberID;
-		assertEquals(ResultMessage.UpdateSucceed, client.update(memberID, vo));
+		assertEquals(ResultMessage_For_Stub.UpdateSucceed, client.update(memberID, vo));
 	}
 }

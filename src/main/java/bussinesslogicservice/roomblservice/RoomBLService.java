@@ -6,14 +6,14 @@ package bussinesslogicservice.roomblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.RoomVO;
 
 public interface RoomBLService {
 	/**
 	 * 录入客房
 	 */
-	public ResultMessage importRoom(ArrayList<RoomVO> importRoomList);
+	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList);
 	/**
 	 * 获得某酒店的所有房间
 	 */
@@ -21,9 +21,9 @@ public interface RoomBLService {
 	/**
 	 * 客户入住
 	 */
-	public ResultMessage checkIn(String hotelID, String roomID);
+	public ResultMessage_For_Stub checkIn(String hotelID, String roomID);
 	/**
 	 * 客户退房
 	 */
-	public ResultMessage checkOut(String hotelID, String roomID);
+	public ResultMessage_For_Stub checkOut(String hotelID, String roomID);
 }

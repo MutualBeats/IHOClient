@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import po.ClientPO;
 import po.PromotionPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public class PromotionDataService_Stub implements PromotionDataService{
 
@@ -13,24 +13,24 @@ public class PromotionDataService_Stub implements PromotionDataService{
 	 * 添加酒店促销策略
 	 */
 	@Override
-	public ResultMessage hotelAdd(PromotionPO po) throws RemoteException {
+	public ResultMessage_For_Stub hotelAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		if(po.getMessage().equals("双十一全店特价"))
-			return ResultMessage.HotelAddSuccess;
+			return ResultMessage_For_Stub.HotelAddSuccess;
 		else
-			return ResultMessage.HotelAddFail;
+			return ResultMessage_For_Stub.HotelAddFail;
 	}
 
 	/*
 	 * 添加网站促销策略
 	 */
 	@Override
-	public ResultMessage webAdd(PromotionPO po) throws RemoteException {
+	public ResultMessage_For_Stub webAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		if(po.getMessage().equals("双十一全网特价"))
-			return ResultMessage.WebAddSuccess;
+			return ResultMessage_For_Stub.WebAddSuccess;
 		else
-			return ResultMessage.WebAddFail;
+			return ResultMessage_For_Stub.WebAddFail;
 	}
 
 

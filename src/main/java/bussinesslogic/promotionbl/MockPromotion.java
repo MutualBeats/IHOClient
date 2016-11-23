@@ -3,7 +3,6 @@ package bussinesslogic.promotionbl;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.PromotionGet;
-import po.PromotionPO;
 import vo.PromotionVO;
 
 public class MockPromotion extends Promotion implements PromotionGet {

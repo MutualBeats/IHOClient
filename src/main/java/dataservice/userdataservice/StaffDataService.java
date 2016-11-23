@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import po.StaffPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public interface StaffDataService extends Remote{
 	/*
@@ -14,13 +14,13 @@ public interface StaffDataService extends Remote{
 	/*
 	 * 在数据库中更新一个StaffPO记录
 	 */
-	public ResultMessage updateData(StaffPO po) throws RemoteException;
+	public ResultMessage_For_Stub updateData(StaffPO po) throws RemoteException;
 	/*
 	 * 检测是否允许登陆
 	 */
-	public ResultMessage find(String ID, String password) throws RemoteException;
+	public ResultMessage_For_Stub find(String ID, String password) throws RemoteException;
 	/*
 	 * 在数据库中生成一个staffPO记录
 	 */
-	public ResultMessage insert(StaffPO po, String password) throws RemoteException;
+	public ResultMessage_For_Stub insert(StaffPO po, String password) throws RemoteException;
 }

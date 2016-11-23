@@ -1,7 +1,7 @@
 package bussinesslogic.orderbl;
 
 import bussinesslogic.creditbl.ValueChangeException;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public interface CreditUpdate {
 	
@@ -11,8 +11,8 @@ public interface CreditUpdate {
 	 * 
 	 * @param value : the value of order
 	 */
-	public ResultMessage increaseCredit(String clientID, int value) throws ValueChangeException;
+	public ResultMessage_For_Stub increaseCredit(String clientID, int value) throws ValueChangeException;
 
-	public ResultMessage decreaseCredit(String clientID, int value);
+	public ResultMessage_For_Stub decreaseCredit(String clientID, int value);
 	
 }

@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.hotelbl.Hotel;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
 import vo.HotelVO;
@@ -33,7 +33,7 @@ public class HotelBlTest {
 	
 	@Test
 	public void testAddHotelData() {
-		assertEquals(ResultMessage.HotelNotExist, hotel.addHotel(vo1));
+		assertEquals(ResultMessage_For_Stub.HotelNotExist, hotel.addHotel(vo1));
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class HotelBlTest {
 	
 	@Test
 	public void testChangeHotelData() {
-		assertEquals(ResultMessage.HotelExist, hotel.changeHotelData(vo1));
+		assertEquals(ResultMessage_For_Stub.HotelExist, hotel.changeHotelData(vo1));
 	}
 	
 	@Test
@@ -63,7 +63,7 @@ public class HotelBlTest {
 	
 	@Test
 	public void testEvaluateHotelData() {
-		assertEquals(ResultMessage.EvaluateSuccess, hotel.evaluateHotel(vo2));
+		assertEquals(ResultMessage_For_Stub.EvaluateSuccess, hotel.evaluateHotel(vo2));
 	}
 
 

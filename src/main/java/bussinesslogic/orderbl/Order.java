@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.orderblservice.OrderBLService;
 import po.OrderPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.OrderMakeVO;
 import vo.OrderVO;
 
@@ -31,19 +31,19 @@ public class Order implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage cancelOrder(String orderId) {
+	public ResultMessage_For_Stub cancelOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage excuteOrder(String orderId) {
+	public ResultMessage_For_Stub excuteOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage putUpOrder(String orderId) {
+	public ResultMessage_For_Stub putUpOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

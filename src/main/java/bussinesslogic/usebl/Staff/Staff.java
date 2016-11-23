@@ -1,10 +1,10 @@
 package bussinesslogic.usebl.staff;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.StaffVO;
 
 public class Staff {
-	public ResultMessage Login(String ID, String password) {
+	public ResultMessage_For_Stub Login(String ID, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -13,12 +13,12 @@ public class Staff {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ResultMessage changeData(StaffVO vo) {
+	public ResultMessage_For_Stub changeData(StaffVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage addStaff(StaffVO vo, String password) {
+	public ResultMessage_For_Stub addStaff(StaffVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

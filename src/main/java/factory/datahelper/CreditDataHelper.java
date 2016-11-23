@@ -4,12 +4,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 import dataservice.creditdataservice.CreditDataService;
 import po.CreditChangePO;
 import po.CreditPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.CreditVO;
 
 /**
@@ -34,15 +32,15 @@ public class CreditDataHelper {
 		this.data_service = data_service;
 	}
 	
-	public ResultMessage increase(CreditChangePO po) {
+	public ResultMessage_For_Stub increase(CreditChangePO po) {
 		return creditChange(po);
 	}
 	
-	public ResultMessage decrease(CreditChangePO po) {
+	public ResultMessage_For_Stub decrease(CreditChangePO po) {
 		return creditChange(po);
 	}
 	
-	private ResultMessage creditChange(CreditChangePO po) {
+	private ResultMessage_For_Stub creditChange(CreditChangePO po) {
 		CreditPO i_po = new CreditPO();
 		i_po.setChangeTime(po.getChangeTime());
 		i_po.setClientID(po.getClientID());
@@ -52,7 +50,7 @@ public class CreditDataHelper {
 		return insert(i_po);
 	}
 	
-	private ResultMessage insert(CreditPO po) {
+	private ResultMessage_For_Stub insert(CreditPO po) {
 		checkAndUpdateCache(po.getClientID());
 		//Cache Update
 		credit_record_cache.add(po);
@@ -62,9 +60,9 @@ public class CreditDataHelper {
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
-			return ResultMessage.InsertFailed;
+			return ResultMessage_For_Stub.InsertFailed;
 		}
-		return ResultMessage.InsertSucceed;
+		return ResultMessage_For_Stub.InsertSucceed;
 	}
 	
 

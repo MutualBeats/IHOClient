@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dataservice.userdataservice.ClientDataService;
 import po.ClientPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 
 public class Client {
@@ -23,27 +23,27 @@ public class Client {
 		return null;
 	}
 
-	public ResultMessage changeData(ClientVO vo) {
+	public ResultMessage_For_Stub changeData(ClientVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage Login(String ID, String password) {
+	public ResultMessage_For_Stub Login(String ID, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage Signup(ClientVO vo, String password) {
+	public ResultMessage_For_Stub Signup(ClientVO vo, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	public ResultMessage businessRegister(ClientVO vo) {
+	public ResultMessage_For_Stub businessRegister(ClientVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage originalRegister(ClientVO vo) {
+	public ResultMessage_For_Stub originalRegister(ClientVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -53,12 +53,12 @@ public class Client {
 		return null;
 	}
 
-	public ResultMessage levelUpdate(ArrayList<Integer> levelList, int level) {
+	public ResultMessage_For_Stub levelUpdate(ArrayList<Integer> levelList, int level) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage update(String memberID, ClientVO vo) {
+	public ResultMessage_For_Stub update(String memberID, ClientVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

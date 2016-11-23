@@ -2,8 +2,7 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import po.ClientPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 import vo.MarketerVO;
 import vo.StaffVO;
@@ -51,11 +50,11 @@ public class UserBLService_Stub implements UserBLService{
 	}
 
 	@Override
-	public ResultMessage changeClientData(ClientVO vo) {
+	public ResultMessage_For_Stub changeClientData(ClientVO vo) {
 		if(vo.clientID=="0000000001")
-			return ResultMessage.ChangeSuccess;
+			return ResultMessage_For_Stub.ChangeSuccess;
 		else
-			return ResultMessage.ChangeFail;
+			return ResultMessage_For_Stub.ChangeFail;
 	}
 
 	@Override
@@ -64,11 +63,11 @@ public class UserBLService_Stub implements UserBLService{
 	}
 
 	@Override
-	public ResultMessage changeStaffData(StaffVO vo) {
+	public ResultMessage_For_Stub changeStaffData(StaffVO vo) {
 		if(vo.staffID=="0000000001")
-			return ResultMessage.ChangeSuccess;
+			return ResultMessage_For_Stub.ChangeSuccess;
 		else
-			return ResultMessage.ChangeFail;
+			return ResultMessage_For_Stub.ChangeFail;
 	}
 
 	@Override
@@ -77,45 +76,45 @@ public class UserBLService_Stub implements UserBLService{
 	}
 
 	@Override
-	public ResultMessage changeMarketerData(MarketerVO vo) {
+	public ResultMessage_For_Stub changeMarketerData(MarketerVO vo) {
 		if(vo.marketerID=="0000000001")
-			return ResultMessage.ChangeSuccess;
+			return ResultMessage_For_Stub.ChangeSuccess;
 		else
-			return ResultMessage.ChangeFail;
+			return ResultMessage_For_Stub.ChangeFail;
 	}
 
 	@Override
-	public ResultMessage addMarketer(MarketerVO vo) {
-		return ResultMessage.ChangeSuccess;
+	public ResultMessage_For_Stub addMarketer(MarketerVO vo) {
+		return ResultMessage_For_Stub.ChangeSuccess;
 	}
 
 	@Override
-	public ResultMessage addStaff(StaffVO vo) {
-		return ResultMessage.ChangeSuccess;
+	public ResultMessage_For_Stub addStaff(StaffVO vo) {
+		return ResultMessage_For_Stub.ChangeSuccess;
 	}
 
 	@Override
-	public ResultMessage Login(String ID, String password) {
-		return ResultMessage.ChangeSuccess;
+	public ResultMessage_For_Stub Login(String ID, String password) {
+		return ResultMessage_For_Stub.ChangeSuccess;
 	}
 
 	@Override
-	public ResultMessage Signup(ClientVO vo) {
-		return ResultMessage.ChangeSuccess;
+	public ResultMessage_For_Stub Signup(ClientVO vo) {
+		return ResultMessage_For_Stub.ChangeSuccess;
 	}
 	@Override
-	public ResultMessage businessRegister (ClientVO vo){
+	public ResultMessage_For_Stub businessRegister (ClientVO vo){
 		if(vo.memberMessage.equals("腾讯企业"))
-			return ResultMessage.RegisterSuccess;
+			return ResultMessage_For_Stub.RegisterSuccess;
 		else 
-			return ResultMessage.RegisterFail;
+			return ResultMessage_For_Stub.RegisterFail;
 	}
 	@Override
-	public ResultMessage originalRegister (ClientVO vo){
+	public ResultMessage_For_Stub originalRegister (ClientVO vo){
 		if(vo.memberMessage.equals("1997.01.01"))
-			return ResultMessage.RegisterSuccess;
+			return ResultMessage_For_Stub.RegisterSuccess;
 		else 
-			return ResultMessage.RegisterFail;
+			return ResultMessage_For_Stub.RegisterFail;
 	}
 	@Override
 	public void levelLook (String name,ClientVO vo){

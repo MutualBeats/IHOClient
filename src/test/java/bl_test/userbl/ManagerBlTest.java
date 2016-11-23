@@ -2,13 +2,11 @@ package bl_test.userbl;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.manager.Manager;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 import vo.MarketerVO;
 import vo.StaffVO;
@@ -45,12 +43,12 @@ public class ManagerBlTest {
 	
 	@Test
 	public void testChangeStaffData(){
-		assertEquals(ResultMessage.ChangeSuccess, manager.changeStaffData(this.staffvo));
+		assertEquals(ResultMessage_For_Stub.ChangeSuccess, manager.changeStaffData(this.staffvo));
 	}
 	
 	@Test
 	public void testaddStaff(){
-		assertEquals(ResultMessage.RegisterSuccess, manager.addStaff(this.staffvo, "123456"));
+		assertEquals(ResultMessage_For_Stub.RegisterSuccess, manager.addStaff(this.staffvo, "123456"));
 	}
 	
 	@Test
@@ -62,11 +60,11 @@ public class ManagerBlTest {
 	
 	@Test
 	public void testChangeMarketerData(){
-		assertEquals(ResultMessage.ChangeSuccess, manager.changeMarketerData(this.marketervo));
+		assertEquals(ResultMessage_For_Stub.ChangeSuccess, manager.changeMarketerData(this.marketervo));
 	}
 	
 	@Test
 	public void testaddMarketer(){
-		assertEquals(ResultMessage.RegisterSuccess, manager.addMarketer(this.marketervo,"123456"));
+		assertEquals(ResultMessage_For_Stub.RegisterSuccess, manager.addMarketer(this.marketervo,"123456"));
 	}
 }

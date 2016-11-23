@@ -6,19 +6,18 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
-import bussinesslogic.creditbl.ValueChangeException;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.CreditVO;
 
 public interface CreditBLService {
 	/**
 	 * 增加信用
 	 */
-	public ResultMessage increaseCredit(String clientID, int value);
+	public ResultMessage_For_Stub increaseCredit(String clientID, int value);
 	/**
 	 * 扣除信用
 	 */
-	public ResultMessage decreaseCredit(String clientID, int value);
+	public ResultMessage_For_Stub decreaseCredit(String clientID, int value);
 	/**
 	 * 获得某客户信用记录
 	 */

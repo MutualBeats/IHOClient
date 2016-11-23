@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.HotelPO;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.SearchCondition;
 import vo.HotelEvaluationVO;
 import vo.HotelVO;
@@ -38,7 +38,7 @@ public class Hotel {
 		return hotelInfo;
 	}
 
-	public ResultMessage changeHotelData(HotelVO vo) {
+	public ResultMessage_For_Stub changeHotelData(HotelVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -53,12 +53,12 @@ public class Hotel {
 		return null;
 	}
 	
-	public ResultMessage evaluateHotel(HotelEvaluationVO vo) {
+	public ResultMessage_For_Stub evaluateHotel(HotelEvaluationVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage addHotel(HotelVO vo) {
+	public ResultMessage_For_Stub addHotel(HotelVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -2,7 +2,7 @@ package bussinesslogicservice.orderblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.OrderMakeVO;
 import vo.OrderVO;
 
@@ -21,21 +21,21 @@ public interface OrderBLService {
 	 * @param orderId
 	 * @return
 	 */
-	public ResultMessage cancelOrder(String orderId);
+	public ResultMessage_For_Stub cancelOrder(String orderId);
 	/**
 	 * 执行订单
 	 * 
 	 * @param orderId
 	 * @return
 	 */
-	public ResultMessage excuteOrder(String orderId);
+	public ResultMessage_For_Stub excuteOrder(String orderId);
 	/**
 	 * 补录订单
 	 * 
 	 * @param orderId
 	 * @return
 	 */
-	public ResultMessage putUpOrder(String orderId);
+	public ResultMessage_For_Stub putUpOrder(String orderId);
 	/**
 	 * 根据ID查找订单
 	 * 

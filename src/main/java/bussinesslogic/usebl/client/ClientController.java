@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogic.usebl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.ClientVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
@@ -17,27 +17,27 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage changeData(ClientVO vo) {
+	public ResultMessage_For_Stub changeData(ClientVO vo) {
 		return client.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage Login(String ID, String password) {
+	public ResultMessage_For_Stub Login(String ID, String password) {
 		return client.Login(ID, password);
 	}
 
 	@Override
-	public ResultMessage Signup(ClientVO vo,  String password) {
+	public ResultMessage_For_Stub Signup(ClientVO vo,  String password) {
 		return client.Signup(vo, password);
 	}
 
 	@Override
-	public ResultMessage businessRegister(ClientVO vo) {
+	public ResultMessage_For_Stub businessRegister(ClientVO vo) {
 		return client.businessRegister(vo);
 	}
 
 	@Override
-	public ResultMessage originalRegister(ClientVO vo) {
+	public ResultMessage_For_Stub originalRegister(ClientVO vo) {
 		return client.originalRegister(vo);
 	}
 
@@ -47,12 +47,12 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage levelUpdate(ArrayList<Integer> levelList, int level) {
+	public ResultMessage_For_Stub levelUpdate(ArrayList<Integer> levelList, int level) {
 		return client.levelUpdate(levelList, level);
 	}
 
 	@Override
-	public ResultMessage update(String memberID, ClientVO vo) {
+	public ResultMessage_For_Stub update(String memberID, ClientVO vo) {
 		return client.update(memberID, vo);
 	}
 

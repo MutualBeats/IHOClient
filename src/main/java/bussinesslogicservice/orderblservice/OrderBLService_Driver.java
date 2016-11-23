@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import util.MemberType;
 import util.OrderState;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.RoomType;
 import vo.OrderMakeVO;
 import vo.OrderVO;
@@ -15,7 +15,7 @@ public class OrderBLService_Driver {
 		OrderVO vo2 = new OrderVO("1234567890123457", "1234567891", "WoDeTian", "98765432125", MemberType.Enterprise, null, "12345678", "和园宾馆", "3B347",RoomType.Double, 2,10000 ,-1000, "2016/10/14", "", "", "2016/10/14", "2016/10/16", "2016/10/14","2015/10/15",4,false);
 		OrderVO vo3 = new OrderVO("1234567890123458", "1234567891", "WoDeTian", "98765432125", MemberType.Enterprise, OrderState.Exception, "12345678", "和园宾馆", "3B347",RoomType.Double, 1,10000 ,-1000, "2016/10/17", "", "", "2016/10/17", "2016/10/19", "2016/10/17","2015/10/18",1,false);
 		
-		ResultMessage result;
+		ResultMessage_For_Stub result;
 		
 		result = orderBLService.putUpOrder(vo3.orderId);
 		System.out.println(result.toString());

@@ -5,19 +5,19 @@
 package bussinesslogic.roombl;
 
 import bussinesslogic.orderbl.RoomUpdate;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 
 public class MockRoom extends Room implements RoomUpdate{
 
 	public MockRoom() {
 	}
 	
-	public ResultMessage checkIn(String hotelID, String roomID) {
-		return ResultMessage.RoomUpdateSuccess;
+	public ResultMessage_For_Stub checkIn(String hotelID, String roomID) {
+		return ResultMessage_For_Stub.RoomUpdateSuccess;
 	}
 	
-	public ResultMessage checkOut(String hotelID, String roomID) {
-		return ResultMessage.RoomUpdateSuccess;
+	public ResultMessage_For_Stub checkOut(String hotelID, String roomID) {
+		return ResultMessage_For_Stub.RoomUpdateSuccess;
 	}
 	
 }

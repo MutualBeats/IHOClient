@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.roombl.Room;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.RoomCheckRecord;
 import util.RoomConditionOfDate;
 import util.RoomType;
@@ -33,7 +33,7 @@ public class RoomBlTest {
 	public void testImportRoom() {
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
 		roomList.add(vo);
-		assertEquals(ResultMessage.ImportSuccess, room.importRoom(roomList));
+		assertEquals(ResultMessage_For_Stub.ImportSuccess, room.importRoom(roomList));
 	}
 	
 	@Test
@@ -51,12 +51,12 @@ public class RoomBlTest {
 	
 	@Test
 	public void testCheckIn() {
-		assertEquals(ResultMessage.RoomUpdateSuccess, room.checkIn(vo.hotelID, vo.roomNumber));
+		assertEquals(ResultMessage_For_Stub.RoomUpdateSuccess, room.checkIn(vo.hotelID, vo.roomNumber));
 	}
 	
 	@Test
 	public void testCheckOut() {
-		assertEquals(ResultMessage.RoomUpdateSuccess, room.checkOut(vo.hotelID, vo.roomNumber));
+		assertEquals(ResultMessage_For_Stub.RoomUpdateSuccess, room.checkOut(vo.hotelID, vo.roomNumber));
 	}
 
 }

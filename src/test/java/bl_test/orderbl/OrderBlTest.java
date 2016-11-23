@@ -16,7 +16,7 @@ import bussinesslogic.roombl.MockRoom;
 import bussinesslogic.usebl.client.MockClient;
 import util.MemberType;
 import util.OrderState;
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import util.RoomType;
 import vo.OrderMakeVO;
 import vo.OrderVO;
@@ -54,7 +54,7 @@ public class OrderBlTest {
 	
 	@Test
 	public void testExcute() {
-		assertEquals(ResultMessage.ExcuteSucceed, order.excuteOrder(vo.orderId));
+		assertEquals(ResultMessage_For_Stub.ExcuteSucceed, order.excuteOrder(vo.orderId));
 		vo = order.queryOrderById(vo.orderId);
 		assertEquals(OrderState.Excute, vo.orderState);
 	}

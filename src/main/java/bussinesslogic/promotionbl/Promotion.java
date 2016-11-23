@@ -2,18 +2,18 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
-import util.ResultMessage;
+import util.ResultMessage_For_Stub;
 import vo.OrderPromotionConditionVO;
 import vo.PromotionVO;
 
 public class Promotion {
 
-	public ResultMessage hotelAdd(PromotionVO vo) {
+	public ResultMessage_For_Stub hotelAdd(PromotionVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage webAdd(PromotionVO vo) {
+	public ResultMessage_For_Stub webAdd(PromotionVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -28,7 +28,7 @@ public class Promotion {
 		return null;
 	}
 
-	public ResultMessage cancel(String promotionID){
+	public ResultMessage_For_Stub cancel(String promotionID){
 		return null;
 	}
 
