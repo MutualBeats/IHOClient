@@ -27,27 +27,27 @@ public class HotelDataServiceImpl_Stub implements HotelDataService {
 		HotelPO po = new HotelPO("00000001", sc.hotelName == null ? "锦都金鼎大酒店" : sc.hotelName,
 					"如皋市如城镇解放路(如皋市政府对面)", sc.region, sc.businessDistrict, sc.starLevel > 0 ? sc.starLevel : 5,
 						sc.score > 0 ? sc.score : 4.5);
-		hotelList.add(po);
+		hotelList.add(po);	
 		return hotelList;
 	}
 
 	@Override
-	public ResultMessage_HotelData changeHotelInfo(HotelPO po) throws RemoteException {
+	public ResultMessage_Hotel changeHotelInfo(HotelPO po) throws RemoteException {
 		System.out.println("Update Hotel Data Succeed!\n");
-		return ResultMessage_HotelData.Update_Successful;
+		return ResultMessage_Hotel.Change_Successful;
 //		return null;
 	}
 
 	@Override
-	public ResultMessage_HotelData evaluation(HotelEvaluationPO po) throws RemoteException {
+	public ResultMessage_Hotel evaluation(HotelEvaluationPO po) throws RemoteException {
 		System.out.println("Insert Hotel Evaluation Succeed!\n");
-		return ResultMessage_HotelData.Evalutaion_Successful;
+		return ResultMessage_Hotel.Evaluate_Successful;
 	}
 
 	@Override
-	public ResultMessage_HotelData addHotel(HotelPO po) throws RemoteException {
+	public ResultMessage_Hotel addHotel(HotelPO po) throws RemoteException {
 		System.out.println("Insert Hotel Succeed!");
-		return ResultMessage_HotelData.Add_Hotel_Successful;
+		return ResultMessage_Hotel.Add_Hotel_Successful;
 	}
 
 	@Override

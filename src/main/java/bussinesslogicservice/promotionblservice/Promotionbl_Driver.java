@@ -2,8 +2,8 @@ package bussinesslogicservice.promotionblservice;
 
 import java.util.ArrayList;
 
-import vo.OrderPromotionConditionVO;
-import vo.PromotionVO;
+import vo.order.OrderPromotionConditionVO;
+import vo.promotion.PromotionVO;
 
 public class Promotionbl_Driver {
 	public void drive(PromotionBLService promotionLogicService){

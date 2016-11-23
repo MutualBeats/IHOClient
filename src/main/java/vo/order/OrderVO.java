@@ -1,4 +1,4 @@
-package vo;
+package vo.order;
 
 import util.MemberType;
 import util.OrderState;

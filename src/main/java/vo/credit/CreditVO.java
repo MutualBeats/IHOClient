@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年10月14日
  */
-package vo;
+package vo.credit;
 
 import po.CreditPO;
 import util.CreditChangeAction;

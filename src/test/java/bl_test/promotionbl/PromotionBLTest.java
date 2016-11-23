@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import bussinesslogic.promotionbl.Promotion;
 import util.ResultMessage_For_Stub;
-import vo.OrderPromotionConditionVO;
-import vo.PromotionVO;
+import vo.order.OrderPromotionConditionVO;
+import vo.promotion.PromotionVO;
 
 public class PromotionBLTest {
 

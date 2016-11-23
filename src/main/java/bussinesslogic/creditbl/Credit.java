@@ -7,8 +7,8 @@ import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
 import po.CreditChangePO;
 import util.Time;
-import util.result_message.credit.ResultMessage_CreditBLService;
-import vo.CreditVO;
+import util.result_message.credit.ResultMessage_Credit;
+import vo.credit.CreditVO;
 
 public class Credit{
 	
@@ -29,20 +29,20 @@ public class Credit{
 	 * @param value
 	 * @return 
 	 */
-	public ResultMessage_CreditBLService increaseCredit(String clientID, int value) {
+	public ResultMessage_Credit increaseCredit(String clientID, int value) {
 		if(value <= 0) {
 			System.err.print("Error ! Value change of credit to increase must be positive !\r\n");
-			return ResultMessage_CreditBLService.Credit_ChangeValue_Positive;
+			return ResultMessage_Credit.Credit_ChangeValue_Positive;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
 		//TODO : May Need to Return According to the Specific Error
 		return credit_data_service.increase(change);
 	}
 
-	public ResultMessage_CreditBLService decreaseCredit(String clientID, int value) {
+	public ResultMessage_Credit decreaseCredit(String clientID, int value) {
 		if(value >= 0) {
 			System.err.print("Error ! Value change of credit to decrease must be negative !\r\n");
-			return ResultMessage_CreditBLService.Credit_ChangeValue_Positive;
+			return ResultMessage_Credit.Credit_ChangeValue_Positive;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
 		return credit_data_service.decrease(change);

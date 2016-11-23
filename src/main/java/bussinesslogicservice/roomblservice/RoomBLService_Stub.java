@@ -6,7 +6,7 @@ import util.ResultMessage_For_Stub;
 import util.RoomCheckRecord;
 import util.RoomConditionOfDate;
 import util.RoomType;
-import vo.RoomVO;
+import vo.room.RoomVO;
 
 public class RoomBLService_Stub implements RoomBLService {
 

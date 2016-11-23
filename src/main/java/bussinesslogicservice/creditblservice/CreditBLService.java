@@ -6,18 +6,18 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
-import util.result_message.credit.ResultMessage_CreditBLService;
-import vo.CreditVO;
+import util.result_message.credit.ResultMessage_Credit;
+import vo.credit.CreditVO;
 
 public interface CreditBLService {
 	/**
 	 * 增加信用
 	 */
-	public ResultMessage_CreditBLService increaseCredit(String clientID, int value);
+	public ResultMessage_Credit increaseCredit(String clientID, int value);
 	/**
 	 * 扣除信用
 	 */
-	public ResultMessage_CreditBLService decreaseCredit(String clientID, int value);
+	public ResultMessage_Credit decreaseCredit(String clientID, int value);
 	/**
 	 * 获得某客户信用记录
 	 */

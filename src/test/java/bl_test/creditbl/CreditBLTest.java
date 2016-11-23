@@ -14,7 +14,7 @@ import bussinesslogic.test.Credit_Test;
 import dataservice.creditdataservice.CreditDataServiceImpl_Stub;
 import factory.datahelper.CreditDataHelper;
 import util.ResultMessage_For_Stub;
-import vo.CreditVO;
+import vo.credit.CreditVO;
 
 public class CreditBLTest {
 	

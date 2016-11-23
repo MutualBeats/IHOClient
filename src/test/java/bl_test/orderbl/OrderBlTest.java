@@ -18,8 +18,8 @@ import util.MemberType;
 import util.OrderState;
 import util.ResultMessage_For_Stub;
 import util.RoomType;
-import vo.OrderMakeVO;
-import vo.OrderVO;
+import vo.order.OrderMakeVO;
+import vo.order.OrderVO;
 
 public class OrderBlTest {
 	

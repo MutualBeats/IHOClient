@@ -34,7 +34,7 @@ public class HotelVO {
 	/**
 	 * 酒店评分
 	 */
-	public double score;
+	public double score = -1;
 
 	/**
 	 * 构造方法

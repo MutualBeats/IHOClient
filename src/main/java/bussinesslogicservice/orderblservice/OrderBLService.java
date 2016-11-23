@@ -3,8 +3,8 @@ package bussinesslogicservice.orderblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage_For_Stub;
-import vo.OrderMakeVO;
-import vo.OrderVO;
+import vo.order.OrderMakeVO;
+import vo.order.OrderVO;
 
 public interface OrderBLService {
 	

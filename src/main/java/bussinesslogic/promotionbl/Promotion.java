@@ -3,8 +3,8 @@ package bussinesslogic.promotionbl;
 import java.util.ArrayList;
 
 import util.ResultMessage_For_Stub;
-import vo.OrderPromotionConditionVO;
-import vo.PromotionVO;
+import vo.order.OrderPromotionConditionVO;
+import vo.promotion.PromotionVO;
 
 public class Promotion {
 

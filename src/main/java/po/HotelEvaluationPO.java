@@ -5,6 +5,8 @@
  */
 package po;
 
+import vo.hotel.HotelEvaluationVO;
+
 public class HotelEvaluationPO {
 	
 	/**
@@ -49,6 +51,10 @@ public class HotelEvaluationPO {
 	public HotelEvaluationPO() {
 	}
 	
+	public HotelEvaluationPO(HotelEvaluationVO vo) {
+		this(vo.hotelID, vo.clientID, vo.evaluateTime, vo.evaluateScore, vo.evaluateInfo);
+	}
+
 	public String getHotelID() {
 		return hotelID;
 	}

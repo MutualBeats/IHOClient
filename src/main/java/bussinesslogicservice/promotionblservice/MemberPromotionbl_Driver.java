@@ -3,7 +3,7 @@ package bussinesslogicservice.promotionblservice;
 import java.util.ArrayList;
 
 import vo.ClientVO;
-import vo.PromotionVO;
+import vo.promotion.PromotionVO;
 
 public class MemberPromotionbl_Driver {
 	public void drive(MemberPromotionBLservice memberPromotionBLservice){

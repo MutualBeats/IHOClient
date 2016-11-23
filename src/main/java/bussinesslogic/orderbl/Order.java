@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import po.OrderPO;
 import util.ResultMessage_For_Stub;
-import vo.OrderMakeVO;
-import vo.OrderVO;
+import vo.order.OrderMakeVO;
+import vo.order.OrderVO;
 
 public class Order implements OrderBLService{
 	

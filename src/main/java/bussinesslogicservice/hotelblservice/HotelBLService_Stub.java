@@ -5,9 +5,10 @@
 package bussinesslogicservice.hotelblservice;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import dataservice.hoteldataservice.ResultMessage_Hotel;
 import util.SearchCondition;
-import util.result_message.hotel.ResultMessage_HotelBLService;
 import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 
@@ -50,38 +51,38 @@ public class HotelBLService_Stub implements HotelBLService {
 	}
 
 	@Override
-	public ResultMessage_HotelBLService changeHotelInfo(HotelVO vo) {
+	public ResultMessage_Hotel changeHotelInfo(HotelVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_HotelBLService.Change_Successful;
-		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
+			return ResultMessage_Hotel.Change_Successful;
+		else return ResultMessage_Hotel.Hotel_Not_Exist;
 	}
 
 	@Override
-	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) {
+	public Iterator<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) {
 		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		HotelVO vo = new HotelVO(hotelID, sc.hotelName == null ? hotelName : sc.hotelName,
 					address, sc.region, sc.businessDistrict, sc.starLevel > 0 ? sc.starLevel : starLevel,
 						sc.score > 0 ? sc.score : score);
 		hotelList.add(vo);
-		return hotelList;
+		return hotelList.iterator();
 	}
 
 	@Override
-	public ResultMessage_HotelBLService evaluate(HotelEvaluationVO vo) {
+	public ResultMessage_Hotel evaluate(HotelEvaluationVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_HotelBLService.Evaluate_Successful;
-		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
+			return ResultMessage_Hotel.Evaluate_Successful;
+		else return ResultMessage_Hotel.Hotel_Not_Exist;
 	}
 
 	@Override
-	public ResultMessage_HotelBLService addHotel(HotelVO vo) {
+	public ResultMessage_Hotel addHotel(HotelVO vo) {
 		if(vo.hotelID.equals("00000001"))
-			return ResultMessage_HotelBLService.Evaluate_Successful;
-		else return ResultMessage_HotelBLService.Hotel_Not_Exist;
+			return ResultMessage_Hotel.Evaluate_Successful;
+		else return ResultMessage_Hotel.Hotel_Not_Exist;
 	}
 
 	@Override
-	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID) {
+	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) {
 		return null;
 	}
 

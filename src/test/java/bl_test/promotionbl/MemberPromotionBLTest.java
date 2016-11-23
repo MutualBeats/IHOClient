@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import bussinesslogic.promotionbl.MemberPromotion;
 import vo.ClientVO;
-import vo.PromotionVO;
+import vo.promotion.PromotionVO;
 
 public class MemberPromotionBLTest {
 	

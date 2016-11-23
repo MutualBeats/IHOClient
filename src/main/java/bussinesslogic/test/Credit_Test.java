@@ -7,7 +7,7 @@ import po.CreditChangePO;
 import po.CreditPO;
 import util.ResultMessage_For_Stub;
 import util.Time;
-import vo.CreditVO;
+import vo.credit.CreditVO;
 
 /**
  * @author Saltwater

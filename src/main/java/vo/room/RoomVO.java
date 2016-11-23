@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年10月14日
  */
-package vo;
+package vo.room;
 
 import java.util.ArrayList;
 

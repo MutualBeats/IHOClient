@@ -6,7 +6,7 @@ import java.util.Iterator;
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.MemberPromotionBLservice;
 import vo.ClientVO;
-import vo.PromotionVO;
+import vo.promotion.PromotionVO;
 
 public class MemberPromotionController implements MemberPromotionBLservice, PromotionGet{
 

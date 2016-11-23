@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import util.ResultMessage_For_Stub;
-import vo.OrderMakeVO;
-import vo.OrderVO;
+import vo.order.OrderMakeVO;
+import vo.order.OrderVO;
 
 public class OrderController implements OrderBLService{
 	

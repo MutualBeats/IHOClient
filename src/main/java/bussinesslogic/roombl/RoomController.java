@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogicservice.roomblservice.RoomBLService;
 import util.ResultMessage_For_Stub;
-import vo.RoomVO;
+import vo.room.RoomVO;
 
 public class RoomController implements RoomBLService, RoomUpdate{
 

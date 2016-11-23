@@ -6,8 +6,8 @@ import java.util.Iterator;
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.ResultMessage_For_Stub;
-import vo.OrderPromotionConditionVO;
-import vo.PromotionVO;
+import vo.order.OrderPromotionConditionVO;
+import vo.promotion.PromotionVO;
 
 public class PromotionController implements PromotionBLService,PromotionGet{
 

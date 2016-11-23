@@ -69,15 +69,15 @@ public class HotelPO {
 	 * 
 	 * @param vo
 	 *            : The vo to copy
+	 *        
 	 */
 	public HotelPO(HotelVO vo) {
-		this.hotelID = vo.hotelID;
-		this.hotelName = vo.hotelName;
-		this.address = vo.address;
-		this.region = vo.region;
-		this.businessDistrict = vo.businessDistrict;
-		this.starLevel = vo.starLevel;
-		this.score = -1;
+		this(vo.hotelID, vo.hotelName, vo.address, vo.region, vo.businessDistrict, vo.starLevel, vo.score);
+	}
+
+	public HotelPO(HotelPO po) {
+		this(po.getHotelID(), po.getHotelName(), po.getAddress(), po.getRegion(), po.getBusinessDistrict(),
+				po.getStarLevel(), po.getScore());
 	}
 
 	public String getHotelID() {

@@ -7,7 +7,7 @@ package bussinesslogic.roombl;
 import java.util.ArrayList;
 
 import util.ResultMessage_For_Stub;
-import vo.RoomVO;
+import vo.room.RoomVO;
 
 public class Room {
 	

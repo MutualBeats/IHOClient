@@ -4,8 +4,10 @@
  */
 package vo.hotel;
 
+import po.HotelEvaluationPO;
+
 public class HotelEvaluationVO {
-	
+
 	/**
 	 * 被评论酒店id
 	 */
@@ -13,7 +15,7 @@ public class HotelEvaluationVO {
 	/**
 	 * 评价者
 	 */
-	public String clientName;
+	public String clientID;
 	/**
 	 * 评价时间
 	 */
@@ -26,7 +28,7 @@ public class HotelEvaluationVO {
 	 * 评论
 	 */
 	public String evaluateInfo;
-	
+
 	/**
 	 * @param hotelID
 	 * @param clientName
@@ -38,10 +40,14 @@ public class HotelEvaluationVO {
 			String evaluateInfo) {
 		super();
 		this.hotelID = hotelID;
-		this.clientName = clientName;
+		this.clientID = clientName;
 		this.evaluateTime = evaluateTime;
 		this.evaluateScore = evaluateScore;
 		this.evaluateInfo = evaluateInfo;
+	}
+
+	public HotelEvaluationVO(HotelEvaluationPO po) {
+		this(po.getHotelID(), po.getClientID(), po.getEvaluateTime(), po.getEvaluateScore(), po.getEvaluateInfo());
 	}
 
 }
