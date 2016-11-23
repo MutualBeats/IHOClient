@@ -1,9 +1,12 @@
 /**
  * @author huangxiao
+ * @author Saltwater
  * @version 2016年10月16日
  * @version 2016年11月19日 添加空构造方法
  */
 package po;
+
+import vo.hotel.HotelVO;
 
 public class HotelPO {
 	/**
@@ -34,9 +37,10 @@ public class HotelPO {
 	 * 酒店评分
 	 */
 	private double score;
-	
+
 	/**
 	 * 构造方法
+	 * 
 	 * @param hotelID
 	 * @param hotelName
 	 * @param address
@@ -56,8 +60,24 @@ public class HotelPO {
 		this.starLevel = starLevel;
 		this.score = score;
 	}
-	
+
 	public HotelPO() {
+	}
+
+	/**
+	 * 拷贝构造
+	 * 
+	 * @param vo
+	 *            : The vo to copy
+	 */
+	public HotelPO(HotelVO vo) {
+		this.hotelID = vo.hotelID;
+		this.hotelName = vo.hotelName;
+		this.address = vo.address;
+		this.region = vo.region;
+		this.businessDistrict = vo.businessDistrict;
+		this.starLevel = vo.starLevel;
+		this.score = -1;
 	}
 
 	public String getHotelID() {
@@ -115,5 +135,5 @@ public class HotelPO {
 	public void setScore(double score) {
 		this.score = score;
 	}
-	
+
 }

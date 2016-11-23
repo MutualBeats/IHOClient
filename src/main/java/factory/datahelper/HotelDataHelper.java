@@ -36,27 +36,27 @@ public class HotelDataHelper {
 		return null;
 	}
 
-	public ArrayList<HotelPO> find(SearchCondition sc) {
+	public ArrayList<HotelPO> findHotelByCondition(SearchCondition sc) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage_HotelBLService updateHotelData(HotelPO po)  {
+	public ResultMessage_HotelBLService changeHotelInfo(HotelPO po)  {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage_HotelBLService insertHotelEvaluation(HotelEvaluationPO po) {
+	public ResultMessage_HotelBLService evaluate(HotelEvaluationPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage_HotelBLService insertHotel(HotelPO po)  {
+	public ResultMessage_HotelBLService addHotel(HotelPO po)  {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) {
+	public ArrayList<HotelEvaluationPO> getHotelEvaluation(String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import util.SearchCondition;
 import util.result_message.hotel.ResultMessage_HotelBLService;
-import vo.HotelEvaluationVO;
-import vo.HotelVO;
+import vo.hotel.HotelEvaluationVO;
+import vo.hotel.HotelVO;
 
 public class HotelBLService_Driver {
 	
@@ -22,23 +22,23 @@ public class HotelBLService_Driver {
 		else
 			System.out.println("Hotel exist\n");
 		
-		vo1 = hotelBLService.showHotelData("00000001");
+		vo1 = hotelBLService.showHotelInfo("00000001");
 		System.out.println(vo1.hotelName + '\t'  + vo1.address + '\t' + vo1.starLevel + '\t' + vo1.score + '\n');
 		
 		vo1 = new HotelVO("00000001", "锦都金鼎大酒店", "如皋市如城镇解放路(如皋市政府对面)", "如皋市", "如城街道", 5, 4.5);
-		result = hotelBLService.changeHotelData(vo1);
+		result = hotelBLService.changeHotelInfo(vo1);
 		if(result == ResultMessage_HotelBLService.Change_Successful)
 			System.out.println("Hotel exists\n");
 		else
 			System.out.println("Change Succeed\n");
 		
 		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", "锦都金鼎大酒店", 0, 0);
-		ArrayList<HotelVO> hotelList = hotelBLService.showHotelListData(sc);
+		ArrayList<HotelVO> hotelList = hotelBLService.getHotelsSatisfyCondition(sc);
 		for (HotelVO hotelVO : hotelList)
 			System.out.println(hotelVO.hotelName + '\t' + hotelVO.address + '\t' + hotelVO.starLevel + '\t' + hotelVO.score + '\n');
 		
 		HotelEvaluationVO vo2 = new HotelEvaluationVO("00000001", "丁二玉", "2016/10/16", 5, "强，无敌！");
-		result = hotelBLService.evaluateHotel(vo2);
+		result = hotelBLService.evaluate(vo2);
 		if(result == ResultMessage_HotelBLService.Evaluate_Successful)
 			System.out.println("Evaluate succeed!\n");
 		else 

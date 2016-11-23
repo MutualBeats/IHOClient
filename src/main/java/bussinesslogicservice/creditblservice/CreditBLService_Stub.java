@@ -2,6 +2,7 @@ package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
 
+import util.CreditChangeAction;
 import util.result_message.credit.ResultMessage_CreditBLService;
 import vo.CreditVO;
 
@@ -39,7 +40,7 @@ public class CreditBLService_Stub implements CreditBLService {
 	@Override
 	public ArrayList<CreditVO> checkCreditRecord(String clientID) {
 		ArrayList<CreditVO> creditList = new ArrayList<CreditVO>();
-		creditList.add(new CreditVO(clientID, changeTime, changeValue, credit));
+		creditList.add(new CreditVO(clientID, changeTime, changeValue, credit, CreditChangeAction.ExecuteOrder, clientID));
 		return creditList;
 	}
 

@@ -5,36 +5,36 @@ import java.util.ArrayList;
 import bussinesslogicservice.hotelblservice.HotelBLService;
 import util.SearchCondition;
 import util.result_message.hotel.ResultMessage_HotelBLService;
-import vo.HotelEvaluationVO;
-import vo.HotelVO;
+import vo.hotel.HotelEvaluationVO;
+import vo.hotel.HotelVO;
 
 public class HotelController implements HotelBLService {
 	
 	private Hotel hotel = new Hotel();
 
 	@Override
-	public HotelVO showHotelData(String hotelID) {
-		return hotel.showHotelData(hotelID);
+	public HotelVO showHotelInfo(String hotelID) {
+		return hotel.showHotelInfo(hotelID);
 	}
 
 	@Override
-	public ResultMessage_HotelBLService changeHotelData(HotelVO vo) {
-		return hotel.changeHotelData(vo);
+	public ResultMessage_HotelBLService changeHotelInfo(HotelVO vo) {
+		return hotel.changeHotelInfo(vo);
 	}
 
 	@Override
-	public ArrayList<HotelVO> showHotelListData(SearchCondition sc) {
-		return hotel.showHotelListData(sc);
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) {
+		return hotel.getHotelsSatisfyCondition(sc);
 	}
 	
 	@Override
-	public ArrayList<HotelEvaluationVO> showHotelEvaluationListData(String hotelID) {
-		return hotel.showHotelEvaluationListData(hotelID);
+	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID) {
+		return hotel.getHotelEvalutions(hotelID);
 	}
 
 	@Override
-	public ResultMessage_HotelBLService evaluateHotel(HotelEvaluationVO vo) {
-		return hotel.evaluateHotel(vo);
+	public ResultMessage_HotelBLService evaluate(HotelEvaluationVO vo) {
+		return hotel.evaluate(vo);
 	}
 
 	@Override

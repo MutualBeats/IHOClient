@@ -14,8 +14,8 @@ import org.junit.Test;
 import bussinesslogic.hotelbl.Hotel;
 import util.ResultMessage_For_Stub;
 import util.SearchCondition;
-import vo.HotelEvaluationVO;
-import vo.HotelVO;
+import vo.hotel.HotelEvaluationVO;
+import vo.hotel.HotelVO;
 
 public class HotelBlTest {
 
@@ -38,19 +38,19 @@ public class HotelBlTest {
 	
 	@Test
 	public void testShowHotelData() {
-		HotelVO vo = hotel.showHotelData("00000001");
+		HotelVO vo = hotel.showHotelInfo("00000001");
 		assertEquals(vo1.hotelName, vo.hotelName);
 	}
 	
 	@Test
 	public void testChangeHotelData() {
-		assertEquals(ResultMessage_For_Stub.HotelExist, hotel.changeHotelData(vo1));
+		assertEquals(ResultMessage_For_Stub.HotelExist, hotel.changeHotelInfo(vo1));
 	}
 	
 	@Test
 	public void testShowHotelListData() {
 		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", "锦都金鼎大酒店", 0, 0);
-		ArrayList<HotelVO> hotelList = hotel.showHotelListData(sc);
+		ArrayList<HotelVO> hotelList = hotel.getHotelsSatisfyCondition(sc);
 		boolean contain = false;
 		for (HotelVO hotelVO : hotelList) {
 			if(hotelVO.hotelID == vo1.hotelID) {
@@ -63,7 +63,7 @@ public class HotelBlTest {
 	
 	@Test
 	public void testEvaluateHotelData() {
-		assertEquals(ResultMessage_For_Stub.EvaluateSuccess, hotel.evaluateHotel(vo2));
+		assertEquals(ResultMessage_For_Stub.EvaluateSuccess, hotel.evaluate(vo2));
 	}
 
 

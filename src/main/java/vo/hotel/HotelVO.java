@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年10月16日
  */
-package vo;
+package vo.hotel;
 
 import po.HotelPO;
 
@@ -35,9 +35,10 @@ public class HotelVO {
 	 * 酒店评分
 	 */
 	public double score;
-	
+
 	/**
 	 * 构造方法
+	 * 
 	 * @param hotelID
 	 * @param hotelName
 	 * @param address
@@ -57,9 +58,10 @@ public class HotelVO {
 		this.starLevel = starLevel;
 		this.score = score;
 	}
-	
+
 	/**
 	 * Transfer po to vo;
+	 * 
 	 * @param po
 	 */
 	public HotelVO(HotelPO po) {
@@ -71,5 +73,5 @@ public class HotelVO {
 		this.starLevel = po.getStarLevel();
 		this.score = po.getScore();
 	}
-	
+
 }

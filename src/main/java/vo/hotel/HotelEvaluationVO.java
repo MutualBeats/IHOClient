@@ -2,7 +2,7 @@
  * @author huangxiao
  * 2016年10月16日
  */
-package vo;
+package vo.hotel;
 
 public class HotelEvaluationVO {
 	

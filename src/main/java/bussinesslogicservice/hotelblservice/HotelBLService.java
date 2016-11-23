@@ -8,39 +8,39 @@ import java.util.ArrayList;
 
 import util.SearchCondition;
 import util.result_message.hotel.ResultMessage_HotelBLService;
-import vo.HotelEvaluationVO;
-import vo.HotelVO;
+import vo.hotel.HotelEvaluationVO;
+import vo.hotel.HotelVO;
 
 public interface HotelBLService {
 
 	/**
 	 * 显示酒店信息
 	 */
-	public HotelVO showHotelData (String hotelID);
-	
+	public HotelVO showHotelInfo(String hotelID);
+
 	/**
 	 * 修改酒店信息
 	 */
-	public ResultMessage_HotelBLService changeHotelData (HotelVO vo);
-	
+	public ResultMessage_HotelBLService changeHotelInfo(HotelVO vo);
+
 	/**
 	 * 显示酒店列表
 	 */
-	public ArrayList<HotelVO> showHotelListData  (SearchCondition sc);
-	
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc);
+
 	/**
 	 * 显示酒店评价列表
 	 */
-	public ArrayList<HotelEvaluationVO> showHotelEvaluationListData(String hotelID);
-	
+	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID);
+
 	/**
 	 * 评价酒店
 	 */
-	public ResultMessage_HotelBLService evaluateHotel (HotelEvaluationVO vo);
-	
+	public ResultMessage_HotelBLService evaluate(HotelEvaluationVO vo);
+
 	/**
 	 * 添加酒店
 	 */
-	public ResultMessage_HotelBLService addHotel (HotelVO vo);
-	
+	public ResultMessage_HotelBLService addHotel(HotelVO vo);
+
 }
