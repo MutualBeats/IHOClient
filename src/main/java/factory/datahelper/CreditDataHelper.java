@@ -4,9 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import dataservice.creditdataservice.CreditDataService;
 import po.CreditChangePO;
 import po.CreditPO;
+import util.ResultMessage;
 import vo.CreditVO;
 
 /**
@@ -14,6 +17,7 @@ import vo.CreditVO;
  * Data Helper : 
  * 	Store some information as cache .
  * 	Own same function
+ * And hide the return.
  */
 public class CreditDataHelper {
 	/**
@@ -30,25 +34,25 @@ public class CreditDataHelper {
 		this.data_service = data_service;
 	}
 	
-	public void increase(CreditChangePO po) {
-		creditChange(po);
+	public ResultMessage increase(CreditChangePO po) {
+		return creditChange(po);
 	}
 	
-	public void decrease(CreditChangePO po) {
-		creditChange(po);
+	public ResultMessage decrease(CreditChangePO po) {
+		return creditChange(po);
 	}
 	
-	private void creditChange(CreditChangePO po) {
+	private ResultMessage creditChange(CreditChangePO po) {
 		CreditPO i_po = new CreditPO();
 		i_po.setChangeTime(po.getChangeTime());
 		i_po.setClientID(po.getClientID());
 		i_po.setChangeValue(po.getChangeValue());
 		int after_credit = i_po.getCredit() + po.getChangeValue();
 		i_po.setCredit(after_credit);
-		insert(i_po);
+		return insert(i_po);
 	}
 	
-	private void insert(CreditPO po) {
+	private ResultMessage insert(CreditPO po) {
 		checkAndUpdateCache(po.getClientID());
 		//Cache Update
 		credit_record_cache.add(po);
@@ -58,7 +62,9 @@ public class CreditDataHelper {
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
+			return ResultMessage.InsertFailed;
 		}
+		return ResultMessage.InsertSucceed;
 	}
 	
 

@@ -27,7 +27,7 @@ public class Credit{
 	 * 
 	 * @param clientID
 	 * @param value
-	 * @return
+	 * @return 
 	 */
 	public ResultMessage increaseCredit(String clientID, int value) {
 		if(value <= 0) {
@@ -35,8 +35,12 @@ public class Credit{
 			return ResultMessage.CreditIncreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
-		credit_data_service.increase(change);
-		return ResultMessage.CreditIncreaseSuccess;
+		//TODO : May Need to Return According to the Specific Error
+		if(credit_data_service.increase(change).equals(ResultMessage.InsertSucceed)){
+			return ResultMessage.CreditIncreaseSuccess;
+		} else {
+			return ResultMessage.CreditIncreaseFailed;
+		}
 	}
 
 	public ResultMessage decreaseCredit(String clientID, int value) {
@@ -45,8 +49,11 @@ public class Credit{
 			return ResultMessage.CreditDecreaseFailed;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
-		credit_data_service.decrease(change);
-		return ResultMessage.CreditDecreaseSuccess;
+		if(credit_data_service.decrease(change).equals(ResultMessage.InsertSucceed)){
+			return ResultMessage.CreditDecreaseSuccess;
+		} else {
+			return ResultMessage.CreditDecreaseFailed;
+		}
 	}
 
 	public ArrayList<CreditVO> checkCreditRecord(String clientID) {

@@ -8,8 +8,11 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import po.HotelEvaluationPO;
 import po.HotelPO;
+import util.ResultMessage;
 import util.SearchCondition;
 
 public interface HotelDataService extends Remote{
@@ -18,11 +21,11 @@ public interface HotelDataService extends Remote{
 	
 	public ArrayList<HotelPO> findHotelListData(SearchCondition sc) throws RemoteException;
 	
-	public void updateHotelData(HotelPO po) throws RemoteException;
+	public ResultMessage updateHotelData(HotelPO po) throws RemoteException;
 		
-	public void insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException;
+	public ResultMessage insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException;
 	
-	public void insertHotel(HotelPO po) throws RemoteException;
+	public ResultMessage insertHotel(HotelPO po) throws RemoteException;
 	
 	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) throws RemoteException;
 

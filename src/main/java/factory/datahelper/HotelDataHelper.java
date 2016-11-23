@@ -6,48 +6,58 @@ import java.util.ArrayList;
 import dataservice.hoteldataservice.HotelDataService;
 import po.HotelEvaluationPO;
 import po.HotelPO;
+import util.ResultMessage;
 import util.SearchCondition;
-
-public class HotelDataHelper implements HotelDataService{
+/**
+ * @author Saltwater
+ * Hotel Data Helper
+ * A local cache.
+ * To hide the interface and make some deal.
+ */
+public class HotelDataHelper {
 	
 	private HotelDataService hotel_service;
 	
+	/**
+	 * The Usage of Hotel_Info_Cache : 
+	 * 		Why : When load a list of hotel, it's easy for the user to click the item he get. Cache at client, Faster at access
+	 * 		How it work : Update each time the client filt. Update when no such po is in cache.
+	 */
+	private ArrayList<HotelPO> hotel_info_cache;
+	
 	public HotelDataHelper(HotelDataService hotel_service) {
 		this.hotel_service = hotel_service;
+		hotel_info_cache = new ArrayList<>();
+	}
+	
+	
+	
+	public HotelPO getHotelInfo(String hotelID) {
+		
+		return null;
 	}
 
-	@Override
-	public HotelPO findHotelData(String hotelID) throws RemoteException {
+	public ArrayList<HotelPO> find(SearchCondition sc) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public ArrayList<HotelPO> findHotelListData(SearchCondition sc) throws RemoteException {
+	public void updateHotelData(HotelPO po)  {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public ResultMessage insertHotelEvaluation(HotelEvaluationPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void updateHotelData(HotelPO po) throws RemoteException {
+	public void insertHotel(HotelPO po)  {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void insertHotelEvaluation(HotelEvaluationPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void insertHotel(HotelPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) throws RemoteException {
+	public ArrayList<HotelEvaluationPO> findHotelEvaluation(String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

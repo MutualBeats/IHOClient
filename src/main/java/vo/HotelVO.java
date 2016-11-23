@@ -4,6 +4,8 @@
  */
 package vo;
 
+import po.HotelPO;
+
 public class HotelVO {
 	/**
 	 * 酒店id
@@ -56,6 +58,18 @@ public class HotelVO {
 		this.score = score;
 	}
 	
-
+	/**
+	 * Transfer po to vo;
+	 * @param po
+	 */
+	public HotelVO(HotelPO po) {
+		this.hotelID = po.getHotelID();
+		this.hotelName = po.getHotelName();
+		this.address = po.getAddress();
+		this.region = po.getRegion();
+		this.businessDistrict = po.getBusinessDistrict();
+		this.starLevel = po.getStarLevel();
+		this.score = po.getScore();
+	}
 	
 }
