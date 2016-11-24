@@ -3,6 +3,10 @@ package factory.datahelper;
 import java.rmi.RemoteException;
 
 import dataservice.datafactoryservice.DataFactory;
+import dataservice.userdataservice.ClientDataService;
+import dataservice.userdataservice.ManagerDataService;
+import dataservice.userdataservice.MarketerDataService;
+import dataservice.userdataservice.StaffDataService;
 
 /**
  * A factory using singleton
@@ -15,7 +19,7 @@ public class DataHelperFactory {
 	 */
 	private static DataFactory factory = null;
 	/**
-	 * DataFactory Helpe
+	 * DataFactory Helper
 	 */
 	private static DataHelperFactory helper = null;
 
@@ -24,6 +28,10 @@ public class DataHelperFactory {
 	private OrderDataHelper orderDataHelper;
 	private PromotionDataHelper promotionDataHelper;
 	private RoomDataHelper roomDataHelper;
+	private ClientDataService clientDataService;
+	private StaffDataService staffDataService;
+	private MarketerDataService marketerDataService;
+	private ManagerDataService managerDataService;
 
 	private DataHelperFactory() {
 	}
@@ -83,28 +91,44 @@ public class DataHelperFactory {
 		return roomDataHelper;
 	}
 
-	// public ClientDataHelper getClientDatabase() throws RemoteException {
-	// if(creditDataHelper == null) {
-	// getDataFactoryInstance();
-	//
-	// }
-	// return null;
-	// }
-	//
-	// public MarketerDataHelper getMarketerDatabase() throws RemoteException {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
-	// public StaffDataHelper getStaffDatabase() throws RemoteException {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
-	// public ManagerDataHelper getManagerDatabase() throws RemoteException {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
+	 public ClientDataService getClientDatabase() throws RemoteException {
+		 if(clientDataService==null){
+			 if(factory==null){
+				 factory = getDataFactoryInstance();
+				 clientDataService = factory.getClientDatabase();
+			 }
+		}
+	 return clientDataService;
+	 }
+	 
+	 public StaffDataService getStaffDatabase() throws RemoteException {
+		 if(staffDataService==null){
+			 if(factory==null){
+				 factory = getDataFactoryInstance();
+				 staffDataService = factory.getStaffDatabase();
+			 }
+		}
+	 return staffDataService;
+	 }
+	 
+	 public MarketerDataService getMarketerDatabase() throws RemoteException {
+		 if(marketerDataService==null){
+			 if(factory==null){
+				 factory = getDataFactoryInstance();
+				 marketerDataService = factory.getMarketerDatabase();
+			 }
+		}
+	 return marketerDataService;
+	 }
+	 
+	 public ManagerDataService getManagerDatabase() throws RemoteException {
+		 if(managerDataService==null){
+			 if(factory==null){
+				 factory = getDataFactoryInstance();
+				 managerDataService = factory.getManagerDatabase();
+			 }
+		}
+	 return managerDataService;
+	 }
 
 }
