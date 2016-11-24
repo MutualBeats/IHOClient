@@ -23,7 +23,7 @@ public class Credit{
 	}
 	
 	/**
-	 * Increasee of Credit
+	 * Increase of Credit
 	 * 
 	 * @param clientID
 	 * @param value

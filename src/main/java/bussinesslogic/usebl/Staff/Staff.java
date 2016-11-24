@@ -3,6 +3,7 @@ package bussinesslogic.usebl.staff;
 import java.rmi.RemoteException;
 
 import dataservice.userdataservice.StaffDataService;
+import factory.datahelper.DataHelperFactory;
 import po.StaffPO;
 import util.ResultMessage_For_User;
 import vo.user.StaffVO;
@@ -10,6 +11,14 @@ import vo.user.StaffVO;
 public class Staff {
 	
 	private StaffDataService staffDataService;
+	
+	public Staff(){
+		try {
+			staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public ResultMessage_For_User Login(String staffID, String password) {
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;

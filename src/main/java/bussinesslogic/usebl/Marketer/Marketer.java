@@ -3,6 +3,7 @@ package bussinesslogic.usebl.marketer;
 import java.rmi.RemoteException;
 
 import dataservice.userdataservice.MarketerDataService;
+import factory.datahelper.DataHelperFactory;
 import po.MarketerPO;
 import util.ResultMessage_For_User;
 import vo.user.MarketerVO;
@@ -10,7 +11,15 @@ import vo.user.MarketerVO;
 public class Marketer {
 
 	private MarketerDataService marketerDataService;
-
+	
+	public Marketer(){
+		try{
+			marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
+		}catch(RemoteException e){
+			e.printStackTrace();
+		}
+	}
+	
 	public ResultMessage_For_User Login(String marketerID, String password) {
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
 		try {

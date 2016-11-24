@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import dataservice.userdataservice.ManagerDataService;
+import factory.datahelper.DataHelperFactory;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
@@ -12,6 +13,14 @@ import vo.user.StaffVO;
 public class Manager {
 	
 	private ManagerDataService managerDataService;
+	
+	public Manager(){
+		try {
+			managerDataService = DataHelperFactory.getDataFactoryHelperInstance().getManagerDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public ResultMessage_For_User Login(String managerID, String password) {
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;

@@ -3,6 +3,7 @@ package bussinesslogic.usebl.client;
 import java.rmi.RemoteException;
 
 import dataservice.userdataservice.ClientDataService;
+import factory.datahelper.DataHelperFactory;
 import po.ClientPO;
 import po.MemberPO;
 import util.ResultMessage_For_User;
@@ -12,6 +13,14 @@ import vo.user.MemberVO;
 public class Client {
 
 	private ClientDataService clientDataService;
+	
+	public Client(){
+		try {
+			clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public ClientVO showData(String clientID) {
 		ClientPO po = new ClientPO();
