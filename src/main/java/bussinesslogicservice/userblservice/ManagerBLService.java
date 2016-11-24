@@ -1,6 +1,5 @@
 package bussinesslogicservice.userblservice;
 
-import util.ResultMessage_For_Stub;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
@@ -10,7 +9,7 @@ public interface ManagerBLService {
 	/*
 	 * 登录
 	 */
-	public ResultMessage_For_Stub Login(String ID, String password);
+	public ResultMessage_For_User Login(String managerID, String password);
 	/*
 	 * 获取用户信息
 	 */
@@ -22,11 +21,11 @@ public interface ManagerBLService {
 	/*
 	 * 修改酒店工作人员信息
 	 */
-	public ResultMessage_For_Stub changeStaffData (StaffVO vo);
+	public ResultMessage_For_User changeStaffData (StaffVO vo);
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage_For_Stub addStaff(StaffVO vo, String password);
+	public ResultMessage_For_User addStaff(StaffVO vo, String password);
 	/*
 	 * 获取网站营销人员信息
 	 */

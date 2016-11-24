@@ -3,33 +3,63 @@ package bussinesslogic.usebl.marketer;
 import java.rmi.RemoteException;
 
 import dataservice.userdataservice.MarketerDataService;
+import po.MarketerPO;
 import util.ResultMessage_For_User;
 import vo.user.MarketerVO;
 
 public class Marketer {
-	
+
 	private MarketerDataService marketerDataService;
-	
-	public ResultMessage_For_User Login(String ID, String password) {
+
+	public ResultMessage_For_User Login(String marketerID, String password) {
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
 		try {
-			result = marketerDataService.find(ID, password);
+			result = marketerDataService.find(marketerID, password);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+
 	public MarketerVO showData(String marketerID) {
-		// TODO Auto-generated method stub
-		return null;
+		MarketerPO po = new MarketerPO();
+		try {
+			po = marketerDataService.findData(marketerID);
+		} catch (RemoteException e) {
+			System.out.println(ResultMessage_For_User.GetDataFail);
+			e.printStackTrace();
+		}
+		MarketerVO vo;
+		vo = new MarketerVO(po.getMarketerID(), po.getMarketername(), po.getTel_number());
+		System.out.println(ResultMessage_For_User.GetDataSuccess);
+		return vo;
 	}
+
 	public ResultMessage_For_User changeData(MarketerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		MarketerPO po = new MarketerPO();
+		po.setMarketerID(vo.marketerID);
+		po.setMarketername(vo.marketername);
+		po.setTel_number(vo.tel_number);
+		try {
+			result = marketerDataService.updateData(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
+
 	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		MarketerPO po = new MarketerPO();
+		po.setMarketerID(vo.marketerID);
+		po.setMarketername(vo.marketername);
+		po.setTel_number(vo.tel_number);
+		try {
+			result = marketerDataService.insert(po, password);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

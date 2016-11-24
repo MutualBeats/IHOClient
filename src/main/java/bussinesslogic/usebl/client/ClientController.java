@@ -1,11 +1,10 @@
 package bussinesslogic.usebl.client;
 
-import java.util.ArrayList;
-
 import bussinesslogic.usebl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
+import vo.user.MemberVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
 	
@@ -17,13 +16,13 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_For_User changeData(ClientVO vo) {
-		return client.changeData(vo);
+	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) {
+		return client.changeData(clientID, clientName, contactWay);
 	}
 
 	@Override
-	public ResultMessage_For_User Login(String ID, String password) {
-		return client.Login(ID, password);
+	public ResultMessage_For_User Login(String clientID, String password) {
+		return client.Login(clientID, password);
 	}
 
 	@Override
@@ -32,28 +31,18 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_For_User businessRegister(ClientVO vo) {
-		return client.businessRegister(vo);
+	public ResultMessage_For_User memberRegister(MemberVO vo) {
+		return client.memberRegister(vo);
 	}
 
 	@Override
-	public ResultMessage_For_User originalRegister(ClientVO vo) {
-		return client.originalRegister(vo);
+	public MemberVO showMemberData(String clientID) {
+		return client.showMemberData(clientID);
 	}
 
 	@Override
-	public ClientVO get(String memberID) {
-		return client.get(memberID);
-	}
-
-	@Override
-	public ResultMessage_For_User levelUpdate(ArrayList<Integer> levelList, int level) {
-		return client.levelUpdate(levelList, level);
-	}
-
-	@Override
-	public ResultMessage_For_User update(String memberID, ClientVO vo) {
-		return client.update(memberID, vo);
+	public ResultMessage_For_User changeMemberData(MemberVO vo) {
+		return client.changeMemberData(vo);
 	}
 
 	

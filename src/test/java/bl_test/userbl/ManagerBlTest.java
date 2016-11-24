@@ -22,7 +22,7 @@ public class ManagerBlTest {
 	@Before
 	public void init(){
 		clientvo = new ClientVO("123456789", "admin", "1234567890", 100,MemberType.Ordinary,2,"腾讯企业");
-		staffvo = new StaffVO("0000000001", "admin", "hotel","12345678");
+		staffvo = new StaffVO("0000000001", "admin", "12345678");
 		marketervo = new MarketerVO("0000000001", "admin", "123456789");
 		
 		manager = new Manager();

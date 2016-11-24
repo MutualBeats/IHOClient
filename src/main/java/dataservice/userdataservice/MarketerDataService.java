@@ -10,7 +10,7 @@ public interface MarketerDataService extends Remote{
 	/*
 	 * 获取MarketerPO内部数据
 	 */
-	public MarketerPO findData(String MarketerID) throws RemoteException;
+	public MarketerPO findData(String marketerID) throws RemoteException;
 	/*
 	 * 在数据库中更新一个MarketerPO记录
 	 */
@@ -18,7 +18,7 @@ public interface MarketerDataService extends Remote{
 	/*
 	 * 检测是否允许登陆
 	 */
-	public ResultMessage_For_User find(String ID, String password) throws RemoteException;
+	public ResultMessage_For_User find(String marketerID, String password) throws RemoteException;
 	/*
 	 * 在数据库中生成一个marketerPO记录
 	 */

@@ -60,7 +60,7 @@ public class UserBLService_Stub implements UserBLService{
 
 	@Override
 	public StaffVO showStaffData(String staffID) {
-		return new StaffVO("0000000001", "admin", "hotel","12345678");
+		return new StaffVO("0000000001", "admin","12345678");
 	}
 
 	@Override

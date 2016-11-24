@@ -14,7 +14,7 @@ public class StaffBlTest {
 	
 	@Before
 	public void init(){
-		vo = new StaffVO("0000000001", "admin", "hotel","12345678");
+		vo = new StaffVO("0000000001", "admin","12345678");
 		staff = new Staff();
 	}
 	

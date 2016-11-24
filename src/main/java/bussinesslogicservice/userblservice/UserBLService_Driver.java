@@ -34,11 +34,10 @@ public class UserBLService_Driver {
 		StaffVO vo2 = userBLService.showStaffData("0000000001");
 		System.out.println(vo2.staffID);
 		System.out.println(vo2.staffname);
-		System.out.println(vo2.hotelname);
 		/*
 		 * 修改酒店工作人员信息
 		 */
-		result = userBLService.changeStaffData(new StaffVO("0000000001", "admin", "hotel","12345678"));
+		result = userBLService.changeStaffData(new StaffVO("0000000001", "admin","12345678"));
 		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
@@ -69,7 +68,7 @@ public class UserBLService_Driver {
 		/*
 		 * 添加酒店工作人员
 		 */
-		result = userBLService.addStaff(new StaffVO("0000000001", "admin", "Hotel","12345678"));
+		result = userBLService.addStaff(new StaffVO("0000000001", "admin","12345678"));
 		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Add successfully");
 		else

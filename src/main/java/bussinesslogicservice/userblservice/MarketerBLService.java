@@ -7,7 +7,7 @@ public interface MarketerBLService {
 	/*
 	 * 登录
 	 */
-	public ResultMessage_For_User Login(String ID, String password);
+	public ResultMessage_For_User Login(String marketerID, String password);
 	/*
 	 * 获取网站营销人员信息
 	 */

@@ -1,7 +1,6 @@
 package bussinesslogic.usebl.manager;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
-import util.ResultMessage_For_Stub;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
@@ -13,8 +12,8 @@ public class ManagerController implements ManagerBLService {
 
 
 	@Override
-	public ResultMessage_For_Stub Login(String ID, String password) {
-		return manager.Login(ID, password);
+	public ResultMessage_For_User Login(String managerID, String password) {
+		return manager.Login(managerID, password);
 	}
 
 	@Override
@@ -28,12 +27,12 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_Stub changeStaffData(StaffVO vo) {
+	public ResultMessage_For_User changeStaffData(StaffVO vo) {
 		return manager.changeStaffData(vo);
 	}
 
 	@Override
-	public ResultMessage_For_Stub addStaff(StaffVO vo, String password) {
+	public ResultMessage_For_User addStaff(StaffVO vo, String password) {
 		return manager.addStaff(vo, password);
 	}
 

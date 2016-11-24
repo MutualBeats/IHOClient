@@ -10,8 +10,8 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	private Marketer marketer = new Marketer();
 
 	@Override
-	public ResultMessage_For_User Login(String ID, String password) {
-		return marketer.Login(ID, password);
+	public ResultMessage_For_User Login(String marketerID, String password) {
+		return marketer.Login(marketerID, password);
 	}
 
 	@Override
