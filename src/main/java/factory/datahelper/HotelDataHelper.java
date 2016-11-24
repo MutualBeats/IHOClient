@@ -56,6 +56,16 @@ public class HotelDataHelper {
 		return new HotelPO(info);
 	}
 
+	/**
+	 * Search the hotels which satisfy the condition
+	 * 
+	 * 
+	 * @param sc
+	 *            : Search Condition , such as star, score, location
+	 * @return
+	 * @throws RemoteException
+	 *             : Net Error
+	 */
 	public Iterator<HotelPO> findHotelByCondition(SearchCondition sc) throws RemoteException {
 		ArrayList<HotelPO> hotels = hotel_service.findHotelByCondition(sc);
 		// Update Cache :
@@ -100,10 +110,13 @@ public class HotelDataHelper {
 	}
 
 	/**
+	 * 评价酒店
 	 * 
 	 * @param po
-	 * @return
+	 *            ：酒店评价信息
+	 * @return : 评价结果
 	 * @throws RemoteException
+	 *             ： Net Error
 	 */
 	public ResultMessage_Hotel evaluate(HotelEvaluationPO po) {
 		try {
@@ -120,6 +133,12 @@ public class HotelDataHelper {
 		}
 	}
 
+	/**
+	 * 添加酒店
+	 * 
+	 * @param po
+	 * @return
+	 */
 	public ResultMessage_Hotel addHotel(HotelPO po) {
 		try {
 			ResultMessage_Hotel result = hotel_service.addHotel(po);
@@ -129,13 +148,14 @@ public class HotelDataHelper {
 			return ResultMessage_Hotel.Net_Error;
 		}
 	}
-	
+
 	/**
-	 * 
+	 * 获取酒店评价
 	 * 
 	 * @param hotelID
 	 * @return
-	 * @throws RemoteException : Net Error
+	 * @throws RemoteException
+	 *             : Net Error
 	 */
 	public Iterator<HotelEvaluationPO> getHotelEvaluation(String hotelID) throws RemoteException {
 		return hotel_service.getHotelEvaluation(hotelID).iterator();
