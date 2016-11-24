@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.marketer.Marketer;
-import vo.MarketerVO;
+import vo.user.MarketerVO;
 
 public class MarketerBlTest {
 	MarketerVO vo;

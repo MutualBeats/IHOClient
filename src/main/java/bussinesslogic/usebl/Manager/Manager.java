@@ -2,9 +2,10 @@ package bussinesslogic.usebl.manager;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
-import vo.MarketerVO;
-import vo.StaffVO;
+import util.ResultMessage_For_User;
+import vo.user.ClientVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public class Manager {
 	
@@ -34,11 +35,11 @@ public class Manager {
 		return ControllerFactory.getManager2ManagerIstance().showData(marketerID);
 	}
 
-	public ResultMessage_For_Stub changeMarketerData(MarketerVO vo) {
+	public ResultMessage_For_User changeMarketerData(MarketerVO vo) {
 		return ControllerFactory.getManager2ManagerIstance().changeData(vo);
 	}
 
-	public ResultMessage_For_Stub addMarketer(MarketerVO vo, String password) {
+	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) {
 		return ControllerFactory.getManager2ManagerIstance().addMarketer(vo, password);
 	}
 }

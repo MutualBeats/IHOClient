@@ -1,7 +1,7 @@
 package bussinesslogicservice.userblservice;
 
 import util.ResultMessage_For_Stub;
-import vo.StaffVO;
+import vo.user.StaffVO;
 
 public interface StaffBLService {
 	/*

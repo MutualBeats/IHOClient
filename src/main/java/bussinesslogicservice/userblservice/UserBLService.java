@@ -3,9 +3,9 @@ package bussinesslogicservice.userblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
-import vo.MarketerVO;
-import vo.StaffVO;
+import vo.user.ClientVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public interface UserBLService {
 	/*

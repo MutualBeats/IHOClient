@@ -2,10 +2,11 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
+import util.MemberType;
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
-import vo.MarketerVO;
-import vo.StaffVO;
+import vo.user.ClientVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public class UserBLService_Driver {
 	public void drive(UserBLService userBLService){
@@ -16,13 +17,13 @@ public class UserBLService_Driver {
 		 */
 		ClientVO vo1 = userBLService.showClientData("0000000001");
 		System.out.println(vo1.clientID);
-		System.out.println(vo1.clientname);
+		System.out.println(vo1.clientName);
 		System.out.println(vo1.credit);
-		System.out.println(vo1.tel_number);
+		System.out.println(vo1.contactWay);
 		/*
 		 * 修改用户信息
 		 */
-		result = userBLService.changeClientData(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
+		result = userBLService.changeClientData(new ClientVO("123456789", "admin", "1234567890",100, MemberType.Ordinary, 2, "腾讯企业"));
 		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Change successfully");
 		else
@@ -84,14 +85,14 @@ public class UserBLService_Driver {
 		/*
 		 * 注册新用户
 		 */
-		result = userBLService.Signup(new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2));
+		result = userBLService.Signup(new ClientVO("123456789", "admin", "1234567890",100, MemberType.Ordinary, 2, "腾讯企业"));
 		if(result==ResultMessage_For_Stub.ChangeSuccess)
 			System.out.println("Signup successfully");
 		else
 			System.out.println("Signup failed");
 		
-		ClientVO vo5=new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2);
-		ClientVO vo4=new ClientVO("123456789", "admin", "1234567890", 100, "123456789","腾讯企业",2);
+		ClientVO vo5=new ClientVO("123456789", "admin", "1234567890",100, MemberType.Ordinary, 2, "腾讯企业");
+		ClientVO vo4=new ClientVO("123456789", "admin", "1234567890",100, MemberType.Ordinary, 2, "腾讯企业");
 		
 			result=userBLService.businessRegister(vo5);
 			System.out.println(result.toString());

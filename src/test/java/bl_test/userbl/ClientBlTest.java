@@ -8,8 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.client.Client;
+import util.MemberType;
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
+import vo.user.ClientVO;
 
 public class ClientBlTest {
 
@@ -18,7 +19,7 @@ public class ClientBlTest {
 	
 	@Before
 	public void init(){
-		vo = new ClientVO("0000000001", "admin", "123456789", 100, "123456789","腾讯企业",2);
+		vo = new ClientVO("123456789", "admin", "1234567890", 100,MemberType.Ordinary,2,"腾讯企业");
 		client = new Client();
 	}
 	
@@ -26,7 +27,7 @@ public class ClientBlTest {
 	public void testShowData(){
 		String clientID = vo.clientID;
 		ClientVO vo = client.showData(clientID);
-		assertEquals(this.vo.clientname, vo.clientname);
+		assertEquals(this.vo.clientName, vo.clientName);
 	}
 	
 	@Test
@@ -56,7 +57,7 @@ public class ClientBlTest {
 	
 	@Test
 	public void testget(){
-		String memberID = vo.memberID;
+		String memberID = vo.memberMessage;
 		ClientVO vo = client.get(memberID);
 		assertEquals(this.vo.memberMessage, vo.memberMessage);
 	}
@@ -68,7 +69,7 @@ public class ClientBlTest {
 	
 	@Test
 	public void testupdate(){
-		String memberID = vo.memberID;
+		String memberID = vo.memberMessage;
 		assertEquals(ResultMessage_For_Stub.UpdateSucceed, client.update(memberID, vo));
 	}
 }

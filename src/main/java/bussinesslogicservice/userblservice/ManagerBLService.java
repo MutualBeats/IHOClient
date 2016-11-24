@@ -1,9 +1,10 @@
 package bussinesslogicservice.userblservice;
 
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
-import vo.MarketerVO;
-import vo.StaffVO;
+import util.ResultMessage_For_User;
+import vo.user.ClientVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public interface ManagerBLService {
 	/*
@@ -33,9 +34,9 @@ public interface ManagerBLService {
 	/*
 	 * 修改网站营销人员信息
 	 */
-	public ResultMessage_For_Stub changeMarketerData (MarketerVO vo);
+	public ResultMessage_For_User changeMarketerData (MarketerVO vo);
 	/*
 	 * 添加网站营销人员
 	 */
-	public ResultMessage_For_Stub addMarketer(MarketerVO vo, String password);
+	public ResultMessage_For_User addMarketer(MarketerVO vo, String password);
 }

@@ -1,7 +1,7 @@
 package bussinesslogic.usebl.manager.entrust;
 
 import util.ResultMessage_For_Stub;
-import vo.StaffVO;
+import vo.user.StaffVO;
 
 public interface Staff2Manager {
 	/*

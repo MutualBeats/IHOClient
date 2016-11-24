@@ -6,10 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.manager.Manager;
+import util.MemberType;
 import util.ResultMessage_For_Stub;
-import vo.ClientVO;
-import vo.MarketerVO;
-import vo.StaffVO;
+import vo.user.ClientVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public class ManagerBlTest {
 	ClientVO clientvo;
@@ -20,7 +21,7 @@ public class ManagerBlTest {
 	
 	@Before
 	public void init(){
-		clientvo = new ClientVO("0000000001", "admin", "123456789", 100, "123456789","腾讯企业",2);
+		clientvo = new ClientVO("123456789", "admin", "1234567890", 100,MemberType.Ordinary,2,"腾讯企业");
 		staffvo = new StaffVO("0000000001", "admin", "hotel","12345678");
 		marketervo = new MarketerVO("0000000001", "admin", "123456789");
 		
@@ -31,7 +32,7 @@ public class ManagerBlTest {
 	public void testShowClientData(){
 		String clientID = clientvo.clientID;
 		ClientVO vo = manager .showClientData(clientID);
-		assertEquals(this.clientvo.clientname, vo.clientname);
+		assertEquals(this.clientvo.clientName, vo.clientName);
 	}
 	
 	@Test

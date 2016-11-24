@@ -1,6 +1,6 @@
 package bussinesslogic.usebl.manager.entrust;
 
-import vo.ClientVO;
+import vo.user.ClientVO;
 
 public interface Client2Manager {
 	/*

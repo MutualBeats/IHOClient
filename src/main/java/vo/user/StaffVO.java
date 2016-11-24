@@ -1,4 +1,4 @@
-package vo;
+package vo.user;
 
 public class StaffVO {
 	/*

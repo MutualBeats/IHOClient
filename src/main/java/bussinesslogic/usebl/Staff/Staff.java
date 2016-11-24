@@ -1,7 +1,7 @@
 package bussinesslogic.usebl.staff;
 
 import util.ResultMessage_For_Stub;
-import vo.StaffVO;
+import vo.user.StaffVO;
 
 public class Staff {
 	public ResultMessage_For_Stub Login(String ID, String password) {

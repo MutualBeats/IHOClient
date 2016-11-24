@@ -2,8 +2,8 @@ package bussinesslogic.promotionbl;
 
 import java.util.ArrayList;
 
-import vo.ClientVO;
 import vo.promotion.PromotionVO;
+import vo.user.ClientVO;
 
 public class MemberPromotion {
 	/*

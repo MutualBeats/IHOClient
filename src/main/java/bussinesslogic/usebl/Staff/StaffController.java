@@ -3,7 +3,7 @@ package bussinesslogic.usebl.staff;
 import bussinesslogic.usebl.manager.entrust.Staff2Manager;
 import bussinesslogicservice.userblservice.StaffBLService;
 import util.ResultMessage_For_Stub;
-import vo.StaffVO;
+import vo.user.StaffVO;
 
 public class StaffController implements StaffBLService , Staff2Manager {
 	

@@ -1,6 +1,6 @@
 package bussinesslogic.orderbl;
 
-import vo.ClientVO;
+import vo.user.ClientVO;
 
 public interface ClientInfo {
 	

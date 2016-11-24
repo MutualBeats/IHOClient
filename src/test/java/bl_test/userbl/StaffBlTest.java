@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.usebl.staff.Staff;
-import vo.StaffVO;
+import vo.user.StaffVO;
 
 public class StaffBlTest {
 	StaffVO vo;
