@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import dataservice.roomdataservice.RoomDataService;
 import po.RoomPO;
 
+/**
+ * @author Saltwater
+ * @version 1.0
+ */
 public class RoomDataHelper implements RoomDataService{
 	
 	private RoomDataService room_service;

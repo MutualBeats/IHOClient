@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.test.Credit_Test;
+import bussinesslogic._test.Credit_Test;
 import dataservice.creditdataservice.CreditDataServiceImpl_Stub;
 import factory.datahelper.CreditDataHelper;
 import util.ResultMessage_For_Stub;

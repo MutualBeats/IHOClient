@@ -19,6 +19,10 @@ import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 
 /**
+ * Hotel Logic Impl
+ * 
+ * Time : 2016/11/24
+ * 
  * @author Saltwater
  * @version 2.0
  */
