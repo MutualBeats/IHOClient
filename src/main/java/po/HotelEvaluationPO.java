@@ -5,10 +5,15 @@
  */
 package po;
 
+import java.io.Serializable;
+
 import vo.hotel.HotelEvaluationVO;
 
-public class HotelEvaluationPO {
-	
+public class HotelEvaluationPO implements Serializable {
+	/**
+	 * version id
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 被评论酒店id
 	 */

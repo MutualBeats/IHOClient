@@ -6,9 +6,15 @@
  */
 package po;
 
+import java.io.Serializable;
+
 import vo.hotel.HotelVO;
 
-public class HotelPO {
+public class HotelPO implements Serializable {
+	/**
+	 * version id
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 酒店id
 	 */
