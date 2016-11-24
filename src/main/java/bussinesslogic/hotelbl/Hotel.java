@@ -94,6 +94,14 @@ public class Hotel {
 		return hotels.iterator();
 	}
 
+	/**
+	 * 获取酒店评价
+	 * 
+	 * @author Saltwater
+	 * @param hotelID
+	 * @return 酒店评价迭代器
+	 * @throws RemoteException
+	 */
 	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws RemoteException {
 		Iterator<HotelEvaluationPO> iterator = hotel_data_service.getHotelEvaluation(hotelID);
 		ArrayList<HotelEvaluationVO> evaluationVOs = new ArrayList<>();
