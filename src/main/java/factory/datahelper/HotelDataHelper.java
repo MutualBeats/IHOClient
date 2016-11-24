@@ -129,7 +129,14 @@ public class HotelDataHelper {
 			return ResultMessage_Hotel.Net_Error;
 		}
 	}
-
+	
+	/**
+	 * 
+	 * 
+	 * @param hotelID
+	 * @return
+	 * @throws RemoteException : Net Error
+	 */
 	public Iterator<HotelEvaluationPO> getHotelEvaluation(String hotelID) throws RemoteException {
 		return hotel_service.getHotelEvaluation(hotelID).iterator();
 	}

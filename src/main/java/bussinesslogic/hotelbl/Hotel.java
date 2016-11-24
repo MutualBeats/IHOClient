@@ -101,6 +101,7 @@ public class Hotel {
 	 * @param hotelID
 	 * @return 酒店评价迭代器
 	 * @throws RemoteException
+	 *             : Net Error
 	 */
 	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws RemoteException {
 		Iterator<HotelEvaluationPO> iterator = hotel_data_service.getHotelEvaluation(hotelID);
@@ -112,10 +113,22 @@ public class Hotel {
 		return evaluationVOs.iterator();
 	}
 
+	/**
+	 * 评价酒店
+	 * 
+	 * @param vo
+	 * @return
+	 */
 	public ResultMessage_Hotel evaluate(HotelEvaluationVO vo) {
 		return hotel_data_service.evaluate(new HotelEvaluationPO(vo));
 	}
 
+	/**
+	 * 添加酒店
+	 * 
+	 * @param vo
+	 * @return
+	 */
 	public ResultMessage_Hotel addHotel(HotelVO vo) {
 		return hotel_data_service.addHotel(new HotelPO(vo));
 	}
