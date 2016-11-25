@@ -22,13 +22,15 @@ public class RoomDataServiceImpl_Stub implements RoomDataService {
 	}
 
 	@Override
-	public void insert(RoomPO po) throws RemoteException {
+	public ResultMessage_Room insert(RoomPO po) throws RemoteException {
 		System.out.println("Insert Succeed!\n");
+		return ResultMessage_Room.Insert_Successful;
 	}
 
 	@Override
-	public void update(RoomPO po) throws RemoteException {
+	public ResultMessage_Room update(RoomPO po) throws RemoteException {
 		System.out.println("Update Succeed!\n");
+		return ResultMessage_Room.Update_Successful;
 	}
 
 }

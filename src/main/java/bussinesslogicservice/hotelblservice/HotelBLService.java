@@ -5,6 +5,7 @@
 package bussinesslogicservice.hotelblservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataservice.hoteldataservice.ResultMessage_Hotel;
@@ -32,7 +33,7 @@ public interface HotelBLService {
 	 * 
 	 * @throws RemoteException
 	 */
-	public Iterator<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException;
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException;
 
 	/**
 	 * 显示酒店评价列表

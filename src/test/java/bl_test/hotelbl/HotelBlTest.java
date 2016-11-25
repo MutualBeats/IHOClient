@@ -7,6 +7,7 @@ package bl_test.hotelbl;
 import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Before;
@@ -55,7 +56,7 @@ public class HotelBlTest {
 	@Test
 	public void testShowHotelListData() {
 		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", "锦都金鼎大酒店", 0, 0);
-		Iterator<HotelVO> hotelList = null;
+		ArrayList<HotelVO> hotelList = null;
 		try {
 			hotelList = hotel.getHotelsSatisfyCondition(sc);
 		} catch (RemoteException e) {
@@ -63,8 +64,7 @@ public class HotelBlTest {
 			e.printStackTrace();
 		}
 		boolean contain = false;
-		while (hotelList.hasNext()) {
-			HotelVO hotelVO = hotelList.next();
+		for(HotelVO hotelVO : hotelList) {
 			if (hotelVO.hotelID == vo1.hotelID) {
 				contain = true;
 				break;

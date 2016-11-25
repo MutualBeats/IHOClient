@@ -16,6 +16,7 @@ import vo.room.RoomVO;
  * @author Saltwater
  * @version 2.0
  */
+
 public class Room {
 	
 	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList) {

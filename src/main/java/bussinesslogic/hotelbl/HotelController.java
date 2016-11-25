@@ -1,6 +1,7 @@
 package bussinesslogic.hotelbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import bussinesslogicservice.hotelblservice.HotelBLService;
@@ -9,6 +10,11 @@ import util.SearchCondition;
 import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 
+/**
+ *酒店控制器 
+ * 
+ * @author Saltwater
+ */
 public class HotelController implements HotelBLService {
 
 	private Hotel hotel = new Hotel();
@@ -24,7 +30,7 @@ public class HotelController implements HotelBLService {
 	}
 
 	@Override
-	public Iterator<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
 		return hotel.getHotelsSatisfyCondition(sc);
 	}
 

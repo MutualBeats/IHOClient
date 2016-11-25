@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataservice.creditdataservice.CreditDataService;
-import dataservice.creditdataservice.ResultMessage_CreditData;
+import dataservice.creditdataservice.ResultMessage_Credit;
 import po.CreditChangePO;
 import po.CreditPO;
-import util.result_message.credit.ResultMessage_Credit;
+import util.result_message.credit.ResultMessage_CreditBL;
 import vo.credit.CreditVO;
 
 /**
@@ -30,15 +30,15 @@ public class CreditDataHelper {
 		this.data_service = data_service;
 	}
 
-	public ResultMessage_Credit increase(CreditChangePO po) {
+	public ResultMessage_CreditBL increase(CreditChangePO po) {
 		return creditChange(po);
 	}
 
-	public ResultMessage_Credit decrease(CreditChangePO po) {
+	public ResultMessage_CreditBL decrease(CreditChangePO po) {
 		return creditChange(po);
 	}
 
-	private ResultMessage_Credit creditChange(CreditChangePO po) {
+	private ResultMessage_CreditBL creditChange(CreditChangePO po) {
 		CreditPO i_po = new CreditPO();
 		i_po.setChangeTime(po.getChangeTime());
 		i_po.setClientID(po.getClientID());
@@ -48,34 +48,34 @@ public class CreditDataHelper {
 		return insert(i_po);
 	}
 
-	private ResultMessage_Credit insert(CreditPO po) {
+	private ResultMessage_CreditBL insert(CreditPO po) {
 		checkAndUpdateCache(po.getClientID());
 		// Cache Update
 		credit_record_cache.add(po);
 		// TODO : 留给结束模块、异常模块完成
-		ResultMessage_CreditData insert_result = ResultMessage_CreditData.Update_Successful;
+		ResultMessage_Credit insert_result = ResultMessage_Credit.Update_Successful;
 		try {
 			insert_result = data_service.insert(po);
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
-			return ResultMessage_Credit.Credit_Net_Error;
+			return ResultMessage_CreditBL.Credit_Net_Error;
 		}
-		if (insert_result.equals(ResultMessage_CreditData.Update_Successful)) {
-			return ResultMessage_Credit.Credit_Increase_Successful;
+		if (insert_result.equals(ResultMessage_Credit.Update_Successful)) {
+			return ResultMessage_CreditBL.Credit_Increase_Successful;
 		} else {
-			return ResultMessage_Credit.Credit_User_Not_Found;
+			return ResultMessage_CreditBL.Credit_User_Not_Found;
 		}
 	}
 
-	public ArrayList<CreditVO> find(String clientID) {
+	public Iterator<CreditVO> find(String clientID) {
 		checkAndUpdateCache(clientID);
 		// Copy And Change To VO.
 		ArrayList<CreditVO> record_copy = new ArrayList<>();
 		for (Iterator<CreditPO> it = credit_record_cache.iterator(); it.hasNext();) {
 			record_copy.add(new CreditVO(it.next()));
 		}
-		return record_copy;
+		return record_copy.iterator();
 	}
 
 	public CreditPO getNewestCredit(String clientID) {

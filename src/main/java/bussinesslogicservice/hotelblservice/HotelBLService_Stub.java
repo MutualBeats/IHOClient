@@ -58,13 +58,13 @@ public class HotelBLService_Stub implements HotelBLService {
 	}
 
 	@Override
-	public Iterator<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) {
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) {
 		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		HotelVO vo = new HotelVO(hotelID, sc.hotelName == null ? hotelName : sc.hotelName,
 					address, sc.region, sc.businessDistrict, sc.starLevel > 0 ? sc.starLevel : starLevel,
 						sc.score > 0 ? sc.score : score);
 		hotelList.add(vo);
-		return hotelList.iterator();
+		return hotelList;
 	}
 
 	@Override

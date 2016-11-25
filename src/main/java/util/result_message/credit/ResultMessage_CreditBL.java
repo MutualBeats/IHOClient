@@ -1,6 +1,6 @@
 package util.result_message.credit;
 
-public enum ResultMessage_Credit {
+public enum ResultMessage_CreditBL {
 	Credit_ChangeValue_Positive,
 	Credit_Net_Error, 
 	Credit_User_Not_Found,

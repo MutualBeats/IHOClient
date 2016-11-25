@@ -5,22 +5,23 @@
 package bussinesslogicservice.creditblservice;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import util.result_message.credit.ResultMessage_Credit;
+import util.result_message.credit.ResultMessage_CreditBL;
 import vo.credit.CreditVO;
 
 public interface CreditBLService {
 	/**
 	 * 增加信用
 	 */
-	public ResultMessage_Credit increaseCredit(String clientID, int value);
+	public ResultMessage_CreditBL increaseCredit(String clientID, int value);
 	/**
 	 * 扣除信用
 	 */
-	public ResultMessage_Credit decreaseCredit(String clientID, int value);
+	public ResultMessage_CreditBL decreaseCredit(String clientID, int value);
 	/**
 	 * 获得某客户信用记录
 	 */
-	public ArrayList<CreditVO> checkCreditRecord(String clientID);
+	public Iterator<CreditVO> checkCreditRecord(String clientID);
 	
 }

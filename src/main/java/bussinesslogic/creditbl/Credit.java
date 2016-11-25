@@ -2,14 +2,20 @@ package bussinesslogic.creditbl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
 import po.CreditChangePO;
 import util.Time;
-import util.result_message.credit.ResultMessage_Credit;
+import util.result_message.credit.ResultMessage_CreditBL;
 import vo.credit.CreditVO;
 
+/**
+ * 客户端逻辑具体实现
+ * 
+ * @author Saltwater
+ */
 public class Credit{
 	
 	private CreditDataHelper credit_data_service;
@@ -23,32 +29,45 @@ public class Credit{
 	}
 	
 	/**
-	 * Increase of Credit
+	 * Increase Credit
 	 * 
 	 * @param clientID
-	 * @param value
+	 * @param value : Credit Value to Increase
 	 * @return 
 	 */
-	public ResultMessage_Credit increaseCredit(String clientID, int value) {
+	public ResultMessage_CreditBL increaseCredit(String clientID, int value) {
 		if(value <= 0) {
 			System.err.print("Error ! Value change of credit to increase must be positive !\r\n");
-			return ResultMessage_Credit.Credit_ChangeValue_Positive;
+			return ResultMessage_CreditBL.Credit_ChangeValue_Positive;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
-		//TODO : May Need to Return According to the Specific Error
+		
 		return credit_data_service.increase(change);
 	}
 
-	public ResultMessage_Credit decreaseCredit(String clientID, int value) {
+	/**
+	 * Decrease Credit
+	 * 
+	 * @param clientID
+	 * @param value : Credit Value to Decrease
+	 * @return
+	 */
+	public ResultMessage_CreditBL decreaseCredit(String clientID, int value) {
 		if(value >= 0) {
 			System.err.print("Error ! Value change of credit to decrease must be negative !\r\n");
-			return ResultMessage_Credit.Credit_ChangeValue_Positive;
+			return ResultMessage_CreditBL.Credit_ChangeValue_Positive;
 		}
 		CreditChangePO change = new CreditChangePO(clientID, Time.getCurrentTime(), value);
 		return credit_data_service.decrease(change);
 	}
 
-	public ArrayList<CreditVO> checkCreditRecord(String clientID) {
+	/**
+	 * Get user's credit record
+	 * 
+	 * @param clientID
+	 * @return Iterator of Credit Record
+	 */
+	public Iterator<CreditVO> checkCreditRecord(String clientID) {
 		return credit_data_service.find(clientID);
 	}
 	

@@ -15,7 +15,7 @@ public interface RoomBLService {
 	 */
 	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList);
 	/**
-	 * 获得某酒店的所有房间
+	 * 获得某酒店的房间列表
 	 */
 	public ArrayList<RoomVO> getRoom(String hotelID);
 	/**

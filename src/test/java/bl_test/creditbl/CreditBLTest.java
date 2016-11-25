@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.junit.After;
 import org.junit.Before;
@@ -68,9 +69,8 @@ public class CreditBLTest {
 	
 	@Test
 	public void creditFindTest() {
-		ArrayList<CreditVO> records = credit.checkCreditRecord("12345678");
-		assertEquals(records.size(), 2);
-		CreditVO newest = records.get(0);
+		Iterator<CreditVO> records = credit.checkCreditRecord("12345678");
+		CreditVO newest = records.next();
 		assertEquals(newest.credit, 300);
 		assertEquals(newest.changeTime, "2016/10/16 11:30:24");
 		assertEquals(newest.changeValue, 100);

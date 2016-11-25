@@ -24,7 +24,8 @@ import vo.hotel.HotelVO;
  * Time : 2016/11/24
  * 
  * @author Saltwater
- * @version 2.0
+ * @version 3.0 :
+ * 		构建界面层Cache 设计。接口更改。
  */
 public class Hotel {
 
@@ -84,18 +85,21 @@ public class Hotel {
 	/**
 	 * @param sc
 	 *            Search Condition
-	 * @return
+	 * @return Iterator of hotels
 	 * @throws RemoteException
 	 *             : Net Exception
 	 */
-	public Iterator<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
 		ArrayList<HotelVO> hotels = new ArrayList<>();
 		Iterator<HotelPO> iterator = hotel_data_service.findHotelByCondition(sc);
-		while (iterator.hasNext()) {
+		int count = 0;
+		//Only choose part of data
+		while (iterator.hasNext() && count++ < 50) {
+			//Change hotel_po to hotel_vo
 			HotelVO each = new HotelVO(iterator.next());
 			hotels.add(each);
 		}
-		return hotels.iterator();
+		return hotels;
 	}
 
 	/**
@@ -110,7 +114,10 @@ public class Hotel {
 	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws RemoteException {
 		Iterator<HotelEvaluationPO> iterator = hotel_data_service.getHotelEvaluation(hotelID);
 		ArrayList<HotelEvaluationVO> evaluationVOs = new ArrayList<>();
-		while (iterator.hasNext()) {
+		int count = 0;
+		//Only choose part of data
+		while (iterator.hasNext()&& count++ < 50) {
+			//Change evaluation_po to vo
 			HotelEvaluationVO each = new HotelEvaluationVO(iterator.next());
 			evaluationVOs.add(each);
 		}

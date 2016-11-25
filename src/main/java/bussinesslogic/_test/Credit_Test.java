@@ -1,6 +1,7 @@
 package bussinesslogic._test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
 import po.CreditChangePO;
@@ -52,7 +53,7 @@ public class Credit_Test{
 		return ResultMessage_For_Stub.CreditDecreaseSuccess;
 	}
 
-	public ArrayList<CreditVO> checkCreditRecord(String clientID) {
+	public Iterator<CreditVO> checkCreditRecord(String clientID) {
 		return credit_data_service.find(clientID);
 	}
 	

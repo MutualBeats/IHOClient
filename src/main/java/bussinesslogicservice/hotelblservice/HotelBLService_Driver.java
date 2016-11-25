@@ -5,6 +5,7 @@
 package bussinesslogicservice.hotelblservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataservice.hoteldataservice.ResultMessage_Hotel;
@@ -39,18 +40,16 @@ public class HotelBLService_Driver {
 			System.out.println("Change Succeed\n");
 
 		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", "锦都金鼎大酒店", 0, 0);
-		Iterator<HotelVO> hotelList = null;
+		ArrayList<HotelVO> hotelList = null;
 		try {
 			hotelList = hotelBLService.getHotelsSatisfyCondition(sc);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		while (hotelList.hasNext()) {
-			HotelVO hotelVO = hotelList.next();
+		for (HotelVO hotelVO : hotelList)
 			System.out.println(hotelVO.hotelName + '\t' + hotelVO.address + '\t' + hotelVO.starLevel + '\t'
 					+ hotelVO.score + '\n');
-		}
 
 		HotelEvaluationVO vo2 = new HotelEvaluationVO("00000001", "丁二玉", "2016/10/16", 5, "强，无敌！");
 		result = hotelBLService.evaluate(vo2);
