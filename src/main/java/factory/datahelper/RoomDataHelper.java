@@ -115,13 +115,44 @@ public class RoomDataHelper {
 		return result;
 	}
 	
-	public ResultMessage_Room addRecord(RoomRecordPO po) {
-		
-		return null;
+	/**
+	 * 获取房间预定记录
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
+		return room_service.getOrderRecord(hotelID, roomNumber);
 	}
 	
-	public ResultMessage_Room deleteRecord(RoomRecordPO po) {
-		return null;
+	/**
+	 * 增加酒店预定记录
+	 * 
+	 * @param po
+	 * @return
+	 */
+	public ResultMessage_Room addRecord(RoomRecordPO po) {
+		try {
+			return this.room_service.addRecord(po);
+		} catch (RemoteException e) {
+			return ResultMessage_Room.Net_Error;
+		}
+	}
+	
+	/**
+	 * 删除预定记录
+	 * 
+	 * @param orderID
+	 * @return
+	 */
+	public ResultMessage_Room deleteRecord(String orderID) {
+		try {
+			return room_service.deleteRecord(orderID);
+		} catch (RemoteException e) {
+			return ResultMessage_Room.Net_Error;
+		}
 	}
 
 }
