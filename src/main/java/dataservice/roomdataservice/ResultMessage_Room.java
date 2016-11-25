@@ -1,6 +1,9 @@
 package dataservice.roomdataservice;
 
 public enum ResultMessage_Room {
-	Insert_Successful,
-	Update_Successful,
+	Room_Exist_Already, 
+	Room_Add_Successful, 
+	
+	
+	Net_Error, Check_In_Successful, Check_In_Failed
 }

@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import bussinesslogic.hotelbl.Hotel;
-import bussinesslogic.roombl.Room;
+import dataservice.roomdataservice.ResultMessage_Room;
 import dataservice.roomdataservice.RoomDataService;
 import po.RoomPO;
-import util.result_message.room.ResultMessage_RoomBL;
+import po.RoomRecordPO;
+import util.RoomCondition;
 
 /**
  * @author Saltwater
@@ -50,7 +50,7 @@ public class RoomDataHelper {
 	 */
 	public Iterator<RoomPO> getRoomList(String hotelID) throws RemoteException {
 		if (!current_hotel.equals(hotelID)) {
-			ArrayList<RoomPO> rooms = room_service.find(hotelID);
+			ArrayList<RoomPO> rooms = room_service.getRoom(hotelID);
 			// Cache Update
 			current_hotel = hotelID;
 			room_cache.clear();
@@ -70,38 +70,57 @@ public class RoomDataHelper {
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage_RoomBL addRoom(RoomPO po) {
+	public ResultMessage_Room addRoom(RoomPO po) {
 		if (!po.getHotelID().equals(current_hotel)) {
 			// Reload cache.
 			try {
 				getRoomList(po.getHotelID());
 			} catch (RemoteException e) {
-				return ResultMessage_RoomBL.Net_Error;
+				return ResultMessage_Room.Net_Error;
 			}
 		}
 		// Check Room.
 		if (room_cache.containsKey(po.getRoomNumber())) {
-			return ResultMessage_RoomBL.Room_Exist_Already;
+			return ResultMessage_Room.Room_Exist_Already;
 		} else {
 			//Update Cache
 			po.setHotelID(current_hotel);
 			room_cache.put(po.getRoomNumber(), po);
-			return ResultMessage_RoomBL.Room_Add_Successful;
+			return ResultMessage_Room.Room_Add_Successful;
 		}	
 	}
-	
-	public ResultMessage_RoomBL checkIn() {
-		
-	}
-	
 	/**
-	 * Update Room Info 
+	 * 入住酒店
 	 * 
-	 * @param po
+	 * @param hotelID
+	 * @param roomNumber
 	 * @return
 	 */
-	private ResultMessage_RoomBL update(RoomPO po) {
-		// TODO Auto-generated method stub
+	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
+		ResultMessage_Room result = null;
+		try {
+			//更新服务器端信息
+			result = room_service.checkIn(hotelID, roomNumber);
+		} catch (RemoteException e) {
+			//网络错误，中断操作
+			return ResultMessage_Room.Net_Error;
+		}
+		//更新本地缓存
+		if(result.equals(ResultMessage_Room.Check_In_Successful)) {
+			if(hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
+				RoomPO po = room_cache.get(roomNumber);
+				po.setCondition(RoomCondition.Occupied);
+			}
+		}
+		return result;
+	}
+	
+	public ResultMessage_Room addRecord(RoomRecordPO po) {
+		
+		return null;
+	}
+	
+	public ResultMessage_Room deleteRecord(RoomRecordPO po) {
 		return null;
 	}
 
