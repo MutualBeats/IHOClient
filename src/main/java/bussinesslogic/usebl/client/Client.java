@@ -6,6 +6,7 @@ import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
 import po.ClientPO;
 import po.MemberPO;
+import util.MemberType;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
@@ -78,6 +79,16 @@ public class Client {
 
 	public ResultMessage_For_User memberRegister(MemberVO vo) {
 		ResultMessage_For_User result = ResultMessage_For_User.BusinessRegisterSuccess;
+		
+		//是否已存在会员
+		MemberType type = vo.memberType;
+		MemberType existType = new Client().showMemberData(vo.clientID).memberType;
+		if(existType!=MemberType.Not)
+			if(existType==MemberType.Enterprise)
+				return ResultMessage_For_User.BusinessMember_Exist;		
+			else
+				return ResultMessage_For_User.OriginalMember_Exist;	
+		
 		MemberPO po = new MemberPO();
 		po.setClientID(vo.clientID);
 		po.setMemberType(vo.memberType);
