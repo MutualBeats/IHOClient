@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.datafactoryservice.DataFactory;
-import po.CreditPO;
+import po.credit.CreditPO;
 
 public class DataFactoryHelper {
 

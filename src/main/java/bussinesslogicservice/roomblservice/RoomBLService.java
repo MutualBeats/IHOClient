@@ -4,6 +4,7 @@
  */
 package bussinesslogicservice.roomblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.roomdataservice.ResultMessage_Room;
@@ -12,21 +13,24 @@ import vo.room.RoomVO;
 public interface RoomBLService {
 	/**
 	 * 录入客房
+	 * @return 未成功录入列表
+	 * @throws RemoteException 
 	 */
-	public ResultMessage_Room importRoom(ArrayList<RoomVO> importRoomList);
+	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws RemoteException;
 
 	/**
 	 * 获得某酒店的房间列表
+	 * @throws RemoteException 
 	 */
-	public ArrayList<RoomVO> getRoom(String hotelID);
+	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException;
 
 	/**
 	 * 客户入住
 	 */
-	public ResultMessage_Room checkIn(String hotelID, String roomID);
+	public ResultMessage_Room checkIn(String hotelID, String roomNumber);
 
 	/**
 	 * 客户退房
 	 */
-	public ResultMessage_Room checkOut(String hotelID, String roomID);
+	public ResultMessage_Room checkOut(String hotelID, String roomNumber);
 }

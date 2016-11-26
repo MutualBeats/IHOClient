@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.OrderPO;
+import po.order.OrderPO;
 import util.ResultMessage_For_Stub;
 
 public interface OrderDataService extends Remote{

@@ -4,13 +4,14 @@
  * @version 2016年11月19日 添加空构造方法
  * @version 2016年11月22日 po属性修改
  */
-package po;
+package po.room;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import util.RoomCondition;
 import util.RoomType;
+import vo.room.RoomVO;
 
 public class RoomPO implements Serializable {
 	/**
@@ -55,6 +56,10 @@ public class RoomPO implements Serializable {
 	}
 
 	public RoomPO() {
+	}
+	
+	public RoomPO(RoomVO vo) {
+		this(vo.hotelID, vo.roomNumber, vo.type, vo.price, vo.condition);
 	}
 
 	public String getHotelID() {

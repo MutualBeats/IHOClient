@@ -8,8 +8,8 @@ import java.util.Map;
 
 import dataservice.roomdataservice.ResultMessage_Room;
 import dataservice.roomdataservice.RoomDataService;
-import po.RoomPO;
-import po.RoomRecordPO;
+import po.room.RoomPO;
+import po.room.RoomRecordPO;
 import util.RoomCondition;
 
 /**
@@ -22,7 +22,7 @@ public class RoomDataHelper {
 	/**
 	 * Cache for room . Store all the room info in specific hotel
 	 * 
-	 * Key : RoomNumber 
+	 * Key : RoomNumber
 	 */
 	private Map<String, RoomPO> room_cache;
 	/**
@@ -57,7 +57,7 @@ public class RoomDataHelper {
 			current_hotel = hotelID;
 			room_cache.clear();
 			Iterator<RoomPO> iterator = rooms.iterator();
-			//Reload
+			// Reload
 			while (iterator.hasNext()) {
 				RoomPO each = iterator.next();
 				room_cache.put(each.getRoomNumber(), each);
@@ -66,31 +66,51 @@ public class RoomDataHelper {
 		return room_cache.values().iterator();
 	}
 
+	// /**
+	// * 获取房间信息
+	// *
+	// * @param hotelID
+	// * @param roomNumber
+	// * @return
+	// * @throws RemoteException
+	// */
+	// public RoomPO getRoomInfo(String hotelID, String roomNumber) throws
+	// RemoteException{
+	// //Most operation is handle here
+	// if(current_hotel.equals(hotelID) && room_cache.containsKey(roomNumber)) {
+	// return room_cache.get(roomNumber);
+	// }
+	// //Error happen when request from server
+	// return room_service.getRoomInfo(hotelID, roomNumber);
+	// }
+
 	/**
-	 * 添加酒店
+	 * 添加房间
 	 * 
 	 * @param po
 	 * @return
+	 * @throws RemoteException
+	 *             : Net Error
 	 */
-	public ResultMessage_Room addRoom(RoomPO po) {
-		if (!po.getHotelID().equals(current_hotel)) {
-			// Reload cache.
-			try {
-				getRoomList(po.getHotelID());
-			} catch (RemoteException e) {
-				return ResultMessage_Room.Net_Error;
-			}
-		}
+	public ResultMessage_Room addRoom(RoomPO po) throws RemoteException {
+		// Reload cache.
+		getRoomList(po.getHotelID());
 		// Check Room.
 		if (room_cache.containsKey(po.getRoomNumber())) {
 			return ResultMessage_Room.Room_Exist_Already;
 		} else {
-			//Update Cache
-			po.setHotelID(current_hotel);
-			room_cache.put(po.getRoomNumber(), po);
-			return ResultMessage_Room.Room_Add_Successful;
-		}	
+			ResultMessage_Room result = ResultMessage_Room.Room_Add_Successful;
+			// Update Server
+			result = room_service.addRoom(po);
+			if (result.equals(ResultMessage_Room.Room_Add_Successful)) {
+				// Update Cache
+				po.setHotelID(current_hotel);
+				room_cache.put(po.getRoomNumber(), po);
+			}
+			return result;
+		}
 	}
+
 	/**
 	 * 入住酒店
 	 * 
@@ -101,36 +121,36 @@ public class RoomDataHelper {
 	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
 		ResultMessage_Room result = null;
 		try {
-			//更新服务器端信息
+			// 更新服务器端信息
 			result = room_service.checkIn(hotelID, roomNumber);
 		} catch (RemoteException e) {
-			//网络错误，中断操作
+			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
-		//更新本地缓存
-		if(result.equals(ResultMessage_Room.Check_In_Successful)) {
-			if(hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
+		// 更新本地缓存
+		if (result.equals(ResultMessage_Room.Check_In_Successful)) {
+			if (hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
 				RoomPO po = room_cache.get(roomNumber);
 				po.setCondition(RoomCondition.Occupied);
 			}
 		}
 		return result;
 	}
-	
+
 	public ResultMessage_Room checkOut(String hotelID, String roomNumber) {
 		ResultMessage_Room result = null;
 		try {
-			//更新服务器端信息
+			// 更新服务器端信息
 			result = room_service.checkOut(hotelID, roomNumber);
 		} catch (RemoteException e) {
-			//网络错误，中断操作
+			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
-		//更新本地缓存
-		if(result.equals(ResultMessage_Room.Check_Out_Successful)) {
-			if(hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
+		// 更新本地缓存
+		if (result.equals(ResultMessage_Room.Check_Out_Successful)) {
+			if (hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
 				RoomPO po = null;
-				//更新房间信息
+				// 更新房间信息
 				try {
 					po = room_service.getRoomInfo(hotelID, roomNumber);
 				} catch (RemoteException e) {
@@ -142,7 +162,7 @@ public class RoomDataHelper {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 获取房间预定记录
 	 * 
@@ -151,10 +171,10 @@ public class RoomDataHelper {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
-		return room_service.getOrderRecord(hotelID, roomNumber);
+	public Iterator<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
+		return room_service.getOrderRecord(hotelID, roomNumber).iterator();
 	}
-	
+
 	/**
 	 * 增加酒店预定记录
 	 * 
@@ -168,7 +188,7 @@ public class RoomDataHelper {
 			return ResultMessage_Room.Net_Error;
 		}
 	}
-	
+
 	/**
 	 * 删除预定记录
 	 * 

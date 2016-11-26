@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.creditdataservice.ResultMessage_Credit;
-import po.CreditChangePO;
-import po.CreditPO;
+import po.credit.CreditChangePO;
+import po.credit.CreditPO;
 import util.result_message.credit.ResultMessage_CreditBL;
 import vo.credit.CreditVO;
 

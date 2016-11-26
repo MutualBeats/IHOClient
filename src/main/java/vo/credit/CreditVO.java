@@ -4,7 +4,7 @@
  */
 package vo.credit;
 
-import po.CreditPO;
+import po.credit.CreditPO;
 import util.CreditChangeAction;
 
 public class CreditVO {

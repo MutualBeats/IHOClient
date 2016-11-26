@@ -4,10 +4,8 @@
  */
 package vo.room;
 
-import java.util.ArrayList;
-
-import util.RoomCheckRecord;
-import util.RoomConditionOfDate;
+import po.room.RoomPO;
+import util.RoomCondition;
 import util.RoomType;
 
 public class RoomVO {
@@ -28,30 +26,29 @@ public class RoomVO {
 	 */
 	public int price;
 	/**
-	 * 房间记录
+	 * 当前状态
 	 */
-	public ArrayList<RoomCheckRecord> checkRecordList;
-	/**
-	 * 房间状态
-	 */
-	public ArrayList<RoomConditionOfDate> conditionList;
+	public RoomCondition condition;
 	
 	/**
-	 * 构造方法
 	 * @param hotelID
 	 * @param roomNumber
 	 * @param type
 	 * @param price
-	 * @param checkRecordList
-	 * @param conditionList
+	 * @param condition
 	 */
-	public RoomVO(String hotelID, String roomNumber, RoomType type, int price, 
-				ArrayList<RoomCheckRecord> checkRecordList, ArrayList<RoomConditionOfDate> conditionList) {
+	public RoomVO(String hotelID, String roomNumber, RoomType type, int price, RoomCondition condition) {
+		super();
 		this.hotelID = hotelID;
 		this.roomNumber = roomNumber;
 		this.type = type;
 		this.price = price;
-		this.checkRecordList = checkRecordList;
-		this.conditionList = conditionList;
+		this.condition = condition;
 	}
+
+	public RoomVO(RoomPO info) {
+		this(info.getHotelID(), info.getRoomNumber(), info.getType(), info.getPrice(), info.getCondition());
+	}
+	
+	
 }

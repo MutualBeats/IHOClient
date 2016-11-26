@@ -1,4 +1,4 @@
-package po;
+package po.credit;
 
 public class CreditChangePO {
 	

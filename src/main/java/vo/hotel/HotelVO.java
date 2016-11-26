@@ -4,7 +4,7 @@
  */
 package vo.hotel;
 
-import po.HotelPO;
+import po.hotel.HotelPO;
 
 public class HotelVO {
 	/**

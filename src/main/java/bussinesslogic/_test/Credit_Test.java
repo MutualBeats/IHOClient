@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
-import po.CreditChangePO;
-import po.CreditPO;
+import po.credit.CreditChangePO;
+import po.credit.CreditPO;
 import util.ResultMessage_For_Stub;
 import util.Time;
 import vo.credit.CreditVO;

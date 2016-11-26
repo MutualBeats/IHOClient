@@ -8,8 +8,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.RoomPO;
-import po.RoomRecordPO;
+import po.room.RoomPO;
+import po.room.RoomRecordPO;
 
 public interface RoomDataService extends Remote{
 	/**

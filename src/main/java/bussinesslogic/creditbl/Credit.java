@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
-import po.CreditChangePO;
+import po.credit.CreditChangePO;
 import util.Time;
 import util.result_message.credit.ResultMessage_CreditBL;
 import vo.credit.CreditVO;
