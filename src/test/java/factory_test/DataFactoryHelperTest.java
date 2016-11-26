@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import org.junit.Test;
 
 import dataservice.datafactoryservice.DataFactory;
+import factory.datahelper.CreditDataHelper;
 import factory.test_helper.DataFactoryHelper;
 
 /**
@@ -35,6 +36,7 @@ public class DataFactoryHelperTest {
 		} catch (RemoteException e) {
 			fail("Connection Error");
 		}
+		
 	}
 
 }

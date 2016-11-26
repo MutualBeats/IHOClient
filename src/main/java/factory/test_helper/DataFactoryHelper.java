@@ -50,7 +50,7 @@ public class DataFactoryHelper {
 			try {
 				factory = (DataFactory) Naming.lookup("rmi://" + ip + ":" + port + "/DataFactory");
 			} catch (MalformedURLException | RemoteException | NotBoundException e) {
-				// TODO Auto-generated catch block
+//				System.err.println("Error");
 				e.printStackTrace();
 			}
 		}

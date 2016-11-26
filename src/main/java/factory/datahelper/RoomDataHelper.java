@@ -66,23 +66,22 @@ public class RoomDataHelper {
 		return room_cache.values().iterator();
 	}
 
-	// /**
-	// * 获取房间信息
-	// *
-	// * @param hotelID
-	// * @param roomNumber
-	// * @return
-	// * @throws RemoteException
-	// */
-	// public RoomPO getRoomInfo(String hotelID, String roomNumber) throws
-	// RemoteException{
-	// //Most operation is handle here
-	// if(current_hotel.equals(hotelID) && room_cache.containsKey(roomNumber)) {
-	// return room_cache.get(roomNumber);
-	// }
-	// //Error happen when request from server
-	// return room_service.getRoomInfo(hotelID, roomNumber);
-	// }
+	/**
+	 * 获取房间信息
+	 *
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws RemoteException {
+		// Most operation is handle here
+		if (current_hotel.equals(hotelID) && room_cache.containsKey(roomNumber)) {
+			return room_cache.get(roomNumber);
+		}
+		// Error may happen when request from server
+		return room_service.getRoomInfo(hotelID, roomNumber);
+	}
 
 	/**
 	 * 添加房间

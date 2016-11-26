@@ -47,4 +47,8 @@ public class RoomController implements RoomBLService, RoomUpdate{
 		return room.deleteRecord(orderID);
 	}
 
+	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException {
+		return room.getRoomInfo(hotelID, roomNumber);
+	}
+	
 }

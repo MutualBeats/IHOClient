@@ -1,73 +1,92 @@
-/**
- * @author huangxiao
- * 2016年11月6日
- */
 package bl_test.roombl;
-
-import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.roombl.Room;
-import util.ResultMessage_For_Stub;
+import bussinesslogic.roombl.RoomController;
+import dataservice.roomdataservice.ResultMessage_Room;
+import po.room.RoomRecordPO;
 import util.RoomCondition;
 import util.RoomType;
 import vo.room.RoomVO;
 
-public class RoomBlTest {
-	
-	RoomVO vo;
-	Room room;
+public class RoomBLTest {
+
+	private RoomController controller;
 	
 	@Before
 	public void init() {
-		vo = new RoomVO("00000001", "3B323", RoomType.Single, 100, RoomCondition.Occupied);
-		room = new Room();
-	}
-
-	@Test
-	public void testImportRoom() {
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
-		roomList.add(vo);
-		try {
-			assertEquals(ResultMessage_For_Stub.ImportSuccess, room.importRoom(roomList));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		controller = new RoomController();
 	}
 	
+	/**
+	 * Only the first test is effective
+	 */
 	@Test
-	public void testGetRoom() {
-		boolean contain = false;
-		ArrayList<RoomVO> rooms = null;
+	public void testImport() {
+		ArrayList<RoomVO> roomList = new ArrayList<>();
+		roomList.add(new RoomVO("00000001", "3B323", RoomType.Double, 200, RoomCondition.NotReserved));
+		ArrayList<String> failedList = null;
 		try {
-			rooms = room.getRoomList("00000001");
+			failedList = controller.importRoom(roomList);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(RoomVO room : rooms) {
-			if(room.equals(vo)) {
-				contain = true;
-				break;
-			}
-		}
-		assertEquals(true, contain);
+		assertEquals(failedList.size(), 1);
 	}
 	
 	@Test
 	public void testCheckIn() {
-		assertEquals(ResultMessage_For_Stub.RoomUpdateSuccess, room.checkIn(vo.hotelID, vo.roomNumber));
+		ResultMessage_Room result = null;
+		result = controller.checkIn("00000001", "3B323"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_In_Successful);
+		}
+		result = controller.checkIn("00000001", "3B322"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_In_Successful);
+		}
+		result = controller.checkIn("00000001", "3B321"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_In_Successful);
+		}
+		result = controller.checkIn("00000001", "3B321"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_In_Failed);
+		}
 	}
 	
 	@Test
 	public void testCheckOut() {
-		assertEquals(ResultMessage_For_Stub.RoomUpdateSuccess, room.checkOut(vo.hotelID, vo.roomNumber));
+		ResultMessage_Room result = null;
+		result = controller.checkOut("00000001", "3B323"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_Out_Successful);
+		}
+		result = controller.checkOut("00000001", "3B322"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_Out_Successful);
+		}
+		result = controller.checkOut("00000001", "3B321"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_Out_Successful);
+		}
+		result = controller.checkOut("00000001", "3B321"); 
+		if(!result.equals(ResultMessage_Room.Net_Error)) {
+			assertEquals(result, ResultMessage_Room.Check_Out_Failed);
+		}
+	}
+	
+	@Test
+	public void testRecord() {
+		ResultMessage_Room result = null;
+		result = controller.addRecord(new RoomRecordPO("00000001", "3B323", "0000000000000001"
+				+ "", "2016/11/26","2016/11/27"));		
 	}
 
 }

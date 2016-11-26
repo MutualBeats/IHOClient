@@ -130,5 +130,9 @@ public class Room {
 	public ResultMessage_Room deleteRecord(String orderID) {
 		return room_service.deleteRecord(orderID);
 	}
-
+	
+	public RoomVO getRoomInfo(String hotelID, String roomNumber) throws RemoteException {
+		return new RoomVO(room_service.getRoomInfo(hotelID, roomNumber));
+	}
+	
 }
