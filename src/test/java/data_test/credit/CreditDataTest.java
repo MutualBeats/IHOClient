@@ -4,6 +4,49 @@
  */
 package data_test.credit;
 
+import static org.junit.Assert.fail;
+
+import java.rmi.RemoteException;
+import java.util.Iterator;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import factory.datahelper.CreditDataHelper;
+import factory.datahelper.DataHelperFactory;
+import vo.credit.CreditVO;
+
 public class CreditDataTest {
+	private CreditDataHelper creditDataHelper;
+	
+	@Before
+	public void init() {
+		try {
+			creditDataHelper = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testIncrease() {
+	}
+	
+	@Test
+	public void testFind() {
+		try {
+			Iterator<CreditVO> it = creditDataHelper.find("1234567890");
+			for(; it.hasNext();) {
+				if(!it.next().clientID.equals("1234567890"))
+					fail("Find Error!");
+				// TODO
+			}
+		} catch (Exception e) {
+			fail("Exception!");
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 }

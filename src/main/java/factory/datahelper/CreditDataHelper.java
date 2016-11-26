@@ -39,17 +39,21 @@ public class CreditDataHelper {
 	}
 
 	private ResultMessage_CreditBL creditChange(CreditChangePO po) {
+		//Check local data
+		checkAndUpdateCache(po.getClientID());
+		//Change Create
 		CreditPO i_po = new CreditPO();
+		i_po.setAction();
 		i_po.setChangeTime(po.getChangeTime());
 		i_po.setClientID(po.getClientID());
 		i_po.setChangeValue(po.getChangeValue());
-		int after_credit = i_po.getCredit() + po.getChangeValue();
+		//Count current credit
+		int after_credit = credit_record_cache.get(0).getCredit() + po.getChangeValue();
 		i_po.setCredit(after_credit);
 		return insert(i_po);
 	}
 
 	private ResultMessage_CreditBL insert(CreditPO po) {
-		checkAndUpdateCache(po.getClientID());
 		// Cache Update
 		credit_record_cache.add(po);
 		// TODO : 留给结束模块、异常模块完成
