@@ -1,6 +1,5 @@
 package bussinesslogic.creditbl;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.CreditUpdate;

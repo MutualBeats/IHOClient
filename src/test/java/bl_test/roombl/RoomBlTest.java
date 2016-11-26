@@ -14,9 +14,7 @@ import org.junit.Test;
 
 import bussinesslogic.roombl.Room;
 import util.ResultMessage_For_Stub;
-import util.RoomCheckRecord;
 import util.RoomCondition;
-import util.RoomConditionOfDate;
 import util.RoomType;
 import vo.room.RoomVO;
 

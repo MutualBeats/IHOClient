@@ -4,7 +4,6 @@
  */
 package bussinesslogicservice.creditblservice;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import util.result_message.credit.ResultMessage_CreditBL;

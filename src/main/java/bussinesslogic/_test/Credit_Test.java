@@ -1,6 +1,5 @@
 package bussinesslogic._test;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
