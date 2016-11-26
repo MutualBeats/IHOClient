@@ -11,13 +11,7 @@ import dataservice.creditdataservice.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 public interface CreditBLService {
-	
-	/**
-	 * 更新信用记录
-	 * @param updateVO
-	 * @return
-	 */
-	public ResultMessage_Credit creditUpdate(CreditVO updateVO);
+
 	/**
 	 * 获得某客户信用记录
 	 * @throws RemoteException 

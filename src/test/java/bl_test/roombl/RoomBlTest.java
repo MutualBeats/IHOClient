@@ -15,7 +15,7 @@ import util.RoomCondition;
 import util.RoomType;
 import vo.room.RoomVO;
 
-public class RoomBLTest {
+public class RoomBlTest {
 
 	private RoomController controller;
 	
