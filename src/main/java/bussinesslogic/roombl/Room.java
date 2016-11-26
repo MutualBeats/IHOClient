@@ -7,6 +7,7 @@ package bussinesslogic.roombl;
 
 import java.util.ArrayList;
 
+import dataservice.roomdataservice.ResultMessage_Room;
 import util.ResultMessage_For_Stub;
 import vo.room.RoomVO;
 
@@ -19,20 +20,33 @@ import vo.room.RoomVO;
 
 public class Room {
 	
-	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList) {
+	/**
+	 * 导入房间
+	 * 
+	 * @param importRoomList
+	 * @return
+	 */
+	public ResultMessage_Room importRoom(ArrayList<RoomVO> importRoomList) {
+		return null;
+	}
+	/**
+	 * 获得房间列表
+	 * 
+	 * @param hotelID
+	 * @return
+	 */
+	public ArrayList<RoomVO> getRoomList(String hotelID) {
 		return null;
 	}
 
-	public ArrayList<RoomVO> getRoom(String hotelID) {
+	public ResultMessage_Room checkIn(String hotelID, String roomID) {
 		return null;
 	}
 
-	public ResultMessage_For_Stub checkIn(String hotelID, String roomID) {
+	public ResultMessage_Room checkOut(String hotelID, String roomID) {
 		return null;
 	}
-
-	public ResultMessage_For_Stub checkOut(String hotelID, String roomID) {
-		return null;
-	}
+	
+	
 
 }

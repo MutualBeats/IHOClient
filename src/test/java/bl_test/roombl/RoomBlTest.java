@@ -39,7 +39,7 @@ public class RoomBlTest {
 	@Test
 	public void testGetRoom() {
 		boolean contain = false;
-		ArrayList<RoomVO> rooms = room.getRoom("00000001");
+		ArrayList<RoomVO> rooms = room.getRoomList("00000001");
 		for(RoomVO room : rooms) {
 			if(room.equals(vo)) {
 				contain = true;

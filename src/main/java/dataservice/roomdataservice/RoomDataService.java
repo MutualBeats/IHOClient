@@ -21,6 +21,15 @@ public interface RoomDataService extends Remote{
 	 */
 	public ArrayList<RoomPO> getRoom(String hotelID) throws RemoteException;
 	/**
+	 * 获取房间信息
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws RemoteException;
+	/**
 	 * 添加酒店
 	 * 
 	 * @param po
@@ -71,4 +80,6 @@ public interface RoomDataService extends Remote{
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Room deleteRecord(String orderID) throws RemoteException;
+
+	
 }

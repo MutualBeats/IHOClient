@@ -2,7 +2,7 @@ package bussinesslogicservice.roomblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
+import dataservice.roomdataservice.ResultMessage_Room;
 import util.RoomCheckRecord;
 import util.RoomConditionOfDate;
 import util.RoomType;
@@ -29,10 +29,10 @@ public class RoomBLService_Stub implements RoomBLService {
 
 	// 录入客房
 	@Override
-	public ResultMessage_For_Stub importRoom(ArrayList<RoomVO> importRoomList) {
+	public ResultMessage_Room importRoom(ArrayList<RoomVO> importRoomList) {
 		if(importRoomList.size() == 1)
-			return ResultMessage_For_Stub.ImportSuccess;
-		else return ResultMessage_For_Stub.ImportFailed;
+			return ResultMessage_Room.Import_Successful;
+		else return ResultMessage_Room.Import_Failed;
 	}
 
 	// 得到某酒店房间列表
@@ -48,14 +48,14 @@ public class RoomBLService_Stub implements RoomBLService {
 	
 	// 客户入住
 	@Override
-	public ResultMessage_For_Stub checkIn(String hotelID, String roomID) {
-		return ResultMessage_For_Stub.RoomUpdateSuccess;
+	public ResultMessage_Room checkIn(String hotelID, String roomID) {
+		return ResultMessage_Room.Check_In_Successful;
 	}
 	
 	// 客户退房
 	@Override
-	public ResultMessage_For_Stub checkOut(String hotelID, String roomID) {
-		return ResultMessage_For_Stub.RoomUpdateSuccess;
+	public ResultMessage_Room checkOut(String hotelID, String roomID) {
+		return ResultMessage_Room.Check_Out_Successful;
 	}
 	
 }

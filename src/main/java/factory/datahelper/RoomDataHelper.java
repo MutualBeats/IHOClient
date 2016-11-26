@@ -21,6 +21,8 @@ public class RoomDataHelper {
 	private RoomDataService room_service;
 	/**
 	 * Cache for room . Store all the room info in specific hotel
+	 * 
+	 * Key : RoomNumber 
 	 */
 	private Map<String, RoomPO> room_cache;
 	/**
@@ -110,6 +112,32 @@ public class RoomDataHelper {
 			if(hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
 				RoomPO po = room_cache.get(roomNumber);
 				po.setCondition(RoomCondition.Occupied);
+			}
+		}
+		return result;
+	}
+	
+	public ResultMessage_Room checkOut(String hotelID, String roomNumber) {
+		ResultMessage_Room result = null;
+		try {
+			//更新服务器端信息
+			result = room_service.checkOut(hotelID, roomNumber);
+		} catch (RemoteException e) {
+			//网络错误，中断操作
+			return ResultMessage_Room.Net_Error;
+		}
+		//更新本地缓存
+		if(result.equals(ResultMessage_Room.Check_Out_Successful)) {
+			if(hotelID.equals(current_hotel) && room_cache.containsKey(roomNumber)) {
+				RoomPO po = null;
+				//更新房间信息
+				try {
+					po = room_service.getRoomInfo(hotelID, roomNumber);
+				} catch (RemoteException e) {
+					return ResultMessage_Room.Net_Error;
+				}
+				room_cache.remove(roomNumber);
+				room_cache.put(roomNumber, po);
 			}
 		}
 		return result;
