@@ -1,9 +1,10 @@
 package bl_test.roombl;
 
+import static org.junit.Assert.assertEquals;
+
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 

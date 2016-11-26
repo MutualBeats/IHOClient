@@ -8,5 +8,6 @@ package dataservice.creditdataservice;
  */
 public enum ResultMessage_Credit {
 	Update_Successful,
-	User_Not_Found,
+	User_Not_Found, 
+	Credit_Net_Error,
 }

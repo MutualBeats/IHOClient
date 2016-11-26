@@ -8,6 +8,7 @@ package po.credit;
 import java.io.Serializable;
 
 import util.CreditChangeAction;
+import vo.credit.CreditVO;
 
 public class CreditPO implements Serializable {
 	/**
@@ -66,6 +67,14 @@ public class CreditPO implements Serializable {
 	}
 
 	public CreditPO() {
+	}
+
+	public CreditPO(CreditVO vo) {
+		setAction(vo.action);
+		setChangeTime(vo.changeTime);
+		setClientID(vo.clientID);
+		setChangeValue(vo.changeValue);
+		setOrderID(vo.orderID);
 	}
 
 	/**
