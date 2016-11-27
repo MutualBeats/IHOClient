@@ -13,6 +13,14 @@ import vo.credit.CreditVO;
 public interface CreditBLService {
 
 	/**
+	 * Update the credit of current client;
+	 * And make a credit record in credit
+	 * 
+	 * @param vo : the value of order
+	 */
+	public ResultMessage_Credit creditUpdate(CreditVO updateVO);
+		
+	/**
 	 * 获得某客户信用记录
 	 * @throws RemoteException 
 	 */

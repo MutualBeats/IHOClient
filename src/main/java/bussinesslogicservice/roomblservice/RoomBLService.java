@@ -23,7 +23,15 @@ public interface RoomBLService {
 	 * @throws RemoteException 
 	 */
 	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException;
-
+	/**
+	 * 房间信息
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException;
 	/**
 	 * 客户入住
 	 */
