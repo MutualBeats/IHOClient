@@ -1,18 +1,20 @@
 package util;
 
 public enum ResultMessage_For_User {
+	LoginSuccess,
+	LoginFail,
+	UserID_Invalid,//ID非法
+	PasswordWrong,//密码错误
+	Account_Not_Exist,//账户不存在
 	
 	GetDataSuccess,
 	GetDataFail,
 
 	UpdateSuccess,
 	UpdateFail,
-	
-	LoginSuccess,
-	LoginFail,
-	PasswordWrong,
-	Account_Not_Exist,
-	
+	UserName_Invalid,
+	Tel_Invalid,
+
 	OriginalRegisterSuccess,
 	BusinessRegisterSuccess,
 	OriginalRegisterFail,
@@ -23,4 +25,7 @@ public enum ResultMessage_For_User {
 	AddSucccess,
 	AddFail,
 	Account_Exist,
+	
+	Hotel_Not_Exist,
+	Hotel_Have_Staff,
 }

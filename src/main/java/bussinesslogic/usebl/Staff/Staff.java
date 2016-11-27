@@ -20,7 +20,17 @@ public class Staff {
 		}
 	}
 	
+	/*
+	 * UserID Invalid
+	 * 
+	 * Account Not Exist
+	 * Password Wrong
+	 * */
 	public ResultMessage_For_User Login(String staffID, String password) {
+		int len = staffID.length();
+		if(len<8||len>16)
+			return ResultMessage_For_User.UserID_Invalid;
+		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
 		try {
 			result = staffDataService.find(staffID, password);
@@ -30,7 +40,16 @@ public class Staff {
 		return result;
 	}
 
+	/* 
+	 * Return null:
+	 * 	UserID Invalid
+	 * 	Account Not Exist
+	 * */
 	public StaffVO showData(String staffID) {
+		int len = staffID.length();
+		if(len<8||len>16)
+			return null;
+		
 		StaffPO po = new StaffPO();
 		try {
 			po = staffDataService.findData(staffID);
@@ -38,13 +57,24 @@ public class Staff {
 			System.out.println(ResultMessage_For_User.GetDataFail);
 			e.printStackTrace();
 		}
+		
+		if(po==null)
+			return null;
+		
 		StaffVO vo;
 		vo = new StaffVO(po.getStaffID(),po.getStaffname(),po.getHotelId());
 		System.out.println(ResultMessage_For_User.GetDataSuccess);
 		return vo;
 	}
 
+	/*
+	 * UserName Invalid
+	 */
 	public ResultMessage_For_User changeData(StaffVO vo) {
+		int len = vo.staffname.length();
+		if(len<8||len>16)
+			return ResultMessage_For_User.UserName_Invalid;
+		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		po.setStaffID(vo.staffID);
@@ -58,7 +88,23 @@ public class Staff {
 		return result;
 	}
 
+	/*
+	 * UserID Invalid
+	 * UserName Invalid
+	 * 
+	 * Hotel Not Exist
+	 * Hotel Have Staff
+	 * Account Exist
+	 */
 	public ResultMessage_For_User addStaff(StaffVO vo, String password) {
+		int lenOfID = vo.staffID.length();
+		if(lenOfID<8||lenOfID>16)
+			return ResultMessage_For_User.UserID_Invalid;
+		
+		int lenOfName = vo.staffname.length();
+		if(lenOfName<8||lenOfName>16)
+			return ResultMessage_For_User.UserName_Invalid;
+		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		po.setStaffID(vo.staffID);

@@ -22,7 +22,17 @@ public class Manager {
 		}
 	}
 
+	/*
+	 * UserID Invalid
+	 * 
+	 * Account Not Exist
+	 * Password Wrong
+	 * */
 	public ResultMessage_For_User Login(String managerID, String password) {
+		int len = managerID.length();
+		if(len<8||len>16)
+			return ResultMessage_For_User.UserID_Invalid;
+		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
 		try {
 			result = managerDataService.find(managerID, password);
