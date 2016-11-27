@@ -7,6 +7,7 @@ package data_test.hotel;
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Before;
@@ -17,6 +18,7 @@ import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
+import util.SearchCondition;
 
 public class HotelDataTest {
 	private HotelDataHelper hotelDataHelper;
@@ -25,8 +27,7 @@ public class HotelDataTest {
 	public void init() {
 		try {
 			hotelDataHelper = DataHelperFactory.getDataFactoryHelperInstance().getHotelDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
 		}
 	}
 	
@@ -35,20 +36,31 @@ public class HotelDataTest {
 		HotelPO po = null;
 		try {
 			po = hotelDataHelper.getHotelInfo("00000001");
-		} catch (RemoteException e) {
-			fail("RemoteException");
-			e.printStackTrace();
+
+			assertNotNull(po);
+			assertEquals(po.getHotelID(), "00000001");
+			assertEquals(po.getHotelName(), "锦都金鼎大酒店");
+			assertEquals(po.getRegion(), "如皋市");
+			assertEquals(po.getBusinessDistrict(), "如城街道");
+			
+		} catch (Exception e) {
+			System.out.println("RemoteException");
 		}
-		assertNotNull(po);
-		assertEquals(po.getHotelID(), "00000001");
-		assertEquals(po.getHotelName(), "锦都金鼎大酒店");
-		assertEquals(po.getRegion(), "如皋市");
-		assertEquals(po.getBusinessDistrict(), "如城街道");
 	}
 	
 	@Test
 	public void testFindHotelByCondition() {
-		// TODO
+		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", null, 5, 4);
+		Iterator<HotelPO> it = null;
+		try {
+			it = hotelDataHelper.findHotelByCondition(sc);
+
+			assertNotNull(it);
+			assertEquals("00000001", it.next().getHotelID());
+		} catch (Exception e) {
+			System.out.println("RemoteException");
+
+		}
 	}
 	
 	@Test
@@ -60,38 +72,42 @@ public class HotelDataTest {
 		po.setRegion("如皋市");
 		po.setBusinessDistrict("如城街道");
 		
-		ResultMessage_Hotel res = hotelDataHelper.changeHotelInfo(po);
-		assertEquals(res, ResultMessage_Hotel.Change_Successful);
 		
 		String newAdress = null;
 		try {
+			ResultMessage_Hotel res = hotelDataHelper.changeHotelInfo(po);
+			assertEquals(res, ResultMessage_Hotel.Change_Successful);
+			
 			newAdress = hotelDataHelper.getHotelInfo("00000001").getAddress();
-		} catch (RemoteException e) {
-			e.printStackTrace();
+			assertNotNull(newAdress);
+			assertEquals(newAdress, "市政府对面");
+		} catch (Exception e) {
+			System.out.println("RemoteException");
 		}
-		assertNotNull(newAdress);
-		assertEquals(newAdress, "市政府对面");
+		
 	}
 	
 	@Test
 	public void testEvaluate() {
 		HotelEvaluationPO po = new HotelEvaluationPO();
-		po.setClientID("00000001");
-		po.setClientID("0000000000000001");
-		po.setEvaluateTime("2016/11/27 00:15:30");
+		po.setHotelID("00000001");
+		po.setClientID("0000000001");
+		po.setEvaluateTime("2999/11/27 00:15:30");
 		po.setEvaluateScore(3);
 		po.setEvaluateInfo("测试评论");
 		
-		hotelDataHelper.evaluate(po);
+		
 		double newScore = 0;
 		try {
+			ResultMessage_Hotel res = hotelDataHelper.evaluate(po);
+			assertEquals(ResultMessage_Hotel.Evaluate_Successful, res);
 			newScore = hotelDataHelper.getHotelInfo("00000001").getScore();
-		} catch (RemoteException e) {
-			fail("RemoteException");
-			e.printStackTrace();
+			if(newScore != 3.75)
+				fail("New Score Error!");
+		} catch (Exception e) {
+			System.out.println("RemoteException");
 		}
-		if(newScore != 3.75)
-			fail();
+	
 	}
 	
 	@Test
@@ -105,17 +121,19 @@ public class HotelDataTest {
 		po.setScore(3.56);
 		po.setStarLevel(3);
 		
-		hotelDataHelper.addHotel(po);
 		
 		HotelPO res = null;
 		try {
+			hotelDataHelper.addHotel(po);
+			
 			res = hotelDataHelper.getHotelInfo("11111111");
-		} catch (RemoteException e) {
-			e.printStackTrace();
+			assertNotNull(res);
+			assertEquals("11111111", res.getHotelID());
+			assertEquals("测试宾馆", res.getHotelName());
+		} catch (Exception e) {
+			System.out.println("RemoteException");
+
 		}
-		assertNotNull(res);
-		assertEquals("11111111", res.getHotelID());
-		assertEquals("测试宾馆", res.getHotelName());
 	}
 	
 	@Test
@@ -123,18 +141,12 @@ public class HotelDataTest {
 		Iterator<HotelEvaluationPO> it = null;
 		try {
 			it = hotelDataHelper.getHotelEvaluation("00000001");
-		} catch (RemoteException e) {
-			e.printStackTrace();
+			assertNotNull(it);
+			assertEquals("测试评论", it.next().getEvaluateInfo());
+		} catch (Exception e) {
+			System.out.println("RemoteException");
+
 		}
-		assertNotNull(it);
-		assertEquals("测试评论", it.next().getEvaluateInfo());
 	}
-	
+
 }
-
-
-
-
-
-
-

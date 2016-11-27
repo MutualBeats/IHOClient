@@ -79,7 +79,7 @@ public class Room {
 	 * @return
 	 */
 	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
-		return room_service.checkOut(hotelID, roomNumber);
+		return room_service.checkIn(hotelID, roomNumber);
 	}
 	
 	/**

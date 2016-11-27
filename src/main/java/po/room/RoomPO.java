@@ -62,6 +62,15 @@ public class RoomPO implements Serializable {
 		this(vo.hotelID, vo.roomNumber, vo.type, vo.price, vo.condition);
 	}
 
+	/**
+	 * Copy Constructor
+	 * 
+	 * @param po
+	 */
+	public RoomPO(RoomPO po) {
+		this(po.hotelID, po.roomNumber, po.type, po.price, po.condition);
+	}
+
 	public String getHotelID() {
 		return hotelID;
 	}
