@@ -3,12 +3,10 @@ package bl_test.userbl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.rmi.RemoteException;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.usebl.staff.Staff;
+import bussinesslogic.userbl.staff.Staff;
 import util.ResultMessage_For_User;
 import vo.user.StaffVO;
 
@@ -45,7 +43,7 @@ public class StaffBlTest {
 	public void showDataTest() {
 		try {
 			assertNull(staff.showData(vo1.staffID));
-			assertEquals(vo2.hotelId, staff.showData(vo2.staffID).hotelId);
+			assertEquals(vo2.hotelID, staff.showData(vo2.staffID).hotelID);
 			assertNull(staff.showData("123"));
 		} catch (Exception e) {
 			System.out.println("Exception");
@@ -55,9 +53,9 @@ public class StaffBlTest {
 	@Test
 	public void changeDataTest() {
 		try {
-			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"12345678901234567890", vo2.hotelId)));
+			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"12345678901234567890", vo2.hotelID)));
 			assertEquals(ResultMessage_For_User.UpdateSuccess, staff.changeData(vo2));
-			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"123", vo2.hotelId)));
+			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"123", vo2.hotelID)));
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}
@@ -66,13 +64,12 @@ public class StaffBlTest {
 	@Test
 	public void addMarketerTest() {
 		try {
-			assertEquals(ResultMessage_For_User.UserID_Invalid, staff.addStaff(new StaffVO("123", vo1.staffname,vo1.hotelId), password));
-			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "123",vo1.hotelId), password));
-			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "12345678901234567890",vo1.hotelId), password));
-			assertEquals(ResultMessage_For_User.HotelID_Invalid, staff.addStaff(new StaffVO(vo1.staffID, vo1.staffname,"123"), password));
-//			assertEquals(ResultMessage_For_User.Hotel_Not_Exist, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,"12345678"), password));
-			assertEquals(ResultMessage_For_User.Hotel_Have_Staff, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,vo2.hotelId), password));
-			assertEquals(ResultMessage_For_User.AddSucccess, staff.addStaff(vo1, password));
+			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff( "123",vo1.hotelID, password));
+			assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff( "12345678901234567890",vo1.hotelID, password));
+			assertEquals(ResultMessage_For_User.HotelID_Invalid, staff.addStaff( vo1.staffName,"123", password));
+			assertEquals(ResultMessage_For_User.Hotel_Not_Exist, staff.addStaff(vo1.staffName,"12345678", password));
+			assertEquals(ResultMessage_For_User.Hotel_Have_Staff, staff.addStaff(vo1.staffName,vo2.hotelID, password));
+			assertEquals(ResultMessage_For_User.AddSucccess, staff.addStaff(vo1.staffName, vo1.hotelID, password));
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}
