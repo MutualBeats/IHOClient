@@ -8,8 +8,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.RoomPO;
-import po.RoomRecordPO;
+import po.room.RoomPO;
+import po.room.RoomRecordPO;
 
 public interface RoomDataService extends Remote{
 	/**
@@ -20,6 +20,15 @@ public interface RoomDataService extends Remote{
 	 * @throws RemoteException
 	 */
 	public ArrayList<RoomPO> getRoom(String hotelID) throws RemoteException;
+	/**
+	 * 获取房间信息
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 添加酒店
 	 * 
@@ -47,6 +56,15 @@ public interface RoomDataService extends Remote{
 	 */
 	public ResultMessage_Room checkOut(String hotelID, String roomNumber) throws RemoteException;
 	/**
+	 * 获得预定记录
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException;
+	/**
 	 * 增加房间预定记录
 	 * 
 	 * @param po
@@ -62,4 +80,6 @@ public interface RoomDataService extends Remote{
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Room deleteRecord(String orderID) throws RemoteException;
+
+	
 }

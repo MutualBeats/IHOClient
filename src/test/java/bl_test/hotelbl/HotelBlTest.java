@@ -8,7 +8,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.junit.Before;
 import org.junit.Test;

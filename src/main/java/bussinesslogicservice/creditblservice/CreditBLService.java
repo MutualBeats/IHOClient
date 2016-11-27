@@ -4,24 +4,26 @@
  */
 package bussinesslogicservice.creditblservice;
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 import java.util.Iterator;
 
-import util.result_message.credit.ResultMessage_CreditBL;
+import dataservice.creditdataservice.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 public interface CreditBLService {
+
 	/**
-	 * 增加信用
+	 * Update the credit of current client;
+	 * And make a credit record in credit
+	 * 
+	 * @param vo : the value of order
 	 */
-	public ResultMessage_CreditBL increaseCredit(String clientID, int value);
-	/**
-	 * 扣除信用
-	 */
-	public ResultMessage_CreditBL decreaseCredit(String clientID, int value);
+	public ResultMessage_Credit creditUpdate(CreditVO updateVO);
+		
 	/**
 	 * 获得某客户信用记录
+	 * @throws RemoteException 
 	 */
-	public Iterator<CreditVO> checkCreditRecord(String clientID);
+	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException;
 	
 }

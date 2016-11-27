@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dataservice.promotiondataservice.PromotionDataService;
 import po.ClientPO;
-import po.PromotionPO;
+import po.promotion.PromotionPO;
 import util.ResultMessage_For_Stub;
 
 public class PromotionDataHelper implements PromotionDataService{

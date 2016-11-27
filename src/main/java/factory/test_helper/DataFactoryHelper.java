@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.datafactoryservice.DataFactory;
-import po.CreditPO;
+import po.credit.CreditPO;
 
 public class DataFactoryHelper {
 
@@ -50,7 +50,7 @@ public class DataFactoryHelper {
 			try {
 				factory = (DataFactory) Naming.lookup("rmi://" + ip + ":" + port + "/DataFactory");
 			} catch (MalformedURLException | RemoteException | NotBoundException e) {
-				// TODO Auto-generated catch block
+//				System.err.println("Error");
 				e.printStackTrace();
 			}
 		}

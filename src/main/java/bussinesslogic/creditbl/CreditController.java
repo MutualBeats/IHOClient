@@ -1,30 +1,30 @@
 package bussinesslogic.creditbl;
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogicservice.creditblservice.CreditBLService;
-import util.result_message.credit.ResultMessage_CreditBL;
+import dataservice.creditdataservice.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 public class CreditController implements CreditBLService, CreditUpdate{
 	
 	private Credit credit = new Credit();
 	
-	@Override
-	public ResultMessage_CreditBL increaseCredit(String clientID, int value) {
-		return credit.increaseCredit(clientID, value);
-	}
+
 
 	@Override
-	public ResultMessage_CreditBL decreaseCredit(String clientID, int value) {
-		return credit.decreaseCredit(clientID, value);
-	}
-
-	@Override
-	public Iterator<CreditVO> checkCreditRecord(String clientID) {
+	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException {
 		return credit.checkCreditRecord(clientID);
 	}
+
+
+
+	@Override
+	public ResultMessage_Credit creditUpdate(CreditVO updateVO) {
+		return credit.creditUpdate(updateVO);
+	}
+
 	
 }

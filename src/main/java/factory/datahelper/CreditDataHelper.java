@@ -6,9 +6,7 @@ import java.util.Iterator;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.creditdataservice.ResultMessage_Credit;
-import po.CreditChangePO;
-import po.CreditPO;
-import util.result_message.credit.ResultMessage_CreditBL;
+import po.credit.CreditPO;
 import vo.credit.CreditVO;
 
 /**
@@ -29,27 +27,29 @@ public class CreditDataHelper {
 	public CreditDataHelper(CreditDataService data_service) {
 		this.data_service = data_service;
 	}
-
-	public ResultMessage_CreditBL increase(CreditChangePO po) {
-		return creditChange(po);
-	}
-
-	public ResultMessage_CreditBL decrease(CreditChangePO po) {
-		return creditChange(po);
-	}
-
-	private ResultMessage_CreditBL creditChange(CreditChangePO po) {
-		CreditPO i_po = new CreditPO();
-		i_po.setChangeTime(po.getChangeTime());
-		i_po.setClientID(po.getClientID());
-		i_po.setChangeValue(po.getChangeValue());
-		int after_credit = i_po.getCredit() + po.getChangeValue();
+	
+	/**
+	 * 信用更新
+	 * 
+	 * @param vo
+	 * @return
+	 */
+	public ResultMessage_Credit creditUpdate(CreditVO vo) {
+		//Check local data
+		try {
+			checkAndUpdateCache(vo.clientID);
+		} catch (RemoteException e) {
+			return ResultMessage_Credit.Credit_Net_Error;
+		}
+		//Change Create
+		CreditPO i_po = new CreditPO(vo);
+		//Count current credit
+		int after_credit = credit_record_cache.get(0).getCredit() + vo.changeValue;
 		i_po.setCredit(after_credit);
 		return insert(i_po);
 	}
 
-	private ResultMessage_CreditBL insert(CreditPO po) {
-		checkAndUpdateCache(po.getClientID());
+	private ResultMessage_Credit insert(CreditPO po) {
 		// Cache Update
 		credit_record_cache.add(po);
 		// TODO : 留给结束模块、异常模块完成
@@ -59,16 +59,12 @@ public class CreditDataHelper {
 		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
-			return ResultMessage_CreditBL.Credit_Net_Error;
+			return ResultMessage_Credit.Credit_Net_Error;
 		}
-		if (insert_result.equals(ResultMessage_Credit.Update_Successful)) {
-			return ResultMessage_CreditBL.Credit_Increase_Successful;
-		} else {
-			return ResultMessage_CreditBL.Credit_User_Not_Found;
-		}
+		return insert_result;
 	}
 
-	public Iterator<CreditVO> find(String clientID) {
+	public Iterator<CreditVO> find(String clientID) throws RemoteException {
 		checkAndUpdateCache(clientID);
 		// Copy And Change To VO.
 		ArrayList<CreditVO> record_copy = new ArrayList<>();
@@ -78,7 +74,7 @@ public class CreditDataHelper {
 		return record_copy.iterator();
 	}
 
-	public CreditPO getNewestCredit(String clientID) {
+	public CreditPO getNewestCredit(String clientID) throws RemoteException {
 		checkAndUpdateCache(clientID);
 		// Return a copy right;
 		return CreditPO.copy(credit_record_cache.get(0));
@@ -88,15 +84,11 @@ public class CreditDataHelper {
 	 * To Check the Cache State And Update it.
 	 * 
 	 * @param clientID
+	 * @throws RemoteException 
 	 */
-	private void checkAndUpdateCache(String clientID) {
+	private void checkAndUpdateCache(String clientID) throws RemoteException {
 		if (checkOldCache(clientID)) {
-			try {
-				credit_record_cache = data_service.find(clientID);
-			} catch (RemoteException e) {
-				System.err.println("Fail to Connect the Credit Database Service. Please check your Internet");
-				e.printStackTrace();
-			}
+			credit_record_cache = data_service.find(clientID);
 		}
 	}
 

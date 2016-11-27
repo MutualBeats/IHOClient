@@ -35,6 +35,7 @@ public class DataFactoryHelperTest {
 		} catch (RemoteException e) {
 			fail("Connection Error");
 		}
+		
 	}
 
 }
