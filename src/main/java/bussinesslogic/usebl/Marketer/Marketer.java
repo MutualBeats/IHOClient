@@ -52,7 +52,6 @@ public class Marketer {
 		
 		MarketerVO vo;
 		vo = new MarketerVO(po.getMarketerID(), po.getMarketername(), po.getTel_number());
-		System.out.println(ResultMessage_For_User.GetDataSuccess);
 		return vo;
 	}
 		

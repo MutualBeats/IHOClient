@@ -20,7 +20,7 @@ public class MarketerBlTest {
 	
 	@Before
 	public void init() throws RemoteException{
-		vo1 = new MarketerVO("0000000011", "administrator", "12345678901");
+		vo1 = new MarketerVO("0000000011", "营销人员03", "12345678901");
 		vo2 = new MarketerVO("0000000002", "营销人员02", "120");
 		marketer = new Marketer();
 		password = "test";

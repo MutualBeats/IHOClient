@@ -27,11 +27,11 @@ public class Staff {
 		if(staffID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
-		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
+			ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
 
-		result = staffDataService.find(staffID, password);
+			result = staffDataService.find(staffID, password);
 		
-		return result;
+			return result;
 		}
 
 	/* 
@@ -52,7 +52,6 @@ public class Staff {
 		
 		StaffVO vo;
 		vo = new StaffVO(po.getStaffID(),po.getStaffname(),po.getHotelId());
-		System.out.println(ResultMessage_For_User.GetDataSuccess);
 		return vo;
 	}
 

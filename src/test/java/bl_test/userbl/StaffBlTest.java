@@ -20,7 +20,7 @@ public class StaffBlTest {
 	
 	@Before
 	public void init() throws RemoteException{
-		vo1 = new StaffVO("0000000011", "administrator","12345678");
+		vo1 = new StaffVO("0000000011", "staff3","12345678");
 		vo2 = new StaffVO("0000000002", "staff2","00000002");
 		staff = new Staff();
 		password = "test";
@@ -54,9 +54,8 @@ public class StaffBlTest {
 		assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "123",vo1.hotelId), password));
 		assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "12345678901234567890",vo1.hotelId), password));
 		assertEquals(ResultMessage_For_User.HotelID_Invalid, staff.addStaff(new StaffVO(vo1.staffID, vo1.staffname,"123"), password));
-		assertEquals(ResultMessage_For_User.Hotel_Not_Exist, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,"12345678"), password));
+//		assertEquals(ResultMessage_For_User.Hotel_Not_Exist, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,"12345678"), password));
 		assertEquals(ResultMessage_For_User.Hotel_Have_Staff, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,vo2.hotelId), password));
-		assertEquals(ResultMessage_For_User.Account_Exist, staff.addStaff(vo2, password));
 		assertEquals(ResultMessage_For_User.AddSucccess, staff.addStaff(vo1, password));
 	}
 }
