@@ -7,6 +7,7 @@ public enum ResultMessage_Room {
 	Check_In_Failed, 
 	Check_Out_Successful,
 	Check_Out_Failed,
+	Record_Add_Successful,
 	Record_Delete_Successful,  
 	Time_Conflict,
 	Net_Error, 
