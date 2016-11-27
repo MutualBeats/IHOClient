@@ -13,7 +13,6 @@ public enum ResultMessage_For_User {
 	UpdateSuccess,
 	UpdateFail,
 	UserName_Invalid,
-	Tel_Invalid,
 
 	OriginalRegisterSuccess,
 	BusinessRegisterSuccess,

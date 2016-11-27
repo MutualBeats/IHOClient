@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.promotiondataservice.PromotionDataService;
-import po.ClientPO;
 import po.promotion.PromotionPO;
+import po.user.ClientPO;
 import util.ResultMessage_For_Stub;
 
 public class PromotionDataHelper implements PromotionDataService{

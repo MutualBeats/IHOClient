@@ -12,7 +12,7 @@ public class MarketerVO {
 	/*
 	 * 网站营销人员联系方式
 	 */
-	public String tel_number;
+	public String contactWay;
 	/*
 	 * 构造方法
 	 * @param staffID
@@ -22,6 +22,6 @@ public class MarketerVO {
 	public MarketerVO(String marketerID, String marketername, String tel_number){
 		this.marketerID = marketerID;
 		this.marketername = marketername;
-		this.tel_number = tel_number;
+		this.contactWay = tel_number;
 	}
 }

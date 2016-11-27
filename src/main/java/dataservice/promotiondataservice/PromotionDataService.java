@@ -4,8 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.ClientPO;
 import po.promotion.PromotionPO;
+import po.user.ClientPO;
 import util.ResultMessage_For_Stub;
 
 public interface PromotionDataService extends Remote{

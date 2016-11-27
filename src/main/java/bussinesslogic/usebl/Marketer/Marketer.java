@@ -4,7 +4,8 @@ import java.rmi.RemoteException;
 
 import dataservice.userdataservice.MarketerDataService;
 import factory.datahelper.DataHelperFactory;
-import po.MarketerPO;
+import po.user.MarketerPO;
+import util.LengthOfID;
 import util.ResultMessage_For_User;
 import vo.user.MarketerVO;
 
@@ -27,8 +28,7 @@ public class Marketer {
 	 * Password Wrong
 	 * */
 	public ResultMessage_For_User Login(String marketerID, String password) {
-		int len = marketerID.length();
-		if(len<8||len>16)
+		if(marketerID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
@@ -46,8 +46,7 @@ public class Marketer {
 	 * 	Account Not Exist
 	 * */
 	public MarketerVO showData(String marketerID) {
-		int len = marketerID.length();
-		if(len<8||len>16)
+		if(marketerID.length()!=LengthOfID.getUserID())
 			return null;
 		
 		MarketerPO po = new MarketerPO();
@@ -69,21 +68,17 @@ public class Marketer {
 		
 	/*
 	 * UserName Invalid
-	 * Tel Invalid
 	 */
 	public ResultMessage_For_User changeData(MarketerVO vo) {
 		int len = vo.marketername.length();
-		if(len<8||len>16)
+		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
-		
-		if(vo.tel_number.length()!=11)
-			return ResultMessage_For_User.Tel_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
 		po.setMarketerID(vo.marketerID);
 		po.setMarketername(vo.marketername);
-		po.setTel_number(vo.tel_number);
+		po.setTel_number(vo.contactWay);
 		try {
 			result = marketerDataService.updateData(po);
 		} catch (RemoteException e) {
@@ -95,27 +90,22 @@ public class Marketer {
 	/*
 	 * UserID Invalid
 	 * UserName Invalid
-	 * Tel Invalid
 	 * 
 	 * Account Exist
 	 */
 	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) {
-		int lenOfID = vo.marketerID.length();
-		if(lenOfID<8||lenOfID>16)
+		if(vo.marketerID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
-		int lenOfName = vo.marketername.length();
-		if(lenOfName<8||lenOfName>16)
+		int len = vo.marketername.length();
+		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
-		
-		if(vo.tel_number.length()!=11)
-			return ResultMessage_For_User.Tel_Invalid;
-		
+
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
 		po.setMarketerID(vo.marketerID);
 		po.setMarketername(vo.marketername);
-		po.setTel_number(vo.tel_number);
+		po.setTel_number(vo.contactWay);
 		try {
 			result = marketerDataService.insert(po, password);
 		} catch (RemoteException e) {

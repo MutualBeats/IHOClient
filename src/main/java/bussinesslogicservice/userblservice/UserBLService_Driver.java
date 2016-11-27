@@ -48,7 +48,7 @@ public class UserBLService_Driver {
 		MarketerVO vo3 = userBLService.showMarketerData("0000000001");
 		System.out.println(vo3.marketerID);
 		System.out.println(vo3.marketername);
-		System.out.println(vo3.tel_number);
+		System.out.println(vo3.contactWay);
 		/*
 		 * 修改网站营销人员信息
 		 */

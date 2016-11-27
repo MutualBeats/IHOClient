@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 
 import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
-import po.ClientPO;
-import po.MemberPO;
+import po.user.ClientPO;
+import po.user.MemberPO;
 import util.MemberType;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
@@ -23,6 +23,9 @@ public class Client {
 		}
 	}
 
+	/*
+	 * 
+	 */
 	public ClientVO showData(String clientID) {
 		ClientPO po = new ClientPO();
 		try {

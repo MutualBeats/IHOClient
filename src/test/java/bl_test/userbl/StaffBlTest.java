@@ -1,6 +1,7 @@
 package bl_test.userbl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,6 @@ public class StaffBlTest {
 	@Test
 	public void LoginTest(){
 		assertEquals(ResultMessage_For_User.UserID_Invalid, staff.Login("123", password));
-		assertEquals(ResultMessage_For_User.UserID_Invalid, staff.Login("12345678901234567890", password));
 		assertEquals(ResultMessage_For_User.Account_Not_Exist, staff.Login(vo1.staffID, password));
 		assertEquals(ResultMessage_For_User.PasswordWrong, staff.Login(vo2.staffID, "1234"));
 		assertEquals(ResultMessage_For_User.LoginSuccess, staff.Login(vo2.staffID, password));
@@ -34,9 +34,8 @@ public class StaffBlTest {
 	
 	@Test
 	public void showDataTest(){
-		assertEquals(null, staff.showData("123"));
-		assertEquals(null, staff.showData("12345678901234567890"));
-		assertEquals(null, staff.showData(vo1.staffID));
+		assertNull(staff.showData("123"));
+		assertNull(staff.showData(vo1.staffID));
 		assertEquals(vo2.hotelId, staff.showData(vo2.staffID).hotelId);
 	}
 	
@@ -50,7 +49,6 @@ public class StaffBlTest {
 	@Test
 	public void addMarketerTest(){
 		assertEquals(ResultMessage_For_User.UserID_Invalid, staff.addStaff(new StaffVO("123", vo1.staffname,vo1.hotelId), password));
-		assertEquals(ResultMessage_For_User.UserID_Invalid, staff.addStaff(new StaffVO("12345678901234567890", vo1.staffname,vo1.hotelId), password));
 		assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "123",vo1.hotelId), password));
 		assertEquals(ResultMessage_For_User.UserName_Invalid, staff.addStaff(new StaffVO(vo1.staffID, "12345678901234567890",vo1.hotelId), password));
 		assertEquals(ResultMessage_For_User.Hotel_Not_Exist, staff.addStaff(new StaffVO(vo1.staffID,vo1.staffname,"123"), password));

@@ -4,7 +4,8 @@ import java.rmi.RemoteException;
 
 import dataservice.userdataservice.StaffDataService;
 import factory.datahelper.DataHelperFactory;
-import po.StaffPO;
+import po.user.StaffPO;
+import util.LengthOfID;
 import util.ResultMessage_For_User;
 import vo.user.StaffVO;
 
@@ -27,8 +28,7 @@ public class Staff {
 	 * Password Wrong
 	 * */
 	public ResultMessage_For_User Login(String staffID, String password) {
-		int len = staffID.length();
-		if(len<8||len>16)
+		if(staffID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
@@ -46,8 +46,7 @@ public class Staff {
 	 * 	Account Not Exist
 	 * */
 	public StaffVO showData(String staffID) {
-		int len = staffID.length();
-		if(len<8||len>16)
+		if(staffID.length()!=LengthOfID.getUserID())
 			return null;
 		
 		StaffPO po = new StaffPO();
@@ -72,7 +71,7 @@ public class Staff {
 	 */
 	public ResultMessage_For_User changeData(StaffVO vo) {
 		int len = vo.staffname.length();
-		if(len<8||len>16)
+		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
@@ -97,12 +96,11 @@ public class Staff {
 	 * Account Exist
 	 */
 	public ResultMessage_For_User addStaff(StaffVO vo, String password) {
-		int lenOfID = vo.staffID.length();
-		if(lenOfID<8||lenOfID>16)
+		if(vo.staffID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
-		int lenOfName = vo.staffname.length();
-		if(lenOfName<8||lenOfName>16)
+		int len = vo.staffname.length();
+		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;

@@ -1,6 +1,7 @@
 package bl_test.userbl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,6 @@ public class MarketerBlTest {
 	@Test
 	public void LoginTest(){
 		assertEquals(ResultMessage_For_User.UserID_Invalid, marketer.Login("123", password));
-		assertEquals(ResultMessage_For_User.UserID_Invalid, marketer.Login("12345678901234567890", password));
 		assertEquals(ResultMessage_For_User.PasswordWrong, marketer.Login(vo2.marketerID, "1234"));
 		assertEquals(ResultMessage_For_User.Account_Not_Exist, marketer.Login(vo1.marketerID, password));
 		assertEquals(ResultMessage_For_User.LoginSuccess, marketer.Login(vo2.marketerID, password));
@@ -34,27 +34,23 @@ public class MarketerBlTest {
 	
 	@Test
 	public void showDataTest(){
-		assertEquals(null, marketer.showData("123"));
-		assertEquals(null, marketer.showData("12345678901234567890"));
-		assertEquals(null, marketer.showData(vo1.marketerID));
-		assertEquals(vo2.tel_number, marketer.showData(vo2.marketerID).tel_number);
+		assertNull(marketer.showData("123"));
+		assertNull(marketer.showData(vo1.marketerID));
+		assertEquals(vo2.contactWay, marketer.showData(vo2.marketerID).contactWay);
 	}
 	
 	@Test
 	public void changeDataTest(){
-		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.changeData(new MarketerVO(vo2.marketerID,"123", vo2.tel_number)));
-		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.changeData(new MarketerVO(vo2.marketerID,"12345678901234567890", vo2.tel_number)));
-		assertEquals(ResultMessage_For_User.Tel_Invalid, marketer.changeData(new MarketerVO(vo2.marketerID, vo2.marketername, "123")));
+		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.changeData(new MarketerVO(vo2.marketerID,"123", vo2.contactWay)));
+		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.changeData(new MarketerVO(vo2.marketerID,"12345678901234567890", vo2.contactWay)));
 		assertEquals(ResultMessage_For_User.UpdateSuccess, marketer.changeData(vo2));
 	}
 	
 	@Test
 	public void addMarketerTest(){
-		assertEquals(ResultMessage_For_User.UserID_Invalid, marketer.addMarketer(new MarketerVO("123", vo1.marketername,vo1.tel_number), password));
-		assertEquals(ResultMessage_For_User.UserID_Invalid, marketer.addMarketer(new MarketerVO("12345678901234567890", vo1.marketername,vo1.tel_number), password));
-		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.addMarketer(new MarketerVO(vo1.marketerID, "123",vo1.tel_number), password));
-		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.addMarketer(new MarketerVO(vo1.marketerID, "12345678901234567890",vo1.tel_number), password));
-		assertEquals(ResultMessage_For_User.Tel_Invalid, marketer.addMarketer(new MarketerVO(vo1.marketerID, vo1.marketername, "123"), password));
+		assertEquals(ResultMessage_For_User.UserID_Invalid, marketer.addMarketer(new MarketerVO("123", vo1.marketername,vo1.contactWay), password));
+		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.addMarketer(new MarketerVO(vo1.marketerID, "123",vo1.contactWay), password));
+		assertEquals(ResultMessage_For_User.UserName_Invalid, marketer.addMarketer(new MarketerVO(vo1.marketerID, "12345678901234567890",vo1.contactWay), password));
 		assertEquals(ResultMessage_For_User.Account_Exist, marketer.addMarketer(vo2, password));
 		assertEquals(ResultMessage_For_User.AddSucccess, marketer.addMarketer(vo1, password));
 	}
