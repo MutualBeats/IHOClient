@@ -1,5 +1,7 @@
 package bussinesslogic.controllerfactory;
 
+import java.rmi.RemoteException;
+
 import bussinesslogic.creditbl.CreditController;
 import bussinesslogic.hotelbl.HotelController;
 import bussinesslogic.orderbl.ClientInfo;
@@ -96,49 +98,49 @@ public class ControllerFactory {
 		return roomController;
 	}
 	
-	public static ClientBLService getClientBLServiceInstance() {
+	public static ClientBLService getClientBLServiceInstance() throws RemoteException {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static ClientBLService getStaffBLServiceInstance() {
+	public static ClientBLService getStaffBLServiceInstance() throws RemoteException {
 		if(staffController == null) {
 			staffController = new StaffController();
 		}
 		return clientController;
 	}
 	
-	public static MarketerBLService getMarketerBLServiceInstance() {
+	public static MarketerBLService getMarketerBLServiceInstance() throws RemoteException {
 		if(marketerController == null) {
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static ManagerBLService getManagerBLServiceInstance() {
+	public static ManagerBLService getManagerBLServiceInstance() throws RemoteException {
 		if(managerController == null) {
 			managerController = new ManagerController();
 		}
 		return managerController;
 	}
 	
-	public static Client2Manager getClient2ManagerIstance(){
+	public static Client2Manager getClient2ManagerIstance() throws RemoteException{
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static Staff2Manager getStaff2ManagerIstance(){
+	public static Staff2Manager getStaff2ManagerIstance() throws RemoteException{
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static Marketer2Manager getManager2ManagerIstance(){
+	public static Marketer2Manager getManager2ManagerIstance() throws RemoteException{
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}

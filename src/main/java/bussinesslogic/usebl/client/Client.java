@@ -15,25 +15,18 @@ public class Client {
 
 	private ClientDataService clientDataService;
 	
-	public Client(){
-		try {
-			clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Client() throws RemoteException{
+		clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
 	}
 
 	/*
 	 * 
 	 */
-	public ClientVO showData(String clientID) {
+	public ClientVO showData(String clientID) throws RemoteException {
 		ClientPO po = new ClientPO();
-		try {
-			po = clientDataService.findData(clientID);
-		} catch (RemoteException e) {
-			System.out.println(ResultMessage_For_User.GetDataFail);
-			e.printStackTrace();
-		}
+
+		po = clientDataService.findData(clientID);
+
 		ClientVO vo;
 		vo = new ClientVO(po.getClientID(), po.getClientName(), po.getContactWay(), po.getCredit(), 
 				po.getMemberType(), po.getLevel(), po.getMemberMessage());
@@ -41,28 +34,23 @@ public class Client {
 		return vo;
 	}
 
-	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) {
+	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) throws RemoteException {
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
-		try {
-			result = clientDataService.updateData(clientID,clientName,contactWay);
-		} catch (RemoteException e) {
-			System.out.println(ResultMessage_For_User.UpdateFail);
-			e.printStackTrace();
-		}
+
+		result = clientDataService.updateData(clientID,clientName,contactWay);
+
 		return result;
 	}
 
-	public ResultMessage_For_User Login(String clientID, String password) {
+	public ResultMessage_For_User Login(String clientID, String password) throws RemoteException {
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
-		try {
-			result = clientDataService.find(clientID, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = clientDataService.find(clientID, password);
+
 		return result;
 	}
 
-	public ResultMessage_For_User Signup(ClientVO vo, String password) {
+	public ResultMessage_For_User Signup(ClientVO vo, String password) throws RemoteException {
 		ResultMessage_For_User result = ResultMessage_For_User.AddSucccess;
 		ClientPO po = new ClientPO();
 		po.setClientID(vo.clientID);
@@ -72,15 +60,13 @@ public class Client {
 		po.setMemberType(vo.memberType);
 		po.setLevel(vo.level);
 		po.setMemberMessage(vo.memberMessage);
-		try {
-			result = clientDataService.insert(po, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		
+		result = clientDataService.insert(po, password);
+
 		return result;
 	}
 
-	public ResultMessage_For_User memberRegister(MemberVO vo) {
+	public ResultMessage_For_User memberRegister(MemberVO vo) throws RemoteException {
 		ResultMessage_For_User result = ResultMessage_For_User.BusinessRegisterSuccess;
 		
 		//是否已存在会员
@@ -97,41 +83,34 @@ public class Client {
 		po.setMemberType(vo.memberType);
 		po.setLevel(vo.level);
 		po.setMemberMessage(vo.memberMessage);
-		try {
-			result = clientDataService.insertMember(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = clientDataService.insertMember(po);
+
 		return result;
 	}
 
 
-	public MemberVO showMemberData(String clientID) {
+	public MemberVO showMemberData(String clientID) throws RemoteException {
 		MemberPO po = new MemberPO();
-		try {
-			po = clientDataService.findMemberData(clientID);
-		} catch (RemoteException e) {
-			System.out.println(ResultMessage_For_User.GetDataFail);
-			e.printStackTrace();
-		}
+
+		po = clientDataService.findMemberData(clientID);
+
 		MemberVO vo;
 		vo = new MemberVO(po.getClientID(),po.getMemberType(),po.getLevel(),po.getMemberMessage());
 		System.out.println(ResultMessage_For_User.GetDataSuccess);
 		return vo;
 	}
 
-	public ResultMessage_For_User changeMemberData(MemberVO vo) {
+	public ResultMessage_For_User changeMemberData(MemberVO vo) throws RemoteException {
 		ResultMessage_For_User result = ResultMessage_For_User.BusinessRegisterSuccess;
 		MemberPO po = new MemberPO();
 		po.setClientID(vo.clientID);
 		po.setMemberType(vo.memberType);
 		po.setLevel(vo.level);
 		po.setMemberMessage(vo.memberMessage);
-		try {
-			result = clientDataService.updateMemberData(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = clientDataService.updateMemberData(po);
+
 		return result;
 	}
 

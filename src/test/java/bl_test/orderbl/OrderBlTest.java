@@ -3,6 +3,7 @@ package bl_test.orderbl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,7 +28,7 @@ public class OrderBlTest {
 	Order order;
 	
 	@Before
-	public void init() {
+	public void init() throws RemoteException {
 		vo = new OrderVO("1234567890123456", "1234567890", "WoDeMa", "12345678901", MemberType.Ordinary, OrderState.UnExcuted, "12345678", "和园宾馆", "3B346", RoomType.Single, 1,10000 ,1000, "2016/10/14", "2016/10/15", "2016/10/16", "2016/10/14", "2016/10/16", "2016/10/15","2015/10/15",1,false);
 		MockClient client = new MockClient();
 		MockCredit credit = new MockCredit();

@@ -1,5 +1,7 @@
 package bussinesslogic.usebl.client;
 
+import java.rmi.RemoteException;
+
 import bussinesslogic.usebl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.ResultMessage_For_User;
@@ -8,40 +10,44 @@ import vo.user.MemberVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
 	
-	private Client client = new Client();
+	private Client client;
+	
+	public ClientController() throws RemoteException{
+		client = new Client();
+	}
 
 	@Override
-	public ClientVO showData(String clientID) {
+	public ClientVO showData(String clientID) throws RemoteException {
 		return client.showData(clientID);
 	}
 
 	@Override
-	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) {
+	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) throws RemoteException{
 		return client.changeData(clientID, clientName, contactWay);
 	}
 
 	@Override
-	public ResultMessage_For_User Login(String clientID, String password) {
+	public ResultMessage_For_User Login(String clientID, String password) throws RemoteException{
 		return client.Login(clientID, password);
 	}
 
 	@Override
-	public ResultMessage_For_User Signup(ClientVO vo,  String password) {
+	public ResultMessage_For_User Signup(ClientVO vo,  String password) throws RemoteException {
 		return client.Signup(vo, password);
 	}
 
 	@Override
-	public ResultMessage_For_User memberRegister(MemberVO vo) {
+	public ResultMessage_For_User memberRegister(MemberVO vo)  throws RemoteException{
 		return client.memberRegister(vo);
 	}
 
 	@Override
-	public MemberVO showMemberData(String clientID) {
+	public MemberVO showMemberData(String clientID) throws RemoteException{
 		return client.showMemberData(clientID);
 	}
 
 	@Override
-	public ResultMessage_For_User changeMemberData(MemberVO vo) {
+	public ResultMessage_For_User changeMemberData(MemberVO vo) throws RemoteException{
 		return client.changeMemberData(vo);
 	}
 

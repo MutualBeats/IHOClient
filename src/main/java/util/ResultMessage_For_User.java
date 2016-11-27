@@ -25,6 +25,7 @@ public enum ResultMessage_For_User {
 	AddFail,
 	Account_Exist,
 	
+	HotelID_Invalid,
 	Hotel_Not_Exist,
 	Hotel_Have_Staff,
 }

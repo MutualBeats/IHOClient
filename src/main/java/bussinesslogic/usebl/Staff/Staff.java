@@ -13,12 +13,8 @@ public class Staff {
 	
 	private StaffDataService staffDataService;
 	
-	public Staff(){
-		try {
-			staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Staff() throws RemoteException{
+		staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
 	}
 	
 	/*
@@ -27,36 +23,30 @@ public class Staff {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_For_User Login(String staffID, String password) {
+	public ResultMessage_For_User Login(String staffID, String password) throws RemoteException {
 		if(staffID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
-		try {
-			result = staffDataService.find(staffID, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = staffDataService.find(staffID, password);
+		
 		return result;
-	}
+		}
 
 	/* 
 	 * Return null:
 	 * 	UserID Invalid
 	 * 	Account Not Exist
 	 * */
-	public StaffVO showData(String staffID) {
+	public StaffVO showData(String staffID) throws RemoteException {
 		if(staffID.length()!=LengthOfID.getUserID())
 			return null;
 		
 		StaffPO po = new StaffPO();
-		try {
-			po = staffDataService.findData(staffID);
-		} catch (RemoteException e) {
-			System.out.println(ResultMessage_For_User.GetDataFail);
-			e.printStackTrace();
-		}
 		
+		po = staffDataService.findData(staffID);
+
 		if(po==null)
 			return null;
 		
@@ -69,7 +59,7 @@ public class Staff {
 	/*
 	 * UserName Invalid
 	 */
-	public ResultMessage_For_User changeData(StaffVO vo) {
+	public ResultMessage_For_User changeData(StaffVO vo) throws RemoteException {
 		int len = vo.staffname.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
@@ -79,23 +69,22 @@ public class Staff {
 		po.setStaffID(vo.staffID);
 		po.setStaffname(vo.staffname);
 		po.setHotelId(vo.hotelId);
-		try {
-			result = staffDataService.updateData(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		
+		result = staffDataService.updateData(po);
+			
 		return result;
 	}
 
 	/*
 	 * UserID Invalid
 	 * UserName Invalid
+	 * HotelID Invalid
 	 * 
 	 * Hotel Not Exist
 	 * Hotel Have Staff
 	 * Account Exist
 	 */
-	public ResultMessage_For_User addStaff(StaffVO vo, String password) {
+	public ResultMessage_For_User addStaff(StaffVO vo, String password) throws RemoteException {
 		if(vo.staffID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
@@ -103,16 +92,17 @@ public class Staff {
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
+		if(vo.hotelId.length()!=LengthOfID.getHotelID())
+			return ResultMessage_For_User.HotelID_Invalid;
+		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		po.setStaffID(vo.staffID);
 		po.setStaffname(vo.staffname);
 		po.setHotelId(vo.hotelId);
-		try {
-			result = staffDataService.insert(po, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		
+		result = staffDataService.insert(po, password);
+
 		return result;
 	}
 }

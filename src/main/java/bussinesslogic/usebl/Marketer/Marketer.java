@@ -13,12 +13,8 @@ public class Marketer {
 
 	private MarketerDataService marketerDataService;
 	
-	public Marketer(){
-		try{
-			marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
-		}catch(RemoteException e){
-			e.printStackTrace();
-		}
+	public Marketer() throws RemoteException{
+		marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
 	}
 	
 	/*
@@ -27,16 +23,14 @@ public class Marketer {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_For_User Login(String marketerID, String password) {
+	public ResultMessage_For_User Login(String marketerID, String password) throws RemoteException {
 		if(marketerID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
-		try {
-			result = marketerDataService.find(marketerID, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		
+		result = marketerDataService.find(marketerID, password);
+
 		return result;
 	}
 
@@ -45,17 +39,13 @@ public class Marketer {
 	 * 	UserID Invalid
 	 * 	Account Not Exist
 	 * */
-	public MarketerVO showData(String marketerID) {
+	public MarketerVO showData(String marketerID) throws RemoteException {
 		if(marketerID.length()!=LengthOfID.getUserID())
 			return null;
 		
 		MarketerPO po = new MarketerPO();
-		try {
-			po = marketerDataService.findData(marketerID);
-		} catch (RemoteException e) {
-			System.out.println(ResultMessage_For_User.GetDataFail);
-			e.printStackTrace();
-		}
+
+		po = marketerDataService.findData(marketerID);
 		
 		if(po==null)
 			return null;
@@ -69,7 +59,7 @@ public class Marketer {
 	/*
 	 * UserName Invalid
 	 */
-	public ResultMessage_For_User changeData(MarketerVO vo) {
+	public ResultMessage_For_User changeData(MarketerVO vo) throws RemoteException {
 		int len = vo.marketername.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
@@ -79,11 +69,9 @@ public class Marketer {
 		po.setMarketerID(vo.marketerID);
 		po.setMarketername(vo.marketername);
 		po.setTel_number(vo.contactWay);
-		try {
-			result = marketerDataService.updateData(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = marketerDataService.updateData(po);
+		
 		return result;
 	}
 
@@ -93,7 +81,7 @@ public class Marketer {
 	 * 
 	 * Account Exist
 	 */
-	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) {
+	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) throws RemoteException {
 		if(vo.marketerID.length()!=LengthOfID.getUserID())
 			return ResultMessage_For_User.UserID_Invalid;
 		
@@ -106,11 +94,9 @@ public class Marketer {
 		po.setMarketerID(vo.marketerID);
 		po.setMarketername(vo.marketername);
 		po.setTel_number(vo.contactWay);
-		try {
-			result = marketerDataService.insert(po, password);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+		result = marketerDataService.insert(po, password);
+
 		return result;
 	}
 }
