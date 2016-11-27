@@ -8,7 +8,7 @@ public class MarketerVO {
 	/*
 	 * 网站营销人员姓名
 	 */
-	public String marketername;
+	public String marketerName;
 	/*
 	 * 网站营销人员联系方式
 	 */
@@ -21,7 +21,7 @@ public class MarketerVO {
 	 */
 	public MarketerVO(String marketerID, String marketername, String tel_number){
 		this.marketerID = marketerID;
-		this.marketername = marketername;
+		this.marketerName = marketername;
 		this.contactWay = tel_number;
 	}
 }

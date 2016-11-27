@@ -11,13 +11,14 @@ import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogic.promotionbl.PromotionController;
 import bussinesslogic.roombl.RoomController;
-import bussinesslogic.usebl.client.ClientController;
-import bussinesslogic.usebl.manager.ManagerController;
-import bussinesslogic.usebl.manager.entrust.Client2Manager;
-import bussinesslogic.usebl.manager.entrust.Marketer2Manager;
-import bussinesslogic.usebl.manager.entrust.Staff2Manager;
-import bussinesslogic.usebl.marketer.MarketerController;
-import bussinesslogic.usebl.staff.StaffController;
+import bussinesslogic.userbl.client.ClientController;
+import bussinesslogic.userbl.manager.ManagerController;
+import bussinesslogic.userbl.manager.entrust.Client2Manager;
+import bussinesslogic.userbl.manager.entrust.Hotel2Manager;
+import bussinesslogic.userbl.manager.entrust.Marketer2Manager;
+import bussinesslogic.userbl.manager.entrust.Staff2Manager;
+import bussinesslogic.userbl.marketer.MarketerController;
+import bussinesslogic.userbl.staff.StaffController;
 import bussinesslogicservice.creditblservice.CreditBLService;
 import bussinesslogicservice.hotelblservice.HotelBLService;
 import bussinesslogicservice.orderblservice.OrderBLService;
@@ -126,25 +127,32 @@ public class ControllerFactory {
 		return managerController;
 	}
 	
-	public static Client2Manager getClient2ManagerIstance() throws RemoteException{
+	public static Client2Manager getClient2ManagerInstance() throws RemoteException{
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static Staff2Manager getStaff2ManagerIstance() throws RemoteException{
+	public static Staff2Manager getStaff2ManagerInstance() throws RemoteException{
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static Marketer2Manager getManager2ManagerIstance() throws RemoteException{
+	public static Marketer2Manager getMarketer2ManagerInstance() throws RemoteException{
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}
 		return marketerController;
+	}
+	
+	public static Hotel2Manager getHotel2ManagerInstance(){
+		if(hotelController == null) {
+			hotelController = new HotelController();
+		}
+		return hotelController;
 	}
 	
 	public static ClientInfo getClientInfoInstance() {

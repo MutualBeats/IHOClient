@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.client;
+package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
 

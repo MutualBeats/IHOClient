@@ -1,8 +1,8 @@
-package bussinesslogic.usebl.staff;
+package bussinesslogic.userbl.staff;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.usebl.manager.entrust.Staff2Manager;
+import bussinesslogic.userbl.manager.entrust.Staff2Manager;
 import bussinesslogicservice.userblservice.StaffBLService;
 import util.ResultMessage_For_User;
 import vo.user.StaffVO;
@@ -31,8 +31,8 @@ public class StaffController implements StaffBLService , Staff2Manager {
 	}
 
 	@Override
-	public ResultMessage_For_User addStaff(StaffVO vo, String password) throws RemoteException {
-		return staff.addStaff(vo, password);
+	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+		return staff.addStaff(staffName, hotelID, password);
 	}
 
 }

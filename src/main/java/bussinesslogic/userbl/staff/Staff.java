@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.staff;
+package bussinesslogic.userbl.staff;
 
 import java.rmi.RemoteException;
 
@@ -59,15 +59,15 @@ public class Staff {
 	 * UserName Invalid
 	 */
 	public ResultMessage_For_User changeData(StaffVO vo) throws RemoteException {
-		int len = vo.staffname.length();
+		int len = vo.staffName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		po.setStaffID(vo.staffID);
-		po.setStaffname(vo.staffname);
-		po.setHotelId(vo.hotelId);
+		po.setStaffname(vo.staffName);
+		po.setHotelId(vo.hotelID);
 		
 		result = staffDataService.updateData(po);
 			
@@ -75,30 +75,29 @@ public class Staff {
 	}
 
 	/*
-	 * UserID Invalid
 	 * UserName Invalid
 	 * HotelID Invalid
 	 * 
 	 * Hotel Not Exist
 	 * Hotel Have Staff
-	 * Account Exist
 	 */
-	public ResultMessage_For_User addStaff(StaffVO vo, String password) throws RemoteException {
-		if(vo.staffID.length()!=LengthOfID.getUserID())
-			return ResultMessage_For_User.UserID_Invalid;
-		
-		int len = vo.staffname.length();
+	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+		int len = staffName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
-		if(vo.hotelId.length()!=LengthOfID.getHotelID())
+		if(hotelID.length()!=LengthOfID.getHotelID())
 			return ResultMessage_For_User.HotelID_Invalid;
+		
+		//TODO get ID
+		String ID = null;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
-		po.setStaffID(vo.staffID);
-		po.setStaffname(vo.staffname);
-		po.setHotelId(vo.hotelId);
+		//TODO
+		po.setStaffID("");
+		po.setStaffname(staffName);
+		po.setHotelId(hotelID);
 		
 		result = staffDataService.insert(po, password);
 

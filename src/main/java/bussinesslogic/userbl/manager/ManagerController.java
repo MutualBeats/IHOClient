@@ -1,9 +1,11 @@
-package bussinesslogic.usebl.manager;
+package bussinesslogic.userbl.manager;
 
 import java.rmi.RemoteException;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
+import dataservice.hoteldataservice.ResultMessage_Hotel;
 import util.ResultMessage_For_User;
+import vo.hotel.HotelVO;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
 import vo.user.StaffVO;
@@ -37,8 +39,8 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_User addStaff(StaffVO vo, String password) throws RemoteException {
-		return manager.addStaff(vo, password);
+	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+		return manager.addStaff(staffName, hotelID, password);
 	}
 
 	@Override
@@ -52,8 +54,13 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) throws RemoteException {
-		return manager.addMarketer(vo, password);
+	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+		return manager.addMarketer(marketerName, contactWay, password);
+	}
+
+	@Override
+	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException {
+		return manager.addHotel(vo);
 	}
 
 }

@@ -8,11 +8,11 @@ public class StaffVO {
 	/*
 	 * 酒店工作人员姓名
 	 */
-	public String staffname;
+	public String staffName;
 	/*
 	 * 酒店工作人员所在酒店ID
 	 */
-	public String hotelId;
+	public String hotelID;
 	/**
 	 * @param staffID
 	 * @param staffname
@@ -22,8 +22,8 @@ public class StaffVO {
 	public StaffVO(String staffID, String staffname, String hotelId) {
 		super();
 		this.staffID = staffID;
-		this.staffname = staffname;
-		this.hotelId = hotelId;
+		this.staffName = staffname;
+		this.hotelID = hotelId;
 	}
 
 }

@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.manager.entrust;
+package bussinesslogic.userbl.manager.entrust;
 
 import java.rmi.RemoteException;
 
@@ -17,5 +17,5 @@ public interface Staff2Manager {
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage_For_User addStaff(StaffVO vo, String password) throws RemoteException;
+	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException;
 }

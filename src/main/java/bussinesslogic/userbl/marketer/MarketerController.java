@@ -1,8 +1,8 @@
-package bussinesslogic.usebl.marketer;
+package bussinesslogic.userbl.marketer;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.usebl.manager.entrust.Marketer2Manager;
+import bussinesslogic.userbl.manager.entrust.Marketer2Manager;
 import bussinesslogicservice.userblservice.MarketerBLService;
 import util.ResultMessage_For_User;
 import vo.user.MarketerVO;
@@ -31,8 +31,8 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	}
 
 	@Override
-	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) throws RemoteException {
-		return marketer.addMarketer(vo, password);
+	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+		return marketer.addMarketer(marketerName, contactWay, password);
 	}
 
 

@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.manager.entrust;
+package bussinesslogic.userbl.manager.entrust;
 
 import java.rmi.RemoteException;
 

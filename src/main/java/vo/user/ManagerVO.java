@@ -8,7 +8,7 @@ public class ManagerVO {
 	/*
 	 * 网站营销管理人员姓名
 	 */
-	public String managername;
+	public String managerName;
 	/*
 	 * 构造方法
 	 * @param managerID
@@ -17,7 +17,7 @@ public class ManagerVO {
 	public ManagerVO(String managerID, String managername) {
 		super();
 		this.managerID = managerID;
-		this.managername = managername;
+		this.managerName = managername;
 	}
 
 }

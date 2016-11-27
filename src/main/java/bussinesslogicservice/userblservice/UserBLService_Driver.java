@@ -33,7 +33,7 @@ public class UserBLService_Driver {
 		 */
 		StaffVO vo2 = userBLService.showStaffData("0000000001");
 		System.out.println(vo2.staffID);
-		System.out.println(vo2.staffname);
+		System.out.println(vo2.staffName);
 		/*
 		 * 修改酒店工作人员信息
 		 */
@@ -47,7 +47,7 @@ public class UserBLService_Driver {
 		 */
 		MarketerVO vo3 = userBLService.showMarketerData("0000000001");
 		System.out.println(vo3.marketerID);
-		System.out.println(vo3.marketername);
+		System.out.println(vo3.marketerName);
 		System.out.println(vo3.contactWay);
 		/*
 		 * 修改网站营销人员信息

@@ -1,4 +1,4 @@
-package bussinesslogic.usebl.marketer;
+package bussinesslogic.userbl.marketer;
 
 import java.rmi.RemoteException;
 
@@ -59,14 +59,14 @@ public class Marketer {
 	 * UserName Invalid
 	 */
 	public ResultMessage_For_User changeData(MarketerVO vo) throws RemoteException {
-		int len = vo.marketername.length();
+		int len = vo.marketerName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
 		
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
 		po.setMarketerID(vo.marketerID);
-		po.setMarketername(vo.marketername);
+		po.setMarketername(vo.marketerName);
 		po.setTel_number(vo.contactWay);
 
 		result = marketerDataService.updateData(po);
@@ -75,24 +75,22 @@ public class Marketer {
 	}
 
 	/*
-	 * UserID Invalid
 	 * UserName Invalid
-	 * 
-	 * Account Exist
 	 */
-	public ResultMessage_For_User addMarketer(MarketerVO vo, String password) throws RemoteException {
-		if(vo.marketerID.length()!=LengthOfID.getUserID())
-			return ResultMessage_For_User.UserID_Invalid;
-		
-		int len = vo.marketername.length();
+	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+		int len = marketerName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_For_User.UserName_Invalid;
+		
+		//TODO get ID
+		String ID = null;
 
 		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
-		po.setMarketerID(vo.marketerID);
-		po.setMarketername(vo.marketername);
-		po.setTel_number(vo.contactWay);
+		//TODO
+		po.setMarketerID("");
+		po.setMarketername(marketerName);
+		po.setTel_number(contactWay);
 
 		result = marketerDataService.insert(po, password);
 

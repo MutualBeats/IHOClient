@@ -1,8 +1,8 @@
-package bussinesslogic.usebl.client;
+package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.usebl.manager.entrust.Client2Manager;
+import bussinesslogic.userbl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.ResultMessage_For_User;
 import vo.user.ClientVO;
