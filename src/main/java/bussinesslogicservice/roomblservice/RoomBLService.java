@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.roomdataservice.ResultMessage_Room;
+import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
 public interface RoomBLService {
@@ -32,6 +33,15 @@ public interface RoomBLService {
 	 * @throws RemoteException
 	 */
 	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException;
+	/**
+	 * 获得房间预定信息
+	 * 
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomRecordVO> getOrderReord(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 客户入住
 	 */

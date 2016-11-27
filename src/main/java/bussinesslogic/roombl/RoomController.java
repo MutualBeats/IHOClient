@@ -33,20 +33,19 @@ public class RoomController implements RoomBLService, RoomUpdate{
 	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException {
 		return room.getRoomList(hotelID);
 	}
-	
+	@Override
 	public ArrayList<RoomRecordVO> getOrderReord(String hotelID, String roomNumber) throws RemoteException {
 		return room.getOrderReord(hotelID, roomNumber);
 	}
-
-
+	@Override
 	public ResultMessage_Room addRecord(RoomRecordPO record) {
 		return room.addRecord(record);
 	}
-
+	@Override
 	public ResultMessage_Room deleteRecord(String orderID) {
 		return room.deleteRecord(orderID);
 	}
-	
+	@Override
 	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException {
 		return room.getRoomInfo(hotelID, roomNumber);
 	}
