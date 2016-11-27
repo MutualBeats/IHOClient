@@ -7,8 +7,9 @@ import org.junit.Test;
 
 import bussinesslogic.usebl.manager.Manager;
 import util.MemberType;
-import util.ResultMessage_For_Stub;
+import util.ResultMessage_For_User;
 import vo.user.ClientVO;
+import vo.user.ManagerVO;
 import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
@@ -17,7 +18,9 @@ public class ManagerBlTest {
 	StaffVO staffvo;
 	MarketerVO marketervo;
 	
+	ManagerVO vo;
 	Manager manager;
+	String password;
 	
 	@Before
 	public void init(){
@@ -25,47 +28,17 @@ public class ManagerBlTest {
 		staffvo = new StaffVO("0000000001", "admin", "12345678");
 		marketervo = new MarketerVO("0000000001", "admin", "123456789");
 		
+		vo = new ManagerVO("0000000001", "administrator");
 		manager = new Manager();
+		password = "123456";
 	}
 	
 	@Test
-	public void testShowClientData(){
-		String clientID = clientvo.clientID;
-		ClientVO vo = manager .showClientData(clientID);
-		assertEquals(this.clientvo.clientName, vo.clientName);
-	}
-	
-	@Test
-	public void testShowStaffData(){
-		String staffID = staffvo.staffID;
-		StaffVO vo = manager.showStaffData(staffID);
-		assertEquals(this.staffvo.staffname, vo.staffname);
-	}
-	
-	@Test
-	public void testChangeStaffData(){
-		assertEquals(ResultMessage_For_Stub.ChangeSuccess, manager.changeStaffData(this.staffvo));
-	}
-	
-	@Test
-	public void testaddStaff(){
-		assertEquals(ResultMessage_For_Stub.RegisterSuccess, manager.addStaff(this.staffvo, "123456"));
-	}
-	
-	@Test
-	public void testShowMarketerData(){
-		String marketerID = marketervo.marketerID;
-		MarketerVO vo = manager.showMarketerData(marketerID);
-		assertEquals(this.marketervo.marketername, vo.marketername);
-	}
-	
-	@Test
-	public void testChangeMarketerData(){
-		assertEquals(ResultMessage_For_Stub.ChangeSuccess, manager.changeMarketerData(this.marketervo));
-	}
-	
-	@Test
-	public void testaddMarketer(){
-		assertEquals(ResultMessage_For_Stub.RegisterSuccess, manager.addMarketer(this.marketervo,"123456"));
+	public void LoginTest(){
+		assertEquals(ResultMessage_For_User.UserID_Invalid, manager.Login("123", password));
+		assertEquals(ResultMessage_For_User.UserID_Invalid, manager.Login("12345678901234567890", password));
+		assertEquals(ResultMessage_For_User.Account_Not_Exist, manager.Login("1234567890", password));
+		assertEquals(ResultMessage_For_User.PasswordWrong, manager.Login(vo.managerID, "123"));
+		assertEquals(ResultMessage_For_User.LoginSuccess, manager.Login(vo.managerID, password));
 	}
 }
