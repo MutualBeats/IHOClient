@@ -105,7 +105,7 @@ public class HotelDataHelper {
 			}
 			return ResultMessage_Hotel.Change_Successful;
 		} else {
-			return ResultMessage_Hotel.Hotel_Not_Exist;
+			return ResultMessage_Hotel.Hotel_Not_Exists;
 		}
 	}
 

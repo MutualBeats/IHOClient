@@ -9,6 +9,8 @@ import java.rmi.RemoteException;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.datafactoryservice.DataFactory;
+import dataservice.hoteldataservice.HotelDataService;
+import dataservice.roomdataservice.RoomDataService;
 import po.credit.CreditPO;
 
 public class DataFactoryHelper {
@@ -24,10 +26,8 @@ public class DataFactoryHelper {
 		DataFactory factory = getDataFactoryInstance();
 
 		try {
-			CreditDataService cd = factory.getCreditDatabase();
-			CreditPO po = cd.find("1234567890").get(2);
-			System.out.println(po.getClientID() + "   " + po.getChangeTime() + "  " + po.getOrderID() + " "
-					+ po.getChangeValue() + "  " + po.getCredit() + "  " + po.getAction().toString());
+			HotelDataService service = factory.getHotelDatabase();
+			System.out.println(service.toString());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
