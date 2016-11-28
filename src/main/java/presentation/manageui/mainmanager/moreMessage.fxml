@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="100.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="52.0">
+               <font>
+                  <Font size="19.0" />
+               </font></Text>
+            <Text layoutX="100.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="名字：" wrappingWidth="69.0">
+               <font>
+                  <Font size="19.0" />
+               </font></Text>
+            <Text layoutX="100.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：">
+               <font>
+                  <Font size="19.0" />
+               </font></Text>
+            <Text layoutX="100.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型:">
+               <font>
+                  <Font size="19.0" />
+               </font></Text>
+            <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <TextField layoutX="200.0" layoutY="120.0" prefHeight="20.0" prefWidth="150.0" />
+            <TextField layoutX="200.0" layoutY="175.0" prefHeight="20.0" prefWidth="150.0" />
+            <TextField layoutX="200.0" layoutY="225.0" prefHeight="20.0" prefWidth="150.0" />
+            <TextField layoutX="200.0" layoutY="275.0" prefHeight="20.0" prefWidth="150.0" />
+            <Button layoutX="130.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="确认" />
+            <Button layoutX="255.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="取消" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

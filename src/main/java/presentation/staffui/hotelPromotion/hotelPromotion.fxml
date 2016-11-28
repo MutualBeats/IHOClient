@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="485.0" prefWidth="586.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Label layoutX="427.0" layoutY="73.0" text="操作人员ID：1234567890" />
+            <ListView layoutX="9.0" layoutY="98.0" prefHeight="372.0" prefWidth="203.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebf0f5" height="26.0" layoutX="9.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="203.0" />
+            <Text fontSmoothingType="LCD" layoutX="59.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店工作人员菜单" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="372.0" layoutX="237.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="404.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="365.0" layoutX="248.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="382.0" />
+            <Button layoutX="464.0" layoutY="415.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="修改" />
+            <Label layoutX="41.0" layoutY="52.0" prefHeight="43.0" prefWidth="161.0" text="制定酒店促销策略">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="9.0" layoutY="124.0" prefHeight="26.0" prefWidth="203.0" promptText="酒店订单管理">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="浏览酒店订单" />
+                        <MenuItem mnemonicParsing="false" text="执行订单" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </ComboBox>
+            <ComboBox layoutX="9.0" layoutY="151.0" prefHeight="26.0" prefWidth="203.0" promptText="维护酒店信息">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="维护酒店信息" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ComboBox>
+            <ComboBox layoutX="9.0" layoutY="177.0" prefHeight="26.0" prefWidth="203.0" promptText="制定酒店促销策略">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="制定酒店促销策略" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ComboBox>
+            <ComboBox layoutX="9.0" layoutY="200.0" prefHeight="26.0" prefWidth="203.0" promptText="客房管理">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="客房管理" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ComboBox>
+            <Button layoutX="549.0" layoutY="415.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="取消" />
+            <Label layoutX="278.0" layoutY="129.0" text="促销策略ID/名称:" />
+            <TextField layoutX="398.0" layoutY="124.0" />
+            <Button layoutX="376.0" layoutY="415.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="查看" />
+            <Button layoutX="278.0" layoutY="415.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="新建" />
+            <Label layoutX="278.0" layoutY="168.0" text="搜索结果">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TableView layoutX="271.0" layoutY="203.0" prefHeight="191.0" prefWidth="336.0">
+              <columns>
+                <TableColumn prefWidth="68.0" text="ID" />
+                  <TableColumn prefWidth="57.0" text="名称" />
+                <TableColumn prefWidth="68.0" text="开始时间" />
+                  <TableColumn prefWidth="68.0" text="结束时间" />
+                  <TableColumn prefWidth="74.0" text="折扣" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

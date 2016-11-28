@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addPeople.addPeopleController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="88.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Text>
+            <Text layoutX="123.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID：" wrappingWidth="30.0" />
+            <Text layoutX="118.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
+            <Text layoutX="106.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
+            <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="105.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
+            <TextField layoutX="202.0" layoutY="140.0" prefHeight="16.0" prefWidth="151.0" />
+            <TextField layoutX="202.0" layoutY="175.0" prefHeight="16.0" prefWidth="151.0" />
+            <TextField layoutX="202.0" layoutY="214.0" prefHeight="16.0" prefWidth="151.0" />
+            <TextField layoutX="202.0" layoutY="248.0" prefHeight="16.0" prefWidth="151.0" />
+            <Button layoutX="135.0" layoutY="339.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="65.0" text="确认" />
+            <Button fx:id="cancel" layoutX="258.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
