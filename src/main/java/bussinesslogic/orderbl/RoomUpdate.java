@@ -1,7 +1,7 @@
 package bussinesslogic.orderbl;
 
-import dataservice.roomdataservice.ResultMessage_Room;
 import po.room.RoomRecordPO;
+import util.resultmessage.ResultMessage_Room;
 
 public interface RoomUpdate {
 	

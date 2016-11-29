@@ -7,7 +7,7 @@ package po.credit;
 
 import java.io.Serializable;
 
-import util.CreditChangeAction;
+import util.credit.CreditChangeAction;
 import vo.credit.CreditVO;
 
 public class CreditPO implements Serializable {

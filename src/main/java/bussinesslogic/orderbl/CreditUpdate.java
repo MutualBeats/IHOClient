@@ -1,6 +1,6 @@
 package bussinesslogic.orderbl;
 
-import dataservice.creditdataservice.ResultMessage_Credit;
+import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 public interface CreditUpdate {

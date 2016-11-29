@@ -3,9 +3,9 @@ package bussinesslogic.creditbl;
 import java.rmi.RemoteException;
 import java.util.Iterator;
 
-import dataservice.creditdataservice.ResultMessage_Credit;
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
+import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 /**

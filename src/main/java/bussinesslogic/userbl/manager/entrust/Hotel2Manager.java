@@ -1,6 +1,6 @@
 package bussinesslogic.userbl.manager.entrust;
 
-import dataservice.hoteldataservice.ResultMessage_Hotel;
+import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelVO;
 
 public interface Hotel2Manager {

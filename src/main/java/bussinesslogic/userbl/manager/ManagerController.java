@@ -3,8 +3,8 @@ package bussinesslogic.userbl.manager;
 import java.rmi.RemoteException;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
-import dataservice.hoteldataservice.ResultMessage_Hotel;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_Hotel;
+import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
@@ -19,7 +19,7 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_User Login(String managerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String managerID, String password) throws RemoteException {
 		return manager.Login(managerID, password);
 	}
 
@@ -34,12 +34,12 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_User changeStaffData(StaffVO vo) throws RemoteException {
+	public ResultMessage_User changeStaffData(StaffVO vo) throws RemoteException {
 		return manager.changeStaffData(vo);
 	}
 
 	@Override
-	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
 		return manager.addStaff(staffName, hotelID, password);
 	}
 
@@ -49,12 +49,12 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_For_User changeMarketerData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeMarketerData(MarketerVO vo) throws RemoteException {
 		return manager.changeMarketerData(vo);
 	}
 
 	@Override
-	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
 		return manager.addMarketer(marketerName, contactWay, password);
 	}
 

@@ -5,7 +5,7 @@
 package bussinesslogic.roombl;
 
 import bussinesslogic.orderbl.RoomUpdate;
-import dataservice.roomdataservice.ResultMessage_Room;
+import util.resultmessage.ResultMessage_Room;
 
 public class MockRoom extends Room implements RoomUpdate{
 

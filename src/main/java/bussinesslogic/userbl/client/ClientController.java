@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import bussinesslogic.userbl.manager.entrust.Client2Manager;
 import bussinesslogicservice.userblservice.ClientBLService;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -22,22 +22,22 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) throws RemoteException{
+	public ResultMessage_User changeData(String clientID, String clientName, String contactWay) throws RemoteException{
 		return client.changeData(clientID, clientName, contactWay);
 	}
 
 	@Override
-	public ResultMessage_For_User Login(String clientID, String password) throws RemoteException{
+	public ResultMessage_User Login(String clientID, String password) throws RemoteException{
 		return client.Login(clientID, password);
 	}
 
 	@Override
-	public ResultMessage_For_User Signup(ClientVO vo,  String password) throws RemoteException {
+	public ResultMessage_User Signup(ClientVO vo,  String password) throws RemoteException {
 		return client.Signup(vo, password);
 	}
 
 	@Override
-	public ResultMessage_For_User memberRegister(MemberVO vo)  throws RemoteException{
+	public ResultMessage_User memberRegister(MemberVO vo)  throws RemoteException{
 		return client.memberRegister(vo);
 	}
 
@@ -47,7 +47,7 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_For_User changeMemberData(MemberVO vo) throws RemoteException{
+	public ResultMessage_User changeMemberData(MemberVO vo) throws RemoteException{
 		return client.changeMemberData(vo);
 	}
 

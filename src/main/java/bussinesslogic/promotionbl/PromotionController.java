@@ -5,20 +5,20 @@ import java.util.Iterator;
 
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
-import util.ResultMessage_For_Stub;
+import util.resultmessage.ResultMessage_Promotion;
 import vo.order.OrderPromotionConditionVO;
 import vo.promotion.PromotionVO;
 
 public class PromotionController implements PromotionBLService,PromotionGet{
 
 	@Override
-	public ResultMessage_For_Stub hotelAdd(PromotionVO vo) {
+	public ResultMessage_Promotion hotelAdd(PromotionVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub webAdd(PromotionVO vo) {
+	public ResultMessage_Promotion webAdd(PromotionVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -36,7 +36,7 @@ public class PromotionController implements PromotionBLService,PromotionGet{
 	}
 
 	@Override
-	public ResultMessage_For_Stub cancel(String promotionID) {
+	public ResultMessage_Promotion cancel(String promotionID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

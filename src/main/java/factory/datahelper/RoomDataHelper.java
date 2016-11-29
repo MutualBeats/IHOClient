@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import dataservice.roomdataservice.ResultMessage_Room;
 import dataservice.roomdataservice.RoomDataService;
 import po.room.RoomPO;
 import po.room.RoomRecordPO;
-import util.RoomCondition;
+import util.resultmessage.ResultMessage_Room;
+import util.room.RoomState;
 
 /**
  * @author Saltwater
@@ -126,7 +126,7 @@ public class RoomDataHelper {
 		if (result.equals(ResultMessage_Room.Check_In_Successful)) {
 			RoomPO contains = checkContain(hotelID, roomNumber);
 			if (contains != null) {
-				contains.setCondition(RoomCondition.Occupied);
+				contains.setCondition(RoomState.Occupied);
 			}
 		}
 		return result;
@@ -145,7 +145,7 @@ public class RoomDataHelper {
 		if (result.equals(ResultMessage_Room.Check_Out_Successful)) {
 			RoomPO contains = checkContain(hotelID, roomNumber);
 			if (contains != null) {
-				contains.setCondition(RoomCondition.NotReserved);
+				contains.setCondition(RoomState.NotReserved);
 			}
 		}
 		return result;

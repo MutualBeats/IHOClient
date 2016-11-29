@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
-import util.ResultMessage_For_Stub;
+import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
 
@@ -16,19 +16,19 @@ public class OrderController implements OrderBLService{
 			ControllerFactory.getRoomUpdateInstance());
 
 	@Override
-	public ResultMessage_For_Stub cancelOrder(String orderId) {
+	public ResultMessage_Order cancelOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub excuteOrder(String orderId) {
+	public ResultMessage_Order excuteOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub putUpOrder(String orderId) {
+	public ResultMessage_Order putUpOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

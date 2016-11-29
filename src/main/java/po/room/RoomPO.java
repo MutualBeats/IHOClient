@@ -9,8 +9,8 @@ package po.room;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 
-import util.RoomCondition;
-import util.RoomType;
+import util.room.RoomState;
+import util.room.RoomType;
 import vo.room.RoomVO;
 
 public class RoomPO implements Serializable {
@@ -37,7 +37,7 @@ public class RoomPO implements Serializable {
 	/**
 	 * 当前状态
 	 */
-	private RoomCondition condition;
+	private RoomState condition;
 	
 	/**
 	 * @param hotelID
@@ -47,7 +47,7 @@ public class RoomPO implements Serializable {
 	 * @param condition
 	 * @throws RemoteException 
 	 */
-	public RoomPO(String hotelID, String roomNumber, RoomType type, int price, RoomCondition condition) {
+	public RoomPO(String hotelID, String roomNumber, RoomType type, int price, RoomState condition) {
 		this.hotelID = hotelID;
 		this.roomNumber = roomNumber;
 		this.type = type;
@@ -103,11 +103,11 @@ public class RoomPO implements Serializable {
 		this.price = price;
 	}
 
-	public RoomCondition getCondition() {
+	public RoomState getCondition() {
 		return condition;
 	}
 
-	public void setCondition(RoomCondition condition) {
+	public void setCondition(RoomState condition) {
 		this.condition = condition;
 	}
 

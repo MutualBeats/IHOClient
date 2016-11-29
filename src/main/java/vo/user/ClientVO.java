@@ -1,6 +1,6 @@
 package vo.user;
 
-import util.MemberType;
+import util.user.MemberType;
 
 public class ClientVO {
 	/*

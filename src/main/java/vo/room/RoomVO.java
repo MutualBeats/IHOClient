@@ -5,8 +5,8 @@
 package vo.room;
 
 import po.room.RoomPO;
-import util.RoomCondition;
-import util.RoomType;
+import util.room.RoomState;
+import util.room.RoomType;
 
 public class RoomVO {
 	/**
@@ -28,7 +28,7 @@ public class RoomVO {
 	/**
 	 * 当前状态
 	 */
-	public RoomCondition condition;
+	public RoomState condition;
 	
 	/**
 	 * @param hotelID
@@ -37,7 +37,7 @@ public class RoomVO {
 	 * @param price
 	 * @param condition
 	 */
-	public RoomVO(String hotelID, String roomNumber, RoomType type, int price, RoomCondition condition) {
+	public RoomVO(String hotelID, String roomNumber, RoomType type, int price, RoomState condition) {
 		super();
 		this.hotelID = hotelID;
 		this.roomNumber = roomNumber;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dataservice.orderdataservice.OrderDataService;
 import po.order.OrderPO;
-import util.ResultMessage_For_Stub;
+import util.resultmessage.ResultMessage_Order;
 
 public class OrderDataHelper implements OrderDataService{
 	
@@ -20,19 +20,19 @@ public class OrderDataHelper implements OrderDataService{
 	}
 
 	@Override
-	public ResultMessage_For_Stub putUpOrder(String orderId) throws RemoteException {
+	public ResultMessage_Order putUpOrder(String orderId) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub insert(OrderPO po) throws RemoteException {
+	public ResultMessage_Order insert(OrderPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub update(OrderPO po) throws RemoteException {
+	public ResultMessage_Order update(OrderPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

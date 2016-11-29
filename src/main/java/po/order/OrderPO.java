@@ -7,7 +7,7 @@ package po.order;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import util.OrderState;
+import util.order.OrderState;
 
 public class OrderPO implements Serializable {
 	/**

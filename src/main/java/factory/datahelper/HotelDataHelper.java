@@ -7,10 +7,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 import dataservice.hoteldataservice.HotelDataService;
-import dataservice.hoteldataservice.ResultMessage_Hotel;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
-import util.SearchCondition;
+import util.hotel.SearchCondition;
+import util.resultmessage.ResultMessage_Hotel;
 
 /**
  * @author Saltwater Hotel Data Helper A local cache. To hide the interface and

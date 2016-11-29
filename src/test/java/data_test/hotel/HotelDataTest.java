@@ -13,12 +13,12 @@ import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
 
-import dataservice.hoteldataservice.ResultMessage_Hotel;
 import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
-import util.SearchCondition;
+import util.hotel.SearchCondition;
+import util.resultmessage.ResultMessage_Hotel;
 
 public class HotelDataTest {
 	private HotelDataHelper hotelDataHelper;

@@ -9,12 +9,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import dataservice.hoteldataservice.ResultMessage_Hotel;
 import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
-import util.SearchCondition;
+import util.hotel.SearchCondition;
+import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 

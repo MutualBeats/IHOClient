@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import dataservice.promotiondataservice.PromotionDataService;
 import po.promotion.PromotionPO;
 import po.user.ClientPO;
-import util.ResultMessage_For_Stub;
+import util.resultmessage.ResultMessage_Promotion;
 
 public class PromotionDataHelper implements PromotionDataService{
 
@@ -21,13 +21,13 @@ public class PromotionDataHelper implements PromotionDataService{
 	}
 
 	@Override
-	public ResultMessage_For_Stub hotelAdd(PromotionPO po) throws RemoteException {
+	public ResultMessage_Promotion hotelAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_For_Stub webAdd(PromotionPO po) throws RemoteException {
+	public ResultMessage_Promotion webAdd(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

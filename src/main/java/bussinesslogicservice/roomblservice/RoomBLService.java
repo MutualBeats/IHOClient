@@ -7,7 +7,7 @@ package bussinesslogicservice.roomblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import dataservice.roomdataservice.ResultMessage_Room;
+import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 

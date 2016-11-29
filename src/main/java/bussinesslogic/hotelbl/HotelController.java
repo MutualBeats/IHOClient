@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 import bussinesslogic.userbl.manager.entrust.Hotel2Manager;
 import bussinesslogicservice.hotelblservice.HotelBLService;
-import dataservice.hoteldataservice.ResultMessage_Hotel;
-import util.SearchCondition;
+import util.hotel.SearchCondition;
+import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 

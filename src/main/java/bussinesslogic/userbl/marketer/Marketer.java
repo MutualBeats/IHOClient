@@ -6,7 +6,7 @@ import dataservice.userdataservice.MarketerDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.MarketerPO;
 import util.LengthOfID;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
 public class Marketer {
@@ -23,11 +23,11 @@ public class Marketer {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_For_User Login(String marketerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String marketerID, String password) throws RemoteException {
 		if(marketerID.length()!=LengthOfID.getUserID())
-			return ResultMessage_For_User.UserID_Invalid;
+			return ResultMessage_User.UserID_Invalid;
 		
-		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
+		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 		
 		result = marketerDataService.find(marketerID, password);
 
@@ -58,12 +58,12 @@ public class Marketer {
 	/*
 	 * UserName Invalid
 	 */
-	public ResultMessage_For_User changeData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeData(MarketerVO vo) throws RemoteException {
 		int len = vo.marketerName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_For_User.UserName_Invalid;
+			return ResultMessage_User.UserName_Invalid;
 		
-		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
 		po.setMarketerID(vo.marketerID);
 		po.setMarketername(vo.marketerName);
@@ -77,15 +77,15 @@ public class Marketer {
 	/*
 	 * UserName Invalid
 	 */
-	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
 		int len = marketerName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_For_User.UserName_Invalid;
+			return ResultMessage_User.UserName_Invalid;
 		
 		//TODO get ID
 		String ID = null;
 
-		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
 		//TODO
 		po.setMarketerID("");

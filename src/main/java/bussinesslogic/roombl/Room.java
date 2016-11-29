@@ -9,11 +9,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import dataservice.roomdataservice.ResultMessage_Room;
 import factory.datahelper.DataHelperFactory;
 import factory.datahelper.RoomDataHelper;
 import po.room.RoomPO;
 import po.room.RoomRecordPO;
+import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 

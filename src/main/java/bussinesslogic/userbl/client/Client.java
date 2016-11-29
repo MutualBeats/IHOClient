@@ -6,8 +6,8 @@ import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.ClientPO;
 import po.user.MemberPO;
-import util.MemberType;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
+import util.user.MemberType;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -30,28 +30,28 @@ public class Client {
 		ClientVO vo;
 		vo = new ClientVO(po.getClientID(), po.getClientName(), po.getContactWay(), po.getCredit(), 
 				po.getMemberType(), po.getLevel(), po.getMemberMessage());
-		System.out.println(ResultMessage_For_User.GetDataSuccess);
+		System.out.println(ResultMessage_User.GetDataSuccess);
 		return vo;
 	}
 
-	public ResultMessage_For_User changeData(String clientID, String clientName, String contactWay) throws RemoteException {
-		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+	public ResultMessage_User changeData(String clientID, String clientName, String contactWay) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 
 		result = clientDataService.updateData(clientID,clientName,contactWay);
 
 		return result;
 	}
 
-	public ResultMessage_For_User Login(String clientID, String password) throws RemoteException {
-		ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
+	public ResultMessage_User Login(String clientID, String password) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
 		result = clientDataService.find(clientID, password);
 
 		return result;
 	}
 
-	public ResultMessage_For_User Signup(ClientVO vo, String password) throws RemoteException {
-		ResultMessage_For_User result = ResultMessage_For_User.AddSucccess;
+	public ResultMessage_User Signup(ClientVO vo, String password) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.AddSucccess;
 		ClientPO po = new ClientPO();
 		po.setClientID(vo.clientID);
 		po.setClientName(vo.clientName);
@@ -66,17 +66,17 @@ public class Client {
 		return result;
 	}
 
-	public ResultMessage_For_User memberRegister(MemberVO vo) throws RemoteException {
-		ResultMessage_For_User result = ResultMessage_For_User.BusinessRegisterSuccess;
+	public ResultMessage_User memberRegister(MemberVO vo) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.BusinessRegisterSuccess;
 		
 		//是否已存在会员
 		MemberType type = vo.memberType;
 		MemberType existType = new Client().showMemberData(vo.clientID).memberType;
 		if(existType!=MemberType.Not)
 			if(existType==MemberType.Enterprise)
-				return ResultMessage_For_User.BusinessMember_Exist;		
+				return ResultMessage_User.BusinessMember_Exist;		
 			else
-				return ResultMessage_For_User.OriginalMember_Exist;	
+				return ResultMessage_User.OriginalMember_Exist;	
 		
 		MemberPO po = new MemberPO();
 		po.setClientID(vo.clientID);
@@ -97,12 +97,12 @@ public class Client {
 
 		MemberVO vo;
 		vo = new MemberVO(po.getClientID(),po.getMemberType(),po.getLevel(),po.getMemberMessage());
-		System.out.println(ResultMessage_For_User.GetDataSuccess);
+		System.out.println(ResultMessage_User.GetDataSuccess);
 		return vo;
 	}
 
-	public ResultMessage_For_User changeMemberData(MemberVO vo) throws RemoteException {
-		ResultMessage_For_User result = ResultMessage_For_User.BusinessRegisterSuccess;
+	public ResultMessage_User changeMemberData(MemberVO vo) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.BusinessRegisterSuccess;
 		MemberPO po = new MemberPO();
 		po.setClientID(vo.clientID);
 		po.setMemberType(vo.memberType);

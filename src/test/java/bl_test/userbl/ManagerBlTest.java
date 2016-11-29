@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.userbl.manager.Manager;
-import util.MemberType;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
+import util.user.MemberType;
 import vo.user.ClientVO;
 import vo.user.ManagerVO;
 import vo.user.MarketerVO;
@@ -37,10 +37,10 @@ public class ManagerBlTest {
 	
 	@Test
 	public void LoginTest() throws RemoteException{
-		assertEquals(ResultMessage_For_User.UserID_Invalid, manager.Login("123", password));
-		assertEquals(ResultMessage_For_User.UserID_Invalid, manager.Login("12345678901234567890", password));
-		assertEquals(ResultMessage_For_User.Account_Not_Exist, manager.Login("1234567890", password));
-		assertEquals(ResultMessage_For_User.PasswordWrong, manager.Login(vo.managerID, "123"));
-		assertEquals(ResultMessage_For_User.LoginSuccess, manager.Login(vo.managerID, password));
+		assertEquals(ResultMessage_User.UserID_Invalid, manager.Login("123", password));
+		assertEquals(ResultMessage_User.UserID_Invalid, manager.Login("12345678901234567890", password));
+		assertEquals(ResultMessage_User.Account_Not_Exist, manager.Login("1234567890", password));
+		assertEquals(ResultMessage_User.PasswordWrong, manager.Login(vo.managerID, "123"));
+		assertEquals(ResultMessage_User.LoginSuccess, manager.Login(vo.managerID, password));
 	}
 }

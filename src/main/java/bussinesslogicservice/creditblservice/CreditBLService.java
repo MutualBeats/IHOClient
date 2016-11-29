@@ -7,7 +7,7 @@ package bussinesslogicservice.creditblservice;
 import java.rmi.RemoteException;
 import java.util.Iterator;
 
-import dataservice.creditdataservice.ResultMessage_Credit;
+import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
 public interface CreditBLService {

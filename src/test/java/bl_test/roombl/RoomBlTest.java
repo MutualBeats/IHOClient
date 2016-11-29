@@ -9,10 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.roombl.RoomController;
-import dataservice.roomdataservice.ResultMessage_Room;
 import po.room.RoomRecordPO;
-import util.RoomCondition;
-import util.RoomType;
+import util.resultmessage.ResultMessage_Room;
+import util.room.RoomState;
+import util.room.RoomType;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
@@ -31,10 +31,10 @@ public class RoomBlTest {
 	@Test
 	public void testImport() {
 		ArrayList<RoomVO> roomList = new ArrayList<>();
-		roomList.add(new RoomVO("00000001", "3B323", RoomType.Double, 200, RoomCondition.NotReserved));
-		roomList.add(new RoomVO("00000001", "3B322", RoomType.Single, 600, RoomCondition.NotReserved));
-		roomList.add(new RoomVO("00000001", "3B320", RoomType.Triple, 200, RoomCondition.NotReserved));
-		roomList.add(new RoomVO("00000001", "3B321", RoomType.Four, 200, RoomCondition.NotReserved));
+		roomList.add(new RoomVO("00000001", "3B323", RoomType.Double, 200, RoomState.NotReserved));
+		roomList.add(new RoomVO("00000001", "3B322", RoomType.Single, 600, RoomState.NotReserved));
+		roomList.add(new RoomVO("00000001", "3B320", RoomType.Triple, 200, RoomState.NotReserved));
+		roomList.add(new RoomVO("00000001", "3B321", RoomType.Four, 200, RoomState.NotReserved));
 		ArrayList<String> failedList = null;
 		try {
 			failedList = controller.importRoom(roomList);
@@ -50,7 +50,7 @@ public class RoomBlTest {
 			ArrayList<RoomVO> rooms = controller.getRoomList("00000001");
 			assertEquals(rooms.size(), 5);
 			RoomVO first = rooms.get(0);
-			assertEquals(first.condition, RoomCondition.Reserved);
+			assertEquals(first.condition, RoomState.Reserved);
 			assertEquals(first.type, RoomType.Single);
 			assertEquals(first.price, 256);
 			assertEquals(first.roomNumber, "3B346");
@@ -110,7 +110,7 @@ public class RoomBlTest {
 			RoomVO roomInfo = controller.getRoomInfo("00000001", "3B323");
 			assertEquals(roomInfo.price, 1024);
 			assertEquals(roomInfo.type, RoomType.Four);
-			assertEquals(roomInfo.condition, RoomCondition.NotReserved);
+			assertEquals(roomInfo.condition, RoomState.NotReserved);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}	

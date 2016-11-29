@@ -1,6 +1,6 @@
 package vo.order;
 
-import util.RoomType;
+import util.room.RoomType;
 
 /**
  * VO sent when make order

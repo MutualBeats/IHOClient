@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import bussinesslogic.userbl.manager.entrust.Marketer2Manager;
 import bussinesslogicservice.userblservice.MarketerBLService;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
 public class MarketerController implements MarketerBLService , Marketer2Manager {
@@ -16,7 +16,7 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	}
 
 	@Override
-	public ResultMessage_For_User Login(String marketerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String marketerID, String password) throws RemoteException {
 		return marketer.Login(marketerID, password);
 	}
 
@@ -26,12 +26,12 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	}
 	
 	@Override
-	public ResultMessage_For_User changeData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeData(MarketerVO vo) throws RemoteException {
 		return marketer.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage_For_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
 		return marketer.addMarketer(marketerName, contactWay, password);
 	}
 

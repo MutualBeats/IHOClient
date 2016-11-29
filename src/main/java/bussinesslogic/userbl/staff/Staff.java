@@ -6,7 +6,7 @@ import dataservice.userdataservice.StaffDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.StaffPO;
 import util.LengthOfID;
-import util.ResultMessage_For_User;
+import util.resultmessage.ResultMessage_User;
 import vo.user.StaffVO;
 
 public class Staff {
@@ -23,11 +23,11 @@ public class Staff {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_For_User Login(String staffID, String password) throws RemoteException {
+	public ResultMessage_User Login(String staffID, String password) throws RemoteException {
 		if(staffID.length()!=LengthOfID.getUserID())
-			return ResultMessage_For_User.UserID_Invalid;
+			return ResultMessage_User.UserID_Invalid;
 		
-			ResultMessage_For_User result = ResultMessage_For_User.LoginSuccess;
+			ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
 			result = staffDataService.find(staffID, password);
 		
@@ -58,12 +58,12 @@ public class Staff {
 	/*
 	 * UserName Invalid
 	 */
-	public ResultMessage_For_User changeData(StaffVO vo) throws RemoteException {
+	public ResultMessage_User changeData(StaffVO vo) throws RemoteException {
 		int len = vo.staffName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_For_User.UserName_Invalid;
+			return ResultMessage_User.UserName_Invalid;
 		
-		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		po.setStaffID(vo.staffID);
 		po.setStaffname(vo.staffName);
@@ -81,18 +81,18 @@ public class Staff {
 	 * Hotel Not Exist
 	 * Hotel Have Staff
 	 */
-	public ResultMessage_For_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
 		int len = staffName.length();
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_For_User.UserName_Invalid;
+			return ResultMessage_User.UserName_Invalid;
 		
 		if(hotelID.length()!=LengthOfID.getHotelID())
-			return ResultMessage_For_User.HotelID_Invalid;
+			return ResultMessage_User.HotelID_Invalid;
 		
 		//TODO get ID
 		String ID = null;
 		
-		ResultMessage_For_User result = ResultMessage_For_User.UpdateSuccess;
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
 		//TODO
 		po.setStaffID("");

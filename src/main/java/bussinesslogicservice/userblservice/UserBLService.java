@@ -2,7 +2,7 @@ package bussinesslogicservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMessage_For_Stub;
+import util.resultmessage.ResultMessage_User;
 import vo.user.ClientVO;
 import vo.user.MarketerVO;
 import vo.user.StaffVO;
@@ -15,7 +15,7 @@ public interface UserBLService {
 	/*
 	 * 修改用户信息
 	 */
-	public ResultMessage_For_Stub changeClientData (ClientVO vo);
+	public ResultMessage_User changeClientData (ClientVO vo);
 	/*
 	 * 获取酒店工作人员信息
 	 */
@@ -23,7 +23,7 @@ public interface UserBLService {
 	/*
 	 * 修改酒店工作人员信息
 	 */
-	public ResultMessage_For_Stub changeStaffData (StaffVO vo);
+	public ResultMessage_User changeStaffData (StaffVO vo);
 	/*
 	 * 获取网站营销人员信息
 	 */
@@ -31,33 +31,33 @@ public interface UserBLService {
 	/*
 	 * 修改网站营销人员信息
 	 */
-	public ResultMessage_For_Stub changeMarketerData (MarketerVO vo);
+	public ResultMessage_User changeMarketerData (MarketerVO vo);
 	/*
 	 * 添加网站营销人员
 	 */
-	public ResultMessage_For_Stub addMarketer(MarketerVO vo);
+	public ResultMessage_User addMarketer(MarketerVO vo);
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage_For_Stub addStaff(StaffVO vo);
+	public ResultMessage_User addStaff(StaffVO vo);
 	/*
 	 * 用户登录
 	 */
-	public ResultMessage_For_Stub Login(String ID, String password);
+	public ResultMessage_User Login(String ID, String password);
 	/*
 	 * 注册新用户
 	 */
-	public ResultMessage_For_Stub Signup(ClientVO vo);
+	public ResultMessage_User Signup(ClientVO vo);
 	/*
 	 * 注册企业会员
 	 */
-	public ResultMessage_For_Stub businessRegister (ClientVO vo);
+	public ResultMessage_User businessRegister (ClientVO vo);
 	/*
 	 * 注册普通会员
 	 */
-	public ResultMessage_For_Stub originalRegister (ClientVO vo);
+	public ResultMessage_User originalRegister (ClientVO vo);
 	/*
-	 * 查看会员等级信息
+	 * 查看会员等级信息s
 	 */
 	public void levelLook (String name,ClientVO vo);
 	

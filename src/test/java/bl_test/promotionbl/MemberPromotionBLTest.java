@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.promotionbl.MemberPromotion;
-import util.MemberType;
+import util.user.MemberType;
 import vo.promotion.PromotionVO;
 import vo.user.ClientVO;
 

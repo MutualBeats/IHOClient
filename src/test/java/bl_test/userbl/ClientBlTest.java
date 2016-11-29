@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 
 import bussinesslogic.userbl.client.Client;
-import util.MemberType;
+import util.user.MemberType;
 import vo.user.ClientVO;
 
 public class ClientBlTest {
