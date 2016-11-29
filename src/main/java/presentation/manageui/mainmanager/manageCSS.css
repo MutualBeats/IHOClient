@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : apple
 */
 
-        .root{
-          -fx-background-image: url("背景.jpg");
-         }
+.root{
+  -fx-background-image: url("背景.jpg");
+ }
        

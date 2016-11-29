@@ -6,20 +6,11 @@
 package presentation.manageui.mainmanager;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import presentation.manageui.addPeople.addpeople;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.SplitPane;
 
 /**
  *
@@ -35,7 +26,7 @@ public class Manage extends Application {
     @Override  
     public void start(Stage stage) throws Exception {  
         
-        Parent root = FXMLLoader.load(getClass().getResource("MainUI.fxml"));  
+        Parent root = FXMLLoader.load(getClass().getResource("manage.fxml"));  
   
         Scene scene = new Scene(root,1000, 750);  
         scene.getStylesheets().add(Manage.class.getResource("manageCSS.css").toExternalForm());
