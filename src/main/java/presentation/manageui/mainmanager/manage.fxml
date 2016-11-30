@@ -11,16 +11,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="485.0" prefWidth="586.0">
+<ScrollPane prefHeight="754.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="753.0" prefWidth="1003.0">
          <children>
-            <ListView layoutX="65.0" layoutY="170.0" orientation="HORIZONTAL" prefHeight="520.0" prefWidth="225.0">
+            <ListView layoutX="65.0" layoutY="170.0" orientation="HORIZONTAL" prefHeight="500.0" prefWidth="225.0">
                <effect>
                   <DropShadow />
                </effect>
             </ListView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="520.0" layoutX="325.0" layoutY="170.0" stroke="#bfbe97" strokeType="INSIDE" width="650.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="325.0" layoutY="170.0" stroke="#bfbe97" strokeType="INSIDE" width="650.0">
                <effect>
                   <Lighting>
                      <bumpInput>
@@ -43,7 +43,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" layoutX="335.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="630.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="335.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="630.0" />
             <ComboBox layoutX="425.0" layoutY="215.0" prefHeight="35.0" prefWidth="60.0" promptText="省" />
             <ComboBox layoutX="525.0" layoutY="215.0" prefHeight="35.0" prefWidth="60.0" promptText="市" />
             <ComboBox layoutX="625.0" layoutY="215.0" prefHeight="35.0" prefWidth="80.0" promptText="县/区" />
@@ -99,5 +99,5 @@
             </Button>
          </children>
       </AnchorPane>
-   </items>
-</SplitPane>
+   </content>
+</ScrollPane>
