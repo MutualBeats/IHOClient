@@ -58,6 +58,10 @@ public class OrderVO {
 	 */
 	public String estimateCheckOutDate;
 	/**
+	 * 实际离开日期
+	 */
+	public String actualCheckOutDate;
+	/**
 	 * 预计入住人数
 	 */
 	public int numOfPeople;
@@ -80,13 +84,14 @@ public class OrderVO {
 	 * @param latestETime
 	 * @param checkInDate
 	 * @param estimateCheckOutDate
+	 * @param actualCheckOutDate
 	 * @param numOfPeople
 	 * @param children
 	 */
 	public OrderVO(String orderId, OrderState orderState, String clientId, String hotelId,
 			ArrayList<String> roomNumberList, ArrayList<String> promotionIDList, double value, String makeTime,
 			String executeTime, String finishTime, String latestETime, String checkInDate, String estimateCheckOutDate,
-			int numOfPeople, boolean children) {
+			String actualCheckOutDate, int numOfPeople, boolean children) {
 		super();
 		this.orderId = orderId;
 		this.orderState = orderState;
@@ -101,6 +106,7 @@ public class OrderVO {
 		this.latestETime = latestETime;
 		this.checkInDate = checkInDate;
 		this.estimateCheckOutDate = estimateCheckOutDate;
+		this.actualCheckOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
 	}

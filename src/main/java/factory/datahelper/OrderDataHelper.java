@@ -26,7 +26,7 @@ public class OrderDataHelper implements OrderDataService{
 	}
 
 	@Override
-	public ResultMessage_Order insert(OrderPO po) throws RemoteException {
+	public ResultMessage_Order addOrder(OrderPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -68,7 +68,7 @@ public class OrderDataHelper implements OrderDataService{
 	}
 
 	@Override
-	public ArrayList<OrderPO> findUnexcutedOrder() throws RemoteException {
+	public ArrayList<OrderPO> findUnexecutedOrder() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
