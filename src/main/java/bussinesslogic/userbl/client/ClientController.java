@@ -32,8 +32,8 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_User Signup(ClientVO vo,  String password) throws RemoteException {
-		return client.Signup(vo, password);
+	public ResultMessage_User Signup(String clientID, String clientName, String contactWay,  String password) throws RemoteException {
+		return client.Signup(clientID, clientName, contactWay, password);
 	}
 
 	@Override

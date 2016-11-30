@@ -2,7 +2,7 @@ package util;
 
 public class LengthOfID {
 	// Length of UserID
-	private static final int UserID = 10;
+	private static final int UserID = 11;
 	// Length of HotelID
 	private static final int HotelID = 8;
 	// Length of UserName

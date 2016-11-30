@@ -18,8 +18,8 @@ public class StaffBlTest {
 	
 	@Before
 	public void init() {
-		vo1 = new StaffVO("0000000011", "staff3","12345678");
-		vo2 = new StaffVO("0000000002", "staff2","00000002");
+		vo1 = new StaffVO("STF0000011", "staff3","12345678");
+		vo2 = new StaffVO("STF0000002", "staff2","00000002");
 		try {
 			staff = new Staff();
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class StaffBlTest {
 	}
 	
 	@Test
-	public void addMarketerTest() {
+	public void addStaffTest() {
 		try {
 			assertEquals(ResultMessage_User.UserName_Invalid, staff.addStaff( "123",vo1.hotelID, password));
 			assertEquals(ResultMessage_User.UserName_Invalid, staff.addStaff( "12345678901234567890",vo1.hotelID, password));

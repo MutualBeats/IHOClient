@@ -89,13 +89,11 @@ public class Staff {
 		if(hotelID.length()!=LengthOfID.getHotelID())
 			return ResultMessage_User.HotelID_Invalid;
 		
-		//TODO get ID
-		String ID = null;
+		String ID = "STF" + hotelID;
 		
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		StaffPO po = new StaffPO();
-		//TODO
-		po.setStaffID("");
+		po.setStaffID(ID);
 		po.setStaffname(staffName);
 		po.setHotelId(hotelID);
 		

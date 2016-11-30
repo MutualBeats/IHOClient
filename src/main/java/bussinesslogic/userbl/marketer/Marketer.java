@@ -6,6 +6,7 @@ import dataservice.userdataservice.MarketerDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.MarketerPO;
 import util.LengthOfID;
+import util.Time;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
@@ -82,13 +83,15 @@ public class Marketer {
 		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 			return ResultMessage_User.UserName_Invalid;
 		
-		//TODO get ID
 		String ID = null;
+		while(new Marketer().Login(ID,"")==ResultMessage_User.Account_Exist){
+			ID = Time.getCurrentYear()+Time.getCurrentMonth()+Time.getCurrentDay() + String.valueOf(Math.random()*1000);
+			ID = ID.substring(0, LengthOfID.getUserID()-1);
+		}
 
-		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
+		ResultMessage_User result = ResultMessage_User.AddSucccess;
 		MarketerPO po = new MarketerPO();
-		//TODO
-		po.setMarketerID("");
+		po.setMarketerID(ID);
 		po.setMarketername(marketerName);
 		po.setTel_number(contactWay);
 

@@ -22,7 +22,7 @@ public interface ClientBLService {
 	/*
 	 * 注册新用户
 	 */
-	public ResultMessage_User Signup(ClientVO vo, String password) throws RemoteException;
+	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password) throws RemoteException;
 	/*
 	 * 注册会员
 	 */

@@ -18,8 +18,8 @@ public class MarketerBlTest {
 	
 	@Before
 	public void init() {
-		vo1 = new MarketerVO("0000000011", "营销人员03", "12345678901");
-		vo2 = new MarketerVO("0000000002", "营销人员02", "120");
+		vo1 = new MarketerVO("20161130011", "营销人员03", "12345678901");
+		vo2 = new MarketerVO("20161130002", "营销人员02", "120");
 		try {
 			marketer = new Marketer();
 		} catch (Exception e) {
@@ -64,7 +64,6 @@ public class MarketerBlTest {
 	@Test
 	public void addMarketerTest() {
 		try {
-			assertEquals(ResultMessage_User.UserID_Invalid, marketer.addMarketer( vo1.marketerName,vo1.contactWay, password));
 			assertEquals(ResultMessage_User.UserName_Invalid, marketer.addMarketer( "123",vo1.contactWay, password));
 			assertEquals(ResultMessage_User.UserName_Invalid, marketer.addMarketer( "12345678901234567890",vo1.contactWay, password));
 			assertEquals(ResultMessage_User.AddSucccess, marketer.addMarketer(vo1.marketerName, vo1.contactWay, password));
