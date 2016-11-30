@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 
 public class LoginController implements Initializable{
 	
-	@FXML Button sign;
+	@FXML Button signin;
 	@FXML Button login;
 	@FXML Button visit;
 	@FXML Button exit;
@@ -24,7 +24,7 @@ public class LoginController implements Initializable{
 	}
 	
 	@FXML
-	public void sign(ActionEvent event) {
+	public void signin(ActionEvent event) {
 		
 	}
 

@@ -1,0 +1,22 @@
+.root {
+	-fx-background-image:url("../../img/login/background.png");
+}
+
+.button {
+	-fx-background-color:transparent;
+	-fx-border-width:3px;  
+	-fx-border-radius:3px; 
+	-fx-background-radius: 3px; 
+}
+
+
+
+#exit:default{
+	-fx-background-image:url("../../img/login/exit.png");	
+}
+#exit:hover{
+	-fx-background-image:url("../../img/login/exit.png");
+}
+#exit:pressed{
+	-fx-background-image:url("../../img/login/exit.png");
+}
