@@ -84,9 +84,12 @@ public class Marketer {
 			return ResultMessage_User.UserName_Invalid;
 		
 		String ID = null;
-		while(new Marketer().Login(ID,"")==ResultMessage_User.Account_Exist){
+		int count = 0;
+		while(new Marketer().showData(ID)!=null){
 			ID = Time.getCurrentYear()+Time.getCurrentMonth()+Time.getCurrentDay() + String.valueOf(Math.random()*1000);
 			ID = ID.substring(0, LengthOfID.getUserID()-1);
+			if(count++>999)
+				return ResultMessage_User.AddFail;
 		}
 
 		ResultMessage_User result = ResultMessage_User.AddSucccess;
