@@ -1,5 +1,6 @@
 package bussinesslogic.orderbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -16,9 +17,8 @@ public class OrderController implements OrderBLService{
 			ControllerFactory.getRoomUpdateInstance());
 
 	@Override
-	public ResultMessage_Order cancelOrder(String orderId) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage_Order cancelOrder(String orderID) {
+		return order.cancelOrder(orderID);
 	}
 
 	@Override
