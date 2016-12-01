@@ -31,8 +31,8 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	}
 
 	@Override
-	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
-		return marketer.addMarketer(marketerName, contactWay, password);
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+		return marketer.addMarketer(vo, password);
 	}
 
 

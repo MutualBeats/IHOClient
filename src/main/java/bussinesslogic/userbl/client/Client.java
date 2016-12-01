@@ -6,7 +6,6 @@ import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.ClientPO;
 import po.user.MemberPO;
-import util.LengthOfID;
 import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
 import vo.user.ClientVO;
@@ -22,12 +21,12 @@ public class Client {
 
 	/* 
 	 * Return null:
-	 * 	UserID Invalid
+	 * 	-UserID Invalid
 	 * 	Account Not Exist
 	 * */
 	public ClientVO showData(String clientID) throws RemoteException {
-		if(clientID.length()!=LengthOfID.getUserID())
-			return null;
+//		if(clientID.length()!=LengthOfID.getUserID())
+//			return null;
 	
 		ClientPO po = new ClientPO();
 
@@ -44,12 +43,12 @@ public class Client {
 	}
 
 	/*
-	 * userName Invalid
+	 * -userName Invalid
 	 */
 	public ResultMessage_User changeData(String clientID, String clientName, String contactWay) throws RemoteException {
-		int len = clientName.length();
-		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_User.UserName_Invalid;
+//		int len = clientName.length();
+//		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
+//			return ResultMessage_User.UserName_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 
@@ -59,14 +58,14 @@ public class Client {
 	}
 
 	/*
-	 * UserID Invalid
+	 *-UserID Invalid
 	 * 
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
 	public ResultMessage_User Login(String clientID, String password) throws RemoteException {
-		if(clientID.length()!=LengthOfID.getUserID())
-			return ResultMessage_User.UserID_Invalid;
+//		if(clientID.length()!=LengthOfID.getUserID())
+//			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
@@ -76,18 +75,18 @@ public class Client {
 	}
 
 	/*
-	 * UserID Invalid
-	 * UserName Invalid
+	 *-UserID Invalid
+	 * -UserName Invalid
 	 * 
 	 * Account Exist
 	 */
 	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password) throws RemoteException {
-		if(clientID.length()!=LengthOfID.getUserID())
-			return ResultMessage_User.UserID_Invalid;
-		
-		int len = clientName.length();
-		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_User.UserName_Invalid;
+//		if(clientID.length()!=LengthOfID.getUserID())
+//			return ResultMessage_User.UserID_Invalid;
+//		
+//		int len = clientName.length();
+//		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
+//			return ResultMessage_User.UserName_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.AddSucccess;
 		

@@ -54,8 +54,8 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
-		return manager.addMarketer(marketerName, contactWay, password);
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+		return manager.addMarketer(vo, password);
 	}
 
 	@Override

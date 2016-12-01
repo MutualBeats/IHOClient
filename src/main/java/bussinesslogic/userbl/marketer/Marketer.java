@@ -5,8 +5,6 @@ import java.rmi.RemoteException;
 import dataservice.userdataservice.MarketerDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.MarketerPO;
-import util.LengthOfID;
-import util.Time;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
@@ -19,14 +17,14 @@ public class Marketer {
 	}
 	
 	/*
-	 * UserID Invalid
+	 * -UserID Invalid
 	 * 
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
 	public ResultMessage_User Login(String marketerID, String password) throws RemoteException {
-		if(marketerID.length()!=LengthOfID.getUserID())
-			return ResultMessage_User.UserID_Invalid;
+//		if(marketerID.length()!=LengthOfID.getUserID())
+//			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 		
@@ -37,12 +35,12 @@ public class Marketer {
 
 	/* 
 	 * Return null:
-	 * 	UserID Invalid
+	 * 	-UserID Invalid
 	 * 	Account Not Exist
 	 * */
 	public MarketerVO showData(String marketerID) throws RemoteException {
-		if(marketerID.length()!=LengthOfID.getUserID())
-			return null;
+//		if(marketerID.length()!=LengthOfID.getUserID())
+//			return null;
 		
 		MarketerPO po = new MarketerPO();
 
@@ -57,12 +55,12 @@ public class Marketer {
 	}
 		
 	/*
-	 * UserName Invalid
+	 * -UserName Invalid
 	 */
 	public ResultMessage_User changeData(MarketerVO vo) throws RemoteException {
-		int len = vo.marketerName.length();
-		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_User.UserName_Invalid;
+//		int len = vo.marketerName.length();
+//		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
+//			return ResultMessage_User.UserName_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		MarketerPO po = new MarketerPO();
@@ -76,27 +74,18 @@ public class Marketer {
 	}
 
 	/*
-	 * UserName Invalid
+	 * -UserName Invalid
 	 */
-	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
-		int len = marketerName.length();
-		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
-			return ResultMessage_User.UserName_Invalid;
-		
-		String ID = null;
-		int count = 0;
-		while(new Marketer().showData(ID)!=null){
-			ID = Time.getCurrentYear()+Time.getCurrentMonth()+Time.getCurrentDay() + String.valueOf(Math.random()*1000);
-			ID = ID.substring(0, LengthOfID.getUserID()-1);
-			if(count++>999)
-				return ResultMessage_User.AddFail;
-		}
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+//		int len = vo.marketerName.length();
+//		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
+//			return ResultMessage_User.UserName_Invalid;
 
 		ResultMessage_User result = ResultMessage_User.AddSucccess;
 		MarketerPO po = new MarketerPO();
-		po.setMarketerID(ID);
-		po.setMarketername(marketerName);
-		po.setTel_number(contactWay);
+		po.setMarketerID(vo.marketerID);
+		po.setMarketername(vo.marketerName);
+		po.setTel_number(vo.contactWay);
 
 		result = marketerDataService.insert(po, password);
 

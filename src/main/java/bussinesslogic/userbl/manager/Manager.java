@@ -21,15 +21,15 @@ public class Manager {
 	}
 
 	/*
-	 * UserID Invalid
+	 * -UserID Invalid
 	 * 
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
 	public ResultMessage_User Login(String managerID, String password) throws RemoteException {
-		int len = managerID.length();
-		if(len<8||len>16)
-			return ResultMessage_User.UserID_Invalid;
+//		int len = managerID.length();
+//		if(len<8||len>16)
+//			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
@@ -62,8 +62,8 @@ public class Manager {
 		return ControllerFactory.getMarketer2ManagerInstance().changeData(vo);
 	}
 
-	public ResultMessage_User addMarketer(String marketerName, String contactWay, String password) throws RemoteException {
-		return ControllerFactory.getMarketer2ManagerInstance().addMarketer(marketerName, contactWay, password);
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+		return ControllerFactory.getMarketer2ManagerInstance().addMarketer(vo, password);
 	}
 	
 	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException{
