@@ -3,6 +3,7 @@ package factory.datahelper;
 import java.rmi.RemoteException;
 
 import dataservice.datafactoryservice.DataFactory;
+import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.ClientDataService;
 import dataservice.userdataservice.ManagerDataService;
 import dataservice.userdataservice.MarketerDataService;
@@ -25,7 +26,7 @@ public class DataHelperFactory {
 
 	private CreditDataHelper creditDataHelper;
 	private HotelDataHelper hotelDataHelper;
-	private OrderDataHelper orderDataHelper;
+	private OrderDataService orderDataService;
 	private PromotionDataHelper promotionDataHelper;
 	private RoomDataHelper roomDataHelper;
 	private ClientDataService clientDataService;
@@ -65,12 +66,12 @@ public class DataHelperFactory {
 		return hotelDataHelper;
 	}
 
-	public OrderDataHelper getOrderDatabase() throws RemoteException {
-		if (orderDataHelper == null) {
+	public OrderDataService getOrderDatabase() throws RemoteException {
+		if (orderDataService == null) {
 			checkFactoryState();
-			orderDataHelper = new OrderDataHelper(factory.getOrderDatabase());
+			orderDataService = factory.getOrderDatabase();
 		}
-		return orderDataHelper;
+		return orderDataService;
 	}
 
 	public PromotionDataHelper getPromotionDatabase() throws RemoteException {
