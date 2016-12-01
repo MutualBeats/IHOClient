@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -9,17 +13,47 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loginui.SigninController">
    <children>
-      <Button fx:id="confirm" layoutX="76.0" layoutY="452.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
-      <Button fx:id="cancel" layoutX="377.0" layoutY="452.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
-      <TextField fx:id="name" layoutX="210.0" layoutY="132.0" />
-      <PasswordField fx:id="ps" layoutX="210.0" layoutY="271.0" />
-      <PasswordField fx:id="ps_again" layoutX="210.0" layoutY="335.0" />
-      <TextField fx:id="phone" layoutX="210.0" layoutY="213.0" />
-      <TextField fx:id="user_name" layoutX="210.0" layoutY="59.0" />
-      <Label layoutX="91.0" layoutY="64.0" text="UserName" />
-      <Label layoutX="122.0" layoutY="137.0" text="Name" />
-      <Label layoutX="123.0" layoutY="180.0" text="Phone" />
-      <Label layoutX="71.0" layoutY="267.0" text="Password" />
-      <Label layoutX="76.0" layoutY="340.0" text="PasswordAgain" />
+      <Button fx:id="confirm" contentDisplay="TOP" defaultButton="true" layoutX="125.0" layoutY="425.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm" text="Confirm">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="cancel" alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="285.0" layoutY="425.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#cancel" prefHeight="26.0" prefWidth="70.0" text="Cancel">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <TextField fx:id="name" layoutX="220.0" layoutY="170.0" />
+      <PasswordField fx:id="ps" layoutX="220.0" layoutY="280.0" />
+      <PasswordField fx:id="ps_again" layoutX="220.0" layoutY="335.0" />
+      <TextField fx:id="phone" layoutX="220.0" layoutY="230.0" />
+      <TextField fx:id="user_name" layoutX="220.0" layoutY="115.0" />
+      <Label layoutX="90.0" layoutY="120.0" text="UserName:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="90.0" layoutY="175.0" text="Name:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="90.0" layoutY="285.0" text="Password:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="90.0" layoutY="340.0" text="PasswordAgain:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="195.0" layoutY="45.0" text="SignIn" textFill="WHITE">
+         <font>
+            <Font size="38.0" />
+         </font>
+         <effect>
+            <InnerShadow color="#b42e2e" />
+         </effect>
+      </Label>
+      <Label layoutX="90.0" layoutY="230.0" text="Phone:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

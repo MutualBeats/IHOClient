@@ -6,10 +6,14 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
@@ -30,7 +34,16 @@ public class LoginController implements Initializable{
 	public void signin(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		try {
-			WindowGrab.startWindow(window, getClass().getResource("signin.fxml"));
+//			WindowGrab.startWindow(window, getClass().getResource("signin.fxml"));
+			Stage primaryStage=new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(Login.class.getResource("signin.css").toExternalForm());
+			primaryStage.setTitle("SignIn");
+			
+			primaryStage.setScene(scene);
+			primaryStage.centerOnScreen();
+			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

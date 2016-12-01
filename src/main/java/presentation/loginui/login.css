@@ -30,3 +30,23 @@
 #exit:pressed{
 	-fx-background-image:url("../../img/login/exit.png");
 }
+
+#visit{
+	-fx-background-image:url("../../img/login/visit.png");	
+}
+#visit:hover{
+	-fx-background-image:url("../../img/login/visit.png");
+}
+#visit:pressed{
+	-fx-background-image:url("../../img/login/visit.png");
+}
+
+#login{
+	-fx-background-image:url("../../img/login/login.png");	
+}
+#login:hover{
+	-fx-background-image:url("../../img/login/login.png");
+}
+#login:pressed{
+	-fx-background-image:url("../../img/login/login.png");
+}

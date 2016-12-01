@@ -38,6 +38,9 @@ public class SigninController implements Initializable{
 	public void cancel(ActionEvent event) {
 		WindowGrab.closeWindow(event);
 	}
-	
+	@FXML
+    void b22e2e(ActionEvent event) {
+
+    }
 
 }
