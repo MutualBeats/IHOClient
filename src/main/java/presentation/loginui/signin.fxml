@@ -24,7 +24,7 @@
       <TextField fx:id="name" layoutX="220.0" layoutY="170.0" />
       <PasswordField fx:id="ps" layoutX="220.0" layoutY="280.0" />
       <PasswordField fx:id="ps_again" layoutX="220.0" layoutY="335.0" />
-      <TextField fx:id="phone" layoutX="220.0" layoutY="230.0" />
+      <TextField fx:id="phone" layoutX="220.0" layoutY="225.0" />
       <TextField fx:id="user_name" layoutX="220.0" layoutY="115.0" />
       <Label layoutX="90.0" layoutY="120.0" text="UserName:" textFill="WHITE">
          <font>
@@ -50,7 +50,7 @@
             <InnerShadow color="#b42e2e" />
          </effect>
       </Label>
-      <Label layoutX="90.0" layoutY="230.0" text="Phone:" textFill="WHITE">
+      <Label layoutX="90.0" layoutY="225.0" text="Phone:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

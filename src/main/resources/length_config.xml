@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <idconfig>
-	<username>
-		<min_length>8</min_length>
-		<max_length>16</max_length>
-	</username>
-	<password>
-		<min_length>10</min_length>
-		<max_length>16</max_length>
-	</password>
-	
+	<username min_length = "8" max_length = "16"></username>
+	<password min_length = "10" max_length = "16"></password>
+	<phone phone_length = "11"></phone>
 </idconfig>
