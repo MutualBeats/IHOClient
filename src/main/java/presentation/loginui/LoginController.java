@@ -1,5 +1,6 @@
 package presentation.loginui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Window;
+import presentation.utilui.WindowGrab;
 
 public class LoginController implements Initializable{
 	
@@ -25,7 +28,12 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void signin(ActionEvent event) {
-		
+		Window window = WindowGrab.getWindow(event);
+		try {
+			WindowGrab.startWindow(window, getClass().getResource("signin.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

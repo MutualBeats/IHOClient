@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- Sign in UI -->
+
+<AnchorPane prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loginui.SigninController">
+   <children>
+      <Button fx:id="confirm" layoutX="76.0" layoutY="452.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
+      <Button fx:id="cancel" layoutX="377.0" layoutY="452.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+      <TextField fx:id="name" layoutX="210.0" layoutY="132.0" />
+      <PasswordField fx:id="ps" layoutX="210.0" layoutY="271.0" />
+      <PasswordField fx:id="ps_again" layoutX="210.0" layoutY="335.0" />
+      <TextField fx:id="phone" layoutX="210.0" layoutY="213.0" />
+      <TextField fx:id="user_name" layoutX="210.0" layoutY="59.0" />
+      <Label layoutX="91.0" layoutY="64.0" text="UserName" />
+      <Label layoutX="122.0" layoutY="137.0" text="Name" />
+      <Label layoutX="123.0" layoutY="180.0" text="Phone" />
+      <Label layoutX="71.0" layoutY="267.0" text="Password" />
+      <Label layoutX="76.0" layoutY="340.0" text="PasswordAgain" />
+   </children>
+</AnchorPane>
