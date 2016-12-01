@@ -9,6 +9,6 @@ and open the template in the editor.
 */
 
  .root{
-	-fx-background-image: url("子界面背景.jpg");
+	-fx-background-image: url("../../img/manageui/background.jpg");
 }
        
