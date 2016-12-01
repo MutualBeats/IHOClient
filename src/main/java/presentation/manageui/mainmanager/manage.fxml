@@ -11,20 +11,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane prefHeight="754.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane prefHeight="754.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageController">
    <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="753.0" prefWidth="1003.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="755.0" prefWidth="1026.0">
          <children>
             <ListView layoutX="65.0" layoutY="170.0" orientation="HORIZONTAL" prefHeight="500.0" prefWidth="225.0">
                <effect>
-                  <DropShadow />
+                  <DropShadow height="18.0" radius="9.25" spread="0.4">
+                     <input>
+                        <InnerShadow color="#add78f" />
+                     </input></DropShadow>
                </effect>
             </ListView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="325.0" layoutY="170.0" stroke="#bfbe97" strokeType="INSIDE" width="650.0">
                <effect>
                   <Lighting>
                      <bumpInput>
-                        <Shadow />
+                        <Shadow color="#d9a96a" />
                      </bumpInput>
                      <light>
                         <Light.Distant color="#bfe5a5" />
@@ -64,7 +67,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button fx:id="search" layoutX="800.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="搜索">
+          <Button fx:id="search" layoutX="775.0" layoutY="305.0" mnemonicParsing="false" onAction="#on_Search" prefHeight="35.0" prefWidth="70.0" text="搜索"> 
                <font>
                   <Font size="18.0" />
                </font>
@@ -87,12 +90,21 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="add_people" layoutX="115.0" layoutY="225.0" mnemonicParsing="false" text="管理人员信息">
+            <MenuButton layoutX="105.0" layoutY="220.0" mnemonicParsing="false" text="管理人员信息">
+              <items>
+              <MenuItem fx:id="add_people" mnemonicParsing="true" onAction="#add_people" text="添加人员" />
+                <MenuItem fx:id="change" mnemonicParsing="false" onAction="#on_change" text="修改人员信息" />
+              </items>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MenuButton>
+         <Button fx:id="add_hotel" layoutX="105.0" layoutY="273.0" mnemonicParsing="false" onAction="#add_hotel" text="添加酒店">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="add_hotel" layoutX="115.0" layoutY="275.0" mnemonicParsing="false" text="添加酒店">
+            <Button fx:id="look" layoutX="865.0" layoutY="305.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="35.0" prefWidth="70.0" text="查看">
                <font>
                   <Font size="18.0" />
                </font>

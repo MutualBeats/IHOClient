@@ -1,4 +1,4 @@
-package presentation.marketerui.Credit;
+package presentation.marketerui.credit;
 
 import java.io.IOException;
 import java.util.logging.Level;

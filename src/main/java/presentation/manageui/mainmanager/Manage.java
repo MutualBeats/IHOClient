@@ -18,14 +18,14 @@ import javafx.stage.StageStyle;
  */
 public class Manage extends Application {
     
-       
+	 public static Stage stage;
      public static void main(String[] args) {  
         Application.launch(args);  
     }  
       
     @Override  
     public void start(Stage stage) throws Exception {  
-        
+    	this.stage=stage;
         Parent root = FXMLLoader.load(getClass().getResource("manage.fxml"));  
   
         Scene scene = new Scene(root,1000, 750);  

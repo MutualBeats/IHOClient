@@ -1,4 +1,4 @@
-package presentation.manageui.addPeople;
+package presentation.manageui.addpeople;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,9 +15,13 @@ public class AddPeopleController implements Initializable{
 
     @FXML
     void cancel(ActionEvent event) {
-        
+        AddPeople.stage.close();
     }
+    
+    @FXML
+    void add_people(ActionEvent event) {
 
+    }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

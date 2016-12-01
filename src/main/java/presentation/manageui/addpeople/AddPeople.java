@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation.manageui.addPeople;
+package presentation.manageui.addpeople;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,20 +18,22 @@ import javafx.stage.StageStyle;
  * @author apple
  */
 public class AddPeople extends Application {
-//    
-    public static void main(String[] args) {  
-        Application.launch(AddPeople.class, args);  
-    }  
-//      
+//
+//    public static void main(String[] args) {  
+//        Application.launch(ManagePeople.class, args);  
+//    }  
+//	
+	public static Stage stage;
     @Override  
-    public void start(Stage stage) throws Exception {  
+    public void start(Stage stage) throws Exception { 
+    	this.stage=stage;
         Parent root = FXMLLoader.load(getClass().getResource("addpeople.fxml"));  
   
         Scene scene = new Scene(root, 460 , 475);  
         scene.getStylesheets().add(AddPeople.class.getResource("addpeopleCSS.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED);  
         stage.setScene(scene);  
-        stage.setTitle("添加酒店");  
+        stage.setTitle("添加人员");  
         stage.show();  
     }  
 
