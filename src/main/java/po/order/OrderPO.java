@@ -139,19 +139,19 @@ public class OrderPO implements Serializable {
 		this.orderState = orderState;
 	}
 
-	public String getClientId() {
+	public String getClientID() {
 		return clientID;
 	}
 
-	public void setClientId(String clientID) {
+	public void setClientID(String clientID) {
 		this.clientID = clientID;
 	}
 
-	public String getHotelId() {
+	public String getHotelID() {
 		return hotelID;
 	}
 
-	public void setHotelId(String hotelID) {
+	public void setHotelID(String hotelID) {
 		this.hotelID = hotelID;
 	}
 

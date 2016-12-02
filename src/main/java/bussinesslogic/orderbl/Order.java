@@ -44,29 +44,57 @@ public class Order {
 
 	/**
 	 * 撤销订单
-	 * 撤销订单的同时删除房间预订记录
+	 * 同时删除房间预订记录
 	 * @param orderID
 	 * @return ResultMessage
 	 */
 	public ResultMessage_Order cancelOrder(String orderID) {
-		ResultMessage_Room res_room = room.deleteRecord(orderID);
-		// TODO ResultMessage_Room 统一完善
-//		if(res_room.equals())
-		
-		ResultMessage_Order res_order;
+		ResultMessage_Order result_order;
 		try {
-			res_order = order_data_service.cancelOrder(orderID);
+			result_order = order_data_service.cancelOrder(orderID);
+			if(!result_order.equals(ResultMessage_Order.Cancel_Successful))
+				return result_order;
+			
+			OrderPO po = order_data_service.findById(orderID);
+			// TODO 信用值处理
+			
+			// TODO ResultMessage_Room处理
+			room.deleteRecord(orderID);
+			
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
-		return res_order;
+		
+		return result_order;
 		
 	}
 
+	/**
+	 * 执行订单
+	 * 同时更新房间
+	 * @param orderID
+	 * @return ResultMessage
+	 */
 	public ResultMessage_Order excuteOrder(String orderID) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage_Order result_order;
+		try {
+			result_order = order_data_service.executeOrder(orderID);
+			if(!result_order.equals(ResultMessage_Order.Execute_Successful))
+				return result_order;
+			
+			OrderPO po = order_data_service.findById(orderID);
+			
+			for (String roomNumber : po.getRoomNumberList()) {
+				room.checkIn(po.getHotelID(), roomNumber);
+			}
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Order.Net_Error;
+		}
+		
+		return result_order;
 	}
 
 	public ResultMessage_Order putUpOrder(String orderID) {
