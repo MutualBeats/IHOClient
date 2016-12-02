@@ -37,14 +37,19 @@ public class ManageMenuController {
     private static URL ADD_PEOPLE_MENU_CSS;
     private static URL CHANGE_FXML;
     private static URL CHANGE_CSS;
+    private static URL LOOK_MENU_FXML;
+    private static URL LOOK_MENU_CSS;
+    
     static{
     	try {
 			ADD_HOTEL_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel.fxml");
 			ADD_HOTEL_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel.css");
-			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeoplemenu.fxml");
-			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeoplemenu.css");
+			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
+			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
 			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml");
 			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/changemessage.css");
+			LOOK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/lookmenu.fxml");
+			LOOK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/look_menu.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -58,14 +63,14 @@ public class ManageMenuController {
 
     @FXML
     void on_look(ActionEvent event) {
-
+    	Window window = WindowGrab.getWindow(event);
+    	WindowGrab.startWindow(window, LOOK_MENU_FXML,LOOK_MENU_CSS);
     }
 
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS); 
-    	
+    	WindowGrab.startWindow(window, ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS);
     }
 
     @FXML

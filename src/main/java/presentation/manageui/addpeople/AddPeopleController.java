@@ -22,7 +22,7 @@ public class AddPeopleController implements Initializable{
     static{
     	try {
     		ADD_PEOPLE_CONFIRM_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addpeopleconfirm.fxml");
-    		ADD_PEOPLE_CONFIRM_CSS = new URL("file:src/main/resources/ui/manageui/css/addpeopleconfirm.css");
+    		ADD_PEOPLE_CONFIRM_CSS = new URL("file:src/main/resources/ui/manageui/css/add_people_confirm.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

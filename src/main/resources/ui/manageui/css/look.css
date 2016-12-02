@@ -8,8 +8,5 @@ and open the template in the editor.
     Author     : apple
 */
 .root {
-	-fx-background-image:url("../../img/manageui/menubackground.png");
-}
-#title{
-	-fx-background-image:url("../../img/manageui/title.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/background.jpg");
 }

@@ -19,15 +19,13 @@ import javafx.stage.StageStyle;
  * @author apple
  */
 public class ManageMenu extends Application {
-    
-	 public static Stage stage;
+
      public static void main(String[] args) {  
         Application.launch(args);  
     }  
       
     @Override  
-    public void start(Stage stage) throws Exception {  
-    	this.stage=stage;
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(new URL("file:src/main/resources/ui/manageui/fxml/managemenu.fxml"));  
   
         Scene scene = new Scene(root,800, 600);  

@@ -1,5 +1,5 @@
 .root {
-	-fx-background-image:url("menu.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/menu.png");
 }
 
 .button {
@@ -14,41 +14,41 @@
 
 #title{
 	-fx-font-size: 32px;
-	-fx-background-image:url("menutitle.png");	
+	-fx-background-image: url("file:src/main/resources/image/manage/menutitle.png");	
 }
 #addhotel{
-	-fx-background-image:url("addhotel.png");	
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel.png");	
 }
 
 #addhotel:hover{
-	-fx-background-image:url("addhotel_hover.png");	
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel_hover.png");	
 }
 
 #addpeople{
-	-fx-background-image:url("addpeople.png");	
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople.png");	
 }
 #addpeople:hover{
-	-fx-background-image:url("addpeople_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople_hover.png");
 }
 
 #change{
-	-fx-background-image:url("change.png");	
+	-fx-background-image:url("file:src/main/resources/image/manage/change.png");	
 }
 #change:hover{
-	-fx-background-image:url("change_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/change_hover.png");
 }
 
 #Look{
-	-fx-background-image:url("Look.png");	
+	-fx-background-image:url("file:src/main/resources/image/manage/Look.png");	
 }
 #Look:hover{
-	-fx-background-image:url("Look_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/Look_hover.png");
 }
 
 #people_pane{
-	-fx-background-image:url("transpent.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/transpent.png");
 }
 
 #hotel_pane{
-	-fx-background-image:url("transpent.png");
+	-fx-background-image:url("file:src/main/resources/image/manage/transpent.png");
 }

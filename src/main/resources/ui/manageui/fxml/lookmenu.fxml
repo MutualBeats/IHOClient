@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/addpeoplemenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.look.LookMenuController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="90.0" layoutY="94.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow color="#d9a96a" />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#bfe5a5" />
+               </light>
+            </Lighting>
+         </effect>
+      </Rectangle>
+      <Accordion layoutX="-108.0" layoutY="126.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="100.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <ComboBox layoutX="170.0" layoutY="129.0" prefHeight="35.0" prefWidth="60.0" promptText="省" />
+      <ComboBox layoutX="295.0" layoutY="129.0" prefHeight="35.0" prefWidth="60.0" promptText="市" />
+      <ComboBox layoutX="434.0" layoutY="129.0" prefHeight="35.0" prefWidth="80.0" promptText="县/区" />
+      <ComboBox layoutX="570.0" layoutY="129.0" prefHeight="35.0" prefWidth="75.0" promptText="商圈" />
+      <Text layoutX="215.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分:" wrappingWidth="60.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label layoutX="195.0" layoutY="236.0" text="ID/Keywords:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="345.0" layoutY="229.0" prefHeight="20.0" prefWidth="165.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="cancel" layoutX="620.0" layoutY="209.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="60.0" text="取消">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="145.0" layoutY="269.0" text="搜索结果:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView layoutX="195.0" layoutY="299.0" prefHeight="265.0" prefWidth="450.0">
+         <columns>
+            <TableColumn prefWidth="65.0" text="全部" />
+            <TableColumn prefWidth="118.9002685546875" text="普通用户" />
+            <TableColumn prefWidth="133.09979248046875" text="酒店工作人员" />
+            <TableColumn prefWidth="130.05133056640625" text="网站营销人员" />
+         </columns>
+      </TableView>
+      <Button fx:id="look" layoutX="540.0" layoutY="209.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="30.0" prefWidth="60.0" text="查看">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="title" layoutX="300.0" layoutY="5.0" prefHeight="60.0" prefWidth="245.0" />
+      <TextField layoutX="345.0" layoutY="184.0" prefHeight="35.0" prefWidth="165.0" />
+      <Label fx:id="title" layoutX="483.0" layoutY="62.0" />
+   </children>
+</AnchorPane>

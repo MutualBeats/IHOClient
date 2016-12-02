@@ -42,15 +42,15 @@
       </Label>
       <Label layoutX="280.0" layoutY="185.0" text="人员管理">
          <font>
-            <Font name="AdobeKaitiStd-Regular" size="20.0" />
+            <Font name="Songti TC Regular" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="Look" layoutX="400.0" layoutY="215.0" mnemonicParsing="false" onAction="#on_look" prefHeight="35.0" prefWidth="170.0" />
-      <Button fx:id="addpeople" layoutX="400.0" layoutY="265.0" mnemonicParsing="false" onAction="#add_people" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="addpeople" layoutX="400.0" layoutY="215.0" mnemonicParsing="false" onAction="#add_people" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="Look" layoutX="400.0" layoutY="265.0" mnemonicParsing="false" onAction="#on_look" prefHeight="35.0" prefWidth="170.0" />
       <Button fx:id="change" layoutX="400.0" layoutY="315.0" mnemonicParsing="false" onAction="#on_change" prefHeight="35.0" prefWidth="170.0" />
       <Label layoutX="280.0" layoutY="425.0" text="酒店管理">
          <font>
-            <Font size="20.0" />
+            <Font name="Songti TC Regular" size="20.0" />
          </font>
       </Label>
       <Button fx:id="addhotel" layoutX="400.0" layoutY="465.0" mnemonicParsing="false" onAction="#add_hotel" prefHeight="35.0" prefWidth="170.0" />
