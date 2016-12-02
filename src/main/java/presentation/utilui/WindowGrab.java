@@ -12,6 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import presentation.manageui.mainmanager.ManageMenu;
 
 public class WindowGrab {
 
@@ -25,18 +26,26 @@ public class WindowGrab {
 	 * @throws IOException
 	 *             ： File not found
 	 */
-	public static void startWindow(Window owner, URL fxml_path) throws IOException {
+	public static void startWindow(Window owner, URL fxml_path,URL css_path){
 		Stage stage = new Stage();
-		Parent root = FXMLLoader.load(fxml_path);
+		Parent root = null;
+		try {
+			root = FXMLLoader.load(fxml_path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(new URL("file:src/main/resources/ui/loginui/css/login.css").toExternalForm());
+		scene.getStylesheets().add(css_path.toExternalForm());
+
+		scene.getStylesheets().add(css_path.toExternalForm());
+
 		stage.setScene(scene);
 		stage.initModality(Modality.WINDOW_MODAL);
 		// 设置父窗口
 		stage.initOwner(owner);
 		stage.show();
 	}
-
+	
 	/**
 	 * 获取当前窗口
 	 * 

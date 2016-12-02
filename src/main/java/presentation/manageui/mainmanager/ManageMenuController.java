@@ -1,18 +1,14 @@
 package presentation.manageui.mainmanager;
 
-import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-import presentation.manageui.addhotel.AddHotel;
-import presentation.manageui.addpeople.AddPeople;
-import presentation.manageui.addpeople.AddPeopleMenu;
-import presentation.manageui.change.ChangeMessage;
 import presentation.utilui.WindowGrab;
 
 public class ManageMenuController {
@@ -34,6 +30,26 @@ public class ManageMenuController {
 
     @FXML
     private Label managerName;
+    
+    private static URL ADD_HOTEL_FXML;
+    private static URL ADD_HOTEL_CSS;
+    private static URL ADD_PEOPLE_MENU_FXML;
+    private static URL ADD_PEOPLE_MENU_CSS;
+    private static URL CHANGE_FXML;
+    private static URL CHANGE_CSS;
+    static{
+    	try {
+			ADD_HOTEL_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel.fxml");
+			ADD_HOTEL_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel.css");
+			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeoplemenu.fxml");
+			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeoplemenu.css");
+			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml");
+			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/changemessage.css");
+    	} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+    	
+    }
 
     @FXML
     void faf9eb(ActionEvent event) {
@@ -48,37 +64,21 @@ public class ManageMenuController {
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	try {
-			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/addpeoplemenu.fxml"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+    	WindowGrab.startWindow(window, ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS); 
     	
     }
 
     @FXML
     void on_change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	try {
-			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    	
+		WindowGrab.startWindow(window, CHANGE_FXML,CHANGE_CSS);    	
     }
 
     @FXML
     void add_hotel(ActionEvent event) {
-    	Stage stage=new Stage();
-    	AddHotel addHotel=new AddHotel();
-    	try {
-			addHotel.start(stage);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+    	Window window = WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, ADD_HOTEL_FXML,ADD_HOTEL_CSS); 
     }
 
 }

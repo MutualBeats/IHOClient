@@ -1,0 +1,53 @@
+.root {
+	-fx-background-image:url("menu.png");
+}
+
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+.listview{
+	-fx-background-color:transparent;
+}
+
+#addhotel{
+	-fx-background-image:url("addhotel.png");	
+}
+
+#addhotel:hover{
+	-fx-background-image:url("addhotel.png");	
+}
+
+#addhotel:pressed{
+	-fx-background-image:url("addhotel.png");	
+}
+
+#addpeople{
+	-fx-background-image:url("addpeople.png");	
+}
+#addpeople:hover{
+	-fx-background-image:url("addpeople.png");
+}
+#addpeople:pressed{
+	-fx-background-image:url("addpeople.png");
+}
+
+#change{
+	-fx-background-image:url("change.png");	
+}
+#change:hover{
+	-fx-background-image:url("change.png");
+}
+#change:pressed{
+	-fx-background-image:url("change.png");
+}
+
+#Look{
+	-fx-background-image:url("Look.png");	
+}
+#Look:hover{
+	-fx-background-image:url("Look.png");
+}
+#Look:pressed{
+	-fx-background-image:url("Look.png");
+}

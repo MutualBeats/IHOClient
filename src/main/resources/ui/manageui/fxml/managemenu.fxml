@@ -13,11 +13,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageMenuController">
    <children>
-      <ListView prefHeight="500.0" prefWidth="255.0">
-         <effect>
-            <DropShadow radius="10.25" spread="0.1" width="22.0" />
-         </effect>
-      </ListView>
       <Circle fill="#faf9eb" layoutX="70.0" layoutY="90.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="35.0" layoutY="160.0" text="管理人员名字:">
          <font>

@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addpeople.AddPeopleMenuController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="750.0" prefWidth="1000.0" stylesheets="@../css/addpeoplemenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addpeople.AddPeopleMenuController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="600.0" layoutX="140.0" layoutY="120.0" stroke="#bfbe97" strokeType="INSIDE" width="720.0">
          <effect>
@@ -27,26 +27,26 @@
       </Rectangle>
       <Accordion layoutX="-108.0" layoutY="126.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="580.0" layoutX="150.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
-      <ComboBox layoutX="235.0" layoutY="225.0" prefHeight="40.0" prefWidth="70.0" promptText="省" />
-      <ComboBox layoutX="375.0" layoutY="225.0" prefHeight="40.0" prefWidth="70.0" promptText="市" />
-      <ComboBox layoutX="515.0" layoutY="225.0" prefHeight="40.0" prefWidth="90.0" promptText="县/区" />
-      <ComboBox layoutX="650.0" layoutY="225.0" prefHeight="40.0" prefWidth="80.0" promptText="商圈" />
-      <Text layoutX="305.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分:" wrappingWidth="60.0">
+      <ComboBox layoutX="275.0" layoutY="225.0" prefHeight="40.0" prefWidth="70.0" promptText="省" />
+      <ComboBox layoutX="400.0" layoutY="225.0" prefHeight="40.0" prefWidth="70.0" promptText="市" />
+      <ComboBox layoutX="530.0" layoutY="225.0" prefHeight="40.0" prefWidth="90.0" promptText="县/区" />
+      <ComboBox layoutX="675.0" layoutY="225.0" prefHeight="40.0" prefWidth="80.0" promptText="商圈" />
+      <Text layoutX="325.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分:" wrappingWidth="60.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Label layoutX="305.0" layoutY="340.0" text="ID/Keywords:">
+      <Label layoutX="305.0" layoutY="337.0" text="ID/Keywords:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="435.0" layoutY="330.0" prefHeight="30.0" prefWidth="170.0">
+      <TextField layoutX="455.0" layoutY="330.0" prefHeight="30.0" prefWidth="170.0">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="search" layoutX="670.0" layoutY="285.0" mnemonicParsing="false" onAction="#on_Search" prefHeight="30.0" prefWidth="70.0" text="搜索">
+      <Button fx:id="search" layoutX="650.0" layoutY="310.0" mnemonicParsing="false" onAction="#on_Search" prefHeight="30.0" prefWidth="70.0" text="搜索">
          <font>
             <Font size="18.0" />
          </font>
@@ -64,12 +64,13 @@
             <TableColumn prefWidth="130.05133056640625" text="网站营销人员" />
          </columns>
       </TableView>
-      <Button fx:id="look" layoutX="670.0" layoutY="335.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="30.0" prefWidth="70.0" text="查看">
+      <Button fx:id="look" layoutX="735.0" layoutY="310.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="30.0" prefWidth="70.0" text="查看">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="addtitle" layoutX="480.0" layoutY="70.0" />
-      <TextField layoutX="435.0" layoutY="290.0" prefHeight="30.0" prefWidth="170.0" />
+      <Label fx:id="addtitle" layoutX="395.0" layoutY="35.0" prefHeight="60.0" prefWidth="225.0" />
+      <TextField layoutX="455.0" layoutY="290.0" prefHeight="30.0" prefWidth="170.0" />
+      <Label fx:id="title" layoutX="483.0" layoutY="62.0" />
    </children>
 </AnchorPane>

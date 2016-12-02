@@ -1,6 +1,7 @@
 package presentation.manageui.change;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,6 +18,17 @@ public class ChangeMessageController implements Initializable{
     @FXML
     private Button cancel;
 
+    private static URL CHANGE_MESSAGE_CONFIRM_FXML;
+    private static URL CHANGE_MESSAGE_CONFIRM_CSS;
+    static{
+    	try {
+    		CHANGE_MESSAGE_CONFIRM_FXML = new URL("file:src/main/resources/ui/manageui/fxml/changemessageconfirm.fxml");
+    		CHANGE_MESSAGE_CONFIRM_CSS = new URL("file:src/main/resources/ui/manageui/css/changemessageconfirm.css");
+    	} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+    	
+    }
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
@@ -25,12 +37,7 @@ public class ChangeMessageController implements Initializable{
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	try {
-			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/changemessageconfirm.fxml"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+    	WindowGrab.startWindow(window,CHANGE_MESSAGE_CONFIRM_FXML,CHANGE_MESSAGE_CONFIRM_CSS);
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

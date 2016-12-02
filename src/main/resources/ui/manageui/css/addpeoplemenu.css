@@ -10,3 +10,6 @@ and open the template in the editor.
 .root {
 	-fx-background-image:url("../../img/manageui/menubackground.png");
 }
+#title{
+	-fx-background-image:url("../../img/manageui/title.png");
+}

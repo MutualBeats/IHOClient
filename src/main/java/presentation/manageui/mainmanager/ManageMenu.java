@@ -5,6 +5,8 @@
  */
 package presentation.manageui.mainmanager;
 
+import java.net.URL;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,10 +28,10 @@ public class ManageMenu extends Application {
     @Override  
     public void start(Stage stage) throws Exception {  
     	this.stage=stage;
-        Parent root = FXMLLoader.load(getClass().getResource("managemenu.fxml"));  
+        Parent root = FXMLLoader.load(new URL("file:src/main/resources/ui/manageui/fxml/managemenu.fxml"));  
   
         Scene scene = new Scene(root,700, 500);  
-        scene.getStylesheets().add(ManageMenu.class.getResource("managemenu.css").toExternalForm());
+        scene.getStylesheets().add(new URL("file:src/main/resources/ui/manageui/css/managemenu.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED); 
         stage.setScene(scene);  
         stage.setTitle("Manager Menu");  

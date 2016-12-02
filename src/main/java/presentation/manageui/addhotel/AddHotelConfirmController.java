@@ -1,4 +1,4 @@
-package presentation.manageui.addpeople.confirm;
+package presentation.manageui.addhotel;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.stage.WindowEvent;
 import presentation.utilui.WindowGrab;
 
-public class AddPeopleConfirmController {
+public class AddHotelConfirmController {
 
     @FXML
     private Button confirm;

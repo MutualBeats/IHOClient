@@ -1,6 +1,7 @@
 package presentation.manageui.addpeople;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +17,16 @@ public class AddPeopleController implements Initializable{
 	
     @FXML
     private Button cancel;
-
+    private static URL ADD_PEOPLE_CONFIRM_FXML;
+    private static URL ADD_PEOPLE_CONFIRM_CSS;
+    static{
+    	try {
+    		ADD_PEOPLE_CONFIRM_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addpeopleconfirm.fxml");
+    		ADD_PEOPLE_CONFIRM_CSS = new URL("file:src/main/resources/ui/manageui/css/addpeopleconfirm.css");
+    	} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+    }
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
@@ -25,13 +35,7 @@ public class AddPeopleController implements Initializable{
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	try {
-			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/addpeopleconfirm.fxml"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    	
+    	WindowGrab.startWindow(window,ADD_PEOPLE_CONFIRM_FXML,ADD_PEOPLE_CONFIRM_CSS);		   	
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
