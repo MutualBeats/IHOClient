@@ -1,10 +1,13 @@
-package presentation.manageui.change.confirm;
+package presentation.manageui.addpeople.confirm;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.WindowEvent;
+import presentation.utilui.WindowGrab;
 
-public class ConfirmController {
+public class AddPeopleConfirmController {
 
     @FXML
     private Button confirm;
@@ -19,7 +22,7 @@ public class ConfirmController {
 
     @FXML
     void cancel(ActionEvent event) {
-    	Confirm.stage.close();
+    	WindowGrab.closeWindow(event);
     }
 
 }

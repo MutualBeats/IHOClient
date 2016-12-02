@@ -18,19 +18,18 @@ import javafx.stage.StageStyle;
  * @author apple
  */
 public class AddPeople extends Application {
-
+	
 //    public static void main(String[] args) {  
 //        Application.launch(AddPeople.class, args);  
 //    }  
-//	
-	public static Stage stage;
+	
+
     @Override  
-    public void start(Stage stage) throws Exception { 
-    	this.stage=stage;
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("addpeople.fxml"));  
   
         Scene scene = new Scene(root, 460 , 475);  
-        scene.getStylesheets().add(AddPeople.class.getResource("addpeopleCSS.css").toExternalForm());
+        scene.getStylesheets().add(AddPeople.class.getResource("addpeople.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED);  
         stage.setScene(scene);  
         stage.setTitle("添加人员");  

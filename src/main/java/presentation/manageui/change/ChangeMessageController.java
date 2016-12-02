@@ -1,5 +1,6 @@
 package presentation.manageui.change;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,7 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import presentation.manageui.change.confirm.Confirm;
+import javafx.stage.Window;
+import presentation.utilui.WindowGrab;
 
 public class ChangeMessageController implements Initializable{
 	
@@ -17,18 +19,17 @@ public class ChangeMessageController implements Initializable{
 
     @FXML
     void cancel(ActionEvent event) {
-        ChangeMessage.stage.close();
+    	WindowGrab.closeWindow(event);
     }
     
     @FXML
     void add_people(ActionEvent event) {
-    	Stage stage=new Stage();
-    	Confirm confirm=new Confirm();
+    	Window window = WindowGrab.getWindow(event);
     	try {
-    		confirm.start(stage);
-		} catch (Exception e) {
+			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/changemessageconfirm.fxml"));
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
     }
 	@Override

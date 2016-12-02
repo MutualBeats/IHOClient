@@ -26,7 +26,7 @@ public class AddHotelController implements Initializable{
     
     @FXML
     public void cancel(ActionEvent event) {
-        AddHotel.stage.close();
+    	System.exit(0);
     }
 
 }

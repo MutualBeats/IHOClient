@@ -18,15 +18,13 @@ import javafx.stage.StageStyle;
 public class AddHotel extends Application {
 	
 
-	public static Stage stage;
-	
+//	
 //	public static void main(String[] args) {
 //		Application.launch(AddHotel.class, args);
 //	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		this.stage=stage;
 		Parent root = FXMLLoader.load(getClass().getResource("addhotel.fxml"));
 
 		Scene scene = new Scene(root, 460, 475);

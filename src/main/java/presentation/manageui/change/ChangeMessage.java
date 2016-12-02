@@ -20,10 +20,9 @@ import javafx.stage.StageStyle;
 public class ChangeMessage extends Application {
 
 
-	public static Stage stage;
+
     @Override  
-    public void start(Stage stage) throws Exception { 
-    	this.stage=stage;
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("changemessage.fxml"));  
   
         Scene scene = new Scene(root, 460 , 475);  
