@@ -1,14 +1,19 @@
 package presentation.manageui.mainmanager;
 
+import java.io.IOException;
+import java.net.URL;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import presentation.manageui.addhotel.AddHotel;
 import presentation.manageui.addpeople.AddPeople;
 import presentation.manageui.addpeople.AddPeopleMenu;
 import presentation.manageui.change.ChangeMessage;
+import presentation.utilui.WindowGrab;
 
 public class ManageMenuController {
 
@@ -42,26 +47,26 @@ public class ManageMenuController {
 
     @FXML
     void add_people(ActionEvent event) {
-    	Stage stage=new Stage();
-    	AddPeopleMenu aPeople=new AddPeopleMenu();
+    	Window window = WindowGrab.getWindow(event);
     	try {
-    		aPeople.start(stage);
-		} catch (Exception e) {
+			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/addpeoplemenu.fxml"));
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
+    	
     }
 
     @FXML
     void on_change(ActionEvent event) {
-    	Stage stage=new Stage();
-    	ChangeMessage change=new ChangeMessage();
+    	Window window = WindowGrab.getWindow(event);
     	try {
-			change.start(stage);
-		} catch (Exception e) {
+			WindowGrab.startWindow(window, new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml"));
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
+    	
     }
 
     @FXML

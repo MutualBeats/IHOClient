@@ -2,10 +2,11 @@
 	-fx-background-image:url("../../img/manageui/menu.png");
 }
 
-.button{
+.button {
 	-fx-background-color:transparent;
 	-fx-background-radius: 3px; 
 }
+
 
 #addhotel{
 	-fx-background-image:url("../../img/manageui/addhotel.psd");	

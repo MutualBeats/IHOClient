@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import presentation.utilui.WindowGrab;
 
 public class AddHotelController implements Initializable{
 
@@ -26,7 +27,7 @@ public class AddHotelController implements Initializable{
     
     @FXML
     public void cancel(ActionEvent event) {
-    	System.exit(0);
+    	WindowGrab.closeWindow(event);
     }
 
 }

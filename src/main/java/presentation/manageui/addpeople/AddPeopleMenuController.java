@@ -8,6 +8,7 @@ package presentation.manageui.addpeople;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class AddPeopleMenuController {
 
@@ -16,6 +17,9 @@ public class AddPeopleMenuController {
 
     @FXML
     private Button look;
+
+    @FXML
+    private Label addtitle;
 
     @FXML
     void fffbe5(ActionEvent event) {
@@ -48,3 +52,5 @@ public class AddPeopleMenuController {
     }
 
 }
+
+
