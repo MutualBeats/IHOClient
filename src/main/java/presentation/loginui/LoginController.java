@@ -36,9 +36,9 @@ public class LoginController implements Initializable{
 		try {
 //			WindowGrab.startWindow(window, getClass().getResource("signin.fxml"));
 			Stage primaryStage=new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+			Parent root = FXMLLoader.load(new URL("file:src/main/resources/ui/loginui/fxml/signin.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(Login.class.getResource("signin.css").toExternalForm());
+			scene.getStylesheets().add(new URL("file:src/main/resources/ui/loginui/css/signin.css").toExternalForm());
 			primaryStage.setTitle("SignIn");
 			
 			primaryStage.setScene(scene);

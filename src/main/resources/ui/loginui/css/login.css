@@ -1,0 +1,52 @@
+.root {
+	-fx-background-image:url("file:src/main/resources/image/login/background.png");
+}
+
+.button {
+	-fx-background-color:transparent;
+	-fx-border-width:3px;  
+	-fx-border-radius:3px; 
+	-fx-background-radius: 3px; 
+}
+
+#signin{
+	-fx-background-image:url("file:src/main/resources/image/login/signin.png");	
+}
+
+#signin:hover{
+	-fx-background-image:url("file:src/main/resources/image/login/signin.png");	
+}
+
+#signin:pressed{
+	-fx-background-image:url("file:src/main/resources/image/login/signin.png");	
+}
+
+#exit{
+	-fx-background-image:url("file:src/main/resources/image/login/exit.png");	
+}
+#exit:hover{
+	-fx-background-image:url("file:src/main/resources/image/login/exit.png");
+}
+#exit:pressed{
+	-fx-background-image:url("file:src/main/resources/image/login/exit.png");
+}
+
+#visit{
+	-fx-background-image:url("file:src/main/resources/image/login/visit.png");	
+}
+#visit:hover{
+	-fx-background-image:url("file:src/main/resources/image/login/visit.png");
+}
+#visit:pressed{
+	-fx-background-image:url("file:src/main/resources/image/login/visit.png");
+}
+
+#login{
+	-fx-background-image:url("file:src/main/resources/image/login/login.png");	
+}
+#login:hover{
+	-fx-background-image:url("file:src/main/resources/image/login/login.png");
+}
+#login:pressed{
+	-fx-background-image:url("file:src/main/resources/image/login/login.png");
+}

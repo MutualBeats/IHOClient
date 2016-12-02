@@ -1,5 +1,7 @@
 package presentation.loginui;
 
+import java.net.URL;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,9 +16,9 @@ public class Login extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		Parent root = FXMLLoader.load(new URL("file:src/main/resources/ui/loginui/fxml/login.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(Login.class.getResource("login.css").toExternalForm());
+		scene.getStylesheets().add(new URL("file:src/main/resources/ui/loginui/css/login.css").toExternalForm());
 		primaryStage.setTitle("Login");
 		
 		primaryStage.setScene(scene);
