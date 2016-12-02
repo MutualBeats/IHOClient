@@ -30,7 +30,7 @@ public class ManageMenu extends Application {
     	this.stage=stage;
         Parent root = FXMLLoader.load(new URL("file:src/main/resources/ui/manageui/fxml/managemenu.fxml"));  
   
-        Scene scene = new Scene(root,700, 500);  
+        Scene scene = new Scene(root,800, 600);  
         scene.getStylesheets().add(new URL("file:src/main/resources/ui/manageui/css/managemenu.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED); 
         stage.setScene(scene);  

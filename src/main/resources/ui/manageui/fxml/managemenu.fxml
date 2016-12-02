@@ -11,15 +11,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageMenuController">
    <children>
-      <Circle fill="#faf9eb" layoutX="70.0" layoutY="90.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="35.0" layoutY="160.0" text="管理人员名字:">
+      <Pane fx:id="hotel_pane" layoutX="260.0" layoutY="365.0" prefHeight="210.0" prefWidth="440.0" />
+      <Pane fx:id="people_pane" layoutX="260.0" layoutY="155.0" prefHeight="210.0" prefWidth="440.0" />
+      <Label layoutX="35.0" layoutY="160.0" text="Manager Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="240.0" text="管理人员ID:">
+      <Label layoutX="35.0" layoutY="240.0" text="Manager ID:">
          <font>
             <Font size="20.0" />
          </font>
@@ -34,34 +35,24 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="400.0" layoutY="40.0" text="管理人员菜单">
+      <Label fx:id="title" layoutX="370.0" layoutY="54.0" prefHeight="80.0" prefWidth="240.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ListView layoutX="260.0" layoutY="85.0" prefHeight="210.0" prefWidth="440.0">
-         <effect>
-            <DropShadow />
-         </effect>
-      </ListView>
-      <ListView layoutX="260.0" layoutY="295.0" prefHeight="205.0" prefWidth="440.0">
-         <effect>
-            <DropShadow />
-         </effect>
-      </ListView>
-      <Label layoutX="280.0" layoutY="110.0" text="人员管理">
+      <Label layoutX="280.0" layoutY="185.0" text="人员管理">
          <font>
             <Font name="AdobeKaitiStd-Regular" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="Look" layoutX="390.0" layoutY="140.0" mnemonicParsing="false" onAction="#on_look" prefHeight="35.0" prefWidth="170.0" />
-      <Button fx:id="addpeople" layoutX="390.0" layoutY="190.0" mnemonicParsing="false" onAction="#add_people" prefHeight="35.0" prefWidth="170.0" />
-      <Button fx:id="change" layoutX="390.0" layoutY="240.0" mnemonicParsing="false" onAction="#on_change" prefHeight="35.0" prefWidth="170.0" />
-      <Label layoutX="280.0" layoutY="330.0" text="酒店管理">
+      <Button fx:id="Look" layoutX="400.0" layoutY="215.0" mnemonicParsing="false" onAction="#on_look" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="addpeople" layoutX="400.0" layoutY="265.0" mnemonicParsing="false" onAction="#add_people" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="change" layoutX="400.0" layoutY="315.0" mnemonicParsing="false" onAction="#on_change" prefHeight="35.0" prefWidth="170.0" />
+      <Label layoutX="280.0" layoutY="425.0" text="酒店管理">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="addhotel" layoutX="390.0" layoutY="390.0" mnemonicParsing="false" onAction="#add_hotel" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="addhotel" layoutX="400.0" layoutY="465.0" mnemonicParsing="false" onAction="#add_hotel" prefHeight="35.0" prefWidth="170.0" />
    </children>
 </AnchorPane>

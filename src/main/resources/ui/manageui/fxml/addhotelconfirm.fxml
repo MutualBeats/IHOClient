@@ -10,7 +10,7 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelConfirmController">
    <children>
       <Accordion layoutY="115.0" />
-      <Text layoutX="90.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认添加该人员">
+      <Text layoutX="90.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认添加该酒店">
          <font>
             <Font size="20.0" />
          </font></Text>

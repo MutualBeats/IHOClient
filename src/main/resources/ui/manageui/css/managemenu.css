@@ -6,48 +6,49 @@
 	-fx-background-color:transparent;
 	-fx-background-radius: 3px; 
 }
-.listview{
-	-fx-background-color:transparent;
+.label{
+	-fx-font-size: 20px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: darkslategray;
 }
 
+#title{
+	-fx-font-size: 32px;
+	-fx-background-image:url("menutitle.png");	
+}
 #addhotel{
 	-fx-background-image:url("addhotel.png");	
 }
 
 #addhotel:hover{
-	-fx-background-image:url("addhotel.png");	
-}
-
-#addhotel:pressed{
-	-fx-background-image:url("addhotel.png");	
+	-fx-background-image:url("addhotel_hover.png");	
 }
 
 #addpeople{
 	-fx-background-image:url("addpeople.png");	
 }
 #addpeople:hover{
-	-fx-background-image:url("addpeople.png");
-}
-#addpeople:pressed{
-	-fx-background-image:url("addpeople.png");
+	-fx-background-image:url("addpeople_hover.png");
 }
 
 #change{
 	-fx-background-image:url("change.png");	
 }
 #change:hover{
-	-fx-background-image:url("change.png");
-}
-#change:pressed{
-	-fx-background-image:url("change.png");
+	-fx-background-image:url("change_hover.png");
 }
 
 #Look{
 	-fx-background-image:url("Look.png");	
 }
 #Look:hover{
-	-fx-background-image:url("Look.png");
+	-fx-background-image:url("Look_hover.png");
 }
-#Look:pressed{
-	-fx-background-image:url("Look.png");
+
+#people_pane{
+	-fx-background-image:url("transpent.png");
+}
+
+#hotel_pane{
+	-fx-background-image:url("transpent.png");
 }
