@@ -36,13 +36,11 @@ public class WindowGrab {
 		}
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(css_path.toExternalForm());
-
-		scene.getStylesheets().add(css_path.toExternalForm());
-
 		stage.setScene(scene);
 		stage.initModality(Modality.WINDOW_MODAL);
 		// 设置父窗口
 		stage.initOwner(owner);
+		stage.requestFocus();
 		stage.show();
 	}
 	

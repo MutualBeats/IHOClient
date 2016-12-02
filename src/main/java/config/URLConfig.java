@@ -9,11 +9,8 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import presentation.loginui.Login;
-
 public class URLConfig {
 	
-	private final static String URL_HEADER = "file:";
 	
 	private final static String UI_CFG_PATH = "src/main/resources/config/url_config.xml";
 	
@@ -28,8 +25,6 @@ public class URLConfig {
 	private static String LOGIN_FXML;
 	
 	private static String SIGNIN_FXML;
-	
-	private static String CSS_ROOT;
 	
 	private static String LOGIN_CSS;
 	
@@ -49,7 +44,7 @@ public class URLConfig {
 			//Element Reach
 			//Root
 			Element root_path = root.element("ui_root");
-			FILE_ROOT_PATH = URL_HEADER + root_path.attributeValue(ROOT_PATH);
+			FILE_ROOT_PATH = root_path.attributeValue(ROOT_PATH);
 			
 			//Each stage
 			Element login = root.element("login");

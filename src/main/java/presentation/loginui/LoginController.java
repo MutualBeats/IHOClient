@@ -34,7 +34,6 @@ public class LoginController implements Initializable{
 	@FXML
 	public void signin(ActionEvent event) {
 		try {
-//			WindowGrab.startWindow(window, getClass().getResource("signin.fxml"));
 			Stage primaryStage=new Stage();
 			Parent root = FXMLLoader.load(URLConfig.signin_fxml_url());
 			Scene scene = new Scene(root);
