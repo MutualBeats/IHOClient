@@ -21,24 +21,24 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <TextField fx:id="name" layoutX="220.0" layoutY="170.0" />
-      <PasswordField fx:id="ps" layoutX="220.0" layoutY="280.0" />
-      <PasswordField fx:id="ps_again" layoutX="220.0" layoutY="335.0" />
-      <TextField fx:id="phone" layoutX="220.0" layoutY="225.0" />
-      <TextField fx:id="user_name" layoutX="220.0" layoutY="115.0" />
-      <Label layoutX="90.0" layoutY="120.0" text="UserName:" textFill="WHITE">
+      <TextField fx:id="name" layoutX="200.0" layoutY="170.0" onMouseClicked="#nameModify" />
+      <PasswordField fx:id="ps" layoutX="200.0" layoutY="280.0" onMouseClicked="#passwordModify" />
+      <PasswordField fx:id="ps_again" layoutX="200.0" layoutY="335.0" />
+      <TextField fx:id="phone" layoutX="200.0" layoutY="225.0" onMouseClicked="#phoneModify" />
+      <TextField fx:id="user_name" layoutX="200.0" layoutY="115.0" onMouseClicked="#userNameModify" />
+      <Label layoutX="70.0" layoutY="115.0" prefHeight="27.0" text="UserName:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="90.0" layoutY="175.0" text="Name:" textFill="WHITE">
+      <Label layoutX="70.0" layoutY="170.0" prefHeight="27.0" text="Name:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="90.0" layoutY="285.0" text="Password:" textFill="WHITE">
+      <Label layoutX="70.0" layoutY="280.0" prefHeight="27.0" text="Password:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="90.0" layoutY="340.0" text="PasswordAgain:" textFill="WHITE">
+      <Label layoutX="70.0" layoutY="335.0" prefHeight="27.0" text="PasswordAgain:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Label>
@@ -50,10 +50,14 @@
             <InnerShadow color="#b42e2e" />
          </effect>
       </Label>
-      <Label layoutX="90.0" layoutY="225.0" text="Phone:" textFill="WHITE">
+      <Label layoutX="70.0" layoutY="225.0" prefHeight="27.0" text="Phone:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <Label fx:id="name_warning" layoutX="400.0" layoutY="115.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="user_name_warning" layoutX="400.0" layoutY="170.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="phone_warning" layoutX="400.0" layoutY="225.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="ps_warning" layoutX="400.0" layoutY="280.0" textFill="#e40c0c" wrapText="true" />
    </children>
 </AnchorPane>

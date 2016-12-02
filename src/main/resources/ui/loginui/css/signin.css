@@ -11,4 +11,8 @@ and open the template in the editor.
  .root{
 	-fx-background-image: url("file:src/main/resources/image/login/signin.jpg");
 }
-       
+
+.label{
+	-fx-text-alignment:center;
+	-fx-wrap-text:true;
+}       

@@ -1,6 +1,8 @@
 package config;
 
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -20,14 +22,14 @@ public class NumberConfig {
 
 	
 	private final static String length_cfg_path = "src/main/resources/config/length_config.xml";
+		
+	private static Pattern PHONE_PATTERN;
 	
-	private static int USER_NAME_MIN_LENGTH;
-	private static int USER_NAME_MAX_LENGTH;
+	private static Pattern USERNAME_PATTERN;
 	
-	private static int PASSWORD_MIN_LENGTH;
-	private static int PASSWORD_MAX_LENGTH;
+	private static Pattern NAME_PATTERN;
 	
-	private static int PHONE_LENGTH;
+	private static Pattern PASS_PATTERN;
 	
 	static {
 		number_config_parse();
@@ -41,15 +43,15 @@ public class NumberConfig {
 			Element root = document.getRootElement();
 			//Element Reach
 			Element username = root.element("username");
+			Element name = root.element("name");
 			Element password = root.element("password");
 			Element phone = root.element("phone");
 			//INIT
-			int user_min = Integer.parseInt(username.attributeValue("min_length"));
-			int user_max = Integer.parseInt(username.attributeValue("max_length"));
-			int pass_min = Integer.parseInt(password.attributeValue("min_length"));
-			int pass_max = Integer.parseInt(password.attributeValue("max_length"));
-			int ph = Integer.parseInt(phone.attributeValue("phone_length"));
-			init(user_min, user_max, pass_min, pass_max, ph);
+			String ph = phone.attributeValue("phone_pattern");
+			String  un = username.attributeValue("name_pattern");
+			String nm = name.attributeValue("name_pattern");
+			String ps = password.attributeValue("pass_pattern");
+			init(un,nm,ps,ph);
 		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,43 +68,39 @@ public class NumberConfig {
 	 * @param pass_min
 	 * @param pass_max
 	 */
-	private static void init(int user_min, int user_max, int pass_min, int pass_max, int ph) {
-		USER_NAME_MIN_LENGTH = user_min;
-		USER_NAME_MAX_LENGTH = user_max;
-		PASSWORD_MIN_LENGTH = pass_min;
-		PASSWORD_MAX_LENGTH = pass_max;
-		PHONE_LENGTH = ph;
+	private static void init(String username_pattern, String name_pattern, String pass_pattern, String ph_pattern) {
+		PHONE_PATTERN = Pattern.compile(ph_pattern);
+		USERNAME_PATTERN = Pattern.compile(username_pattern);
+		NAME_PATTERN = Pattern.compile(name_pattern);
+		PASS_PATTERN = Pattern.compile(pass_pattern);
 	}
 
 	
 	public static void main(String[] args) {
-		System.out.println(PHONE_LENGTH);
-	}
-	
-	/**
-	 * check the identity of user
-	 * 
-	 * @param user_name
-	 *            : Identity of user
-	 * @return
-	 */
-	public static UserIdentity identify(String user_name) {
-		return null;
+		System.out.println(PHONE_PATTERN);
 	}
 
 	
 	/**
-	 * Check the name formatter
+	 * Check the user name formatter
 	 * 
 	 * @param length
 	 * @return
 	 */
-	public static boolean nameFormatterCheck(int length) {
-		if(length > USER_NAME_MAX_LENGTH || length < USER_NAME_MIN_LENGTH) {
-			return false;
-		}
-		
-		return true;
+	public static boolean userNameFormatterCheck(String user_name) {
+		Matcher matcher = USERNAME_PATTERN.matcher(user_name);
+		return matcher.matches();
+	}
+	
+	/**
+	 * Check the name formatter
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static boolean nameFormatterCheck(String name) {
+		Matcher matcher = NAME_PATTERN.matcher(name);
+		return matcher.matches();
 	}
 	
 	/**
@@ -111,12 +109,20 @@ public class NumberConfig {
 	 * @param length
 	 * @return
 	 */
-	public static boolean passFormatterCheck(int length) {
-		if(length > PASSWORD_MAX_LENGTH || length < PASSWORD_MIN_LENGTH) {
-			return false;
-		}
-		
-		return true;	
+	public static boolean passFormatterCheck(String pass) {
+		Matcher matcher = PASS_PATTERN.matcher(pass);
+		return matcher.matches();
+	}
+	
+	/**
+	 * Check the phone formatter
+	 * 
+	 * @param phone
+	 * @return
+	 */
+	public static boolean phoneFormatterCheck(String phone) {
+		Matcher matcher = PHONE_PATTERN.matcher(phone);
+		return matcher.matches();
 	}
 
 }
