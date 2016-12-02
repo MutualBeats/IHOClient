@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import presentation.manageui.addhotel.AddHotel;
 import presentation.manageui.addpeople.AddPeople;
+import presentation.manageui.addpeople.AddPeopleMenu;
 import presentation.manageui.change.ChangeMessage;
 
 public class ManageMenuController {
@@ -42,9 +43,9 @@ public class ManageMenuController {
     @FXML
     void add_people(ActionEvent event) {
     	Stage stage=new Stage();
-    	AddPeople mPeople=new AddPeople();
+    	AddPeopleMenu aPeople=new AddPeopleMenu();
     	try {
-    		mPeople.start(stage);
+    		aPeople.start(stage);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

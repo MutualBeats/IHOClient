@@ -1,4 +1,4 @@
-package presentation.manageui.change;
+package presentation.manageui.change.confirm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
