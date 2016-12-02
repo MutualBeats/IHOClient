@@ -42,7 +42,7 @@ public class NumberConfig {
 			Document document = reader.read(cfg_file);
 			Element root = document.getRootElement();
 			//Element Reach
-			Element username = root.element("username");
+			Element username = root.element("user_name");
 			Element name = root.element("name");
 			Element password = root.element("password");
 			Element phone = root.element("phone");

@@ -34,14 +34,19 @@ public class SigninController implements Initializable{
 	
 	@FXML
 	public void confirm(ActionEvent event) {
-		checkInputFormatter();
+		boolean formatter_check = checkInputFormatter();
+		if(formatter_check) {
+			//Pass the check
+			
+		}
 	}
 	
-	private void checkInputFormatter() {
-		checkUserName();
-		checkName();
-		checkPhone();
-		checkPassword();
+	private boolean checkInputFormatter() {
+		boolean user_name_check = checkUserName();
+		boolean name_check = checkName();
+		boolean phone_check = checkPhone();
+		boolean pass_check = checkPassword();
+		return user_name_check && name_check && phone_check && pass_check;
 	}
 	
 	//TODO : Connect the server and check the user_name is used or not
@@ -50,13 +55,13 @@ public class SigninController implements Initializable{
 		int name_length = user.length();
 		if(name_length == 0) {
 			//Name shouldn't be empty
-			user_name_warning.setText("Please Input Your User Name");
+			user_name_warning.setText("请输入用户名");
 			return false;
 		}
 		boolean user_name_check = NumberConfig.userNameFormatterCheck(user);
 		if(!user_name_check) {
 			//name formatter check
-			user_name_warning.setText("Your user name should be 8 ~ 12 bits and can only use 0~9 and a~z");
+			user_name_warning.setText("用户名应为8～12位数字或字母");
 		}
 		return user_name_check;
 	}
@@ -67,12 +72,12 @@ public class SigninController implements Initializable{
 	private boolean checkName() {
 		String c_name = name.getText();
 		if(c_name.length() == 0) {
-			name_warning.setText("Please Input Your Name");
+			name_warning.setText("请输入您的姓名");
 			return false;
 		}
 		boolean name_check = NumberConfig.nameFormatterCheck(c_name);
 		if(!name_check) {
-			name_warning.setText("Your name should be 1~12 bits and empty char is not permit");
+			name_warning.setText("姓名应为1～12位，不包含空格等特殊字符");
 		}
 		return name_check;
 		
@@ -84,12 +89,12 @@ public class SigninController implements Initializable{
 	private boolean checkPhone() {
 		String ph = phone.getText();
 		if(ph.length() == 0) {
-			phone_warning.setText("Please input your phone");
+			phone_warning.setText("请输入手机");
 			return false;
 		}
 		boolean ph_check = NumberConfig.phoneFormatterCheck(ph);
 		if(!ph_check) {
-			phone_warning.setText("Your phone number should be 11 bit, and only number permit");
+			phone_warning.setText("手机号应为11位数字");
 		}
 		return ph_check;
 	}
@@ -102,16 +107,16 @@ public class SigninController implements Initializable{
 		String pass = ps.getText();
 		String pass_again = ps_again.getText();
 		if(pass.length() == 0) {
-			ps_warning.setText("Please Input Your Password");
+			ps_warning.setText("请输入密码");
 			return false;
 		}
 		boolean ps_check = NumberConfig.passFormatterCheck(pass);
 		if(!ps_check) {
-			ps_warning.setText("Your password should be 8~16 bits, and empty char is not permit");
+			ps_warning.setText("密码应为8～16位，且不含空格等特殊字符");
 			return false;
 		}
 		if(!pass.equals(pass_again)) {
-			ps_warning.setText("The password must be the same.");
+			ps_warning.setText("两次密码不相同");
 			return false;
 		}
 		return true;
@@ -143,15 +148,20 @@ public class SigninController implements Initializable{
 	
 	@FXML
 	public void passwordModify(MouseEvent event){
-		checkWarningBefore(ps_warning);
-		ps.setText("");
+		boolean warn_before = checkWarningBefore(ps_warning);
+		if(warn_before) {
+			ps.setText("");
+			ps_again.setText("");
+		}
 	}
 	
-	private void checkWarningBefore(Label label) {
+	private boolean checkWarningBefore(Label label) {
 		String warning = label.getText();
 		if(warning.length() != 0) {
 			label.setText("");
+			return true;
 		}
+		return false;
 	}
 
 }

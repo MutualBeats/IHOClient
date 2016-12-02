@@ -29,6 +29,7 @@ public class WindowGrab {
 		Stage stage = new Stage();
 		Parent root = FXMLLoader.load(fxml_path);
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(new URL("file:src/main/resources/ui/loginui/css/login.css").toExternalForm());
 		stage.setScene(scene);
 		stage.initModality(Modality.WINDOW_MODAL);
 		// 设置父窗口

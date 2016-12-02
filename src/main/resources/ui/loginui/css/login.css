@@ -14,39 +14,28 @@
 }
 
 #signin:hover{
-	-fx-background-image:url("file:src/main/resources/image/login/signin.png");	
+	-fx-background-image:url("file:src/main/resources/image/login/signin_hover.png");	
 }
 
-#signin:pressed{
-	-fx-background-image:url("file:src/main/resources/image/login/signin.png");	
-}
 
 #exit{
 	-fx-background-image:url("file:src/main/resources/image/login/exit.png");	
 }
 #exit:hover{
-	-fx-background-image:url("file:src/main/resources/image/login/exit.png");
+	-fx-background-image:url("file:src/main/resources/image/login/exit_hover.png");
 }
-#exit:pressed{
-	-fx-background-image:url("file:src/main/resources/image/login/exit.png");
-}
+
 
 #visit{
 	-fx-background-image:url("file:src/main/resources/image/login/visit.png");	
 }
 #visit:hover{
-	-fx-background-image:url("file:src/main/resources/image/login/visit.png");
-}
-#visit:pressed{
-	-fx-background-image:url("file:src/main/resources/image/login/visit.png");
+	-fx-background-image:url("file:src/main/resources/image/login/visit_hover.png");
 }
 
 #login{
 	-fx-background-image:url("file:src/main/resources/image/login/login.png");	
 }
 #login:hover{
-	-fx-background-image:url("file:src/main/resources/image/login/login.png");
-}
-#login:pressed{
-	-fx-background-image:url("file:src/main/resources/image/login/login.png");
+	-fx-background-image:url("file:src/main/resources/image/login/login_hover.png");
 }

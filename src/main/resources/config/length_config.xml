@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <idconfig>
 	<phone phone_pattern = "[0-9]{11}"></phone>
-	<user_name name_pattern = "[0-9a-z]{8,12}"></user_name>
-	<name name_pattern = "/S{1,12}"></name>
-	<password pass_pattern = "/S{8,16}"></password>
+	<user_name name_pattern = "[0-9a-zA-Z]{8,12}"></user_name>
+	<name name_pattern = "[\S]{1,12}"></name>
+	<password pass_pattern = "[\S]{8,16}"></password>
 </idconfig>
