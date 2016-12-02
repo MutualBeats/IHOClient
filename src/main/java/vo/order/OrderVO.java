@@ -2,13 +2,15 @@ package vo.order;
 
 import java.util.ArrayList;
 
+import po.order.OrderPO;
+import util.Time;
 import util.order.OrderState;
 
 public class OrderVO {
 	/**
 	 * 订单id
 	 */
-	public String orderId;
+	public String orderID;
 	/**
 	 * 订单状态
 	 */
@@ -16,11 +18,11 @@ public class OrderVO {
 	/**
 	 * 用户id
 	 */
-	public String clientId;
+	public String clientID;
 	/**
 	 * 酒店id
 	 */
-	public String hotelId;
+	public String hotelID;
 	/**
 	 * 订单预订房间号列表
 	 */
@@ -69,12 +71,12 @@ public class OrderVO {
 	 * 有无儿童
 	 */
 	public boolean children;
-	
+
 	/**
-	 * @param orderId
+	 * @param orderID
 	 * @param orderState
-	 * @param clientId
-	 * @param hotelId
+	 * @param clientID
+	 * @param hotelID
 	 * @param roomNumberList
 	 * @param promotionIDList
 	 * @param value
@@ -88,15 +90,15 @@ public class OrderVO {
 	 * @param numOfPeople
 	 * @param children
 	 */
-	public OrderVO(String orderId, OrderState orderState, String clientId, String hotelId,
+	public OrderVO(String orderID, OrderState orderState, String clientID, String hotelID,
 			ArrayList<String> roomNumberList, ArrayList<String> promotionIDList, double value, String makeTime,
 			String executeTime, String finishTime, String latestETime, String checkInDate, String estimateCheckOutDate,
 			String actualCheckOutDate, int numOfPeople, boolean children) {
 		super();
-		this.orderId = orderId;
+		this.orderID = orderID;
 		this.orderState = orderState;
-		this.clientId = clientId;
-		this.hotelId = hotelId;
+		this.clientID = clientID;
+		this.hotelID = hotelID;
 		this.roomNumberList = roomNumberList;
 		this.promotionIDList = promotionIDList;
 		this.value = value;
@@ -111,4 +113,27 @@ public class OrderVO {
 		this.children = children;
 	}
 	
+	public OrderVO(OrderMakeVO vo) {
+		this.orderState = OrderState.Unexecuted;
+		this.clientID = vo.clientID;
+		this.hotelID = vo.hotelID;
+		this.roomNumberList = vo.roomNumberList;
+		this.makeTime = Time.getCurrentTime();
+		this.executeTime = "";
+		this.finishTime = "";
+		this.latestETime = vo.checkInDate + " " + "23:59:59";
+		this.checkInDate = vo.checkInDate;
+		this.estimateCheckOutDate = vo.estimateCheckOutDate;
+		this.actualCheckOutDate = "";
+		this.numOfPeople = vo.numOfPeople;
+		this.children = vo.children;
+	}
+
+	public OrderVO(OrderPO po) {
+		this(po.getOrderID(), po.getOrderState(), po.getClientID(), po.getHotelID(), po.getRoomNumberList(),
+				po.getPromotionIDList(), po.getValue(), po.getMakeTime(), po.getExecuteTime(), po.getFinishTime(),
+				po.getLatestETime(), po.getCheckInDate(), po.getEstimateCheckOutDate(), po.getActualCheckOutDate(),
+				po.getNumOfPeople(), po.isChildren());
+	}
+
 }

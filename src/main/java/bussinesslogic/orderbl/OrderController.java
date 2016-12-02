@@ -22,43 +22,41 @@ public class OrderController implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage_Order excuteOrder(String orderId) {
+	public ResultMessage_Order excuteOrder(String orderID) {
+		return order.excuteOrder(orderID);
+	}
+
+	@Override
+	public ResultMessage_Order putUpOrder(String orderID) {
+		return order.putUpOrder(orderID);
+	}
+
+	@Override
+	public OrderVO queryOrderById(String orderID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMessage_Order putUpOrder(String orderId) {
+	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public OrderVO queryOrderById(String orderId) {
+	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryOrderByHotel(String hotelId, String userId) {
+	public ArrayList<OrderVO> queryUserOrder(String clientID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryRoomOrder(String hotelId, String roomId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<OrderVO> queryUserOrder(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<OrderVO> queryHotelOrder(String hotelId) {
+	public ArrayList<OrderVO> queryHotelOrder(String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -4,6 +4,6 @@ import vo.user.ClientVO;
 
 public interface ClientInfo {
 	
-	public ClientVO getUserInfo();
+	public ClientVO getClientInfo(String clientID);
 	
 }

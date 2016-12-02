@@ -10,6 +10,12 @@ public class Time {
 		String time=df.format(new Date());
 		return time;
 	}
+	
+	public static String getCurrentDate() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		String date = df.format(new Date());
+		return date;
+	}
 
 	public static String getCurrentYear(){
 		SimpleDateFormat df=new SimpleDateFormat("yyyy");
@@ -27,6 +33,11 @@ public class Time {
 		SimpleDateFormat df=new SimpleDateFormat("dd");
 		String date=df.format(new Date());
 		return date;
+	}
+	
+	public static long deltaTime(String time1, String time2) {
+		// TODO 计算两个时间点间的时间间隔（单位为秒）
+		return 0;
 	}
 
 	//若传入的time1为null或者""，返回“1970/1/1 0:0:0”

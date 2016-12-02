@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.order.OrderState;
+import vo.order.OrderVO;
 
 public class OrderPO implements Serializable {
 	/**
@@ -78,7 +79,7 @@ public class OrderPO implements Serializable {
 	 * 有无儿童
 	 */
 	private boolean children;
-	
+
 	/**
 	 * @param orderID
 	 * @param orderState
@@ -118,6 +119,12 @@ public class OrderPO implements Serializable {
 		this.actualCheckOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
+	}
+
+	public OrderPO(OrderVO vo) {
+		this(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList, vo.value,
+				vo.makeTime, vo.executeTime, vo.finishTime, vo.latestETime, vo.checkInDate, vo.estimateCheckOutDate,
+				vo.actualCheckOutDate, vo.numOfPeople, vo.children);
 	}
 
 	public OrderPO() {
@@ -250,5 +257,5 @@ public class OrderPO implements Serializable {
 	public void setChildren(boolean children) {
 		this.children = children;
 	}
-	
+
 }

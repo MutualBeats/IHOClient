@@ -3,19 +3,19 @@ package bussinesslogic.promotionbl;
 import java.util.ArrayList;
 
 import vo.promotion.PromotionVO;
-import vo.user.ClientVO;
+import vo.user.MemberVO;
 
 public class MemberPromotion {
 	/*
 	 * 根据输入的信用值划分等级
 	 * */
-	public ArrayList <Integer> levelMake (ClientVO vo){
+	public ArrayList <Integer> levelMake (MemberVO vo){
 		return null;
 	}
 	/*
 	 * 返回会员等级信息
 	 * */
-	public ClientVO getLevel (String userID){
+	public MemberVO getLevel (String userID){
 		return null;
 	}
 	/*

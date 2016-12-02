@@ -12,10 +12,14 @@ public class MockClient extends Client implements ClientInfo {
 		// TODO Auto-generated constructor stub
 	}
 
+	/* (non-Javadoc)
+	 * @see bussinesslogic.orderbl.ClientInfo#getClientInfo()
+	 */
 	@Override
-	public ClientVO getUserInfo() {
+	public ClientVO getClientInfo(String clientID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
