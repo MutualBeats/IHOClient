@@ -25,7 +25,7 @@
             <TextField layoutX="202.0" layoutY="175.0" prefHeight="16.0" prefWidth="151.0" />
             <TextField layoutX="202.0" layoutY="214.0" prefHeight="16.0" prefWidth="151.0" />
             <TextField layoutX="202.0" layoutY="248.0" prefHeight="16.0" prefWidth="151.0" />
-            <Button fx:id="Add" layoutX="135.0" layoutY="339.0" mnemonicParsing="false" onAction="#add_people" prefHeight="26.0" prefWidth="65.0" text="添加" />
+            <Button fx:id="Add" layoutX="135.0" layoutY="339.0" mnemonicParsing="false" onAction="#add_people" prefHeight="26.0" prefWidth="65.0" text="修改" />
             <Button fx:id="cancel" layoutX="258.0" layoutY="339.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
          </children></AnchorPane>
   </items>

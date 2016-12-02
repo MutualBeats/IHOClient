@@ -19,10 +19,7 @@ import javafx.stage.StageStyle;
  */
 public class ChangeMessage extends Application {
 
-//    public static void main(String[] args) {  
-//        Application.launch(ChangeMessage.class, args);  
-//    }  
-	
+
 	public static Stage stage;
     @Override  
     public void start(Stage stage) throws Exception { 

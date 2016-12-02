@@ -1,0 +1,50 @@
+.root {
+	-fx-background-image:url("../../img/manageui/menu.png");
+}
+
+.button{
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+
+#addhotel{
+	-fx-background-image:url("../../img/manageui/addhotel.psd");	
+}
+
+#addhotel:hover{
+	-fx-background-image:url("../../img/manageui/addhotel.psd");	
+}
+
+#addhotel:pressed{
+	-fx-background-image:url("../../img/manageui/addhotel.psd");	
+}
+
+#addpeople{
+	-fx-background-image:url("../../img/manageui/addpeople.psd");	
+}
+#addpeople:hover{
+	-fx-background-image:url("../../img/manageui/addpeople.psd");
+}
+#addpeople:pressed{
+	-fx-background-image:url("../../img/manageui/addpeople.psd");
+}
+
+#change{
+	-fx-background-image:url("../../img/manageui/change.psd");	
+}
+#change:hover{
+	-fx-background-image:url("../../img/manageui/change.psd");
+}
+#change:pressed{
+	-fx-background-image:url("../../img/manageui/change.psd");
+}
+
+#Look{
+	-fx-background-image:url("../../img/manageui/Look.psd");	
+}
+#Look:hover{
+	-fx-background-image:url("../../img/manageui/Look.psd");
+}
+#Look:pressed{
+	-fx-background-image:url("../../img/manageui/Look.psd");
+}

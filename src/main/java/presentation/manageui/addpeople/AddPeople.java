@@ -18,9 +18,9 @@ import javafx.stage.StageStyle;
  * @author apple
  */
 public class AddPeople extends Application {
-//
+
 //    public static void main(String[] args) {  
-//        Application.launch(ManagePeople.class, args);  
+//        Application.launch(AddPeople.class, args);  
 //    }  
 //	
 	public static Stage stage;

@@ -1,72 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package presentation.manageui.mainmanager;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import presentation.manageui.addhotel.AddHotel;
 import presentation.manageui.addpeople.AddPeople;
+import presentation.manageui.change.ChangeMessage;
 
-public class ManageController {
-
-    @FXML
-    private Button search;
+public class ManageMenuController {
 
     @FXML
-    private MenuItem change;
+    private Button addhotel;
 
     @FXML
-    private Button add_hotel;
+    private Button addpeople;
 
     @FXML
-    private MenuItem add_people;
+    private Button change;
 
     @FXML
-    private Button look;
+    private Label manageID;
 
     @FXML
-    void add78f(ActionEvent event) {
+    private Button Look;
+
+    @FXML
+    private Label managerName;
+
+    @FXML
+    void faf9eb(ActionEvent event) {
 
     }
 
     @FXML
-    void fffbe5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void bfbe97(ActionEvent event) {
-
-    }
-
-    @FXML
-    void d9a96a(ActionEvent event) {
-
-    }
-
-    @FXML
-    void bfe5a5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void on_Search(ActionEvent event) {
+    void on_look(ActionEvent event) {
 
     }
 
     @FXML
     void add_people(ActionEvent event) {
     	Stage stage=new Stage();
-    	AddPeople people=new AddPeople();
+    	AddPeople mPeople=new AddPeople();
     	try {
-    		people.start(stage);
+    		mPeople.start(stage);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +53,14 @@ public class ManageController {
 
     @FXML
     void on_change(ActionEvent event) {
-
+    	Stage stage=new Stage();
+    	ChangeMessage change=new ChangeMessage();
+    	try {
+			change.start(stage);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
@@ -90,12 +75,5 @@ public class ManageController {
 		}
     }
 
-    @FXML
-    void on_Look(ActionEvent event) {
-
-    }
-
 }
-
-
 

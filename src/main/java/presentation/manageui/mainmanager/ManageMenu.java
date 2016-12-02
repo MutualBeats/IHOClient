@@ -16,7 +16,7 @@ import javafx.stage.StageStyle;
  *
  * @author apple
  */
-public class Manage extends Application {
+public class ManageMenu extends Application {
     
 	 public static Stage stage;
      public static void main(String[] args) {  
@@ -26,13 +26,13 @@ public class Manage extends Application {
     @Override  
     public void start(Stage stage) throws Exception {  
     	this.stage=stage;
-        Parent root = FXMLLoader.load(getClass().getResource("manage.fxml"));  
+        Parent root = FXMLLoader.load(getClass().getResource("managemenu.fxml"));  
   
-        Scene scene = new Scene(root,1000, 750);  
-        scene.getStylesheets().add(Manage.class.getResource("manageCSS.css").toExternalForm());
+        Scene scene = new Scene(root,700, 500);  
+        scene.getStylesheets().add(ManageMenu.class.getResource("managemenu.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED); 
         stage.setScene(scene);  
-        stage.setTitle("管理人员信息");  
+        stage.setTitle("Manager Menu");  
         stage.show();  
         
     }

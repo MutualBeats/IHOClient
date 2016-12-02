@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class ChangeMessageController implements Initializable{
 	
@@ -20,7 +21,14 @@ public class ChangeMessageController implements Initializable{
     
     @FXML
     void add_people(ActionEvent event) {
-
+    	Stage stage=new Stage();
+    	Confirm confirm=new Confirm();
+    	try {
+    		confirm.start(stage);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
