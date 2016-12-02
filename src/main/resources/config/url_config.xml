@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fxmlurl>
+	<ui_root root_path = "file:src/main/resources/ui/"></ui_root>
+	<login root_path = "loginui/">
+		<fxml fxml_path = "fxml/login.fxml"></fxml>
+		<css css_path = "css/login.css"></css>
+	</login>
+	<signin root_path = "loginui/">
+		<fxml fxml_path = "fxml/signin.fxml"></fxml>
+		<css css_path = "css/signin.css"></css>
+	</signin>
+</fxmlurl>

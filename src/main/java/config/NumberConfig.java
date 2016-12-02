@@ -9,8 +9,6 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import util.UserIdentity;
-
 /**
  * 
  * Identify Verify
