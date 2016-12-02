@@ -19,7 +19,7 @@ import util.UserIdentity;
 public class NumberConfig {
 
 	
-	private final static String length_cfg_path = "src/main/resources/length_config.xml";
+	private final static String length_cfg_path = "src/main/resources/config/length_config.xml";
 	
 	private static int USER_NAME_MIN_LENGTH;
 	private static int USER_NAME_MAX_LENGTH;
