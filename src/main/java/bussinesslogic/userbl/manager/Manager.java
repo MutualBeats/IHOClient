@@ -16,8 +16,12 @@ public class Manager {
 	
 	private ManagerDataService managerDataService;
 	
-	public Manager() throws RemoteException{
-		managerDataService = DataHelperFactory.getDataFactoryHelperInstance().getManagerDatabase();
+	public Manager() {
+		try {
+			managerDataService = DataHelperFactory.getDataFactoryHelperInstance().getManagerDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -26,14 +30,18 @@ public class Manager {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_User Login(String managerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String managerID, String password) {
 //		int len = managerID.length();
 //		if(len<8||len>16)
 //			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
-		result = managerDataService.find(managerID, password);
+		try {
+			result = managerDataService.find(managerID, password);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 		
 		return result;
 	}
@@ -46,11 +54,11 @@ public class Manager {
 		return ControllerFactory.getStaff2ManagerInstance().showData(staffID);
 	}
 
-	public ResultMessage_User changeStaffData(StaffVO vo) throws RemoteException {
+	public ResultMessage_User changeStaffData(StaffVO vo) {
 		return ControllerFactory.getStaff2ManagerInstance().changeData(vo);
 	}
 
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password) {
 		return ControllerFactory.getStaff2ManagerInstance().addStaff(staffName, hotelID, password);
 	}
 
@@ -58,11 +66,11 @@ public class Manager {
 		return ControllerFactory.getMarketer2ManagerInstance().showData(marketerID);
 	}
 
-	public ResultMessage_User changeMarketerData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeMarketerData(MarketerVO vo)  {
 		return ControllerFactory.getMarketer2ManagerInstance().changeData(vo);
 	}
 
-	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(MarketerVO vo, String password)  {
 		return ControllerFactory.getMarketer2ManagerInstance().addMarketer(vo, password);
 	}
 	

@@ -12,14 +12,10 @@ import vo.user.StaffVO;
 
 public class ManagerController implements ManagerBLService {
 	
-	private Manager manager;
-
-	public ManagerController() throws RemoteException{
-		manager = new Manager();
-	}
+	private Manager manager = new Manager();
 
 	@Override
-	public ResultMessage_User Login(String managerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String managerID, String password)  {
 		return manager.Login(managerID, password);
 	}
 
@@ -34,12 +30,12 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_User changeStaffData(StaffVO vo) throws RemoteException {
+	public ResultMessage_User changeStaffData(StaffVO vo)  {
 		return manager.changeStaffData(vo);
 	}
 
 	@Override
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password)  {
 		return manager.addStaff(staffName, hotelID, password);
 	}
 
@@ -49,17 +45,17 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_User changeMarketerData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeMarketerData(MarketerVO vo) {
 		return manager.changeMarketerData(vo);
 	}
 
 	@Override
-	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(MarketerVO vo, String password){
 		return manager.addMarketer(vo, password);
 	}
 
 	@Override
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException {
+	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException   {
 		return manager.addHotel(vo);
 	}
 

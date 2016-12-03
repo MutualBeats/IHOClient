@@ -9,7 +9,7 @@ public interface MarketerBLService {
 	/*
 	 * 登录
 	 */
-	public ResultMessage_User Login(String marketerID, String password) throws RemoteException;
+	public ResultMessage_User Login(String marketerID, String password);
 	/*
 	 * 获取网站营销人员信息
 	 */

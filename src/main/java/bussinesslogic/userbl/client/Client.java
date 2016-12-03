@@ -15,8 +15,12 @@ public class Client {
 
 	private ClientDataService clientDataService;
 	
-	public Client() throws RemoteException{
-		clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
+	public Client() {
+		try {
+			clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/* 
@@ -45,14 +49,18 @@ public class Client {
 	/*
 	 * -userName Invalid
 	 */
-	public ResultMessage_User changeData(String clientID, String clientName, String contactWay) throws RemoteException {
+	public ResultMessage_User changeData(String clientID, String clientName, String contactWay)  {
 //		int len = clientName.length();
 //		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 //			return ResultMessage_User.UserName_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 
-		result = clientDataService.updateData(clientID,clientName,contactWay);
+		try {
+			result = clientDataService.updateData(clientID,clientName,contactWay);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}
@@ -63,13 +71,17 @@ public class Client {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_User Login(String clientID, String password) throws RemoteException {
+	public ResultMessage_User Login(String clientID, String password){
 //		if(clientID.length()!=LengthOfID.getUserID())
 //			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 
-		result = clientDataService.find(clientID, password);
+		try {
+			result = clientDataService.find(clientID, password);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}
@@ -80,7 +92,7 @@ public class Client {
 	 * 
 	 * Account Exist
 	 */
-	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password) throws RemoteException {
+	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password)  {
 //		if(clientID.length()!=LengthOfID.getUserID())
 //			return ResultMessage_User.UserID_Invalid;
 //		
@@ -100,7 +112,11 @@ public class Client {
 		po.setLevel(0);
 		po.setMemberMessage(null);
 		
-		result = clientDataService.insert(po, password);
+		try {
+			result = clientDataService.insert(po, password);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}
@@ -125,7 +141,11 @@ public class Client {
 		po.setLevel(vo.level);
 		po.setMemberMessage(vo.memberMessage);
 
-		result = clientDataService.insertMember(po);
+		try {
+			result = clientDataService.insertMember(po);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}
@@ -146,7 +166,7 @@ public class Client {
 	/*
 	 *------NO Exception------
 	 */
-	public ResultMessage_User changeMemberData(MemberVO vo) throws RemoteException {
+	public ResultMessage_User changeMemberData(MemberVO vo){
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		MemberPO po = new MemberPO();
 		po.setClientID(vo.clientID);
@@ -154,7 +174,11 @@ public class Client {
 		po.setLevel(vo.level);
 		po.setMemberMessage(vo.memberMessage);
 
-		result = clientDataService.updateMemberData(po);
+		try {
+			result = clientDataService.updateMemberData(po);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}

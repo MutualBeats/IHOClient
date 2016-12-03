@@ -9,14 +9,10 @@ import vo.user.StaffVO;
 
 public class StaffController implements StaffBLService , Staff2Manager {
 	
-	private Staff staff;
-	
-	public StaffController() throws RemoteException{
-		staff = new Staff();
-	}
+	private Staff staff = new Staff();
 
 	@Override
-	public ResultMessage_User Login(String staffID, String password) throws RemoteException {
+	public ResultMessage_User Login(String staffID, String password)  {
 		return staff.Login(staffID, password);
 	}
 
@@ -26,12 +22,12 @@ public class StaffController implements StaffBLService , Staff2Manager {
 	}
 	
 	@Override
-	public ResultMessage_User changeData(StaffVO vo) throws RemoteException {
+	public ResultMessage_User changeData(StaffVO vo){
 		return staff.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException {
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password)  {
 		return staff.addStaff(staffName, hotelID, password);
 	}
 

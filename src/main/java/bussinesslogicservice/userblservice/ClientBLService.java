@@ -14,15 +14,15 @@ public interface ClientBLService {
 	/*
 	 * 修改用户信息
 	 */
-	public ResultMessage_User changeData (String clientID, String clientName, String contactWay) throws RemoteException;
+	public ResultMessage_User changeData (String clientID, String clientName, String contactWay);
 	/*
 	 * 用户登录
 	 */
-	public ResultMessage_User Login(String clientID, String password) throws RemoteException;
+	public ResultMessage_User Login(String clientID, String password) ;
 	/*
 	 * 注册新用户
 	 */
-	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password) throws RemoteException;
+	public ResultMessage_User Signup(String clientID, String clientName, String contactWay, String password) ;
 	/*
 	 * 注册会员
 	 */
@@ -34,5 +34,5 @@ public interface ClientBLService {
 	/*
 	 * 更新会员信息
 	 */
-	public ResultMessage_User changeMemberData(MemberVO vo)throws RemoteException;
+	public ResultMessage_User changeMemberData(MemberVO vo);
 }

@@ -1,6 +1,8 @@
 package util.resultmessage;
 
 public enum ResultMessage_User {
+	Net_Error,
+	
 	LoginSuccess,
 	LoginFail,
 	UserID_Invalid,//ID非法

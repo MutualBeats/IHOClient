@@ -1,7 +1,5 @@
 package bussinesslogic.controllerfactory;
 
-import java.rmi.RemoteException;
-
 import bussinesslogic.creditbl.CreditController;
 import bussinesslogic.hotelbl.HotelController;
 import bussinesslogic.orderbl.ClientInfo;
@@ -100,49 +98,49 @@ public class ControllerFactory {
 		return roomController;
 	}
 	
-	public static ClientBLService getClientBLServiceInstance() throws RemoteException {
+	public static ClientBLService getClientBLServiceInstance()  {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static StaffBLService getStaffBLServiceInstance() throws RemoteException {
+	public static StaffBLService getStaffBLServiceInstance()  {
 		if(staffController == null) {
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static MarketerBLService getMarketerBLServiceInstance() throws RemoteException {
+	public static MarketerBLService getMarketerBLServiceInstance() {
 		if(marketerController == null) {
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static ManagerBLService getManagerBLServiceInstance() throws RemoteException {
+	public static ManagerBLService getManagerBLServiceInstance()  {
 		if(managerController == null) {
 			managerController = new ManagerController();
 		}
 		return managerController;
 	}
 	
-	public static Client2Manager getClient2ManagerInstance() throws RemoteException{
+	public static Client2Manager getClient2ManagerInstance() {
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static Staff2Manager getStaff2ManagerInstance() throws RemoteException{
+	public static Staff2Manager getStaff2ManagerInstance() {
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static Marketer2Manager getMarketer2ManagerInstance() throws RemoteException{
+	public static Marketer2Manager getMarketer2ManagerInstance() {
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}

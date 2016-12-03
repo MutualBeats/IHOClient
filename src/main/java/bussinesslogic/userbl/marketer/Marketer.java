@@ -12,8 +12,12 @@ public class Marketer {
 
 	private MarketerDataService marketerDataService;
 	
-	public Marketer() throws RemoteException{
-		marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
+	public Marketer(){
+		try {
+			marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
@@ -22,13 +26,17 @@ public class Marketer {
 	 * Account Not Exist
 	 * Password Wrong
 	 * */
-	public ResultMessage_User Login(String marketerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String marketerID, String password){
 //		if(marketerID.length()!=LengthOfID.getUserID())
 //			return ResultMessage_User.UserID_Invalid;
 		
 		ResultMessage_User result = ResultMessage_User.LoginSuccess;
 		
-		result = marketerDataService.find(marketerID, password);
+		try {
+			result = marketerDataService.find(marketerID, password);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}
@@ -57,7 +65,7 @@ public class Marketer {
 	/*
 	 * -UserName Invalid
 	 */
-	public ResultMessage_User changeData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeData(MarketerVO vo) {
 //		int len = vo.marketerName.length();
 //		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 //			return ResultMessage_User.UserName_Invalid;
@@ -68,7 +76,11 @@ public class Marketer {
 		po.setMarketername(vo.marketerName);
 		po.setTel_number(vo.contactWay);
 
-		result = marketerDataService.updateData(po);
+		try {
+			result = marketerDataService.updateData(po);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 		
 		return result;
 	}
@@ -76,7 +88,7 @@ public class Marketer {
 	/*
 	 * -UserName Invalid
 	 */
-	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) {
 //		int len = vo.marketerName.length();
 //		if(len<LengthOfID.getMinUserName()||len>LengthOfID.getMaxUserName())
 //			return ResultMessage_User.UserName_Invalid;
@@ -87,7 +99,11 @@ public class Marketer {
 		po.setMarketername(vo.marketerName);
 		po.setTel_number(vo.contactWay);
 
-		result = marketerDataService.insert(po, password);
+		try {
+			result = marketerDataService.insert(po, password);
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
+		}
 
 		return result;
 	}

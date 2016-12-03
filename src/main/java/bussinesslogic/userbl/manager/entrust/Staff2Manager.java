@@ -13,9 +13,9 @@ public interface Staff2Manager {
 	/*
 	 * 修改酒店工作人员信息
 	 */
-	public ResultMessage_User changeData (StaffVO vo) throws RemoteException;
+	public ResultMessage_User changeData (StaffVO vo) ;
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password) throws RemoteException;
+	public ResultMessage_User addStaff(String staffName, String hotelID, String password) ;
 }

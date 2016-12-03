@@ -9,14 +9,10 @@ import vo.user.MarketerVO;
 
 public class MarketerController implements MarketerBLService , Marketer2Manager {
 	
-	private Marketer marketer;
-	
-	public MarketerController() throws RemoteException{
-		marketer = new Marketer();
-	}
+	private Marketer marketer = new Marketer();
 
 	@Override
-	public ResultMessage_User Login(String marketerID, String password) throws RemoteException {
+	public ResultMessage_User Login(String marketerID, String password) {
 		return marketer.Login(marketerID, password);
 	}
 
@@ -26,12 +22,12 @@ public class MarketerController implements MarketerBLService , Marketer2Manager 
 	}
 	
 	@Override
-	public ResultMessage_User changeData(MarketerVO vo) throws RemoteException {
+	public ResultMessage_User changeData(MarketerVO vo) {
 		return marketer.changeData(vo);
 	}
 
 	@Override
-	public ResultMessage_User addMarketer(MarketerVO vo, String password) throws RemoteException {
+	public ResultMessage_User addMarketer(MarketerVO vo, String password) {
 		return marketer.addMarketer(vo, password);
 	}
 

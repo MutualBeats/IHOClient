@@ -10,11 +10,7 @@ import vo.user.MemberVO;
 
 public class ClientController implements ClientBLService , Client2Manager {
 	
-	private Client client;
-	
-	public ClientController() throws RemoteException{
-		client = new Client();
-	}
+	private Client client = new Client();
 
 	@Override
 	public ClientVO showData(String clientID) throws RemoteException {
@@ -22,22 +18,22 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_User changeData(String clientID, String clientName, String contactWay) throws RemoteException{
+	public ResultMessage_User changeData(String clientID, String clientName, String contactWay){
 		return client.changeData(clientID, clientName, contactWay);
 	}
 
 	@Override
-	public ResultMessage_User Login(String clientID, String password) throws RemoteException{
+	public ResultMessage_User Login(String clientID, String password) {
 		return client.Login(clientID, password);
 	}
 
 	@Override
-	public ResultMessage_User Signup(String clientID, String clientName, String contactWay,  String password) throws RemoteException {
+	public ResultMessage_User Signup(String clientID, String clientName, String contactWay,  String password){
 		return client.Signup(clientID, clientName, contactWay, password);
 	}
 
 	@Override
-	public ResultMessage_User memberRegister(MemberVO vo)  throws RemoteException{
+	public ResultMessage_User memberRegister(MemberVO vo) throws RemoteException {
 		return client.memberRegister(vo);
 	}
 
@@ -47,7 +43,7 @@ public class ClientController implements ClientBLService , Client2Manager {
 	}
 
 	@Override
-	public ResultMessage_User changeMemberData(MemberVO vo) throws RemoteException{
+	public ResultMessage_User changeMemberData(MemberVO vo){
 		return client.changeMemberData(vo);
 	}
 
