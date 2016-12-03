@@ -50,6 +50,8 @@ public class WindowGrab {
 		stage.initOwner(owner);
 		stage.requestFocus();
 		stage.setResizable(false);
+		stage.centerOnScreen();
+		stage.sizeToScene();
 		stage.showAndWait();
 	}
 	

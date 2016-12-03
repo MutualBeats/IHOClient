@@ -27,6 +27,7 @@ import bussinesslogicservice.roomblservice.RoomBLService;
 import bussinesslogicservice.userblservice.ClientBLService;
 import bussinesslogicservice.userblservice.ManagerBLService;
 import bussinesslogicservice.userblservice.MarketerBLService;
+import bussinesslogicservice.userblservice.StaffBLService;
 
 public class ControllerFactory {
 	
@@ -106,11 +107,11 @@ public class ControllerFactory {
 		return clientController;
 	}
 	
-	public static ClientBLService getStaffBLServiceInstance() throws RemoteException {
+	public static StaffBLService getStaffBLServiceInstance() throws RemoteException {
 		if(staffController == null) {
 			staffController = new StaffController();
 		}
-		return clientController;
+		return staffController;
 	}
 	
 	public static MarketerBLService getMarketerBLServiceInstance() throws RemoteException {

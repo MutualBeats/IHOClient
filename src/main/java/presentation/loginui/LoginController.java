@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.robot.impl.FXRobotHelper;
+
 import config.URLConfig;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +20,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import presentation.utilui.Dialog;
 import presentation.utilui.WarningLabel;
+import presentation.utilui.WindowGrab;
 
 public class LoginController implements Initializable{
 	
@@ -38,19 +44,23 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void signin(ActionEvent event) {
-		try {
-			Stage primaryStage=new Stage();
-			Parent root = FXMLLoader.load(URLConfig.signin_fxml_url());
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(URLConfig.signin_css_url().toExternalForm());
-			primaryStage.setTitle("SignIn");
-			
-			primaryStage.setScene(scene);
-			primaryStage.centerOnScreen();
-			primaryStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		URL fxml = URLConfig.signin_fxml_url();
+		URL css = URLConfig.signin_css_url();
+		Window owner = WindowGrab.getWindow(event);
+		WindowGrab.startWindow(owner, fxml, css);
+//		try {
+//			Stage primaryStage=new Stage();
+//			Parent root = FXMLLoader.load(URLConfig.signin_fxml_url());
+//			Scene scene = new Scene(root);
+//			scene.getStylesheets().add(URLConfig.signin_css_url().toExternalForm());
+//			primaryStage.setTitle("SignIn");
+//			
+//			primaryStage.setScene(scene);
+//			primaryStage.centerOnScreen();
+//			primaryStage.show();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@FXML
@@ -71,6 +81,9 @@ public class LoginController implements Initializable{
 	@FXML
 	public void visit(ActionEvent event) {
 		//TODO : Change to user stage 
+		ObservableList<Stage> stage = FXRobotHelper.getStages();
+		Dialog dialog = new Dialog("Test", stage.get(0), "Test");
+		dialog.showDialog();
 	}
 	
 	@FXML
