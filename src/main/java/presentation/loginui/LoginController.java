@@ -12,9 +12,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import presentation.utilui.WarningLabel;
 
 public class LoginController implements Initializable{
 	
@@ -25,6 +28,8 @@ public class LoginController implements Initializable{
 	@FXML TextField user_name;
 	@FXML PasswordField password;
 	
+	@FXML Label name_warning;
+	@FXML Label pass_warning;
 	
 	
 	@Override
@@ -52,17 +57,38 @@ public class LoginController implements Initializable{
 	public void login(ActionEvent event) {
 		String name = user_name.getText();
 		String pass = password.getText();
+		if(name.length() == 0) {
+			name_warning.setText("请输入用户名");
+		}
+		if(pass.length() == 0) {
+			pass_warning.setText("请输入密码");
+		}
+		//TODO : check the internet
 		
+		//TODO : change to the user stage
 	}
 	
 	@FXML
 	public void visit(ActionEvent event) {
-		
+		//TODO : Change to user stage 
 	}
 	
 	@FXML
 	public void exit(ActionEvent event) {
 		System.exit(0);
 	}
+	
+	@FXML
+	public void userNameModify(MouseEvent event) {
+		WarningLabel.checkWarningBefore(name_warning);
+	}
+	
+	@FXML
+	public void passwordModify(MouseEvent event) {
+		if(WarningLabel.checkWarningBefore(pass_warning)) {
+			password.setText("");
+		}
+	}
+
 	
 }

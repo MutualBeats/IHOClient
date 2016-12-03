@@ -10,10 +10,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
-import presentation.manageui.mainmanager.ManageMenu;
 
+/**
+ * 
+ * UITitl for window
+ * 
+ * @author heleninsa
+ *
+ */
 public class WindowGrab {
 
 	/**
@@ -37,11 +44,13 @@ public class WindowGrab {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(css_path.toExternalForm());
 		stage.setScene(scene);
-		stage.initModality(Modality.WINDOW_MODAL);
+		stage.initStyle(StageStyle.UTILITY);
+		stage.initModality(Modality.APPLICATION_MODAL);
 		// 设置父窗口
 		stage.initOwner(owner);
 		stage.requestFocus();
-		stage.show();
+		stage.setResizable(false);
+		stage.showAndWait();
 	}
 	
 	/**

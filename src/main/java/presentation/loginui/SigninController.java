@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import presentation.utilui.WarningLabel;
 import presentation.utilui.WindowGrab;
 
 public class SigninController implements Initializable{
@@ -36,7 +37,7 @@ public class SigninController implements Initializable{
 	public void confirm(ActionEvent event) {
 		boolean formatter_check = checkInputFormatter();
 		if(formatter_check) {
-			//Pass the check
+			//TODO : Pass the check
 			
 		}
 	}
@@ -133,35 +134,27 @@ public class SigninController implements Initializable{
 	
 	@FXML
 	public void nameModify(MouseEvent event){
-		checkWarningBefore(name_warning);
+		WarningLabel.checkWarningBefore(name_warning);
 	}
 	
 	@FXML
 	public void userNameModify(MouseEvent event){
-		checkWarningBefore(user_name_warning);
+		WarningLabel.checkWarningBefore(user_name_warning);
 	}
 	
 	@FXML
 	public void phoneModify(MouseEvent event){
-		checkWarningBefore(phone_warning);
+		WarningLabel.checkWarningBefore(phone_warning);
 	}
 	
 	@FXML
 	public void passwordModify(MouseEvent event){
-		boolean warn_before = checkWarningBefore(ps_warning);
+		boolean warn_before = WarningLabel.checkWarningBefore(ps_warning);
 		if(warn_before) {
 			ps.setText("");
 			ps_again.setText("");
 		}
 	}
 	
-	private boolean checkWarningBefore(Label label) {
-		String warning = label.getText();
-		if(warning.length() != 0) {
-			label.setText("");
-			return true;
-		}
-		return false;
-	}
-
+	
 }
