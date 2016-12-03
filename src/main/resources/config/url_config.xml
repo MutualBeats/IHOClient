@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fxmlurl>
-	<ui_root root_path = "file:src/main/resources/ui/"></ui_root>
-	<login root_path = "loginui/">
-		<fxml fxml_path = "fxml/login.fxml"></fxml>
-		<css css_path = "css/login.css"></css>
+	<ui_root root_path="file:src/main/resources/ui/"></ui_root>
+	<login root_path="loginui/">
+		<fxml fxml_path="fxml/login.fxml"></fxml>
+		<css css_path="css/login.css"></css>
 	</login>
-	<signin root_path = "loginui/">
-		<fxml fxml_path = "fxml/signin.fxml"></fxml>
-		<css css_path = "css/signin.css"></css>
+	<signin root_path="loginui/">
+		<fxml fxml_path="fxml/signin.fxml"></fxml>
+		<css css_path="css/signin.css"></css>
 	</signin>
+
+	<!-- This is Client UI config -->
+
+	<!-- Client UI config finish -->
+
+	<!-- This is Staff UI config -->
+	<staff root_path="staffui/">
+		<!-- Staff main ui -->
+		<staff_main>
+			<fxml fxml_path="fxml/staff_main.fxml"></fxml>
+			<css css_path="css/staff_main.css"></css>
+		</staff_main>
+		<!-- Hotel Info Maintain -->
+		<maintain_hotel>
+			<fxml fxml_path="fxml/maintain_hotel.fxml"></fxml>
+			<css css_path="css/maintain_hotel.css"></css>
+		</maintain_hotel>
+		<!-- Manage hotel order -->
+		<hotel_order_manage>
+			<fxml fxml_path="fxml/hotel_order_manage.fxml"></fxml>
+			<css css_path="css/hotel_order_manage.css"></css>
+		</hotel_order_manage>
+		<!-- Manage rooms -->
+		<room_manage>
+			<fxml fxml_path="fxml/room_manage.fxml"></fxml>
+			<css css_path="css/room_manage.css"></css>
+		</room_manage>
+		<!-- Make hotel promotion -->
+		<hotel_promotion>
+			<fxml fxml_path="fxml/hotel_promotion.fxml"></fxml>
+			<css css_path="css/hotel_promotion.css"></css>
+		</hotel_promotion>
+	</staff>
+	<!-- Staff UI config finish -->
+
+	<!-- This is Marketer UI config -->
+
+	<!-- Marketer UI config finish -->
+
+	<!-- This is Manager UI config -->
+
+	<!-- Manager UI config finish -->
+
 </fxmlurl>

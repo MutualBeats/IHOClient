@@ -5,14 +5,11 @@
  */
 package presentation.staffui.hotelPromotion;
 
+import config.URLConfig;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,9 +27,9 @@ public class HotelPromotion extends Application {
       
     @Override  
     public void start(Stage stage) throws Exception {  
-        Parent root = FXMLLoader.load(getClass().getResource("hotelPromotion.fxml"));  
-  
+        Parent root = FXMLLoader.load(URLConfig.staff_hotel_promotion_fxml_url());  
         Scene scene = new Scene(root,1000, 750);  
+        scene.getStylesheets().add(URLConfig.staff_hotel_promotion_css_url().toExternalForm());
         stage.initStyle(StageStyle.DECORATED);  
         stage.setScene(scene);  
         stage.setTitle("制定酒店促销策略");  
