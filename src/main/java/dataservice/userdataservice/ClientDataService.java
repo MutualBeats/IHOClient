@@ -16,6 +16,9 @@ import util.resultmessage.ResultMessage_User;
  *
  */
 public interface ClientDataService extends Remote {
+	
+	public ResultMessage_User regist(ClientPO po) throws RemoteException;
+	
 	/**
 	 * 查询用户
 	 * 
