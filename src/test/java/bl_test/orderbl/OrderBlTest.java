@@ -26,42 +26,45 @@ public class OrderBlTest {
 	Order order;
 
 	@Before
-	public void init() throws RemoteException {
-//		ClientInfo client = ControllerFactory.getClientInfoInstance();
-		
-		/************** 测试专用 ***************/
-		ClientInfo client = new ClientInfo() {
-			@Override
-			public ClientVO getClientInfo(String clientID) {
-				ClientVO vo = new ClientVO("0000000002", "刘钦", "", 0, MemberType.Enterprise, 2, "");
-				return vo;
-			}
-		};
-		
-		CreditUpdate credit = ControllerFactory.getCreditUpdateInstance();
-		MockPromotion promotion = new MockPromotion();
-		RoomUpdate room = ControllerFactory.getRoomUpdateInstance();
-		order = new Order(client, credit, promotion, room);
+	public void init() {
+		// ClientInfo client = ControllerFactory.getClientInfoInstance();
+		try {
+			/************** 测试专用 ***************/
+			ClientInfo client = new ClientInfo() {
+				@Override
+				public ClientVO getClientInfo(String clientID) {
+					ClientVO vo = new ClientVO("0000000002", "刘钦", "", 0, MemberType.Enterprise, 2, "");
+					return vo;
+				}
+			};
+
+			CreditUpdate credit = ControllerFactory.getCreditUpdateInstance();
+			MockPromotion promotion = new MockPromotion();
+			RoomUpdate room = ControllerFactory.getRoomUpdateInstance();
+			order = new Order(client, credit, promotion, room);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testCancel() {
 		ResultMessage_Order res;
-		// 订单号不存在情形
-		res = order.cancelOrder("abc");
-		assertEquals(ResultMessage_Order.Order_Not_Exist, res);
-		// 订单状态错误情形
-		res = order.cancelOrder("1");
-		assertEquals(ResultMessage_Order.Order_State_Error, res);
-		// 正常情形（测试已完成，仅可测试一次）
-//		res = order.cancelOrder("2");
-//		assertEquals(ResultMessage_Order.Cancel_Successful, res);
-//		try {
-//			OrderVO newVO = order.queryOrderById("2");
-//			assertEquals(OrderState.Canceled, newVO.orderState);
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			// 订单号不存在情形
+			res = order.cancelOrder("abc");
+			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
+			// 订单状态错误情形
+			res = order.cancelOrder("1");
+			assertEquals(ResultMessage_Order.Order_State_Error, res);
+			// 正常情形（测试已完成，仅可测试一次）
+			// res = order.cancelOrder("2");
+			// assertEquals(ResultMessage_Order.Cancel_Successful, res);
+			// OrderVO newVO = order.queryOrderById("2");
+			// assertEquals(OrderState.Canceled, newVO.orderState);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
