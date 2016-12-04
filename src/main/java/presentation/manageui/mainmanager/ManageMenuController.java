@@ -8,12 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
 public class ManageMenuController {
 
-    @FXML
+	@FXML
     private Button addhotel;
 
     @FXML
@@ -26,10 +27,19 @@ public class ManageMenuController {
     private Label manageID;
 
     @FXML
-    private Button Look;
+    private Pane hotel_pane;
+
+    @FXML
+    private Pane people_pane;
+
+    @FXML
+    private Button check;
 
     @FXML
     private Label managerName;
+
+    @FXML
+    private Label title;
     
     private static URL ADD_HOTEL_FIRST_FXML;
     private static URL ADD_HOTEL_FIRST_CSS;
@@ -37,8 +47,8 @@ public class ManageMenuController {
     private static URL ADD_PEOPLE_MENU_CSS;
     private static URL CHANGE_FXML;
     private static URL CHANGE_CSS;
-    private static URL LOOK_MENU_FXML;
-    private static URL LOOK_MENU_CSS;
+    private static URL CHECK_MENU_FXML;
+    private static URL CHECK_MENU_CSS;
     
     static{
     	try {
@@ -51,8 +61,8 @@ public class ManageMenuController {
 			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml");
 			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/changemessage.css");
 			
-			LOOK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/lookmenu.fxml");
-			LOOK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/look_menu.css");
+			CHECK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
+			CHECK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -60,14 +70,9 @@ public class ManageMenuController {
     }
 
     @FXML
-    void faf9eb(ActionEvent event) {
-
-    }
-
-    @FXML
-    void on_look(ActionEvent event) {
+    void on_check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "查询人员信息", LOOK_MENU_FXML,LOOK_MENU_CSS);
+    	WindowGrab.startWindow(window, "查询人员信息", CHECK_MENU_FXML,CHECK_MENU_CSS);
     }
 
     @FXML

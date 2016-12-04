@@ -38,11 +38,11 @@
 	-fx-background-image:url("file:src/main/resources/image/manage/change_hover.png");
 }
 
-#Look{
-	-fx-background-image:url("file:src/main/resources/image/manage/Look.png");	
+#check{
+	-fx-background-image:url("file:src/main/resources/image/manage/check.png");	
 }
-#Look:hover{
-	-fx-background-image:url("file:src/main/resources/image/manage/Look_hover.png");
+#check:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/check_hover.png");
 }
 
 #people_pane{

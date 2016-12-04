@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentation.staffui.hotelPromotion;
+package presentation.staffui.hotelpromotion;
 
 import config.URLConfig;
 import javafx.application.Application;

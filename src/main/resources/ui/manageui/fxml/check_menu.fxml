@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.look.LookMenuController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.CheckMenuController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="90.0" layoutY="94.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
          <effect>
@@ -54,19 +54,17 @@
             <TableColumn prefWidth="150.0" text="网站营销人员" />
          </columns>
       </TableView>
-      <Button fx:id="look" layoutX="423.0" layoutY="186.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="35.0" prefWidth="80.0" text="搜索">
+      <Button fx:id="search" layoutX="423.0" layoutY="186.0" mnemonicParsing="false" onAction="#on_search" prefHeight="35.0" prefWidth="80.0" text="搜索">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="title" layoutX="300.0" layoutY="5.0" prefHeight="60.0" prefWidth="245.0" />
-      <Label fx:id="title" layoutX="483.0" layoutY="62.0" />
       <ComboBox layoutX="605.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="评分" />
-      <Button fx:id="look1" layoutX="515.0" layoutY="186.0" mnemonicParsing="false" onAction="#on_Look" prefHeight="35.0" prefWidth="80.0" text="查看">
+      <Button fx:id="check" layoutX="515.0" layoutY="186.0" mnemonicParsing="false" onAction="#on_check" prefHeight="35.0" prefWidth="80.0" text="查看">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="look_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
+      <Label fx:id="check_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
    </children>
 </AnchorPane>
