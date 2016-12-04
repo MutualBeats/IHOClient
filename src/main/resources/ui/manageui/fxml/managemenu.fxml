@@ -15,12 +15,12 @@
    <children>
       <Pane fx:id="hotel_pane" layoutX="260.0" layoutY="365.0" prefHeight="210.0" prefWidth="440.0" />
       <Pane fx:id="people_pane" layoutX="260.0" layoutY="155.0" prefHeight="210.0" prefWidth="440.0" />
-      <Label layoutX="35.0" layoutY="160.0" text="Manager Name:">
+      <Label layoutX="35.0" layoutY="160.0" text="管理人员账号：">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="240.0" text="Manager ID:">
+      <Label layoutX="35.0" layoutY="240.0" text="管理人员信息：">
          <font>
             <Font size="20.0" />
          </font>
