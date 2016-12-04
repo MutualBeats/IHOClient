@@ -1,8 +1,6 @@
 package util.resultmessage;
 
 public enum ResultMessage_User {
-	Net_Error,
-	
 	LoginSuccess,
 	LoginFail,
 	UserID_Invalid,//ID非法
@@ -30,4 +28,6 @@ public enum ResultMessage_User {
 	HotelID_Invalid,
 	Hotel_Not_Exist,
 	Hotel_Have_Staff,
+	
+	Net_Error,
 }

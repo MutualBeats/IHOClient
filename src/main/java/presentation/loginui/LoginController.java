@@ -81,9 +81,9 @@ public class LoginController implements Initializable{
 	@FXML
 	public void visit(ActionEvent event) {
 		//TODO : Change to user stage 
-		ObservableList<Stage> stage = FXRobotHelper.getStages();
-		Dialog dialog = new Dialog("Test", stage.get(0), "Test");
-		dialog.showDialog();
+//		ObservableList<Stage> stage = FXRobotHelper.getStages();
+//		Dialog dialog = new Dialog("Test", stage.get(0), "Test");
+//		dialog.showDialog();
 	}
 	
 	@FXML
