@@ -41,16 +41,7 @@ public class ManagerBlTest {
 		manager = new Manager();
 		password = "test";
 	}
-	
-	@Test
-	public void LoginTest() throws RemoteException{
-//		assertEquals(ResultMessage_User.UserID_Invalid, manager.Login("123", password));
-//		assertEquals(ResultMessage_User.UserID_Invalid, manager.Login("12345678901234567890", password));
-		assertEquals(ResultMessage_User.Account_Not_Exist, manager.Login("1234567890", password));
-		assertEquals(ResultMessage_User.PasswordWrong, manager.Login(vo.managerID, "123"));
-		assertEquals(ResultMessage_User.LoginSuccess, manager.Login(vo.managerID, password));
-	}
-	
+
 	@Test
 	public void showClientDataTest() throws RemoteException{
 //		assertNull(manager.showClientData("123"));
@@ -80,19 +71,6 @@ public class ManagerBlTest {
 		}
 	}
 	
-	@Test
-	public void addStaffTest() {
-		try {
-//			assertEquals(ResultMessage_User.UserName_Invalid, manager.addStaff( "123",staffvo1.hotelID, password));
-//			assertEquals(ResultMessage_User.UserName_Invalid, manager.addStaff( "12345678901234567890",staffvo1.hotelID, password));
-//			assertEquals(ResultMessage_User.HotelID_Invalid, manager.addStaff( staffvo1.staffName,"123", password));
-			assertEquals(ResultMessage_User.Hotel_Not_Exist, manager.addStaff(staffvo1.staffName,"12345678", password));
-			assertEquals(ResultMessage_User.Hotel_Have_Staff, manager.addStaff(staffvo1.staffName,staffvo2.hotelID, password));
-			assertEquals(ResultMessage_User.AddSucccess, manager.addStaff(staffvo1.staffName, staffvo1.hotelID, password));
-		} catch (Exception e) {
-			System.out.println("Exception");
-		}
-	}
 	
 	@Test
 	public void showMarketerDataTest() {

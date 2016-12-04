@@ -59,8 +59,8 @@ public class ClientBlTest {
 	public void memberRegisterTest() throws RemoteException{
 		assertEquals(ResultMessage_User.BusinessMember_Exist, client.memberRegister(new MemberVO(vo02.clientID, vo00.memberType, 0, vo00.memberMessage)));
 		assertEquals(ResultMessage_User.OriginalMember_Exist, client.memberRegister(new MemberVO(vo03.clientID, vo00.memberType, 0, vo00.memberMessage)));
-		assertEquals(ResultMessage_User.OriginalRegisterSuccess, client.memberRegister(new MemberVO(vo04.clientID, vo00.memberType, 0, vo00.memberMessage)));
-		assertEquals(ResultMessage_User.BusinessRegisterSuccess, client.memberRegister(new MemberVO(vo04.clientID, vo01.memberType, 0, vo01.memberMessage)));
+		assertEquals(ResultMessage_User.Register_Success, client.memberRegister(new MemberVO(vo04.clientID, vo00.memberType, 0, vo00.memberMessage)));
+		assertEquals(ResultMessage_User.Register_Success, client.memberRegister(new MemberVO(vo04.clientID, vo01.memberType, 0, vo01.memberMessage)));
 	}
 	
 }

@@ -2,12 +2,19 @@ package dataservice.userdataservice;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.user.ClientInfoChangePO;
 import po.user.ClientPO;
 import po.user.MemberPO;
 import util.resultmessage.ResultMessage_User;
-
+/**
+ * 
+ * CLIENT DATA SERVICE
+ * 
+ * @author heleninsa
+ *
+ */
 public interface ClientDataService extends Remote {
 	/**
 	 * 查询用户
@@ -35,5 +42,13 @@ public interface ClientDataService extends Remote {
 	 * @throws RemoteException
 	 */
 	public ResultMessage_User registerMember(MemberPO po) throws RemoteException;
+	
+	/**
+	 * Get all the client info 
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<ClientPO> getClientList() throws RemoteException;
 
 }

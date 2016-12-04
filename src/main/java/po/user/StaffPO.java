@@ -5,6 +5,8 @@ package po.user;
 
 import java.io.Serializable;
 
+import vo.user.StaffVO;
+
 public class StaffPO implements Serializable {
 	/**
 	 * version id
@@ -25,37 +27,51 @@ public class StaffPO implements Serializable {
 	
 	/**
 	 * @param staffID
-	 * @param staffname
+	 * @param staffName
 	 * @param hotelname
-	 * @param hotelId
+	 * @param hotelID
 	 */
-	public StaffPO(String staffID, String staffname, String hotelId) {
+	public StaffPO(String staffID, String staffName, String hotelID) {
 		super();
 		this.staffID = staffID;
-		this.staffName = staffname;
-		this.hotelID = hotelId;
+		this.staffName = staffName;
+		this.hotelID = hotelID;
 	}
 	
 	public StaffPO() {
 	}
-	
- 	public String getStaffID() {
+
+	public static StaffVO transformPOToVO(StaffPO po) {
+		return new StaffVO(po.staffID, po.staffName, po.hotelID);
+	}
+
+	public String getStaffID() {
 		return staffID;
 	}
+
 	public void setStaffID(String staffID) {
 		this.staffID = staffID;
 	}
-	public String getStaffname() {
+
+	public String getStaffName() {
 		return staffName;
 	}
-	public void setStaffname(String staffname) {
-		this.staffName = staffname;
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
-	public String getHotelId() {
+
+	public String getHotelID() {
 		return hotelID;
 	}
-	public void setHotelId(String hotelId) {
-		this.hotelID = hotelId;
+
+	public void setHotelID(String hotelID) {
+		this.hotelID = hotelID;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 }

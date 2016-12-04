@@ -1,6 +1,7 @@
 package bussinesslogic.userbl.marketer;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bussinesslogic.userbl.manager.entrust.MarketerManage;
 import bussinesslogicservice.userblservice.MarketerBLService;
@@ -10,11 +11,6 @@ import vo.user.MarketerVO;
 public class MarketerController implements MarketerBLService , MarketerManage {
 	
 	private Marketer marketer = new Marketer();
-
-	@Override
-	public ResultMessage_User Login(String marketerID, String password) {
-		return marketer.Login(marketerID, password);
-	}
 
 	@Override
 	public MarketerVO showData(String marketerID) throws RemoteException {
@@ -29,6 +25,11 @@ public class MarketerController implements MarketerBLService , MarketerManage {
 	@Override
 	public ResultMessage_User addMarketer(MarketerVO vo, String password) {
 		return marketer.addMarketer(vo, password);
+	}
+
+	@Override
+	public ArrayList<MarketerVO> getMarketerList() throws RemoteException {
+		return marketer.getMarketerList();
 	}
 
 

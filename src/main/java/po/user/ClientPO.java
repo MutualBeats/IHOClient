@@ -8,6 +8,7 @@ package po.user;
 import java.io.Serializable;
 
 import util.user.MemberType;
+import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 
 public class ClientPO implements Serializable {
@@ -76,11 +77,7 @@ public class ClientPO implements Serializable {
 	public String getClientID() {
 		return clientID;
 	}
-
-	public void setClientID(String clientID) {
-		this.clientID = clientID;
-	}
-
+	
 	public String getClientName() {
 		return clientName;
 	}
@@ -127,6 +124,11 @@ public class ClientPO implements Serializable {
 
 	public void setMemberMessage(String memberMessage) {
 		this.memberMessage = memberMessage;
+	}
+
+	public void updateInfo(ClientInfoChangeVO vo) {
+		setClientName(vo.clientName);
+		setContactWay(vo.contactWay);
 	}
 
 }

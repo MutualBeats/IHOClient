@@ -1,6 +1,7 @@
 package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
@@ -27,6 +28,11 @@ public class ClientController implements ClientBLService , ClientInfoGet {
 	@Override
 	public ResultMessage_User registerMember(MemberVO vo) {
 		return client.memberRegister(vo);
+	}
+
+	@Override
+	public ArrayList<ClientVO> getClientList() throws RemoteException {
+		return client.getClientList();
 	}
 
 

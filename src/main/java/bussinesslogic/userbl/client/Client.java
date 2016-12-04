@@ -1,6 +1,8 @@
 package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
@@ -36,7 +38,7 @@ public class Client {
 	 *             : Net Error
 	 */
 	public ClientVO getClientInfo(String clientID) throws RemoteException {
-		if (checkCacheHit(clientID)) {
+		if (!checkCacheHit(clientID)) {
 			// Reload the cache
 			cache = clientDataService.queryClient(clientID);
 		}
@@ -56,7 +58,7 @@ public class Client {
 	public ResultMessage_User changeClientInfo(ClientInfoChangeVO vo) {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		ClientInfoChangePO changePO = ClientInfoChangeVO.transformVOToPO(vo);
-
+		
 		try {
 			result = clientDataService.updateClientInfo(changePO);
 		} catch (RemoteException e) {
@@ -65,8 +67,7 @@ public class Client {
 		// Make sure the check is successful
 		if (result == ResultMessage_User.UpdateSuccess && checkCacheHit(vo.clientID)) {
 			// Update the cache
-			cache.setClientName(vo.clientName);
-			cache.setContactWay(vo.contactWay);
+			cache.updateInfo(vo);
 		}
 		return result;
 	}
@@ -79,9 +80,9 @@ public class Client {
 	 * @throws RemoteException
 	 */
 	public ResultMessage_User memberRegister(MemberVO vo) {
-		ResultMessage_User result = ResultMessage_User.BusinessRegisterSuccess;
-
-		if (checkCacheHit(vo.clientID)) {
+		ResultMessage_User result = ResultMessage_User.Register_Success;
+		
+		if (!checkCacheHit(vo.clientID)) {
 			try {
 				getClientInfo(vo.clientID);
 			} catch (RemoteException e) {
@@ -89,9 +90,9 @@ public class Client {
 				return ResultMessage_User.Net_Error;
 			}
 		}
-
+		
 		MemberType existType = cache.getMemberType();
-
+		//检查用户会员状态
 		if (existType != MemberType.Not) {
 			if (existType == MemberType.Enterprise) {
 				return ResultMessage_User.BusinessMember_Exist;
@@ -106,12 +107,41 @@ public class Client {
 		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
+		
+		//更新Cache
+		if(result == ResultMessage_User.Register_Success) {
+			cache.setMemberMessage(vo.memberMessage);
+			cache.setMemberType(vo.memberType);
+		}
 
 		return result;
 	}
 
+	/**
+	 * 检查Cache状态
+	 * 
+	 * @param tocheckID
+	 * @return
+	 */
 	private boolean checkCacheHit(String tocheckID) {
 		return cache != null && cache.getClientID().equals(tocheckID);
 	}
+	
+	/**
+	 * 获取用户列表
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<ClientVO> getClientList() throws RemoteException{
+		ArrayList<ClientPO> pos = clientDataService.getClientList();
+		ArrayList<ClientVO> vos = new ArrayList<>();
+		for(ClientPO each : pos) {
+			ClientVO vo = ClientPO.transformPOToVO(each);
+			vos.add(vo);
+		}
+		return vos;
+	}
+	
 
 }

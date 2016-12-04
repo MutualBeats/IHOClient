@@ -28,18 +28,6 @@ public class MarketerBlTest {
 	}
 	
 	@Test
-	public void LoginTest() {
-		try {
-//			assertEquals(ResultMessage_User.UserID_Invalid, marketer.Login("123", password));
-			assertEquals(ResultMessage_User.PasswordWrong, marketer.Login(vo2.marketerID, "1234"));
-			assertEquals(ResultMessage_User.Account_Not_Exist, marketer.Login(vo1.marketerID, password));
-			assertEquals(ResultMessage_User.LoginSuccess, marketer.Login(vo2.marketerID, password));
-		} catch (Exception e) {
-			System.out.println("Exception");
-		}
-	}
-	
-	@Test
 	public void showDataTest() {
 		try {
 //			assertNull(marketer.showData("123"));

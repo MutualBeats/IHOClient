@@ -1,5 +1,14 @@
 package vo.user;
 
+import po.user.MarketerPO;
+
+/**
+ * 
+ * Marketer
+ * 
+ * @author heleninsa
+ *
+ */
 public class MarketerVO {
 	/*
 	 * 网站营销人员ID
@@ -13,15 +22,19 @@ public class MarketerVO {
 	 * 网站营销人员联系方式
 	 */
 	public String contactWay;
-	/*
-	 * 构造方法
-	 * @param staffID
-	 * @param staffname
-	 * @param hotelname
-	 */
-	public MarketerVO(String marketerID, String marketername, String tel_number){
+	
+	
+	
+	public MarketerVO(String marketerID, String marketerName, String contactWay) {
+		super();
 		this.marketerID = marketerID;
-		this.marketerName = marketername;
-		this.contactWay = tel_number;
+		this.marketerName = marketerName;
+		this.contactWay = contactWay;
+	}
+
+
+
+	public static MarketerPO transformVOToPO(MarketerVO vo) {
+		return new MarketerPO(vo.marketerID, vo.marketerName, vo.contactWay);
 	}
 }

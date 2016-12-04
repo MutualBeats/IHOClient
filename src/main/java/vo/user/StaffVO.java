@@ -1,5 +1,7 @@
 package vo.user;
 
+import po.user.StaffPO;
+
 public class StaffVO {
 	/*
 	 * 酒店工作人员ID
@@ -24,6 +26,9 @@ public class StaffVO {
 		this.staffID = staffID;
 		this.staffName = staffname;
 		this.hotelID = hotelId;
+	}
+	public static StaffPO transformVOToPO(StaffVO vo) {
+		return new StaffPO(vo.hotelID,vo.staffName, vo.hotelID);
 	}
 
 }

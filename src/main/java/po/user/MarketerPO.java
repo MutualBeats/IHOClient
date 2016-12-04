@@ -5,6 +5,8 @@ package po.user;
 
 import java.io.Serializable;
 
+import vo.user.MarketerVO;
+
 public class MarketerPO implements Serializable {
 	/**
 	 * version id
@@ -22,39 +24,54 @@ public class MarketerPO implements Serializable {
 	 * 网站营销人员联系方式
 	 */
 	private String contactWay;
-	
+
 	/**
 	 * 构造方法
+	 * 
 	 * @param staffID
 	 * @param staffname
 	 * @param hotelname
 	 */
-	public MarketerPO(String marketerID, String marketername, String tel_number){
+	public MarketerPO(String marketerID, String marketerName, String contactWay) {
 		this.marketerID = marketerID;
-		this.marketerName = marketername;
-		this.contactWay = tel_number;
+		this.marketerName = marketerName;
+		this.contactWay = contactWay;
 	}
-	
+
 	public MarketerPO() {
 	}
-	
+
+	public static MarketerVO transformPOToVO(MarketerPO po) {
+		return new MarketerVO(po.marketerID, po.marketerName, po.contactWay);
+	}
+
 	public String getMarketerID() {
 		return marketerID;
 	}
+
 	public void setMarketerID(String marketerID) {
 		this.marketerID = marketerID;
 	}
-	public String getMarketername() {
+
+	public String getMarketerName() {
 		return marketerName;
 	}
-	public void setMarketername(String marketername) {
-		this.marketerName = marketername;
+
+	public void setMarketerName(String marketerName) {
+		this.marketerName = marketerName;
 	}
-	public String getTel_number() {
+
+	public String getContactWay() {
 		return contactWay;
 	}
-	public void setTel_number(String tel_number) {
-		this.contactWay = tel_number;
+
+	public void setContactWay(String contactWay) {
+		this.contactWay = contactWay;
 	}
-	
+
+	public void updateInfo(MarketerVO vo) {
+		setMarketerName(vo.marketerName);
+		setContactWay(vo.contactWay);
+	}
+
 }

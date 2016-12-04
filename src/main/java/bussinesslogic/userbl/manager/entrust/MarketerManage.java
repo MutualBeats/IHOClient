@@ -1,6 +1,7 @@
 package bussinesslogic.userbl.manager.entrust;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
@@ -18,4 +19,6 @@ public interface MarketerManage {
 	 * 添加网站营销人员
 	 */
 	public ResultMessage_User addMarketer(MarketerVO vo, String password) ;
+
+	public ArrayList<MarketerVO> getMarketerList() throws RemoteException;
 }

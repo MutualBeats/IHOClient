@@ -1,6 +1,7 @@
 package bussinesslogic.userbl.manager;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
 import util.resultmessage.ResultMessage_Hotel;
@@ -13,11 +14,6 @@ import vo.user.StaffVO;
 public class ManagerController implements ManagerBLService {
 	
 	private Manager manager = new Manager();
-
-	@Override
-	public ResultMessage_User Login(String managerID, String password)  {
-		return manager.Login(managerID, password);
-	}
 
 	@Override
 	public ClientVO showClientData(String clientID) throws RemoteException {
@@ -35,8 +31,8 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password)  {
-		return manager.addStaff(staffName, hotelID, password);
+	public ResultMessage_User addStaff(StaffVO registVO, String password)  {
+		return manager.addStaff(registVO, password);
 	}
 
 	@Override
@@ -57,6 +53,21 @@ public class ManagerController implements ManagerBLService {
 	@Override
 	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException   {
 		return manager.addHotel(vo);
+	}
+
+	@Override
+	public ArrayList<ClientVO> getClientList() throws RemoteException {
+		return manager.getClientList();
+	}
+
+	@Override
+	public ArrayList<StaffVO> getStaffList() throws RemoteException {
+		return manager.getStaffList();
+	}
+
+	@Override
+	public ArrayList<MarketerVO> getMarketerList() throws RemoteException {
+		return manager.getMarketerList();
 	}
 
 }

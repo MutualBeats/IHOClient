@@ -1,8 +1,10 @@
 package bussinesslogic.userbl.manager.entrust;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_User;
+import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
 public interface StaffManage {
@@ -17,5 +19,7 @@ public interface StaffManage {
 	/*
 	 * 添加酒店工作人员
 	 */
-	public ResultMessage_User addStaff(String staffName, String hotelID, String password) ;
+	public ResultMessage_User addStaff(StaffVO registVO, String password) ;
+	
+	public ArrayList<StaffVO> getStaffList() throws RemoteException;
 }
