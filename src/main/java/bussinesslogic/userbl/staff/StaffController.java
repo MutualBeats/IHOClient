@@ -2,12 +2,12 @@ package bussinesslogic.userbl.staff;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.userbl.manager.entrust.Staff2Manager;
+import bussinesslogic.userbl.manager.entrust.StaffManage;
 import bussinesslogicservice.userblservice.StaffBLService;
 import util.resultmessage.ResultMessage_User;
 import vo.user.StaffVO;
 
-public class StaffController implements StaffBLService , Staff2Manager {
+public class StaffController implements StaffBLService , StaffManage {
 	
 	private Staff staff = new Staff();
 

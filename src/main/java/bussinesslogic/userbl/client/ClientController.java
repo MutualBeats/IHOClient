@@ -2,14 +2,14 @@ package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.userbl.manager.entrust.Client2Manager;
+import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
-public class ClientController implements ClientBLService , Client2Manager {
+public class ClientController implements ClientBLService , ClientInfoGet {
 	
 	private Client client = new Client();
 

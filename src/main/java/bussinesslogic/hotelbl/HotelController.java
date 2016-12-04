@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import bussinesslogic.userbl.manager.entrust.Hotel2Manager;
+import bussinesslogic.userbl.manager.entrust.HotelAdd;
 import bussinesslogicservice.hotelblservice.HotelBLService;
 import util.hotel.SearchCondition;
 import util.resultmessage.ResultMessage_Hotel;
@@ -16,7 +16,7 @@ import vo.hotel.HotelVO;
  * 
  * @author Saltwater
  */
-public class HotelController implements HotelBLService , Hotel2Manager{
+public class HotelController implements HotelBLService , HotelAdd{
 
 	private Hotel hotel = new Hotel();
 

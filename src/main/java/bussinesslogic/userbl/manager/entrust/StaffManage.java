@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.StaffVO;
 
-public interface Staff2Manager {
+public interface StaffManage {
 	/*
 	 * 获取酒店工作人员信息
 	 */

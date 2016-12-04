@@ -11,10 +11,10 @@ import bussinesslogic.promotionbl.PromotionController;
 import bussinesslogic.roombl.RoomController;
 import bussinesslogic.userbl.client.ClientController;
 import bussinesslogic.userbl.manager.ManagerController;
-import bussinesslogic.userbl.manager.entrust.Client2Manager;
-import bussinesslogic.userbl.manager.entrust.Hotel2Manager;
-import bussinesslogic.userbl.manager.entrust.Marketer2Manager;
-import bussinesslogic.userbl.manager.entrust.Staff2Manager;
+import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
+import bussinesslogic.userbl.manager.entrust.HotelAdd;
+import bussinesslogic.userbl.manager.entrust.MarketerManage;
+import bussinesslogic.userbl.manager.entrust.StaffManage;
 import bussinesslogic.userbl.marketer.MarketerController;
 import bussinesslogic.userbl.staff.StaffController;
 import bussinesslogicservice.creditblservice.CreditBLService;
@@ -126,28 +126,28 @@ public class ControllerFactory {
 		return managerController;
 	}
 	
-	public static Client2Manager getClient2ManagerInstance() {
+	public static ClientInfoGet getClient2ManagerInstance() {
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static Staff2Manager getStaff2ManagerInstance() {
+	public static StaffManage getStaff2ManagerInstance() {
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static Marketer2Manager getMarketer2ManagerInstance() {
+	public static MarketerManage getMarketer2ManagerInstance() {
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static Hotel2Manager getHotel2ManagerInstance(){
+	public static HotelAdd getHotel2ManagerInstance(){
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}

@@ -2,12 +2,12 @@ package bussinesslogic.userbl.marketer;
 
 import java.rmi.RemoteException;
 
-import bussinesslogic.userbl.manager.entrust.Marketer2Manager;
+import bussinesslogic.userbl.manager.entrust.MarketerManage;
 import bussinesslogicservice.userblservice.MarketerBLService;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
-public class MarketerController implements MarketerBLService , Marketer2Manager {
+public class MarketerController implements MarketerBLService , MarketerManage {
 	
 	private Marketer marketer = new Marketer();
 

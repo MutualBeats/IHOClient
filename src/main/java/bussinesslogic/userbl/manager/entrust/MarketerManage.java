@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
-public interface Marketer2Manager {
+public interface MarketerManage {
 	/*
 	 * 获取网站营销人员信息
 	 */

@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import vo.user.ClientVO;
 
-public interface Client2Manager {
+public interface ClientInfoGet {
 	
 	/**
 	 * 获取用户信息

@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelVO;
 
-public interface Hotel2Manager {
+public interface HotelAdd {
 	/*
 	 * 添加酒店
 	 */
