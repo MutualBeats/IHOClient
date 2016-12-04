@@ -5,7 +5,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.user.MarketerPO;
-import po.user.StaffPO;
 import util.resultmessage.ResultMessage_User;
 
 public interface MarketerDataService extends Remote{

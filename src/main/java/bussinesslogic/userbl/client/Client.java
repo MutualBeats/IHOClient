@@ -2,7 +2,6 @@ package bussinesslogic.userbl.client;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
@@ -27,6 +26,16 @@ public class Client {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException {
+		ResultMessage_User result = ResultMessage_User.Register_Success;
+		ClientPO po = ClientVO.transformVOToPO(registVO);
+		result = clientDataService.regist(po, password);
+		if(result == ResultMessage_User.Register_Success) {
+			cache = ClientVO.transformVOToPO(getClientInfo(registVO.clientID));
+		}
+		return result;
 	}
 
 	/**

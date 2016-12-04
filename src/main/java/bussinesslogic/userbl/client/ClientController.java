@@ -35,6 +35,12 @@ public class ClientController implements ClientBLService , ClientInfoGet {
 		return client.getClientList();
 	}
 
+	@Override
+	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException {
+		return client.regist(registVO, password);
+	}
+	
+
 
 	
 }

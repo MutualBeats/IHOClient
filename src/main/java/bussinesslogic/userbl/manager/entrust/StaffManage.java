@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_User;
-import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
 public interface StaffManage {
