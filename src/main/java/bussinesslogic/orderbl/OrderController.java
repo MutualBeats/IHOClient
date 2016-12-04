@@ -22,8 +22,8 @@ public class OrderController implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage_Order excuteOrder(String orderID) {
-		return order.excuteOrder(orderID);
+	public ResultMessage_Order executeOrder(String orderID) {
+		return order.executeOrder(orderID);
 	}
 
 	@Override

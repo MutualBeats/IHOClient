@@ -95,7 +95,7 @@ public class Order {
 	 * @param orderID
 	 * @return ResultMessage
 	 */
-	public ResultMessage_Order excuteOrder(String orderID) {
+	public ResultMessage_Order executeOrder(String orderID) {
 		try {
 			OrderPO po = order_data_service.findById(orderID);
 			// 错误：订单不存在

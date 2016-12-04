@@ -29,7 +29,7 @@ public interface OrderBLService {
 	 * @param orderId
 	 * @return
 	 */
-	public ResultMessage_Order excuteOrder(String orderId);
+	public ResultMessage_Order executeOrder(String orderId);
 	/**
 	 * 补录订单
 	 * 

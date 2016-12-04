@@ -73,13 +73,50 @@ public class OrderBlTest {
 	}
 
 	@Test
-	public void testExcute() {
-		// TODO
+	public void testExecute() {
+		ResultMessage_Order res;
+		try {
+			// 订单号不存在情形
+			res = order.executeOrder("abc");
+			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
+			// 订单状态错误情形
+			res = order.executeOrder("1");
+			assertEquals(ResultMessage_Order.Order_State_Error, res);
+			// 正常情形（测试已完成，仅可测试一次）
+//			res = order.executeOrder("3");
+//			assertEquals(ResultMessage_Order.Execute_Successful, res);
+//			OrderVO newVO = order.queryOrderById("3");
+//			assertEquals(OrderState.Execute, newVO.orderState);
+//			assertNotSame("", newVO.executeTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testPutUp() {
 		// TODO
+		ResultMessage_Order res;
+		try {
+			// 订单号不存在情形
+			res = order.putUpOrder("abc");
+			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
+			// 订单状态错误情形
+			res = order.putUpOrder("1");
+			assertEquals(ResultMessage_Order.Order_State_Error, res);
+			// 时间错误情形
+			res = order.putUpOrder("4");
+			assertEquals(ResultMessage_Order.Date_Error, res);
+			// TODO 其他情形
+			
+			// 正常情形（仅可测试一次）
+			res = order.putUpOrder("5");
+			OrderVO newVO = order.queryOrderById("5");
+			assertEquals(OrderState.Execute, newVO.orderState);
+			assertNotSame("", newVO.finishTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
