@@ -67,7 +67,7 @@ public class LookMenuController {
     @FXML
     void on_Look(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, LOOK_FXML,LOOK_CSS);
+    	WindowGrab.startWindow(window, "人员信息", LOOK_FXML,LOOK_CSS);
     }
 
 }

@@ -35,7 +35,7 @@ public class AddPeopleController implements Initializable{
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window,ADD_PEOPLE_CONFIRM_FXML,ADD_PEOPLE_CONFIRM_CSS);		   	
+    	WindowGrab.startWindow(window, "确认添加", ADD_PEOPLE_CONFIRM_FXML,ADD_PEOPLE_CONFIRM_CSS);		   	
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

@@ -67,5 +67,6 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Label fx:id="look_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
    </children>
 </AnchorPane>

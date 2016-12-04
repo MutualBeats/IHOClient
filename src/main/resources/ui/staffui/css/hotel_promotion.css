@@ -9,5 +9,8 @@ and open the template in the editor.
 */
 
 .root{
-    -fx-background-image: "背景.jpg"
+    -fx-background-image: url("file:src/main/resources/image/staff/background.jpg");
+}
+#promotion_title{
+	-fx-background-image: url("file:src/main/resources/image/staff/promotion_title.png");
 }

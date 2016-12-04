@@ -33,7 +33,7 @@ public class WindowGrab {
 	 * @throws IOException
 	 *             ： File not found
 	 */
-	public static void startWindow(Window owner, URL fxml_path,URL css_path){
+	public static void startWindow(Window owner, String title,URL fxml_path,URL css_path){
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
@@ -50,6 +50,7 @@ public class WindowGrab {
 		stage.initOwner(owner);
 		stage.requestFocus();
 		stage.setResizable(false);
+		stage.setTitle(title);
 		stage.centerOnScreen();
 		stage.sizeToScene();
 		stage.showAndWait();

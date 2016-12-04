@@ -50,25 +50,25 @@ public class MainStaffController implements Initializable{
     @FXML
     void maintainMessage(ActionEvent event) {
     	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, URLConfig.staff_maintain_hotel_fxml_url(), URLConfig.staff_maintain_hotel_css_url());
+    	WindowGrab.startWindow(owner, "酒店信息", URLConfig.staff_maintain_hotel_fxml_url(), URLConfig.staff_maintain_hotel_css_url());
     }
 
     @FXML
     void manageOrder(ActionEvent event) {
     	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, URLConfig.staff_order_manage_fxml_url(), URLConfig.staff_order_manage_css_url());
+    	WindowGrab.startWindow(owner, "管理订单", URLConfig.staff_order_manage_fxml_url(), URLConfig.staff_order_manage_css_url());
     }
 
     @FXML
     void manageRoom(ActionEvent event) {
     	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, URLConfig.staff_room_manage_fxml_url(), URLConfig.staff_room_manage_css_url());
+    	WindowGrab.startWindow(owner, "管理房间",URLConfig.staff_room_manage_fxml_url(), URLConfig.staff_room_manage_css_url());
     }
 
     @FXML
     void hotelPromotion(ActionEvent event) {
     	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, URLConfig.staff_hotel_promotion_fxml_url(), URLConfig.staff_hotel_promotion_css_url());
+    	WindowGrab.startWindow(owner, "酒店促销策略", URLConfig.staff_hotel_promotion_fxml_url(), URLConfig.staff_hotel_promotion_css_url());
     }
 
 

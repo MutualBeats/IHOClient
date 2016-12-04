@@ -37,7 +37,7 @@ public class ChangeMessageController implements Initializable{
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window,CHANGE_MESSAGE_CONFIRM_FXML,CHANGE_MESSAGE_CONFIRM_CSS);
+    	WindowGrab.startWindow(window, "修改人员信息",CHANGE_MESSAGE_CONFIRM_FXML,CHANGE_MESSAGE_CONFIRM_CSS);
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

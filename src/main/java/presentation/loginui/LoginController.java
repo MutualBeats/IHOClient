@@ -47,7 +47,7 @@ public class LoginController implements Initializable{
 		URL fxml = URLConfig.signin_fxml_url();
 		URL css = URLConfig.signin_css_url();
 		Window owner = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(owner, fxml, css);
+		WindowGrab.startWindow(owner, "注册", fxml, css);
 //		try {
 //			Stage primaryStage=new Stage();
 //			Parent root = FXMLLoader.load(URLConfig.signin_fxml_url());

@@ -67,26 +67,26 @@ public class ManageMenuController {
     @FXML
     void on_look(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, LOOK_MENU_FXML,LOOK_MENU_CSS);
+    	WindowGrab.startWindow(window, "查询人员信息", LOOK_MENU_FXML,LOOK_MENU_CSS);
     }
 
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS);
+    	WindowGrab.startWindow(window, "添加营销人员", ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS);
     }
 
     @FXML
     void on_change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, CHANGE_FXML,CHANGE_CSS);    	
+		WindowGrab.startWindow(window, "修改人员信息", CHANGE_FXML,CHANGE_CSS);    	
     }
 
     @FXML
     void add_hotel(ActionEvent event) {
 
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, ADD_HOTEL_FIRST_FXML,ADD_HOTEL_FIRST_CSS); 
+		WindowGrab.startWindow(window, "添加酒店", ADD_HOTEL_FIRST_FXML,ADD_HOTEL_FIRST_CSS); 
     }
 
 }

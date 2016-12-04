@@ -35,7 +35,7 @@ public class AddHotelController_two {
     @FXML
     void second_confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, ADD_HOTEL_THREE_FXML,ADD_HOTEL_THREE_CSS); 
+		WindowGrab.startWindow(window, "确认", ADD_HOTEL_THREE_FXML,ADD_HOTEL_THREE_CSS); 
     }
 
     @FXML
