@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_three">
+   <children>
+      <AnchorPane fx:id="third_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="315.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认添加?" wrappingWidth="200.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Button fx:id="third_confirm" layoutX="275.0" layoutY="375.0" mnemonicParsing="false" onAction="#third_confirm" prefHeight="25.0" prefWidth="90.0" text="确认">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="third_cancel" layoutX="455.0" layoutY="375.0" mnemonicParsing="false" onAction="#third_cancel" prefHeight="25.0" prefWidth="90.0" text="上一步">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Circle fill="#70ace4" layoutX="600.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="200.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="400.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="195.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+            <Text layoutX="395.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
+            <Text layoutX="595.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

@@ -1,51 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package presentation.manageui.addhotel;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
-public class AddHotelController implements Initializable{
+public class AddHotelController {
 
     @FXML
-    private Button confirm;
-    
+    private Button first_cancel;
+
     @FXML
-    private Button cancel;
-    
-    private static URL ADD_HOTEL_CONFIRM_FXML;
-    private static URL ADD_HOTEL_CONFIRM_CSS;
+    private Button first_confirm;
+
+    @FXML
+    private AnchorPane first_pane;
+
+    private static URL ADD_HOTEL_TWO_FXML;
+    private static URL ADD_HOTEL_TWO_CSS;
     static{
     	try {
-    		ADD_HOTEL_CONFIRM_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotelconfirm.fxml");
-    		ADD_HOTEL_CONFIRM_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotelconfirm.css");
+    		ADD_HOTEL_TWO_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel_two.fxml");
+    		ADD_HOTEL_TWO_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel_two.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    	// TODO Auto-generated method stub
-    	
-    }
+    
     @FXML
-    void confirm(ActionEvent event) {
+    void first_confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, ADD_HOTEL_CONFIRM_FXML,ADD_HOTEL_CONFIRM_CSS);   
+		WindowGrab.startWindow(window, ADD_HOTEL_TWO_FXML,ADD_HOTEL_TWO_CSS);   
     }
+
     @FXML
-    public void cancel(ActionEvent event) {
+    void first_cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
 

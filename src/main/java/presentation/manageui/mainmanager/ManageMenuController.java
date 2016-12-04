@@ -31,8 +31,8 @@ public class ManageMenuController {
     @FXML
     private Label managerName;
     
-    private static URL ADD_HOTEL_FXML;
-    private static URL ADD_HOTEL_CSS;
+    private static URL ADD_HOTEL_FIRST_FXML;
+    private static URL ADD_HOTEL_FIRST_CSS;
     private static URL ADD_PEOPLE_MENU_FXML;
     private static URL ADD_PEOPLE_MENU_CSS;
     private static URL CHANGE_FXML;
@@ -42,8 +42,8 @@ public class ManageMenuController {
     
     static{
     	try {
-			ADD_HOTEL_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel.fxml");
-			ADD_HOTEL_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel.css");
+    		ADD_HOTEL_FIRST_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel_one.fxml");
+    		ADD_HOTEL_FIRST_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel_one.css");
 			
 			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
 			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
@@ -86,7 +86,7 @@ public class ManageMenuController {
     void add_hotel(ActionEvent event) {
 
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, ADD_HOTEL_FXML,ADD_HOTEL_CSS); 
+		WindowGrab.startWindow(window, ADD_HOTEL_FIRST_FXML,ADD_HOTEL_FIRST_CSS); 
     }
 
 }

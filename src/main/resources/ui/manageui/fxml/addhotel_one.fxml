@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController">
+   <children>
+      <AnchorPane fx:id="first_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="228.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel ID:" wrappingWidth="80.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在省份：" wrappingWidth="90.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在市：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在县/区：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在商圈：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细地址：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级： ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="228.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="客服电话：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="413.0" layoutY="157.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="192.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="227.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="262.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="297.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="397.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextArea layoutX="413.0" layoutY="332.0" prefHeight="55.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="122.0" prefHeight="20.0" prefWidth="165.0" />
+            <Button fx:id="first_confirm" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="first_cancel" layoutX="455.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_cancel" prefHeight="25.0" prefWidth="90.0" text="取消">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Circle fill="#70ace4" layoutX="200.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="400.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="600.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="195.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+            <Text layoutX="395.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
+            <Text layoutX="595.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

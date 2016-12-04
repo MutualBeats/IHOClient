@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_two">
+   <children>
+      <AnchorPane fx:id="second_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="230.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff ID:" wrappingWidth="80.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="230.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="90.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="230.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField layoutX="420.0" layoutY="255.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="420.0" layoutY="310.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="420.0" layoutY="200.0" prefHeight="20.0" prefWidth="165.0" />
+            <Button fx:id="second_confirm" layoutX="275.0" layoutY="400.0" mnemonicParsing="false" onAction="#second_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="second_cancel" layoutX="455.0" layoutY="400.0" mnemonicParsing="false" onAction="#second_cancel" prefHeight="25.0" prefWidth="90.0" text="上一步">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Circle fill="#70ace4" layoutX="400.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="200.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#b7cee4" layoutX="600.0" layoutY="75.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="195.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+            <Text layoutX="395.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
+            <Text layoutX="595.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
