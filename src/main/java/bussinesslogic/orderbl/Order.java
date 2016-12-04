@@ -70,7 +70,7 @@ public class Order {
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
 			if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
-				ClientVO clientVO = userInfo.getClientInfo(po.getClientID());	
+				ClientVO clientVO = userInfo.getClientInfo(po.getClientID());
 				int changeValue = -(int)(po.getValue() / 2);
 				int newCredit = clientVO.credit + changeValue;
 				CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
@@ -87,7 +87,6 @@ public class Order {
 		}
 		
 		return ResultMessage_Order.Cancel_Successful;
-		
 	}
 
 	/**
@@ -105,6 +104,9 @@ public class Order {
 			// 错误：订单不是未执行状态，不可执行
 			if(!po.getOrderState().equals(OrderState.Unexecuted))
 				return ResultMessage_Order.Order_State_Error;
+			// 错误：未到预订入住时间或已超出预订入住时间
+			if(!po.getCheckInDate().equals(Time.getCurrentDate()))
+				return ResultMessage_Order.Date_Error;
 
 			// 执行订单
 			ResultMessage_Order result_order = order_data_service.executeOrder(orderID);
@@ -186,8 +188,8 @@ public class Order {
 	 * @throws RemoteException
 	 */
 	public OrderVO queryOrderById(String orderID) throws RemoteException {
-		OrderPO po = order_data_service.findById(orderID);
-		return new OrderVO(po);
+		orderPO = order_data_service.findById(orderID);
+		return new OrderVO(orderPO);
 	}
 
 	/**
@@ -271,6 +273,14 @@ public class Order {
 	 * @throws RemoteException 
 	 */
 	public OrderVO makeOrder(OrderMakeVO vo) throws RemoteException {
+		// 错误：客户信用值为负
+		ClientVO clientVO = userInfo.getClientInfo(vo.clientID);
+		if(clientVO.credit < 0)
+			return null;
+		// TODO 错误信息在界面层/逻辑层判断？
+		// 错误：入住时间早于当前时间
+		// 错误：离开时间早于入住时间
+		
 		OrderVO orderVO = new OrderVO(vo);
 		orderVO.orderID = getOrderID();
 		// TODO 可用促销策略获取
@@ -287,7 +297,7 @@ public class Order {
 	
 	/**
 	 * 订单号生成
-	 * @return
+	 * @return orderID
 	 */
 	private String getOrderID() {
 		// TODO 生成订单号

@@ -32,39 +32,33 @@ public class OrderController implements OrderBLService{
 	}
 
 	@Override
-	public OrderVO queryOrderById(String orderID) {
-		// TODO Auto-generated method stub
-		return null;
+	public OrderVO queryOrderById(String orderID) throws RemoteException {
+		return order.queryOrderById(orderID);
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws RemoteException {
+		return order.queryOrderByHotel(hotelID, clientID);
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws RemoteException {
+		return order.queryRoomOrder(hotelID, roomNumber);
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryUserOrder(String clientID) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<OrderVO> queryUserOrder(String clientID) throws RemoteException {
+		return order.queryUserOrder(clientID);
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryHotelOrder(String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws RemoteException {
+		return order.queryHotelOrder(hotelID);
 	}
 
 	@Override
-	public OrderVO makeOrder(OrderMakeVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public OrderVO makeOrder(OrderMakeVO vo) throws RemoteException {
+		return order.makeOrder(vo);
 	}
 
 	

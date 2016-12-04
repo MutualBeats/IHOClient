@@ -1,5 +1,6 @@
 package bussinesslogicservice.orderblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_Order;
@@ -14,7 +15,7 @@ public interface OrderBLService {
 	 * @param vo
 	 * @return
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo);
+	public OrderVO makeOrder(OrderMakeVO vo) throws RemoteException;
 	/**
 	 * 更新订单
 	 * 
@@ -42,7 +43,7 @@ public interface OrderBLService {
 	 * @param orderId
 	 * @return
 	 */
-	public OrderVO queryOrderById(String orderId);
+	public OrderVO queryOrderById(String orderId) throws RemoteException;
 	/**
 	 * 查找用户在酒店订单
 	 * 
@@ -50,7 +51,7 @@ public interface OrderBLService {
 	 * @param userId
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryOrderByHotel(String hotelId, String userId);
+	public ArrayList<OrderVO> queryOrderByHotel(String hotelId, String userId) throws RemoteException;
 	/**
 	 * 查询房间订单
 	 * 
@@ -58,21 +59,21 @@ public interface OrderBLService {
 	 * @param roomId
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryRoomOrder(String hotelId, String roomId);
+	public ArrayList<OrderVO> queryRoomOrder(String hotelId, String roomId) throws RemoteException;
 	/**
 	 * 查询用户订单
 	 * 
 	 * @param userId
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryUserOrder(String userId);
+	public ArrayList<OrderVO> queryUserOrder(String userId) throws RemoteException;
 	/**
 	 * 酒店管理人员查询酒店订单
 	 * 
 	 * @param hotelId
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryHotelOrder(String hotelId);
+	public ArrayList<OrderVO> queryHotelOrder(String hotelId) throws RemoteException;
 	
 }
 
