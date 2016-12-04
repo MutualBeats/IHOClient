@@ -47,7 +47,7 @@ public class Manager {
 	}
 	
 	public ClientVO showClientData(String clientID) throws RemoteException {
-		return ControllerFactory.getClient2ManagerInstance().showData(clientID);
+		return ControllerFactory.getClient2ManagerInstance().getClientInfo(clientID);
 	}
 
 	public StaffVO showStaffData(String staffID) throws RemoteException {

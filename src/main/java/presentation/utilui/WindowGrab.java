@@ -28,12 +28,15 @@ public class WindowGrab {
 	 * 
 	 * @param owner
 	 *            ： 父窗口
+	 * 
+	 * @param title
+	 *            ： 窗口标题
 	 * @param fxml_path
 	 *            ： fxml文件URL
 	 * @throws IOException
 	 *             ： File not found
 	 */
-	public static void startWindow(Window owner, String title,URL fxml_path,URL css_path){
+	public static void startWindow(Window owner, String title, URL fxml_path, URL css_path) {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
@@ -55,7 +58,7 @@ public class WindowGrab {
 		stage.sizeToScene();
 		stage.showAndWait();
 	}
-	
+
 	/**
 	 * 获取当前窗口
 	 * 

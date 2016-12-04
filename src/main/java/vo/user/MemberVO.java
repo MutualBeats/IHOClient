@@ -1,5 +1,6 @@
 package vo.user;
 
+import po.user.MemberPO;
 import util.user.MemberType;
 
 public class MemberVO {
@@ -34,4 +35,10 @@ public class MemberVO {
 		this.level = level;
 		this.memberMessage = memberMessage;
 	}
+	
+	public static MemberPO transformVOToPO(MemberVO vo) {
+		return new MemberPO(vo.clientID, vo.memberType, vo.level, vo.memberMessage);
+	}
+	
+	
 }

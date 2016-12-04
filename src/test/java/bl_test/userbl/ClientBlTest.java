@@ -11,6 +11,7 @@ import org.junit.Test;
 import bussinesslogic.userbl.client.Client;
 import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
+import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -41,33 +42,18 @@ public class ClientBlTest {
 	@Test
 	public void showDataTest() throws RemoteException{
 //		assertNull(client.showData("123"));
-		assertNull(client.showData(vo1.clientID));
-		assertEquals(vo2.contactWay, client.showData(vo2.clientID).contactWay);
+		assertNull(client.getClientInfo(vo1.clientID));
+		assertEquals(vo2.contactWay, client.getClientInfo(vo2.clientID).contactWay);
 	}
 	
 	@Test
 	public void changeDataTest() throws RemoteException{
 //		assertEquals(ResultMessage_User.UserName_Invalid, client.changeData(vo2.clientID, "123", vo2.contactWay));
 //		assertEquals(ResultMessage_User.UserName_Invalid, client.changeData(vo2.clientID, "12345678901234567890", vo2.contactWay));
-		assertEquals(ResultMessage_User.UpdateSuccess, client.changeData(vo2.clientID, vo1.clientName, vo2.contactWay));
+		ClientInfoChangeVO vo = new ClientInfoChangeVO(vo2.clientID, vo1.clientName, vo2.contactWay);
+		assertEquals(ResultMessage_User.UpdateSuccess, client.changeClientInfo(vo));
 	}
 	
-	@Test
-	public void LoginTest() throws RemoteException{
-//		assertEquals(ResultMessage_User.UserID_Invalid, client.Login("123", password));
-		assertEquals(ResultMessage_User.Account_Not_Exist, client.Login(vo1.clientID, password));
-		assertEquals(ResultMessage_User.PasswordWrong, client.Login(vo2.clientID, "1234"));
-		assertEquals(ResultMessage_User.LoginSuccess, client.Login(vo2.clientID, password));
-	}
-	
-	@Test
-	public void SignupTest() throws RemoteException{
-//		assertEquals(ResultMessage_User.UserID_Invalid, client.Signup("123", vo1.clientName, vo1.contactWay, password));
-//		assertEquals(ResultMessage_User.UserName_Invalid, client.Signup(vo1.clientID, "123", vo1.contactWay, password));
-//		assertEquals(ResultMessage_User.UserName_Invalid, client.Signup(vo1.clientID, "12345678901234567890", vo1.contactWay, password));
-		assertEquals(ResultMessage_User.Account_Exist, client.Signup(vo2.clientID, vo1.clientName, vo1.contactWay, password));
-		assertEquals(ResultMessage_User.AddSucccess, client.Signup(vo1.clientID, vo1.clientName, vo1.contactWay, password));
-	}
 	
 	@Test
 	public void memberRegisterTest() throws RemoteException{
@@ -77,13 +63,4 @@ public class ClientBlTest {
 		assertEquals(ResultMessage_User.BusinessRegisterSuccess, client.memberRegister(new MemberVO(vo04.clientID, vo01.memberType, 0, vo01.memberMessage)));
 	}
 	
-	@Test
-	public void showMemberDataTest() throws RemoteException{
-		assertEquals(vo02.memberMessage, client.showMemberData(vo02.clientID).memberMessage);
-	}
-	
-	@Test
-	public void changeMemberDataTest() throws RemoteException{
-		assertEquals(ResultMessage_User.UpdateSuccess, client.changeMemberData(new MemberVO(vo02.clientID, vo02.memberType, 0, vo00.memberMessage)));
-	}
 }

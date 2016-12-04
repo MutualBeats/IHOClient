@@ -8,6 +8,7 @@ package po.user;
 import java.io.Serializable;
 
 import util.user.MemberType;
+import vo.user.ClientVO;
 
 public class ClientPO implements Serializable {
 	/**
@@ -66,6 +67,10 @@ public class ClientPO implements Serializable {
 	}
 
 	public ClientPO() {
+	}
+	
+	public static ClientVO transformPOToVO(ClientPO po) {
+		return new ClientVO(po.clientID, po.clientName, po.contactWay, po.credit, po.memberType, po.level, po.memberMessage);
 	}
 
 	public String getClientID() {
