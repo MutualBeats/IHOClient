@@ -119,7 +119,7 @@ public class RoomBlTest {
 	@Test
 	public void testGetRecord() {
 		try {
-			ArrayList<RoomRecordVO> records = controller.getOrderReord("00000001", "3B323");
+			ArrayList<RoomRecordVO> records = controller.getOrderRecord("00000001", "3B323");
 			assertEquals(records.size(), 2);
 			RoomRecordVO newest = records.get(0);
 			assertEquals(newest.checkInDate, "2016/11/27");

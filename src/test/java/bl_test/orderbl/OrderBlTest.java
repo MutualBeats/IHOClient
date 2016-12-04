@@ -1,9 +1,9 @@
 package bl_test.orderbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.rmi.RemoteException;
-import java.util.Iterator;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +33,7 @@ public class OrderBlTest {
 			ClientInfo client = new ClientInfo() {
 				@Override
 				public ClientVO getClientInfo(String clientID) {
-					ClientVO vo = new ClientVO("0000000002", "刘钦", "", 0, MemberType.Enterprise, 2, "");
+					ClientVO vo = new ClientVO("0000000002", "刘钦", "", -2304, MemberType.Enterprise, 2, "");
 					return vo;
 				}
 			};
@@ -107,13 +107,13 @@ public class OrderBlTest {
 			// 时间错误情形
 			res = order.putUpOrder("4");
 			assertEquals(ResultMessage_Order.Date_Error, res);
-			// TODO 其他情形
+			// TODO 房间已被预订情形
 			
-			// 正常情形（仅可测试一次）
-			res = order.putUpOrder("5");
-			OrderVO newVO = order.queryOrderById("5");
-			assertEquals(OrderState.Execute, newVO.orderState);
-			assertNotSame("", newVO.finishTime);
+			// 正常情形（测试已完成，仅可测试一次）
+//			res = order.putUpOrder("5");
+//			OrderVO newVO = order.queryOrderById("5");
+//			assertEquals(OrderState.Execute, newVO.orderState);
+//			assertEquals("", newVO.finishTime);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -121,19 +121,29 @@ public class OrderBlTest {
 
 	@Test
 	public void testQueryOrder() {
-		// TODO
-	}
-
-	private void find(Iterator<OrderVO> it, String orderId) {
-		boolean contain = false;
-		for (; it.hasNext();) {
-			OrderVO each = it.next();
-			if (each.orderID.equals(orderId)) {
-				contain = true;
-			}
-		}
-		if (!contain) {
-			fail();
+		try {
+			vo = order.queryOrderById("1");
+			assertEquals(OrderState.Execute, vo.orderState);
+			assertEquals(1024, (int)vo.value);
+			assertEquals(false, vo.children);
+			
+			ArrayList<OrderVO> orderList;
+			
+			orderList = order.queryHotelOrder("00000001");
+			assertEquals(5, orderList.size());
+			
+			orderList = order.queryUserOrder("0000000001");
+			assertEquals(3, orderList.size());
+			
+			orderList = order.queryOrderByHotel("00000002", "0000000001");
+			assertEquals(0, orderList.size());
+			
+//			orderList = order.queryUnexecutedOrder("2016/12/04");
+//			assertEquals(2, orderList.size());
+			
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
 		}
 	}
 

@@ -4,8 +4,12 @@
  */
 package bussinesslogic.roombl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogic.orderbl.RoomUpdate;
 import util.resultmessage.ResultMessage_Room;
+import vo.room.RoomRecordVO;
 
 public class MockRoom extends Room implements RoomUpdate{
 
@@ -18,6 +22,12 @@ public class MockRoom extends Room implements RoomUpdate{
 	
 	public ResultMessage_Room checkOut(String hotelID, String roomID) {
 		return ResultMessage_Room.Check_Out_Successful;
+	}
+
+	@Override
+	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

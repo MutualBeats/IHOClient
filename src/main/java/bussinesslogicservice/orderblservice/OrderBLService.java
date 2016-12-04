@@ -74,6 +74,13 @@ public interface OrderBLService {
 	 * @return
 	 */
 	public ArrayList<OrderVO> queryHotelOrder(String hotelId) throws RemoteException;
+	/**
+	 * 网站营销人员查看某一天未执行订单
+	 * @param date
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws RemoteException;
 	
 }
 

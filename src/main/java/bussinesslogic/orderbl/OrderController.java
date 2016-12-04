@@ -61,5 +61,10 @@ public class OrderController implements OrderBLService{
 		return order.makeOrder(vo);
 	}
 
+	@Override
+	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws RemoteException {
+		return order.queryUnexecutedOrder(date);
+	}
+
 	
 }

@@ -7,6 +7,7 @@ import bussinesslogicservice.orderblservice.OrderBLService;
 import dataservice.orderdataservice.OrderDataService;
 import factory.test_helper.DataFactoryHelper;
 import po.order.OrderPO;
+import po.room.RoomRecordPO;
 import util.Time;
 import util.credit.CreditChangeAction;
 import util.order.OrderState;
@@ -14,6 +15,7 @@ import util.resultmessage.ResultMessage_Order;
 import vo.credit.CreditVO;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
+import vo.room.RoomRecordVO;
 import vo.user.ClientVO;
 
 public class Order {
@@ -97,15 +99,15 @@ public class Order {
 	 */
 	public ResultMessage_Order executeOrder(String orderID) {
 		try {
-			OrderPO po = order_data_service.findById(orderID);
+			orderPO = order_data_service.findById(orderID);
 			// 错误：订单不存在
-			if(po == null)
+			if(orderPO == null)
 				return ResultMessage_Order.Order_Not_Exist;
 			// 错误：订单不是未执行状态，不可执行
-			if(!po.getOrderState().equals(OrderState.Unexecuted))
+			if(!orderPO.getOrderState().equals(OrderState.Unexecuted))
 				return ResultMessage_Order.Order_State_Error;
 			// 错误：未到预订入住时间或已超出预订入住时间
-			if(!po.getCheckInDate().equals(Time.getCurrentDate()))
+			if(!orderPO.getCheckInDate().equals(Time.getCurrentDate()))
 				return ResultMessage_Order.Date_Error;
 
 			// 执行订单
@@ -114,16 +116,16 @@ public class Order {
 				return result_order;
 						
 			// 信用值处理（增加等于订单总值的信用值）
-			ClientVO clientVO = userInfo.getClientInfo(po.getClientID());
-			int changeValue = (int)po.getValue();
+			ClientVO clientVO = userInfo.getClientInfo(orderPO.getClientID());
+			int changeValue = (int)orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
-			CreditVO creditVO = new CreditVO(po.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
+			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.ExecuteOrder, orderID);
 			credit.creditUpdate(creditVO);
 			
 			// 更新房间记录及房间状态
-			for (String roomNumber : po.getRoomNumberList()) {
-				room.checkIn(po.getHotelID(), roomNumber);
+			for (String roomNumber : orderPO.getRoomNumberList()) {
+				room.checkIn(orderPO.getHotelID(), roomNumber);
 			}
 			
 		} catch (RemoteException e) {
@@ -140,38 +142,46 @@ public class Order {
 	 * @return ResultMessage
 	 */
 	public ResultMessage_Order putUpOrder(String orderID) {
-		ResultMessage_Order result_order;
 		try {
-			OrderPO po = order_data_service.findById(orderID);
+			orderPO = order_data_service.findById(orderID);
 			// 错误：订单不存在
-			if(po == null)
+			if(orderPO == null)
 				return ResultMessage_Order.Order_Not_Exist;
 			// 错误：订单不为异常状态，不可补登记执行
-			if(!po.getOrderState().equals(OrderState.Exception))
+			if(!orderPO.getOrderState().equals(OrderState.Exception))
 				return ResultMessage_Order.Order_State_Error;
 			// 错误：当前时间在订单预计离开时间之后
-			if(po.getEstimateCheckOutDate().compareTo(Time.getCurrentDate()) < 0)
+			if(orderPO.getEstimateCheckOutDate().compareTo(Time.getCurrentDate()) < 0)
 				return ResultMessage_Order.Date_Error;
-			// TODO 条件判断：能否补登记执行
-			
-			
-			// 补登记执行
-			result_order = order_data_service.putUpOrder(orderID);
-			if(!result_order.equals(ResultMessage_Order.Put_Up_Successful))
-				return result_order;
-			
-			// 恢复扣除信用
-			ClientVO clientVO = userInfo.getClientInfo(po.getClientID());				
-			int changeValue = (int)(po.getValue() / 2);
-			int newCredit = clientVO.credit + changeValue;
-			CreditVO creditVO = new CreditVO(po.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
-					CreditChangeAction.PutUpOrder, orderID);
-			credit.creditUpdate(creditVO);
+			// 错误：订单预订房间中有房间在此期间已被人预订
+			String checkInDate = Time.getCurrentDate();
+			String checkOutDate = orderPO.getEstimateCheckOutDate();
+			for (String roomNumber : orderPO.getRoomNumberList()) {
+				ArrayList<RoomRecordVO> roomRecordList = room.getOrderRecord(orderPO.getHotelID(), roomNumber);
+				for (RoomRecordVO roomRecord : roomRecordList) {
+					if(checkInDate.compareTo(roomRecord.estimateCheckOutDate) > 0 
+							|| checkOutDate.compareTo(roomRecord.checkInDate) < 0)
+						continue;
+					return ResultMessage_Order.Room_Already_Ordered;
+				}
+			}
 			
 			// 更新房间记录及房间状态
-			for (String roomNumber : po.getRoomNumberList()) {
-				room.checkIn(po.getHotelID(), roomNumber);
+			for (String roomNumber : orderPO.getRoomNumberList()) {
+				room.addRecord(new RoomRecordPO(orderPO.getHotelID(), roomNumber, orderID, checkInDate, checkOutDate));
+				room.checkIn(orderPO.getHotelID(), roomNumber);
 			}
+			
+			// 补登记执行
+			order_data_service.putUpOrder(orderID);
+
+			// 恢复扣除信用
+			ClientVO clientVO = userInfo.getClientInfo(orderPO.getClientID());
+			int changeValue = (int)orderPO.getValue();
+			int newCredit = clientVO.credit + changeValue;
+			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
+					CreditChangeAction.PutUpOrder, orderID);
+			credit.creditUpdate(creditVO);
 			
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -247,6 +257,18 @@ public class Order {
 		
 		return orderVOList;
 	}
+	
+	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws RemoteException {
+		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
+		
+		ArrayList<OrderPO> orderPOList = order_data_service.findUnexecutedOrder(date);
+		
+		for (OrderPO orderPO : orderPOList) {
+			orderVOList.add(new OrderVO(orderPO));
+		}
+		
+		return orderVOList;
+	}
 
 	/**
 	 * 获得酒店订单列表
@@ -277,9 +299,7 @@ public class Order {
 		ClientVO clientVO = userInfo.getClientInfo(vo.clientID);
 		if(clientVO.credit < 0)
 			return null;
-		// TODO 错误信息在界面层/逻辑层判断？
-		// 错误：入住时间早于当前时间
-		// 错误：离开时间早于入住时间
+		// TODO 更多错误信息
 		
 		OrderVO orderVO = new OrderVO(vo);
 		orderVO.orderID = getOrderID();

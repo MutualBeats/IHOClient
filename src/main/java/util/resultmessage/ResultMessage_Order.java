@@ -12,6 +12,8 @@ public enum ResultMessage_Order {
 	
 	Date_Error,
 	
+	Room_Already_Ordered,
+	
 	Cancel_Failed,
 	Cancel_Successful,
 	

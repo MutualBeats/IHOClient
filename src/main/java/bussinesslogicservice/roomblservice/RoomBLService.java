@@ -41,7 +41,7 @@ public interface RoomBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomRecordVO> getOrderReord(String hotelID, String roomNumber) throws RemoteException;
+	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 客户入住
 	 */
