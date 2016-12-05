@@ -48,7 +48,11 @@ public class CreditDataHelper {
 		i_po.setCredit(after_credit);
 		return insert(i_po);
 	}
-
+	
+	public ResultMessage_Credit creditRegist(CreditVO vo) {
+		return insert(new CreditPO(vo));
+	}
+	
 	private ResultMessage_Credit insert(CreditPO po) {
 		// Cache Update
 		credit_record_cache.add(po);

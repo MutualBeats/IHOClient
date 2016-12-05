@@ -45,7 +45,7 @@ public class Credit{
 	
 	public ResultMessage_Credit addCreditRegister(String clientID) {
 		CreditVO vo = new CreditVO(clientID, Time.getCurrentTime(), 0, 0, CreditChangeAction.Register, "");
-		return creditUpdate(vo);
+		return credit_data_service.creditRegist(vo);
 	}
 	
 
