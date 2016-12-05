@@ -13,37 +13,37 @@
       <AnchorPane fx:id="first_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
             <Accordion layoutY="115.0" />
-            <Text layoutX="228.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在省份：" wrappingWidth="90.0">
+            <Text layoutX="185.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在省份：" wrappingWidth="90.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在市：">
+            <Text layoutX="185.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在市：">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在县/区：">
+            <Text layoutX="185.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在县/区：">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在商圈：">
+            <Text layoutX="185.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在商圈：">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细地址：">
+            <Text layoutX="185.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细地址：">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="234.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级： ">
+            <Text layoutX="185.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级： ">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="413.0" layoutY="297.0" prefHeight="54.0" prefWidth="170.0" />
+            <TextField fx:id="address" layoutX="315.0" layoutY="319.0" prefHeight="54.0" prefWidth="170.0" />
             <Button fx:id="first_confirm" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
                <font>
                   <Font size="18.0" />
@@ -60,17 +60,24 @@
             <Text layoutX="195.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
             <Text layoutX="395.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
             <Text layoutX="595.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
-            <Text layoutX="228.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称：" wrappingWidth="90.0">
+            <Text layoutX="185.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称：" wrappingWidth="90.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="413.0" layoutY="123.0" prefHeight="20.0" prefWidth="170.0" />
-            <ComboBox layoutX="413.0" layoutY="157.0" prefHeight="27.0" prefWidth="170.0" />
-            <ComboBox layoutX="413.0" layoutY="192.0" prefHeight="27.0" prefWidth="170.0" />
-            <ComboBox layoutX="413.0" layoutY="227.0" prefWidth="170.0" />
-            <ComboBox layoutX="413.0" layoutY="262.0" prefWidth="170.0" />
-            <ComboBox layoutX="413.0" layoutY="374.0" prefWidth="170.0" />
+            <TextField fx:id="hotel_name" layoutX="315.0" layoutY="145.0" prefHeight="20.0" prefWidth="170.0" />
+            <ComboBox fx:id="province" layoutX="315.0" layoutY="179.0" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox fx:id="city" layoutX="315.0" layoutY="214.0" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox fx:id="field" layoutX="315.0" layoutY="249.0" prefWidth="170.0" />
+            <ComboBox fx:id="group" layoutX="315.0" layoutY="284.0" prefWidth="170.0" />
+            <ComboBox fx:id="star" layoutX="315.0" layoutY="385.0" prefWidth="170.0" />
+            <Label fx:id="name_warning" layoutX="510.0" layoutY="145.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="province_warning" layoutX="510.0" layoutY="179.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="city_warning" layoutX="510.0" layoutY="214.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="field_warning" layoutX="510.0" layoutY="249.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="group_warning" layoutX="510.0" layoutY="284.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="address_warning" layoutX="510.0" layoutY="314.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
+            <Label fx:id="star_warning" layoutX="510.0" layoutY="385.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
          </children>
       </AnchorPane>
    </children>

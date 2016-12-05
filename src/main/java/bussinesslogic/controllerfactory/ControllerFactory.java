@@ -1,5 +1,7 @@
 package bussinesslogic.controllerfactory;
 
+import java.rmi.RemoteException;
+
 import bussinesslogic.creditbl.CreditController;
 import bussinesslogic.hotelbl.HotelController;
 import bussinesslogic.orderbl.ClientInfo;
@@ -27,6 +29,7 @@ import bussinesslogicservice.userblservice.ManagerBLService;
 import bussinesslogicservice.userblservice.MarketerBLService;
 import bussinesslogicservice.userblservice.StaffBLService;
 import dataservice.utildataservice.Identify;
+import factory.datahelper.DataHelperFactory;
 
 public class ControllerFactory {
 	
@@ -40,6 +43,8 @@ public class ControllerFactory {
 	private static MarketerController marketerController;
 	private static StaffController staffController;
 	private static ManagerController managerController;
+	
+	private static Identify identify_service;
 	
 	private ControllerFactory(){}
 	
@@ -162,8 +167,11 @@ public class ControllerFactory {
 		return clientController;
 	}
 	
-	public static  Identify getIdentityService() {
-		return null;
+	public static  Identify getIdentityService() throws RemoteException {
+		if(identify_service == null ){
+			identify_service = DataHelperFactory.getDataFactoryHelperInstance().getIdentityService();
+		}
+		return identify_service;
 	}
 	
 }

@@ -1,13 +1,9 @@
 package presentation.manageui.addhotel;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
 public class AddHotelController_three {

@@ -11,6 +11,7 @@ import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
@@ -24,10 +25,23 @@ public class CheckMenuController {
     private Button search;
 
     @FXML
+    private ComboBox<?> province;
+
+    @FXML
+    private ComboBox<?> field;
+
+    @FXML
+    private ComboBox<?> city;
+
+    @FXML
     private Label check_title;
 
     @FXML
     private Button check;
+
+    @FXML
+    private ComboBox<?> group;
+
 
     private static URL CHECK_FXML;
     private static URL CHECK_CSS;

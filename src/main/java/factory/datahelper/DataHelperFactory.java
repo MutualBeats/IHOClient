@@ -8,6 +8,7 @@ import dataservice.userdataservice.ClientDataService;
 import dataservice.userdataservice.ManagerDataService;
 import dataservice.userdataservice.MarketerDataService;
 import dataservice.userdataservice.StaffDataService;
+import dataservice.utildataservice.Identify;
 
 /**
  * A factory using singleton
@@ -33,6 +34,7 @@ public class DataHelperFactory {
 	private StaffDataService staffDataService;
 	private MarketerDataService marketerDataService;
 	private ManagerDataService managerDataService;
+	private Identify identify;
 
 	private DataHelperFactory() {
 	}
@@ -121,5 +123,13 @@ public class DataHelperFactory {
 		}
 		return managerDataService;
 	}
-
+	
+	public Identify getIdentityService() throws RemoteException {
+		if(identify == null) {
+			checkFactoryState();
+			identify = factory.getIdentityService();
+		}
+		return identify;
+	}
+	
 }
