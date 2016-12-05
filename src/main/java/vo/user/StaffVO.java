@@ -27,8 +27,9 @@ public class StaffVO {
 		this.staffName = staffname;
 		this.hotelID = hotelId;
 	}
+	
 	public static StaffPO transformVOToPO(StaffVO vo) {
-		return new StaffPO(vo.hotelID,vo.staffName, vo.hotelID);
+		return new StaffPO(vo.staffID ,vo.staffName, vo.hotelID);
 	}
 
 }
