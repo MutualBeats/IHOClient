@@ -58,8 +58,8 @@ public class ManageMenuController {
 			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
 			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
 			
-			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml");
-			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/changemessage.css");
+			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLook.fxml");
+			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
 			
 			CHECK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
 			CHECK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
@@ -89,7 +89,6 @@ public class ManageMenuController {
 
     @FXML
     void add_hotel(ActionEvent event) {
-
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(window, "添加酒店", ADD_HOTEL_FIRST_FXML,ADD_HOTEL_FIRST_CSS); 
     }

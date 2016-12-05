@@ -15,7 +15,8 @@ import presentation.utilui.WindowGrab;
 
 public class AddHotelController {
 
-	@FXML
+
+    @FXML
     private TextField address;
 
     @FXML

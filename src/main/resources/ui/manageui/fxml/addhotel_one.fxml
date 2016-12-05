@@ -43,7 +43,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="address" layoutX="315.0" layoutY="319.0" prefHeight="54.0" prefWidth="170.0" />
+            <TextField fx:id="address" alignment="TOP_LEFT" layoutX="315.0" layoutY="319.0" prefHeight="54.0" prefWidth="170.0" />
             <Button fx:id="first_confirm" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
                <font>
                   <Font size="18.0" />

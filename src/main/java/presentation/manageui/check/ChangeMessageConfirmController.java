@@ -1,4 +1,4 @@
-package presentation.manageui.change;
+package presentation.manageui.check;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,8 @@ public class ChangeMessageConfirmController {
 
     @FXML
     void confirm(ActionEvent event) {
-    	
+    	InformationLookController.controller.toInfoState();
+    	WindowGrab.closeWindow(event);
     }
 
     @FXML
