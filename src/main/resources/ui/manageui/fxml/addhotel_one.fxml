@@ -13,11 +13,6 @@
       <AnchorPane fx:id="first_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
             <Accordion layoutY="115.0" />
-            <Text layoutX="228.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel ID:" wrappingWidth="80.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
             <Text layoutX="228.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在省份：" wrappingWidth="90.0">
                <font>
                   <Font size="18.0" />
@@ -43,24 +38,12 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级： ">
+            <Text layoutX="234.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级： ">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="228.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="客服电话：">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <TextField layoutX="413.0" layoutY="157.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="192.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="227.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="262.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="297.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="397.0" prefHeight="20.0" prefWidth="165.0" />
-            <TextArea layoutX="413.0" layoutY="332.0" prefHeight="55.0" prefWidth="165.0" />
-            <TextField layoutX="413.0" layoutY="122.0" prefHeight="20.0" prefWidth="165.0" />
+            <TextField layoutX="413.0" layoutY="297.0" prefHeight="54.0" prefWidth="170.0" />
             <Button fx:id="first_confirm" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
                <font>
                   <Font size="18.0" />
@@ -77,6 +60,17 @@
             <Text layoutX="195.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
             <Text layoutX="395.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
             <Text layoutX="595.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+            <Text layoutX="228.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称：" wrappingWidth="90.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="413.0" layoutY="123.0" prefHeight="20.0" prefWidth="170.0" />
+            <ComboBox layoutX="413.0" layoutY="157.0" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox layoutX="413.0" layoutY="192.0" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox layoutX="413.0" layoutY="227.0" prefWidth="170.0" />
+            <ComboBox layoutX="413.0" layoutY="262.0" prefWidth="170.0" />
+            <ComboBox layoutX="413.0" layoutY="374.0" prefWidth="170.0" />
          </children>
       </AnchorPane>
    </children>
