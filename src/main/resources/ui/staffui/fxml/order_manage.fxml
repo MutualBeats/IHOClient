@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelpromotion.HotelPromotionController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelordermanage.Order_Manage_Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
          <effect>
@@ -21,47 +21,60 @@
             </Lighting>
          </effect>
       </Rectangle>
-      <Accordion layoutY="115.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="change" layoutX="455.0" layoutY="500.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" text="修改">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-      <Label fx:id="promotion_title" ellipsisString="100" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0">
+      <Accordion layoutY="115.0" />
+      <Label fx:id="order_manage_title" layoutX="45.0" layoutY="35.0" prefHeight="40.0" prefWidth="150.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="575.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
+      <Button fx:id="cancel" layoutX="475.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="235.0" layoutY="160.0" text="促销策略ID/名称:">
+      <Label layoutX="275.0" layoutY="150.0" text="订单号:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField layoutX="400.0" layoutY="155.0" />
-      <Button fx:id="look" layoutX="335.0" layoutY="500.0" mnemonicParsing="false" onAction="#look" prefHeight="26.0" prefWidth="60.0" text="查看">
+      <TextField layoutX="355.0" layoutY="145.0" />
+      <Button fx:id="check" layoutX="300.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="create" layoutX="215.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="新建">
+      <Label layoutX="180.0" layoutY="190.0" text="搜索结果">
          <font>
-            <Font size="15.0" />
-         </font></Button>
-      <Label layoutX="200.0" layoutY="195.0" text="搜索结果">
-         <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <TableView layoutX="225.0" layoutY="230.0" prefHeight="240.0" prefWidth="400.0">
+      <TableView layoutX="200.0" layoutY="235.0" prefHeight="237.0" prefWidth="451.0">
          <columns>
-            <TableColumn prefWidth="83.51875305175781" text="ID" />
-            <TableColumn prefWidth="73.96875" text="名称" />
-            <TableColumn prefWidth="76.03131103515625" text="开始时间" />
-            <TableColumn prefWidth="83.83749389648438" text="结束时间" />
-            <TableColumn prefWidth="87.86239624023438" text="折扣" />
+            <TableColumn prefWidth="88.0" text="已执行订单">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="订单ID" />
+                  <TableColumn prefWidth="75.0" text="用户ID" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="157.0" text="未执行订单">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="会员ID" />
+                  <TableColumn prefWidth="75.0" text="会员类型" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="85.0" text="异常订单">
+               <columns>
+                  <TableColumn prefWidth="100.0" text="订单生成时间" />
+                  <TableColumn prefWidth="50.0" text="房间号" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="280.0" text="已撤销订单">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="预定时间段" />
+                  <TableColumn prefWidth="85.0" text="预计离开时间" />
+                  <TableColumn prefWidth="65.0" text="订单状态" />
+               </columns>
+            </TableColumn>
          </columns>
       </TableView>
+      <Button layoutX="550.0" layoutY="143.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="搜索" />
    </children>
 </AnchorPane>

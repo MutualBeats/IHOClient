@@ -32,21 +32,25 @@ public class RoomManageController {
     private Button look;
 
 
-    private static URL ROOM_MANAGE_CREATE_FXML;
-    private static URL ROOM_MANAGE_CREATE_CSS;
-    private static URL ROOM_MANAGE_LOOK_FXML;
-    private static URL ROOM_MANAGE_LOOK_CSS;
-    private static URL ROOM_MANAGE_CHANGE_FXML;
-    private static URL ROOM_MANAGE_CHANGE_CSS;
+    private static URL ROOM_CREATE_FXML;
+    private static URL ROOM_CREATE_CSS;
+    
+    private static URL ROOM_CHECK_FXML;
+    private static URL ROOM_CHECK_CSS;
+    
+    private static URL ROOM_UPDATE_FXML;
+    private static URL ROOM_UPDATE_CSS;
     
     static{
     	try {
-    		ROOM_MANAGE_CREATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_manage_create.fxml");
-    		ROOM_MANAGE_CREATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_manage_create.css");
-    		ROOM_MANAGE_LOOK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_manage_look.fxml");
-    		ROOM_MANAGE_LOOK_CSS = new URL("file:src/main/resources/ui/staffui/css/room_manage_look.css");
-    		ROOM_MANAGE_CHANGE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_manage.fxml");
-    		ROOM_MANAGE_CHANGE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_manage.css");
+    		ROOM_CREATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_create.fxml");
+    		ROOM_CREATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_create.css");
+    		
+    		ROOM_CHECK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_check.fxml");
+    		ROOM_CHECK_CSS = new URL("file:src/main/resources/ui/staffui/css/room_check.css");
+    		
+    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
+    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -54,7 +58,7 @@ public class RoomManageController {
     @FXML
     void change(ActionEvent event) {	
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "修改客房信息",ROOM_MANAGE_CHANGE_FXML,ROOM_MANAGE_CHANGE_CSS);   
+    	WindowGrab.startWindow(window, "修改客房信息",ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);   
 	   }
 
     @FXML
@@ -65,13 +69,13 @@ public class RoomManageController {
     @FXML
     void look(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看客房信息",ROOM_MANAGE_LOOK_FXML,ROOM_MANAGE_LOOK_CSS);   
+		WindowGrab.startWindow(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS);   
     }
 
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "新建客房",ROOM_MANAGE_CREATE_FXML,ROOM_MANAGE_CREATE_CSS);   
+		WindowGrab.startWindow(window, "录入客房",ROOM_CREATE_FXML,ROOM_CREATE_CSS);   
     }
 
 }

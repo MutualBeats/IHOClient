@@ -29,7 +29,7 @@ public class HotelPromotionController {
     private Button create;
 
     @FXML
-    private Button look;
+    private Button check;
 
 
     private static URL HOTEL_PROMOTION_CREATE_FXML;
@@ -43,8 +43,8 @@ public class HotelPromotionController {
     	try {
     		HOTEL_PROMOTION_CREATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_create.fxml");
     		HOTEL_PROMOTION_CREATE_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_create.css");
-    		HOTEL_PROMOTION_LOOK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_look.fxml");
-    		HOTEL_PROMOTION_LOOK_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_look.css");
+    		HOTEL_PROMOTION_LOOK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_check.fxml");
+    		HOTEL_PROMOTION_LOOK_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_check.css");
     		HOTEL_PROMOTION_CHANGE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_change.fxml");
     		HOTEL_PROMOTION_CHANGE_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_change.css");
     	} catch (MalformedURLException e) {
@@ -63,7 +63,7 @@ public class HotelPromotionController {
     }
 
     @FXML
-    void look(ActionEvent event) {
+    void check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(window, "查看促销策略",HOTEL_PROMOTION_LOOK_FXML,HOTEL_PROMOTION_LOOK_CSS);   
     }

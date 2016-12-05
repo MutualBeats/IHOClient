@@ -1,0 +1,9 @@
+
+
+.root{
+    -fx-background-image: url("file:src/main/resources/image/staff/background.jpg");
+}
+
+#order_manage_title{
+	 -fx-background-image: url("file:src/main/resources/image/staff/order_manage_title.png");
+}

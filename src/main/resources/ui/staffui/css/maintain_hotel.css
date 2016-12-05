@@ -1,0 +1,7 @@
+
+.root{
+    -fx-background-image: url("file:src/main/resources/image/staff/background.jpg");
+}
+#hotel_maintain_title{
+	 -fx-background-image: url("file:src/main/resources/image/staff/hotel_maintain_title.png");
+}
