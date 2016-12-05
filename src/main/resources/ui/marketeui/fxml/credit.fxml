@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="650.0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#bfe5a5" />
+               </light>
+            </Lighting>
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="630.0">
+         <effect>
+            <InnerShadow color="#c3ba84" />
+         </effect>
+      </Rectangle>
+      <Label fx:id="credit_title" layoutX="35.0" layoutY="35.0" prefHeight="45.0" prefWidth="130.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancel" layoutX="480.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="35.0" prefWidth="80.0" text="取消" textOverrun="CLIP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="235.0" layoutY="140.0" text="用户ID:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField blendMode="DARKEN" layoutX="340.0" layoutY="135.0" prefHeight="30.0" prefWidth="180.0" />
+      <Button fx:id="excute" contentDisplay="CENTER" layoutX="290.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#excute" prefHeight="35.0" prefWidth="80.0" text="执行" textOverrun="CLIP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="165.0" layoutY="180.0" text="搜索结果: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView layoutX="190.0" layoutY="220.0" prefHeight="260.0" prefWidth="500.0">
+         <columns>
+            <TableColumn prefWidth="144.9967041015625" text="用户ID" />
+            <TableColumn prefWidth="101.229736328125" text="用户名称" />
+            <TableColumn prefWidth="128.99041748046875" text="联系方式" />
+            <TableColumn prefWidth="121.6959228515625" text="当前信用值" />
+         </columns>
+      </TableView>
+      <Button fx:id="search" layoutX="585.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#search" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
