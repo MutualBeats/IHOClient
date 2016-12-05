@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import presentation.utilui.WindowGrab;
 
 public class CreditController {
 
@@ -35,6 +36,11 @@ public class CreditController {
     @FXML
     void search(ActionEvent event) {
         
+    }
+    
+    @FXML
+    void cancel(ActionEvent event) {
+    	WindowGrab.closeWindow(event);
     }
 
 }
