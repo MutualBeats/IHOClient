@@ -3,6 +3,7 @@ package bussinesslogic.userbl.client;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogic.orderbl.ClientInfo;
 import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
@@ -11,9 +12,9 @@ import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
-public class ClientController implements ClientBLService , ClientInfoGet, ClientInfo{
+public class ClientController implements ClientBLService, ClientInfoGet, ClientInfo{
 	
-	private Client client = new Client();
+	private Client client = new Client(ControllerFactory.getCreditRegister());
 
 	@Override
 	public ClientVO getClientInfo(String clientID) throws RemoteException {

@@ -19,13 +19,17 @@ public class Client {
 	private ClientDataService clientDataService;
 
 	private ClientPO cache;
+	
+	private CreditRegister credit;
 
-	public Client() {
+	public Client(CreditRegister credit) {
 		try {
 			clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		
+		this.credit = credit;
 	}
 	
 	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException {
@@ -34,6 +38,7 @@ public class Client {
 		result = clientDataService.regist(po, password);
 		if(result == ResultMessage_User.Register_Success) {
 			cache = ClientVO.transformVOToPO(getClientInfo(registVO.clientID));
+			credit.addCreditRegister(registVO.clientID);
 		}
 		return result;
 	}

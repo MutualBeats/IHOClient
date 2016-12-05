@@ -12,6 +12,7 @@ import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogic.promotionbl.PromotionController;
 import bussinesslogic.roombl.RoomController;
 import bussinesslogic.userbl.client.ClientController;
+import bussinesslogic.userbl.client.CreditRegister;
 import bussinesslogic.userbl.manager.ManagerController;
 import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogic.userbl.manager.entrust.HotelAdd;
@@ -165,6 +166,13 @@ public class ControllerFactory {
 			clientController = new ClientController();
 		}
 		return clientController;
+	}
+	
+	public static CreditRegister getCreditRegister() {
+		if(creditController == null) {
+			creditController = new CreditController();
+		}
+		return creditController;
 	}
 	
 	public static  Identify getIdentityService() throws RemoteException {

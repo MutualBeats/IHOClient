@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
+import util.Time;
+import util.credit.CreditChangeAction;
 import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
@@ -39,7 +41,12 @@ public class Credit{
 	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException {
 		return credit_data_service.find(clientID);
 	}
-		
-
+	
+	
+	public ResultMessage_Credit addCreditRegister(String clientID) {
+		CreditVO vo = new CreditVO(clientID, Time.getCurrentTime(), 0, 0, CreditChangeAction.Register, "");
+		return creditUpdate(vo);
+	}
+	
 
 }
