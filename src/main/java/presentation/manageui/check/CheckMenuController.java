@@ -48,8 +48,8 @@ public class CheckMenuController {
     
     static{
     	try {
-    		CHECK_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLook.fxml");
-    		CHECK_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
+    		CHECK_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
+    		CHECK_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
