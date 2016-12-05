@@ -2,7 +2,7 @@ package factory.datahelper;
 
 import java.rmi.RemoteException;
 
-import dataservice.datafactoryservice.DataFactory;
+import dataservice.datafactory.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.ClientDataService;
 import dataservice.userdataservice.ManagerDataService;

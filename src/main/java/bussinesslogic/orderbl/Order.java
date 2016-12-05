@@ -3,9 +3,8 @@ package bussinesslogic.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bussinesslogicservice.orderblservice.OrderBLService;
 import dataservice.orderdataservice.OrderDataService;
-import factory.test_helper.DataFactoryHelper;
+import factory.datahelper.DataHelperFactory;
 import po.order.OrderPO;
 import po.room.RoomRecordPO;
 import util.Time;
@@ -36,7 +35,7 @@ public class Order {
 	 */
 	public Order(ClientInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
 		try {
-			this.order_data_service = DataFactoryHelper.getDataFactoryInstance().getOrderDatabase();
+			this.order_data_service = DataHelperFactory.getDataFactoryHelperInstance().getOrderDatabase();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

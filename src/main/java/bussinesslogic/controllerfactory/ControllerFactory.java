@@ -26,6 +26,7 @@ import bussinesslogicservice.userblservice.ClientBLService;
 import bussinesslogicservice.userblservice.ManagerBLService;
 import bussinesslogicservice.userblservice.MarketerBLService;
 import bussinesslogicservice.userblservice.StaffBLService;
+import dataservice.utildataservice.Identify;
 
 public class ControllerFactory {
 	
@@ -155,7 +156,13 @@ public class ControllerFactory {
 	}
 	
 	public static ClientInfo getClientInfoInstance() {
-		//TODO:
+		if(clientController == null) {
+			clientController = new ClientController();
+		}
+		return clientController;
+	}
+	
+	public static  Identify getIdentityService() {
 		return null;
 	}
 	

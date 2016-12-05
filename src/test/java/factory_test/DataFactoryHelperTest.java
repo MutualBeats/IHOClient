@@ -7,8 +7,8 @@ import java.rmi.RemoteException;
 
 import org.junit.Test;
 
-import dataservice.datafactoryservice.DataFactory;
-import factory.test_helper.DataFactoryHelper;
+import factory.datahelper.DataHelperFactory;
+
 
 /**
  * @author Saltwater
@@ -20,7 +20,7 @@ public class DataFactoryHelperTest {
 	
 	@Test
 	public void rmiConnectionTest() {
-		DataFactory factory = DataFactoryHelper.getDataFactoryInstance();
+		DataHelperFactory factory = DataHelperFactory.getDataFactoryHelperInstance();
 		assertNotNull(factory);
 		try {
 			assertNotNull(factory.getCreditDatabase());
