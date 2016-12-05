@@ -16,12 +16,12 @@ public class RoomController implements RoomBLService, RoomUpdate{
 
 	@Override
 	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
-		return room.checkIn(hotelID, roomNumber);
+		return room.checkIn(hotelID, roomNumber, false);
 	}
 
 	@Override
 	public ResultMessage_Room checkOut(String hotelID, String roomNumber) {
-		return room.checkOut(hotelID, roomNumber);
+		return room.checkOut(hotelID, roomNumber, false);
 	}
 
 	@Override
@@ -48,6 +48,16 @@ public class RoomController implements RoomBLService, RoomUpdate{
 	@Override
 	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException {
 		return room.getRoomInfo(hotelID, roomNumber);
+	}
+
+	@Override
+	public ResultMessage_Room onlineCheckIn(String hotelID, String roomNumber) {
+		return room.checkIn(hotelID, roomNumber, true);
+	}
+
+	@Override
+	public ResultMessage_Room onlineCheckOut(String hotelID, String roomNumber) {
+		return room.checkOut(hotelID, roomNumber, true);
 	}
 
 	

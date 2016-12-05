@@ -64,9 +64,9 @@ public class Order {
 				return ResultMessage_Order.Order_State_Error;
 			
 			// 撤销订单
-			ResultMessage_Order result_order = order_data_service.cancelOrder(orderID);
-			if(!result_order.equals(ResultMessage_Order.Cancel_Successful))
-				return result_order;
+			ResultMessage_Order result = order_data_service.cancelOrder(orderID);
+			if(!result.equals(ResultMessage_Order.Cancel_Successful))
+				return result;
 			
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
@@ -110,9 +110,9 @@ public class Order {
 				return ResultMessage_Order.Date_Error;
 
 			// 执行订单
-			ResultMessage_Order result_order = order_data_service.executeOrder(orderID);
-			if(!result_order.equals(ResultMessage_Order.Execute_Successful))
-				return result_order;
+			ResultMessage_Order result = order_data_service.executeOrder(orderID);
+			if(!result.equals(ResultMessage_Order.Execute_Successful))
+				return result;
 						
 			// 信用值处理（增加等于订单总值的信用值）
 			ClientVO clientVO = userInfo.getClientInfo(orderPO.getClientID());
@@ -124,7 +124,7 @@ public class Order {
 			
 			// 更新房间记录及房间状态
 			for (String roomNumber : orderPO.getRoomNumberList()) {
-				room.checkIn(orderPO.getHotelID(), roomNumber);
+				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
 			
 		} catch (RemoteException e) {
@@ -133,6 +133,39 @@ public class Order {
 		}
 		
 		return ResultMessage_Order.Execute_Successful;
+	}
+	
+	/**
+	 * 完成订单
+	 * @param orderID
+	 * @return
+	 */
+	public ResultMessage_Order finishOrder(String orderID) {
+		try {
+			orderPO = order_data_service.findById(orderID);
+			// 错误：订单不存在
+			if (orderPO == null)
+				return ResultMessage_Order.Order_Not_Exist;
+			// 错误：订单不是执行状态，不可完成
+			if (!orderPO.getOrderState().equals(OrderState.Execute))
+				return ResultMessage_Order.Order_State_Error;
+			
+			// 完成订单
+			ResultMessage_Order result = order_data_service.finishOrder(orderID);
+			if(!result.equals(ResultMessage_Order.Finish_Successful))
+				return result;
+			
+			// 更新房间记录及房间状态
+			for (String roomNumber : orderPO.getRoomNumberList()) {
+				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
+			}
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Order.Net_Error;
+		}
+		
+		return ResultMessage_Order.Finish_Successful;
 	}
 
 	/**
@@ -167,8 +200,10 @@ public class Order {
 			
 			// 更新房间记录及房间状态
 			for (String roomNumber : orderPO.getRoomNumberList()) {
+				// 添加新房间记录
 				room.addRecord(new RoomRecordPO(orderPO.getHotelID(), roomNumber, orderID, checkInDate, checkOutDate));
-				room.checkIn(orderPO.getHotelID(), roomNumber);
+				// 入住
+				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
 			
 			// 补登记执行

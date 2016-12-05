@@ -113,11 +113,11 @@ public class RoomDataHelper {
 	 * @param roomNumber
 	 * @return
 	 */
-	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
+	public ResultMessage_Room checkIn(String hotelID, String roomNumber, boolean isOnline) {
 		ResultMessage_Room result = null;
 		try {
 			// 更新服务器端信息
-			result = room_service.checkIn(hotelID, roomNumber);
+			result = room_service.checkIn(hotelID, roomNumber, isOnline);
 		} catch (RemoteException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
@@ -132,11 +132,11 @@ public class RoomDataHelper {
 		return result;
 	}
 
-	public ResultMessage_Room checkOut(String hotelID, String roomNumber) {
+	public ResultMessage_Room checkOut(String hotelID, String roomNumber, boolean isOnline) {
 		ResultMessage_Room result = null;
 		try {
 			// 更新服务器端信息
-			result = room_service.checkOut(hotelID, roomNumber);
+			result = room_service.checkOut(hotelID, roomNumber, isOnline);
 		} catch (RemoteException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;

@@ -16,11 +16,11 @@ public class MockRoom extends Room implements RoomUpdate{
 	public MockRoom() {
 	}
 	
-	public ResultMessage_Room checkIn(String hotelID, String roomID) {
+	public ResultMessage_Room onlineCheckIn(String hotelID, String roomID) {
 		return ResultMessage_Room.Check_In_Successful;
 	}
 	
-	public ResultMessage_Room checkOut(String hotelID, String roomID) {
+	public ResultMessage_Room onlineCheckOut(String hotelID, String roomID) {
 		return ResultMessage_Room.Check_Out_Successful;
 	}
 

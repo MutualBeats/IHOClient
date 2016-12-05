@@ -25,6 +25,11 @@ public class OrderController implements OrderBLService{
 	public ResultMessage_Order executeOrder(String orderID) {
 		return order.executeOrder(orderID);
 	}
+	
+	@Override
+	public ResultMessage_Order finishOrder(String orderID) {
+		return order.finishOrder(orderID);
+	}
 
 	@Override
 	public ResultMessage_Order putUpOrder(String orderID) {

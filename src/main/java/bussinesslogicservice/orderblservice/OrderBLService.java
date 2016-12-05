@@ -19,61 +19,67 @@ public interface OrderBLService {
 	/**
 	 * 更新订单
 	 * 
-	 * @param orderId
+	 * @param orderID
 	 * @return
 	 */
-	public ResultMessage_Order cancelOrder(String orderId);
+	public ResultMessage_Order cancelOrder(String orderID);
 	/**
 	 * 执行订单
 	 * 
-	 * @param orderId
+	 * @param orderID
 	 * @return
 	 */
-	public ResultMessage_Order executeOrder(String orderId);
+	public ResultMessage_Order executeOrder(String orderID);
+	/**
+	 * 完成订单
+	 * @param orderID
+	 * @return
+	 */
+	public ResultMessage_Order finishOrder(String orderID);
 	/**
 	 * 补录订单
 	 * 
-	 * @param orderId
+	 * @param orderID
 	 * @return
 	 */
-	public ResultMessage_Order putUpOrder(String orderId);
+	public ResultMessage_Order putUpOrder(String orderID);
 	/**
 	 * 根据ID查找订单
 	 * 
-	 * @param orderId
+	 * @param orderID
 	 * @return
 	 */
-	public OrderVO queryOrderById(String orderId) throws RemoteException;
+	public OrderVO queryOrderById(String orderID) throws RemoteException;
 	/**
 	 * 查找用户在酒店订单
 	 * 
-	 * @param hotelId
-	 * @param userId
+	 * @param hotelID
+	 * @param clientID
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryOrderByHotel(String hotelId, String userId) throws RemoteException;
+	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws RemoteException;
 	/**
 	 * 查询房间订单
 	 * 
-	 * @param hotelId
-	 * @param roomId
+	 * @param hotelID
+	 * @param roomNumber
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryRoomOrder(String hotelId, String roomId) throws RemoteException;
+	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 查询用户订单
 	 * 
-	 * @param userId
+	 * @param clientID
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryUserOrder(String userId) throws RemoteException;
+	public ArrayList<OrderVO> queryUserOrder(String clientID) throws RemoteException;
 	/**
 	 * 酒店管理人员查询酒店订单
 	 * 
-	 * @param hotelId
+	 * @param hotelID
 	 * @return
 	 */
-	public ArrayList<OrderVO> queryHotelOrder(String hotelId) throws RemoteException;
+	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws RemoteException;
 	/**
 	 * 网站营销人员查看某一天未执行订单
 	 * @param date

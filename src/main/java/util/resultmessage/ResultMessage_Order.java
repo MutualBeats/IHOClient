@@ -22,6 +22,9 @@ public enum ResultMessage_Order {
 	
 	Execute_Failed,
 	Execute_Successful,
+
+	Finish_Failed,
+	Finish_Successful,
 	
 	Order_Create_Failed,
 	Order_Create_Successful,

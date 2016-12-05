@@ -78,8 +78,8 @@ public class Room {
 	 * @param roomNumber
 	 * @return
 	 */
-	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
-		return room_service.checkIn(hotelID, roomNumber);
+	public ResultMessage_Room checkIn(String hotelID, String roomNumber, boolean isOnline) {
+		return room_service.checkIn(hotelID, roomNumber, isOnline);
 	}
 	
 	/**
@@ -89,8 +89,8 @@ public class Room {
 	 * @param roomNumber
 	 * @return
 	 */
-	public ResultMessage_Room checkOut(String hotelID, String roomNumber) {
-		return room_service.checkOut(hotelID, roomNumber);
+	public ResultMessage_Room checkOut(String hotelID, String roomNumber, boolean isOnline) {
+		return room_service.checkOut(hotelID, roomNumber, isOnline);
 	}
 	
 	/**
