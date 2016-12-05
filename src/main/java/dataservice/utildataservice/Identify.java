@@ -1,4 +1,4 @@
-package bussinesslogicservice.utildataservice;
+package dataservice.utildataservice;
 
 import util.resultmessage.ResultMessage_Verify;
 
