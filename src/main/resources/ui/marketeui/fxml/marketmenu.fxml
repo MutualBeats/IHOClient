@@ -11,50 +11,37 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.mainmarket.MainMarketController">
    <children>
-      <Pane fx:id="hotel_pane" layoutX="260.0" layoutY="365.0" prefHeight="210.0" prefWidth="440.0" />
-      <Pane fx:id="people_pane" layoutX="260.0" layoutY="155.0" prefHeight="210.0" prefWidth="440.0">
-         <children>
-            <Button fx:id="addpeople" layoutX="130.0" layoutY="58.0" mnemonicParsing="false" onAction="#add_people" prefHeight="35.0" prefWidth="190.0" />
-         </children></Pane>
-      <Label layoutX="35.0" layoutY="160.0" text="管理人员账号：">
+      <Pane fx:id="pane" layoutX="260.0" layoutY="155.0" prefHeight="350.0" prefWidth="450.0" />
+      <Label layoutX="35.0" layoutY="160.0" text="Staff Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="240.0" text="管理人员信息：">
+      <Label layoutX="35.0" layoutY="240.0" text="Staff ID:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="managerName" layoutX="35.0" layoutY="203.0">
+      <Label fx:id="staffName" layoutX="35.0" layoutY="203.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="manageID" layoutX="35.0" layoutY="284.0">
+      <Label fx:id="staffID" layoutX="35.0" layoutY="284.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="title" layoutX="370.0" layoutY="54.0" prefHeight="80.0" prefWidth="240.0">
+      <Label fx:id="title" layoutX="350.0" layoutY="54.0" prefHeight="80.0" prefWidth="280.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="280.0" layoutY="185.0" text="人员管理">
-         <font>
-            <Font name="Songti TC Regular" size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="check" layoutX="400.0" layoutY="265.0" mnemonicParsing="false" onAction="#on_check" prefHeight="35.0" prefWidth="170.0" />
-      <Button fx:id="change" layoutX="400.0" layoutY="315.0" mnemonicParsing="false" onAction="#on_change" prefHeight="35.0" prefWidth="170.0" />
-      <Label layoutX="280.0" layoutY="425.0" text="酒店管理">
-         <font>
-            <Font name="Songti TC Regular" size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="addhotel" layoutX="400.0" layoutY="465.0" mnemonicParsing="false" onAction="#add_hotel" prefHeight="35.0" prefWidth="170.0" />
+      <Button fx:id="web_promotion" layoutX="360.0" layoutY="210.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="40.0" prefWidth="250.0" />
+      <Button fx:id="credit" layoutX="400.0" layoutY="275.0" mnemonicParsing="false" onAction="#credit" prefHeight="40.0" prefWidth="170.0" />
+      <Button fx:id="unexcuted_order" layoutX="400.0" layoutY="340.0" mnemonicParsing="false" onAction="#unexcuted_order" prefHeight="40.0" prefWidth="170.0" />
+      <Button fx:id="unusual_order" layoutX="360.0" layoutY="405.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="40.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

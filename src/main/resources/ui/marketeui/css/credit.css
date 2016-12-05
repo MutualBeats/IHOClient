@@ -4,12 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 2016-11-27, 13:54:25
+    Created on : 2016-11-24, 13:17:31
     Author     : apple
 */
-.root {
-	-fx-background-image:url("file:src/main/resources/image/manage/background.jpg");
-}
-#credit_title{
-	-fx-background-image:url("file:src/main/resources/image/manage/credit_title.png");
+.root{
+    -fx-background-image: url("背景.jpg");
+        
 }

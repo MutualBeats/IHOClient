@@ -1,4 +1,4 @@
-package presentation.marketerui.credit;
+package presentation.marketui.credit;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -26,30 +26,6 @@ public class CreditController {
     
     Stage stage=new Stage();
 
-    @FXML
-    void fffbe5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void bfbe97(ActionEvent event) {
-
-    }
-
-    @FXML
-    void bfe5a5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void c3ba84(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cancel(ActionEvent event) {
-    	
-    }
 
     @FXML
     void excute(ActionEvent event) {
