@@ -35,7 +35,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="480.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="35.0" prefWidth="80.0" text="取消" textOverrun="CLIP">
+      <Button fx:id="cancel" layoutX="480.0" layoutY="510.0" mnemonicParsing="false" onAction="#cancel" onMouseClicked="#cancel" prefHeight="35.0" prefWidth="80.0" text="取消" textOverrun="CLIP">
          <font>
             <Font size="18.0" />
          </font>
@@ -46,7 +46,7 @@
          </font>
       </Label>
       <TextField blendMode="DARKEN" layoutX="340.0" layoutY="135.0" prefHeight="30.0" prefWidth="180.0" />
-      <Button fx:id="excute" contentDisplay="CENTER" layoutX="290.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#excute" prefHeight="35.0" prefWidth="80.0" text="执行" textOverrun="CLIP">
+      <Button fx:id="excute" contentDisplay="CENTER" layoutX="290.0" layoutY="510.0" mnemonicParsing="false" onAction="#excute" onMouseClicked="#excute" prefHeight="35.0" prefWidth="80.0" text="执行" textOverrun="CLIP">
          <font>
             <Font size="18.0" />
          </font>
@@ -64,7 +64,7 @@
             <TableColumn prefWidth="121.6959228515625" text="当前信用值" />
          </columns>
       </TableView>
-      <Button fx:id="search" layoutX="585.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#search" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
+      <Button fx:id="search" layoutX="585.0" layoutY="135.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#search" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>

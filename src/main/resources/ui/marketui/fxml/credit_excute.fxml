@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.credit.CreditExcuteController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="70.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细信息" wrappingWidth="70.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="90.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名称：" wrappingWidth="69.0" />
+      <Text layoutX="90.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="当前信用值：" />
+      <Text layoutX="90.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="充值信用值：" />
+      <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="70.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用变化记录">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField layoutX="185.0" layoutY="105.0" prefHeight="15.0" prefWidth="150.0" />
+      <TextField layoutX="185.0" layoutY="140.0" prefHeight="15.0" prefWidth="150.0" />
+      <TextField layoutX="185.0" layoutY="175.0" prefHeight="15.0" prefWidth="150.0" />
+      <Button fx:id="confirm" layoutX="135.0" layoutY="400.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
+      <Button fx:id="cancel" layoutX="265.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
+      <TreeTableView layoutX="95.0" layoutY="235.0" prefHeight="150.0" prefWidth="300.0">
+         <columns>
+            <TreeTableColumn minWidth="8.0" prefWidth="94.0" text="充值时间" />
+            <TreeTableColumn prefWidth="101.0" text="信用变化值" />
+            <TreeTableColumn prefWidth="104.0" text="当前信用值" />
+         </columns>
+      </TreeTableView>
+   </children>
+</AnchorPane>
