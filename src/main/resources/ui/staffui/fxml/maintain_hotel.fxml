@@ -7,9 +7,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -22,49 +22,52 @@
          </effect>
       </Rectangle>
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="update" layoutX="325.0" layoutY="500.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" text="修改" />
-      <Button fx:id="cancel" layoutX="455.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Button fx:id="update" layoutX="155.0" layoutY="435.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" text="修改" />
+      <Button fx:id="cancel" layoutX="385.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消" />
       <Label fx:id="hotel_maintain_title" layoutX="55.0" layoutY="35.0" prefHeight="45.0" prefWidth="125.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label layoutX="280.0" layoutY="188.0" text="酒店名称:">
+      <Label layoutX="120.0" layoutY="100.0" prefHeight="27.0" text="酒店名称:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="280.0" layoutY="233.0" text="酒店所属省份:">
+      <Label layoutX="120.0" layoutY="150.0" prefHeight="27.0" text="酒店所属省份:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="280.0" layoutY="143.0" text="酒店ID:">
+      <Label layoutX="120.0" layoutY="50.0" prefHeight="27.0" text="酒店ID:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="280.0" layoutY="278.0" text="酒店所属地区:">
+      <Label layoutX="120.0" layoutY="200.0" prefHeight="27.0" text="酒店所属地区:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="280.0" layoutY="323.0" text="详细地址:">
+      <Label layoutX="120.0" layoutY="250.0" prefHeight="27.0" text="详细地址:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="280.0" layoutY="403.0" text="酒店星级:">
+      <Label layoutX="120.0" layoutY="343.0" prefHeight="27.0" text="酒店星级:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="280.0" layoutY="448.0" prefHeight="16.0" prefWidth="65.0" text="酒店评分:">
+      <Label layoutX="120.0" layoutY="393.0" prefHeight="27.0" prefWidth="65.0" text="酒店评分:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField layoutX="415.0" layoutY="135.0" />
-      <TextField layoutX="415.0" layoutY="180.0" />
-      <TextField layoutX="415.0" layoutY="225.0" />
-      <TextField layoutX="415.0" layoutY="270.0" />
-      <TextArea layoutX="415.0" layoutY="315.0" prefHeight="68.0" prefWidth="151.0" />
-      <TextField layoutX="415.0" layoutY="395.0" />
-      <TextField layoutX="415.0" layoutY="440.0" />
+      <TextField fx:id="hotel_id" editable="false" layoutX="260.0" layoutY="50.0" prefWidth="170.0" />
+      <TextField fx:id="hotel_name" editable="false" layoutX="260.0" layoutY="100.0" prefWidth="170.0" />
+      <TextArea fx:id="hotel_address" editable="false" layoutX="260.0" layoutY="250.0" prefHeight="70.0" prefWidth="170.0" />
+      <TextField fx:id="hotel_star" editable="false" layoutX="260.0" layoutY="343.0" prefWidth="170.0" />
+      <TextField fx:id="hotel_score" editable="false" layoutX="260.0" layoutY="393.0" prefWidth="170.0" />
+      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="100.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
+      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="250.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
+      <Label fx:id="star_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="343.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
+      <ComboBox fx:id="hotel_province" disable="true" layoutX="260.0" layoutY="150.0" prefHeight="27.0" prefWidth="170.0" />
+      <ComboBox fx:id="hotel_field" disable="true" layoutX="260.0" layoutY="200.0" prefHeight="27.0" prefWidth="170.0" />
    </children>
 </AnchorPane>

@@ -23,7 +23,7 @@
       </Rectangle>
       <Accordion layoutY="115.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="change" layoutX="455.0" layoutY="500.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" text="修改">
+      <Button fx:id="change" layoutX="446.0" layoutY="500.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" text="修改">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -32,36 +32,36 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="575.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
+      <Button fx:id="cancel" layoutX="578.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="235.0" layoutY="160.0" text="促销策略ID/名称:">
+      <Label layoutX="210.0" layoutY="155.0" prefHeight="27.0" text="促销策略ID/名称:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField layoutX="400.0" layoutY="155.0" />
-      <Button fx:id="check" layoutX="335.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="60.0" text="查看">
+      <TextField layoutX="344.0" layoutY="155.0" prefWidth="170.0" />
+      <Button fx:id="check" layoutX="314.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="create" layoutX="215.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="新建">
+      <Button fx:id="create" layoutX="182.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="新建">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="200.0" layoutY="195.0" text="搜索结果">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TableView layoutX="225.0" layoutY="230.0" prefHeight="240.0" prefWidth="400.0">
+      <TableView layoutX="150.0" layoutY="230.0" prefHeight="240.0" prefWidth="520.0">
          <columns>
-            <TableColumn prefWidth="83.51875305175781" text="ID" />
-            <TableColumn prefWidth="73.96875" text="名称" />
-            <TableColumn prefWidth="76.03131103515625" text="开始时间" />
-            <TableColumn prefWidth="83.83749389648438" text="结束时间" />
-            <TableColumn prefWidth="87.86239624023438" text="折扣" />
+            <TableColumn prefWidth="60.0" text="ID" />
+            <TableColumn prefWidth="98.0" text="名称" />
+            <TableColumn prefWidth="125.0" text="开始时间" />
+            <TableColumn editable="false" prefWidth="125.0" text="结束时间" />
+            <TableColumn editable="false" prefWidth="111.0" text="优惠" />
          </columns>
       </TableView>
+      <Button fx:id="create1" layoutX="550.0" layoutY="154.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="搜索">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

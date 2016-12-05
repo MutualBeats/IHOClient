@@ -32,6 +32,7 @@ public class ManageMenu extends Application {
         scene.getStylesheets().add(new URL("file:src/main/resources/ui/manageui/css/managemenu.css").toExternalForm());
         stage.initStyle(StageStyle.DECORATED); 
         stage.setScene(scene);  
+        stage.setResizable(false);
         stage.setTitle("Manager Menu");  
         stage.show();  
         
