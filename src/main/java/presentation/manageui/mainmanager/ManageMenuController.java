@@ -58,8 +58,8 @@ public class ManageMenuController {
 			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
 			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
 			
-			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLook.fxml");
-			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
+			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
+			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
 			
 			CHECK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
 			CHECK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
