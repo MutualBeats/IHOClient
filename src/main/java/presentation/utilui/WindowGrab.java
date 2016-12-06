@@ -60,10 +60,18 @@ public class WindowGrab {
 	 *             ： File not found
 	 */
 	public static void startWindow(Window owner, String title, URL fxml_path, URL css_path) {
+		startWindowWithBundle(owner, title, fxml_path, css_path, null);
+	}
+	
+	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path, ResourceBundle bundle) {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
-			root = FXMLLoader.load(fxml_path);
+			if(bundle == null) {
+				root = FXMLLoader.load(fxml_path);
+			} else {
+				root = FXMLLoader.load(fxml_path, bundle);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
