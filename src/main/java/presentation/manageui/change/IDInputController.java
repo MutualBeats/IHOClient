@@ -1,7 +1,8 @@
 package presentation.manageui.change;
 
 
-import java.rmi.RemoteException;
+import java.util.Enumeration;
+import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import config.NumberConfig;
@@ -32,8 +33,7 @@ public class IDInputController {
     	if(NumberConfig.userNameFormatterCheck(id)) {
     		try {
 				result = ControllerFactory.getIdentityService().checkIdentity(id);
-			} catch (RemoteException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
 				result = ResultMessage_Verify.NET_ERROR;
 			}
     	}
@@ -53,6 +53,32 @@ public class IDInputController {
     		//跳转
     		System.out.println("Jump");
     	}
+    }
+    
+    class InformationBundle extends ResourceBundle {
+
+    	private Object information;   
+    	private final static String INFOR_MATION_KEY = "info";
+    	
+		public InformationBundle(Object information) {
+			super();
+			this.information = information;
+		}
+
+		@Override
+		protected Object handleGetObject(String key) {
+			if(INFOR_MATION_KEY.equals(key)) {
+				return information;
+			}
+			return null;
+		}
+
+		@Override
+		public Enumeration<String> getKeys() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+    	
     }
     
 }
