@@ -1,6 +1,5 @@
 package bussinesslogicservice.userblservice;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_Hotel;
@@ -19,25 +18,25 @@ import vo.user.StaffVO;
  */
 public interface ManagerBLService {
 	
-	public ClientVO showClientData (String clientID)throws RemoteException;
+	public ClientVO showClientData (String clientID)throws Exception;
 	
-	public ArrayList<ClientVO> getClientList() throws RemoteException;
+	public ArrayList<ClientVO> getClientList() throws Exception;
 	
-	public StaffVO showStaffData (String staffID) throws RemoteException;
+	public StaffVO showStaffData (String staffID) throws Exception;
 	
 	public ResultMessage_User changeStaffData (StaffVO vo) ;
 	
 	public ResultMessage_User addStaff(StaffVO registVO,  String password) ;
 	
-	public ArrayList<StaffVO> getStaffList() throws RemoteException;
+	public ArrayList<StaffVO> getStaffList() throws Exception;
 	
-	public MarketerVO showMarketerData (String marketerID) throws RemoteException;
+	public MarketerVO showMarketerData (String marketerID) throws Exception;
 	
 	public ResultMessage_User changeMarketerData (MarketerVO vo) ;
 	
 	public ResultMessage_User addMarketer(MarketerVO vo, String password);
 	
-	public ArrayList<MarketerVO> getMarketerList() throws RemoteException;
+	public ArrayList<MarketerVO> getMarketerList() throws Exception;
 	
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException;
+	public ResultMessage_Hotel addHotel(HotelVO vo) throws Exception;
 }

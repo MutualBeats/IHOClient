@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
+import vo.user.ClientVO;
 
 public class IDInputController {
 
@@ -51,7 +52,16 @@ public class IDInputController {
     		WindowGrab.startErrorWindow(window, error_message);
     	} else {
     		//跳转
-    		System.out.println("Jump");
+    		String user_name = id_input.getText();
+    		Object information;
+    		switch (result) {
+			case CLIENT:
+				
+				break;
+
+			default:
+				break;
+			}
     	}
     }
     
