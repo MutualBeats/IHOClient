@@ -8,4 +8,6 @@ public interface Identify {
 	
 	public ResultMessage_Verify checkUserName(String user_name);
 	
+	public ResultMessage_Verify checkIdentity(String user_name); 
+	
 }
