@@ -12,13 +12,13 @@
       <Button fx:id="login" layoutX="750.0" layoutY="310.0" mnemonicParsing="false" onAction="#login" prefHeight="155.0" prefWidth="155.0" />
       <Button fx:id="exit" layoutX="655.0" layoutY="542.0" mnemonicParsing="false" onAction="#exit" prefHeight="123.0" prefWidth="135.0" />
       <Button fx:id="visit" layoutX="435.0" layoutY="585.0" mnemonicParsing="false" onAction="#visit" prefHeight="107.0" prefWidth="110.0" />
-      <TextField fx:id="user_name" layoutX="357.0" layoutY="328.0" prefHeight="32.0" prefWidth="260.0" />
-      <PasswordField fx:id="password" layoutX="357.0" layoutY="412.0" prefHeight="32.0" prefWidth="260.0" />
-      <Label fx:id="name_warning" layoutX="357.0" layoutY="366.0" onMouseClicked="#userNameModify" prefHeight="17.0" prefWidth="260.0" textFill="#ea8585">
+      <TextField fx:id="user_name" layoutX="357.0" layoutY="328.0" onMouseClicked="#userNameModify" prefHeight="32.0" prefWidth="260.0" />
+      <PasswordField fx:id="password" layoutX="357.0" layoutY="412.0" onMouseClicked="#passwordModify" prefHeight="32.0" prefWidth="260.0" />
+      <Label fx:id="name_warning" layoutX="357.0" layoutY="366.0" prefHeight="17.0" prefWidth="260.0" textFill="#ea8585">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="pass_warning" layoutX="357.0" layoutY="450.0" onMouseClicked="#passwordModify" prefHeight="17.0" prefWidth="260.0" textFill="#ea8585">
+      <Label fx:id="pass_warning" layoutX="357.0" layoutY="450.0" prefHeight="17.0" prefWidth="260.0" textFill="#ea8585">
          <font>
             <Font size="15.0" />
          </font></Label>
