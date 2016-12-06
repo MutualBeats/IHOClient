@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import presentation.utilui.WindowGrab;
 
-public class IDInputConfirmController {
+public class IDInputController {
 
     @FXML
     private Button cancel;
