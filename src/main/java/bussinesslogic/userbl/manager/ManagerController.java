@@ -7,6 +7,7 @@ import util.resultmessage.ResultMessage_Hotel;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.ClientVO;
+import vo.user.ManagerVO;
 import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
@@ -67,6 +68,11 @@ public class ManagerController implements ManagerBLService {
 	@Override
 	public ArrayList<MarketerVO> getMarketerList() throws Exception {
 		return manager.getMarketerList();
+	}
+
+	@Override
+	public ManagerVO getManagerInfor() throws Exception {
+		return manager.getManagerInfor();
 	}
 
 }

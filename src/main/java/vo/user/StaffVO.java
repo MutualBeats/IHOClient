@@ -11,25 +11,29 @@ public class StaffVO {
 	 * 酒店工作人员姓名
 	 */
 	public String staffName;
+	/**
+	 * 
+	 */
+	public String contactWay;
 	/*
 	 * 酒店工作人员所在酒店ID
 	 */
 	public String hotelID;
-	/**
-	 * @param staffID
-	 * @param staffname
-	 * @param hotelname
-	 * @param hotelId
-	 */
-	public StaffVO(String staffID, String staffname, String hotelId) {
+	
+	
+	
+	public StaffVO(String staffID, String staffName, String contactWay, String hotelID) {
 		super();
 		this.staffID = staffID;
-		this.staffName = staffname;
-		this.hotelID = hotelId;
+		this.staffName = staffName;
+		this.contactWay = contactWay;
+		this.hotelID = hotelID;
 	}
-	
+
+
+
 	public static StaffPO transformVOToPO(StaffVO vo) {
-		return new StaffPO(vo.staffID ,vo.staffName, vo.hotelID);
+		return new StaffPO(vo.staffID ,vo.staffName, vo.contactWay, vo.hotelID);
 	}
 
 }

@@ -19,13 +19,13 @@ public abstract class InformationLookController implements Initializable, Confir
 	Button cancel;
 
 	@FXML
-	TextField phone;
+	Button change;
 
 	@FXML
 	TextField user_name;
 
 	@FXML
-	Button change;
+	TextField phone;
 
 	@FXML
 	TextField name;

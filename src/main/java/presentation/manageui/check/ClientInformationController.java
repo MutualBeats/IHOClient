@@ -7,22 +7,26 @@ import vo.user.ClientVO;
 
 public class ClientInformationController extends InformationLookController{
 	
-	private ClientVO clientInfo;
+	
+	
+	private ClientVO info;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		clientInfo = (ClientVO) resources.getObject("info");
+		info = (ClientVO) resources.getObject("info");
 		init();
 	}
 	
 	private void init() {
-		
+		this.user_name.setText(info.clientID);
+		this.name.setText(info.clientName);
+		this.type.setText("客户");
+		this.phone.setText(info.contactWay);
 	}
 
 	@Override
 	public void confirm() {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
 }

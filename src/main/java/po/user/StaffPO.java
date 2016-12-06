@@ -12,37 +12,36 @@ public class StaffPO implements Serializable {
 	 * version id
 	 */
 	private static final long serialVersionUID = 1L;
-	/*
+	/**
 	 * 酒店工作人员ID
 	 */
 	private String staffID;
-	/*
+	/**
 	 * 酒店工作人员姓名
 	 */
 	private String staffName;
-	/*
+	/**
+	 * Phone
+	 */
+	private String contactWay;
+	/**
 	 * 酒店工作人员所在酒店ID
 	 */
 	private String hotelID;
-	
-	/**
-	 * @param staffID
-	 * @param staffName
-	 * @param hotelname
-	 * @param hotelID
-	 */
-	public StaffPO(String staffID, String staffName, String hotelID) {
+
+	public StaffPO(String staffID, String staffName, String contactWay, String hotelID) {
 		super();
 		this.staffID = staffID;
 		this.staffName = staffName;
+		this.contactWay = contactWay;
 		this.hotelID = hotelID;
 	}
-	
+
 	public StaffPO() {
 	}
 
 	public static StaffVO transformPOToVO(StaffPO po) {
-		return new StaffVO(po.staffID, po.staffName, po.hotelID);
+		return new StaffVO(po.staffID, po.staffName, po.contactWay, po.hotelID);
 	}
 
 	public String getStaffID() {
@@ -61,6 +60,14 @@ public class StaffPO implements Serializable {
 		this.staffName = staffName;
 	}
 
+	public String getContactWay() {
+		return contactWay;
+	}
+
+	public void setContactWay(String contactWay) {
+		this.contactWay = contactWay;
+	}
+
 	public String getHotelID() {
 		return hotelID;
 	}
@@ -69,9 +76,4 @@ public class StaffPO implements Serializable {
 		this.hotelID = hotelID;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
 }

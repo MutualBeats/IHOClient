@@ -7,25 +7,27 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.InformationLookController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.StaffInformationLookController">
 	<children>
 		<Accordion layoutY="115.0" />
-		<Text layoutX="35.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
+		<Text layoutX="33.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
 			<font>
 				<Font size="16.0" />
 			</font>
 		</Text>
-		<Text layoutX="35.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
-		<Text layoutX="35.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
-		<Text layoutX="35.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
-		<Text layoutX="35.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
-		<TextField fx:id="user_name" editable="false" layoutX="120.0" layoutY="132.0" prefHeight="16.0" prefWidth="170.0" />
-		<TextField fx:id="name" editable="false" layoutX="120.0" layoutY="187.0" prefHeight="16.0" prefWidth="170.0" />
-		<TextField fx:id="phone" editable="false" layoutX="120.0" layoutY="244.0" prefHeight="16.0" prefWidth="170.0" />
-		<TextField fx:id="type" editable="false" layoutX="120.0" layoutY="297.0" prefHeight="16.0" prefWidth="170.0" />
-		<Button fx:id="cancel" layoutX="280.0" layoutY="382.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="返回" />
-		<Button fx:id="change" layoutX="100.0" layoutY="382.0" mnemonicParsing="false" onAction="#change" prefHeight="30.0" prefWidth="80.0" text="修改" />
-		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="187.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="244.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+		<Text layoutX="35.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
+		<Text layoutX="35.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
+		<Text layoutX="35.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
+		<Text layoutX="35.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店ID：" />
+		<TextField fx:id="user_name" editable="false" layoutX="120.0" layoutY="112.0" prefHeight="16.0" prefWidth="170.0" />
+		<TextField fx:id="name" editable="false" layoutX="120.0" layoutY="167.0" prefHeight="16.0" prefWidth="170.0" />
+		<TextField fx:id="phone" editable="false" layoutX="120.0" layoutY="224.0" prefHeight="16.0" prefWidth="170.0" />
+		<TextField fx:id="hotel_id" editable="false" layoutX="120.0" layoutY="277.0" prefHeight="16.0" prefWidth="170.0" />
+		<Button fx:id="cancel" layoutX="280.0" layoutY="402.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="返回" />
+		<Button fx:id="change" layoutX="100.0" layoutY="402.0" mnemonicParsing="false" onAction="#change" prefHeight="30.0" prefWidth="80.0" text="修改" />
+		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="167.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="224.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <TextField fx:id="type" editable="false" layoutX="120.0" layoutY="330.0" prefHeight="16.0" prefWidth="170.0" />
+      <Text layoutX="35.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
 	</children>
 </AnchorPane>

@@ -18,8 +18,8 @@ public class StaffBlTest {
 	
 	@Before
 	public void init() {
-		vo1 = new StaffVO("STF0000011", "staff3","12345678");
-		vo2 = new StaffVO("STF0000002", "staff2","00000002");
+		vo1 = new StaffVO("STF0000011", "staff3", "12345678901","12345678");
+		vo2 = new StaffVO("STF0000002", "staff2", "12345678901","00000002");
 		try {
 			staff = new Staff();
 		} catch (Exception e) {

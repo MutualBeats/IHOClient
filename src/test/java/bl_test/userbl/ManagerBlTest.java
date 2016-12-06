@@ -32,8 +32,8 @@ public class ManagerBlTest {
 	public void init() throws RemoteException{
 		clientvo1 = new ClientVO("12345678901", "client1", "120", 0,MemberType.Ordinary,2,"腾讯企业");
 		clientvo2 = new ClientVO("12345678902", "client2", "110", 0,MemberType.Ordinary,2,"腾讯企业");
-		staffvo1 = new StaffVO("STF0000011", "staff3","12345678");
-		staffvo2 = new StaffVO("STF0000002", "staff2","00000002");
+		staffvo1 = new StaffVO("STF0000011", "staff3","12345678901","12345678");
+		staffvo2 = new StaffVO("STF0000002", "staff2", "12345678901","00000002");
 		marketervo1 = new MarketerVO("20161130011", "营销人员03", "12345678901");
 		marketervo2 = new MarketerVO("20161130002", "营销人员02", "120");
 		
