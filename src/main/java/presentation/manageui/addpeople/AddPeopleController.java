@@ -7,9 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.RegistCheckController;
 
-public class AddPeopleController extends RegistCheckController implements Initializable {
+public class AddPeopleController extends RegistCheckController implements Initializable, Confirm{
 
 	@FXML
 	private Label addpeople_title;
@@ -44,6 +45,12 @@ public class AddPeopleController extends RegistCheckController implements Initia
 
 	void addPeople() {
 
+	}
+
+	@Override
+	public void confirm() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
