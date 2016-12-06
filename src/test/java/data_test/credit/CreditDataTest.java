@@ -4,9 +4,8 @@
  */
 package data_test.credit;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-import java.rmi.RemoteException;
 import java.util.Iterator;
 
 import org.junit.Before;
@@ -23,7 +22,7 @@ public class CreditDataTest {
 	public void init() {
 		try {
 			creditDataHelper = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

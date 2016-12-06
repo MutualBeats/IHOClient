@@ -1,9 +1,6 @@
 package factory_test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import java.rmi.RemoteException;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -32,7 +29,7 @@ public class DataFactoryHelperTest {
 			assertNotNull(factory.getManagerDatabase());
 			assertNotNull(factory.getMarketerDatabase());
 			assertNotNull(factory.getStaffDatabase());
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			fail("Connection Error");
 		}
 		

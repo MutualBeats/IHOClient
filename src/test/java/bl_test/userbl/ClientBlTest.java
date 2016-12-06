@@ -36,7 +36,11 @@ public class ClientBlTest {
 		vo02 = new MemberVO("12345678902",MemberType.Ordinary, 2,"腾讯企业");
 		vo03 = new MemberVO("12345678903",MemberType.Enterprise, 2,"腾讯企业");
 		vo04 = new MemberVO("12345678904",MemberType.Not, 0,"");
-		client = new Client(ControllerFactory.getCreditRegister());
+		try {
+			client = new Client(ControllerFactory.getCreditRegister());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		password = "test";
 	}
 	

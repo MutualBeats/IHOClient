@@ -11,10 +11,7 @@ import vo.order.OrderVO;
 
 public class OrderController implements OrderBLService{
 	
-	private Order order = new Order(ControllerFactory.getClientInfoInstance(), 
-			ControllerFactory.getCreditUpdateInstance(), 
-			ControllerFactory.getPromotionGetInstance(), 
-			ControllerFactory.getRoomUpdateInstance());
+	private Order order = new Order();
 
 	@Override
 	public ResultMessage_Order cancelOrder(String orderID) {

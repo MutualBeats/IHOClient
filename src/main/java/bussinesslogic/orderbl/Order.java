@@ -3,6 +3,7 @@ package bussinesslogic.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import dataservice.orderdataservice.OrderDataService;
 import factory.datahelper.DataHelperFactory;
 import po.order.OrderPO;
@@ -21,7 +22,7 @@ public class Order {
 	
 	private OrderDataService order_data_service; 
 	
-	private ClientInfo userInfo;
+	private ClientInfo client;
 	private CreditUpdate credit;
 	private PromotionGet promotion;
 	private RoomUpdate room;
@@ -33,16 +34,12 @@ public class Order {
 	 * @param promotion
 	 * @param room
 	 */
-	public Order(ClientInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
+	public Order() {
 		try {
 			this.order_data_service = DataHelperFactory.getDataFactoryHelperInstance().getOrderDatabase();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		this.userInfo = userInfo;
-		this.credit = credit;
-		this.promotion = promotion;
-		this.room = room;
-		orderPO = null;
 	}
 
 	/**
@@ -69,15 +66,20 @@ public class Order {
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
 			if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
-				ClientVO clientVO = userInfo.getClientInfo(po.getClientID());
+				checkClient();
+				ClientVO clientVO = client.getClientInfo(po.getClientID());
+				
 				int changeValue = -(int)(po.getValue() / 2);
 				int newCredit = clientVO.credit + changeValue;
 				CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
 						CreditChangeAction.RepealOrder, orderID);
+				
+				checkCredit();
 				credit.creditUpdate(creditVO);
 			}
 			
 			// 删除房间预订记录
+			checkRoom();
 			room.deleteRecord(orderID);
 			
 		} catch (RemoteException e) {
@@ -113,14 +115,19 @@ public class Order {
 				return result;
 						
 			// 信用值处理（增加等于订单总值的信用值）
-			ClientVO clientVO = userInfo.getClientInfo(orderPO.getClientID());
+			checkClient();
+			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
+			
 			int changeValue = (int)orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
 			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.ExecuteOrder, orderID);
+			
+			checkCredit();
 			credit.creditUpdate(creditVO);
 			
 			// 更新房间记录及房间状态
+			checkRoom();
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
@@ -154,6 +161,7 @@ public class Order {
 				return result;
 			
 			// 更新房间记录及房间状态
+			checkRoom();
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
 			}
@@ -186,6 +194,7 @@ public class Order {
 			// 错误：订单预订房间中有房间在此期间已被人预订
 			String checkInDate = Time.getCurrentDate();
 			String checkOutDate = orderPO.getEstimateCheckOutDate();
+			checkRoom();
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				ArrayList<RoomRecordVO> roomRecordList = room.getOrderRecord(orderPO.getHotelID(), roomNumber);
 				for (RoomRecordVO roomRecord : roomRecordList) {
@@ -208,11 +217,15 @@ public class Order {
 			order_data_service.putUpOrder(orderID);
 
 			// 恢复扣除信用
-			ClientVO clientVO = userInfo.getClientInfo(orderPO.getClientID());
+			checkClient();
+			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
+			
 			int changeValue = (int)orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
 			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.PutUpOrder, orderID);
+			
+			checkCredit();
 			credit.creditUpdate(creditVO);
 			
 		} catch (RemoteException e) {
@@ -328,14 +341,16 @@ public class Order {
 	 */
 	public OrderVO makeOrder(OrderMakeVO vo) throws RemoteException {
 		// 错误：客户信用值为负
-		ClientVO clientVO = userInfo.getClientInfo(vo.clientID);
+		checkClient();
+		ClientVO clientVO = client.getClientInfo(vo.clientID);
 		if(clientVO.credit < 0)
 			return null;
 		// TODO 更多错误信息
 		
 		OrderVO orderVO = new OrderVO(vo);
-		orderVO.orderID = getOrderID();
+//		orderVO.orderID = getOrderID();
 		// TODO 可用促销策略获取
+		checkPromotion();
 //		orderVO.promotionIDList = promotion.getPromotion();
 		// TODO 订单价格计算
 //		orderVO.value = 0.0;
@@ -347,13 +362,45 @@ public class Order {
 		return orderVO;
 	}
 	
-	/**
-	 * 订单号生成
-	 * @return orderID
-	 */
-	private String getOrderID() {
-		// TODO 生成订单号
-		return null;
+	private void checkClient() {
+		if(client == null) {
+			try {
+				client = ControllerFactory.getClientInfoInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	private void checkCredit() {
+		if(credit == null) {
+			try {
+				credit = ControllerFactory.getCreditUpdateInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void checkPromotion() {
+		if(promotion == null) {
+			try {
+				promotion = ControllerFactory.getPromotionGetInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void checkRoom() {
+		if(room == null) {
+			try {
+				room = ControllerFactory.getRoomUpdateInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

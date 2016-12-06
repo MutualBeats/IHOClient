@@ -8,17 +8,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogic.orderbl.ClientInfo;
-import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogic.orderbl.Order;
-import bussinesslogic.orderbl.RoomUpdate;
-import bussinesslogic.promotionbl.MockPromotion;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
-import util.user.MemberType;
 import vo.order.OrderVO;
-import vo.user.ClientVO;
 
 public class OrderBlTest {
 
@@ -29,19 +22,7 @@ public class OrderBlTest {
 	public void init() {
 		// ClientInfo client = ControllerFactory.getClientInfoInstance();
 		try {
-			/************** 测试专用 ***************/
-			ClientInfo client = new ClientInfo() {
-				@Override
-				public ClientVO getClientInfo(String clientID) {
-					ClientVO vo = new ClientVO("0000000002", "刘钦", "", -2304, MemberType.Enterprise, 2, "");
-					return vo;
-				}
-			};
-
-			CreditUpdate credit = ControllerFactory.getCreditUpdateInstance();
-			MockPromotion promotion = new MockPromotion();
-			RoomUpdate room = ControllerFactory.getRoomUpdateInstance();
-			order = new Order(client, credit, promotion, room);
+			order = new Order();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -22,7 +22,11 @@ public class RoomBlTest {
 
 	@Before
 	public void init() {
-		controller = new RoomController();
+		try {
+			controller = new RoomController();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
