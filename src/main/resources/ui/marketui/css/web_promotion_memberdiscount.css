@@ -4,11 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 2016-11-27, 6:32:00
+    Created on : 2016-11-27, 15:51:50
     Author     : apple
 */
 
 .root{
-  -fx-background-image: url("file:src/main/resources/image/util/background.jpg");
+      -fx-background-image: url("file:src/main/resources/image/market/background.jpg");
  }
-

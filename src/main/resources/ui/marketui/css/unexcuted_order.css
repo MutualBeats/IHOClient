@@ -8,6 +8,8 @@ and open the template in the editor.
     Author     : apple
 */
 .root{
-    -fx-background-image: url("背景.jpg");
-        
+    -fx-background-image: url("file:src/main/resources/image/market/menubackground.jpg");      
+}
+#unexcuted_order_title{
+	-fx-background-image: url("file:src/main/resources/image/market/unexcuted_order_title.png"); 
 }

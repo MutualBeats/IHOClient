@@ -38,8 +38,8 @@ public class WebPromotionController {
     		WEB_PROMOTION_CREATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_create.fxml");
     		WEB_PROMOTION_CREATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_create.css");
     		
-    		WEB_PROMOTION_UPDATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_update.fxml");
-    		WEB_PROMOTION_UPDATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_update.css");
+    		WEB_PROMOTION_UPDATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_choose.fxml");
+    		WEB_PROMOTION_UPDATE_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_choose.css");
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -55,23 +55,15 @@ public class WebPromotionController {
     @FXML
     void update(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "网站促销策略", WEB_PROMOTION_UPDATE_FXML,WEB_PROMOTION_UPDATE_CSS);
+    	WindowGrab.startWindow(window, "修改网站促销策略", WEB_PROMOTION_UPDATE_FXML,WEB_PROMOTION_UPDATE_CSS);
     }
 
     @FXML
     void create(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "网站促销策略", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
+     	WindowGrab.startWindow(window, "新建网站促销策略", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
    
     }
-    @FXML
-    void special_discount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void member_discount(ActionEvent event) {
-
-    }
+    
 }
 

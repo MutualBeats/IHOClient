@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.unexcutedorder.UnexcutedOrderController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#bfe5a5" />
+               </light>
+            </Lighting>
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0">
+         <effect>
+            <InnerShadow color="#c3ba84" />
+         </effect>
+      </Rectangle>
+      <Label fx:id="unexcuted_order_title" layoutX="35.0" layoutY="35.0" prefHeight="40.0" prefWidth="180.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancel" layoutX="470.0" layoutY="515.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="取消" textOverrun="CLIP">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="225.0" layoutY="150.0" text="订单ID:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField blendMode="DARKEN" layoutX="315.0" layoutY="140.0" prefHeight="35.0" prefWidth="200.0" />
+      <Button fx:id="check" contentDisplay="CENTER" layoutX="300.0" layoutY="515.0" mnemonicParsing="false" onAction="#on_check" prefHeight="25.0" prefWidth="70.0" text="查看" textOverrun="CLIP">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="155.0" layoutY="190.0" text="搜索结果: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="200.0" layoutY="230.0" prefHeight="260.0" prefWidth="440.0">
+         <columns>
+            <TableColumn prefWidth="110.0" text="订单ID" />
+            <TableColumn prefWidth="110.0" text="用户名称" />
+            <TableColumn prefWidth="110.0" text="联系方式" />
+            <TableColumn prefWidth="110.0" text="下单酒店" />
+         </columns>
+      </TableView>
+      <Button fx:id="search" layoutX="570.0" layoutY="140.0" mnemonicParsing="false" onAction="#on_search" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

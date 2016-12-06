@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.MemberLevelController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="110.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="策略类型 :" />
+      <Button fx:id="confirm" layoutX="135.0" layoutY="400.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
+      <Button fx:id="cancel" layoutX="265.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
+      <Text layoutX="225.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员等级制定">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Label layoutX="55.0" layoutY="145.0" text="会员等级及其对应折扣 :" />
+      <TreeTableView layoutX="65.0" layoutY="180.0" prefHeight="185.0" prefWidth="360.0">
+        <columns>
+          <TreeTableColumn prefWidth="90.0" text="会员等级" />
+          <TreeTableColumn prefWidth="90.0" text="起始信用值" />
+            <TreeTableColumn prefWidth="90.0" text="终止信用值" />
+            <TreeTableColumn prefWidth="90.0" text="对应折扣" />
+        </columns>
+      </TreeTableView>
+   </children>
+</AnchorPane>

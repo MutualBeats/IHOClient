@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.PromotionChooseController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="45.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择促销策略类型 :" />
+      <ComboBox layoutX="100.0" layoutY="100.0" prefWidth="150.0" promptText="策略类型">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="会员商圈策略" />
+                  <MenuItem mnemonicParsing="false" text="限时促销策略" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </ComboBox>
+      <Button layoutX="95.0" layoutY="155.0" mnemonicParsing="false" onAction="#create" prefWidth="50.0" text="新建" />
+      <Button layoutX="200.0" layoutY="155.0" mnemonicParsing="false" onAction="#cancel" prefWidth="50.0" text="取消" />
+   </children>
+</AnchorPane>
