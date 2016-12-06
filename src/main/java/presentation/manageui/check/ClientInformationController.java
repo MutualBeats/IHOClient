@@ -11,6 +11,11 @@ public class ClientInformationController extends InformationLookController{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		clientInfo = (ClientVO) resources.getObject("info");
+		init();
+	}
+	
+	private void init() {
 		
 	}
 
