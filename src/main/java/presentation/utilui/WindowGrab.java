@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.robot.impl.FXRobotHelper;
+
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -101,6 +104,18 @@ public class WindowGrab {
 	public static Window getWindow(Event event) {
 		return ((Node) event.getSource()).getScene().getWindow();
 	}
+	
+	/**
+	 * 这个方法需要谨慎使用
+	 * 
+	 * @return
+	 */
+	public static Window getWindowByStage(int index) {
+		ObservableList<Stage> stages = FXRobotHelper.getStages();
+		Stage stage = stages.get(index);
+		Window window = stage.getScene().getWindow();
+		return window;
+	}
 
 	/**
 	 * 关闭窗口
@@ -112,6 +127,7 @@ public class WindowGrab {
 		Window window_to_close = getWindow(event);
 		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
 	}
+
 	
 	/**
 	 * 界面初始

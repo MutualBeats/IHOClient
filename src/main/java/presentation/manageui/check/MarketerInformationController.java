@@ -3,6 +3,11 @@ package presentation.manageui.check;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import javafx.stage.Window;
+import presentation.utilui.WindowGrab;
+import util.resultmessage.ResultMessage_User;
+import vo.user.ClientInfoChangeVO;
 import vo.user.MarketerVO;
 
 public class MarketerInformationController extends InformationLookController{
@@ -25,8 +30,24 @@ public class MarketerInformationController extends InformationLookController{
 
 	@Override
 	public void confirm() {
-		// TODO Auto-generated method stub
-		
+		boolean check = checkformatter();
+		if(check) {
+			MarketerVO vo = new MarketerVO(info.marketerID, name.getText(), phone.getText());
+			ResultMessage_User result = ResultMessage_User.UpdateSuccess;
+			try {
+//				result = ControllerFactory.getMarketerBLServiceInstance().
+			} catch (Exception e) {
+				Window window = WindowGrab.getWindowByStage(1);
+				WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
+				return;
+			}
+			if(result != ResultMessage_User.UpdateSuccess) {
+				Window window = WindowGrab.getWindowByStage(1);
+				WindowGrab.startErrorWindow(window, "修改失败");
+			} else {
+				toInfoState();
+			}
+		}
 	}
 
 }
