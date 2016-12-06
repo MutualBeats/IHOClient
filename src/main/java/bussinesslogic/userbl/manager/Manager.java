@@ -29,7 +29,7 @@ public class Manager {
 	
 	public ManagerVO getManagerInfor() throws Exception {
 		checkManageState();
-		ManagerPO info = manager_service.getManagerInfor();
+		ManagerPO info = manager_service.getManagerInfo();
 		return ManagerPO.transformPOToVO(info);
 	}
 	

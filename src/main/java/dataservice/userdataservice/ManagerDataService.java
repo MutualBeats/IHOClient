@@ -8,8 +8,8 @@ import util.resultmessage.ResultMessage_User;
 
 public interface ManagerDataService extends Remote{
 
-	public ManagerPO getManagerInfor() throws RemoteException;
+	public ManagerPO getManagerInfo() throws RemoteException;
 	
-	public ResultMessage_User changeManagerInfor(ManagerPO po) throws RemoteException;
+	public ResultMessage_User changeManagerInfo(ManagerPO po) throws RemoteException;
 	
 }

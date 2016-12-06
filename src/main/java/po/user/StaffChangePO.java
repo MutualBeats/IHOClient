@@ -2,6 +2,8 @@ package po.user;
 
 import java.io.Serializable;
 
+import vo.user.StaffVO;
+
 public class StaffChangePO implements Serializable{
 
 	/**
@@ -26,6 +28,10 @@ public class StaffChangePO implements Serializable{
 		this.staffID = staffID;
 		this.staffName = staffName;
 		this.contactWay = contactWay;
+	}
+	
+	public StaffChangePO(StaffVO vo) {
+		this(vo.staffID, vo.staffName, vo.contactWay);
 	}
 
 	public String getStaffID() {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import dataservice.userdataservice.StaffDataService;
 import factory.datahelper.DataHelperFactory;
+import po.user.StaffChangePO;
 import po.user.StaffPO;
 import util.resultmessage.ResultMessage_User;
 import vo.user.StaffVO;
@@ -38,7 +39,7 @@ public class Staff {
 	public ResultMessage_User changeData(StaffVO vo) {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		
-		StaffPO po = StaffVO.transformVOToPO(vo);
+		StaffChangePO po = new StaffChangePO(vo);
 		
 		try {
 			result = staffDataService.updateData(po);
