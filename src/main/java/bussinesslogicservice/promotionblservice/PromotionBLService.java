@@ -23,7 +23,7 @@ public interface PromotionBLService {
 	 * @param hotelId
 	 * @return ArrayList
 	 */
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelId);
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID);
 	/**
 	 * 获取网站营销策略列表
 	 * @return ArrayList

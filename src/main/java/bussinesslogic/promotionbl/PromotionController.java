@@ -8,83 +8,57 @@ import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
-public class PromotionController implements PromotionBLService,PromotionGet{
+public class PromotionController implements PromotionBLService, PromotionGet{
+	
+	private Promotion promotion;
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#addhotelPromotion(vo.promotion.PromotionVO)
-	 */
+	public PromotionController() throws Exception {
+		promotion = new Promotion();
+	}
+
 	@Override
 	public ResultMessage_Promotion addhotelPromotion(PromotionVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.addhotelPromotion(vo);
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#addWebPromotion(vo.promotion.PromotionVO)
-	 */
 	@Override
 	public ResultMessage_Promotion addWebPromotion(PromotionVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.addWebPromotion(vo);
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#gethotelPromotion(java.lang.String)
-	 */
 	@Override
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelId) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) {
+		return promotion.gethotelPromotion(hotelID);
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#getWebPromotion()
-	 */
 	@Override
 	public ArrayList<PromotionVO> getWebPromotion() {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.getWebPromotion();
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#cancel(java.lang.String)
-	 */
 	@Override
 	public ResultMessage_Promotion cancel(String promotionID) {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.cancel(promotionID);
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#getMemberLevel()
-	 */
 	@Override
 	public ArrayList<Integer> getMemberLevel() {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.getMemberLevel();
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#getMemberDiscount()
-	 */
 	@Override
 	public ArrayList<Double> getMemberDiscount() {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.getMemberDiscount();
 	}
 
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.promotionblservice.PromotionBLService#makeLevel(java.util.ArrayList, java.util.ArrayList)
-	 */
 	@Override
 	public ResultMessage_Promotion makeLevel(ArrayList<Integer> level, ArrayList<Double> discount) {
-		// TODO Auto-generated method stub
-		return null;
+		return promotion.makeLevel(level, discount);
 	}
 	
 	@Override
 	public Iterator<PromotionVO> getPromotion() {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;
 	}
 	
