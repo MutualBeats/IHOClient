@@ -10,9 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 
-public class Hotel_Maintain_Controller {
+public class Hotel_Maintain_Controller implements Confirm{
 
 	 @FXML
 	    private Button cancel;
@@ -67,13 +68,18 @@ public class Hotel_Maintain_Controller {
     @FXML
     void update(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window,"确认", CONFIRM_FXML,CONFIRM_CSS);
+    	WindowGrab.startConfirmWindow(window, this);
     }
 
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
+
+	@Override
+	public void confirm() {
+		System.out.println("Confirm");
+	}
 
 
 }

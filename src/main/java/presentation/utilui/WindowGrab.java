@@ -1,6 +1,7 @@
 package presentation.utilui;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.EnumMap;
 import java.util.Enumeration;
@@ -29,7 +30,21 @@ import presentation.utilcontroller.Confirm;
  */
 public class WindowGrab {
 	
-	private WindowGrab() {}
+	private static URL CONFIRM_FXML;
+	private static URL CONFIRM_CSS;
+
+	static {
+		try {
+			CONFIRM_FXML = new URL("file:src/main/resources/ui/utilui/fxml/confirm.fxml");
+			CONFIRM_CSS = new URL("file:src/main/resources/ui/utilui/css/confirm.css");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private WindowGrab() {
+	}
 
 	/**
 	 * 窗口启动
@@ -52,7 +67,18 @@ public class WindowGrab {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		initStage(stage, root, owner, title, fxml_path, css_path);
+		initStage(stage, root, owner, title, css_path);
+	}
+
+	public static void startConfirmWindow(Window owner, Confirm confirm) {		
+		Stage stage = new Stage();
+		Parent root = null;
+		try {
+			root = FXMLLoader.load(CONFIRM_FXML, new ConfirmResourceBundle(confirm));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		initStage(stage, root, owner, "确认", CONFIRM_CSS);
 	}
 
 	/**
@@ -76,22 +102,18 @@ public class WindowGrab {
 		Window window_to_close = getWindow(event);
 		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
 	}
-	
-	public static void startConfirmWindow(Window owner, Confirm comfirm) {
-		
-	}
-	
-	class ConfirmResourceBundle extends ResourceBundle {
+
+	static class ConfirmResourceBundle extends ResourceBundle {
 		private Confirm confirm;
 		private final static String CONFIRM_KEY = "confirm";
-		
+
 		public ConfirmResourceBundle(Confirm confirm) {
 			this.confirm = confirm;
 		}
-		
+
 		@Override
 		protected Object handleGetObject(String key) {
-			if(CONFIRM_KEY.equals(key)) {
+			if (CONFIRM_KEY.equals(key)) {
 				return confirm;
 			}
 			return null;
@@ -101,10 +123,10 @@ public class WindowGrab {
 		public Enumeration<String> getKeys() {
 			return null;
 		}
-		
+
 	}
-	
-	private static void initStage(Stage stage, Parent root, Window owner, String title, URL fxml_path, URL css_path) {
+
+	private static void initStage(Stage stage, Parent root, Window owner, String title, URL css_path) {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(css_path.toExternalForm());
 		stage.setScene(scene);
