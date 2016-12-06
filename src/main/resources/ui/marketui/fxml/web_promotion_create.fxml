@@ -10,7 +10,7 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.WebPromotionCreateController">
    <children>
       <Accordion layoutY="115.0" />
-      <Text layoutX="115.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID：" wrappingWidth="69.0">
+      <Text layoutX="115.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="类型：" wrappingWidth="69.0">
          <font>
             <Font size="15.0" />
          </font></Text>
