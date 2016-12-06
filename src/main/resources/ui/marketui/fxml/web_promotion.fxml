@@ -70,6 +70,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <ComboBox layoutX="275.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="促销策略类型选择" />
+      <ComboBox layoutX="275.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="促销策略类型选择">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="限时促销策略" />
+                  <MenuItem mnemonicParsing="false" text="会员促销策略" />
+              </items>
+            </ContextMenu>
+         </contextMenu></ComboBox>
    </children>
 </AnchorPane>

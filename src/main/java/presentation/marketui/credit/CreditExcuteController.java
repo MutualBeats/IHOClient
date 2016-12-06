@@ -7,6 +7,8 @@ import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import presentation.utilui.WindowGrab;
 
 public class CreditExcuteController {
@@ -34,7 +36,8 @@ public class CreditExcuteController {
 
     @FXML
     void confirm(ActionEvent event) {
-
+     	Window window = WindowGrab.getWindow(event);
+    	WindowGrab.startWindow(window, "确认", CONFIRM_FXML,CONFIRM_CSS);
     }
 
     @FXML
