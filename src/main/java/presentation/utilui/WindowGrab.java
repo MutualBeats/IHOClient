@@ -2,6 +2,11 @@ package presentation.utilui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.EnumMap;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import presentation.utilcontroller.Confirm;
 
 /**
  * 
@@ -22,6 +28,8 @@ import javafx.stage.WindowEvent;
  *
  */
 public class WindowGrab {
+	
+	private WindowGrab() {}
 
 	/**
 	 * 窗口启动
@@ -44,19 +52,7 @@ public class WindowGrab {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(css_path.toExternalForm());
-		stage.setScene(scene);
-		stage.initStyle(StageStyle.UTILITY);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		// 设置父窗口
-		stage.initOwner(owner);
-		stage.requestFocus();
-		stage.setResizable(false);
-		stage.setTitle(title);
-		stage.centerOnScreen();
-		stage.sizeToScene();
-		stage.showAndWait();
+		initStage(stage, root, owner, title, fxml_path, css_path);
 	}
 
 	/**
@@ -79,5 +75,48 @@ public class WindowGrab {
 	public static void closeWindow(Event event) {
 		Window window_to_close = getWindow(event);
 		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
+	}
+	
+	public static void startConfirmWindow(Window owner, Confirm comfirm) {
+		
+	}
+	
+	class ConfirmResourceBundle extends ResourceBundle {
+		private Confirm confirm;
+		private final static String CONFIRM_KEY = "confirm";
+		
+		public ConfirmResourceBundle(Confirm confirm) {
+			this.confirm = confirm;
+		}
+		
+		@Override
+		protected Object handleGetObject(String key) {
+			if(CONFIRM_KEY.equals(key)) {
+				return confirm;
+			}
+			return null;
+		}
+
+		@Override
+		public Enumeration<String> getKeys() {
+			return null;
+		}
+		
+	}
+	
+	private static void initStage(Stage stage, Parent root, Window owner, String title, URL fxml_path, URL css_path) {
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(css_path.toExternalForm());
+		stage.setScene(scene);
+		stage.initStyle(StageStyle.UTILITY);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		// 设置父窗口
+		stage.initOwner(owner);
+		stage.requestFocus();
+		stage.setResizable(false);
+		stage.setTitle(title);
+		stage.centerOnScreen();
+		stage.sizeToScene();
+		stage.showAndWait();
 	}
 }
