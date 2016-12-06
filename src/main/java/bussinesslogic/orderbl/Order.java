@@ -36,8 +36,6 @@ public class Order {
 	public Order(ClientInfo userInfo, CreditUpdate credit, PromotionGet promotion, RoomUpdate room) {
 		try {
 			this.order_data_service = DataHelperFactory.getDataFactoryHelperInstance().getOrderDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
 		}
 		
 		this.userInfo = userInfo;

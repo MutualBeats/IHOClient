@@ -22,12 +22,8 @@ public class Marketer {
 	
 	private MarketerPO cache;
 	
-	public Marketer(){
-		try {
-			marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Marketer() throws Exception{
+		marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
 	}
 
 	public MarketerVO showData(String marketerID) throws RemoteException {

@@ -28,12 +28,8 @@ public class Room {
 
 	private RoomDataHelper room_service;
 
-	public Room() {
-		try {
-			room_service = DataHelperFactory.getDataFactoryHelperInstance().getRoomDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Room() throws Exception{
+		room_service = DataHelperFactory.getDataFactoryHelperInstance().getRoomDatabase();
 	}
 
 	/**

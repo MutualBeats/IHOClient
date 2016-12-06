@@ -14,8 +14,12 @@ import vo.user.MemberVO;
 
 public class ClientController implements ClientBLService, ClientInfoGet, ClientInfo{
 	
-	private Client client = new Client(ControllerFactory.getCreditRegister());
-
+	private Client client;
+	
+	public ClientController() throws Exception {
+		 client = new Client(ControllerFactory.getCreditRegister());
+	}
+	
 	@Override
 	public ClientVO getClientInfo(String clientID) throws RemoteException {
 		return client.getClientInfo(clientID);

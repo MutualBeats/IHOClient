@@ -22,12 +22,8 @@ public class Staff {
 	
 	private StaffPO cache;
 	
-	public Staff(){
-		try {
-			staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Staff() throws Exception{
+		staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
 	}
 	
 	public StaffVO showData(String staffID) throws RemoteException {		

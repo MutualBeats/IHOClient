@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
 
@@ -26,8 +27,9 @@ public class IDInputController {
     @FXML
     void on_search(ActionEvent event) {
     	String id = id_input.getText();
+    	ResultMessage_Verify result = ResultMessage_Verify.USER_NOT_EXIST;
+    	Window window = WindowGrab.getWindow(event);
     	if(NumberConfig.userNameFormatterCheck(id)) {
-    		ResultMessage_Verify result = ResultMessage_Verify.USER_NOT_EXIST;
     		try {
 				result = ControllerFactory.getIdentityService().checkIdentity(id);
 			} catch (RemoteException e) {
@@ -35,6 +37,7 @@ public class IDInputController {
 				result = ResultMessage_Verify.NET_ERROR;
 			}
     	}
+    	handleResult(result, window);
     }
 
     @FXML
@@ -42,6 +45,14 @@ public class IDInputController {
     	WindowGrab.closeWindow(event);
     }
     
-    
+    private void handleResult(ResultMessage_Verify result, Window window) {
+    	if(result == ResultMessage_Verify.NET_ERROR || result == ResultMessage_Verify.USER_NOT_EXIST ) {
+    		String error_message = result.toString();
+    		WindowGrab.startErrorWindow(window, error_message);
+    	} else {
+    		//跳转
+    		System.out.println("Jump");
+    	}
+    }
     
 }

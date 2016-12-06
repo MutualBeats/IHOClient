@@ -10,7 +10,11 @@ import vo.user.MarketerVO;
 
 public class MarketerController implements MarketerBLService , MarketerManage {
 	
-	private Marketer marketer = new Marketer();
+	private Marketer marketer;
+	
+	public MarketerController() throws Exception {
+		marketer = new Marketer();
+	}
 
 	@Override
 	public MarketerVO showData(String marketerID) throws RemoteException {

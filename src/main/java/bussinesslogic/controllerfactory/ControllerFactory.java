@@ -49,133 +49,133 @@ public class ControllerFactory {
 	
 	private ControllerFactory(){}
 	
-	public static CreditBLService getCreditBLServiceInstance(){
+	public static CreditBLService getCreditBLServiceInstance() throws Exception {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static CreditUpdate getCreditUpdateInstance() {
+	public static CreditUpdate getCreditUpdateInstance() throws Exception {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static HotelBLService getHotelBLServiceInstance() {
+	public static HotelBLService getHotelBLServiceInstance() throws Exception {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}
 		return hotelController;
 	}
 	
-	public static OrderBLService getOrderBLServiceInstance() {
+	public static OrderBLService getOrderBLServiceInstance() throws Exception {
 		if(orderController == null) {
 			orderController = new OrderController();
 		}
 		return orderController;
 	}
 	
-	public static PromotionBLService getPromotionBLServiceInstance() {
+	public static PromotionBLService getPromotionBLServiceInstance() throws Exception {
 		if(promotionController == null) {
 			promotionController = new PromotionController();
 		}
 		return promotionController;
 	}
 	
-	public static PromotionGet getPromotionGetInstance() {
+	public static PromotionGet getPromotionGetInstance() throws Exception {
 		if(promotionController == null) {
 			promotionController = new PromotionController();
 		}
 		return promotionController;
 	}
 	
-	public static RoomBLService getRoomBLServiceInstance() {
+	public static RoomBLService getRoomBLServiceInstance() throws Exception {
 		if(roomController == null) {
 			roomController = new RoomController();
 		}
 		return roomController;
 	}
 	
-	public static RoomUpdate getRoomUpdateInstance() {
+	public static RoomUpdate getRoomUpdateInstance() throws Exception {
 		if(roomController == null) {
 			roomController = new RoomController();
 		}
 		return roomController;
 	}
 	
-	public static ClientBLService getClientBLServiceInstance()  {
+	public static ClientBLService getClientBLServiceInstance() throws Exception {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static StaffBLService getStaffBLServiceInstance()  {
+	public static StaffBLService getStaffBLServiceInstance() throws Exception {
 		if(staffController == null) {
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static MarketerBLService getMarketerBLServiceInstance() {
+	public static MarketerBLService getMarketerBLServiceInstance() throws Exception {
 		if(marketerController == null) {
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static ManagerBLService getManagerBLServiceInstance()  {
+	public static ManagerBLService getManagerBLServiceInstance() throws Exception {
 		if(managerController == null) {
 			managerController = new ManagerController();
 		}
 		return managerController;
 	}
 	
-	public static ClientInfoGet getClient2ManagerInstance() {
+	public static ClientInfoGet getClient2ManagerInstance() throws Exception {
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static StaffManage getStaff2ManagerInstance() {
+	public static StaffManage getStaff2ManagerInstance() throws Exception {
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static MarketerManage getMarketer2ManagerInstance() {
+	public static MarketerManage getMarketer2ManagerInstance() throws Exception {
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static HotelAdd getHotel2ManagerInstance(){
+	public static HotelAdd getHotel2ManagerInstance() throws Exception {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}
 		return hotelController;
 	}
 	
-	public static ClientInfo getClientInfoInstance() {
+	public static ClientInfo getClientInfoInstance() throws Exception {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static CreditRegister getCreditRegister() {
+	public static CreditRegister getCreditRegister() throws Exception {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static  Identify getIdentityService() throws RemoteException {
+	public static  Identify getIdentityService() throws Exception {
 		if(identify_service == null ){
 			identify_service = DataHelperFactory.getDataFactoryHelperInstance().getIdentityService();
 		}

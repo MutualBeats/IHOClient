@@ -32,12 +32,8 @@ public class Hotel {
 	private HotelPO hotelPO = null;
 	private HotelDataHelper hotel_data_service;
 
-	public Hotel() {
-		try {
-			hotel_data_service = DataHelperFactory.getDataFactoryHelperInstance().getHotelDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Hotel() throws Exception {
+		hotel_data_service = DataHelperFactory.getDataFactoryHelperInstance().getHotelDatabase();
 	}
 
 	/**

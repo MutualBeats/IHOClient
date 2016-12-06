@@ -13,7 +13,7 @@ public class CreditController implements CreditBLService, CreditUpdate, CreditRe
 	
 	private Credit credit = new Credit();
 	
-
+	public CreditController() throws Exception{	}
 
 	@Override
 	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException {

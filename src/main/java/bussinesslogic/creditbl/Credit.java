@@ -19,12 +19,10 @@ public class Credit{
 	
 	private CreditDataHelper credit_data_service;
 	
-	public Credit() {
-		try {
-			credit_data_service = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Credit() throws Exception {
+	
+		credit_data_service = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
+		
 	}
 	
 	public ResultMessage_Credit creditUpdate(CreditVO updateVO) {

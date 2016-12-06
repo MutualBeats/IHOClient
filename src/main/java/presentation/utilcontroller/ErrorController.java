@@ -1,27 +1,35 @@
 package presentation.utilcontroller;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
-public class ErrorController {
+public class ErrorController implements Initializable{
 
     @FXML
     private Button confirm;
 
     @FXML
-    private Button cancel;
-
+    private Label error_info;
+    
     @FXML
     void confirm(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
+
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		String error_message = resources.getString("error_message");
+		error_info.setText(error_message);
+	}
 
 }

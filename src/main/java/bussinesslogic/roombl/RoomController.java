@@ -12,8 +12,12 @@ import vo.room.RoomVO;
 
 public class RoomController implements RoomBLService, RoomUpdate{
 
-	private Room room = new Room();
-
+	private Room room;
+	
+	public RoomController() throws Exception {
+		room = new Room();
+	}
+	
 	@Override
 	public ResultMessage_Room checkIn(String hotelID, String roomNumber) {
 		return room.checkIn(hotelID, roomNumber, false);

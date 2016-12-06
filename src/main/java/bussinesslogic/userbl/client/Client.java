@@ -22,12 +22,9 @@ public class Client {
 	
 	private CreditRegister credit;
 
-	public Client(CreditRegister credit) {
-		try {
-			clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+	public Client(CreditRegister credit) throws Exception {
+		clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
+		
 		
 		this.credit = credit;
 	}

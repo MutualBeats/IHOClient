@@ -83,25 +83,41 @@ public class Manager {
 	
 	private void checkClient() {
 		if(client == null) {
-			client = ControllerFactory.getClient2ManagerInstance();
+			try {
+				client = ControllerFactory.getClient2ManagerInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	private void checkStaff() {
 		if(staff == null) {
-			staff = ControllerFactory.getStaff2ManagerInstance();
+			try {
+				staff = ControllerFactory.getStaff2ManagerInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	private void checkMarketer() {
 		if(marketer == null) {
-			marketer = ControllerFactory.getMarketer2ManagerInstance();
+			try {
+				marketer = ControllerFactory.getMarketer2ManagerInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	private void checkHotel() {
 		if(hotel == null) {
-			hotel = ControllerFactory.getHotel2ManagerInstance();
+			try {
+				hotel = ControllerFactory.getHotel2ManagerInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

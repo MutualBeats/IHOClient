@@ -46,13 +46,13 @@ public class DataHelperFactory {
 		return helper;
 	}
 
-	private static synchronized void checkFactoryState() {
+	private static synchronized void checkFactoryState() throws Exception {
 		if (factory == null) {
 			factory = RMIConnectHelper.connect();
 		}
 	}
 
-	public CreditDataHelper getCreditDatabase() throws RemoteException {
+	public CreditDataHelper getCreditDatabase() throws Exception {
 		if (creditDataHelper == null) {
 			checkFactoryState();
 			creditDataHelper = new CreditDataHelper(factory.getCreditDatabase());
@@ -60,7 +60,7 @@ public class DataHelperFactory {
 		return creditDataHelper;
 	}
 
-	public HotelDataHelper getHotelDatabase() throws RemoteException {
+	public HotelDataHelper getHotelDatabase() throws Exception {
 		if (hotelDataHelper == null) {
 			checkFactoryState();
 			hotelDataHelper = new HotelDataHelper(factory.getHotelDatabase());
@@ -68,7 +68,7 @@ public class DataHelperFactory {
 		return hotelDataHelper;
 	}
 
-	public OrderDataService getOrderDatabase() throws RemoteException {
+	public OrderDataService getOrderDatabase() throws Exception {
 		if (orderDataService == null) {
 			checkFactoryState();
 			orderDataService = factory.getOrderDatabase();
@@ -76,7 +76,7 @@ public class DataHelperFactory {
 		return orderDataService;
 	}
 
-	public PromotionDataHelper getPromotionDatabase() throws RemoteException {
+	public PromotionDataHelper getPromotionDatabase() throws Exception {
 		if (promotionDataHelper == null) {
 			checkFactoryState();
 			promotionDataHelper = new PromotionDataHelper(factory.getPromotionDatabase());
@@ -84,7 +84,7 @@ public class DataHelperFactory {
 		return promotionDataHelper;
 	}
 
-	public RoomDataHelper getRoomDatabase() throws RemoteException {
+	public RoomDataHelper getRoomDatabase() throws Exception {
 		if (roomDataHelper == null) {
 			checkFactoryState();
 			roomDataHelper = new RoomDataHelper(factory.getRoomDatabase());
@@ -92,7 +92,7 @@ public class DataHelperFactory {
 		return roomDataHelper;
 	}
 
-	public ClientDataService getClientDatabase() throws RemoteException {
+	public ClientDataService getClientDatabase() throws Exception {
 		if (clientDataService == null) {
 			checkFactoryState();
 			clientDataService = factory.getClientDatabase();
@@ -100,7 +100,7 @@ public class DataHelperFactory {
 		return clientDataService;
 	}
 
-	public StaffDataService getStaffDatabase() throws RemoteException {
+	public StaffDataService getStaffDatabase() throws Exception {
 		if (staffDataService == null) {
 			checkFactoryState();
 			staffDataService = factory.getStaffDatabase();
@@ -108,7 +108,7 @@ public class DataHelperFactory {
 		return staffDataService;
 	}
 
-	public MarketerDataService getMarketerDatabase() throws RemoteException {
+	public MarketerDataService getMarketerDatabase() throws Exception {
 		if (marketerDataService == null) {
 			checkFactoryState();
 			marketerDataService = factory.getMarketerDatabase();
@@ -116,7 +116,7 @@ public class DataHelperFactory {
 		return marketerDataService;
 	}
 
-	public ManagerDataService getManagerDatabase() throws RemoteException {
+	public ManagerDataService getManagerDatabase() throws Exception {
 		if (managerDataService == null) {
 			checkFactoryState();
 			managerDataService = factory.getManagerDatabase();
@@ -124,7 +124,7 @@ public class DataHelperFactory {
 		return managerDataService;
 	}
 	
-	public Identify getIdentityService() throws RemoteException {
+	public Identify getIdentityService() throws Exception {
 		if(identify == null) {
 			checkFactoryState();
 			identify = factory.getIdentityService();

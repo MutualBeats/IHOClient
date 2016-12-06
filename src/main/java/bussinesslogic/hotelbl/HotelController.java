@@ -19,6 +19,10 @@ import vo.hotel.HotelVO;
 public class HotelController implements HotelBLService , HotelAdd{
 
 	private Hotel hotel = new Hotel();
+	
+	public HotelController() throws Exception{
+		
+	}
 
 	@Override
 	public HotelVO showHotelInfo(String hotelID) throws RemoteException {

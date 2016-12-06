@@ -10,7 +10,11 @@ import vo.user.StaffVO;
 
 public class StaffController implements StaffBLService , StaffManage {
 	
-	private Staff staff = new Staff();
+	private Staff staff ;
+	
+	public StaffController() throws Exception{
+		staff = new Staff();
+	}
 
 	@Override
 	public StaffVO showData(String staffID) throws RemoteException {

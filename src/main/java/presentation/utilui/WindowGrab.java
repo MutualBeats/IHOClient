@@ -29,20 +29,24 @@ import presentation.utilcontroller.Confirm;
  *
  */
 public class WindowGrab {
-	
+
 	private static URL CONFIRM_FXML;
 	private static URL CONFIRM_CSS;
-
+	private static URL ERROR_FXML;
+	private static URL ERROR_CSS;
+	
 	static {
 		try {
 			CONFIRM_FXML = new URL("file:src/main/resources/ui/utilui/fxml/confirm.fxml");
 			CONFIRM_CSS = new URL("file:src/main/resources/ui/utilui/css/confirm.css");
+			ERROR_FXML = new URL("file:src/main/resources/ui/utilui/fxml/error.fxml");
+			ERROR_CSS = new URL("file:src/main/resources/ui/utilui/css/error.css");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	private WindowGrab() {
 	}
 
@@ -63,11 +67,20 @@ public class WindowGrab {
 		startWindowWithBundle(owner, title, fxml_path, css_path, null);
 	}
 	
-	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path, ResourceBundle bundle) {
+	public static void startConfirmWindow(Window owner, Confirm confirm) {
+		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
+	}
+	
+	public static void startErrorWindow(Window owner, String message) {
+		startWindowWithBundle(owner, "警告", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
+	}
+
+	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
+			ResourceBundle bundle) {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
-			if(bundle == null) {
+			if (bundle == null) {
 				root = FXMLLoader.load(fxml_path);
 			} else {
 				root = FXMLLoader.load(fxml_path, bundle);
@@ -76,17 +89,6 @@ public class WindowGrab {
 			e.printStackTrace();
 		}
 		initStage(stage, root, owner, title, css_path);
-	}
-
-	public static void startConfirmWindow(Window owner, Confirm confirm) {		
-		Stage stage = new Stage();
-		Parent root = null;
-		try {
-			root = FXMLLoader.load(CONFIRM_FXML, new ConfirmResourceBundle(confirm));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		initStage(stage, root, owner, "确认", CONFIRM_CSS);
 	}
 
 	/**
@@ -110,7 +112,40 @@ public class WindowGrab {
 		Window window_to_close = getWindow(event);
 		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
 	}
+	
+	/**
+	 * 界面初始
+	 * 
+	 * @param stage
+	 * @param root
+	 * @param owner
+	 * @param title
+	 * @param css_path
+	 */
+	private static void initStage(Stage stage, Parent root, Window owner, String title, URL css_path) {
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(css_path.toExternalForm());
+		stage.setScene(scene);
+		stage.initStyle(StageStyle.UTILITY);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		// 设置父窗口
+		stage.initOwner(owner);
+		stage.requestFocus();
+		stage.setResizable(false);
+		stage.setTitle(title);
+		stage.centerOnScreen();
+		stage.sizeToScene();
+		stage.showAndWait();
+	}
 
+	
+	/**
+	 * 
+	 * Bundle for confirm view
+	 * 
+	 * @author heleninsa
+	 *
+	 */
 	static class ConfirmResourceBundle extends ResourceBundle {
 		private Confirm confirm;
 		private final static String CONFIRM_KEY = "confirm";
@@ -133,20 +168,35 @@ public class WindowGrab {
 		}
 
 	}
+	/**
+	 * 
+	 * Bundle for error view
+	 * 
+	 * @author heleninsa
+	 *
+	 */
+	static class ErrorMessageBundle extends ResourceBundle {
+		private final static String MESSAGE_KEY = "error_message";
+		
+		private String error_message;
 
-	private static void initStage(Stage stage, Parent root, Window owner, String title, URL css_path) {
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(css_path.toExternalForm());
-		stage.setScene(scene);
-		stage.initStyle(StageStyle.UTILITY);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		// 设置父窗口
-		stage.initOwner(owner);
-		stage.requestFocus();
-		stage.setResizable(false);
-		stage.setTitle(title);
-		stage.centerOnScreen();
-		stage.sizeToScene();
-		stage.showAndWait();
+		public ErrorMessageBundle(String error_message) {
+			super();
+			this.error_message = error_message;
+		}
+
+		@Override
+		protected Object handleGetObject(String key) {
+			if (MESSAGE_KEY.equals(key)) {
+				return error_message;
+			}
+			return null;
+		}
+
+		@Override
+		public Enumeration<String> getKeys() {
+			return null;
+		}
+
 	}
 }
