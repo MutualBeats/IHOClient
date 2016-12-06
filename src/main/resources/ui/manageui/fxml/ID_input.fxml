@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.change.IDInputConfirmController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="55.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输入人员ID :">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="search" layoutX="75.0" layoutY="150.0" mnemonicParsing="false" onAction="#on_search" prefHeight="26.0" prefWidth="65.0" text="搜索" />
+      <Button fx:id="cancel" layoutX="215.0" layoutY="150.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
+      <TextField layoutX="155.0" layoutY="75.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.WebPromotionCreateController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="75.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="策略类型 :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="75.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="策略名称 :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="confirm" layoutX="135.0" layoutY="380.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
+      <Button fx:id="cancel" layoutX="265.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
+      <Text layoutX="180.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员商圈策略" />
+   </children>
+</AnchorPane>

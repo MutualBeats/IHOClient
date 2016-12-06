@@ -64,6 +64,14 @@ public class WebPromotionController {
     	WindowGrab.startWindow(window, "网站促销策略", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
    
     }
+    @FXML
+    void special_discount(ActionEvent event) {
 
+    }
+
+    @FXML
+    void member_discount(ActionEvent event) {
+
+    }
 }
 

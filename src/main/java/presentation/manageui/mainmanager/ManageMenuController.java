@@ -58,8 +58,8 @@ public class ManageMenuController {
 			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
 			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
 			
-			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
-			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
+			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/ID_input.fxml");
+			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/ID_input.css");
 			
 			CHECK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
 			CHECK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
@@ -84,7 +84,7 @@ public class ManageMenuController {
     @FXML
     void on_change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "修改人员信息", CHANGE_FXML,CHANGE_CSS);    	
+		WindowGrab.startWindow(window, "输入人员ID", CHANGE_FXML,CHANGE_CSS);    	
     }
 
     @FXML
