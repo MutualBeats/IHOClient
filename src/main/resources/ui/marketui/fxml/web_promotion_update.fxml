@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.WebPromotionUpdateController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="115.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID：" wrappingWidth="69.0">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="110.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="开始时间 :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="110.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="结束时间 :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="115.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="名称：">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="115.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣：">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="70.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详细信息" wrappingWidth="70.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField layoutX="220.0" layoutY="145.0" prefWidth="150.0" />
+      <Button fx:id="confirm" layoutX="135.0" layoutY="380.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
+      <Button fx:id="cancel" layoutX="265.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
+      <ComboBox layoutX="220.0" layoutY="190.0" prefWidth="150.0" />
+      <DatePicker layoutX="220.0" layoutY="236.0" prefWidth="150.0" />
+      <DatePicker layoutX="220.0" layoutY="281.0" prefWidth="150.0" />
+      <Label fx:id="ID" layoutX="220.0" layoutY="105.0" prefHeight="26.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
