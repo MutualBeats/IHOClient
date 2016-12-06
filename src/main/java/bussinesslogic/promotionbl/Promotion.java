@@ -3,7 +3,6 @@ package bussinesslogic.promotionbl;
 import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_Promotion;
-import vo.order.OrderPromotionConditionVO;
 import vo.promotion.PromotionVO;
 
 public class Promotion {
@@ -32,7 +31,4 @@ public class Promotion {
 		return null;
 	}
 
-	public ArrayList<PromotionVO> getPromotion(OrderPromotionConditionVO ordervo){
-		return null;
-	}
 }
