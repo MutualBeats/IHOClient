@@ -1,0 +1,120 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-11-27, 6:32:00
+    Author     : apple
+*/
+
+.root{
+  -fx-background-image: url("file:src/main/resources/image/client/menu.png");
+ }
+ 
+ 
+ .button{
+ 	-fx-background-color:transparent;
+ }
+ 
+#title{
+	-fx-background-image: url("file:src/main/resources/image/client/title.png");
+}
+#menu{
+	-fx-background-image: url("file:src/main/resources/image/client/menu.jpg");
+}
+#member{
+	-fx-background-image: url("file:src/main/resources/image/client/member.png");
+}
+#member:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/member_pressed.png");
+}
+
+#createorder{
+	-fx-background-image: url("file:src/main/resources/image/client/createorder.png");
+}
+#createorder:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/createorder_pressed.png");
+}
+
+#evaluatehotel{
+	-fx-background-image: url("file:src/main/resources/image/client/evaluatehotel.png");
+}
+#evaluatehotel:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/evaluatehotel_pressed.png");
+}
+
+#maintainmessage{
+	-fx-background-image: url("file:src/main/resources/image/client/maintainmessage.png");
+}
+#maintainmessage:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/maintainmessage_pressed.png");
+}
+
+#revokeorder{
+	-fx-background-image: url("file:src/main/resources/image/client/revokeorder.png");
+}
+#revokeorder:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/revokeorder_pressed.png");
+}
+
+#browseorder{
+	-fx-background-image: url("file:src/main/resources/image/client/browseorder.png");
+}
+#browseorder:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/browseorder_pressed.png");
+}
+
+#pane_browseorder{
+	 -fx-background-image: url("file:src/main/resources/image/client/pane.png");
+}
+
+#all_order{
+	-fx-background-image: url("file:src/main/resources/image/client/button_all.png");
+}
+#all_order:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_all_pressed.png");
+}
+
+
+#unexecute_order{
+	-fx-background-image: url("file:src/main/resources/image/client/button_unexecute.png");
+}
+#unexecute_order:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_unexecute_pressed.png");
+}
+
+#execute_order{
+	-fx-background-image: url("file:src/main/resources/image/client/button_execute.png");
+}
+
+#execute_order:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_execute_pressed.png");
+}
+
+#unusual_order{
+	-fx-background-image: url("file:src/main/resources/image/client/button_unusual.png");
+}
+#unusual_order:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_unusual_pressed.png");
+}
+
+
+#revoked_order{
+	-fx-background-image: url("file:src/main/resources/image/client/button_revoke.png");
+}
+#revoked_order:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_revoke_pressed.png");
+}
+
+
+#search{
+	-fx-background-image: url("file:src/main/resources/image/client/button_search.png");
+}
+#search:pressed{
+	-fx-background-image: url("file:src/main/resources/image/client/button_search_pressed.png");
+}
+
+#logout{
+	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
+}
