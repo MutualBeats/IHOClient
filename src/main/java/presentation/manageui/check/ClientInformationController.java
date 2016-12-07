@@ -52,7 +52,7 @@ public class ClientInformationController extends InformationLookController {
 			ClientInfoChangeVO vo = new ClientInfoChangeVO(info.clientID, name.getText(), phone.getText());
 			ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 			try {
-				result = ControllerFactory.getClientBLServiceInstance().changeClientInfo(vo);
+				result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
 			} catch (Exception e) {
 				Window window = WindowGrab.getWindowByStage(1);
 				WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");

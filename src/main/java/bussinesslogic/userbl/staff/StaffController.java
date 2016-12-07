@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import bussinesslogic.userbl.manager.entrust.StaffManage;
 import bussinesslogicservice.userblservice.StaffBLService;
 import util.resultmessage.ResultMessage_User;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 public class StaffController implements StaffBLService , StaffManage {
@@ -22,7 +23,7 @@ public class StaffController implements StaffBLService , StaffManage {
 	}
 	
 	@Override
-	public ResultMessage_User changeData(StaffVO vo){
+	public ResultMessage_User changeData(StaffChangeVO vo){
 		return staff.changeData(vo);
 	}
 

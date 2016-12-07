@@ -13,9 +13,11 @@ import po.user.ManagerPO;
 import util.resultmessage.ResultMessage_Hotel;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
+import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 import vo.user.ManagerVO;
 import vo.user.MarketerVO;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 public class Manager {
@@ -48,7 +50,7 @@ public class Manager {
 		return staff.showData(staffID);
 	}
 
-	public ResultMessage_User changeStaffData(StaffVO vo) {
+	public ResultMessage_User changeStaffData(StaffChangeVO vo) {
 		try {
 			checkStaff();
 		} catch (Exception e) {
@@ -136,6 +138,27 @@ public class Manager {
 		if(manager_service == null) {
 			manager_service = DataHelperFactory.getDataFactoryHelperInstance().getManagerDatabase();
 		}
+	}
+
+	public ResultMessage_User changeManagerInfo(ManagerVO vo) {
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
+		try {
+			checkManageState();
+			result = manager_service.changeManagerInfo(ManagerVO.transformVOToPO(vo));
+		} catch (Exception e) {
+			return ResultMessage_User.Net_Error;
+		}
+		return result;
+	}
+
+	public ResultMessage_User changeClientInfo(ClientInfoChangeVO vo) {
+		try {
+			checkClient();
+			return client.changeClientInfo(vo);
+		} catch (Exception e) {
+			return ResultMessage_User.Net_Error;
+		}
+		
 	}
 }
 

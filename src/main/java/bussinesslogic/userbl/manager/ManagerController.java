@@ -1,14 +1,17 @@
 package bussinesslogic.userbl.manager;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogicservice.userblservice.ManagerBLService;
 import util.resultmessage.ResultMessage_Hotel;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
+import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 import vo.user.ManagerVO;
 import vo.user.MarketerVO;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 public class ManagerController implements ManagerBLService {
@@ -26,7 +29,7 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_User changeStaffData(StaffVO vo)  {
+	public ResultMessage_User changeStaffData(StaffChangeVO vo)  {
 		return manager.changeStaffData(vo);
 	}
 
@@ -73,6 +76,16 @@ public class ManagerController implements ManagerBLService {
 	@Override
 	public ManagerVO getManagerInfor() throws Exception {
 		return manager.getManagerInfor();
+	}
+
+	@Override
+	public ResultMessage_User changeManagerInfo(ManagerVO vo) {
+		return manager.changeManagerInfo(vo);
+	}
+
+	@Override
+	public ResultMessage_User changeClientInfo(ClientInfoChangeVO vo) {
+		return manager.changeClientInfo(vo);
 	}
 
 }

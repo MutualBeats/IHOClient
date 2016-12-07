@@ -8,6 +8,7 @@ import factory.datahelper.DataHelperFactory;
 import po.user.StaffChangePO;
 import po.user.StaffPO;
 import util.resultmessage.ResultMessage_User;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 /**
@@ -36,7 +37,7 @@ public class Staff {
 		return vo;
 	}
 
-	public ResultMessage_User changeData(StaffVO vo) {
+	public ResultMessage_User changeData(StaffChangeVO vo) {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		
 		StaffChangePO po = new StaffChangePO(vo);

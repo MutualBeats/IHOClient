@@ -1,5 +1,7 @@
 package vo.user;
 
+import po.user.ManagerPO;
+
 public class ManagerVO {
 	/**
 	 * 网站管理人员ID
@@ -22,6 +24,9 @@ public class ManagerVO {
 		this.contactWay = contactWay;
 	}
 	
+	public static ManagerPO transformVOToPO(ManagerVO vo) {
+		return new ManagerPO(vo.managerID, vo.managerName, vo.contactWay);
+	}
 	
 	
 }

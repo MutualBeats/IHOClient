@@ -2,7 +2,7 @@ package po.user;
 
 import java.io.Serializable;
 
-import vo.user.StaffVO;
+import vo.user.StaffChangeVO;
 
 public class StaffChangePO implements Serializable{
 
@@ -30,7 +30,7 @@ public class StaffChangePO implements Serializable{
 		this.contactWay = contactWay;
 	}
 	
-	public StaffChangePO(StaffVO vo) {
+	public StaffChangePO(StaffChangeVO vo) {
 		this(vo.staffID, vo.staffName, vo.contactWay);
 	}
 

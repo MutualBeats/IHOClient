@@ -3,6 +3,8 @@ package bussinesslogic.userbl.manager.entrust;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.resultmessage.ResultMessage_User;
+import vo.user.ClientInfoChangeVO;
 import vo.user.ClientVO;
 
 public interface ClientInfoGet {
@@ -23,5 +25,13 @@ public interface ClientInfoGet {
 	 * @throws RemoteException
 	 */
 	public ArrayList<ClientVO> getClientList() throws RemoteException;
+	
+	/**
+	 * 更改用户信息
+	 * 
+	 * @param vo
+	 * @return
+	 */
+	public ResultMessage_User changeClientInfo(ClientInfoChangeVO vo);
 	
 }

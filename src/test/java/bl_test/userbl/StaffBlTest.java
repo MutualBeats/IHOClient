@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import bussinesslogic.userbl.staff.Staff;
 import util.resultmessage.ResultMessage_User;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 public class StaffBlTest {
@@ -42,7 +43,8 @@ public class StaffBlTest {
 	public void changeDataTest() {
 		try {
 //			assertEquals(ResultMessage_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"12345678901234567890", vo2.hotelID)));
-			assertEquals(ResultMessage_User.UpdateSuccess, staff.changeData(vo2));
+			StaffChangeVO vo = new StaffChangeVO(vo2.staffID, vo2.staffName, vo2.contactWay);
+			assertEquals(ResultMessage_User.UpdateSuccess, staff.changeData(vo));
 //			assertEquals(ResultMessage_User.UserName_Invalid, staff.changeData(new StaffVO(vo2.staffID,"123", vo2.hotelID)));
 		} catch (Exception e) {
 			System.out.println("Exception");

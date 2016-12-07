@@ -14,6 +14,7 @@ import util.user.MemberType;
 import vo.user.ClientVO;
 import vo.user.ManagerVO;
 import vo.user.MarketerVO;
+import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
 public class ManagerBlTest {
@@ -68,7 +69,8 @@ public class ManagerBlTest {
 	public void changeDataTest() {
 		try {
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.changeStaffData(new StaffVO(staffvo2.staffID,"12345678901234567890", staffvo2.hotelID)));
-			assertEquals(ResultMessage_User.UpdateSuccess, manager.changeStaffData(staffvo2));
+			StaffChangeVO vo = new StaffChangeVO(staffvo2.staffID, staffvo2.staffName, staffvo2.contactWay);
+			assertEquals(ResultMessage_User.UpdateSuccess, manager.changeStaffData(vo));
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.changeStaffData(new StaffVO(staffvo2.staffID,"123", staffvo2.hotelID)));
 		} catch (Exception e) {
 			System.out.println("Exception");
