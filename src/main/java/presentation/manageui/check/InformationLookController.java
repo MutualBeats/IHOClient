@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
-import presentation.utilui.WarningLabel;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_User;
 
@@ -66,12 +66,12 @@ public abstract class InformationLookController implements Initializable, Confir
 
 	@FXML
 	public void nameModify(MouseEvent event) {
-		WarningLabel.checkWarningBefore(name_warning);
+		CheckUtil.checkWarningBefore(name_warning);
 	}
 
 	@FXML
 	public void phoneModify(MouseEvent event) {
-		WarningLabel.checkWarningBefore(phone_warning);
+		CheckUtil.checkWarningBefore(phone_warning);
 	}
 
 	@Override

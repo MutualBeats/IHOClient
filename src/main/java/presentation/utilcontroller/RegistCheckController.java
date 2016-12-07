@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import presentation.utilui.WarningLabel;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 
 public abstract class RegistCheckController {
@@ -129,22 +129,22 @@ public abstract class RegistCheckController {
 	
 	@FXML
 	public void nameModify(MouseEvent event){
-		WarningLabel.checkWarningBefore(name_warning);
+		CheckUtil.checkWarningBefore(name_warning);
 	}
 	
 	@FXML
 	public void userNameModify(MouseEvent event){
-		WarningLabel.checkWarningBefore(user_name_warning);
+		CheckUtil.checkWarningBefore(user_name_warning);
 	}
 	
 	@FXML
 	public void phoneModify(MouseEvent event){
-		WarningLabel.checkWarningBefore(phone_warning);
+		CheckUtil.checkWarningBefore(phone_warning);
 	}
 	
 	@FXML
 	public void passwordModify(MouseEvent event){
-		boolean warn_before = WarningLabel.checkWarningBefore(ps_warning);
+		boolean warn_before = CheckUtil.checkWarningBefore(ps_warning);
 		if(warn_before) {
 			ps.setText("");
 			ps_again.setText("");
@@ -153,7 +153,7 @@ public abstract class RegistCheckController {
 	
 	@FXML
 	public void passwordAgainModify(MouseEvent event){
-		boolean warn_before = WarningLabel.checkWarningBefore(ps_warning);
+		boolean warn_before = CheckUtil.checkWarningBefore(ps_warning);
 		if(warn_before) {
 			ps_again.setText("");
 		}

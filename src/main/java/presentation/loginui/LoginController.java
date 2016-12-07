@@ -13,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
-import presentation.utilui.WarningLabel;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 
 public class LoginController implements Initializable{
@@ -84,12 +84,12 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void userNameModify(MouseEvent event) {
-		WarningLabel.checkWarningBefore(name_warning);
+		CheckUtil.checkWarningBefore(name_warning);
 	}
 	
 	@FXML
 	public void passwordModify(MouseEvent event) {
-		if(WarningLabel.checkWarningBefore(pass_warning)) {
+		if(CheckUtil.checkWarningBefore(pass_warning)) {
 			password.setText("");
 		}
 	}

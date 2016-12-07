@@ -94,6 +94,32 @@ public class WindowGrab {
 		}
 		initStage(stage, root, owner, title, css_path);
 	}
+	
+	/**
+	 * 界面初始
+	 * 
+	 * @param stage
+	 * @param root
+	 * @param owner
+	 * @param title
+	 * @param css_path
+	 */
+	private static void initStage(Stage stage, Parent root, Window owner, String title, URL css_path) {
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(css_path.toExternalForm());
+		stage.setScene(scene);
+		stage.initStyle(StageStyle.UTILITY);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		// 设置父窗口
+		stage.initOwner(owner);
+		stage.requestFocus();
+		stage.setResizable(false);
+		stage.setTitle(title);
+		stage.centerOnScreen();
+		stage.sizeToScene();
+		stage.showAndWait();
+	}
+
 
 	/**
 	 * 获取当前窗口
@@ -140,31 +166,6 @@ public class WindowGrab {
 	}
 
 	
-	/**
-	 * 界面初始
-	 * 
-	 * @param stage
-	 * @param root
-	 * @param owner
-	 * @param title
-	 * @param css_path
-	 */
-	private static void initStage(Stage stage, Parent root, Window owner, String title, URL css_path) {
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(css_path.toExternalForm());
-		stage.setScene(scene);
-		stage.initStyle(StageStyle.UTILITY);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		// 设置父窗口
-		stage.initOwner(owner);
-		stage.requestFocus();
-		stage.setResizable(false);
-		stage.setTitle(title);
-		stage.centerOnScreen();
-		stage.sizeToScene();
-		stage.showAndWait();
-	}
-
 	
 	/**
 	 * 
