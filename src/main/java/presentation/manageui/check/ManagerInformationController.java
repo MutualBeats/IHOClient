@@ -28,21 +28,16 @@ public class ManagerInformationController extends InformationLookController {
 
 	@Override
 	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(1);
 		ManagerVO vo = new ManagerVO(info.managerID, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeManagerInfo(vo);
 		} catch (Exception e) {
-			WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(1), "网络错误，请检查您的网络");
+			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
 			return;
 		}
-		if(result != ResultMessage_User.UpdateSuccess) {
-			Window window = WindowGrab.getWindowByStage(1);
-			WindowGrab.startErrorWindow(window, "修改失败");
-		} else {
-			toInfoState();
-		}
+		handleResult(result, window);
 	}
-	
 
 }

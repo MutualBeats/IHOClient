@@ -7,14 +7,12 @@ import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_User;
-import vo.user.ClientInfoChangeVO;
-import vo.user.ManagerVO;
 import vo.user.MarketerVO;
 
-public class MarketerInformationController extends InformationLookController{
+public class MarketerInformationController extends InformationLookController {
 
 	private MarketerVO info;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		info = (MarketerVO) resources.getObject("info");
@@ -27,24 +25,19 @@ public class MarketerInformationController extends InformationLookController{
 		this.type.setText("网站管理人员");
 		this.phone.setText(info.contactWay);
 	}
-	
 
 	@Override
 	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(1);
 		MarketerVO vo = new MarketerVO(info.marketerID, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeMarketerData(vo);
 		} catch (Exception e) {
-			WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(1), "网络错误，请检查您的网络");
+			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
 			return;
 		}
-		if(result != ResultMessage_User.UpdateSuccess) {
-			Window window = WindowGrab.getWindowByStage(1);
-			WindowGrab.startErrorWindow(window, "修改失败");
-		} else {
-			toInfoState();
-		}
+		handleResult(result, window);
 	}
 
 }

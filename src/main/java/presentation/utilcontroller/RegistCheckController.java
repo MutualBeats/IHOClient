@@ -13,18 +13,29 @@ import presentation.utilui.WindowGrab;
 
 public abstract class RegistCheckController {
 	
-	@FXML Button confirm;
-	@FXML Button cancel;
+	@FXML
+	protected Button confirm;
+	@FXML
+	protected Button cancel;
 	
-	@FXML TextField user_name;
-	@FXML TextField name;
-	@FXML TextField phone;
-	@FXML PasswordField ps;
-	@FXML PasswordField ps_again;
-	@FXML Label user_name_warning;
-	@FXML Label name_warning;
-	@FXML Label phone_warning;
-	@FXML Label ps_warning;
+	@FXML
+	protected TextField user_name;
+	@FXML
+	protected TextField name;
+	@FXML
+	protected TextField phone;
+	@FXML
+	protected PasswordField ps;
+	@FXML
+	protected PasswordField ps_again;
+	@FXML
+	protected Label user_name_warning;
+	@FXML
+	protected Label name_warning;
+	@FXML 
+	protected Label phone_warning;
+	@FXML 
+	protected Label ps_warning;
 	
 	
 	@FXML

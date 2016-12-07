@@ -15,6 +15,7 @@ import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WarningLabel;
 import presentation.utilui.WindowGrab;
+import util.resultmessage.ResultMessage_User;
 
 public abstract class InformationLookController implements Initializable, Confirm {
 
@@ -129,5 +130,14 @@ public abstract class InformationLookController implements Initializable, Confir
 
 	@Override
 	public abstract void confirm();
+
+	protected void handleResult(ResultMessage_User result, Window window) {
+		if (result != ResultMessage_User.UpdateSuccess) {
+			WindowGrab.startErrorWindow(window, "修改失败");
+		} else {
+			WindowGrab.startNoticeWindow(window, "修改成功");
+			toInfoState();
+		}
+	}
 
 }

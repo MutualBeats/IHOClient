@@ -47,24 +47,16 @@ public class ClientInformationController extends InformationLookController {
 
 	@Override
 	public void confirm() {
-		boolean check = checkformatter();
-		if(check) {
-			ClientInfoChangeVO vo = new ClientInfoChangeVO(info.clientID, name.getText(), phone.getText());
-			ResultMessage_User result = ResultMessage_User.UpdateSuccess;
-			try {
-				result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
-			} catch (Exception e) {
-				Window window = WindowGrab.getWindowByStage(1);
-				WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
-				return;
-			}
-			if(result != ResultMessage_User.UpdateSuccess) {
-				Window window = WindowGrab.getWindowByStage(1);
-				WindowGrab.startErrorWindow(window, "修改失败");
-			} else {
-				toInfoState();
-			}
+		Window window = WindowGrab.getWindowByStage(1);
+		ClientInfoChangeVO vo = new ClientInfoChangeVO(info.clientID, name.getText(), phone.getText());
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
+		try {
+			result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
+		} catch (Exception e) {
+			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
+			return;
 		}
+		handleResult(result, window);
 	}
 
 }

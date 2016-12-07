@@ -3,10 +3,7 @@ package presentation.utilui;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.EnumMap;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.robot.impl.FXRobotHelper;
@@ -76,6 +73,10 @@ public class WindowGrab {
 	
 	public static void startErrorWindow(Window owner, String message) {
 		startWindowWithBundle(owner, "警告", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
+	}
+	
+	public static void startNoticeWindow(Window owner, String message) {
+		startWindowWithBundle(owner, "提示", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
 
 	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
