@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-11-27, 6:32:00
+    Author     : apple
+*/
+
+.root{
+  -fx-background-image: url("file:src/main/resources/image/client/background.png");
+ }
+
+.button{
+	-fx-background-color: transparent;
+}
+
+#title{
+	-fx-background-image: url("file:src/main/resources/image/client/title.png");
+}
+
+#logout{
+	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
+}
+#logout:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/logout_pressed.png");
+}
+
+#all_order{
+	-fx-background-image: url("file:src/main/resources/image/client/all_order.png");
+}
+#all_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/all_order_hover.png");
+}
+
+#unusual_order{
+	-fx-background-image: url("file:src/main/resources/image/client/unusual_order.png");
+}
+#unusual_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/unusual_order_hover.png");
+}
+
+#unexecuted_order{
+	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order.png");
+}
+#unexecuted_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order_hover.png");
+}
+
+#revoked_order{
+	-fx-background-image: url("file:src/main/resources/image/client/revoked_order.png");
+}
+#revoked_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/revoked_order_hover.png");
+}
+
+#executed_order{
+	-fx-background-image: url("file:src/main/resources/image/client/executed_order.png");
+}
+#executed_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/executed_order_hover.png");
+}
+
+
+
+
+
+

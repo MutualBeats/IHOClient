@@ -7,114 +7,138 @@ and open the template in the editor.
     Created on : 2016-11-27, 6:32:00
     Author     : apple
 */
-
 .root{
-  -fx-background-image: url("file:src/main/resources/image/client/menu.png");
+  -fx-background-image: url("file:src/main/resources/image/client/background.png");
  }
- 
- 
- .button{
- 	-fx-background-color:transparent;
- }
- 
+.button{
+	-fx-background-color: transparent;
+}
+
+
 #title{
 	-fx-background-image: url("file:src/main/resources/image/client/title.png");
 }
-#menu{
-	-fx-background-image: url("file:src/main/resources/image/client/menu.jpg");
-}
-#member{
-	-fx-background-image: url("file:src/main/resources/image/client/member.png");
-}
-#member:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/member_pressed.png");
-}
 
-#createorder{
-	-fx-background-image: url("file:src/main/resources/image/client/createorder.png");
+#all{
+	-fx-background-image: url("file:src/main/resources/image/client/all.png");
 }
-#createorder:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/createorder_pressed.png");
-}
-
-#evaluatehotel{
-	-fx-background-image: url("file:src/main/resources/image/client/evaluatehotel.png");
-}
-#evaluatehotel:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/evaluatehotel_pressed.png");
-}
-
-#maintainmessage{
-	-fx-background-image: url("file:src/main/resources/image/client/maintainmessage.png");
-}
-#maintainmessage:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/maintainmessage_pressed.png");
-}
-
-#revokeorder{
-	-fx-background-image: url("file:src/main/resources/image/client/revokeorder.png");
-}
-#revokeorder:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/revokeorder_pressed.png");
-}
-
-#browseorder{
-	-fx-background-image: url("file:src/main/resources/image/client/browseorder.png");
-}
-#browseorder:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/browseorder_pressed.png");
-}
-
-#pane_browseorder{
-	 -fx-background-image: url("file:src/main/resources/image/client/pane.png");
-}
-
-#all_order{
-	-fx-background-image: url("file:src/main/resources/image/client/button_all.png");
-}
-#all_order:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_all_pressed.png");
-}
-
-
-#unexecute_order{
-	-fx-background-image: url("file:src/main/resources/image/client/button_unexecute.png");
-}
-#unexecute_order:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_unexecute_pressed.png");
-}
-
-#execute_order{
-	-fx-background-image: url("file:src/main/resources/image/client/button_execute.png");
-}
-
-#execute_order:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_execute_pressed.png");
-}
-
-#unusual_order{
-	-fx-background-image: url("file:src/main/resources/image/client/button_unusual.png");
-}
-#unusual_order:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_unusual_pressed.png");
-}
-
-
-#revoked_order{
-	-fx-background-image: url("file:src/main/resources/image/client/button_revoke.png");
-}
-#revoked_order:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_revoke_pressed.png");
-}
-
-
-#search{
-	-fx-background-image: url("file:src/main/resources/image/client/button_search.png");
-}
-#search:pressed{
-	-fx-background-image: url("file:src/main/resources/image/client/button_search_pressed.png");
+#all:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/all_pressed.png");
 }
 
 #logout{
 	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
+}
+#logout:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/logout_pressed.png");
+}
+
+
+#create_order{
+	-fx-background-image: url("file:src/main/resources/image/client/create_order.png");
+}
+#create_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/create_order_pressed.png");
+}
+
+
+#browse_order{
+	-fx-background-image: url("file:src/main/resources/image/client/browse_order.png");
+}
+#browse_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/browse_order_pressed.png");
+}
+
+
+#revoke_order{
+	-fx-background-image: url("file:src/main/resources/image/client/revoke_order.png");
+}
+#revoke_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/revoke_order_pressed.png");
+}
+
+
+#member{
+	-fx-background-image: url("file:src/main/resources/image/client/member.png");
+}
+#member:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/member_pressed.png");
+}
+
+
+#maintain_message{
+	-fx-background-image: url("file:src/main/resources/image/client/message.png");
+}
+#maintain_message:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/message_pressed.png");
+}
+
+
+#evaluate_hotel{
+	-fx-background-image: url("file:src/main/resources/image/client/evaluate_hotel.png");
+}
+#evaluate_hotel:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/evaluate_hotel_pressed.png");
+}
+
+#pane{
+	-fx-background-image: url("file:src/main/resources/image/client/pane.png");
+}
+
+#search{
+	-fx-background-image: url("file:src/main/resources/image/client/search.png");
+}
+#search:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/search_pressed.png");
+}
+
+
+#hotel_one{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_one.png");
+}
+#hotel_one:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_one_hover.png");
+}
+
+
+#hotel_two{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_two.png");
+}
+#hotel_two:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_two_hover.png");
+}
+
+#hotel_three{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_three.png");
+}
+#hotel_three:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_three_hover.png");
+}
+
+#hotel_four{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_four.png");
+}
+#hotel_four:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_four_hover.png");
+}
+
+#hotel_five{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_five.png");
+}
+#hotel_five:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_five_hover.png");
+}
+
+#hotel_six{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_six.png");
+}
+#hotel_six:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_six_hover.png");
+}
+
+#hotel_seven{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_seven.png");
+}
+#hotel_seven:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/hotel_seven_hover.png");
 }
