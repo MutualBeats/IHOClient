@@ -2,67 +2,124 @@ package factory.datahelper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import dataservice.promotiondataservice.PromotionDataService;
 import po.promotion.PromotionPO;
 import util.resultmessage.ResultMessage_Promotion;
 
-public class PromotionDataHelper implements PromotionDataService{
+public class PromotionDataHelper {
 
 	private PromotionDataService promotion_service;
+	/**
+	 * A record for current hotel
+	 */
+	private String current_hotel;
+	/**
+	 * Cache for hotel promotion
+	 */
+	private ArrayList<PromotionPO> hotel_promotion_cache;
+	/**
+	 * Cache for web promotion
+	 */
+	private ArrayList<PromotionPO> web_promotion_cache;
+	/**
+	 * Cache for member level and discount
+	 */
+	private ArrayList<Integer> member_level_cache;
+	private ArrayList<Double> member_discount_cache;
 	
 	/**
 	 * @param promotion_service
+	 * @throws RemoteException 
 	 */
-	public PromotionDataHelper(PromotionDataService promotion_service) {
+	public PromotionDataHelper(PromotionDataService promotion_service) throws RemoteException {
 		super();
+		this.current_hotel = "";
 		this.promotion_service = promotion_service;
+		this.hotel_promotion_cache = new ArrayList<>();
+		this.hotel_promotion_cache.clear();
+		this.web_promotion_cache = promotion_service.getWebPromotion();
+		this.member_level_cache = promotion_service.getMemberLevel();
+		this.member_discount_cache = promotion_service.getMemberDiscount();
+		this.member_level_cache.clear();
+		this.member_discount_cache.clear();
 	}
 
-	/* (non-Javadoc)
-	 * @see dataservice.promotiondataservice.PromotionDataService#addPromotion(po.promotion.PromotionPO)
-	 */
-	@Override
-	public ResultMessage_Promotion addPromotion(PromotionPO po) throws RemoteException {
-		// TODO Auto-generated method stub
+	public ResultMessage_Promotion addPromotion(PromotionPO po) {
+		ResultMessage_Promotion result = ResultMessage_Promotion.Add_Successful;
+		try {
+			result = promotion_service.addPromotion(po);
+			if(!result.equals(ResultMessage_Promotion.Add_Successful))
+				return result;
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Promotion.Net_Error;
+		}
+		// 更新cache
+		if(po.getHotelID().equals("")) {
+			web_promotion_cache.add(po);
+		} else {
+			if(current_hotel.equals(po.getHotelID()))
+				hotel_promotion_cache.add(po);
+		}
+		
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see dataservice.promotiondataservice.PromotionDataService#getHotelPromotion(java.lang.String)
-	 */
-	@Override
-	public ArrayList<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException {
+		if(!current_hotel.equals(hotelID)) {
+			hotel_promotion_cache = promotion_service.getHotelPromotion(hotelID);
+			current_hotel = hotelID;
+		}
+		return hotel_promotion_cache.iterator();
 	}
 
-	/* (non-Javadoc)
-	 * @see dataservice.promotiondataservice.PromotionDataService#getWebPromotion()
-	 */
-	@Override
-	public ArrayList<PromotionPO> getWebPromotion() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterator<PromotionPO> getWebPromotion() throws RemoteException {
+		return web_promotion_cache.iterator();
 	}
 
-	/* (non-Javadoc)
-	 * @see dataservice.promotiondataservice.PromotionDataService#deletePromotion(java.lang.String)
-	 */
-	@Override
-	public ResultMessage_Promotion deletePromotion(String promotionID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage_Promotion deletePromotion(String promotionID) {
+		ResultMessage_Promotion result = ResultMessage_Promotion.Delete_Successful;
+		try {
+			result = promotion_service.deletePromotion(promotionID);
+			if (!result.equals(ResultMessage_Promotion.Delete_Successful))
+				return result;
+			// 更新cache
+			current_hotel = "";
+			web_promotion_cache = promotion_service.getWebPromotion();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Promotion.Net_Error;
+		}
+		return result;
+	}
+	
+	public ArrayList<Integer> getMemberLevel() throws RemoteException {
+		// TODO 如何返回？
+		return member_level_cache;
 	}
 
-	/* (non-Javadoc)
-	 * @see dataservice.promotiondataservice.PromotionDataService#levelMake(java.util.ArrayList)
-	 */
-	@Override
-	public ResultMessage_Promotion levelMake(ArrayList<Integer> level, ArrayList<Double> discount) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Double> getMemberDiscount() throws RemoteException {
+		// TODO 如何返回？
+		return member_discount_cache;
 	}
 
+	public ResultMessage_Promotion levelMake(ArrayList<Integer> level, ArrayList<Double> discount) {
+		ResultMessage_Promotion result = ResultMessage_Promotion.Level_Make_Successful;
+		try {
+			result = promotion_service.levelMake(level, discount);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Promotion.Net_Error;
+		}
+		if(!result.equals(ResultMessage_Promotion.Level_Make_Successful))
+			return result;
+		
+		member_level_cache = level;
+		member_discount_cache = discount;
+		
+		return result;
+	}
 
 }
