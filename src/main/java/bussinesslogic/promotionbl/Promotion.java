@@ -31,7 +31,8 @@ public class Promotion {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.Enterprise))
 			po = new EnterprisePromotionPO((EnterprisePromotionVO)vo);
-		po = new PromotionPO(vo);
+		else
+			po = new PromotionPO(vo);
 		return promotion_service.addPromotion(po);
 	}
 
@@ -39,7 +40,8 @@ public class Promotion {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.BusinessDistrict))
 			po = new DistrictPromotionPO((DistrictPromotionVO)vo);
-		po = new PromotionPO(vo);
+		else
+			po = new PromotionPO(vo);
 		return promotion_service.addPromotion(po);
 	}
 

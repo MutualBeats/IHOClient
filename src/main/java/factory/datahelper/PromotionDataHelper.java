@@ -62,7 +62,7 @@ public class PromotionDataHelper {
 				hotel_promotion_cache.add(po);
 		}
 		
-		return null;
+		return result;
 	}
 
 	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException {
@@ -85,6 +85,7 @@ public class PromotionDataHelper {
 				return result;
 			// 更新cache
 			current_hotel = "";
+			hotel_promotion_cache.clear();
 			web_promotion_cache = promotion_service.getWebPromotion();
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -94,12 +95,10 @@ public class PromotionDataHelper {
 	}
 	
 	public ArrayList<Integer> getMemberLevel() throws RemoteException {
-		// TODO 如何返回？
 		return member_level_cache;
 	}
 
 	public ArrayList<Double> getMemberDiscount() throws RemoteException {
-		// TODO 如何返回？
 		return member_discount_cache;
 	}
 
