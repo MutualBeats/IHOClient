@@ -28,7 +28,7 @@ public class Promotion {
 		}
 	}
 
-	public ResultMessage_Promotion addhotelPromotion(PromotionVO vo) {
+	public String addhotelPromotion(PromotionVO vo) throws RemoteException {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.Enterprise))
 			po = new EnterprisePromotionPO((EnterprisePromotionVO)vo);
@@ -37,7 +37,7 @@ public class Promotion {
 		return promotion_service.addPromotion(po);
 	}
 
-	public ResultMessage_Promotion addWebPromotion(PromotionVO vo) {
+	public String addWebPromotion(PromotionVO vo) throws RemoteException {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.BusinessDistrict))
 			po = new DistrictPromotionPO((DistrictPromotionVO)vo);

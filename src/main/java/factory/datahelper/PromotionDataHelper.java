@@ -44,16 +44,9 @@ public class PromotionDataHelper {
 		this.member_discount_cache = promotion_service.getMemberDiscount();
 	}
 
-	public ResultMessage_Promotion addPromotion(PromotionPO po) {
-		ResultMessage_Promotion result = ResultMessage_Promotion.Add_Successful;
-		try {
-			result = promotion_service.addPromotion(po);
-			if(!result.equals(ResultMessage_Promotion.Add_Successful))
-				return result;
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return ResultMessage_Promotion.Net_Error;
-		}
+	public String addPromotion(PromotionPO po) throws RemoteException {
+		String promotionID = promotion_service.addPromotion(po);
+		po.setPromotionID(promotionID);
 		// 更新cache
 		if(po.getHotelID().equals("")) {
 			web_promotion_cache.add(po);
@@ -61,8 +54,7 @@ public class PromotionDataHelper {
 			if(current_hotel.equals(po.getHotelID()))
 				hotel_promotion_cache.add(po);
 		}
-		
-		return result;
+		return promotionID;
 	}
 
 	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException {

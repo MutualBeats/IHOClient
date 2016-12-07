@@ -12,16 +12,16 @@ public interface PromotionBLService {
 	 * @param vo
 	 * @return ResultMessage
 	 */
-	public ResultMessage_Promotion addhotelPromotion (PromotionVO vo);
+	public String addhotelPromotion (PromotionVO vo) throws RemoteException;
 	/**
 	 * 添加网站促销策略
 	 * @param vo
 	 * @return ResultMessage
 	 */
-	public ResultMessage_Promotion addWebPromotion (PromotionVO vo);
+	public String addWebPromotion (PromotionVO vo) throws RemoteException;
 	/**
 	 * 获得酒店促销策略列表
-	 * @param hotelId
+	 * @param hotelID
 	 * @return ArrayList
 	 */
 	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException;

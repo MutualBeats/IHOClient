@@ -18,12 +18,12 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public ResultMessage_Promotion addhotelPromotion(PromotionVO vo) {
+	public String addhotelPromotion(PromotionVO vo) throws RemoteException {
 		return promotion.addhotelPromotion(vo);
 	}
 
 	@Override
-	public ResultMessage_Promotion addWebPromotion(PromotionVO vo) {
+	public String addWebPromotion(PromotionVO vo) throws RemoteException {
 		return promotion.addWebPromotion(vo);
 	}
 
