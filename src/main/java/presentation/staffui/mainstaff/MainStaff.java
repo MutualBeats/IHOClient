@@ -5,7 +5,7 @@
  */
 package presentation.staffui.mainstaff;
 
-import config.URLConfig;
+import config.urlconfig.URLConfig;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

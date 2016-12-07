@@ -1,4 +1,4 @@
-package config;
+package config.urlconfig;
 
 import java.io.File;
 import java.net.MalformedURLException;

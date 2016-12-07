@@ -3,7 +3,7 @@ package presentation.loginui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import config.URLConfig;
+import config.urlconfig.URLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
