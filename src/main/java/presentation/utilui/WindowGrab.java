@@ -112,10 +112,20 @@ public class WindowGrab {
 	 * @return
 	 */
 	public static Window getWindowByStage(int index) {
-		ObservableList<Stage> stages = FXRobotHelper.getStages();
-		Stage stage = stages.get(index);
+		Stage stage = getStage(index);
 		Window window = stage.getScene().getWindow();
 		return window;
+	}
+	
+	/**
+	 * 这个方法需要谨慎使用
+	 * 
+	 * @return
+	 */
+	public static Stage getStage(int index) {
+		ObservableList<Stage> stages = FXRobotHelper.getStages();
+		Stage stage = stages.get(index);
+		return stage;
 	}
 
 	/**

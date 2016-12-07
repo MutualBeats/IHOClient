@@ -43,13 +43,13 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="address" alignment="TOP_LEFT" layoutX="325.0" layoutY="319.0" prefHeight="54.0" prefWidth="170.0" />
-            <Button fx:id="first_confirm" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_confirm" prefHeight="25.0" prefWidth="90.0" text="下一步">
+            <TextField fx:id="address" alignment="TOP_LEFT" layoutX="325.0" layoutY="319.0" onMouseClicked="#addressModify" prefHeight="54.0" prefWidth="170.0" />
+            <Button fx:id="next_step" layoutX="275.0" layoutY="475.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="25.0" prefWidth="90.0" text="下一步">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="first_cancel" layoutX="455.0" layoutY="475.0" mnemonicParsing="false" onAction="#first_cancel" prefHeight="25.0" prefWidth="90.0" text="取消">
+            <Button fx:id="cancel" layoutX="455.0" layoutY="475.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="90.0" text="取消">
                <font>
                   <Font size="18.0" />
                </font>
@@ -65,12 +65,12 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="hotel_name" layoutX="325.0" layoutY="145.0" prefHeight="20.0" prefWidth="170.0" />
-            <ComboBox fx:id="province" layoutX="325.0" layoutY="179.0" prefHeight="27.0" prefWidth="170.0" />
-            <ComboBox fx:id="city" layoutX="325.0" layoutY="214.0" prefHeight="27.0" prefWidth="170.0" />
-            <ComboBox fx:id="field" layoutX="325.0" layoutY="249.0" prefWidth="170.0" />
-            <ComboBox fx:id="group" layoutX="325.0" layoutY="284.0" prefWidth="170.0" />
-            <ComboBox fx:id="star" layoutX="325.0" layoutY="385.0" prefWidth="170.0" />
+            <TextField fx:id="hotel_name" layoutX="325.0" layoutY="145.0" onMouseClicked="#nameModify" prefHeight="20.0" prefWidth="170.0" />
+            <ComboBox fx:id="province" layoutX="325.0" layoutY="179.0" onMouseClicked="#provinceModify" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox fx:id="city" layoutX="325.0" layoutY="214.0" onMouseClicked="#cityModify" prefHeight="27.0" prefWidth="170.0" />
+            <ComboBox fx:id="field" layoutX="325.0" layoutY="249.0" onMouseClicked="#fieldModify" prefWidth="170.0" />
+            <ComboBox fx:id="group" layoutX="325.0" layoutY="284.0" onMouseClicked="#groupModify" prefWidth="170.0" />
+            <ComboBox fx:id="star" layoutX="325.0" layoutY="385.0" onMouseClicked="#starModify" prefWidth="170.0" />
             <Label fx:id="name_warning" layoutX="510.0" layoutY="145.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
             <Label fx:id="province_warning" layoutX="510.0" layoutY="179.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
             <Label fx:id="city_warning" layoutX="510.0" layoutY="214.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
