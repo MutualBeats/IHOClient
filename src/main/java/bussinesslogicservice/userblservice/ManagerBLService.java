@@ -49,5 +49,5 @@ public interface ManagerBLService {
 	
 	public ArrayList<MarketerVO> getMarketerList() throws Exception;
 	
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws Exception;
+	public String addHotel(HotelVO vo) throws Exception;
 }

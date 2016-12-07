@@ -6,8 +6,10 @@ import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelVO;
 
 public interface HotelAdd {
-	/*
+	/**
 	 * 添加酒店
+	 * @throws NullPointerException 
+	 * @throws RemoteException 
 	 */
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws RemoteException;
+	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException;
 }

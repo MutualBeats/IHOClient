@@ -139,14 +139,14 @@ public class HotelDataHelper {
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage_Hotel addHotel(HotelPO po) {
-		try {
-			ResultMessage_Hotel result = hotel_service.addHotel(po);
-			return result;
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return ResultMessage_Hotel.Net_Error;
-		}
+	public String addHotel(HotelPO po) throws RemoteException,NullPointerException {
+		String id = hotel_service.addHotel(po);
+		if (id != null) {
+			po.setHotelID(id);
+			hotel_info_cache.put(id, po);
+			return id;
+		} 
+		throw new NullPointerException();
 	}
 
 	/**

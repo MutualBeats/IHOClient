@@ -135,8 +135,10 @@ public class Hotel {
 	 * 
 	 * @param vo
 	 * @return
+	 * @throws NullPointerException 
+	 * @throws RemoteException 
 	 */
-	public ResultMessage_Hotel addHotel(HotelVO vo) {
+	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException {
 		return hotel_data_service.addHotel(new HotelPO(vo));
 	}
 

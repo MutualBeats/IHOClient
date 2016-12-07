@@ -47,9 +47,4 @@ public interface HotelBLService {
 	 */
 	public ResultMessage_Hotel evaluate(HotelEvaluationVO vo);
 
-	/**
-	 * 添加酒店
-	 */
-	public String addHotel(HotelVO vo);
-
 }

@@ -51,7 +51,7 @@ public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 	}
 
 	@Override
-	public ResultMessage_Hotel addHotel(HotelVO vo) {
+	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException {
 		return hotel.addHotel(vo);
 	}
 

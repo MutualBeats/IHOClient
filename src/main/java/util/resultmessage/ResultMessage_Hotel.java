@@ -9,6 +9,7 @@ public enum ResultMessage_Hotel {
 	Change_Successful, 
 	Evaluate_Successful, 
 	Add_Hotel_Successful, 
+	Add_Hotel_Failed,
 	Net_Error,
 
 }

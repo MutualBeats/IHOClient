@@ -1,5 +1,6 @@
 package bussinesslogic.userbl.manager;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -102,7 +103,7 @@ public class Manager {
 		return marketer.getMarketerList();
 	}
 	
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws Exception{
+	public String addHotel(HotelVO vo) throws Exception {
 		checkHotel();
 		return hotel.addHotel(vo);
 	}

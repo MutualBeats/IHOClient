@@ -54,7 +54,7 @@ public class ManagerController implements ManagerBLService {
 	}
 
 	@Override
-	public ResultMessage_Hotel addHotel(HotelVO vo) throws Exception   {
+	public String addHotel(HotelVO vo) throws Exception   {
 		return manager.addHotel(vo);
 	}
 
