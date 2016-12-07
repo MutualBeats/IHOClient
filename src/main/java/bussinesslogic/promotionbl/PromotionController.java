@@ -1,5 +1,6 @@
 package bussinesslogic.promotionbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,12 +28,12 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) {
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException {
 		return promotion.gethotelPromotion(hotelID);
 	}
 
 	@Override
-	public ArrayList<PromotionVO> getWebPromotion() {
+	public ArrayList<PromotionVO> getWebPromotion() throws RemoteException {
 		return promotion.getWebPromotion();
 	}
 
@@ -42,12 +43,12 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public ArrayList<Integer> getMemberLevel() {
+	public ArrayList<Integer> getMemberLevel() throws RemoteException {
 		return promotion.getMemberLevel();
 	}
 
 	@Override
-	public ArrayList<Double> getMemberDiscount() {
+	public ArrayList<Double> getMemberDiscount() throws RemoteException {
 		return promotion.getMemberDiscount();
 	}
 

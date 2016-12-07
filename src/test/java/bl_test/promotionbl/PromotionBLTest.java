@@ -1,55 +1,68 @@
-//package bl_test.promotionbl;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//import java.util.ArrayList;
-//
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import bussinesslogic.promotionbl.Promotion;
-//import util.ResultMessage_For_Stub;
-//import vo.order.OrderPromotionConditionVO;
-//import vo.promotion.PromotionVO;
-//
-//public class PromotionBLTest {
-//
-//	Promotion promotion;
-//	PromotionVO vo1;
-//	PromotionVO vo2;
-//	OrderPromotionConditionVO ordervo;
-//	@Before
-//	public void init(){
-//		vo1=new PromotionVO("123456789", "双十一全店特价","1234567890","2016/10/10","2016/10/20",0.1);
-//		vo2=new PromotionVO("123456780", "双十一全网特价","123456","2016/10/10","2016/10/20",0.1);
-//		ordervo=new OrderPromotionConditionVO();
-//	}
-//	@Test
-//	public void testHotelAdd() {
-//		assertEquals(ResultMessage_For_Stub.HotelAddSuccess, promotion.hotelAdd(vo1));
-//	}
-//	@Test
-//	public void testWebAdd() {
-//		assertEquals(ResultMessage_For_Stub.WebAddSuccess, promotion.webAdd(vo2));
-//	}
-//	@Test
-//	public void testHotelLook(){
-//		ArrayList<PromotionVO> list = new ArrayList<>();
-//		list.add(vo1);
-//		assertEquals(promotion.hotelLook(vo1.id),list);
-//	}
-//	@Test
-//	public void testWebLook(){
-//		ArrayList<PromotionVO> list = new ArrayList<>();
-//		list.add(vo2);
-//		assertEquals(promotion.webLook(),list);
-//	}
-//	public void testcancel(){
-//		assertEquals(ResultMessage_For_Stub.CancelSucceed, promotion.cancel(vo1.id));
-//	}
-//	public void testGetPromotion(){
-//		ArrayList<PromotionVO> list = new ArrayList<>();
-//		list.add(vo1);
-//		assertEquals(promotion.getPromotion(ordervo), list);
-//	}
-//}
+package bl_test.promotionbl;
+
+import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import bussinesslogic.promotionbl.Promotion;
+import util.promotion.PromotionType;
+import vo.promotion.PromotionVO;
+
+public class PromotionBLTest {
+	
+	private final int MAX_VIP_LEVEL = 3;
+
+	private Promotion promotion;
+	
+	@Before
+	public void init() {
+		try {
+			promotion = new Promotion();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetHotelPromotion() {
+		try {
+			ArrayList<PromotionVO> hotelPromotionList = promotion.gethotelPromotion("00000001");
+			PromotionVO vo = hotelPromotionList.get(hotelPromotionList.size() - 1);
+			assertEquals("三间以上优惠", vo.promotionName);
+			assertEquals(PromotionType.Room, vo.type);
+			assertEquals("00000001", vo.hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetWebPromotionPromotion() {
+		try {
+			ArrayList<PromotionVO> webPromotionList = promotion.getWebPromotion();
+			PromotionVO vo = webPromotionList.get(webPromotionList.size() - 1);
+			assertEquals("商圈活动", vo.promotionName);
+			assertEquals(PromotionType.BusinessDistrict, vo.type);
+			assertEquals("", vo.hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetMemberLevelandDiscount() {
+		try {
+			ArrayList<Double> discount = promotion.getMemberDiscount();
+			ArrayList<Integer> level = promotion.getMemberLevel();
+			assertEquals(MAX_VIP_LEVEL + 1, discount.size());
+			assertEquals(MAX_VIP_LEVEL, level.size());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

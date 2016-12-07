@@ -6,8 +6,6 @@ package data_test.hotel;
 
 import static org.junit.Assert.*;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Before;

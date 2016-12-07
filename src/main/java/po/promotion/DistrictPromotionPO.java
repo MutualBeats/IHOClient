@@ -7,9 +7,13 @@ package po.promotion;
 import java.util.ArrayList;
 
 import util.promotion.PromotionType;
+import vo.promotion.DistrictPromotionVO;
 
 public class DistrictPromotionPO extends PromotionPO {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 促销策略作用商圈列表
 	 */
@@ -29,6 +33,11 @@ public class DistrictPromotionPO extends PromotionPO {
 			String hotelID, String startDate, String finishDate, ArrayList<String> districtList) {
 		super(promotionID, promotionName, type, discount, hotelID, startDate, finishDate);
 		this.districtList = districtList;
+	}
+	
+	public DistrictPromotionPO(DistrictPromotionVO vo) {
+		super(vo);
+		this.districtList = vo.districtList;
 	}
 	
 	public DistrictPromotionPO() {

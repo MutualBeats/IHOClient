@@ -1,7 +1,5 @@
 package vo.user;
 
-import po.user.StaffChangePO;
-
 public class StaffChangeVO {
 	/**
 	 * 酒店工作人员ID

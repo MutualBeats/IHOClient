@@ -7,9 +7,13 @@ package po.promotion;
 import java.util.ArrayList;
 
 import util.promotion.PromotionType;
+import vo.promotion.EnterprisePromotionVO;
 
 public class EnterprisePromotionPO extends PromotionPO {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 促销策略合作企业列表
 	 */
@@ -30,6 +34,11 @@ public class EnterprisePromotionPO extends PromotionPO {
 			ArrayList<String> enterpriseList) {
 		super(promotionID, promotionName, type, discount, hotelID, startDate, finishDate);
 		this.enterpriseList = enterpriseList;
+	}
+	
+	public EnterprisePromotionPO(EnterprisePromotionVO vo) {
+		super(vo);
+		this.enterpriseList = vo.enterpriseList;
 	}
 	
 	public EnterprisePromotionPO() {

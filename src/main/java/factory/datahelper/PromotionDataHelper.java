@@ -35,15 +35,13 @@ public class PromotionDataHelper {
 	 */
 	public PromotionDataHelper(PromotionDataService promotion_service) throws RemoteException {
 		super();
-		this.current_hotel = "";
 		this.promotion_service = promotion_service;
+		this.current_hotel = "";
 		this.hotel_promotion_cache = new ArrayList<>();
 		this.hotel_promotion_cache.clear();
 		this.web_promotion_cache = promotion_service.getWebPromotion();
 		this.member_level_cache = promotion_service.getMemberLevel();
 		this.member_discount_cache = promotion_service.getMemberDiscount();
-		this.member_level_cache.clear();
-		this.member_discount_cache.clear();
 	}
 
 	public ResultMessage_Promotion addPromotion(PromotionPO po) {

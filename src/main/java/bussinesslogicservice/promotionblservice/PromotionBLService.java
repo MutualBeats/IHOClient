@@ -1,5 +1,6 @@
 package bussinesslogicservice.promotionblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.resultmessage.ResultMessage_Promotion;
@@ -23,12 +24,12 @@ public interface PromotionBLService {
 	 * @param hotelId
 	 * @return ArrayList
 	 */
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID);
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException;
 	/**
 	 * 获取网站营销策略列表
 	 * @return ArrayList
 	 */
-	public ArrayList<PromotionVO> getWebPromotion();
+	public ArrayList<PromotionVO> getWebPromotion() throws RemoteException;
 	/**
 	 * 撤销已有促销策略
 	 * @param promotionID
@@ -39,12 +40,12 @@ public interface PromotionBLService {
 	 * 查看会员等级划分方案
 	 * @return ArrayList
 	 */
-	public ArrayList<Integer> getMemberLevel();
+	public ArrayList<Integer> getMemberLevel() throws RemoteException;
 	/**
 	 * 查看不同等级会员折扣
 	 * @return ArrayList
 	 */
-	public ArrayList<Double> getMemberDiscount();
+	public ArrayList<Double> getMemberDiscount() throws RemoteException;
 	/**
 	 * 制定会员等级
 	 * @param level

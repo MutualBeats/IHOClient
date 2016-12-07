@@ -3,11 +3,17 @@
  */
 package po.promotion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.promotion.PromotionType;
+import vo.promotion.PromotionVO;
 
-public class PromotionPO {
+public class PromotionPO implements Serializable {
+	/**
+	 * version id
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 促销策略id
 	 */
@@ -56,6 +62,10 @@ public class PromotionPO {
 		this.hotelID = hotelID;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
+	}
+	
+	public PromotionPO(PromotionVO vo) {
+		this(vo.promotionID, vo.promotionName, vo.type, vo.discount, vo.hotelID, vo.startDate, vo.finishDate);
 	}
 	
 	public PromotionPO() {
