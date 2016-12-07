@@ -39,6 +39,11 @@ public class Time {
 		// TODO 计算两个时间点间的时间间隔（单位为秒）
 		return 0;
 	}
+	
+	public static int deltaDate(String date1, String date2) {
+		// TODO 计算两个日期之间的天数
+		return 1;
+	}
 
 	//若传入的time1为null或者""，返回“1970/1/1 0:0:0”
 	public static String jdugeTime1(String time1){

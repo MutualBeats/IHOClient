@@ -7,11 +7,8 @@ import vo.promotion.PromotionVO;
 
 public interface PromotionGet {
 	
-	/**
-	 * Get all the available promotion for current order
-	 * 
-	 * @return
-	 */
-	public Iterator<PromotionVO>  getPromotion();
+	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws RemoteException;
+	
+	public double getDiscount(int level) throws RemoteException;
 	
 }

@@ -13,10 +13,10 @@ public interface OrderDataService extends Remote{
 	 * 添加订单
 	 * 
 	 * @param po
-	 * @return
+	 * @return order_id
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Order addOrder(OrderPO po) throws RemoteException;
+	public String addOrder(OrderPO po) throws RemoteException;
 	/**
 	 * 补录订单
 	 * 

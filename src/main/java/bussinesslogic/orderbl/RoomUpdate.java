@@ -9,6 +9,8 @@ import vo.room.RoomRecordVO;
 
 public interface RoomUpdate {
 	
+	public int getRoomPrice(String hotelID, String roomNumber) throws RemoteException;
+	
 	public ResultMessage_Room addRecord(RoomRecordPO record);
 
 	public ResultMessage_Room deleteRecord(String orderID);

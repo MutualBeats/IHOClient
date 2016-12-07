@@ -2,6 +2,9 @@ package bussinesslogic.orderbl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import dataservice.orderdataservice.OrderDataService;
@@ -12,19 +15,25 @@ import util.Time;
 import util.credit.CreditChangeAction;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
+import util.user.MemberType;
 import vo.credit.CreditVO;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
+import vo.promotion.DistrictPromotionVO;
+import vo.promotion.EnterprisePromotionVO;
+import vo.promotion.PromotionVO;
 import vo.room.RoomRecordVO;
 import vo.user.ClientVO;
 
 public class Order {
+	private static final int PROMOTION_ROOM_NUMBER = 3;
 	
-	private OrderDataService order_data_service; 
+	private OrderDataService order_data_service;
 	
 	private ClientInfo client;
 	private CreditUpdate credit;
 	private PromotionGet promotion;
+	private HotelInfo hotel;
 	private RoomUpdate room;
 	private OrderPO orderPO;
 	
@@ -332,6 +341,66 @@ public class Order {
 		
 		return orderVOList;
 	}
+	
+	/**
+	 * 检查可用促销策略
+	 * @param iterator
+	 * @return
+	 * @throws RemoteException 
+	 */
+	private ArrayList<PromotionVO> getAvailablePromotion(Iterator<PromotionVO> iterator, OrderMakeVO order, ClientVO client) throws RemoteException {
+		ArrayList<PromotionVO> avaiPromotionList = new ArrayList<>();
+		while(iterator.hasNext()) {
+			PromotionVO vo = iterator.next();
+			switch (vo.type) {
+			// 生日促销策略
+			case Birthday:
+				if (client.memberType.equals(MemberType.Ordinary)) {
+					// 生日在住宿期间
+					String birthday = client.memberMessage.substring(5);
+					String checkIn = order.checkInDate.substring(5);
+					String checkOut = order.estimateCheckOutDate.substring(5);
+					if (birthday.compareTo(checkIn) >= 0 && birthday.compareTo(checkOut) <= 0)
+						avaiPromotionList.add(vo);
+				}
+				break;
+			// 企业促销策略
+			case Enterprise:
+				EnterprisePromotionVO enterpriseVO = (EnterprisePromotionVO) vo;
+				// 所在企业在促销策略涉及企业中
+				if (client.memberType.equals(MemberType.Enterprise)) {
+					for (String enterpriseName : enterpriseVO.enterpriseList) {
+						if (enterpriseName.equals(client.memberMessage)) {
+							avaiPromotionList.add(enterpriseVO);
+							break;
+						}
+					}
+				}
+				break;
+			// 商圈促销策略
+			case BusinessDistrict:
+				DistrictPromotionVO districtVO = (DistrictPromotionVO) vo;
+				checkHotel();
+				String hotelDistrict = hotel.getBusinessDistrict(order.hotelID);
+				for (String distrcit : districtVO.districtList) {
+					if (hotelDistrict.equals(distrcit)) {
+						avaiPromotionList.add(districtVO);
+						break;
+					}
+				}
+				break;
+			// 房间促销策略
+			case Room:
+				if (order.roomNumberList.size() >= PROMOTION_ROOM_NUMBER)
+					avaiPromotionList.add(vo);
+				break;
+			// 节假日促销策略
+			case Holiday:
+				avaiPromotionList.add(vo);
+			}
+		}
+		return avaiPromotionList;
+	}
 
 	/**
 	 * 生成订单
@@ -348,16 +417,47 @@ public class Order {
 		// TODO 更多错误信息
 		
 		OrderVO orderVO = new OrderVO(vo);
-//		orderVO.orderID = getOrderID();
-		// TODO 可用促销策略获取
-		checkPromotion();
-//		orderVO.promotionIDList = promotion.getPromotion();
-		// TODO 订单价格计算
-//		orderVO.value = 0.0;
 		
-		// 数据库记录订单信息
+		// 可用促销策略获取
+		int vipLevel = clientVO.level;
+		checkPromotion();
+		Iterator<PromotionVO> underwayPromotion = promotion.getUnderwayPromotion(vo.hotelID);
+		ArrayList<PromotionVO> availablePromotion = getAvailablePromotion(underwayPromotion, vo, clientVO);
+		// 所有符合条件促销策略按照该客户会员等级享受折扣排序
+		Comparator<PromotionVO> comparator = new Comparator<PromotionVO>() {
+			@Override
+			public int compare(PromotionVO o1, PromotionVO o2) {
+				double temp = o1.discount.get(vipLevel) - o2.discount.get(vipLevel);
+				return (int)temp;
+			}
+		};
+		Collections.sort(availablePromotion, comparator);
+		// 促销策略id获取
+		ArrayList<String> promotionIDList = new ArrayList<>();
+		for (PromotionVO promotionVO : availablePromotion) {
+			promotionIDList.add(promotionVO.promotionID);
+		}
+		orderVO.promotionIDList = promotionIDList;
+		// 订单价格计算
+		double value = 0;
+		int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate);
+		checkRoom();
+		for (String roomNumber : vo.roomNumberList) {
+			value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
+		}
+		// 促销策略折扣
+		double promotionDiscount = 10;
+		if(availablePromotion.size() > 0)
+			promotionDiscount = availablePromotion.get(0).discount.get(vipLevel);
+		// 会员等级折扣
+		double memberDiscount = promotion.getDiscount(vipLevel);
+		// 折扣后价格计算
+		orderVO.value = value * (promotionDiscount * 0.1) * (memberDiscount * 0.1);
+		
+		// 数据库记录订单信息，获取订单号
 		OrderPO po = new OrderPO(orderVO);
-		order_data_service.addOrder(po);
+		String orderID = order_data_service.addOrder(po);
+		orderVO.orderID = orderID;
 		
 		return orderVO;
 	}
@@ -397,6 +497,16 @@ public class Order {
 		if(room == null) {
 			try {
 				room = ControllerFactory.getRoomUpdateInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void checkHotel() {
+		if(hotel == null) {
+			try {
+				hotel = ControllerFactory.getHotelInfoInstance();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

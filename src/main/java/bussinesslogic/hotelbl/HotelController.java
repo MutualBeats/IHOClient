@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import bussinesslogic.orderbl.HotelInfo;
 import bussinesslogic.userbl.manager.entrust.HotelAdd;
 import bussinesslogicservice.hotelblservice.HotelBLService;
 import util.hotel.SearchCondition;
@@ -16,11 +17,11 @@ import vo.hotel.HotelVO;
  * 
  * @author Saltwater
  */
-public class HotelController implements HotelBLService , HotelAdd{
+public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 
 	private Hotel hotel = new Hotel();
 	
-	public HotelController() throws Exception{
+	public HotelController() throws Exception {
 		
 	}
 
@@ -52,6 +53,11 @@ public class HotelController implements HotelBLService , HotelAdd{
 	@Override
 	public ResultMessage_Hotel addHotel(HotelVO vo) {
 		return hotel.addHotel(vo);
+	}
+
+	@Override
+	public String getBusinessDistrict(String hotelID) throws RemoteException {
+		return hotel.showHotelInfo(hotelID).businessDistrict;
 	}
 
 }

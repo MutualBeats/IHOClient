@@ -9,6 +9,7 @@ import factory.datahelper.PromotionDataHelper;
 import po.promotion.DistrictPromotionPO;
 import po.promotion.EnterprisePromotionPO;
 import po.promotion.PromotionPO;
+import util.Time;
 import util.promotion.PromotionType;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.DistrictPromotionVO;
@@ -87,6 +88,33 @@ public class Promotion {
 
 	public ResultMessage_Promotion makeLevel(ArrayList<Integer> level, ArrayList<Double> discount) {
 		return promotion_service.levelMake(level, discount);
+	}
+	
+	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws RemoteException {
+		String currentDate = Time.getCurrentDate();
+		ArrayList<PromotionVO> hotelPromotionList = gethotelPromotion(hotelID);
+		ArrayList<PromotionVO> webPromotionList = getWebPromotion();
+		
+		ArrayList<PromotionVO> underwayPromotionList = new ArrayList<>();
+		
+		for (PromotionVO vo : hotelPromotionList) {
+			// 结束时间早于当前时间，跳出循环
+			if(vo.finishDate.compareTo(currentDate) < 0)
+				break;
+			// 结束时间晚于当前时间且开始时间早于当前时间
+			if(vo.startDate.compareTo(currentDate) <= 0)
+				underwayPromotionList.add(vo);
+		}
+		for (PromotionVO vo : webPromotionList) {
+			// 结束时间早于当前时间，跳出循环
+			if (vo.finishDate.compareTo(currentDate) < 0)
+				break;
+			// 结束时间晚于当前时间且开始时间早于当前时间
+			if (vo.startDate.compareTo(currentDate) <= 0)
+				underwayPromotionList.add(vo);
+		}
+		
+		return underwayPromotionList.iterator();
 	}
 
 }

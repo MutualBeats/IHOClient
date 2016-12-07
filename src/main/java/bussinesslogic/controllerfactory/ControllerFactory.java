@@ -1,11 +1,10 @@
 package bussinesslogic.controllerfactory;
 
-import java.rmi.RemoteException;
-
 import bussinesslogic.creditbl.CreditController;
 import bussinesslogic.hotelbl.HotelController;
 import bussinesslogic.orderbl.ClientInfo;
 import bussinesslogic.orderbl.CreditUpdate;
+import bussinesslogic.orderbl.HotelInfo;
 import bussinesslogic.orderbl.OrderController;
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogic.orderbl.RoomUpdate;
@@ -64,6 +63,13 @@ public class ControllerFactory {
 	}
 	
 	public static HotelBLService getHotelBLServiceInstance() throws Exception {
+		if(hotelController == null) {
+			hotelController = new HotelController();
+		}
+		return hotelController;
+	}
+	
+	public static HotelInfo getHotelInfoInstance() throws Exception {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}

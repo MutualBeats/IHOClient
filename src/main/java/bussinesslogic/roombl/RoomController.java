@@ -64,5 +64,10 @@ public class RoomController implements RoomBLService, RoomUpdate{
 		return room.checkOut(hotelID, roomNumber, true);
 	}
 
+	@Override
+	public int getRoomPrice(String hotelID, String roomNumber) throws RemoteException {
+		return room.getRoomInfo(hotelID, roomNumber).price;
+	}
+
 	
 }

@@ -56,11 +56,15 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	public ResultMessage_Promotion makeLevel(ArrayList<Integer> level, ArrayList<Double> discount) {
 		return promotion.makeLevel(level, discount);
 	}
-	
+
 	@Override
-	public Iterator<PromotionVO> getPromotion() {
-		// TODO
-		return null;
+	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws RemoteException {
+		return promotion.getUnderwayPromotion(hotelID);
+	}
+
+	@Override
+	public double getDiscount(int level) throws RemoteException {
+		return promotion.getMemberDiscount().get(level);
 	}
 	
 }
