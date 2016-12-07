@@ -50,6 +50,6 @@ public interface HotelBLService {
 	/**
 	 * 添加酒店
 	 */
-	public ResultMessage_Hotel addHotel(HotelVO vo);
+	public String addHotel(HotelVO vo);
 
 }
