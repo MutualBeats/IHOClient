@@ -113,7 +113,7 @@ public class ManageUIURLConfig {
 	}
 
 	private static void manage_init(Element manage){
-		String manage_root = manage.attributeValue("manage_root");
+		String manage_root = manage.attributeValue(ROOT_PATH);
 		
 		Element add_hotel_one = manage.element("add_hotel_one");
 		Element add_hotel_three = manage.element("add_hotel_three");

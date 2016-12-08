@@ -1,14 +1,12 @@
 package presentation.manageui.addhotel;
 
 import vo.hotel.HotelVO;
-import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
 public class ViewCache {
 
+	//Hotel
 	public static HotelVO hotel_info;
-
-	public static StaffVO staff_info;
 
 	public static int province_index;
 
@@ -19,13 +17,22 @@ public class ViewCache {
 	public static int group_index;
 
 	public static int star_index;
+	
+	//Staff
+	public static StaffVO staff_info;
+	
+	public static String ps;
+	
+	public static String ps_again;
 
 	public static void initHotel(HotelVO info) {
 		hotel_info = info;
 	}
 
-	public static void initStaff(StaffVO info) {
+	public static void initStaff(StaffVO info, String psw, String psa) {
 		staff_info = info;
+		ps = psw;
+		ps_again = psa;
 	}
 
 	/**
@@ -55,13 +62,16 @@ public class ViewCache {
 	
 	public static void clearStaffCache() {
 		staff_info = null;
+		ps = null;
 	}
 	
 	public static void clearHotelCache() {
 		hotel_info = null;
 		province_index = -1;
 		city_index = -1;
+		field_index = -1;
 		group_index = -1;
+		star_index = -1;
 	}
 
 }

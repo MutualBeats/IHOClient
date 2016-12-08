@@ -1,5 +1,6 @@
 package presentation.utilcontroller;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import config.NumberConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,8 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.resultmessage.ResultMessage_Verify;
 
 public abstract class RegistCheckController {
 	
@@ -157,6 +160,24 @@ public abstract class RegistCheckController {
 		if(warn_before) {
 			ps_again.setText("");
 		}
+	}
+	
+	protected boolean checkName(Window window) {
+		ResultMessage_Verify verify = ResultMessage_Verify.USER_NOT_EXIST;
+		String id = user_name.getText();
+		// ID检测
+		try {
+			verify = ControllerFactory.getIdentityService().checkUserName(id);
+		} catch (Exception e) {
+			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+			return false;
+		}
+		if (verify == ResultMessage_Verify.NET_ERROR) {
+			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+		} else if (verify == ResultMessage_Verify.USER_EXIST_ALREADY) {
+			this.user_name_warning.setText("该用户名已被注册");
+		} 
+		return true;
 	}
 	
 }

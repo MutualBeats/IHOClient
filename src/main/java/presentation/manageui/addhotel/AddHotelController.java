@@ -179,6 +179,7 @@ public class AddHotelController implements Initializable {
 
 	@FXML
 	void cancel(ActionEvent event) {
+		ViewCache.clearCache();
 		WindowGrab.closeWindow(event);
 	}
 
@@ -223,6 +224,7 @@ public class AddHotelController implements Initializable {
 		// 检查是否已经有数据录入
 		if (ViewCache.hotel_info != null) {
 			// Init View
+			System.out.println("Here");
 			init();
 		}
 	}
@@ -293,9 +295,6 @@ public class AddHotelController implements Initializable {
 		field.getSelectionModel().select(field_id);
 		group.getSelectionModel().select(group_id);
 		star.getSelectionModel().select(star_id);
-
-		// Clear Unuse Info
-		ViewCache.clearHotelCache();
 	}
 
 }

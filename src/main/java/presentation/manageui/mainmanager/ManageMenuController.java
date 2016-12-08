@@ -3,7 +3,7 @@ package presentation.manageui.mainmanager;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
+import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -72,25 +72,25 @@ public class ManageMenuController {
     @FXML
     void on_check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "查询人员信息", CHECK_MENU_FXML,CHECK_MENU_CSS);
+    	WindowGrab.startWindow(window, "查询人员信息",  ManageUIURLConfig.manage_check_menu_fxml(),ManageUIURLConfig.manage_check_menu_css());
     }
 
     @FXML
     void add_people(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "添加营销人员", ADD_PEOPLE_MENU_FXML,ADD_PEOPLE_MENU_CSS);
+    	WindowGrab.startWindow(window, "添加营销人员", ManageUIURLConfig.manage_add_people_fxml(),ManageUIURLConfig.manage_add_people_css());
     }
 
     @FXML
     void on_change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "输入人员ID", CHANGE_FXML,CHANGE_CSS);    	
+		WindowGrab.startWindow(window, "输入人员ID", ManageUIURLConfig.manage_change_message_fxml(),ManageUIURLConfig.manage_change_message_css());    	
     }
 
     @FXML
     void add_hotel(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "添加酒店", ADD_HOTEL_FIRST_FXML,ADD_HOTEL_FIRST_CSS); 
+		WindowGrab.startWindow(window, "添加酒店", ManageUIURLConfig.manage_add_hotel_one_fxml(),ManageUIURLConfig.manage_add_hotel_one_css()); 
     }
 
 }
