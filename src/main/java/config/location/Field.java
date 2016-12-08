@@ -1,7 +1,6 @@
 package config.location;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Field {
 	
@@ -22,5 +21,9 @@ private ArrayList<String> group ;
 		return field_name; 
 	}
 	
+	@Override
+	public String toString() {
+		return field_name;
+	}
 	
 }

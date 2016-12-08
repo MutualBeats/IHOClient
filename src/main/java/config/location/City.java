@@ -22,6 +22,9 @@ public class City {
 		return city_name;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return city_name;
+	}
 
 }

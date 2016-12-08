@@ -34,7 +34,7 @@ public class WindowGrab {
 	private static URL CONFIRM_CSS;
 	private static URL ERROR_FXML;
 	private static URL ERROR_CSS;
-	
+
 	static {
 		try {
 			CONFIRM_FXML = new URL("file:src/main/resources/ui/utilui/fxml/confirm.fxml");
@@ -66,15 +66,15 @@ public class WindowGrab {
 	public static void startWindow(Window owner, String title, URL fxml_path, URL css_path) {
 		startWindowWithBundle(owner, title, fxml_path, css_path, null);
 	}
-	
+
 	public static void startConfirmWindow(Window owner, Confirm confirm) {
 		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
 	}
-	
+
 	public static void startErrorWindow(Window owner, String message) {
 		startWindowWithBundle(owner, "警告", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
-	
+
 	public static void startNoticeWindow(Window owner, String message) {
 		startWindowWithBundle(owner, "提示", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
@@ -94,7 +94,7 @@ public class WindowGrab {
 		}
 		initStage(stage, root, owner, title, css_path);
 	}
-	
+
 	/**
 	 * 界面初始
 	 * 
@@ -120,7 +120,6 @@ public class WindowGrab {
 		stage.showAndWait();
 	}
 
-
 	/**
 	 * 获取当前窗口
 	 * 
@@ -129,7 +128,51 @@ public class WindowGrab {
 	 * @return
 	 */
 	public static Window getWindow(Event event) {
-		return ((Node) event.getSource()).getScene().getWindow();
+		return getScene(event).getWindow();
+	}
+
+	/**
+	 * 获取当前场景
+	 * 
+	 * @param event
+	 * @return
+	 */
+	public static Scene getScene(Event event) {
+		return ((Node) event.getSource()).getScene();
+	}
+
+	/**
+	 * 更改当前场景图
+	 * 
+	 * @param root
+	 *            : 新展示界面
+	 * @param frame
+	 *            ： 展示界面承载
+	 */
+	public static void changeScene(Parent root, Scene frame) {
+		frame.setRoot(root);
+	}
+
+	/**
+	 * 更改当前场景图
+	 * 
+	 * @param fxml_path
+	 *            : 新展示界面路径
+	 * @param frame
+	 *            : 展示界面承载
+	 */
+	public static void changeScene(URL fxml_path, Scene frame) {
+		Parent root = null;
+		try {
+			root = FXMLLoader.load(fxml_path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		changeScene(root, frame);
+	}
+
+	public static Scene getSceneByStage(int index) {
+		return getStage(index).getScene();
 	}
 	
 	/**
@@ -138,18 +181,18 @@ public class WindowGrab {
 	 * @return
 	 */
 	public static Window getWindowByStage(int index) {
-		Stage stage = getStage(index);
-		Window window = stage.getScene().getWindow();
-		return window;
+		return getSceneByStage(index).getWindow();
 	}
-	
+
 	/**
 	 * 这个方法需要谨慎使用
 	 * 
 	 * @return
 	 */
 	public static Stage getStage(int index) {
+		@SuppressWarnings("restriction")
 		ObservableList<Stage> stages = FXRobotHelper.getStages();
+
 		Stage stage = stages.get(index);
 		return stage;
 	}
@@ -165,12 +208,10 @@ public class WindowGrab {
 		closeWindow(window_to_close);
 	}
 
-	
 	public static void closeWindow(Window window_to_close) {
 		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
 	}
-	
-	
+
 	/**
 	 * 
 	 * Bundle for confirm view
@@ -200,6 +241,7 @@ public class WindowGrab {
 		}
 
 	}
+
 	/**
 	 * 
 	 * Bundle for error view
@@ -209,7 +251,7 @@ public class WindowGrab {
 	 */
 	static class ErrorMessageBundle extends ResourceBundle {
 		private final static String MESSAGE_KEY = "error_message";
-		
+
 		private String error_message;
 
 		public ErrorMessageBundle(String error_message) {

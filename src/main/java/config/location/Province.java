@@ -1,7 +1,6 @@
 package config.location;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Province {
 	
@@ -11,11 +10,11 @@ public class Province {
 		provinces = p_List;
 	}
 	
-	public static Iterator<Province> getProvince() {
+	public static ArrayList<Province> getProvince() {
 		if(provinces == null) {
 			provinces = PlaceConfig.getProvince();
 		}
-		return provinces.iterator();
+		return provinces;
 	}
 	
 	private ArrayList<City> cities;
@@ -33,6 +32,11 @@ public class Province {
 
 	public String getProvinceName() {
 		return this.provinceName;
+	}
+	
+	@Override
+	public String toString() {
+		return provinceName;
 	}
 	
 }

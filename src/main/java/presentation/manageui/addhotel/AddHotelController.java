@@ -2,12 +2,13 @@ package presentation.manageui.addhotel;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.swing.text.View;
-
-import javafx.collections.ObservableList;
+import bussinesslogic.orderbl.HotelInfo;
+import config.StarConfig;
+import config.location.City;
+import config.location.Field;
+import config.location.Province;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,27 +18,37 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
-import vo.user.MarketerVO;
+import vo.hotel.HotelVO;
 
 public class AddHotelController implements Initializable {
 
 	@FXML
+	private ComboBox<Integer> star;
+
+	@FXML
+	private ComboBox<City> city;
+	
+	@FXML
+	private ComboBox<Province> province;
+
+	@FXML
+	private ComboBox<Field> field;
+
+	@FXML
+	private ComboBox<String> group;
+	
+	@FXML
 	private TextField address;
-
+	
 	@FXML
-	private ComboBox<?> star;
-
-	@FXML
-	private ComboBox<?> city;
+	private TextField hotel_name;
+	
+	
 
 	@FXML
 	private Label address_warning;
-
-	@FXML
-	private TextField hotel_name;
 
 	@FXML
 	private Label field_warning;
@@ -47,12 +58,6 @@ public class AddHotelController implements Initializable {
 
 	@FXML
 	private Button cancel;
-
-	@FXML
-	private ComboBox<String> province;
-
-	@FXML
-	private ComboBox<String> field;
 
 	@FXML
 	private Button next_step;
@@ -66,14 +71,13 @@ public class AddHotelController implements Initializable {
 	@FXML
 	private AnchorPane first_pane;
 
-	@FXML
-	private ComboBox<String> group;
 
 	@FXML
 	private Label name_warning;
 
 	@FXML
 	private Label star_warning;
+	
 	
 	private static URL ADD_HOTEL_TWO_FXML;
 	private static URL ADD_HOTEL_TWO_CSS;
@@ -103,6 +107,11 @@ public class AddHotelController implements Initializable {
 	@FXML
 	void nextStep(ActionEvent event) {
 		if(checkInputFormater()) {
+			//更新缓存
+			String group_name = group.getSelectionModel().getSelectedItem();
+			String province_name = province.getSelectionModel().getSelectedItem().getProvinceName();
+//			HotelVO info = new HotelVO(null, hotel_name.getText(), address.getText(), null, grou, starLevel, score)
+			//关闭当前窗口
 			WindowGrab.closeWindow(event);
 			Stage stage = WindowGrab.getStage(0);
 			WindowGrab.startWindow(stage, "完善人员信息", ADD_HOTEL_TWO_FXML, ADD_HOTEL_TWO_CSS);
@@ -153,22 +162,39 @@ public class AddHotelController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		initView();
 		//检查是否已经有数据录入
-		if(ViewCache.marketer_info != null) {
+		if(ViewCache.hotel_info != null) {
 			//Init View
 			init();
-		} else {
-			initView();
 		}
 	}
 	
 	private void initView() {
-//		province.getItems().add
-		
+		province.getItems().addAll(Province.getProvince());
+		star.getItems().addAll(StarConfig.STAR_SEPERATE);
 	}
 
 	private void init() {
+		//Info init
+		HotelVO info = ViewCache.hotel_info;
+		hotel_name.setText(info.hotelName);
+		address.setText(info.address);
 		
+		//Box init
+		int province_id = ViewCache.province_index;
+		int city_id = ViewCache.city_index;
+		int field_id = ViewCache.field_index;
+		int group_id = ViewCache.group_index;
+		int star_id = ViewCache.star_index;
+		province.getSelectionModel().select(province_id);
+		city.getSelectionModel().select(city_id);
+		field.getSelectionModel().select(field_id);
+		group.getSelectionModel().select(group_id);
+		star.getSelectionModel().select(star_id);
+		
+		//Clear Unuse Info
+		ViewCache.clearHotelCache();
 	}
 
 }
