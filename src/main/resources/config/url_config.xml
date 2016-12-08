@@ -16,7 +16,7 @@
 	<error root_path="utilui/">
 		<fxml fxml_path="fxml/error.fxml"></fxml>
 		<css css_path="css/error.css"></css>
-	</confirm>
+	</error>
 	<!-- This is Client UI config -->
 	<client root_path="clientui/">
 		<!-- Client menu-->
@@ -24,6 +24,7 @@
 			<fxml fxml_path="fxml/clientmenu.fxml"></fxml>
 			<css css_path="css/clientmenu.css"></css>
 		</client_menu>
+	</client>
 	<!-- Client UI config finish -->
 
 	<!-- This is Staff UI config -->
@@ -128,6 +129,7 @@
 			<fxml fxml_path="fxml/web_promotion.fxml"></fxml>
 			<css css_path="css/web_promotion.css"></css>
 		</web_promotion>
+	</market>
 	<!-- Marketer UI config finish -->
 
 	<!-- This is Manager UI config -->
@@ -187,6 +189,7 @@
 			<fxml fxml_path="fxml/managemenu.fxml"></fxml>
 			<css css_path="css/managemenu.css"></css>
 		</manage_menu>
+	</manage>
 	<!-- Manager UI config finish -->
 
 </fxmlurl>
