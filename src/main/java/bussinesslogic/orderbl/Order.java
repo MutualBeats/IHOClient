@@ -1,6 +1,7 @@
 package bussinesslogic.orderbl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -74,17 +75,22 @@ public class Order {
 			
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
-			if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
-				checkClient();
-				ClientVO clientVO = client.getClientInfo(po.getClientID());
-				
-				int changeValue = -(int)(po.getValue() / 2);
-				int newCredit = clientVO.credit + changeValue;
-				CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
-						CreditChangeAction.RepealOrder, orderID);
-				
-				checkCredit();
-				credit.creditUpdate(creditVO);
+			try {
+				if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
+					checkClient();
+					ClientVO clientVO = client.getClientInfo(po.getClientID());
+					
+					int changeValue = -(int)(po.getValue() / 2);
+					int newCredit = clientVO.credit + changeValue;
+					CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
+							CreditChangeAction.RepealOrder, orderID);
+					
+					checkCredit();
+					credit.creditUpdate(creditVO);
+				}
+			} catch (ParseException e) {
+				e.printStackTrace();
+				return ResultMessage_Order.Cancel_Failed;
 			}
 			
 			// 删除房间预订记录
@@ -414,7 +420,6 @@ public class Order {
 		ClientVO clientVO = client.getClientInfo(vo.clientID);
 		if(clientVO.credit < 0)
 			return null;
-		// TODO 更多错误信息
 		
 		OrderVO orderVO = new OrderVO(vo);
 		
@@ -427,23 +432,27 @@ public class Order {
 		Comparator<PromotionVO> comparator = new Comparator<PromotionVO>() {
 			@Override
 			public int compare(PromotionVO o1, PromotionVO o2) {
-				double temp = o1.discount.get(vipLevel) - o2.discount.get(vipLevel);
-				return (int)temp;
+				return (int)(o1.discount.get(vipLevel) - o2.discount.get(vipLevel));
 			}
 		};
 		Collections.sort(availablePromotion, comparator);
 		// 促销策略id获取
-		ArrayList<String> promotionIDList = new ArrayList<>();
+		ArrayList<String> promotionIDList = new ArrayList<String>();
 		for (PromotionVO promotionVO : availablePromotion) {
 			promotionIDList.add(promotionVO.promotionID);
 		}
 		orderVO.promotionIDList = promotionIDList;
 		// 订单价格计算
 		double value = 0;
-		int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate);
-		checkRoom();
-		for (String roomNumber : vo.roomNumberList) {
-			value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
+		try {
+			int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate) + 1;
+		
+			checkRoom();
+			for (String roomNumber : vo.roomNumberList)
+				value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
 		}
 		// 促销策略折扣
 		double promotionDiscount = 10;
@@ -458,6 +467,18 @@ public class Order {
 		OrderPO po = new OrderPO(orderVO);
 		String orderID = order_data_service.addOrder(po);
 		orderVO.orderID = orderID;
+		
+		// 添加房间记录
+		checkRoom();
+		for (String roomNumber : vo.roomNumberList) {
+			RoomRecordPO roomRecordPO = new RoomRecordPO();
+			roomRecordPO.setHotelID(vo.hotelID);
+			roomRecordPO.setRoomNumber(roomNumber);
+			roomRecordPO.setOrderID(orderID);
+			roomRecordPO.setCheckInDate(vo.checkInDate);
+			roomRecordPO.setEstimateCheckOutDate(vo.estimateCheckOutDate);
+			room.addRecord(roomRecordPO);
+		}
 		
 		return orderVO;
 	}

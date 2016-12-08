@@ -1,5 +1,6 @@
 package util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,14 +36,19 @@ public class Time {
 		return date;
 	}
 	
-	public static long deltaTime(String time1, String time2) {
-		// TODO 计算两个时间点间的时间间隔（单位为秒）
-		return 0;
+	public static long deltaTime(String time1, String time2) throws ParseException {
+		// 计算两个时间点间的时间间隔（单位为秒）
+		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date beginTime = df.parse(time1);
+		Date endTime = df.parse(time2);
+		return (long)(endTime.getTime() - beginTime.getTime()) / 1000;
 	}
 	
-	public static int deltaDate(String date1, String date2) {
-		// TODO 计算两个日期之间的天数
-		return 1;
+	public static int deltaDate(String date1, String date2) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		Date beginDate = df.parse(date1);
+		Date endDate = df.parse(date2);
+		return (int)((endDate.getTime() - beginDate.getTime()) / (1000 * 60 * 60 * 24));
 	}
 
 	//若传入的time1为null或者""，返回“1970/1/1 0:0:0”
@@ -62,4 +68,11 @@ public class Time {
 			return getCurrentTime();
 		}
 	}
+	
+	public static void main(String[] args) throws ParseException {
+		String time1 = "2016/12/01";
+		String time2 = "2016/12/01";
+		System.out.println(deltaDate(time1, time2));
+	}
+	
 }

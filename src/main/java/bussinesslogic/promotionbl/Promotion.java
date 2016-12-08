@@ -54,7 +54,8 @@ public class Promotion {
 			PromotionVO vo;
 			if(po.getType().equals(PromotionType.Enterprise))
 				vo = new EnterprisePromotionVO(po);
-			vo = new PromotionVO(po);
+			else
+				vo = new PromotionVO(po);
 			hotelPromotionList.add(vo);
 		}
 		return hotelPromotionList;
@@ -68,7 +69,8 @@ public class Promotion {
 			PromotionVO vo;
 			if(po.getType().equals(PromotionType.BusinessDistrict))
 				vo = new DistrictPromotionVO(po);
-			vo = new PromotionVO(po);
+			else
+				vo = new PromotionVO(po);
 			webPromotionList.add(vo);
 		}
 		return webPromotionList;
