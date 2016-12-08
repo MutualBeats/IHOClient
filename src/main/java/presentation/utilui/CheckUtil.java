@@ -17,7 +17,7 @@ public class CheckUtil {
 	}
 	
 	public static boolean checkSelect(ComboBox<?> comboBox) {
-		return comboBox.getSelectionModel().getSelectedIndex() != 0;
+		return comboBox.getSelectionModel().getSelectedIndex() != -1;
 	}
 	
 	public static boolean checkText(TextField text) {

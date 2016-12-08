@@ -1,10 +1,7 @@
 package bussinesslogicservice.userblservice;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.user.ManagerPO;
-import util.resultmessage.ResultMessage_Hotel;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.ClientInfoChangeVO;

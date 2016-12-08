@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<placeconfig>
+	<province province_name="江苏省">
+		<city city_name="南京市">
+			<field field_name="南京市">
+				<group group_name="仙林商圈"></group>
+				<group group_name="栖霞商圈"></group>
+				<group group_name="浦口商圈"></group>
+				<group group_name="鼓楼商圈"></group>
+				<group group_name="新街口商圈"></group>
+				<group group_name="秦淮商圈"></group>
+				<group group_name="玄武商圈"></group>
+			</field>
+		</city>
+		
+		<city city_name="南通市">
+			<field field_name="如皋市">
+				<group group_name="如城商圈"></group>
+				<group group_name="林梓商圈"></group>
+				<group group_name="白蒲商圈"></group>
+			</field>
+		</city>
+	</province>
+	
+	<!-- 其他省 -->
+</placeconfig>

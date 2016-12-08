@@ -162,9 +162,13 @@ public class WindowGrab {
 	 */
 	public static void closeWindow(Event event) {
 		Window window_to_close = getWindow(event);
-		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
+		closeWindow(window_to_close);
 	}
 
+	
+	public static void closeWindow(Window window_to_close) {
+		Event.fireEvent(window_to_close, new WindowEvent(window_to_close, WindowEvent.WINDOW_CLOSE_REQUEST));
+	}
 	
 	
 	/**

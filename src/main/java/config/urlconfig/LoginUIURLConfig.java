@@ -9,6 +9,13 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+/**
+ * 
+ * Login界面URL配置文件
+ * 
+ * @author heleninsa
+ *
+ */
 public class LoginUIURLConfig {
 
 	private final static String UI_CFG_PATH = "src/main/resources/config/url_config.xml";

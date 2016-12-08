@@ -2,19 +2,27 @@ package presentation.manageui.addhotel;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import javax.swing.text.View;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import vo.user.MarketerVO;
 
-public class AddHotelController {
+public class AddHotelController implements Initializable {
 
 	@FXML
 	private TextField address;
@@ -41,10 +49,10 @@ public class AddHotelController {
 	private Button cancel;
 
 	@FXML
-	private ComboBox<?> province;
+	private ComboBox<String> province;
 
 	@FXML
-	private ComboBox<?> field;
+	private ComboBox<String> field;
 
 	@FXML
 	private Button next_step;
@@ -59,7 +67,7 @@ public class AddHotelController {
 	private AnchorPane first_pane;
 
 	@FXML
-	private ComboBox<?> group;
+	private ComboBox<String> group;
 
 	@FXML
 	private Label name_warning;
@@ -84,17 +92,21 @@ public class AddHotelController {
 		boolean group_check = CheckUtil.checkSelect(group);
 		boolean star_check = CheckUtil.checkSelect(star);
 		boolean field_check = CheckUtil.checkSelect(field);
-		boolean hotelname_check = hotel_name.getText().length() == 0;
+		boolean hotelname_check = CheckUtil.checkText(hotel_name);
+		boolean address_check = CheckUtil.checkText(address);
 		
-		return false;
+		return city_check&&province_check&&group_check&&star_check&&field_check&&hotelname_check&&address_check;
 	}
 	
 	
 
 	@FXML
 	void nextStep(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "完善人员信息", ADD_HOTEL_TWO_FXML, ADD_HOTEL_TWO_CSS);
+		if(checkInputFormater()) {
+			WindowGrab.closeWindow(event);
+			Stage stage = WindowGrab.getStage(0);
+			WindowGrab.startWindow(stage, "完善人员信息", ADD_HOTEL_TWO_FXML, ADD_HOTEL_TWO_CSS);
+		}
 	}
 
 	@FXML
@@ -136,6 +148,27 @@ public class AddHotelController {
 	void starModify(ActionEvent event) {
 		CheckUtil.checkWarningBefore(star_warning);
 	}
+
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//检查是否已经有数据录入
+		if(ViewCache.marketer_info != null) {
+			//Init View
+			init();
+		} else {
+			initView();
+		}
+	}
 	
+	private void initView() {
+//		province.getItems().add
+		
+	}
+
+	private void init() {
+		
+	}
 
 }
