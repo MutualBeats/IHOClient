@@ -3,7 +3,7 @@ package presentation.loginui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import config.urlconfig.URLConfig;
+import config.urlconfig.LoginUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,8 +35,8 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void signin(ActionEvent event) {
-		URL fxml = URLConfig.signin_fxml_url();
-		URL css = URLConfig.signin_css_url();
+		URL fxml = LoginUIURLConfig.signin_fxml_url();
+		URL css = LoginUIURLConfig.signin_css_url();
 		Window owner = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(owner, "注册", fxml, css);
 //		try {

@@ -2,7 +2,6 @@ package presentation.clientui.mainclient;
 
 import java.net.URL;
 
-import config.urlconfig.URLConfig;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

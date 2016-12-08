@@ -5,7 +5,7 @@
  */
 package presentation.staffui.mainstaff;
 
-import config.urlconfig.URLConfig;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,10 +25,10 @@ public class MainStaff extends Application {
       
     @Override  
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(URLConfig.staff_main_fxml_url());  
+        Parent root = FXMLLoader.load(StaffUIURLConfig.staff_main_fxml_url());  
   
         Scene scene = new Scene(root,800, 600);  
-        scene.getStylesheets().add(URLConfig.staff_main_css_url().toExternalForm());
+        scene.getStylesheets().add(StaffUIURLConfig.staff_main_css_url().toExternalForm());
         stage.initStyle(StageStyle.DECORATED); 
         stage.setScene(scene);  
         stage.setTitle("Staff Menu");  
