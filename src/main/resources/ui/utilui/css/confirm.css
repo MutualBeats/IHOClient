@@ -9,6 +9,23 @@ and open the template in the editor.
 */
 
 .root{
-  -fx-background-image: url("file:src/main/resources/image/util/background.jpg");
+  -fx-background-image: url("file:src/main/resources/image/util/background.png");
  }
 
+.button{
+	-fx-background-color: transparent;
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/util/cancel.png");
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/util/cancel_hover.png");
+}
+
+#confirm{
+	-fx-background-image:url("file:src/main/resources/image/util/confirm.png");
+}
+#confirm:hover{
+	-fx-background-image:url("file:src/main/resources/image/util/confirm_hover.png");
+}

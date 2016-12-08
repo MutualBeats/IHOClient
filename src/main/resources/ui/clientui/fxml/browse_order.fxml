@@ -13,30 +13,43 @@
       <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
       <Label fx:id="user_name" layoutX="640.0" layoutY="20.0" prefHeight="26.0" prefWidth="40.0" />
       <Button fx:id="logout" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefWidth="35.0" />
-      <Button fx:id="all_order" layoutX="150.0" layoutY="115.0" mnemonicParsing="false" prefWidth="100.0">
+      <Button fx:id="all_order" layoutX="150.0" layoutY="115.0" mnemonicParsing="false" onAction="#all_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="executed_order" layoutX="250.0" layoutY="115.0" mnemonicParsing="false" prefWidth="100.0">
+      <Button fx:id="executed_order" layoutX="250.0" layoutY="115.0" mnemonicParsing="false" onAction="#executed_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="350.0" layoutY="115.0" mnemonicParsing="false" prefWidth="100.0">
+      <Button fx:id="unexecuted_order" layoutX="350.0" layoutY="115.0" mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="revoked_order" layoutX="450.0" layoutY="115.0" mnemonicParsing="false" prefWidth="100.0">
+      <Button fx:id="revoked_order" layoutX="450.0" layoutY="115.0" mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unusual_order" layoutX="550.0" layoutY="115.0" mnemonicParsing="false" prefWidth="100.0">
+      <Button fx:id="unusual_order" layoutX="550.0" layoutY="115.0" mnemonicParsing="false" onAction="#unusual_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <TreeTableView layoutX="100.0" layoutY="160.0" prefHeight="325.0" prefWidth="600.0">
+        <columns>
+          <TreeTableColumn prefWidth="110.0" text="ID" />
+          <TreeTableColumn prefWidth="90.0" text="酒店名称" />
+            <TreeTableColumn prefWidth="75.0" text="订单状态" />
+            <TreeTableColumn prefWidth="85.0" text="开始时间" />
+            <TreeTableColumn prefWidth="85.0" text="退房时间" />
+            <TreeTableColumn text="有无儿童" />
+            <TreeTableColumn prefWidth="75.0" text="入住人数" />
+        </columns>
+      </TreeTableView>
+      <Button fx:id="check" layoutX="550.0" layoutY="511.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="65.0" />
+      <Button fx:id="return_" layoutX="635.0" layoutY="511.0" mnemonicParsing="false" onAction="#return_" prefHeight="26.0" prefWidth="65.0" />
    </children>
 </AnchorPane>

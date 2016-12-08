@@ -11,35 +11,13 @@ and open the template in the editor.
 .root{
   -fx-background-image: url("file:src/main/resources/image/client/background.png");
  }
-
-
 .button{
 	-fx-background-color: transparent;
-}
-
-#title{
-	-fx-background-image: url("file:src/main/resources/image/client/title.png");
-}
-
-#logout{
-	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
-}
-#logout:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/logout_pressed.png");
 }
 
 #return_{
 	-fx-background-image: url("file:src/main/resources/image/client/return.png");
 }
-
 #return_:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
-}
-
-#change{
-	-fx-background-image: url("file:src/main/resources/image/client/change.png");
-}
-
-#change:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/change_hover.png");
 }

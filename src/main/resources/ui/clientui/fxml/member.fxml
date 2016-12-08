@@ -8,10 +8,47 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.browseorder.BrowseOrderController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.member.MemberController">
    <children>
       <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
       <Label fx:id="user_name" layoutX="640.0" layoutY="20.0" prefHeight="26.0" prefWidth="40.0" />
       <Button fx:id="logout" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefWidth="35.0" />
+      <Button fx:id="cancel" layoutX="480.0" layoutY="470.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" />
+      <Button fx:id="confirm" layoutX="255.0" layoutY="470.0" mnemonicParsing="false" onAction="#confirm" prefWidth="60.0" />
+      <Pane fx:id="original_pane" layoutX="250.0" layoutY="200.0" prefHeight="200.0" prefWidth="300.0" visible="false">
+         <children>
+            <Label layoutX="45.0" layoutY="45.0" text="生日:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="65.0" layoutY="90.0" prefWidth="180.0" />
+         </children>
+      </Pane>
+      <Label layoutX="200.0" layoutY="130.0" text="会员类型 :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="320.0" layoutY="133.0" mnemonicParsing="false" onAction="#original_member" text="普通会员">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="460.0" layoutY="134.0" mnemonicParsing="false" onAction="#business_member" text="企业会员">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </RadioButton>
+      <Pane fx:id="business_pane" layoutX="250.0" layoutY="200.0" prefHeight="200.0" prefWidth="300.0" visible="false">
+         <children>
+            <Label layoutX="45.0" layoutY="45.0" text="企业名称 :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="65.0" layoutY="90.0" prefWidth="180.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

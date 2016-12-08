@@ -78,7 +78,10 @@ public class MainClientController {
     //维护个人信息
     private static URL MAINTAIN_MESSAGE_FXML;
     private static URL MAINTAIN_MESSAGE_CSS;
-   
+    private static URL LOGIN_FXML;
+    private static URL LOGIN_CSS;
+    
+    
     static{
     	try {
     		BROWSE_ORDER_FXML=new URL("file:src/main/resources/ui/clientui/fxml/browse_order.fxml");
@@ -99,6 +102,9 @@ public class MainClientController {
 			MAINTAIN_MESSAGE_FXML=new URL("file:src/main/resources/ui/clientui/fxml/maintain_message.fxml");
 			MAINTAIN_MESSAGE_CSS=new URL("file:src/main/resources/ui/clientui/css/maintain_message.css");
 		
+			LOGIN_FXML=new URL("file:src/main/resources/ui/loginui/fxml/login.fxml");
+			LOGIN_CSS=new URL("file:src/main/resources/ui/loginui/css/login.css");
+			
     	} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,7 +152,8 @@ public class MainClientController {
     
     @FXML
     void logout(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
+    	Window window=WindowGrab.getWindow(event);
+    	WindowGrab.startWindow(window, "登录", LOGIN_FXML, LOGIN_CSS);
     }
     
     @FXML
