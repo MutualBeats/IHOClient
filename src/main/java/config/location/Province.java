@@ -1,4 +1,4 @@
-package config;
+package config.location;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,8 +27,8 @@ public class Province {
 		this.provinceName = provinceName;
 	}
 	
-	public Iterator<City> getCity() {
-		return this.cities.iterator();
+	public ArrayList<City> getCity() {
+		return this.cities;
 	}
 
 	public String getProvinceName() {

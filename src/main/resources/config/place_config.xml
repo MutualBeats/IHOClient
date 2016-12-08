@@ -11,6 +11,9 @@
 				<group group_name="秦淮商圈"></group>
 				<group group_name="玄武商圈"></group>
 			</field>
+			<field field_name="不知道哪里">
+				<group group_name="不知道"></group>
+			</field>
 		</city>
 		
 		<city city_name="南通市">

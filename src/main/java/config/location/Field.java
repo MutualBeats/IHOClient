@@ -1,4 +1,4 @@
-package config;
+package config.location;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,12 +9,13 @@ private ArrayList<String> group ;
 	
 	private String field_name;
 	
-	public Field(ArrayList<String> group) {
+	public Field(String field_name, ArrayList<String> group) {
 		this.group = group;
+		this.field_name = field_name;
 	}
 
-	public Iterator<String> getGroup() {
-		return group.iterator();
+	public ArrayList<String> getGroup() {
+		return group;
 	}
 
 	public String getField_name() {

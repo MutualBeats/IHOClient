@@ -1,4 +1,4 @@
-package config;
+package config.location;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,8 +9,9 @@ public class City {
 	
 	private String city_name;
 	
-	public City(ArrayList<Field> fields) {
+	public City(String city_name, ArrayList<Field> fields) {
 		this.fields = fields;
+		this.city_name = city_name;
 	}
 
 	public Iterator<Field> getField() {
