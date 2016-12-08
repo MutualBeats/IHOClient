@@ -1,11 +1,14 @@
 package presentation.utilui;
 
+import java.util.regex.Pattern;
+
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class CheckUtil {
-
+	
+	private final static Pattern pattern = Pattern.compile("[\\S]+");
 
 	public static boolean checkWarningBefore(Label label) {
 		String warning = label.getText();
@@ -21,7 +24,8 @@ public class CheckUtil {
 	}
 	
 	public static boolean checkText(TextField text) {
-		return text.getText().length() == 0;
+		String content = text.getText();
+		return pattern.matcher(content).matches();
 	}
 	
 }

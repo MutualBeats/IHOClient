@@ -79,8 +79,7 @@ public class WindowGrab {
 		startWindowWithBundle(owner, "提示", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
 
-	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
-			ResourceBundle bundle) {
+	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path, ResourceBundle bundle) {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {

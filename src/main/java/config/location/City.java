@@ -1,7 +1,6 @@
 package config.location;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class City {
 	
@@ -14,8 +13,8 @@ public class City {
 		this.city_name = city_name;
 	}
 
-	public Iterator<Field> getField() {
-		return fields.iterator();
+	public ArrayList<Field> getField() {
+		return fields;
 	}
 
 	public String getCity_name() {
