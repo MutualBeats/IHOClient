@@ -9,47 +9,184 @@
 		<fxml fxml_path="fxml/signin.fxml"></fxml>
 		<css css_path="css/signin.css"></css>
 	</signin>
-
+	<confirm root_path="utilui/">
+		<fxml fxml_path="fxml/confirm.fxml"></fxml>
+		<css css_path="css/confirm.css"></css>
+	</confirm>
+	<error root_path="utilui/">
+		<fxml fxml_path="fxml/error.fxml"></fxml>
+		<css css_path="css/error.css"></css>
+	</confirm>
 	<!-- This is Client UI config -->
-
+	<client root_path="clientui/">
+		<!-- Client menu-->
+		<client_menu>
+			<fxml fxml_path="fxml/clientmenu.fxml"></fxml>
+			<css css_path="css/clientmenu.css"></css>
+		</client_menu>
 	<!-- Client UI config finish -->
 
 	<!-- This is Staff UI config -->
 	<staff root_path="staffui/">
-		<!-- Staff main ui -->
-		<staff_main>
-			<fxml fxml_path="fxml/staff_main.fxml"></fxml>
-			<css css_path="css/staff_main.css"></css>
-		</staff_main>
-		<!-- Hotel Info Maintain -->
-		<maintain_hotel>
-			<fxml fxml_path="fxml/maintain_hotel.fxml"></fxml>
-			<css css_path="css/maintain_hotel.css"></css>
-		</maintain_hotel>
-		<!-- Manage hotel order -->
-		<hotel_order_manage>
-			<fxml fxml_path="fxml/hotel_order_manage.fxml"></fxml>
-			<css css_path="css/hotel_order_manage.css"></css>
-		</hotel_order_manage>
-		<!-- Manage rooms -->
-		<room_manage>
-			<fxml fxml_path="fxml/room_manage.fxml"></fxml>
-			<css css_path="css/room_manage.css"></css>
-		</room_manage>
-		<!-- Make hotel promotion -->
+		<!-- Hotel promotion change-->
+		<hotel_promotion_change>
+			<fxml fxml_path="fxml/hotel_promotion_change.fxml"></fxml>
+			<css css_path="css/hotel_promotion_change.css"></css>
+		</hotel_promotion_change>
+		<!-- Hotel promotion check-->
+		<hotel_promotion_check>
+			<fxml fxml_path="fxml/hotel_promotion_check.fxml"></fxml>
+			<css css_path="css/hotel_promotion_check.css"></css>
+		</hotel_promotion_check>
+		<!-- Hotel promotion create-->
+		<hotel_promotion_create>
+			<fxml fxml_path="fxml/hotel_promotion_create.fxml"></fxml>
+			<css css_path="css/hotel_promotion_create.css"></css>
+		</hotel_promotion_create>
+		<!-- Hotel promotion -->
 		<hotel_promotion>
 			<fxml fxml_path="fxml/hotel_promotion.fxml"></fxml>
 			<css css_path="css/hotel_promotion.css"></css>
 		</hotel_promotion>
+		<!-- Maintain Hotel-->
+		<maintain_hotel>
+			<fxml fxml_path="fxml/maintain_hotel.fxml"></fxml>
+			<css css_path="css/maintain_hotel.css"></css>
+		</maintain_hotel>
+		<!-- Order check-->
+		<order_check>
+			<fxml fxml_path="fxml/order_check.fxml"></fxml>
+			<css css_path="css/order_check.css"></css>
+		</order_check>
+		<!-- Order manage-->
+		<order_manage>
+			<fxml fxml_path="fxml/order_manage.fxml"></fxml>
+			<css css_path="css/order_manage.css"></css>
+		</order_manage>
+		<!-- Room check -->
+		<room_check>
+			<fxml fxml_path="fxml/room_check.fxml"></fxml>
+			<css css_path="css/room_check.css"></css>
+		</room_check>
+		<!-- Room create -->
+		<room_create>
+			<fxml fxml_path="fxml/room_create.fxml"></fxml>
+			<css css_path="css/room_create.css"></css>
+		</room_create>
+		<!-- Room manage -->
+		<room_manage>
+			<fxml fxml_path="fxml/room_manage.fxml"></fxml>
+			<css css_path="css/room_manage.css"></css>
+		</room_manage>
+		<!-- Room update -->
+		<room_update>
+			<fxml fxml_path="fxml/room_update.fxml"></fxml>
+			<css css_path="css/room_update.css"></css>
+		</room_update>
+		<!-- Staff main -->
+		<staff_main>
+			<fxml fxml_path="fxml/staff_main.fxml"></fxml>
+			<css css_path="css/staff_main.css"></css>
+		</staff_main>
 	</staff>
 	<!-- Staff UI config finish -->
 
 	<!-- This is Marketer UI config -->
-
+	<market root_path="marketui/">
+		<!-- Credit excute-->
+		<credit_excute>
+			<fxml fxml_path="fxml/credit_excute.fxml"></fxml>
+			<css css_path="css/credit_excute.css"></css>
+		</credit_excute>
+		<!-- Credit-->
+		<credit>
+			<fxml fxml_path="fxml/credit.fxml"></fxml>
+			<css css_path="css/credit.css"></css>
+		</credit>
+		<!-- Market menu-->
+		<market_menu>
+			<fxml fxml_path="fxml/marketmenu.fxml"></fxml>
+			<css css_path="css/marketmenu.css"></css>
+		</market_menu>
+		<!--Unusual order-->
+		<unusual_order>
+			<fxml fxml_path="fxml/unusual_order.fxml"></fxml>
+			<css css_path="css/unusual_order.css"></css>
+		</unusual_order>
+		<!--Web promotion create-->
+		<web_promotion_create>
+			<fxml fxml_path="fxml/web_promotion_create.fxml"></fxml>
+			<css css_path="css/web_promotion_create.css"></css>
+		</web_promotion_create>
+		<!--Web promotion update-->
+		<web_promotion_update>
+			<fxml fxml_path="fxml/web_promotion_update.fxml"></fxml>
+			<css css_path="css/web_promotion_update.css"></css>
+		</web_promotion_update>
+		<!--web promotion-->
+		<web_promotion>
+			<fxml fxml_path="fxml/web_promotion.fxml"></fxml>
+			<css css_path="css/web_promotion.css"></css>
+		</web_promotion>
 	<!-- Marketer UI config finish -->
 
 	<!-- This is Manager UI config -->
-
+	<manage root_path="manageui/">
+		<!--Add hotel one-->
+		<add_hotel_one>
+			<fxml fxml_path="fxml/addhotel_one.fxml"></fxml>
+			<css css_path="css/addhotel_one.css"></css>
+		</add_hotel_one>
+		<!--Add hotel three-->
+		<add_hotel_three>
+			<fxml fxml_path="fxml/addhotel_three.fxml"></fxml>
+			<css css_path="css/addhotel_three.css"></css>
+		</add_hotel_three>
+		<!--Add hotel two-->
+		<add_hotel_two>
+			<fxml fxml_path="fxml/addhotel_two.fxml"></fxml>
+			<css css_path="css/addhotel_two.css"></css>
+		</add_hotel_two>
+		<!--Add people-->
+		<add_people>
+			<fxml fxml_path="fxml/addpeople.fxml"></fxml>
+			<css css_path="css/addpeople.css"></css>
+		</add_people>
+		<!--Change message-->
+		<change_message>
+			<fxml fxml_path="fxml/changemessage.fxml"></fxml>
+			<css css_path="css/changemessage.css"></css>
+		</change_message>
+		<!--Check menu-->
+		<check_menu>
+			<fxml fxml_path="fxml/check_menu.fxml"></fxml>
+			<css css_path="css/check_menu.css"></css>
+		</check_menu>
+		<!--ID input-->
+		<ID_input>
+			<fxml fxml_path="fxml/ID_input.fxml"></fxml>
+			<css css_path="css/ID_input.css"></css>
+		</ID_input>
+		<!--Info look client-->
+		<info_look_client>
+			<fxml fxml_path="fxml/informationLookClient.fxml"></fxml>
+			<css css_path="css/informationLookClient.css"></css>
+		</info_look_client>
+		<!--Info look marketer-->
+		<info_look_marketer>
+			<fxml fxml_path="fxml/informationLookMarketer.fxml"></fxml>
+			<css css_path="css/informationLookMarketer.css"></css>
+		</info_look_marketer>
+		<!--Info look staff-->
+		<info_look_staff>
+			<fxml fxml_path="fxml/informationLookStaff.fxml"></fxml>
+			<css css_path="css/informationLookStaff.css"></css>
+		</info_look_staff>
+		<!--Manage menu-->
+		<manage_menu>
+			<fxml fxml_path="fxml/managemenu.fxml"></fxml>
+			<css css_path="css/managemenu.css"></css>
+		</manage_menu>
 	<!-- Manager UI config finish -->
 
 </fxmlurl>
