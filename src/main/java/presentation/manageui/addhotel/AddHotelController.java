@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.text.View;
+
 import bussinesslogic.orderbl.HotelInfo;
 import config.StarConfig;
 import config.location.City;
@@ -18,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import vo.hotel.HotelVO;
@@ -110,11 +113,14 @@ public class AddHotelController implements Initializable {
 			//更新缓存
 			String group_name = group.getSelectionModel().getSelectedItem();
 			String province_name = province.getSelectionModel().getSelectedItem().getProvinceName();
-//			HotelVO info = new HotelVO(null, hotel_name.getText(), address.getText(), null, grou, starLevel, score)
+			String city_name = city.getSelectionModel().getSelectedItem().getCity_name();
+			String field_name = field.getSelectionModel().getSelectedItem().getField_name();
+			String region = province_name + " " + city_name + " " + field_name;
+			Integer starLevel = star.getSelectionModel().getSelectedItem();
+			HotelVO info = new HotelVO(null, hotel_name.getText(), address.getText(), region, group_name, starLevel, 0);
+			ViewCache.initHotel(info);
 			//关闭当前窗口
-			WindowGrab.closeWindow(event);
-			Stage stage = WindowGrab.getStage(0);
-			WindowGrab.startWindow(stage, "完善人员信息", ADD_HOTEL_TWO_FXML, ADD_HOTEL_TWO_CSS);
+			WindowGrab.changeScene(fxml_path, frame);
 		}
 	}
 

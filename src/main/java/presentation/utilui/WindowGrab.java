@@ -144,37 +144,29 @@ public class WindowGrab {
 	/**
 	 * 更改当前场景图
 	 * 
-	 * @param root
-	 *            : 新展示界面
-	 * @param frame
-	 *            ： 展示界面承载
-	 */
-	public static void changeScene(Parent root, Scene frame) {
-		frame.setRoot(root);
-	}
-
-	/**
-	 * 更改当前场景图
-	 * 
 	 * @param fxml_path
 	 *            : 新展示界面路径
+	 * @param css_path
+	 *            : css样式表
 	 * @param frame
 	 *            : 展示界面承载
 	 */
-	public static void changeScene(URL fxml_path, Scene frame) {
+	public static void changeScene(URL fxml_path, URL css_path, Scene frame) {
 		Parent root = null;
 		try {
 			root = FXMLLoader.load(fxml_path);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		changeScene(root, frame);
+		frame.getStylesheets().clear();
+		frame.getStylesheets().add(css_path.toExternalForm());
+		frame.setRoot(root);
 	}
 
 	public static Scene getSceneByStage(int index) {
 		return getStage(index).getScene();
 	}
-	
+
 	/**
 	 * 这个方法需要谨慎使用
 	 * 
