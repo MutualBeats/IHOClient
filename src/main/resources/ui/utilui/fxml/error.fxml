@@ -26,7 +26,7 @@
                </light>
             </Lighting>
          </effect></Button>
-      <Label fx:id="error_info" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="36.0" prefHeight="39.0" prefWidth="214.0" text="Error" textFill="#eb0404">
+      <Label fx:id="error_info" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="36.0" prefHeight="39.0" prefWidth="280.0" text="Error" textFill="#eb0404">
          <font>
             <Font size="21.0" />
          </font>

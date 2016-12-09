@@ -46,12 +46,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="people" layoutX="140.0" layoutY="259.0" prefHeight="306.0" prefWidth="520.0">
+      <TableView fx:id="people" layoutX="170.0" layoutY="270.0" prefHeight="280.0" prefWidth="480.0">
          <columns>
-            <TableColumn prefWidth="70.0" text="全部" />
-            <TableColumn prefWidth="150.0" text="普通用户" />
-            <TableColumn prefWidth="150.0" text="酒店工作人员" />
-            <TableColumn prefWidth="150.0" text="网站营销人员" />
+            <TableColumn prefWidth="140.0" text="ID" />
+            <TableColumn prefWidth="100.0" text="用户名称" />
+            <TableColumn prefWidth="100.0" text="姓名" />
+            <TableColumn prefWidth="140.0" text="联系方式" />
          </columns>
       </TableView>
       <Button fx:id="search" layoutX="423.0" layoutY="186.0" mnemonicParsing="false" onAction="#on_search" prefHeight="35.0" prefWidth="80.0" text="搜索">
@@ -66,5 +66,9 @@
       </Button>
       <Label fx:id="check_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
       <ComboBox fx:id="star" layoutX="590.0" layoutY="120.0" prefHeight="35.0" prefWidth="95.0" promptText="星级" />
+      <CheckBox layoutX="170.0" layoutY="235.0" mnemonicParsing="false" text="全部" />
+      <CheckBox layoutX="259.0" layoutY="235.0" mnemonicParsing="false" text="普通用户" />
+      <CheckBox layoutX="389.0" layoutY="235.0" mnemonicParsing="false" text="酒店工作人员" />
+      <CheckBox layoutX="545.0" layoutY="235.0" mnemonicParsing="false" text="网站营销人员" />
    </children>
 </AnchorPane>
