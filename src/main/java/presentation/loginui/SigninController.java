@@ -47,24 +47,4 @@ public class SigninController extends RegistCheckController implements Initializ
 	public void cancel(ActionEvent event) {
 		WindowGrab.closeWindow(event);
 	}
-<<<<<<< Updated upstream
-
-	@FXML
-	void b22e2e(ActionEvent event) {
-
-	}
-
-=======
-<<<<<<< HEAD
-	
-		
-=======
-
-	@FXML
-	void b22e2e(ActionEvent event) {
-
-	}
-
->>>>>>> origin/master
->>>>>>> Stashed changes
 }
