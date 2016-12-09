@@ -1,8 +1,10 @@
 package presentation.manageui.addhotel;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
@@ -27,7 +29,7 @@ public class AddHotelController_three {
 		HotelVO hotel_info = ViewCache.hotel_info;
 		StaffVO staff_info = ViewCache.staff_info;
 		Window window = WindowGrab.getWindow(event);
-		
+
 		ResultMessage_User result = ResultMessage_User.PEOPLE_ADD_SUCCESS;
 		try {
 			String hotelID = ControllerFactory.getManagerBLServiceInstance().addHotel(hotel_info);
@@ -41,10 +43,12 @@ public class AddHotelController_three {
 			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
 			return;
 		}
-		//人员注册成功，代表酒店生成成功。
+		// 人员注册成功，代表酒店生成成功。
 		if (result == ResultMessage_User.Net_Error) {
 			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
 		} else if (result == ResultMessage_User.PEOPLE_ADD_SUCCESS) {
+			WindowGrab.closeWindow(event);
+			ViewCache.clearCache();
 			WindowGrab.startNoticeWindow(window, "酒店添加成功");
 		} else {
 			WindowGrab.startErrorWindow(window, "酒店添加失败");
@@ -54,8 +58,10 @@ public class AddHotelController_three {
 
 	@FXML
 	void third_cancel(ActionEvent event) {
-		ViewCache.clearCache();
-		WindowGrab.closeWindow(event);
+		// 关闭当前窗口
+		Scene curScene = WindowGrab.getScene(event);
+		WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_two_fxml(), ManageUIURLConfig.manage_add_hotel_two_css(), curScene);
 	}
+
 
 }

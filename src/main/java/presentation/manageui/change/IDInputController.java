@@ -98,7 +98,7 @@ public class IDInputController {
 	}
 	
 	private void openInformation(ResourceBundle bundle, URL fxml, Window window) {
-		WindowGrab.startWindowWithBundle(window, "修改人员信息", fxml, null, bundle);
+		WindowGrab.startWindowWithBundle(window, "人员信息", fxml, null, bundle);
 	}
 
 	class InformationBundle extends ResourceBundle {

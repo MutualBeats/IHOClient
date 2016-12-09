@@ -1,9 +1,9 @@
 package presentation.manageui.addhotel;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -54,17 +54,6 @@ public class AddHotelController extends LocationBoxController {
 
 	@FXML
 	private Label star_warning;
-
-	private static URL ADD_HOTEL_TWO_FXML;
-	private static URL ADD_HOTEL_TWO_CSS;
-	static {
-		try {
-			ADD_HOTEL_TWO_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel_two.fxml");
-			ADD_HOTEL_TWO_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel_two.css");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-	}
 
 	private boolean checkInputFormater() {
 		boolean city_check = checkCitySelect();
@@ -149,7 +138,7 @@ public class AddHotelController extends LocationBoxController {
 			ViewCache.initHotel(info);
 			// 关闭当前窗口
 			Scene curScene = WindowGrab.getScene(event);
-			WindowGrab.changeScene(ADD_HOTEL_TWO_FXML, ADD_HOTEL_TWO_CSS, curScene);
+			WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_two_fxml(), ManageUIURLConfig.manage_add_hotel_two_css(), curScene);
 		}
 	}
 

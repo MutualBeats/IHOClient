@@ -5,68 +5,73 @@
  */
 
 package presentation.manageui.check;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.acl.Group;
 import java.util.ResourceBundle;
 
-import config.location.City;
-import config.location.Field;
-import config.location.Province;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.WindowGrab;
 
-public class CheckMenuController extends LocationBoxController{
+public class CheckMenuController extends LocationBoxController {
 
 	@FXML
-    private Button cancel;
+	private Button cancel;
 
-    @FXML
-    private Button search;
+	@FXML
+	private Button search;
 
-    @FXML
-    private Label check_title;
+	@FXML
+	private Label check_title;
 
-    @FXML
-    private Button check;
+	@FXML
+	private Button check;
 
+	@FXML
+	private TableView<?> people;
 
-    private static URL CHECK_FXML;
-    private static URL CHECK_CSS;
-    
-    static{
-    	try {
-    		CHECK_FXML=new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
-    		CHECK_CSS=new URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
-    	} catch (MalformedURLException e) {
+	@FXML
+	private TextField search_text;
+
+	private static URL CHECK_FXML;
+	private static URL CHECK_CSS;
+
+	static {
+		try {
+			CHECK_FXML = new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
+			CHECK_CSS = new URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-    	
-    }
-   
-    @FXML
-    void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
-    }
 
-    @FXML
-    void on_check(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "人员信息", CHECK_FXML,CHECK_CSS);
-    }
+	}
 
-    @FXML
-    void on_search(ActionEvent event) {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
+	}
 
-    }
+	@FXML
+	void cancel(ActionEvent event) {
+		WindowGrab.closeWindow(event);
+	}
+
+	@FXML
+	void on_check(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "人员信息", CHECK_FXML, CHECK_CSS);
+	}
+
+	@FXML
+	void on_search(ActionEvent event) {
+
+	}
 
 }
-
-

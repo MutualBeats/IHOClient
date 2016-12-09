@@ -1,6 +1,5 @@
 package presentation.manageui.addhotel;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,18 +26,6 @@ public class AddHotelController_two extends RegistCheckController implements Ini
 	@FXML
 	private AnchorPane second_pane;
 
-
-	private static URL ADD_HOTEL_THREE_FXML;
-	private static URL ADD_HOTEL_THREE_CSS;
-	static {
-		try {
-			ADD_HOTEL_THREE_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel_three.fxml");
-			ADD_HOTEL_THREE_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel_three.css");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	@FXML
 	public void cancel(ActionEvent event) {
 		//Last Step
@@ -56,7 +43,7 @@ public class AddHotelController_two extends RegistCheckController implements Ini
 				storeInfo();
 				//
 				Scene frame = WindowGrab.getScene(event);
-				WindowGrab.changeScene(ADD_HOTEL_THREE_FXML, ADD_HOTEL_THREE_CSS, frame);
+				WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_three_fxml(), ManageUIURLConfig.manage_add_hotel_three_css(), frame);
 			}
 		}
 	}
