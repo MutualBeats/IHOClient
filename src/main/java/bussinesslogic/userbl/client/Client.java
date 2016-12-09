@@ -77,7 +77,7 @@ public class Client {
 	/**
 	 * 修改个人信息
 	 * 
-	 * @param clientID
+	 * @param id
 	 * @param clientName
 	 * @param contactWay
 	 * @return

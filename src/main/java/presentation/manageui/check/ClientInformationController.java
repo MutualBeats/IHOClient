@@ -35,8 +35,8 @@ public class ClientInformationController extends InformationLookController {
 	}
 
 	private void init() {
-		this.user_name.setText(info.clientID);
-		this.name.setText(info.clientName);
+		this.user_name.setText(info.id);
+		this.name.setText(info.name);
 		this.phone.setText(info.contactWay);
 		this.credit.setText(info.credit + "");
 		this.member_info.setText(info.memberMessage);
@@ -48,7 +48,7 @@ public class ClientInformationController extends InformationLookController {
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
-		ClientInfoChangeVO vo = new ClientInfoChangeVO(info.clientID, name.getText(), phone.getText());
+		ClientInfoChangeVO vo = new ClientInfoChangeVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);

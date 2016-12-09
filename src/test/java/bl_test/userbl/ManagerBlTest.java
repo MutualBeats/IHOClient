@@ -47,8 +47,8 @@ public class ManagerBlTest {
 	public void showClientDataTest() throws RemoteException{
 //		assertNull(manager.showClientData("123"));
 		try {
-			assertNull(manager.showClientData(clientvo1.clientID));
-			assertEquals(clientvo2.contactWay, manager.showClientData(clientvo2.clientID).contactWay);
+			assertNull(manager.showClientData(clientvo1.id));
+			assertEquals(clientvo2.contactWay, manager.showClientData(clientvo2.id).contactWay);
 		} catch (Exception e) {
 		}
 		
@@ -57,8 +57,8 @@ public class ManagerBlTest {
 	@Test
 	public void showStaffDataTest() {
 		try {
-			assertNull(manager.showStaffData(staffvo1.staffID));
-			assertEquals(staffvo2.hotelID, manager.showStaffData(staffvo2.staffID).hotelID);
+			assertNull(manager.showStaffData(staffvo1.id));
+			assertEquals(staffvo2.hotelID, manager.showStaffData(staffvo2.id).hotelID);
 //			assertNull(manager.showStaffData("123"));
 		} catch (Exception e) {
 			System.out.println("Exception");
@@ -69,7 +69,7 @@ public class ManagerBlTest {
 	public void changeDataTest() {
 		try {
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.changeStaffData(new StaffVO(staffvo2.staffID,"12345678901234567890", staffvo2.hotelID)));
-			StaffChangeVO vo = new StaffChangeVO(staffvo2.staffID, staffvo2.staffName, staffvo2.contactWay);
+			StaffChangeVO vo = new StaffChangeVO(staffvo2.id, staffvo2.id, staffvo2.contactWay);
 			assertEquals(ResultMessage_User.UpdateSuccess, manager.changeStaffData(vo));
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.changeStaffData(new StaffVO(staffvo2.staffID,"123", staffvo2.hotelID)));
 		} catch (Exception e) {
@@ -82,8 +82,8 @@ public class ManagerBlTest {
 	public void showMarketerDataTest() {
 		try {
 //			assertNull(manager.showMarketerData("123"));
-			assertNull(manager.showMarketerData(marketervo1.marketerID));
-			assertEquals(marketervo2.contactWay, manager.showMarketerData(marketervo2.marketerID).contactWay);
+			assertNull(manager.showMarketerData(marketervo1.id));
+			assertEquals(marketervo2.contactWay, manager.showMarketerData(marketervo2.id).contactWay);
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}

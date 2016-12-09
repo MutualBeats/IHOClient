@@ -1,21 +1,11 @@
 package vo.user;
 
 import po.user.ClientPO;
+import util.resultmessage.ResultMessage_Verify;
 import util.user.MemberType;
 
-public class ClientVO {
-	/*
-	 * 用户ID
-	 */
-	public String clientID;
-	/*
-	 * 用户姓名/名称
-	 */
-	public String clientName;
-	/*
-	 * 用户联系方式
-	 */
-	public String contactWay;
+public class ClientVO extends BaseVO{
+	
 	/*
 	 * 用户信用值
 	 */
@@ -45,10 +35,7 @@ public class ClientVO {
 	 */
 	public ClientVO(String clientID, String clientName, String contactWay, int credit, MemberType memberType, int level,
 			String memberMessage) {
-		super();
-		this.clientID = clientID;
-		this.clientName = clientName;
-		this.contactWay = contactWay;
+		super(clientID, clientName, contactWay, ResultMessage_Verify.CLIENT);
 		this.credit = credit;
 		this.memberType = memberType;
 		this.level = level;
@@ -56,7 +43,7 @@ public class ClientVO {
 	}
 
 	public static ClientPO transformVOToPO(ClientVO vo) {
-		return new ClientPO(vo.clientID, vo.clientName, vo.contactWay, vo.credit, vo.memberType, vo.level, vo.memberMessage);
+		return new ClientPO(vo.id, vo.name, vo.contactWay, vo.credit, vo.memberType, vo.level, vo.memberMessage);
 	}
 	
 }

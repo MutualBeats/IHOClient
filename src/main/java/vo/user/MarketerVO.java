@@ -1,6 +1,7 @@
 package vo.user;
 
 import po.user.MarketerPO;
+import util.resultmessage.ResultMessage_Verify;
 
 /**
  * 
@@ -9,32 +10,17 @@ import po.user.MarketerPO;
  * @author heleninsa
  *
  */
-public class MarketerVO {
-	/*
-	 * 网站营销人员ID
-	 */
-	public String marketerID;
-	/*
-	 * 网站营销人员姓名
-	 */
-	public String marketerName;
-	/*
-	 * 网站营销人员联系方式
-	 */
-	public String contactWay;
+public class MarketerVO extends BaseVO{
 	
 	
 	
 	public MarketerVO(String marketerID, String marketerName, String contactWay) {
-		super();
-		this.marketerID = marketerID;
-		this.marketerName = marketerName;
-		this.contactWay = contactWay;
+		super(marketerID, marketerName, contactWay, ResultMessage_Verify.MARKETER);
 	}
 
 
 
 	public static MarketerPO transformVOToPO(MarketerVO vo) {
-		return new MarketerPO(vo.marketerID, vo.marketerName, vo.contactWay);
+		return new MarketerPO(vo.id, vo.name, vo.contactWay);
 	}
 }

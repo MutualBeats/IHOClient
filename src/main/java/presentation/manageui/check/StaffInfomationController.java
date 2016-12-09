@@ -26,8 +26,8 @@ public class StaffInfomationController extends InformationLookController {
 	}
 
 	private void init() {
-		this.user_name.setText(info.staffID);
-		this.name.setText(info.staffName);
+		this.user_name.setText(info.id);
+		this.name.setText(info.name);
 		this.phone.setText(info.contactWay);
 		this.hotel_id.setText(info.hotelID);
 		this.type.setText("客户");
@@ -36,7 +36,7 @@ public class StaffInfomationController extends InformationLookController {
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
-		StaffChangeVO vo = new StaffChangeVO(info.staffID, name.getText(), phone.getText());
+		StaffChangeVO vo = new StaffChangeVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeStaffData(vo);

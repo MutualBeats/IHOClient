@@ -21,7 +21,9 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.InformationBundle;
 import presentation.utilcontroller.ResultHandle;
+import util.resultmessage.ResultMessage_Verify;
 
 /**
  * 
@@ -91,6 +93,46 @@ public class WindowGrab {
 				ManageUIURLConfig.manage_ID_input_css(), new IDResourceBundle(handle));
 	}
 
+	private static URL manage_fxml ;
+	private static URL staff_fxml ;
+	private static URL marketer_fxml ;
+	private static URL client_fxml ;
+	private static URL info_css ;
+	
+	static {
+		try {
+			manage_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookManager.fxml");
+			staff_fxml  = new URL("file:src/main/resources/ui/manageui/fxml/informationLookStaff.fxml");
+			marketer_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
+			client_fxml  = new URL("file:src/main/resources/ui/manageui/fxml/informationLookClient.fxml");
+			info_css  = new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void openManageInformation(Object info, Window window) {
+		openInformation(new InformationBundle(info), manage_fxml, window);
+	}
+
+	public static void openStaffInformation(Object info, Window window) {
+		openInformation(new InformationBundle(info), staff_fxml, window);
+	}
+
+	public static void openMarketerInformation(Object info, Window window) {
+		openInformation(new InformationBundle(info), marketer_fxml, window);
+	}
+
+	public static void openClientInformation(Object info, Window window) {
+		openInformation(new InformationBundle(info), client_fxml, window);
+	}
+
+	private static void openInformation(ResourceBundle bundle, URL fxml, Window window) {
+		WindowGrab.startWindowWithBundle(window, "人员信息", fxml, info_css, bundle);
+		WindowGrab.closeWindow(window);
+	}
+	
 	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
 			ResourceBundle bundle) {
 		Stage stage = new Stage();

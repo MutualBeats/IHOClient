@@ -63,8 +63,8 @@ public class AddHotelController_two extends RegistCheckController implements Ini
 	public void initialize(URL location, ResourceBundle resources) {
 		if(ViewCache.staff_info != null) {
 			StaffVO info = ViewCache.staff_info;
-			user_name.setText(info.staffID);
-			name.setText(info.staffName);
+			user_name.setText(info.id);
+			name.setText(info.name);
 			phone.setText(info.contactWay);
 			ps.setText(ViewCache.ps);
 			ps_again.setText(ViewCache.ps_again);

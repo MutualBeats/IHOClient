@@ -48,15 +48,15 @@ public class ClientBlTest {
 	@Test
 	public void showDataTest() throws NetException {
 //		assertNull(client.showData("123"));
-		assertNull(client.getClientInfo(vo1.clientID));
-		assertEquals(vo2.contactWay, client.getClientInfo(vo2.clientID).contactWay);
+		assertNull(client.getClientInfo(vo1.id));
+		assertEquals(vo2.contactWay, client.getClientInfo(vo2.id).contactWay);
 	}
 	
 	@Test
 	public void changeDataTest() throws RemoteException{
 //		assertEquals(ResultMessage_User.UserName_Invalid, client.changeData(vo2.clientID, "123", vo2.contactWay));
 //		assertEquals(ResultMessage_User.UserName_Invalid, client.changeData(vo2.clientID, "12345678901234567890", vo2.contactWay));
-		ClientInfoChangeVO vo = new ClientInfoChangeVO(vo2.clientID, vo1.clientName, vo2.contactWay);
+		ClientInfoChangeVO vo = new ClientInfoChangeVO(vo2.id, vo1.name, vo2.contactWay);
 		assertEquals(ResultMessage_User.UpdateSuccess, client.changeClientInfo(vo));
 	}
 	

@@ -70,7 +70,7 @@ public class MarketerPO implements Serializable {
 	}
 
 	public void updateInfo(MarketerVO vo) {
-		setMarketerName(vo.marketerName);
+		setMarketerName(vo.name);
 		setContactWay(vo.contactWay);
 	}
 

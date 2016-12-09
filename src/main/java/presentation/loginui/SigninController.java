@@ -35,7 +35,7 @@ public class SigninController extends RegistCheckController implements Initializ
 				try {
 					result = ControllerFactory.getClientBLServiceInstance().regist(info);
 				} catch (Exception e) {
-					WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+					WindowGrab.startNetErrorWindow(window);
 					return;
 				}
 				ResultDeal.checkResult(result, window);

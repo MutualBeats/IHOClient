@@ -20,8 +20,8 @@ public class ManagerInformationController extends InformationLookController {
 	}
 
 	private void init() {
-		this.user_name.setText(info.managerID);
-		this.name.setText(info.managerName);
+		this.user_name.setText(info.id);
+		this.name.setText(info.name);
 		this.type.setText("网站管理人员");
 		this.phone.setText(info.contactWay);
 	}
@@ -29,7 +29,7 @@ public class ManagerInformationController extends InformationLookController {
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
-		ManagerVO vo = new ManagerVO(info.managerID, name.getText(), phone.getText());
+		ManagerVO vo = new ManagerVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeManagerInfo(vo);

@@ -31,8 +31,8 @@ public class MarketerBlTest {
 	public void showDataTest() {
 		try {
 //			assertNull(marketer.showData("123"));
-			assertNull(marketer.showData(vo1.marketerID));
-			assertEquals(vo2.contactWay, marketer.showData(vo2.marketerID).contactWay);
+			assertNull(marketer.showData(vo1.id));
+			assertEquals(vo2.contactWay, marketer.showData(vo2.id).contactWay);
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}

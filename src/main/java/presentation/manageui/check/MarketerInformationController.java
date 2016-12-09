@@ -20,8 +20,8 @@ public class MarketerInformationController extends InformationLookController {
 	}
 
 	private void init() {
-		this.user_name.setText(info.marketerID);
-		this.name.setText(info.marketerName);
+		this.user_name.setText(info.id);
+		this.name.setText(info.name);
 		this.type.setText("网站管理人员");
 		this.phone.setText(info.contactWay);
 	}
@@ -29,7 +29,7 @@ public class MarketerInformationController extends InformationLookController {
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
-		MarketerVO vo = new MarketerVO(info.marketerID, name.getText(), phone.getText());
+		MarketerVO vo = new MarketerVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeMarketerData(vo);
