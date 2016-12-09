@@ -27,12 +27,12 @@ public class CreateOrderController {
     private static URL SEARCH_HOTEL_FXML;
     private static URL SEARCH_HOTEL_CSS;
     
-
+   
     static{
     	try {
     		SEARCH_HOTEL_FXML=new URL("file:src/main/resources/ui/clientui/fxml/search_hotel.fxml");
 			SEARCH_HOTEL_CSS=new URL("file:src/main/resources/ui/clientui/css/search_hotel.css");
-		
+			
     	} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,14 +42,17 @@ public class CreateOrderController {
     @FXML
     void confirm(ActionEvent event) {
     	Scene frame =WindowGrab.getScene(event);
-    	WindowGrab.changeScene(SEARCH_HOTEL_FXML, SEARCH_HOTEL_FXML, frame);
+    	WindowGrab.changeScene(SEARCH_HOTEL_FXML, SEARCH_HOTEL_CSS, frame);
     	Stage stage=WindowGrab.getStage(0);
     	stage.setTitle("搜索酒店");
     }
 
     @FXML
     void cancel(ActionEvent event) {
-    	
+    	Scene frame =WindowGrab.getScene(event);
+    	WindowGrab.changeScene(SEARCH_HOTEL_FXML, SEARCH_HOTEL_CSS, frame);
+    	Stage stage=WindowGrab.getStage(0);
+    	stage.setTitle("搜索酒店");
     }
 
 }

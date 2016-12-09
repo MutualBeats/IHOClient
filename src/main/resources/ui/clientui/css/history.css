@@ -20,11 +20,3 @@ and open the template in the editor.
 #title{
 	-fx-background-image: url("file:src/main/resources/image/client/title.png");
 }
-
-#all{
-	-fx-background-image: url("file:src/main/resources/image/client/all.png");
-}
-#all:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/all_hover.png");
-}
-
