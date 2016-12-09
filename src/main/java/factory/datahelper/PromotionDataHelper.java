@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import dataservice.promotiondataservice.PromotionDataService;
 import po.promotion.PromotionPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 
 public class PromotionDataHelper {
@@ -33,7 +34,7 @@ public class PromotionDataHelper {
 	 * @param promotion_service
 	 * @throws RemoteException 
 	 */
-	public PromotionDataHelper(PromotionDataService promotion_service) throws RemoteException {
+	public PromotionDataHelper(PromotionDataService promotion_service) throws NetException {
 		super();
 		this.promotion_service = promotion_service;
 		this.current_hotel = "";
@@ -44,7 +45,7 @@ public class PromotionDataHelper {
 		this.member_discount_cache = promotion_service.getMemberDiscount();
 	}
 
-	public String addPromotion(PromotionPO po) throws RemoteException {
+	public String addPromotion(PromotionPO po) throws NetException {
 		String promotionID = promotion_service.addPromotion(po);
 		po.setPromotionID(promotionID);
 		// 更新cache
@@ -57,7 +58,7 @@ public class PromotionDataHelper {
 		return promotionID;
 	}
 
-	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException {
+	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws NetException {
 		if(!current_hotel.equals(hotelID)) {
 			hotel_promotion_cache = promotion_service.getHotelPromotion(hotelID);
 			current_hotel = hotelID;
@@ -65,7 +66,7 @@ public class PromotionDataHelper {
 		return hotel_promotion_cache.iterator();
 	}
 
-	public Iterator<PromotionPO> getWebPromotion() throws RemoteException {
+	public Iterator<PromotionPO> getWebPromotion() throws NetException {
 		return web_promotion_cache.iterator();
 	}
 
@@ -79,18 +80,18 @@ public class PromotionDataHelper {
 			current_hotel = "";
 			hotel_promotion_cache.clear();
 			web_promotion_cache = promotion_service.getWebPromotion();
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Promotion.Net_Error;
 		}
 		return result;
 	}
 	
-	public ArrayList<Integer> getMemberLevel() throws RemoteException {
+	public ArrayList<Integer> getMemberLevel() throws NetException {
 		return member_level_cache;
 	}
 
-	public ArrayList<Double> getMemberDiscount() throws RemoteException {
+	public ArrayList<Double> getMemberDiscount() throws NetException {
 		return member_discount_cache;
 	}
 
@@ -98,7 +99,7 @@ public class PromotionDataHelper {
 		ResultMessage_Promotion result = ResultMessage_Promotion.Level_Make_Successful;
 		try {
 			result = promotion_service.levelMake(level, discount);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Promotion.Net_Error;
 		}

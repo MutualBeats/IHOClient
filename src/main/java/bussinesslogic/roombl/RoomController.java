@@ -1,11 +1,11 @@
 package bussinesslogic.roombl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogicservice.roomblservice.RoomBLService;
 import po.room.RoomRecordPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
@@ -14,7 +14,7 @@ public class RoomController implements RoomBLService, RoomUpdate{
 
 	private Room room;
 	
-	public RoomController() throws Exception {
+	public RoomController() throws NetException {
 		room = new Room();
 	}
 	
@@ -29,16 +29,16 @@ public class RoomController implements RoomBLService, RoomUpdate{
 	}
 
 	@Override
-	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws RemoteException {
+	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws NetException {
 		return room.importRoom(importRoomList);
 	}
 
 	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException {
+	public ArrayList<RoomVO> getRoomList(String hotelID) throws NetException {
 		return room.getRoomList(hotelID);
 	}
 	@Override
-	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
+	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws NetException {
 		return room.getOrderReord(hotelID, roomNumber);
 	}
 	@Override
@@ -50,7 +50,7 @@ public class RoomController implements RoomBLService, RoomUpdate{
 		return room.deleteRecord(orderID);
 	}
 	@Override
-	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException {
+	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws NetException {
 		return room.getRoomInfo(hotelID, roomNumber);
 	}
 
@@ -65,7 +65,7 @@ public class RoomController implements RoomBLService, RoomUpdate{
 	}
 
 	@Override
-	public int getRoomPrice(String hotelID, String roomNumber) throws RemoteException {
+	public int getRoomPrice(String hotelID, String roomNumber) throws NetException {
 		return room.getRoomInfo(hotelID, roomNumber).price;
 	}
 

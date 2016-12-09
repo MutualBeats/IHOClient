@@ -1,8 +1,8 @@
 package bussinesslogicservice.promotionblservice;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
@@ -12,24 +12,24 @@ public interface PromotionBLService {
 	 * @param vo
 	 * @return ResultMessage
 	 */
-	public String addhotelPromotion (PromotionVO vo) throws RemoteException;
+	public String addhotelPromotion (PromotionVO vo) throws NetException;
 	/**
 	 * 添加网站促销策略
 	 * @param vo
 	 * @return ResultMessage
 	 */
-	public String addWebPromotion (PromotionVO vo) throws RemoteException;
+	public String addWebPromotion (PromotionVO vo) throws NetException;
 	/**
 	 * 获得酒店促销策略列表
 	 * @param hotelID
 	 * @return ArrayList
 	 */
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException;
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException;
 	/**
 	 * 获取网站营销策略列表
 	 * @return ArrayList
 	 */
-	public ArrayList<PromotionVO> getWebPromotion() throws RemoteException;
+	public ArrayList<PromotionVO> getWebPromotion() throws NetException;
 	/**
 	 * 撤销已有促销策略
 	 * @param promotionID
@@ -40,12 +40,12 @@ public interface PromotionBLService {
 	 * 查看会员等级划分方案
 	 * @return ArrayList
 	 */
-	public ArrayList<Integer> getMemberLevel() throws RemoteException;
+	public ArrayList<Integer> getMemberLevel() throws NetException;
 	/**
 	 * 查看不同等级会员折扣
 	 * @return ArrayList
 	 */
-	public ArrayList<Double> getMemberDiscount() throws RemoteException;
+	public ArrayList<Double> getMemberDiscount() throws NetException;
 	/**
 	 * 制定会员等级
 	 * @param level

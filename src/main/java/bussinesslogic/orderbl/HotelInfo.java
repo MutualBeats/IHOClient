@@ -4,10 +4,10 @@
  */
 package bussinesslogic.orderbl;
 
-import java.rmi.RemoteException;
+import util.exception.NetException;
 
 public interface HotelInfo {
 	
-	public String getBusinessDistrict(String hotelID) throws RemoteException;
+	public String getBusinessDistrict(String hotelID) throws NetException;
 	
 }

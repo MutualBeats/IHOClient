@@ -1,8 +1,7 @@
 package bl_test.roombl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -10,6 +9,7 @@ import org.junit.Test;
 
 import bussinesslogic.roombl.RoomController;
 import po.room.RoomRecordPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import util.room.RoomState;
 import util.room.RoomType;
@@ -42,7 +42,7 @@ public class RoomBlTest {
 		ArrayList<String> failedList = null;
 		try {
 			failedList = controller.importRoom(roomList);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 		assertEquals(failedList.size(), 4);
@@ -58,7 +58,7 @@ public class RoomBlTest {
 			assertEquals(first.type, RoomType.Single);
 			assertEquals(first.price, 256);
 			assertEquals(first.roomNumber, "3B346");
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 	}
@@ -115,7 +115,7 @@ public class RoomBlTest {
 			assertEquals(roomInfo.price, 1024);
 			assertEquals(roomInfo.type, RoomType.Four);
 			assertEquals(roomInfo.condition, RoomState.NotReserved);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}	
 	}
@@ -128,7 +128,7 @@ public class RoomBlTest {
 			RoomRecordVO newest = records.get(0);
 			assertEquals(newest.checkInDate, "2016/11/27");
 			assertEquals(newest.estimateCheckOutDate, "2016/11/27");
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 		

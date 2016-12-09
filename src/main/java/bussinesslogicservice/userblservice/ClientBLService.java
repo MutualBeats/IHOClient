@@ -2,6 +2,7 @@ package bussinesslogicservice.userblservice;
 
 import java.rmi.RemoteException;
 
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientInfoChangeVO;
 import vo.user.ClientRegistVO;
@@ -26,7 +27,7 @@ public interface ClientBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ClientVO getClientInfo (String clientID) throws RemoteException;
+	public ClientVO getClientInfo (String clientID) throws NetException;
 	/**
 	 * 修改用户信息
 	 * 

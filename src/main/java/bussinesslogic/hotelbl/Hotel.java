@@ -13,6 +13,7 @@ import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
+import util.exception.NetException;
 import util.hotel.SearchCondition;
 import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
@@ -32,7 +33,7 @@ public class Hotel {
 	private HotelPO hotelPO = null;
 	private HotelDataHelper hotel_data_service;
 
-	public Hotel() throws Exception {
+	public Hotel() throws NetException {
 		hotel_data_service = DataHelperFactory.getDataFactoryHelperInstance().getHotelDatabase();
 	}
 
@@ -44,7 +45,7 @@ public class Hotel {
 	 * @throws RemoteException
 	 *             ： Net Error. Please Check Your Internet
 	 */
-	public HotelVO showHotelInfo(String hotelID) throws RemoteException {
+	public HotelVO showHotelInfo(String hotelID) throws NetException {
 		if (!checkHotelMatch(hotelID)) {
 			// Update Hotel Info
 			hotelPO = hotel_data_service.getHotelInfo(hotelID);
@@ -85,7 +86,7 @@ public class Hotel {
 	 * @throws RemoteException
 	 *             : Net Exception
 	 */
-	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws NetException {
 		ArrayList<HotelVO> hotels = new ArrayList<>();
 		Iterator<HotelPO> iterator = hotel_data_service.findHotelByCondition(sc);
 		int count = 0;
@@ -107,7 +108,7 @@ public class Hotel {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws RemoteException {
+	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
 		Iterator<HotelEvaluationPO> iterator = hotel_data_service.getHotelEvaluation(hotelID);
 		ArrayList<HotelEvaluationVO> evaluationVOs = new ArrayList<>();
 		int count = 0;
@@ -138,7 +139,7 @@ public class Hotel {
 	 * @throws NullPointerException 
 	 * @throws RemoteException 
 	 */
-	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException {
+	public String addHotel(HotelVO vo) throws NetException {
 		return hotel_data_service.addHotel(new HotelPO(vo));
 	}
 

@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.promotion.PromotionPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 
 public interface PromotionDataService extends Remote{
@@ -14,43 +15,43 @@ public interface PromotionDataService extends Remote{
 	 * @return promotionID
 	 * @throws RemoteException
 	 */
-	public String addPromotion(PromotionPO po) throws RemoteException;
+	public String addPromotion(PromotionPO po) throws NetException;
 	/**
 	 * 查看酒店促销策略
 	 * @param hotelID
 	 * @return ArrayList
 	 * @throws RemoteException
 	 */
-	public ArrayList<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException;
+	public ArrayList<PromotionPO> getHotelPromotion(String hotelID) throws NetException;
 	/**
 	 * 查看网站促销策略
 	 * @return ArrayList
 	 * @throws RemoteException
 	 */
-	public ArrayList<PromotionPO> getWebPromotion() throws RemoteException;
+	public ArrayList<PromotionPO> getWebPromotion() throws NetException;
 	/**
 	 * 删除促销策略
 	 * @param promotionID
 	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Promotion deletePromotion(String promotionID) throws RemoteException;
+	public ResultMessage_Promotion deletePromotion(String promotionID) throws NetException;
 	/**
 	 * 查看会员等级划分方案
 	 * @return ArrayList
 	 */
-	public ArrayList<Integer> getMemberLevel() throws RemoteException;
+	public ArrayList<Integer> getMemberLevel() throws NetException;
 	/**
 	 * 查看不同等级会员折扣
 	 * @return ArrayList
 	 */
-	public ArrayList<Double> getMemberDiscount() throws RemoteException;
+	public ArrayList<Double> getMemberDiscount() throws NetException;
 	/**
 	 * 制定会员等级制度
 	 * @param level
 	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Promotion levelMake(ArrayList<Integer> level, ArrayList<Double> discount) throws RemoteException;
+	public ResultMessage_Promotion levelMake(ArrayList<Integer> level, ArrayList<Double> discount) throws NetException;
 	
 }

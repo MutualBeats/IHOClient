@@ -2,7 +2,7 @@ package bussinesslogic.userbl.manager.entrust;
 
 import java.rmi.RemoteException;
 
-import util.resultmessage.ResultMessage_Hotel;
+import util.exception.NetException;
 import vo.hotel.HotelVO;
 
 public interface HotelAdd {
@@ -11,5 +11,5 @@ public interface HotelAdd {
 	 * @throws NullPointerException 
 	 * @throws RemoteException 
 	 */
-	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException;
+	public String addHotel(HotelVO vo) throws NetException;
 }

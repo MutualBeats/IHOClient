@@ -1,8 +1,8 @@
 package bussinesslogic.userbl.manager.entrust;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
@@ -11,7 +11,7 @@ public interface StaffManage {
 	/*
 	 * 获取酒店工作人员信息
 	 */
-	public StaffVO showData (String staffID) throws RemoteException;
+	public StaffVO showData (String staffID) throws NetException;
 	/*
 	 * 修改酒店工作人员信息
 	 */
@@ -21,5 +21,5 @@ public interface StaffManage {
 	 */
 	public ResultMessage_User addStaff(StaffVO registVO, String password) ;
 	
-	public ArrayList<StaffVO> getStaffList() throws RemoteException;
+	public ArrayList<StaffVO> getStaffList() throws NetException;
 }

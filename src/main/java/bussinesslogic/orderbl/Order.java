@@ -14,6 +14,7 @@ import po.order.OrderPO;
 import po.room.RoomRecordPO;
 import util.Time;
 import util.credit.CreditChangeAction;
+import util.exception.NetException;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import util.user.MemberType;
@@ -75,31 +76,27 @@ public class Order {
 			
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
-			try {
-				if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
-					checkClient();
-					ClientVO clientVO = client.getClientInfo(po.getClientID());
-					
-					int changeValue = -(int)(po.getValue() / 2);
-					int newCredit = clientVO.credit + changeValue;
-					CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
-							CreditChangeAction.RepealOrder, orderID);
-					
-					checkCredit();
-					credit.creditUpdate(creditVO);
-				}
-			} catch (ParseException e) {
-				e.printStackTrace();
-				return ResultMessage_Order.Cancel_Failed;
+			if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
+				checkClient();
+				ClientVO clientVO;
+				clientVO = client.getClientInfo(po.getClientID());
+
+				int changeValue = -(int) (po.getValue() / 2);
+				int newCredit = clientVO.credit + changeValue;
+				CreditVO creditVO = new CreditVO(po.getClientID(), currentTime, changeValue, newCredit,
+						CreditChangeAction.RepealOrder, orderID);
+
+				checkCredit();
+				credit.creditUpdate(creditVO);
 			}
-			
 			// 删除房间预订记录
 			checkRoom();
 			room.deleteRecord(orderID);
-			
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
+		} catch (ParseException e) {
+			return ResultMessage_Order.Cancel_Failed;
 		}
 		
 		return ResultMessage_Order.Cancel_Successful;
@@ -131,7 +128,8 @@ public class Order {
 						
 			// 信用值处理（增加等于订单总值的信用值）
 			checkClient();
-			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
+			ClientVO clientVO;
+			clientVO = client.getClientInfo(orderPO.getClientID());
 			
 			int changeValue = (int)orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
@@ -147,7 +145,7 @@ public class Order {
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
 			
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -181,7 +179,7 @@ public class Order {
 				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
 			}
 			
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -243,7 +241,7 @@ public class Order {
 			checkCredit();
 			credit.creditUpdate(creditVO);
 			
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -257,7 +255,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public OrderVO queryOrderById(String orderID) throws RemoteException {
+	public OrderVO queryOrderById(String orderID) throws NetException {
 		orderPO = order_data_service.findById(orderID);
 		return new OrderVO(orderPO);
 	}
@@ -269,7 +267,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws RemoteException {
+	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
 		ArrayList<OrderPO> orderPOList = order_data_service.findUOByHotel(hotelID, clientID);
@@ -288,7 +286,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws RemoteException {
+	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
 		ArrayList<OrderPO> orderPOList = order_data_service.findByRoom(hotelID, roomNumber);
@@ -306,7 +304,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderVO> queryUserOrder(String clientID) throws RemoteException {
+	public ArrayList<OrderVO> queryUserOrder(String clientID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
 		ArrayList<OrderPO> orderPOList = order_data_service.findByUser(clientID);
@@ -318,7 +316,7 @@ public class Order {
 		return orderVOList;
 	}
 	
-	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws RemoteException {
+	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
 		ArrayList<OrderPO> orderPOList = order_data_service.findUnexecutedOrder(date);
@@ -336,7 +334,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws RemoteException {
+	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
 		ArrayList<OrderPO> orderPOList = order_data_service.findHotelOrder(hotelID);
@@ -354,7 +352,7 @@ public class Order {
 	 * @return
 	 * @throws RemoteException 
 	 */
-	private ArrayList<PromotionVO> getAvailablePromotion(Iterator<PromotionVO> iterator, OrderMakeVO order, ClientVO client) throws RemoteException {
+	private ArrayList<PromotionVO> getAvailablePromotion(Iterator<PromotionVO> iterator, OrderMakeVO order, ClientVO client) throws NetException {
 		ArrayList<PromotionVO> avaiPromotionList = new ArrayList<>();
 		while(iterator.hasNext()) {
 			PromotionVO vo = iterator.next();
@@ -414,7 +412,7 @@ public class Order {
 	 * @return OrderVO
 	 * @throws RemoteException 
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo) throws RemoteException {
+	public OrderVO makeOrder(OrderMakeVO vo) throws NetException {
 		// 错误：客户信用值为负
 		checkClient();
 		ClientVO clientVO = client.getClientInfo(vo.clientID);

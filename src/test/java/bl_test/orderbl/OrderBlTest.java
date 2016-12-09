@@ -1,17 +1,12 @@
 package bl_test.orderbl;
 
-import static org.junit.Assert.*;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.orderbl.Order;
-import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
-import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
 
 public class OrderBlTest {
@@ -30,26 +25,27 @@ public class OrderBlTest {
 	
 	@Test
 	public void testMake() {
-		ArrayList<String> roomList = new ArrayList<String>();
-		roomList.add("3B320");
-		roomList.add("3B321");
-		roomList.add("3B322");
-		OrderMakeVO makeVO = 
-				new OrderMakeVO("0000000001", "00000001", roomList, "2016/12/08", "2016/12/09", 6, true);
-		
-		try {
-			OrderVO orderVO = order.makeOrder(makeVO);
-			assertNotNull(orderVO);
-			assertEquals(OrderState.Unexecuted, orderVO.orderState);
-			assertNotNull(orderVO.orderID);
-			assertEquals(2, orderVO.promotionIDList.size());
-			assertEquals("000010", orderVO.promotionIDList.get(0));
-			assertEquals("000008", orderVO.promotionIDList.get(1));
-			assertEquals(718, (int)orderVO.value);
-			
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		// 仅可测试一次，测试已完成
+//		ArrayList<String> roomList = new ArrayList<String>();
+//		roomList.add("3B320");
+//		roomList.add("3B321");
+//		roomList.add("3B322");
+//		OrderMakeVO makeVO = 
+//				new OrderMakeVO("0000000001", "00000001", roomList, "2016/12/08", "2016/12/09", 6, true);
+//		
+//		try {
+//			OrderVO orderVO = order.makeOrder(makeVO);
+//			assertNotNull(orderVO);
+//			assertEquals(OrderState.Unexecuted, orderVO.orderState);
+//			assertNotNull(orderVO.orderID);
+//			assertEquals(2, orderVO.promotionIDList.size());
+//			assertEquals("000010", orderVO.promotionIDList.get(0));
+//			assertEquals("000008", orderVO.promotionIDList.get(1));
+//			assertEquals(718, (int)orderVO.value);
+//			
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@Test

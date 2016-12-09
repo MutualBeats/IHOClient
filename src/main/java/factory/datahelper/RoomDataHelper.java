@@ -7,6 +7,7 @@ import java.util.Iterator;
 import dataservice.roomdataservice.RoomDataService;
 import po.room.RoomPO;
 import po.room.RoomRecordPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import util.room.RoomState;
 
@@ -48,7 +49,7 @@ public class RoomDataHelper {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public Iterator<RoomPO> getRoomList(String hotelID) throws RemoteException {
+	public Iterator<RoomPO> getRoomList(String hotelID) throws NetException {
 		if (!current_hotel.equals(hotelID)) {
 			room_cache = room_service.getRoom(hotelID);
 		}
@@ -63,7 +64,7 @@ public class RoomDataHelper {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws RemoteException {
+	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws NetException {
 		// Most operation is handle here
 		if (current_hotel.equals(hotelID)) {
 			for(RoomPO each : room_cache) {
@@ -85,7 +86,7 @@ public class RoomDataHelper {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public ResultMessage_Room addRoom(RoomPO po) throws RemoteException {
+	public ResultMessage_Room addRoom(RoomPO po) throws NetException {
 		// Reload cache.
 		getRoomList(po.getHotelID());
 		// Check Room.
@@ -116,7 +117,7 @@ public class RoomDataHelper {
 		try {
 			// 更新服务器端信息
 			result = room_service.checkIn(hotelID, roomNumber, isOnline);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
@@ -135,7 +136,7 @@ public class RoomDataHelper {
 		try {
 			// 更新服务器端信息
 			result = room_service.checkOut(hotelID, roomNumber, isOnline);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
@@ -167,7 +168,7 @@ public class RoomDataHelper {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public Iterator<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException {
+	public Iterator<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws NetException {
 		return room_service.getOrderRecord(hotelID, roomNumber).iterator();
 	}
 
@@ -180,7 +181,7 @@ public class RoomDataHelper {
 	public ResultMessage_Room addRecord(RoomRecordPO po) {
 		try {
 			return this.room_service.addRecord(po);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_Room.Net_Error;
 		}
 	}
@@ -194,7 +195,7 @@ public class RoomDataHelper {
 	public ResultMessage_Room deleteRecord(String orderID) {
 		try {
 			return room_service.deleteRecord(orderID);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_Room.Net_Error;
 		}
 	}

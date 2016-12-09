@@ -7,6 +7,7 @@ package bussinesslogicservice.creditblservice;
 import java.rmi.RemoteException;
 import java.util.Iterator;
 
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
@@ -24,6 +25,6 @@ public interface CreditBLService {
 	 * 获得某客户信用记录
 	 * @throws RemoteException 
 	 */
-	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException;
+	public Iterator<CreditVO> checkCreditRecord(String clientID) throws NetException;
 	
 }

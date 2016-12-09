@@ -1,12 +1,12 @@
 package bussinesslogic.hotelbl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.HotelInfo;
 import bussinesslogic.userbl.manager.entrust.HotelAdd;
 import bussinesslogicservice.hotelblservice.HotelBLService;
+import util.exception.NetException;
 import util.hotel.SearchCondition;
 import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
@@ -21,12 +21,12 @@ public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 
 	private Hotel hotel = new Hotel();
 	
-	public HotelController() throws Exception {
+	public HotelController() throws NetException {
 		
 	}
 
 	@Override
-	public HotelVO showHotelInfo(String hotelID) throws RemoteException {
+	public HotelVO showHotelInfo(String hotelID) throws NetException {
 		return hotel.showHotelInfo(hotelID);
 	}
 
@@ -36,12 +36,12 @@ public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 	}
 
 	@Override
-	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws RemoteException {
+	public ArrayList<HotelVO> getHotelsSatisfyCondition(SearchCondition sc) throws NetException {
 		return hotel.getHotelsSatisfyCondition(sc);
 	}
 
 	@Override
-	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws RemoteException {
+	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
 		return hotel.getHotelEvalutions(hotelID);
 	}
 
@@ -51,12 +51,12 @@ public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 	}
 
 	@Override
-	public String addHotel(HotelVO vo) throws RemoteException, NullPointerException {
+	public String addHotel(HotelVO vo) throws NetException {
 		return hotel.addHotel(vo);
 	}
 
 	@Override
-	public String getBusinessDistrict(String hotelID) throws RemoteException {
+	public String getBusinessDistrict(String hotelID) throws NetException {
 		return hotel.showHotelInfo(hotelID).businessDistrict;
 	}
 

@@ -1,11 +1,11 @@
 package bussinesslogic.creditbl;
 
-import java.rmi.RemoteException;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogic.userbl.client.CreditRegister;
 import bussinesslogicservice.creditblservice.CreditBLService;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
@@ -13,10 +13,10 @@ public class CreditController implements CreditBLService, CreditUpdate, CreditRe
 	
 	private Credit credit = new Credit();
 	
-	public CreditController() throws Exception{	}
+	public CreditController() throws NetException{}
 
 	@Override
-	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException {
+	public Iterator<CreditVO> checkCreditRecord(String clientID) throws NetException {
 		return credit.checkCreditRecord(clientID);
 	}
 

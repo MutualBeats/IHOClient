@@ -1,6 +1,5 @@
 package bussinesslogic.promotionbl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,6 +9,7 @@ import po.promotion.DistrictPromotionPO;
 import po.promotion.EnterprisePromotionPO;
 import po.promotion.PromotionPO;
 import util.Time;
+import util.exception.NetException;
 import util.promotion.PromotionType;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.DistrictPromotionVO;
@@ -28,7 +28,7 @@ public class Promotion {
 		}
 	}
 
-	public String addhotelPromotion(PromotionVO vo) throws RemoteException {
+	public String addhotelPromotion(PromotionVO vo) throws NetException {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.Enterprise))
 			po = new EnterprisePromotionPO((EnterprisePromotionVO)vo);
@@ -37,7 +37,7 @@ public class Promotion {
 		return promotion_service.addPromotion(po);
 	}
 
-	public String addWebPromotion(PromotionVO vo) throws RemoteException {
+	public String addWebPromotion(PromotionVO vo) throws NetException {
 		PromotionPO po;
 		if(vo.type.equals(PromotionType.BusinessDistrict))
 			po = new DistrictPromotionPO((DistrictPromotionVO)vo);
@@ -46,7 +46,7 @@ public class Promotion {
 		return promotion_service.addPromotion(po);
 	}
 
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException {
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException {
 		Iterator<PromotionPO> iterator = promotion_service.getHotelPromotion(hotelID);
 		ArrayList<PromotionVO> hotelPromotionList = new ArrayList<>();
 		while(iterator.hasNext()) {
@@ -61,7 +61,7 @@ public class Promotion {
 		return hotelPromotionList;
 	}
 
-	public ArrayList<PromotionVO> getWebPromotion() throws RemoteException {
+	public ArrayList<PromotionVO> getWebPromotion() throws NetException {
 		Iterator<PromotionPO> iterator = promotion_service.getWebPromotion();
 		ArrayList<PromotionVO> webPromotionList = new ArrayList<>();
 		while (iterator.hasNext()) {
@@ -80,11 +80,11 @@ public class Promotion {
 		return promotion_service.deletePromotion(promotionID);
 	}
 
-	public ArrayList<Integer> getMemberLevel() throws RemoteException {
+	public ArrayList<Integer> getMemberLevel() throws NetException {
 		return promotion_service.getMemberLevel();
 	}
 
-	public ArrayList<Double> getMemberDiscount() throws RemoteException {
+	public ArrayList<Double> getMemberDiscount() throws NetException {
 		return promotion_service.getMemberDiscount();
 	}
 
@@ -92,12 +92,12 @@ public class Promotion {
 		return promotion_service.levelMake(level, discount);
 	}
 	
-	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws RemoteException {
+	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws NetException {
 		String currentDate = Time.getCurrentDate();
 		ArrayList<PromotionVO> hotelPromotionList = gethotelPromotion(hotelID);
 		ArrayList<PromotionVO> webPromotionList = getWebPromotion();
 		
-		ArrayList<PromotionVO> underwayPromotionList = new ArrayList<>();
+		ArrayList<PromotionVO> underwayPromotionList = new ArrayList<PromotionVO>();
 		
 		for (PromotionVO vo : hotelPromotionList) {
 			// 结束时间早于当前时间，跳出循环

@@ -7,6 +7,7 @@ import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
 import util.Time;
 import util.credit.CreditChangeAction;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
 
@@ -19,7 +20,7 @@ public class Credit{
 	
 	private CreditDataHelper credit_data_service;
 	
-	public Credit() throws Exception {
+	public Credit() throws NetException {
 	
 		credit_data_service = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
 		
@@ -36,7 +37,7 @@ public class Credit{
 	 * @return Iterator of Credit Record
 	 * @throws RemoteException 
 	 */
-	public Iterator<CreditVO> checkCreditRecord(String clientID) throws RemoteException {
+	public Iterator<CreditVO> checkCreditRecord(String clientID) throws NetException {
 		return credit_data_service.find(clientID);
 	}
 	

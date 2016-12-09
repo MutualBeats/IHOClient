@@ -9,6 +9,7 @@ import java.util.Map;
 import dataservice.hoteldataservice.HotelDataService;
 import po.hotel.HotelEvaluationPO;
 import po.hotel.HotelPO;
+import util.exception.NetException;
 import util.hotel.SearchCondition;
 import util.resultmessage.ResultMessage_Hotel;
 
@@ -40,7 +41,7 @@ public class HotelDataHelper {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public HotelPO getHotelInfo(String hotelID) throws RemoteException {
+	public HotelPO getHotelInfo(String hotelID) throws NetException {
 		// Search the cache;
 		HotelPO info = hotel_info_cache.get(hotelID);
 		if (info == null) {
@@ -66,7 +67,7 @@ public class HotelDataHelper {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public Iterator<HotelPO> findHotelByCondition(SearchCondition sc) throws RemoteException {
+	public Iterator<HotelPO> findHotelByCondition(SearchCondition sc) throws NetException {
 		ArrayList<HotelPO> hotels = hotel_service.findHotelByCondition(sc);
 		// Update Cache :
 		Iterator<HotelPO> iterator = hotels.iterator();
@@ -88,7 +89,7 @@ public class HotelDataHelper {
 		ResultMessage_Hotel change_result = ResultMessage_Hotel.Change_Successful;
 		try {
 			change_result = hotel_service.changeHotelInfo(po);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Hotel.Net_Error;
 		}
@@ -127,7 +128,7 @@ public class HotelDataHelper {
 			hotel_info_cache.remove(po.getHotelID());
 			hotel_info_cache.put(po.getHotelID(), hotelInfo);
 			return result;
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_Hotel.Net_Error;
 		}
@@ -139,7 +140,7 @@ public class HotelDataHelper {
 	 * @param po
 	 * @return
 	 */
-	public String addHotel(HotelPO po) throws RemoteException,NullPointerException {
+	public String addHotel(HotelPO po) throws NetException {
 		String id = hotel_service.addHotel(po);
 		if (id != null) {
 			po.setHotelID(id);
@@ -157,7 +158,7 @@ public class HotelDataHelper {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public Iterator<HotelEvaluationPO> getHotelEvaluation(String hotelID) throws RemoteException {
+	public Iterator<HotelEvaluationPO> getHotelEvaluation(String hotelID) throws NetException {
 		return hotel_service.getHotelEvaluation(hotelID).iterator();
 	}
 

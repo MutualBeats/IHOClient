@@ -13,6 +13,7 @@ import factory.datahelper.DataHelperFactory;
 import factory.datahelper.RoomDataHelper;
 import po.room.RoomPO;
 import po.room.RoomRecordPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
@@ -28,7 +29,7 @@ public class Room {
 
 	private RoomDataHelper room_service;
 
-	public Room() throws Exception{
+	public Room() throws NetException {
 		room_service = DataHelperFactory.getDataFactoryHelperInstance().getRoomDatabase();
 	}
 
@@ -40,7 +41,7 @@ public class Room {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws RemoteException {
+	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws NetException {
 		ArrayList<String> unsuccessful = new ArrayList<>();
 		for (RoomVO each : importRoomList) {
 			ResultMessage_Room result = room_service.addRoom(new RoomPO(each));
@@ -58,7 +59,7 @@ public class Room {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException {
+	public ArrayList<RoomVO> getRoomList(String hotelID) throws NetException {
 		Iterator<RoomPO> iterator = room_service.getRoomList(hotelID);
 		ArrayList<RoomVO> roomList = new ArrayList<>();
 		while (iterator.hasNext()) {
@@ -97,7 +98,7 @@ public class Room {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomRecordVO> getOrderReord(String hotelID, String roomNumber) throws RemoteException {
+	public ArrayList<RoomRecordVO> getOrderReord(String hotelID, String roomNumber) throws NetException {
 		ArrayList<RoomRecordVO> records = new ArrayList<>();
 		Iterator<RoomRecordPO> iterator = room_service.getOrderRecord(hotelID, roomNumber);
 		while(iterator.hasNext()) {
@@ -127,7 +128,7 @@ public class Room {
 		return room_service.deleteRecord(orderID);
 	}
 	
-	public RoomVO getRoomInfo(String hotelID, String roomNumber) throws RemoteException {
+	public RoomVO getRoomInfo(String hotelID, String roomNumber) throws NetException {
 		return new RoomVO(room_service.getRoomInfo(hotelID, roomNumber));
 	}
 	

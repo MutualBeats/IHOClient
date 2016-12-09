@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogic.userbl.client.Client;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
 import vo.user.ClientInfoChangeVO;
@@ -45,7 +46,7 @@ public class ClientBlTest {
 	}
 	
 	@Test
-	public void showDataTest() throws RemoteException{
+	public void showDataTest() throws NetException {
 //		assertNull(client.showData("123"));
 		assertNull(client.getClientInfo(vo1.clientID));
 		assertEquals(vo2.contactWay, client.getClientInfo(vo2.clientID).contactWay);

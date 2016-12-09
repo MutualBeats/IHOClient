@@ -30,6 +30,7 @@ import bussinesslogicservice.userblservice.MarketerBLService;
 import bussinesslogicservice.userblservice.StaffBLService;
 import dataservice.utildataservice.Identify;
 import factory.datahelper.DataHelperFactory;
+import util.exception.NetException;
 
 public class ControllerFactory {
 	
@@ -48,140 +49,140 @@ public class ControllerFactory {
 	
 	private ControllerFactory(){}
 	
-	public static CreditBLService getCreditBLServiceInstance() throws Exception {
+	public static CreditBLService getCreditBLServiceInstance() throws NetException {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static CreditUpdate getCreditUpdateInstance() throws Exception {
+	public static CreditUpdate getCreditUpdateInstance() throws NetException {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static HotelBLService getHotelBLServiceInstance() throws Exception {
+	public static HotelBLService getHotelBLServiceInstance() throws NetException {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}
 		return hotelController;
 	}
 	
-	public static HotelInfo getHotelInfoInstance() throws Exception {
+	public static HotelInfo getHotelInfoInstance() throws NetException {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}
 		return hotelController;
 	}
 	
-	public static OrderBLService getOrderBLServiceInstance() throws Exception {
+	public static OrderBLService getOrderBLServiceInstance() throws NetException {
 		if(orderController == null) {
 			orderController = new OrderController();
 		}
 		return orderController;
 	}
 	
-	public static PromotionBLService getPromotionBLServiceInstance() throws Exception {
+	public static PromotionBLService getPromotionBLServiceInstance() throws NetException {
 		if(promotionController == null) {
 			promotionController = new PromotionController();
 		}
 		return promotionController;
 	}
 	
-	public static PromotionGet getPromotionGetInstance() throws Exception {
+	public static PromotionGet getPromotionGetInstance() throws NetException {
 		if(promotionController == null) {
 			promotionController = new PromotionController();
 		}
 		return promotionController;
 	}
 	
-	public static RoomBLService getRoomBLServiceInstance() throws Exception {
+	public static RoomBLService getRoomBLServiceInstance() throws NetException {
 		if(roomController == null) {
 			roomController = new RoomController();
 		}
 		return roomController;
 	}
 	
-	public static RoomUpdate getRoomUpdateInstance() throws Exception {
+	public static RoomUpdate getRoomUpdateInstance() throws NetException {
 		if(roomController == null) {
 			roomController = new RoomController();
 		}
 		return roomController;
 	}
 	
-	public static ClientBLService getClientBLServiceInstance() throws Exception {
+	public static ClientBLService getClientBLServiceInstance() throws NetException {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static StaffBLService getStaffBLServiceInstance() throws Exception {
+	public static StaffBLService getStaffBLServiceInstance() throws NetException {
 		if(staffController == null) {
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static MarketerBLService getMarketerBLServiceInstance() throws Exception {
+	public static MarketerBLService getMarketerBLServiceInstance() throws NetException {
 		if(marketerController == null) {
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static ManagerBLService getManagerBLServiceInstance() throws Exception {
+	public static ManagerBLService getManagerBLServiceInstance() throws NetException {
 		if(managerController == null) {
 			managerController = new ManagerController();
 		}
 		return managerController;
 	}
 	
-	public static ClientInfoGet getClient2ManagerInstance() throws Exception {
+	public static ClientInfoGet getClient2ManagerInstance() throws NetException {
 		if(clientController == null){
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static StaffManage getStaff2ManagerInstance() throws Exception {
+	public static StaffManage getStaff2ManagerInstance() throws NetException {
 		if(staffController == null){
 			staffController = new StaffController();
 		}
 		return staffController;
 	}
 	
-	public static MarketerManage getMarketer2ManagerInstance() throws Exception {
+	public static MarketerManage getMarketer2ManagerInstance() throws NetException {
 		if(marketerController == null){
 			marketerController = new MarketerController();
 		}
 		return marketerController;
 	}
 	
-	public static HotelAdd getHotel2ManagerInstance() throws Exception {
+	public static HotelAdd getHotel2ManagerInstance() throws NetException {
 		if(hotelController == null) {
 			hotelController = new HotelController();
 		}
 		return hotelController;
 	}
 	
-	public static ClientInfo getClientInfoInstance() throws Exception {
+	public static ClientInfo getClientInfoInstance() throws NetException {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}
 		return clientController;
 	}
 	
-	public static CreditRegister getCreditRegister() throws Exception {
+	public static CreditRegister getCreditRegister() throws NetException {
 		if(creditController == null) {
 			creditController = new CreditController();
 		}
 		return creditController;
 	}
 	
-	public static  Identify getIdentityService() throws Exception {
+	public static  Identify getIdentityService() throws NetException {
 		if(identify_service == null ){
 			identify_service = DataHelperFactory.getDataFactoryHelperInstance().getIdentityService();
 		}

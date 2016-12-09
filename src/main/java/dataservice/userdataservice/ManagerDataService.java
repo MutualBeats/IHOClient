@@ -1,15 +1,15 @@
 package dataservice.userdataservice;
 
 import java.rmi.Remote;
-import java.rmi.RemoteException;
 
 import po.user.ManagerPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 
 public interface ManagerDataService extends Remote{
 
-	public ManagerPO getManagerInfo() throws RemoteException;
+	public ManagerPO getManagerInfo() throws NetException;
 	
-	public ResultMessage_User changeManagerInfo(ManagerPO po) throws RemoteException;
+	public ResultMessage_User changeManagerInfo(ManagerPO po) throws NetException;
 	
 }

@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.order.OrderPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Order;
 
 public interface OrderDataService extends Remote{
@@ -16,7 +17,7 @@ public interface OrderDataService extends Remote{
 	 * @return order_id
 	 * @throws RemoteException
 	 */
-	public String addOrder(OrderPO po) throws RemoteException;
+	public String addOrder(OrderPO po) throws NetException;
 	/**
 	 * 补录订单
 	 * 
@@ -24,7 +25,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Order putUpOrder(String orderID) throws RemoteException;
+	public ResultMessage_Order putUpOrder(String orderID) throws NetException;
 	/**
 	 * 撤销订单
 	 * 
@@ -32,7 +33,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Order cancelOrder(String orderID) throws RemoteException;
+	public ResultMessage_Order cancelOrder(String orderID) throws NetException;
 	/**
 	 * 执行订单
 	 * 
@@ -40,14 +41,14 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Order executeOrder(String orderID) throws RemoteException;
+	public ResultMessage_Order executeOrder(String orderID) throws NetException;
 	/**
 	 * 完成订单
 	 * @param orderID
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Order finishOrder(String orderID) throws RemoteException;
+	public ResultMessage_Order finishOrder(String orderID) throws NetException;
 	/**
 	 * 根据orderId查询订单
 	 * 
@@ -55,7 +56,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public OrderPO findById(String orderID) throws RemoteException;
+	public OrderPO findById(String orderID) throws NetException;
 	/**
 	 * 查询用户订单 
 	 *  
@@ -63,7 +64,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderPO> findByUser(String clientID) throws RemoteException;
+	public ArrayList<OrderPO> findByUser(String clientID) throws NetException;
 	/**
 	 * 查询房间订单
 	 * 
@@ -72,7 +73,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderPO> findByRoom(String hotelID, String roomNumber) throws RemoteException;
+	public ArrayList<OrderPO> findByRoom(String hotelID, String roomNumber) throws NetException;
 	/**
 	 * 用户查询在某酒店订单
 	 * 
@@ -81,7 +82,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderPO> findUOByHotel(String hotelID, String clientID) throws RemoteException;
+	public ArrayList<OrderPO> findUOByHotel(String hotelID, String clientID) throws NetException;
 	/**
 	 * 查询酒店订单
 	 * 
@@ -89,14 +90,14 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderPO> findHotelOrder(String hotelID) throws RemoteException;
+	public ArrayList<OrderPO> findHotelOrder(String hotelID) throws NetException;
 	/**
 	 * 查找网站未执行订单
 	 * 
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderPO> findUnexecutedOrder(String date) throws RemoteException;
+	public ArrayList<OrderPO> findUnexecutedOrder(String date) throws NetException;
 	
 	
 }

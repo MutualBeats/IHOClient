@@ -1,11 +1,11 @@
 package bussinesslogic.userbl.marketer;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.userdataservice.MarketerDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.MarketerPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
@@ -22,11 +22,11 @@ public class Marketer {
 	
 	private MarketerPO cache;
 	
-	public Marketer() throws Exception{
+	public Marketer() throws NetException {
 		marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
 	}
 
-	public MarketerVO showData(String marketerID) throws RemoteException {
+	public MarketerVO showData(String marketerID) throws NetException {
 		if(!checkCacheHit(marketerID)) {
 			cache = marketerDataService.getMarketerInfo(marketerID);
 		}
@@ -40,7 +40,7 @@ public class Marketer {
 		MarketerPO po = MarketerVO.transformVOToPO(vo);
 		try {
 			result = marketerDataService.updateData(po);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 			return ResultMessage_User.Net_Error;
 		}
@@ -55,14 +55,14 @@ public class Marketer {
 		MarketerPO po = MarketerVO.transformVOToPO(registVO);
 		try {
 			result = marketerDataService.insert(po, password);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		
 		return result;
 	}
 	
-	public ArrayList<MarketerVO> getMarketerList() throws RemoteException{
+	public ArrayList<MarketerVO> getMarketerList() throws NetException {
 		ArrayList<MarketerPO> pos = marketerDataService.getMarketerList();
 		ArrayList<MarketerVO> vos = new ArrayList<>();
 		for(MarketerPO each : pos) {

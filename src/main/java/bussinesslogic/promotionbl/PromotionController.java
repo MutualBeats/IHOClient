@@ -1,11 +1,11 @@
 package bussinesslogic.promotionbl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
@@ -13,27 +13,27 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	
 	private Promotion promotion;
 
-	public PromotionController() throws Exception {
+	public PromotionController() throws NetException {
 		promotion = new Promotion();
 	}
 
 	@Override
-	public String addhotelPromotion(PromotionVO vo) throws RemoteException {
+	public String addhotelPromotion(PromotionVO vo) throws NetException {
 		return promotion.addhotelPromotion(vo);
 	}
 
 	@Override
-	public String addWebPromotion(PromotionVO vo) throws RemoteException {
+	public String addWebPromotion(PromotionVO vo) throws NetException {
 		return promotion.addWebPromotion(vo);
 	}
 
 	@Override
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws RemoteException {
+	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException {
 		return promotion.gethotelPromotion(hotelID);
 	}
 
 	@Override
-	public ArrayList<PromotionVO> getWebPromotion() throws RemoteException {
+	public ArrayList<PromotionVO> getWebPromotion() throws NetException {
 		return promotion.getWebPromotion();
 	}
 
@@ -43,12 +43,12 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public ArrayList<Integer> getMemberLevel() throws RemoteException {
+	public ArrayList<Integer> getMemberLevel() throws NetException {
 		return promotion.getMemberLevel();
 	}
 
 	@Override
-	public ArrayList<Double> getMemberDiscount() throws RemoteException {
+	public ArrayList<Double> getMemberDiscount() throws NetException {
 		return promotion.getMemberDiscount();
 	}
 
@@ -58,12 +58,12 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws RemoteException {
+	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws NetException {
 		return promotion.getUnderwayPromotion(hotelID);
 	}
 
 	@Override
-	public double getDiscount(int level) throws RemoteException {
+	public double getDiscount(int level) throws NetException {
 		return promotion.getMemberDiscount().get(level);
 	}
 	

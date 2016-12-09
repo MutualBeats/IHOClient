@@ -9,6 +9,7 @@ import po.user.ClientInfoChangePO;
 import po.user.ClientPO;
 import po.user.ClientRegistPO;
 import po.user.MemberPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
@@ -25,7 +26,7 @@ public class Client {
 
 	private CreditRegister credit;
 
-	public Client(CreditRegister credit) throws Exception {
+	public Client(CreditRegister credit) throws NetException {
 		clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
 
 		this.credit = credit;
@@ -44,7 +45,7 @@ public class Client {
 				//Cache update
 				cache = ClientVO.transformVOToPO(getClientInfo(registVO.id));
 			}
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		return result;
@@ -58,7 +59,7 @@ public class Client {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public ClientVO getClientInfo(String clientID) throws RemoteException {
+	public ClientVO getClientInfo(String clientID) throws NetException {
 		if (!checkCacheHit(clientID)) {
 			// Reload the cache
 			cache = clientDataService.queryClient(clientID);
@@ -82,7 +83,7 @@ public class Client {
 
 		try {
 			result = clientDataService.updateClientInfo(changePO);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		// Make sure the check is successful
@@ -106,7 +107,7 @@ public class Client {
 		if (!checkCacheHit(vo.clientID)) {
 			try {
 				getClientInfo(vo.clientID);
-			} catch (RemoteException e) {
+			} catch (NetException e) {
 				e.printStackTrace();
 				return ResultMessage_User.Net_Error;
 			}
@@ -125,7 +126,7 @@ public class Client {
 
 		try {
 			result = clientDataService.registerMember(po);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 
@@ -154,7 +155,7 @@ public class Client {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<ClientVO> getClientList() throws RemoteException {
+	public ArrayList<ClientVO> getClientList() throws NetException {
 		ArrayList<ClientPO> pos = clientDataService.getClientList();
 		ArrayList<ClientVO> vos = new ArrayList<>();
 		for (ClientPO each : pos) {

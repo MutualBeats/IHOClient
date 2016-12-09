@@ -7,6 +7,7 @@ package bussinesslogicservice.roomblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
@@ -17,13 +18,13 @@ public interface RoomBLService {
 	 * @return 未成功录入列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws RemoteException;
+	public ArrayList<String> importRoom(ArrayList<RoomVO> importRoomList) throws NetException;
 
 	/**
 	 * 获得某酒店的房间列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<RoomVO> getRoomList(String hotelID) throws RemoteException;
+	public ArrayList<RoomVO> getRoomList(String hotelID) throws NetException;
 	/**
 	 * 房间信息
 	 * 
@@ -32,7 +33,7 @@ public interface RoomBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws RemoteException;
+	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws NetException;
 	/**
 	 * 获得房间预定信息
 	 * 
@@ -41,7 +42,7 @@ public interface RoomBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException;
+	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws NetException;
 	/**
 	 * 客户入住
 	 */

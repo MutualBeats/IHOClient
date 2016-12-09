@@ -1,11 +1,10 @@
 package bussinesslogic.orderbl;
 
-import java.rmi.RemoteException;
-
+import util.exception.NetException;
 import vo.user.ClientVO;
 
 public interface ClientInfo {
 	
-	public ClientVO getClientInfo(String clientID) throws RemoteException;
+	public ClientVO getClientInfo(String clientID) throws NetException;
 	
 }

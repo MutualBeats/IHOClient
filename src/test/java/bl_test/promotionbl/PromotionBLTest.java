@@ -1,17 +1,16 @@
 package bl_test.promotionbl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.promotionbl.Promotion;
+import util.exception.NetException;
 import util.promotion.PromotionType;
 import util.resultmessage.ResultMessage_Promotion;
-import vo.promotion.EnterprisePromotionVO;
 import vo.promotion.PromotionVO;
 
 public class PromotionBLTest {
@@ -37,7 +36,7 @@ public class PromotionBLTest {
 			assertEquals("三间以上优惠", vo.promotionName);
 			assertEquals(PromotionType.Room, vo.type);
 			assertEquals("00000001", vo.hotelID);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 	}
@@ -50,7 +49,7 @@ public class PromotionBLTest {
 			assertEquals("商圈活动", vo.promotionName);
 			assertEquals(PromotionType.BusinessDistrict, vo.type);
 			assertEquals("", vo.hotelID);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 	}
@@ -62,7 +61,7 @@ public class PromotionBLTest {
 			ArrayList<Integer> level = promotion.getMemberLevel();
 			assertEquals(MAX_VIP_LEVEL + 1, discount.size());
 			assertEquals(MAX_VIP_LEVEL, level.size());
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			e.printStackTrace();
 		}
 	}
@@ -98,14 +97,13 @@ public class PromotionBLTest {
 //		assertEquals(ResultMessage_Promotion.Add_Successful, result);
 //	}
 	
-	// TODO 中断
-	@Test
-	public void testDeletePromotion() {
-		ResultMessage_Promotion result;
-		result = promotion.cancel("abc");
-		assertEquals(ResultMessage_Promotion.Promotion_Not_Exist, result);
-		result = promotion.cancel("000007");
-		assertEquals(ResultMessage_Promotion.Delete_Successful, result);
-	}
+//	@Test
+//	public void testDeletePromotion() {
+//		ResultMessage_Promotion result;
+//		result = promotion.cancel("100000");
+//		assertEquals(ResultMessage_Promotion.Promotion_Not_Exist, result);
+//		result = promotion.cancel("000007");
+//		assertEquals(ResultMessage_Promotion.Delete_Successful, result);
+//	}
 
 }

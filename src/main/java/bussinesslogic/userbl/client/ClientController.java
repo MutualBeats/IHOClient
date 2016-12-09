@@ -1,12 +1,12 @@
 package bussinesslogic.userbl.client;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogic.orderbl.ClientInfo;
 import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientInfoChangeVO;
 import vo.user.ClientRegistVO;
@@ -17,12 +17,12 @@ public class ClientController implements ClientBLService, ClientInfoGet, ClientI
 	
 	private Client client;
 	
-	public ClientController() throws Exception {
+	public ClientController() throws NetException {
 		 client = new Client(ControllerFactory.getCreditRegister());
 	}
 	
 	@Override
-	public ClientVO getClientInfo(String clientID) throws RemoteException {
+	public ClientVO getClientInfo(String clientID) throws NetException {
 		return client.getClientInfo(clientID);
 	}
 
@@ -38,7 +38,7 @@ public class ClientController implements ClientBLService, ClientInfoGet, ClientI
 	}
 
 	@Override
-	public ArrayList<ClientVO> getClientList() throws RemoteException {
+	public ArrayList<ClientVO> getClientList() throws NetException {
 		return client.getClientList();
 	}
 

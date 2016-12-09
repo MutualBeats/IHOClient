@@ -1,12 +1,12 @@
 package bussinesslogic.userbl.staff;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.userdataservice.StaffDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.StaffChangePO;
 import po.user.StaffPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
@@ -24,11 +24,11 @@ public class Staff {
 	
 	private StaffPO cache;
 	
-	public Staff() throws Exception{
+	public Staff() throws NetException{
 		staffDataService = DataHelperFactory.getDataFactoryHelperInstance().getStaffDatabase();
 	}
 	
-	public StaffVO showData(String staffID) throws RemoteException {		
+	public StaffVO showData(String staffID) throws NetException {		
 		if(!checkCacheHit(staffID)) {
 		 cache = staffDataService.findData(staffID);
 		}
@@ -44,7 +44,7 @@ public class Staff {
 		
 		try {
 			result = staffDataService.updateData(po);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 			
@@ -56,13 +56,13 @@ public class Staff {
 		StaffPO po = StaffVO.transformVOToPO(registVO); 
 		try {
 			result = staffDataService.insert(po, password);
-		} catch (RemoteException e) {
+		} catch (NetException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		return result;
 	}
 	
-	public ArrayList<StaffVO> getStaffList() throws RemoteException{
+	public ArrayList<StaffVO> getStaffList() throws NetException{
 		ArrayList<StaffPO> pos = staffDataService.getStaffList();
 		ArrayList<StaffVO> vos = new ArrayList<>();
 		for(StaffPO each : pos) {

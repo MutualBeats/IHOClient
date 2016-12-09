@@ -8,6 +8,7 @@ import po.user.ClientInfoChangePO;
 import po.user.ClientPO;
 import po.user.ClientRegistPO;
 import po.user.MemberPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 /**
  * 
@@ -18,7 +19,7 @@ import util.resultmessage.ResultMessage_User;
  */
 public interface ClientDataService extends Remote {
 	
-	public ResultMessage_User regist(ClientRegistPO po) throws RemoteException;
+	public ResultMessage_User regist(ClientRegistPO po) throws NetException;
 	
 	/**
 	 * 查询用户
@@ -27,7 +28,7 @@ public interface ClientDataService extends Remote {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ClientPO queryClient(String clientID) throws RemoteException;
+	public ClientPO queryClient(String clientID) throws NetException;
 
 	/**
 	 * 更新用户信息
@@ -36,7 +37,7 @@ public interface ClientDataService extends Remote {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_User updateClientInfo(ClientInfoChangePO changePO) throws RemoteException;
+	public ResultMessage_User updateClientInfo(ClientInfoChangePO changePO) throws NetException;
 
 	/**
 	 * Register Member
@@ -45,7 +46,7 @@ public interface ClientDataService extends Remote {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_User registerMember(MemberPO po) throws RemoteException;
+	public ResultMessage_User registerMember(MemberPO po) throws NetException;
 	
 	/**
 	 * Get all the client info 
@@ -53,6 +54,6 @@ public interface ClientDataService extends Remote {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<ClientPO> getClientList() throws RemoteException;
+	public ArrayList<ClientPO> getClientList() throws NetException;
 
 }

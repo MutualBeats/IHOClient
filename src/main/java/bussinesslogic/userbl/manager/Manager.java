@@ -1,6 +1,5 @@
 package bussinesslogic.userbl.manager;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -11,7 +10,7 @@ import bussinesslogic.userbl.manager.entrust.StaffManage;
 import dataservice.userdataservice.ManagerDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.ManagerPO;
-import util.resultmessage.ResultMessage_Hotel;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.ClientInfoChangeVO;
@@ -30,23 +29,23 @@ public class Manager {
 	
 	private ManagerDataService manager_service;
 	
-	public ManagerVO getManagerInfor() throws Exception {
+	public ManagerVO getManagerInfor() throws NetException {
 		checkManageState();
 		ManagerPO info = manager_service.getManagerInfo();
 		return ManagerPO.transformPOToVO(info);
 	}
 	
-	public ClientVO showClientData(String clientID) throws Exception {
+	public ClientVO showClientData(String clientID) throws NetException {
 		checkClient();
 		return client.getClientInfo(clientID);
 	}
 	
-	public ArrayList<ClientVO> getClientList() throws Exception {
+	public ArrayList<ClientVO> getClientList() throws NetException {
 		checkClient();
 		return client.getClientList();
 	}
 
-	public StaffVO showStaffData(String staffID) throws Exception {
+	public StaffVO showStaffData(String staffID) throws NetException {
 		checkStaff();
 		return staff.showData(staffID);
 	}
@@ -69,13 +68,13 @@ public class Manager {
 		return staff.addStaff(registVO, password);
 	}
 	
-	public ArrayList<StaffVO> getStaffList() throws Exception {
+	public ArrayList<StaffVO> getStaffList() throws NetException {
 		checkStaff();
 		return staff.getStaffList();
 	}
 
 
-	public MarketerVO showMarketerData(String marketerID) throws Exception {
+	public MarketerVO showMarketerData(String marketerID) throws NetException {
 		checkMarketer();
 		return marketer.showData(marketerID);
 	}
@@ -98,12 +97,12 @@ public class Manager {
 		return marketer.addMarketer(vo, password);
 	}
 	
-	public ArrayList<MarketerVO> getMarketerList() throws Exception {
+	public ArrayList<MarketerVO> getMarketerList() throws NetException {
 		checkMarketer();
 		return marketer.getMarketerList();
 	}
 	
-	public String addHotel(HotelVO vo) throws Exception {
+	public String addHotel(HotelVO vo) throws NetException {
 		checkHotel();
 		return hotel.addHotel(vo);
 	}
@@ -111,31 +110,31 @@ public class Manager {
 
 	
 	
-	private void checkClient() throws Exception {
+	private void checkClient() throws NetException {
 		if(client == null) {
 				client = ControllerFactory.getClient2ManagerInstance();
 		}
 	}
 	
-	private void checkStaff() throws Exception {
+	private void checkStaff() throws NetException {
 		if(staff == null) {
 				staff = ControllerFactory.getStaff2ManagerInstance();
 		}
 	}
 	
-	private void checkMarketer() throws Exception {
+	private void checkMarketer() throws NetException {
 		if(marketer == null) {
 			marketer = ControllerFactory.getMarketer2ManagerInstance();
 		}
 	}
 	
-	private void checkHotel() throws Exception {
+	private void checkHotel() throws NetException {
 		if(hotel == null) {
 			hotel = ControllerFactory.getHotel2ManagerInstance();
 		}
 	}
 	
-	private void checkManageState() throws Exception {
+	private void checkManageState() throws NetException {
 		if(manager_service == null) {
 			manager_service = DataHelperFactory.getDataFactoryHelperInstance().getManagerDatabase();
 		}

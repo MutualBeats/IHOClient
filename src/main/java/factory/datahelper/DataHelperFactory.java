@@ -1,7 +1,5 @@
 package factory.datahelper;
 
-import java.rmi.RemoteException;
-
 import dataservice.datafactoryservice.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.ClientDataService;
@@ -9,6 +7,7 @@ import dataservice.userdataservice.ManagerDataService;
 import dataservice.userdataservice.MarketerDataService;
 import dataservice.userdataservice.StaffDataService;
 import dataservice.utildataservice.Identify;
+import util.exception.NetException;
 
 /**
  * A factory using singleton
@@ -46,13 +45,13 @@ public class DataHelperFactory {
 		return helper;
 	}
 
-	private static synchronized void checkFactoryState() throws Exception {
+	private static synchronized void checkFactoryState() throws NetException {
 		if (factory == null) {
 			factory = RMIConnectHelper.connect();
 		}
 	}
 
-	public CreditDataHelper getCreditDatabase() throws Exception {
+	public CreditDataHelper getCreditDatabase() throws NetException {
 		if (creditDataHelper == null) {
 			checkFactoryState();
 			creditDataHelper = new CreditDataHelper(factory.getCreditDatabase());
@@ -60,7 +59,7 @@ public class DataHelperFactory {
 		return creditDataHelper;
 	}
 
-	public HotelDataHelper getHotelDatabase() throws Exception {
+	public HotelDataHelper getHotelDatabase() throws NetException {
 		if (hotelDataHelper == null) {
 			checkFactoryState();
 			hotelDataHelper = new HotelDataHelper(factory.getHotelDatabase());
@@ -68,7 +67,7 @@ public class DataHelperFactory {
 		return hotelDataHelper;
 	}
 
-	public OrderDataService getOrderDatabase() throws Exception {
+	public OrderDataService getOrderDatabase() throws NetException {
 		if (orderDataService == null) {
 			checkFactoryState();
 			orderDataService = factory.getOrderDatabase();
@@ -76,7 +75,7 @@ public class DataHelperFactory {
 		return orderDataService;
 	}
 
-	public PromotionDataHelper getPromotionDatabase() throws Exception {
+	public PromotionDataHelper getPromotionDatabase() throws NetException {
 		if (promotionDataHelper == null) {
 			checkFactoryState();
 			promotionDataHelper = new PromotionDataHelper(factory.getPromotionDatabase());
@@ -84,7 +83,7 @@ public class DataHelperFactory {
 		return promotionDataHelper;
 	}
 
-	public RoomDataHelper getRoomDatabase() throws Exception {
+	public RoomDataHelper getRoomDatabase() throws NetException {
 		if (roomDataHelper == null) {
 			checkFactoryState();
 			roomDataHelper = new RoomDataHelper(factory.getRoomDatabase());
@@ -92,7 +91,7 @@ public class DataHelperFactory {
 		return roomDataHelper;
 	}
 
-	public ClientDataService getClientDatabase() throws Exception {
+	public ClientDataService getClientDatabase() throws NetException {
 		if (clientDataService == null) {
 			checkFactoryState();
 			clientDataService = factory.getClientDatabase();
@@ -100,7 +99,7 @@ public class DataHelperFactory {
 		return clientDataService;
 	}
 
-	public StaffDataService getStaffDatabase() throws Exception {
+	public StaffDataService getStaffDatabase() throws NetException {
 		if (staffDataService == null) {
 			checkFactoryState();
 			staffDataService = factory.getStaffDatabase();
@@ -108,7 +107,7 @@ public class DataHelperFactory {
 		return staffDataService;
 	}
 
-	public MarketerDataService getMarketerDatabase() throws Exception {
+	public MarketerDataService getMarketerDatabase() throws NetException {
 		if (marketerDataService == null) {
 			checkFactoryState();
 			marketerDataService = factory.getMarketerDatabase();
@@ -116,7 +115,7 @@ public class DataHelperFactory {
 		return marketerDataService;
 	}
 
-	public ManagerDataService getManagerDatabase() throws Exception {
+	public ManagerDataService getManagerDatabase() throws NetException {
 		if (managerDataService == null) {
 			checkFactoryState();
 			managerDataService = factory.getManagerDatabase();
@@ -124,7 +123,7 @@ public class DataHelperFactory {
 		return managerDataService;
 	}
 	
-	public Identify getIdentityService() throws Exception {
+	public Identify getIdentityService() throws NetException {
 		if(identify == null) {
 			checkFactoryState();
 			identify = factory.getIdentityService();

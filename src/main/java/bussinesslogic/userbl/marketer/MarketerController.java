@@ -1,10 +1,10 @@
 package bussinesslogic.userbl.marketer;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.userbl.manager.entrust.MarketerManage;
 import bussinesslogicservice.userblservice.MarketerBLService;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
@@ -12,12 +12,12 @@ public class MarketerController implements MarketerBLService , MarketerManage {
 	
 	private Marketer marketer;
 	
-	public MarketerController() throws Exception {
+	public MarketerController() throws NetException {
 		marketer = new Marketer();
 	}
 
 	@Override
-	public MarketerVO showData(String marketerID) throws RemoteException {
+	public MarketerVO showData(String marketerID) throws NetException {
 		return marketer.showData(marketerID);
 	}
 	
@@ -32,7 +32,7 @@ public class MarketerController implements MarketerBLService , MarketerManage {
 	}
 
 	@Override
-	public ArrayList<MarketerVO> getMarketerList() throws RemoteException {
+	public ArrayList<MarketerVO> getMarketerList() throws NetException {
 		return marketer.getMarketerList();
 	}
 

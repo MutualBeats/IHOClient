@@ -1,15 +1,15 @@
 package bussinesslogic.orderbl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.room.RoomRecordPO;
+import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 
 public interface RoomUpdate {
 	
-	public int getRoomPrice(String hotelID, String roomNumber) throws RemoteException;
+	public int getRoomPrice(String hotelID, String roomNumber) throws NetException;
 	
 	public ResultMessage_Room addRecord(RoomRecordPO record);
 
@@ -19,6 +19,6 @@ public interface RoomUpdate {
 	
 	public ResultMessage_Room onlineCheckOut(String hotelID, String roomNumber);
 	
-	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException;
+	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws NetException;
 	
 }
