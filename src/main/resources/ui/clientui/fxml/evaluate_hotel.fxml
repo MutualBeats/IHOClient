@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="470.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.evaluatehotel.EvaluateHotelController">
+<AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.evaluatehotel.EvaluateHotelController">
    <children>
       <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
-      <Label layoutX="90.0" layoutY="107.0" text="请您选择评分 :">
+      <Label layoutX="80.0" layoutY="107.0" text="请您选择评分 :">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
       <ChoiceBox layoutX="230.0" layoutY="105.0" prefWidth="150.0" />
-      <Label layoutX="90.0" layoutY="160.0" text="请输入您的评价 :">
+      <Label layoutX="80.0" layoutY="160.0" text="请输入您的评价 :">
          <font>
             <Font size="15.0" />
          </font>

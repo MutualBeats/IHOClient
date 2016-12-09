@@ -141,6 +141,8 @@ public class BrowseOrderController {
     void return_(ActionEvent event) {
     	Scene frame=WindowGrab .getScene(event);
     	WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
+    	Stage stage=WindowGrab.getStage(0);
+    	stage.setTitle("Client Menu");
     }
 
 
