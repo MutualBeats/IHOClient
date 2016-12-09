@@ -1,5 +1,7 @@
 package factory.datahelper;
 
+import java.rmi.RemoteException;
+
 import dataservice.datafactoryservice.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.ClientDataService;
@@ -54,7 +56,11 @@ public class DataHelperFactory {
 	public CreditDataHelper getCreditDatabase() throws NetException {
 		if (creditDataHelper == null) {
 			checkFactoryState();
-			creditDataHelper = new CreditDataHelper(factory.getCreditDatabase());
+			try {
+				creditDataHelper = new CreditDataHelper(factory.getCreditDatabase());
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return creditDataHelper;
 	}
@@ -62,7 +68,11 @@ public class DataHelperFactory {
 	public HotelDataHelper getHotelDatabase() throws NetException {
 		if (hotelDataHelper == null) {
 			checkFactoryState();
-			hotelDataHelper = new HotelDataHelper(factory.getHotelDatabase());
+			try {
+				hotelDataHelper = new HotelDataHelper(factory.getHotelDatabase());
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return hotelDataHelper;
 	}
@@ -70,7 +80,11 @@ public class DataHelperFactory {
 	public OrderDataService getOrderDatabase() throws NetException {
 		if (orderDataService == null) {
 			checkFactoryState();
-			orderDataService = factory.getOrderDatabase();
+			try {
+				orderDataService = factory.getOrderDatabase();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return orderDataService;
 	}
@@ -78,7 +92,11 @@ public class DataHelperFactory {
 	public PromotionDataHelper getPromotionDatabase() throws NetException {
 		if (promotionDataHelper == null) {
 			checkFactoryState();
-			promotionDataHelper = new PromotionDataHelper(factory.getPromotionDatabase());
+			try {
+				promotionDataHelper = new PromotionDataHelper(factory.getPromotionDatabase());
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return promotionDataHelper;
 	}
@@ -86,7 +104,11 @@ public class DataHelperFactory {
 	public RoomDataHelper getRoomDatabase() throws NetException {
 		if (roomDataHelper == null) {
 			checkFactoryState();
-			roomDataHelper = new RoomDataHelper(factory.getRoomDatabase());
+			try {
+				roomDataHelper = new RoomDataHelper(factory.getRoomDatabase());
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return roomDataHelper;
 	}
@@ -94,7 +116,11 @@ public class DataHelperFactory {
 	public ClientDataService getClientDatabase() throws NetException {
 		if (clientDataService == null) {
 			checkFactoryState();
-			clientDataService = factory.getClientDatabase();
+			try {
+				clientDataService = factory.getClientDatabase();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return clientDataService;
 	}
@@ -102,7 +128,11 @@ public class DataHelperFactory {
 	public StaffDataService getStaffDatabase() throws NetException {
 		if (staffDataService == null) {
 			checkFactoryState();
-			staffDataService = factory.getStaffDatabase();
+			try {
+				staffDataService = factory.getStaffDatabase();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return staffDataService;
 	}
@@ -110,7 +140,11 @@ public class DataHelperFactory {
 	public MarketerDataService getMarketerDatabase() throws NetException {
 		if (marketerDataService == null) {
 			checkFactoryState();
-			marketerDataService = factory.getMarketerDatabase();
+			try {
+				marketerDataService = factory.getMarketerDatabase();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return marketerDataService;
 	}
@@ -118,7 +152,11 @@ public class DataHelperFactory {
 	public ManagerDataService getManagerDatabase() throws NetException {
 		if (managerDataService == null) {
 			checkFactoryState();
-			managerDataService = factory.getManagerDatabase();
+			try {
+				managerDataService = factory.getManagerDatabase();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return managerDataService;
 	}
@@ -126,7 +164,11 @@ public class DataHelperFactory {
 	public Identify getIdentityService() throws NetException {
 		if(identify == null) {
 			checkFactoryState();
-			identify = factory.getIdentityService();
+			try {
+				identify = factory.getIdentityService();
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return identify;
 	}

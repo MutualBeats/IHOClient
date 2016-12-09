@@ -45,7 +45,7 @@ public class Client {
 				//Cache update
 				cache = ClientVO.transformVOToPO(getClientInfo(registVO.id));
 			}
-		} catch (NetException e) {
+		} catch (NetException | RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		return result;
@@ -62,7 +62,12 @@ public class Client {
 	public ClientVO getClientInfo(String clientID) throws NetException {
 		if (!checkCacheHit(clientID)) {
 			// Reload the cache
-			cache = clientDataService.queryClient(clientID);
+			try {
+				cache = clientDataService.queryClient(clientID);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				throw new NetException();
+			}
 		}
 
 		ClientVO vo = ClientPO.transformPOToVO(cache);
@@ -83,7 +88,7 @@ public class Client {
 
 		try {
 			result = clientDataService.updateClientInfo(changePO);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		// Make sure the check is successful
@@ -126,7 +131,7 @@ public class Client {
 
 		try {
 			result = clientDataService.registerMember(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 
@@ -156,7 +161,13 @@ public class Client {
 	 * @throws RemoteException
 	 */
 	public ArrayList<ClientVO> getClientList() throws NetException {
-		ArrayList<ClientPO> pos = clientDataService.getClientList();
+		ArrayList<ClientPO> pos;
+		try {
+			pos = clientDataService.getClientList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		ArrayList<ClientVO> vos = new ArrayList<>();
 		for (ClientPO each : pos) {
 			ClientVO vo = ClientPO.transformPOToVO(each);

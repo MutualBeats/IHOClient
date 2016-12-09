@@ -1,5 +1,6 @@
 package bussinesslogic.userbl.manager;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -31,7 +32,13 @@ public class Manager {
 	
 	public ManagerVO getManagerInfor() throws NetException {
 		checkManageState();
-		ManagerPO info = manager_service.getManagerInfo();
+		ManagerPO info;
+		try {
+			info = manager_service.getManagerInfo();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		return ManagerPO.transformPOToVO(info);
 	}
 	

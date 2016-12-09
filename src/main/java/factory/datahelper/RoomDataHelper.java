@@ -51,7 +51,11 @@ public class RoomDataHelper {
 	 */
 	public Iterator<RoomPO> getRoomList(String hotelID) throws NetException {
 		if (!current_hotel.equals(hotelID)) {
-			room_cache = room_service.getRoom(hotelID);
+			try {
+				room_cache = room_service.getRoom(hotelID);
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 		}
 		return room_cache.iterator();
 	}
@@ -75,7 +79,11 @@ public class RoomDataHelper {
 			
 		}
 		// Error may happen when request from server
-		return room_service.getRoomInfo(hotelID, roomNumber);
+		try {
+			return room_service.getRoomInfo(hotelID, roomNumber);
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 	}
 	
 	/**
@@ -86,22 +94,26 @@ public class RoomDataHelper {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public ResultMessage_Room addRoom(RoomPO po) throws NetException {
-		// Reload cache.
-		getRoomList(po.getHotelID());
-		// Check Room.
-		RoomPO contains = checkContain(po.getHotelID(), po.getRoomNumber());
-		if (contains != null) {
-			return ResultMessage_Room.Room_Exist_Already;
-		} else {
-			ResultMessage_Room result = ResultMessage_Room.Room_Add_Successful;
-			// Update Server
-			result = room_service.addRoom(po);
-			if (result.equals(ResultMessage_Room.Room_Add_Successful)) {
-				// Update Cache
-				room_cache = room_service.getRoom(current_hotel);
+	public ResultMessage_Room addRoom(RoomPO po) {
+		try {
+			// Reload cache.
+			getRoomList(po.getHotelID());
+			// Check Room.
+			RoomPO contains = checkContain(po.getHotelID(), po.getRoomNumber());
+			if (contains != null) {
+				return ResultMessage_Room.Room_Exist_Already;
+			} else {
+				ResultMessage_Room result = ResultMessage_Room.Room_Add_Successful;
+				// Update Server
+				result = room_service.addRoom(po);
+				if (result.equals(ResultMessage_Room.Room_Add_Successful)) {
+					// Update Cache
+					room_cache = room_service.getRoom(current_hotel);
+				}
+				return result;
 			}
-			return result;
+		} catch (RemoteException | NetException e) {
+			return ResultMessage_Room.Net_Error;
 		}
 	}
 
@@ -117,7 +129,7 @@ public class RoomDataHelper {
 		try {
 			// 更新服务器端信息
 			result = room_service.checkIn(hotelID, roomNumber, isOnline);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
@@ -136,7 +148,7 @@ public class RoomDataHelper {
 		try {
 			// 更新服务器端信息
 			result = room_service.checkOut(hotelID, roomNumber, isOnline);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			// 网络错误，中断操作
 			return ResultMessage_Room.Net_Error;
 		}
@@ -169,7 +181,11 @@ public class RoomDataHelper {
 	 * @throws RemoteException
 	 */
 	public Iterator<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws NetException {
-		return room_service.getOrderRecord(hotelID, roomNumber).iterator();
+		try {
+			return room_service.getOrderRecord(hotelID, roomNumber).iterator();
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 	}
 
 	/**
@@ -181,7 +197,7 @@ public class RoomDataHelper {
 	public ResultMessage_Room addRecord(RoomRecordPO po) {
 		try {
 			return this.room_service.addRecord(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_Room.Net_Error;
 		}
 	}
@@ -195,7 +211,7 @@ public class RoomDataHelper {
 	public ResultMessage_Room deleteRecord(String orderID) {
 		try {
 			return room_service.deleteRecord(orderID);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_Room.Net_Error;
 		}
 	}

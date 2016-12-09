@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import po.room.RoomPO;
 import po.room.RoomRecordPO;
-import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 
 public interface RoomDataService extends Remote{
@@ -21,7 +20,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomPO> getRoom(String hotelID) throws NetException;
+	public ArrayList<RoomPO> getRoom(String hotelID) throws RemoteException;
 	/**
 	 * 获取房间信息
 	 * 
@@ -30,7 +29,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws NetException;
+	public RoomPO getRoomInfo(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 添加酒店
 	 * 
@@ -38,7 +37,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Room addRoom(RoomPO po) throws NetException;
+	public ResultMessage_Room addRoom(RoomPO po) throws RemoteException;
 	/**
 	 * 入住
 	 * 
@@ -47,7 +46,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Room checkIn(String hotelID, String roomNumber, boolean isOnline) throws NetException;
+	public ResultMessage_Room checkIn(String hotelID, String roomNumber, boolean isOnline) throws RemoteException;
 	/**
 	 * 离开
 	 * 
@@ -56,7 +55,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Room checkOut(String hotelID, String roomNumber, boolean isOnline) throws NetException;
+	public ResultMessage_Room checkOut(String hotelID, String roomNumber, boolean isOnline) throws RemoteException;
 	/**
 	 * 获得预定记录
 	 * 
@@ -65,7 +64,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws NetException;
+	public ArrayList<RoomRecordPO> getOrderRecord(String hotelID, String roomNumber) throws RemoteException;
 	/**
 	 * 增加房间预定记录
 	 * 
@@ -73,7 +72,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Room addRecord(RoomRecordPO po) throws NetException;
+	public ResultMessage_Room addRecord(RoomRecordPO po) throws RemoteException;
 	/**
 	 * 删除房间预定记录
 	 * 
@@ -81,7 +80,7 @@ public interface RoomDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Room deleteRecord(String orderID) throws NetException;
+	public ResultMessage_Room deleteRecord(String orderID) throws RemoteException;
 
 	
 }

@@ -92,10 +92,11 @@ public class Order {
 			// 删除房间预订记录
 			checkRoom();
 			room.deleteRecord(orderID);
-		} catch (NetException e) {
+		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		} catch (ParseException e) {
+			e.printStackTrace();
 			return ResultMessage_Order.Cancel_Failed;
 		}
 		
@@ -145,7 +146,7 @@ public class Order {
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
 			
-		} catch (NetException e) {
+		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -179,7 +180,7 @@ public class Order {
 				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
 			}
 			
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -241,7 +242,7 @@ public class Order {
 			checkCredit();
 			credit.creditUpdate(creditVO);
 			
-		} catch (NetException e) {
+		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -256,7 +257,12 @@ public class Order {
 	 * @throws RemoteException
 	 */
 	public OrderVO queryOrderById(String orderID) throws NetException {
-		orderPO = order_data_service.findById(orderID);
+		try {
+			orderPO = order_data_service.findById(orderID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		return new OrderVO(orderPO);
 	}
 
@@ -270,7 +276,13 @@ public class Order {
 	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
-		ArrayList<OrderPO> orderPOList = order_data_service.findUOByHotel(hotelID, clientID);
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findUOByHotel(hotelID, clientID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
@@ -289,7 +301,13 @@ public class Order {
 	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
-		ArrayList<OrderPO> orderPOList = order_data_service.findByRoom(hotelID, roomNumber);
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findByRoom(hotelID, roomNumber);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
@@ -307,7 +325,13 @@ public class Order {
 	public ArrayList<OrderVO> queryUserOrder(String clientID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
-		ArrayList<OrderPO> orderPOList = order_data_service.findByUser(clientID);
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findByUser(clientID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
@@ -319,7 +343,13 @@ public class Order {
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
-		ArrayList<OrderPO> orderPOList = order_data_service.findUnexecutedOrder(date);
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findUnexecutedOrder(date);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
@@ -337,7 +367,13 @@ public class Order {
 	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
 		
-		ArrayList<OrderPO> orderPOList = order_data_service.findHotelOrder(hotelID);
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findHotelOrder(hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
@@ -463,7 +499,13 @@ public class Order {
 		
 		// 数据库记录订单信息，获取订单号
 		OrderPO po = new OrderPO(orderVO);
-		String orderID = order_data_service.addOrder(po);
+		String orderID;
+		try {
+			orderID = order_data_service.addOrder(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		orderVO.orderID = orderID;
 		
 		// 添加房间记录

@@ -40,13 +40,22 @@ public class PromotionDataHelper {
 		this.current_hotel = "";
 		this.hotel_promotion_cache = new ArrayList<>();
 		this.hotel_promotion_cache.clear();
-		this.web_promotion_cache = promotion_service.getWebPromotion();
-		this.member_level_cache = promotion_service.getMemberLevel();
-		this.member_discount_cache = promotion_service.getMemberDiscount();
+		try {
+			this.web_promotion_cache = promotion_service.getWebPromotion();
+			this.member_level_cache = promotion_service.getMemberLevel();
+			this.member_discount_cache = promotion_service.getMemberDiscount();
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 	}
 
 	public String addPromotion(PromotionPO po) throws NetException {
-		String promotionID = promotion_service.addPromotion(po);
+		String promotionID;
+		try {
+			promotionID = promotion_service.addPromotion(po);
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 		po.setPromotionID(promotionID);
 		// 更新cache
 		if(po.getHotelID().equals("")) {
@@ -60,7 +69,11 @@ public class PromotionDataHelper {
 
 	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws NetException {
 		if(!current_hotel.equals(hotelID)) {
-			hotel_promotion_cache = promotion_service.getHotelPromotion(hotelID);
+			try {
+				hotel_promotion_cache = promotion_service.getHotelPromotion(hotelID);
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 			current_hotel = hotelID;
 		}
 		return hotel_promotion_cache.iterator();
@@ -80,7 +93,7 @@ public class PromotionDataHelper {
 			current_hotel = "";
 			hotel_promotion_cache.clear();
 			web_promotion_cache = promotion_service.getWebPromotion();
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Promotion.Net_Error;
 		}
@@ -99,7 +112,7 @@ public class PromotionDataHelper {
 		ResultMessage_Promotion result = ResultMessage_Promotion.Level_Make_Successful;
 		try {
 			result = promotion_service.levelMake(level, discount);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Promotion.Net_Error;
 		}

@@ -1,5 +1,6 @@
 package bussinesslogic.userbl.marketer;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.userdataservice.MarketerDataService;
@@ -28,7 +29,12 @@ public class Marketer {
 
 	public MarketerVO showData(String marketerID) throws NetException {
 		if(!checkCacheHit(marketerID)) {
-			cache = marketerDataService.getMarketerInfo(marketerID);
+			try {
+				cache = marketerDataService.getMarketerInfo(marketerID);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				throw new NetException();
+			}
 		}
 		MarketerVO vo = MarketerPO.transformPOToVO(cache);
 		return vo;
@@ -40,7 +46,7 @@ public class Marketer {
 		MarketerPO po = MarketerVO.transformVOToPO(vo);
 		try {
 			result = marketerDataService.updateData(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_User.Net_Error;
 		}
@@ -55,7 +61,7 @@ public class Marketer {
 		MarketerPO po = MarketerVO.transformVOToPO(registVO);
 		try {
 			result = marketerDataService.insert(po, password);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		
@@ -63,7 +69,13 @@ public class Marketer {
 	}
 	
 	public ArrayList<MarketerVO> getMarketerList() throws NetException {
-		ArrayList<MarketerPO> pos = marketerDataService.getMarketerList();
+		ArrayList<MarketerPO> pos;
+		try {
+			pos = marketerDataService.getMarketerList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		ArrayList<MarketerVO> vos = new ArrayList<>();
 		for(MarketerPO each : pos) {
 			MarketerVO vo = MarketerPO.transformPOToVO(each);

@@ -1,5 +1,6 @@
 package bussinesslogic.userbl.staff;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.userdataservice.StaffDataService;
@@ -30,7 +31,12 @@ public class Staff {
 	
 	public StaffVO showData(String staffID) throws NetException {		
 		if(!checkCacheHit(staffID)) {
-		 cache = staffDataService.findData(staffID);
+			try {
+				cache = staffDataService.findData(staffID);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				throw new NetException();
+			}
 		}
 		
 		StaffVO vo = StaffPO.transformPOToVO(cache);
@@ -44,7 +50,7 @@ public class Staff {
 		
 		try {
 			result = staffDataService.updateData(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 			
@@ -56,14 +62,20 @@ public class Staff {
 		StaffPO po = StaffVO.transformVOToPO(registVO); 
 		try {
 			result = staffDataService.insert(po, password);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
 		return result;
 	}
 	
-	public ArrayList<StaffVO> getStaffList() throws NetException{
-		ArrayList<StaffPO> pos = staffDataService.getStaffList();
+	public ArrayList<StaffVO> getStaffList() throws NetException {
+		ArrayList<StaffPO> pos;
+		try {
+			pos = staffDataService.getStaffList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		ArrayList<StaffVO> vos = new ArrayList<>();
 		for(StaffPO each : pos) {
 			StaffVO vo = StaffPO.transformPOToVO(each);

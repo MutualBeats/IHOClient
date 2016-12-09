@@ -45,7 +45,11 @@ public class HotelDataHelper {
 		// Search the cache;
 		HotelPO info = hotel_info_cache.get(hotelID);
 		if (info == null) {
-			info = hotel_service.getHotelInfo(hotelID);
+			try {
+				info = hotel_service.getHotelInfo(hotelID);
+			} catch (RemoteException e) {
+				throw new NetException();
+			}
 			// Update Cache
 			if (info != null) {
 				hotel_info_cache.put(hotelID, info);
@@ -68,15 +72,20 @@ public class HotelDataHelper {
 	 *             : Net Error
 	 */
 	public Iterator<HotelPO> findHotelByCondition(SearchCondition sc) throws NetException {
-		ArrayList<HotelPO> hotels = hotel_service.findHotelByCondition(sc);
-		// Update Cache :
-		Iterator<HotelPO> iterator = hotels.iterator();
-		while (iterator.hasNext()) {
-			HotelPO po = iterator.next();
-			hotel_info_cache.remove(po.getHotelID());
-			hotel_info_cache.put(po.getHotelID(), po);
+		try {
+			ArrayList<HotelPO> hotels = hotel_service.findHotelByCondition(sc);
+
+			// Update Cache :
+			Iterator<HotelPO> iterator = hotels.iterator();
+			while (iterator.hasNext()) {
+				HotelPO po = iterator.next();
+				hotel_info_cache.remove(po.getHotelID());
+				hotel_info_cache.put(po.getHotelID(), po);
+			}
+			return hotels.iterator();
+		} catch (RemoteException e) {
+			throw new NetException();
 		}
-		return hotels.iterator();
 	}
 
 	/**
@@ -89,7 +98,7 @@ public class HotelDataHelper {
 		ResultMessage_Hotel change_result = ResultMessage_Hotel.Change_Successful;
 		try {
 			change_result = hotel_service.changeHotelInfo(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Hotel.Net_Error;
 		}
@@ -128,7 +137,7 @@ public class HotelDataHelper {
 			hotel_info_cache.remove(po.getHotelID());
 			hotel_info_cache.put(po.getHotelID(), hotelInfo);
 			return result;
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Hotel.Net_Error;
 		}
@@ -141,7 +150,12 @@ public class HotelDataHelper {
 	 * @return
 	 */
 	public String addHotel(HotelPO po) throws NetException {
-		String id = hotel_service.addHotel(po);
+		String id;
+		try {
+			id = hotel_service.addHotel(po);
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 		if (id != null) {
 			po.setHotelID(id);
 			hotel_info_cache.put(id, po);
@@ -155,11 +169,16 @@ public class HotelDataHelper {
 	 * 
 	 * @param hotelID
 	 * @return
+	 * @throws NetException 
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
 	public Iterator<HotelEvaluationPO> getHotelEvaluation(String hotelID) throws NetException {
-		return hotel_service.getHotelEvaluation(hotelID).iterator();
+		try {
+			return hotel_service.getHotelEvaluation(hotelID).iterator();
+		} catch (RemoteException e) {
+			throw new NetException();
+		}
 	}
 
 }

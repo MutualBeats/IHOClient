@@ -5,6 +5,7 @@
 package dataservice.datafactoryservice;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.hoteldataservice.HotelDataService;
@@ -16,28 +17,27 @@ import dataservice.userdataservice.ManagerDataService;
 import dataservice.userdataservice.MarketerDataService;
 import dataservice.userdataservice.StaffDataService;
 import dataservice.utildataservice.Identify;
-import util.exception.NetException;
 
 public interface DataFactory extends Remote{
 	
-	public CreditDataService getCreditDatabase() throws NetException;
+	public CreditDataService getCreditDatabase() throws RemoteException;
 	
-	public HotelDataService getHotelDatabase() throws NetException;
+	public HotelDataService getHotelDatabase() throws RemoteException;
 	
-	public OrderDataService getOrderDatabase() throws NetException;
+	public OrderDataService getOrderDatabase() throws RemoteException;
 	
-	public PromotionDataService getPromotionDatabase() throws NetException;
+	public PromotionDataService getPromotionDatabase() throws RemoteException;
 	
-	public RoomDataService getRoomDatabase() throws NetException;
+	public RoomDataService getRoomDatabase() throws RemoteException;
 	
-	public ClientDataService getClientDatabase() throws NetException;
+	public ClientDataService getClientDatabase() throws RemoteException;
 	
-	public MarketerDataService getMarketerDatabase() throws NetException;
+	public MarketerDataService getMarketerDatabase() throws RemoteException;
 	
-	public StaffDataService getStaffDatabase() throws NetException;
+	public StaffDataService getStaffDatabase() throws RemoteException;
 	
-	public ManagerDataService getManagerDatabase() throws NetException;
+	public ManagerDataService getManagerDatabase() throws RemoteException;
 	
-	public Identify getIdentityService() throws NetException;
+	public Identify getIdentityService() throws RemoteException;
 	
 }
