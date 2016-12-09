@@ -9,43 +9,54 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
 public class BrowseOrderController {
 
-
+	
     @FXML
-    private Button revoked_order;
+    private Button unexecuted_revoke;
 
     @FXML
     private Button executed_order;
 
     @FXML
-    private Button unusual_order;
-
-    @FXML
     private Button all_order;
 
     @FXML
-    private Label title;
-    
-    @FXML
-    private Button unexcuted_order;
-    
-    @FXML
-    private Button unexecuted_order;
-    
+    private Pane all_pane;
+
     @FXML
     private Button check;
-    
+
+    @FXML
+    private Label title;
+
+    @FXML
+    private Button unexecuted_check;
+
+    @FXML
+    private Button revoked_order;
+
     @FXML
     private Button return_;
-    
-   
-    
-    
+
+    @FXML
+    private Button unusual_order;
+
+    @FXML
+    private Pane unexecuted_pane;
+
+    @FXML
+    private Button unexecuted_return;
+
+    @FXML
+    private Button unexecuted_order;
+
+
     private static URL CHECK_FXML;
     private static URL CHECK_CSS;
     
@@ -67,45 +78,57 @@ public class BrowseOrderController {
 		}
     }
     
-   
+    
+    
     @FXML
-    void return_(ActionEvent event) {
-    	Scene frame=WindowGrab .getScene(event);
-    	WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
+    void all_order(ActionEvent event) {
+    	unexecuted_pane.setVisible(false);
+    	all_pane.setVisible(true);
     }
-    
-    
+
+
+    @FXML
+    void executed_order(ActionEvent event) {
+    	unexecuted_pane.setVisible(false);
+    	all_pane.setVisible(true);
+    }
+
+    @FXML
+    void unexecuted_order(ActionEvent event) {
+    	all_pane.setVisible(false);
+    	unexecuted_pane.setVisible(true);
+    }
+
+    @FXML
+    void revoked_order(ActionEvent event) {
+    	unexecuted_pane.setVisible(false);
+    	all_pane.setVisible(true);
+    }
+
+
+    @FXML
+    void unusual_order(ActionEvent event) {
+    	all_pane.setVisible(true);
+    	unexecuted_pane.setVisible(false);
+    	
+    }
+
     @FXML
     void check(ActionEvent event){
     	Window window=WindowGrab.getWindow(event);
     	WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
     }
-    
-    @FXML
-    void all_order(ActionEvent event) {
-
-    }
 
     @FXML
-    void executed_order(ActionEvent event) {
-
+    void return_(ActionEvent event) {
+    	Scene frame=WindowGrab .getScene(event);
+    	WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
     }
+
 
     @FXML
-    void unexecuted_order(ActionEvent event) {
+    void unexecuted_revoke(ActionEvent event) {
 
     }
-
-    @FXML
-    void revoked_order(ActionEvent event) {
-
-    }
-
-    @FXML
-    void unusual_order(ActionEvent event) {
-
-    }
-    
-    
 }
 

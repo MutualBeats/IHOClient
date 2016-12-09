@@ -71,4 +71,27 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
 }
 
+#unexecuted_return{
+	-fx-background-image: url("file:src/main/resources/image/client/return.png");
+}
 
+#unexecuted_return:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
+}
+
+
+#unexecuted_check{
+	-fx-background-image: url("file:src/main/resources/image/client/check.png");
+}
+
+#unexecuted_check:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
+}
+
+#unexecuted_revoke{
+	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_revoke.png");
+}
+
+#unexecuted_revoke:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_revoke_hover.png");
+}
