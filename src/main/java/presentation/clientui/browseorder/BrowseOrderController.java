@@ -24,6 +24,9 @@ public class BrowseOrderController {
     private Button executed_order;
 
     @FXML
+    private Pane executed_pane;
+    
+    @FXML
     private Button all_order;
 
     @FXML
@@ -56,9 +59,17 @@ public class BrowseOrderController {
     @FXML
     private Button unexecuted_order;
 
+    @FXML
+    private Button executed_check;
+    
+    @FXML
+    private Button executed_return;
 
     private static URL CHECK_FXML;
     private static URL CHECK_CSS;
+    
+    private static URL EXECUTE_CHECK_FXML;
+    private static URL EXECUTE_CHECK_CSS;
     
     private static URL CLIENTMENU_FXML;
     private static URL CLIENTMENU_CSS;
@@ -72,6 +83,9 @@ public class BrowseOrderController {
 			CLIENTMENU_FXML=new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS=new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
 			
+			EXECUTE_CHECK_FXML=new URL("file:src/main/resources/ui/clientui/fxml/executed_check.fxml");
+			EXECUTE_CHECK_CSS=new URL("file:src/main/resources/ui/clientui/css/executed_check.css");
+			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,6 +96,7 @@ public class BrowseOrderController {
     
     @FXML
     void all_order(ActionEvent event) {
+    	executed_pane.setVisible(false);
     	unexecuted_pane.setVisible(false);
     	all_pane.setVisible(true);
     }
@@ -90,17 +105,20 @@ public class BrowseOrderController {
     @FXML
     void executed_order(ActionEvent event) {
     	unexecuted_pane.setVisible(false);
-    	all_pane.setVisible(true);
+    	all_pane.setVisible(false);
+    	executed_pane.setVisible(true);
     }
 
     @FXML
     void unexecuted_order(ActionEvent event) {
+    	executed_pane.setVisible(false);
     	all_pane.setVisible(false);
     	unexecuted_pane.setVisible(true);
     }
 
     @FXML
     void revoked_order(ActionEvent event) {
+    	executed_pane.setVisible(false);
     	unexecuted_pane.setVisible(false);
     	all_pane.setVisible(true);
     }
@@ -108,9 +126,9 @@ public class BrowseOrderController {
 
     @FXML
     void unusual_order(ActionEvent event) {
-    	all_pane.setVisible(true);
+    	executed_pane.setVisible(false);
     	unexecuted_pane.setVisible(false);
-    	
+    	all_pane.setVisible(true);
     }
 
     @FXML
@@ -129,6 +147,13 @@ public class BrowseOrderController {
     @FXML
     void unexecuted_revoke(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void executed_check(ActionEvent event) {
+    	Window window=WindowGrab.getWindow(event);
+    	WindowGrab.startWindow(window, "查看订单详情", EXECUTE_CHECK_FXML, EXECUTE_CHECK_CSS);
+    
     }
 }
 

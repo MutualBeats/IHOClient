@@ -95,3 +95,22 @@ and open the template in the editor.
 #unexecuted_revoke:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_revoke_hover.png");
 }
+
+
+
+#executed_return{
+	-fx-background-image: url("file:src/main/resources/image/client/return.png");
+}
+
+#executed_return:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
+}
+
+
+#executed_check{
+	-fx-background-image: url("file:src/main/resources/image/client/check.png");
+}
+
+#executed_check:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
+}

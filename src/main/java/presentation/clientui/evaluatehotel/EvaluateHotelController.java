@@ -1,20 +1,41 @@
 package presentation.clientui.evaluatehotel;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
-public class EvaluateHotelController {
-	private static URL LOGIN_FXML;
-    private static URL LOGIN_CSS;
-    
-    static{
-    	try {
-			LOGIN_FXML=new URL("file:src/main/resources/ui/loginui/fxml/login.fxml");
-			LOGIN_CSS=new URL("file:src/main/resources/ui/loginui/css/login.css");
-			
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.stage.Window;
+import presentation.utilcontroller.Confirm;
+import presentation.utilui.WindowGrab;
+
+public class EvaluateHotelController implements Confirm{
+
+	@FXML
+    private Button confirm;
+
+    @FXML
+    private Button cancel;
+
+    @FXML
+    private Label title;
+
+    @FXML
+    void confirm(ActionEvent event) {
+    	Window window=WindowGrab.getWindow(event);
+    	WindowGrab.startConfirmWindow(window, this);
     }
+
+    @FXML
+    void cancel(ActionEvent event) {
+    	WindowGrab.closeWindow(event);
+    }
+
+	@Override
+	public void confirm() {
+		// TODO Auto-generated method stub
+		
+	}
 }
+

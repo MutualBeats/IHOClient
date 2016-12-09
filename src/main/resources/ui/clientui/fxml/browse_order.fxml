@@ -38,7 +38,7 @@
          </font>
       </Button>
       <Line endX="600.0" layoutX="100.0" layoutY="144.0" />
-      <Pane fx:id="all_pane" layoutX="100.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+      <Pane fx:id="all_pane" layoutX="100.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <Button fx:id="check" layoutX="475.0" layoutY="355.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="65.0" />
             <Button fx:id="return_" layoutX="355.0" layoutY="355.0" mnemonicParsing="false" onAction="#return_" prefHeight="26.0" prefWidth="65.0" />
@@ -55,7 +55,7 @@
             </TreeTableView>
          </children>
       </Pane>
-      <Pane fx:id="unexecuted_pane" layoutX="100.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="unexecuted_pane" layoutX="100.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
             <TreeTableView prefHeight="325.0" prefWidth="600.0">
                <columns>
@@ -71,6 +71,23 @@
             <Button fx:id="unexecuted_return" layoutX="485.0" layoutY="355.0" mnemonicParsing="false" onAction="#return_" prefHeight="26.0" prefWidth="65.0" />
             <Button fx:id="unexecuted_check" layoutX="355.0" layoutY="355.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="65.0" />
             <Button fx:id="unexecuted_revoke" layoutX="230.0" layoutY="355.0" mnemonicParsing="false" onAction="#unexecuted_revoke" prefHeight="26.0" prefWidth="65.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="executed_pane" layoutX="100.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <Button fx:id="executed_check" layoutX="355.0" layoutY="355.0" mnemonicParsing="false" onAction="#executed_check" prefHeight="26.0" prefWidth="65.0" />
+            <Button fx:id="executed_return" layoutX="475.0" layoutY="355.0" mnemonicParsing="false" onAction="#return_" prefHeight="26.0" prefWidth="65.0" />
+            <TreeTableView prefHeight="325.0" prefWidth="600.0">
+               <columns>
+                  <TreeTableColumn prefWidth="110.0" text="ID" />
+                  <TreeTableColumn prefWidth="90.0" text="酒店名称" />
+                  <TreeTableColumn prefWidth="75.0" text="订单状态" />
+                  <TreeTableColumn prefWidth="85.0" text="开始时间" />
+                  <TreeTableColumn prefWidth="85.0" text="退房时间" />
+                  <TreeTableColumn text="有无儿童" />
+                  <TreeTableColumn prefWidth="75.0" text="入住人数" />
+               </columns>
+            </TreeTableView>
          </children>
       </Pane>
    </children>
