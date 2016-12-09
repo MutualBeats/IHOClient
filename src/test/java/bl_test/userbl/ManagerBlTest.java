@@ -105,7 +105,7 @@ public class ManagerBlTest {
 		try {
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.addMarketer( new MarketerVO(marketervo1.marketerID,"123",marketervo1.contactWay) ,password));
 //			assertEquals(ResultMessage_User.UserName_Invalid, manager.addMarketer( new MarketerVO(marketervo1.marketerID,"12345678901234567890",marketervo1.contactWay), password));
-			assertEquals(ResultMessage_User.AddSucccess, manager.addMarketer(marketervo1, password));
+			assertEquals(ResultMessage_User.PEOPLE_ADD_SUCCESS, manager.addMarketer(marketervo1, password));
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}

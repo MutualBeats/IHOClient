@@ -7,16 +7,23 @@
 package presentation.manageui.check;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.acl.Group;
+import java.util.ResourceBundle;
 
+import config.location.City;
+import config.location.Field;
+import config.location.Province;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
+import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.WindowGrab;
 
-public class CheckMenuController {
+public class CheckMenuController extends LocationBoxController{
 
 	@FXML
     private Button cancel;
@@ -25,22 +32,10 @@ public class CheckMenuController {
     private Button search;
 
     @FXML
-    private ComboBox<?> province;
-
-    @FXML
-    private ComboBox<?> field;
-
-    @FXML
-    private ComboBox<?> city;
-
-    @FXML
     private Label check_title;
 
     @FXML
     private Button check;
-
-    @FXML
-    private ComboBox<?> group;
 
 
     private static URL CHECK_FXML;

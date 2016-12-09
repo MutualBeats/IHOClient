@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
-import vo.user.ClientVO;
 
 public class IDInputController {
 

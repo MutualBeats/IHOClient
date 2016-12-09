@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.RegistCheckController;
+import presentation.utilui.ResultHandle;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
@@ -54,13 +55,7 @@ public class AddPeopleController extends RegistCheckController implements Initia
 			return;
 		}
 
-		if (result == ResultMessage_User.Net_Error) {
-			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
-		} else if (result == ResultMessage_User.Register_Success) {
-			WindowGrab.startNoticeWindow(window, "营销人员添加成功");
-		} else {
-			WindowGrab.startErrorWindow(window, "添加失败");
-		}
+		ResultHandle.checkResult(result, window);
 
 	}
 

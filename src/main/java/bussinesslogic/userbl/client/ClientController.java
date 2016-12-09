@@ -9,6 +9,7 @@ import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientInfoChangeVO;
+import vo.user.ClientRegistVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -42,8 +43,8 @@ public class ClientController implements ClientBLService, ClientInfoGet, ClientI
 	}
 
 	@Override
-	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException {
-		return client.regist(registVO, password);
+	public ResultMessage_User regist(ClientRegistVO info) {
+		return client.regist(info);
 	}
 	
 

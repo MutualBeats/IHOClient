@@ -7,10 +7,13 @@ import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
 import po.user.ClientInfoChangePO;
 import po.user.ClientPO;
+import po.user.ClientRegistPO;
 import po.user.MemberPO;
+import util.resultmessage.ResultMessage_Credit;
 import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
 import vo.user.ClientInfoChangeVO;
+import vo.user.ClientRegistVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -19,23 +22,30 @@ public class Client {
 	private ClientDataService clientDataService;
 
 	private ClientPO cache;
-	
+
 	private CreditRegister credit;
 
 	public Client(CreditRegister credit) throws Exception {
 		clientDataService = DataHelperFactory.getDataFactoryHelperInstance().getClientDatabase();
-		
-		
+
 		this.credit = credit;
 	}
-	
-	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException {
+
+	public ResultMessage_User regist(ClientRegistVO registVO) {
 		ResultMessage_User result = ResultMessage_User.Register_Success;
-		ClientPO po = ClientVO.transformVOToPO(registVO);
-		result = clientDataService.regist(po, password);
-		if(result == ResultMessage_User.Register_Success) {
-			cache = ClientVO.transformVOToPO(getClientInfo(registVO.clientID));
-			credit.addCreditRegister(registVO.clientID);
+		ClientRegistPO po = ClientRegistVO.transformVOToPO(registVO);
+		try {
+			result = clientDataService.regist(po);
+			if (result == ResultMessage_User.Register_Success) {
+				ResultMessage_Credit re_result = credit.addCreditRegister(registVO.id);
+				if(re_result != ResultMessage_Credit.Update_Successful) {
+					return ResultMessage_User.Regitster_Failed;
+				}
+				//Cache update
+				cache = ClientVO.transformVOToPO(getClientInfo(registVO.id));
+			}
+		} catch (RemoteException e) {
+			return ResultMessage_User.Net_Error;
 		}
 		return result;
 	}
@@ -69,7 +79,7 @@ public class Client {
 	public ResultMessage_User changeClientInfo(ClientInfoChangeVO vo) {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		ClientInfoChangePO changePO = ClientInfoChangeVO.transformVOToPO(vo);
-		
+
 		try {
 			result = clientDataService.updateClientInfo(changePO);
 		} catch (RemoteException e) {
@@ -92,7 +102,7 @@ public class Client {
 	 */
 	public ResultMessage_User memberRegister(MemberVO vo) {
 		ResultMessage_User result = ResultMessage_User.Register_Success;
-		
+
 		if (!checkCacheHit(vo.clientID)) {
 			try {
 				getClientInfo(vo.clientID);
@@ -101,9 +111,9 @@ public class Client {
 				return ResultMessage_User.Net_Error;
 			}
 		}
-		
+
 		MemberType existType = cache.getMemberType();
-		//检查用户会员状态
+		// 检查用户会员状态
 		if (existType != MemberType.Not) {
 			if (existType == MemberType.Enterprise) {
 				return ResultMessage_User.BusinessMember_Exist;
@@ -118,9 +128,9 @@ public class Client {
 		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
-		
-		//更新Cache
-		if(result == ResultMessage_User.Register_Success) {
+
+		// 更新Cache
+		if (result == ResultMessage_User.Register_Success) {
 			cache.setMemberMessage(vo.memberMessage);
 			cache.setMemberType(vo.memberType);
 		}
@@ -137,22 +147,21 @@ public class Client {
 	private boolean checkCacheHit(String tocheckID) {
 		return cache != null && cache.getClientID().equals(tocheckID);
 	}
-	
+
 	/**
 	 * 获取用户列表
 	 * 
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<ClientVO> getClientList() throws RemoteException{
+	public ArrayList<ClientVO> getClientList() throws RemoteException {
 		ArrayList<ClientPO> pos = clientDataService.getClientList();
 		ArrayList<ClientVO> vos = new ArrayList<>();
-		for(ClientPO each : pos) {
+		for (ClientPO each : pos) {
 			ClientVO vo = ClientPO.transformPOToVO(each);
 			vos.add(vo);
 		}
 		return vos;
 	}
-	
 
 }

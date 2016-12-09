@@ -28,9 +28,9 @@
       <Accordion layoutX="-108.0" layoutY="126.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="100.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <ComboBox fx:id="province" layoutX="115.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="省" />
-      <ComboBox fx:id="city" layoutX="271.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="市" />
-      <ComboBox fx:id="field" layoutX="444.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="县/区" />
-      <ComboBox fx:id="group" layoutX="605.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="商圈" />
+      <ComboBox fx:id="city" layoutX="238.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="市" />
+      <ComboBox fx:id="field" layoutX="360.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="县/区" />
+      <ComboBox fx:id="group" layoutX="483.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="商圈" />
       <Label layoutX="115.0" layoutY="186.0" prefHeight="35.0" text="ID/酒店名称 :">
          <font>
             <Font size="15.0" />
@@ -65,5 +65,6 @@
          </font>
       </Button>
       <Label fx:id="check_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
+      <ComboBox fx:id="star" layoutX="605.0" layoutY="120.0" prefHeight="35.0" prefWidth="80.0" promptText="星级" />
    </children>
 </AnchorPane>

@@ -51,7 +51,7 @@ public class Marketer {
 	}
 
 	public ResultMessage_User addMarketer(MarketerVO registVO, String password) {
-		ResultMessage_User result = ResultMessage_User.AddSucccess;
+		ResultMessage_User result = ResultMessage_User.PEOPLE_ADD_SUCCESS;
 		MarketerPO po = MarketerVO.transformVOToPO(registVO);
 		try {
 			result = marketerDataService.insert(po, password);

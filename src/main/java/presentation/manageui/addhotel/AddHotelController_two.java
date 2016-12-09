@@ -41,6 +41,7 @@ public class AddHotelController_two extends RegistCheckController implements Ini
 
 	@FXML
 	public void cancel(ActionEvent event) {
+		//Last Step
 		storeInfo();
 		Scene frame = WindowGrab.getScene(event);
 		WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_one_fxml(), ManageUIURLConfig.manage_add_hotel_one_css(), frame);
@@ -48,6 +49,7 @@ public class AddHotelController_two extends RegistCheckController implements Ini
 
 	@Override
 	protected void confirm(ActionEvent event) {
+		//Next Step
 		if(checkInputFormatter()) {
 			Window window = WindowGrab.getWindow(event);
 			if(checkName(window)) {

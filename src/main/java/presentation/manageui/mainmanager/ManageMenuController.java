@@ -1,8 +1,5 @@
 package presentation.manageui.mainmanager;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,34 +37,6 @@ public class ManageMenuController {
 
     @FXML
     private Label title;
-    
-    private static URL ADD_HOTEL_FIRST_FXML;
-    private static URL ADD_HOTEL_FIRST_CSS;
-    private static URL ADD_PEOPLE_MENU_FXML;
-    private static URL ADD_PEOPLE_MENU_CSS;
-    private static URL CHANGE_FXML;
-    private static URL CHANGE_CSS;
-    private static URL CHECK_MENU_FXML;
-    private static URL CHECK_MENU_CSS;
-    
-    static{
-    	try {
-    		ADD_HOTEL_FIRST_FXML = new URL("file:src/main/resources/ui/manageui/fxml/addhotel_one.fxml");
-    		ADD_HOTEL_FIRST_CSS = new URL("file:src/main/resources/ui/manageui/css/addhotel_one.css");
-			
-			ADD_PEOPLE_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml");
-			ADD_PEOPLE_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/addpeople.css");
-			
-			CHANGE_FXML=new URL("file:src/main/resources/ui/manageui/fxml/ID_input.fxml");
-			CHANGE_CSS=new URL("file:src/main/resources/ui/manageui/css/ID_input.css");
-			
-			CHECK_MENU_FXML=new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
-			CHECK_MENU_CSS=new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    	
-    }
 
     @FXML
     void on_check(ActionEvent event) {

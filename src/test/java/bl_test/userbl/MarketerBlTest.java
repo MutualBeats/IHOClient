@@ -54,7 +54,7 @@ public class MarketerBlTest {
 		try {
 //			assertEquals(ResultMessage_User.UserName_Invalid, marketer.addMarketer( new MarketerVO(vo1.marketerID,"123",vo1.contactWay) ,password));
 //			assertEquals(ResultMessage_User.UserName_Invalid, marketer.addMarketer( new MarketerVO(vo1.marketerID,"12345678901234567890",vo1.contactWay), password));
-			assertEquals(ResultMessage_User.AddSucccess, marketer.addMarketer(vo1, password));
+			assertEquals(ResultMessage_User.PEOPLE_ADD_SUCCESS, marketer.addMarketer(vo1, password));
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}

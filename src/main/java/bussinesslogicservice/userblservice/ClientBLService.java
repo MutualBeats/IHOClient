@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientInfoChangeVO;
+import vo.user.ClientRegistVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
@@ -17,7 +18,7 @@ public interface ClientBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage_User regist(ClientVO registVO, String password) throws RemoteException;
+	public ResultMessage_User regist(ClientRegistVO info);
 	/**
 	 * 获取用户信息
 	 * 

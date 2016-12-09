@@ -174,8 +174,10 @@ public abstract class RegistCheckController {
 		}
 		if (verify == ResultMessage_Verify.NET_ERROR) {
 			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+			return false;
 		} else if (verify == ResultMessage_Verify.USER_EXIST_ALREADY) {
 			this.user_name_warning.setText("该用户名已被注册");
+			return false;
 		} 
 		return true;
 	}
