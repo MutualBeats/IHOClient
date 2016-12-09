@@ -30,14 +30,14 @@ public abstract class LocationBoxController implements Initializable {
 	protected ComboBox<Province> province;
 
 	@FXML
-	protected ComboBox<Field> field;
-
-	@FXML
 	protected ComboBox<City> city;
 
 	@FXML
+	protected ComboBox<Field> field;
+
+	@FXML
 	protected ComboBox<String> group;
-	
+
 	@FXML
 	protected ComboBox<Integer> star;
 
@@ -45,11 +45,10 @@ public abstract class LocationBoxController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		initView();
 	}
-	
+
 	private void initView() {
 		province.getItems().addAll(Province.getProvince());
 		star.getItems().addAll(StarConfig.STAR_SEPERATE);
-
 		// Seperate
 		SelectionModel<Province> pro_model = province.getSelectionModel();
 		SelectionModel<City> city_model = city.getSelectionModel();

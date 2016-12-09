@@ -1,5 +1,10 @@
 package presentation.manageui.mainmanager;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import com.sun.media.jfxmedia.events.NewFrameEvent;
+
 import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,10 +44,24 @@ public class ManageMenuController {
     @FXML
     private Label title;
 
+    private static URL menu_fxml ;
+    private static URL menu_css ;
+    
+    static {
+    	
+    	try {
+    		menu_fxml = new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
+			menu_css = new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
     @FXML
     void on_check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "查询人员信息",  ManageUIURLConfig.manage_check_menu_fxml(),ManageUIURLConfig.manage_check_menu_css());
+    	WindowGrab.startWindow(window, "查询人员信息",  menu_fxml,menu_css);
     }
 
     @FXML

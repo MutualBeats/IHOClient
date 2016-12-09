@@ -33,27 +33,31 @@ public class AddHotelController extends LocationBoxController {
 
 	@FXML
 	private Label group_warning;
+	
+	@FXML
+	private Label province_warning;
 
+	@FXML
+	private Label city_warning;
+	
+	@FXML
+	private Label name_warning;
+
+	@FXML
+	private Label star_warning;
+	
 	@FXML
 	private Button cancel;
 
 	@FXML
 	private Button next_step;
 
-	@FXML
-	private Label city_warning;
 
-	@FXML
-	private Label province_warning;
 
 	@FXML
 	private AnchorPane first_pane;
 
-	@FXML
-	private Label name_warning;
 
-	@FXML
-	private Label star_warning;
 
 	private boolean checkInputFormater() {
 		boolean city_check = checkCitySelect();
