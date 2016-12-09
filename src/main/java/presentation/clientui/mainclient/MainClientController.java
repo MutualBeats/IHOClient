@@ -74,7 +74,9 @@ public class MainClientController {
     private static URL SEARCH_HOTEL_FXML;
     private static URL SEARCH_HOTEL_CSS;
     
-
+    //历史记录
+    private static URL HISTORY_FXML;
+    private static URL HISTORY_CSS;
     
     static{
     	try {
@@ -90,6 +92,10 @@ public class MainClientController {
 			SEARCH_HOTEL_FXML=new URL("file:src/main/resources/ui/clientui/fxml/search_hotel.fxml");
 			SEARCH_HOTEL_CSS=new URL("file:src/main/resources/ui/clientui/css/search_hotel.css");
 		
+			HISTORY_FXML=new URL("file:src/main/resources/ui/clientui/fxml/history.fxml");
+			HISTORY_CSS=new URL("file:src/main/resources/ui/clientui/css/history.css");
+		
+			
     	} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -136,6 +142,12 @@ public class MainClientController {
     	stage.setTitle("搜索酒店");
     
     }
-    
+    @FXML
+    void history(ActionEvent event) {
+    	Scene frame =WindowGrab.getScene(event);
+    	WindowGrab.changeScene(HISTORY_FXML, HISTORY_CSS, frame);
+    	Stage stage=WindowGrab.getStage(0);
+    	stage.setTitle("历史记录");
+    }
 }
 
