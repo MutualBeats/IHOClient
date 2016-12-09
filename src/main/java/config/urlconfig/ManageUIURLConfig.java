@@ -65,21 +65,9 @@ public class ManageUIURLConfig {
 		
 	//Manage : information look client
 		
-	private static String INFO_LOOK_CLIENT_FXML;
+	private static String INFO_LOOK_FXML;
 		
-	private static String INFO_LOOK_CLIENT_CSS;
-		
-	//Manage : information look marketer
-		
-	private static String INFO_LOOK_MARKETER_FXML;
-		
-	private static String INFO_LOOK_MARKETER_CSS;
-		
-	//Manage : information look staff
-		
-	private static String INFO_LOOK_STAFF_FXML;
-		
-	private static String INFO_LOOK_STAFF_CSS;
+	private static String INFO_LOOK_CSS;
 		
 	//Manage menu
 		
@@ -122,9 +110,7 @@ public class ManageUIURLConfig {
 		Element change_message = manage.element("change_message");
 		Element check_menu = manage.element("check_menu");
 		Element ID_input = manage.element("ID_input");
-		Element info_look_client = manage.element("info_look_client");
-		Element info_look_marketer = manage.element("info_look_marketer");
-		Element info_look_staff = manage.element("info_look_staff");
+		Element info_look = manage.element("info_look");
 		Element manage_menu = manage.element("manage_menu");
 		
 		Element fxml;
@@ -164,7 +150,7 @@ public class ManageUIURLConfig {
 		fxml = check_menu.element("fxml");
 		css = check_menu.element("css");
 		CHECK_MENU_FXML = manage_root + fxml.attributeValue(FXML_PATH);
-		CHECK_MENU_FXML = manage_root + css.attributeValue(CSS_PATH);
+		CHECK_MENU_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
 		//ID input
 		fxml = ID_input.element("fxml");
@@ -173,22 +159,10 @@ public class ManageUIURLConfig {
 		ID_INPUT_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
 		//info look client
-		fxml = info_look_client.element("fxml");
-		css = info_look_client.element("css");
-		INFO_LOOK_CLIENT_FXML = manage_root + fxml.attributeValue(FXML_PATH);
-		INFO_LOOK_CLIENT_CSS = manage_root + css.attributeValue(CSS_PATH);
-		
-		//info look marketer
-		fxml = info_look_marketer.element("fxml");
-		css = info_look_marketer.element("css");
-		INFO_LOOK_MARKETER_FXML = manage_root + fxml.attributeValue(FXML_PATH);
-		INFO_LOOK_MARKETER_CSS = manage_root + css.attributeValue(CSS_PATH);
-		
-		//info look staff
-		fxml = info_look_staff.element("fxml");
-		css = info_look_staff.element("css");
-		INFO_LOOK_STAFF_FXML = manage_root + fxml.attributeValue(FXML_PATH);
-		INFO_LOOK_STAFF_CSS = manage_root + css.attributeValue(CSS_PATH);
+		fxml = info_look.element("fxml");
+		css = info_look.element("css");
+		INFO_LOOK_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		INFO_LOOK_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
 		//manage menu
 		fxml = manage_menu.element("fxml");
@@ -324,54 +298,18 @@ public class ManageUIURLConfig {
 		return null;
 	}
 	
-	public static URL manage_info_look_client_fxml(){
+	public static URL manage_info_look_fxml(){
 		try {
-			return new URL(path_combine(INFO_LOOK_CLIENT_FXML));
+			return new URL(path_combine(INFO_LOOK_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL manage_info_look_client_css(){
+	public static URL manage_info_look_css(){
 		try {
-			return new URL(path_combine(INFO_LOOK_CLIENT_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL manage_info_look_marketer_fxml(){
-		try {
-			return new URL(path_combine(INFO_LOOK_MARKETER_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL manage_info_look_marketer_css(){
-		try {
-			return new URL(path_combine(INFO_LOOK_MARKETER_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL manage_info_look_staff_fxml(){
-		try {
-			return new URL(path_combine(INFO_LOOK_STAFF_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL manage_info_look_staff_css(){
-		try {
-			return new URL(path_combine(INFO_LOOK_STAFF_CSS));
+			return new URL(path_combine(INFO_LOOK_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

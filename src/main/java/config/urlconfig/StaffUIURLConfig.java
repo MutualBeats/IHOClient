@@ -195,7 +195,7 @@ public class StaffUIURLConfig {
 		fxml = room_manage.element("fxml");
 		css = room_manage.element("css");
 		ROOM_MANAGE_FXML = staff_root + fxml.attributeValue(FXML_PATH);
-		ROOM_MANAGE_CSS = staff_root + fxml.attributeValue(CSS_PATH);
+		ROOM_MANAGE_CSS = staff_root + css.attributeValue(CSS_PATH);
 
 		//Room Update
 		fxml = room_update.element("fxml");

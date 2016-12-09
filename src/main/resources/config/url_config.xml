@@ -19,11 +19,51 @@
 	</error>
 	<!-- This is Client UI config -->
 	<client root_path="clientui/">
+	<!-- Browse order-->
+		<browse_order>
+			<fxml fxml_path="fxml/browse_order.fxml"></fxml>
+			<css css_path="css/browse_order.css"></css>
+		</browse_order>
+		<!-- Change -->
+		<change>
+			<fxml fxml_path="fxml/change.fxml"></fxml>
+			<css css_path="css/change.css"></css>
+		</change>
+		<!-- Check-->
+		<check>
+			<fxml fxml_path="fxml/check.fxml"></fxml>
+			<css css_path="css/check.css"></css>
+		</check>
 		<!-- Client menu-->
 		<client_menu>
 			<fxml fxml_path="fxml/clientmenu.fxml"></fxml>
 			<css css_path="css/clientmenu.css"></css>
 		</client_menu>
+		<!-- Create order -->
+		<create_order>
+			<fxml fxml_path="fxml/create_order.fxml"></fxml>
+			<css css_path="css/create_order.css"></css>
+		</create_order>
+		<!-- Evaluate hotel -->
+		<evaluate_hotel>
+			<fxml fxml_path="fxml/evaluate_hotel.fxml"></fxml>
+			<css css_path="css/evaluate_hotel.css"></css>
+		</evaluate_hotel>
+		<!-- Maintain messsage -->
+		<maintain_message>
+			<fxml fxml_path="fxml/maintain_message.fxml"></fxml>
+			<css css_path="css/maintain_message.css"></css>
+		</maintain_message>
+		<!-- Member -->
+		<member>
+			<fxml fxml_path="fxml/member.fxml"></fxml>
+			<css css_path="css/member.css"></css>
+		</member>
+		<!-- Revoke order -->
+		<revoke_order>
+			<fxml fxml_path="fxml/revoke_order.fxml"></fxml>
+			<css css_path="css/revoke_order.css"></css>
+		</revoke_order>
 	</client>
 	<!-- Client UI config finish -->
 
@@ -109,6 +149,21 @@
 			<fxml fxml_path="fxml/marketmenu.fxml"></fxml>
 			<css css_path="css/marketmenu.css"></css>
 		</market_menu>
+		<!-- Order -->
+		<order>
+			<fxml fxml_path="fxml/order.fxml"></fxml>
+			<css css_path="css/order.css"></css>
+		</order>
+		<!-- Promotion choose -->
+		<promotion_choose>
+			<fxml fxml_path="fxml/promotion_choose.fxml"></fxml>
+			<css css_path="css/promotion_choose.css"></css>
+		</promotion_choose>
+		<!-- Unexecuted order -->
+		<unexecuted_order>
+			<fxml fxml_path="fxml/unexcuted_order.fxml"></fxml>
+			<css css_path="css/unexcuted_order.css"></css>
+		</unexecuted_order>
 		<!--Unusual order-->
 		<unusual_order>
 			<fxml fxml_path="fxml/unusual_order.fxml"></fxml>
@@ -119,6 +174,11 @@
 			<fxml fxml_path="fxml/web_promotion_create.fxml"></fxml>
 			<css css_path="css/web_promotion_create.css"></css>
 		</web_promotion_create>
+		<!--Web promotion member discount -->
+		<web_promotion_member_discount>
+			<fxml fxml_path="fxml/web_promotion_memberdiscount.fxml"></fxml>
+			<css css_path="css/web_promotion_memberdiscount.css"></css>
+		</web_promotion_member_discount>
 		<!--Web promotion update-->
 		<web_promotion_update>
 			<fxml fxml_path="fxml/web_promotion_update.fxml"></fxml>
@@ -169,21 +229,11 @@
 			<fxml fxml_path="fxml/ID_input.fxml"></fxml>
 			<css css_path="css/ID_input.css"></css>
 		</ID_input>
-		<!--Info look client-->
-		<info_look_client>
-			<fxml fxml_path="fxml/informationLookClient.fxml"></fxml>
-			<css css_path="css/informationLookClient.css"></css>
-		</info_look_client>
-		<!--Info look marketer-->
-		<info_look_marketer>
-			<fxml fxml_path="fxml/informationLookMarketer.fxml"></fxml>
-			<css css_path="css/informationLookMarketer.css"></css>
-		</info_look_marketer>
-		<!--Info look staff-->
-		<info_look_staff>
-			<fxml fxml_path="fxml/informationLookStaff.fxml"></fxml>
-			<css css_path="css/informationLookStaff.css"></css>
-		</info_look_staff>
+		<!--Info look -->
+		<info_look>
+			<fxml fxml_path="fxml/informationLook.fxml"></fxml>
+			<css css_path="css/informationLook.css"></css>
+		</info_look>
 		<!--Manage menu-->
 		<manage_menu>
 			<fxml fxml_path="fxml/managemenu.fxml"></fxml>
