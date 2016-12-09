@@ -22,8 +22,54 @@ and open the template in the editor.
 }
 
 #all{
-	-fx-background-image: url("file:src/main/resources/image/client/all.png");
+	-fx-background-image: url("file:src/main/resources/image/client/history_all.png");
 }
 #all:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/all_hover.png");
+	-fx-background-image: url("file:src/main/resources/image/client/history_all_hover.png");
+}
+
+
+#history_hotel{
+	-fx-background-image: url("file:src/main/resources/image/client/history_hotel.png");
+}
+#history_hotel:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/history_hotel_hover.png");
+}
+
+#history_order{
+	-fx-background-image: url("file:src/main/resources/image/client/history_order.png");
+}
+#history_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/history_order_hover.png");
+}
+
+#check_order{
+	-fx-background-image: url("file:src/main/resources/image/client/check.png");
+}
+#check_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
+}
+
+
+
+#check_hotel{
+	-fx-background-image: url("file:src/main/resources/image/client/check.png");
+}
+#check_hotel:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
+}
+
+#check_all{
+	-fx-background-image: url("file:src/main/resources/image/client/check.png");
+}
+#check_all:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_hover.png");
+}
+
+#cancel{
+	-fx-background-image: url("file:src/main/resources/image/client/return.png");
+}
+
+#cancel:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
 }

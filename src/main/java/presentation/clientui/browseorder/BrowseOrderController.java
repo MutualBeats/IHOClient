@@ -49,16 +49,11 @@ public class BrowseOrderController {
     private static URL CHECK_FXML;
     private static URL CHECK_CSS;
     
-    private static URL LOGIN_FXML;
-    private static URL LOGIN_CSS;
-    
     private static URL CLIENTMENU_FXML;
     private static URL CLIENTMENU_CSS;
     
     static{
     	try {
-			LOGIN_FXML=new URL("file:src/main/resources/ui/loginui/fxml/login.fxml");
-			LOGIN_CSS=new URL("file:src/main/resources/ui/loginui/css/login.css");
 			
 			CHECK_FXML=new URL("file:src/main/resources/ui/clientui/fxml/check.fxml");
 			CHECK_CSS=new URL("file:src/main/resources/ui/clientui/css/check.css");
