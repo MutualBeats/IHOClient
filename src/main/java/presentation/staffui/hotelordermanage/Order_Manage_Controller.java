@@ -49,5 +49,8 @@ public class Order_Manage_Controller {
     	WindowGrab.startWindow(owner, "订单信息", ORDER_CHECK_FXML, ORDER_CHECK_CSS);
     
     }
+    @FXML
+    void supply(ActionEvent event) {
 
+    }
 }
