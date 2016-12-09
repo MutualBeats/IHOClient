@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import com.sun.javafx.robot.impl.FXRobotHelper;
 
+import config.urlconfig.ManageUIURLConfig;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.ResultHandle;
 
 /**
  * 
@@ -28,6 +30,7 @@ import presentation.utilcontroller.Confirm;
  * @author heleninsa
  *
  */
+@SuppressWarnings("restriction")
 public class WindowGrab {
 
 	private static URL CONFIRM_FXML;
@@ -71,6 +74,10 @@ public class WindowGrab {
 		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
 	}
 
+	public static void startNetErrorWindow(Window owner) {
+		startErrorWindow(owner, "网络连接失败，请检查网络");
+	}
+
 	public static void startErrorWindow(Window owner, String message) {
 		startWindowWithBundle(owner, "警告", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
@@ -79,7 +86,13 @@ public class WindowGrab {
 		startWindowWithBundle(owner, "提示", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
 	}
 
-	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path, ResourceBundle bundle) {
+	public static void startIDInputWindow(Window owner, ResultHandle handle) {
+		startWindowWithBundle(owner, "请输入用户名", ManageUIURLConfig.manage_ID_input_fxml(),
+				ManageUIURLConfig.manage_ID_input_css(), new IDResourceBundle(handle));
+	}
+
+	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
+			ResourceBundle bundle) {
 		Stage stage = new Stage();
 		Parent root = null;
 		try {
@@ -181,7 +194,6 @@ public class WindowGrab {
 	 * @return
 	 */
 	public static Stage getStage(int index) {
-		@SuppressWarnings("restriction")
 		ObservableList<Stage> stages = FXRobotHelper.getStages();
 
 		Stage stage = stages.get(index);
@@ -222,6 +234,29 @@ public class WindowGrab {
 		protected Object handleGetObject(String key) {
 			if (CONFIRM_KEY.equals(key)) {
 				return confirm;
+			}
+			return null;
+		}
+
+		@Override
+		public Enumeration<String> getKeys() {
+			return null;
+		}
+
+	}
+
+	static class IDResourceBundle extends ResourceBundle {
+		private ResultHandle handle;
+		private final static String HANDLE_KEY = "handle";
+
+		public IDResourceBundle(ResultHandle handle) {
+			this.handle = handle;
+		}
+
+		@Override
+		protected Object handleGetObject(String key) {
+			if (HANDLE_KEY.equals(key)) {
+				return handle;
 			}
 			return null;
 		}

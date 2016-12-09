@@ -169,11 +169,11 @@ public abstract class RegistCheckController {
 		try {
 			verify = ControllerFactory.getIdentityService().checkUserName(id);
 		} catch (Exception e) {
-			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+			WindowGrab.startNetErrorWindow(window);
 			return false;
 		}
 		if (verify == ResultMessage_Verify.NET_ERROR) {
-			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+			WindowGrab.startNetErrorWindow(window);
 			return false;
 		} else if (verify == ResultMessage_Verify.USER_EXIST_ALREADY) {
 			this.user_name_warning.setText("该用户名已被注册");

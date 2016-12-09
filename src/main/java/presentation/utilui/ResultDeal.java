@@ -3,7 +3,7 @@ package presentation.utilui;
 import javafx.stage.Window;
 import util.resultmessage.ResultMessage_User;
 
-public class ResultHandle {
+public class ResultDeal {
 	
 	/**
 	 * 检查人员注册结果

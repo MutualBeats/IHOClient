@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.RegistCheckController;
-import presentation.utilui.ResultHandle;
+import presentation.utilui.ResultDeal;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
@@ -55,7 +55,7 @@ public class AddPeopleController extends RegistCheckController implements Initia
 			return;
 		}
 
-		ResultHandle.checkResult(result, window);
+		ResultDeal.checkResult(result, window);
 
 	}
 

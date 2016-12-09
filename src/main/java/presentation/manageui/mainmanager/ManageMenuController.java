@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import presentation.manageui.change.ManageIDInputHandle;
 import presentation.utilui.WindowGrab;
 
 public class ManageMenuController {
@@ -53,7 +54,7 @@ public class ManageMenuController {
     @FXML
     void on_change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "输入人员ID", ManageUIURLConfig.manage_change_message_fxml(),ManageUIURLConfig.manage_change_message_css());    	
+    	WindowGrab.startIDInputWindow(window, new ManageIDInputHandle());  	
     }
 
     @FXML

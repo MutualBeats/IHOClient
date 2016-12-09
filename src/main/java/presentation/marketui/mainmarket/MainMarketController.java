@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.utilui.WindowGrab;
 
 public class MainMarketController {
@@ -77,7 +78,7 @@ public class MainMarketController {
     @FXML
     void credit(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "充值信用", CREDIT_FXML,CREDIT_CSS);   
+    	WindowGrab.startIDInputWindow(window, new CreditIDInputHandle());
     }
 
     @FXML

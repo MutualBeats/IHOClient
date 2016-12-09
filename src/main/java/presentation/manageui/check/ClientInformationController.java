@@ -53,7 +53,7 @@ public class ClientInformationController extends InformationLookController {
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
 		} catch (Exception e) {
-			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
+			WindowGrab.startNetErrorWindow(window);
 			return;
 		}
 		handleResult(result, window);

@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Window;
 import presentation.utilcontroller.RegistCheckController;
-import presentation.utilui.ResultHandle;
+import presentation.utilui.ResultDeal;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientRegistVO;
@@ -38,7 +38,7 @@ public class SigninController extends RegistCheckController implements Initializ
 					WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
 					return;
 				}
-				ResultHandle.checkResult(result, window);
+				ResultDeal.checkResult(result, window);
 			}
 		}
 	}

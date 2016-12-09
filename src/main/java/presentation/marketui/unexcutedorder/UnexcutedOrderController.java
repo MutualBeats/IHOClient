@@ -9,7 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import presentation.utilui.WindowGrab;
+import vo.order.OrderVO;
 
 public class UnexcutedOrderController {
 
@@ -24,6 +26,9 @@ public class UnexcutedOrderController {
 
     @FXML
     private Button check;
+    
+    @FXML 
+    private TableView<OrderVO> order_list;
 
     @FXML
     void cancel(ActionEvent event) {
@@ -32,7 +37,7 @@ public class UnexcutedOrderController {
 
     @FXML
     void on_check(ActionEvent event) {
-
+    	
     }
 
 
