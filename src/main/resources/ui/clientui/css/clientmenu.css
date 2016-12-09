@@ -23,46 +23,32 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/all.png");
 }
 #all:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/all_pressed.png");
+	-fx-background-image: url("file:src/main/resources/image/client/all_hover.png");
 }
 
 #logout{
 	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
 }
 #logout:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/logout_pressed.png");
+	-fx-background-image: url("file:src/main/resources/image/client/logout_hover.png");
 }
 
-
-#create_order{
-	-fx-background-image: url("file:src/main/resources/image/client/create_order.png");
-}
-#create_order:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/create_order_pressed.png");
-}
 
 
 #browse_order{
 	-fx-background-image: url("file:src/main/resources/image/client/browse_order.png");
 }
 #browse_order:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/browse_order_pressed.png");
+	-fx-background-image: url("file:src/main/resources/image/client/browse_order_hover.png");
 }
 
-
-#revoke_order{
-	-fx-background-image: url("file:src/main/resources/image/client/revoke_order.png");
-}
-#revoke_order:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/revoke_order_pressed.png");
-}
 
 
 #member{
 	-fx-background-image: url("file:src/main/resources/image/client/member.png");
 }
 #member:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/member_pressed.png");
+	-fx-background-image: url("file:src/main/resources/image/client/member_hover.png");
 }
 
 
@@ -70,16 +56,9 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/message.png");
 }
 #maintain_message:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/message_pressed.png");
+	-fx-background-image: url("file:src/main/resources/image/client/message_hover.png");
 }
 
-
-#evaluate_hotel{
-	-fx-background-image: url("file:src/main/resources/image/client/evaluate_hotel.png");
-}
-#evaluate_hotel:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/evaluate_hotel_pressed.png");
-}
 
 
 

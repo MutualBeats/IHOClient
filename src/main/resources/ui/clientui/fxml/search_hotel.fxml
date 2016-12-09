@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
@@ -11,7 +12,6 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.browseorder.BrowseOrderController">
    <children>
       <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
-      <Label fx:id="user_name" layoutX="640.0" layoutY="20.0" prefHeight="26.0" prefWidth="40.0" />
-      <Button fx:id="logout" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefWidth="35.0" />
+      <Line endX="650.0" layoutX="75.0" layoutY="200.0" />
    </children>
 </AnchorPane>

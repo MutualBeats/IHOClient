@@ -6,8 +6,10 @@ import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
@@ -40,8 +42,9 @@ public class MaintainMessageController {
     @FXML
     private Label credit;
 
-    private static URL LOGIN_FXML;
-    private static URL LOGIN_CSS;
+    @FXML
+    private Button credit_history;
+    
     
     private static URL CHANGE_FXML;
     private static URL CHANGE_CSS;
@@ -49,9 +52,6 @@ public class MaintainMessageController {
     
     static{
     	try {
-			LOGIN_FXML=new URL("file:src/main/resources/ui/loginui/fxml/login.fxml");
-			LOGIN_CSS=new URL("file:src/main/resources/ui/loginui/css/login.css");
-			
 			CHANGE_FXML=new URL("file:src/main/resources/ui/clientui/fxml/change.fxml");
 			CHANGE_CSS=new URL("file:src/main/resources/ui/clientui/css/change.css");
 			
@@ -60,16 +60,15 @@ public class MaintainMessageController {
 			e.printStackTrace();
 		}
     }
-    @FXML
-    void logout(ActionEvent event) {
-    	Window window=WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "登录", LOGIN_FXML, LOGIN_CSS);
-    }
+    
 
     @FXML
     void change(ActionEvent event) {
-    	Window window=WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "修改个人信息", CHANGE_FXML, CHANGE_CSS);
+    	Scene frame=WindowGrab.getScene(event);
+    	WindowGrab.changeScene(CHANGE_FXML, CHANGE_CSS, frame);
+    	Stage stage=WindowGrab.getStage(0);
+    	stage.setTitle("修改信息");
+    	
     }
     
     @FXML
@@ -77,4 +76,8 @@ public class MaintainMessageController {
     	WindowGrab.closeWindow(event);
     }
 
+    @FXML
+    void credit_history(ActionEvent event) {
+
+    }
 }

@@ -22,12 +22,6 @@ public class MemberController implements Confirm{
     private Button confirm;
 
     @FXML
-    private Button logout;
-
-    @FXML
-    private Label user_name;
-
-    @FXML
     private Pane original_pane;
 
     @FXML
@@ -35,25 +29,6 @@ public class MemberController implements Confirm{
 
     @FXML
     private Label title;
-
-    
-    private static URL LOGIN_FXML;
-    private static URL LOGIN_CSS;
-    
-    static{
-    	try {
-			LOGIN_FXML=new URL("file:src/main/resources/ui/loginui/fxml/login.fxml");
-			LOGIN_CSS=new URL("file:src/main/resources/ui/loginui/css/login.css");
-			
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-    @FXML
-    void logout(ActionEvent event) {
-    	
-    }
 
     @FXML
     void cancel(ActionEvent event) {

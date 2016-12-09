@@ -21,12 +21,6 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/title.png");
 }
 
-#logout{
-	-fx-background-image: url("file:src/main/resources/image/client/logout.png");
-}
-#logout:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/logout_pressed.png");
-}
 
 #cancel{
 	-fx-background-image:url("file:src/main/resources/image/client/cancel.png");
