@@ -38,7 +38,7 @@ public class MemberController implements Confirm{
     @FXML
     void confirm(ActionEvent event) {
     	Window window=WindowGrab.getWindow(event);
-    	WindowGrab.startConfirmWindow(window, this);
+    	WindowGrab.startModifyConfirmWindow(window, this);
     }
     
     @FXML

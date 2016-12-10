@@ -23,7 +23,6 @@ import javafx.stage.WindowEvent;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.InformationBundle;
 import presentation.utilcontroller.ResultHandle;
-import util.resultmessage.ResultMessage_Verify;
 
 /**
  * 
@@ -72,7 +71,11 @@ public class WindowGrab {
 		startWindowWithBundle(owner, title, fxml_path, css_path, null);
 	}
 
-	public static void startConfirmWindow(Window owner, Confirm confirm) {
+	public static void startModifyConfirmWindow(Window owner, Confirm confirm) {
+		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
+	}
+	
+	public static void startConfirmWindow(Window owner, Confirm confirm, String message) {
 		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
 	}
 
@@ -267,15 +270,26 @@ public class WindowGrab {
 	static class ConfirmResourceBundle extends ResourceBundle {
 		private Confirm confirm;
 		private final static String CONFIRM_KEY = "confirm";
+		
+		private String message;
+		private final static String MESSAGE_KEY = "message";
 
 		public ConfirmResourceBundle(Confirm confirm) {
+			this(confirm, null);
+		}
+		
+		public ConfirmResourceBundle(Confirm confirm, String message) {
 			this.confirm = confirm;
+			this.message = message;
 		}
 
 		@Override
 		protected Object handleGetObject(String key) {
 			if (CONFIRM_KEY.equals(key)) {
 				return confirm;
+			}
+			if(MESSAGE_KEY.equals(key) ) {
+				return message;
 			}
 			return null;
 		}

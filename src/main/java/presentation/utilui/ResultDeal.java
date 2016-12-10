@@ -13,7 +13,7 @@ public class ResultDeal {
 	 */
 	public static void checkResult(ResultMessage_User result, Window window) {
 		if (result == ResultMessage_User.Net_Error) {
-			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
+			WindowGrab.startNetErrorWindow(window);
 		} else if (result == ResultMessage_User.Register_Success) {
 			WindowGrab.startNoticeWindow(window, "注册用户成功");
 		} else {

@@ -90,21 +90,6 @@ public class CheckMenuController implements Initializable {
 
 	private ManagerVO managerInfo;
 
-	// private static URL CHECK_FXML;
-	// private static URL CHECK_CSS;
-	//
-	// static {
-	// try {
-	// CHECK_FXML = new
-	// URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
-	// CHECK_CSS = new
-	// URL("file:src/main/resources/ui/manageui/css/informationLookMarketer.css");
-	// } catch (MalformedURLException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// }
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

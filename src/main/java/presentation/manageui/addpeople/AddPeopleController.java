@@ -27,7 +27,7 @@ public class AddPeopleController extends RegistCheckController implements Initia
 		if (inputOK) {
 			Window window = WindowGrab.getWindow(event);
 			if(checkName(window)) {
-				WindowGrab.startConfirmWindow(window, this);
+				WindowGrab.startModifyConfirmWindow(window, this);
 			}
 		}
 	}

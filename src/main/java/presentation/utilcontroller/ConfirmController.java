@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import presentation.utilui.WindowGrab;
 
 public class ConfirmController implements Initializable{
@@ -16,6 +17,9 @@ public class ConfirmController implements Initializable{
 
 	@FXML
 	private Button cancel;
+	
+	@FXML
+    private Text confirm_text;
 	
 	private Confirm owner;
 	
@@ -33,6 +37,10 @@ public class ConfirmController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		owner = (Confirm) resources.getObject("confirm");
+		String message = resources.getString("message");
+		if(message != null) {
+			confirm_text.setText(message);
+		}
 	}
 
 }

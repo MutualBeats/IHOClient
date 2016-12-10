@@ -60,7 +60,7 @@ public abstract class InformationLookController implements Initializable, Confir
 		} else {
 			// 修改确认
 			Window window = WindowGrab.getWindow(event);
-			WindowGrab.startConfirmWindow(window, this);
+			WindowGrab.startModifyConfirmWindow(window, this);
 		}
 	}
 

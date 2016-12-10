@@ -68,7 +68,7 @@ public class Hotel_Maintain_Controller implements Confirm{
     @FXML
     void update(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startConfirmWindow(window, this);
+    	WindowGrab.startModifyConfirmWindow(window, this);
     }
 
     @FXML
