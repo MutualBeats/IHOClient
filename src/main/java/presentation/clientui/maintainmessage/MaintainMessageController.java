@@ -49,11 +49,16 @@ public class MaintainMessageController {
     private static URL CHANGE_FXML;
     private static URL CHANGE_CSS;
     
+    private static URL CREDIT_FXML;
+    private static URL CREDIT_CSS;
     
     static{
     	try {
 			CHANGE_FXML=new URL("file:src/main/resources/ui/clientui/fxml/change.fxml");
 			CHANGE_CSS=new URL("file:src/main/resources/ui/clientui/css/change.css");
+			
+			CREDIT_FXML=new URL("file:src/main/resources/ui/clientui/fxml/credit.fxml");
+			CREDIT_CSS=new URL("file:src/main/resources/ui/clientui/css/credit.css");
 			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -66,8 +71,6 @@ public class MaintainMessageController {
     void change(ActionEvent event) {
     	Scene frame=WindowGrab.getScene(event);
     	WindowGrab.changeScene(CHANGE_FXML, CHANGE_CSS, frame);
-    	Stage stage=WindowGrab.getStage(0);
-    	stage.setTitle("修改信息");
     	
     }
     
@@ -78,6 +81,8 @@ public class MaintainMessageController {
 
     @FXML
     void credit_history(ActionEvent event) {
-
+    	Scene frame =WindowGrab.getScene(event);
+    	WindowGrab.changeScene(CREDIT_FXML, CREDIT_CSS, frame);
+    	
     }
 }

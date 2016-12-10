@@ -1,5 +1,6 @@
 package presentation.clientui.maintainmessage;
 
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -7,23 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 
-public class ChangeController implements Confirm {
+public class CreditController {
 
-	@FXML
+    @FXML
     private Button cancel;
-
-    @FXML
-    private Button confirm;
-
-    @FXML
-    private Label credit;
-
+    
     private static URL MAINTAIN_MESSAGE_FXML;
     private static URL MAINTAIN_MESSAGE_CSS;
     
@@ -44,18 +35,6 @@ public class ChangeController implements Confirm {
     	Scene frame=WindowGrab.getScene(event);
     	WindowGrab.changeScene(MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS, frame);
      }
-
-    @FXML
-    void confirm(ActionEvent event) {
-    	Window window=WindowGrab.getWindow(event);
-    	WindowGrab.startConfirmWindow(window, this, "是否确认修改？");
-    }
-
-	@Override
-	public void confirm() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
 
