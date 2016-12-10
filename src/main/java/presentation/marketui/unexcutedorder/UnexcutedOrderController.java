@@ -5,6 +5,9 @@
  */
 package presentation.marketui.unexcutedorder;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,21 +21,11 @@ public class UnexcutedOrderController extends OrderListView{
 
   
 
-    @FXML
-    void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
-    }
-
-    @FXML
-    void on_check(ActionEvent event) {
-    	
-    }
-
-
-    @FXML
-    void on_search(ActionEvent event) {
-
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

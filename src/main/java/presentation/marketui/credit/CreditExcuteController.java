@@ -96,7 +96,6 @@ public class CreditExcuteController implements Initializable, Confirm {
 			user_name.setText(info.id);
 			name.setText(info.name);
 			creditnow.setText(info.credit + "");
-
 		}
 	}
 
@@ -104,7 +103,7 @@ public class CreditExcuteController implements Initializable, Confirm {
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
 		int credit_add = Integer.parseInt(credit_to_add.getText());
-		CreditVO updateVO = new CreditVO(info.id, Time.getCurrentTime(), credit_add, -1, CreditChangeAction.Deposit,
+		CreditVO updateVO = new CreditVO(info.id, Time.getCurrentTime(), credit_add, info.credit, CreditChangeAction.Deposit,
 				"");
 		ResultMessage_Credit result = ResultMessage_Credit.Update_Successful;
 		try {
@@ -115,6 +114,11 @@ public class CreditExcuteController implements Initializable, Confirm {
 		}
 		if (result == ResultMessage_Credit.Update_Successful) {
 			WindowGrab.startNoticeWindow(window, "信用充值成功");
+			//本地刷新一下记录
+			info.credit += credit_add;
+			creditnow.setText(info.credit+"");
+			credit_to_add.setText("");
+			credit_warning.setText("");
 		} else if (result == ResultMessage_Credit.Credit_Net_Error) {
 			WindowGrab.startNetErrorWindow(window);
 		} else {
