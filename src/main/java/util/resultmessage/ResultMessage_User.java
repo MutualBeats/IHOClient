@@ -15,7 +15,7 @@ public enum ResultMessage_User {
 	UserName_Invalid,
 
 	Register_Success,
-	Regitster_Failed,
+	Register_Failed,
 	OriginalMember_Exist,
 	BusinessMember_Exist,
 	

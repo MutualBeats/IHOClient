@@ -22,14 +22,21 @@ public interface PromotionBLService {
 	/**
 	 * 获得酒店促销策略列表
 	 * @param hotelID
-	 * @return ArrayList
+	 * @return ArrayList<PromotionVO>
 	 */
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException;
+	public ArrayList<PromotionVO> getHotelPromotion(String hotelID) throws NetException;
 	/**
 	 * 获取网站营销策略列表
-	 * @return ArrayList
+	 * @return ArrayList<PromotionVO>
 	 */
 	public ArrayList<PromotionVO> getWebPromotion() throws NetException;
+	/**
+	 * 根据id获取促销策略
+	 * @param promotionID
+	 * @return PromotionVO
+	 * @throws NetException
+	 */
+	public PromotionVO getPromotionById(String promotionID) throws NetException;
 	/**
 	 * 撤销已有促销策略
 	 * @param promotionID
@@ -38,12 +45,12 @@ public interface PromotionBLService {
 	public ResultMessage_Promotion cancel(String promotionID);
 	/**
 	 * 查看会员等级划分方案
-	 * @return ArrayList
+	 * @return ArrayList<Integer>
 	 */
 	public ArrayList<Integer> getMemberLevel() throws NetException;
 	/**
 	 * 查看不同等级会员折扣
-	 * @return ArrayList
+	 * @return ArrayList<Double>
 	 */
 	public ArrayList<Double> getMemberDiscount() throws NetException;
 	/**

@@ -31,7 +31,7 @@ public class PromotionBLTest {
 	@Test
 	public void testGetHotelPromotion() {
 		try {
-			ArrayList<PromotionVO> hotelPromotionList = promotion.gethotelPromotion("00000001");
+			ArrayList<PromotionVO> hotelPromotionList = promotion.getHotelPromotion("00000001");
 			PromotionVO vo = hotelPromotionList.get(hotelPromotionList.size() - 1);
 			assertEquals("三间以上优惠", vo.promotionName);
 			assertEquals(PromotionType.Room, vo.type);

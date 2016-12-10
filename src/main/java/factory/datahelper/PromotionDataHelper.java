@@ -66,6 +66,15 @@ public class PromotionDataHelper {
 		}
 		return promotionID;
 	}
+	
+	public PromotionPO getPromotionById(String promotionID) throws NetException {
+		try {
+			return promotion_service.getPromotionById(promotionID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
+	}
 
 	public Iterator<PromotionPO> getHotelPromotion(String hotelID) throws NetException {
 		if(!current_hotel.equals(hotelID)) {

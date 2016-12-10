@@ -28,13 +28,18 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	}
 
 	@Override
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException {
-		return promotion.gethotelPromotion(hotelID);
+	public ArrayList<PromotionVO> getHotelPromotion(String hotelID) throws NetException {
+		return promotion.getHotelPromotion(hotelID);
 	}
 
 	@Override
 	public ArrayList<PromotionVO> getWebPromotion() throws NetException {
 		return promotion.getWebPromotion();
+	}
+	
+	@Override
+	public PromotionVO getPromotionById(String promotionID) throws NetException {
+		return promotion.getPromotionById(promotionID);
 	}
 
 	@Override

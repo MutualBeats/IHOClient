@@ -46,17 +46,12 @@ public class Promotion {
 		return promotion_service.addPromotion(po);
 	}
 
-	public ArrayList<PromotionVO> gethotelPromotion(String hotelID) throws NetException {
+	public ArrayList<PromotionVO> getHotelPromotion(String hotelID) throws NetException {
 		Iterator<PromotionPO> iterator = promotion_service.getHotelPromotion(hotelID);
 		ArrayList<PromotionVO> hotelPromotionList = new ArrayList<>();
 		while(iterator.hasNext()) {
 			PromotionPO po = iterator.next();
-			PromotionVO vo;
-			if(po.getType().equals(PromotionType.Enterprise))
-				vo = new EnterprisePromotionVO(po);
-			else
-				vo = new PromotionVO(po);
-			hotelPromotionList.add(vo);
+			hotelPromotionList.add(promotionPOtoVO(po));
 		}
 		return hotelPromotionList;
 	}
@@ -66,14 +61,14 @@ public class Promotion {
 		ArrayList<PromotionVO> webPromotionList = new ArrayList<>();
 		while (iterator.hasNext()) {
 			PromotionPO po = iterator.next();
-			PromotionVO vo;
-			if(po.getType().equals(PromotionType.BusinessDistrict))
-				vo = new DistrictPromotionVO(po);
-			else
-				vo = new PromotionVO(po);
-			webPromotionList.add(vo);
+			webPromotionList.add(promotionPOtoVO(po));
 		}
 		return webPromotionList;
+	}
+	
+	public PromotionVO getPromotionById(String promotionID) throws NetException {
+		PromotionPO po = promotion_service.getPromotionById(promotionID);
+		return promotionPOtoVO(po);
 	}
 
 	public ResultMessage_Promotion cancel(String promotionID) {
@@ -94,7 +89,7 @@ public class Promotion {
 	
 	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws NetException {
 		String currentDate = Time.getCurrentDate();
-		ArrayList<PromotionVO> hotelPromotionList = gethotelPromotion(hotelID);
+		ArrayList<PromotionVO> hotelPromotionList = getHotelPromotion(hotelID);
 		ArrayList<PromotionVO> webPromotionList = getWebPromotion();
 		
 		ArrayList<PromotionVO> underwayPromotionList = new ArrayList<PromotionVO>();
@@ -117,6 +112,22 @@ public class Promotion {
 		}
 		
 		return underwayPromotionList.iterator();
+	}
+	
+	private PromotionVO promotionPOtoVO(PromotionPO po) {
+		PromotionVO vo;
+		switch(po.getType()) {
+		case Enterprise:
+			vo = new EnterprisePromotionVO(po);
+			break;
+		case BusinessDistrict:
+			vo = new DistrictPromotionVO(po);
+			break;
+		default:
+			vo = new PromotionVO(po);
+			break;
+		}
+		return vo;
 	}
 
 }

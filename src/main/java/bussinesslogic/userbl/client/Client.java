@@ -40,7 +40,7 @@ public class Client {
 			if (result == ResultMessage_User.Register_Success) {
 				ResultMessage_Credit re_result = credit.addCreditRegister(registVO.id);
 				if(re_result != ResultMessage_Credit.Update_Successful) {
-					return ResultMessage_User.Regitster_Failed;
+					return ResultMessage_User.Register_Failed;
 				}
 				//Cache update
 				cache = ClientVO.transformVOToPO(getClientInfo(registVO.id));

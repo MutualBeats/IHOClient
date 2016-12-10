@@ -18,6 +18,12 @@ import util.resultmessage.ResultMessage_User;
  */
 public interface ClientDataService extends Remote {
 	
+	/**
+	 * 用户注册
+	 * @param po
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMessage_User regist(ClientRegistPO po) throws RemoteException;
 	
 	/**

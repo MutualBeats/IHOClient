@@ -18,16 +18,23 @@ public interface PromotionDataService extends Remote {
 	/**
 	 * 查看酒店促销策略
 	 * @param hotelID
-	 * @return ArrayList
+	 * @return ArrayList<PromotionPO>
 	 * @throws RemoteException
 	 */
 	public ArrayList<PromotionPO> getHotelPromotion(String hotelID) throws RemoteException;
 	/**
 	 * 查看网站促销策略
-	 * @return ArrayList
+	 * @return ArrayList<PromotionPO>
 	 * @throws RemoteException
 	 */
 	public ArrayList<PromotionPO> getWebPromotion() throws RemoteException;
+	/**
+	 * 根据id获取促销策略
+	 * @param promotionID
+	 * @return PromotionPO
+	 * @throws RemoteException
+	 */
+	public PromotionPO getPromotionById(String promotionID) throws RemoteException;
 	/**
 	 * 删除促销策略
 	 * @param promotionID
@@ -37,12 +44,12 @@ public interface PromotionDataService extends Remote {
 	public ResultMessage_Promotion deletePromotion(String promotionID) throws RemoteException;
 	/**
 	 * 查看会员等级划分方案
-	 * @return ArrayList
+	 * @return ArrayList<Integer>
 	 */
 	public ArrayList<Integer> getMemberLevel() throws RemoteException;
 	/**
 	 * 查看不同等级会员折扣
-	 * @return ArrayList
+	 * @return ArrayList<Double>
 	 */
 	public ArrayList<Double> getMemberDiscount() throws RemoteException;
 	/**
