@@ -27,7 +27,7 @@ public abstract class OrderListView implements Initializable {
 
 	@FXML
 	private Button check;
-	
+
 	@FXML
 	private TableView<OrderVO> order_list;
 

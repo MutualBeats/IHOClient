@@ -9,13 +9,16 @@ package presentation.marketui.webpromotion;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import vo.promotion.PromotionVO;
 
-public class WebPromotionController {
+public class WebPromotionController implements PromotionUpdate{
 
     @FXML
     private Button cancel;
@@ -25,6 +28,11 @@ public class WebPromotionController {
 
     @FXML
     private Button create;
+    
+    private ObservableList<PromotionVO> total;    
+    private ObservableList<PromotionVO> time_promotion;
+    private ObservableList<PromotionVO> field_promotion;
+    
 
     private static URL WEB_PROMOTION_CREATE_FXML;
     private static URL WEB_PROMOTION_CREATE_CSS;
@@ -64,6 +72,11 @@ public class WebPromotionController {
      	WindowGrab.startWindow(window, "新建网站促销策略", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
    
     }
+
+	@Override
+	public void update(String promotionID) {
+		//获取单个并添加到对应类型表和总表中
+	}
     
 }
 
