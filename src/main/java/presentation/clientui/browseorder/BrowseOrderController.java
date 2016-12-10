@@ -10,38 +10,55 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.order.OrderState;
+import vo.order.OrderVO;
 
-public class BrowseOrderController implements Initializable{
+public class BrowseOrderController implements Initializable {
+	@FXML
+	private TableColumn<OrderVO, String> make_time;
 
 	@FXML
-	private Button unexecuted_revoke;
+	private TableColumn<OrderVO, String> finish_time;
 
 	@FXML
-	private Button revoked_order;
+	private TableColumn<OrderVO, String> hotel;
+
+	@FXML
+	private TableColumn<OrderVO, OrderState> state;
+
+	@FXML
+	private TableColumn<OrderVO, String> order_id;
 
 	@FXML
 	private Button executed_order;
 
 	@FXML
-	private Button unusual_order;
+	private Button back;
+
+	@FXML
+	private Button revoke;
 
 	@FXML
 	private Button all_order;
 
 	@FXML
-	private Button unexecuted_return;
+	private Button check;
 
 	@FXML
 	private Label title;
 
 	@FXML
-	private Button unexecuted_order;
+	private Button revoked_order;
 
 	@FXML
-	private Button unexecuted_check;
+	private Button unusual_order;
+
+	@FXML
+	private Button unexecuted_order;
 
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
@@ -69,10 +86,10 @@ public class BrowseOrderController implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 	}
 
 	@FXML
@@ -107,7 +124,7 @@ public class BrowseOrderController implements Initializable{
 	}
 
 	@FXML
-	void return_(ActionEvent event) {
+	void back(ActionEvent event) {
 		Scene frame = WindowGrab.getScene(event);
 		WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
 		Stage stage = WindowGrab.getStage(0);
@@ -126,5 +143,4 @@ public class BrowseOrderController implements Initializable{
 
 	}
 
-	
 }

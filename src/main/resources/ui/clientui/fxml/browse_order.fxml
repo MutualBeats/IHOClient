@@ -38,13 +38,13 @@
          </font>
       </Button>
       <Line endX="600.0" layoutX="100.0" layoutY="144.0" />
-      <TreeTableView layoutX="100.0" layoutY="186.0" prefHeight="325.0" prefWidth="600.0">
+      <TableView layoutX="100.0" layoutY="186.0" prefHeight="325.0" prefWidth="600.0">
          <columns>
-            <TreeTableColumn fx:id="order_id" prefWidth="107.0" text="订单号" />
-            <TreeTableColumn fx:id="hotel" prefWidth="112.0" text="酒店" />
-            <TreeTableColumn fx:id="state" prefWidth="93.0" text="订单状态" />
-            <TreeTableColumn fx:id="make_time" prefWidth="140.0" text="订单生成时间" />
-            <TreeTableColumn fx:id="finish_time" prefWidth="147.0" text="订单完成时间" />
+            <TableColumn fx:id="order_id" prefWidth="107.0" text="订单号" />
+            <TableColumn fx:id="hotel" prefWidth="112.0" text="酒店" />
+            <TableColumn fx:id="state" prefWidth="93.0" text="订单状态" />
+            <TableColumn fx:id="make_time" prefWidth="140.0" text="订单生成时间" />
+            <TableColumn fx:id="finish_time" prefWidth="147.0" text="订单完成时间" />
          </columns>
       </TreeTableView>
       <Button fx:id="back" layoutX="636.0" layoutY="533.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="65.0" />
