@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.orderblservice.OrderBLService;
 import util.exception.NetException;
+import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
@@ -48,8 +49,8 @@ public class OrderController implements OrderBLService{
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryUserOrder(String clientID) throws NetException {
-		return order.queryUserOrder(clientID);
+	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException {
+		return order.queryUserOrder(clientID, state);
 	}
 
 	@Override

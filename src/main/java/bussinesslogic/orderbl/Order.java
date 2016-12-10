@@ -29,16 +29,16 @@ import vo.user.ClientVO;
 
 public class Order {
 	private static final int PROMOTION_ROOM_NUMBER = 3;
-	
+
 	private OrderDataService order_data_service;
-	
+
 	private ClientInfo client;
 	private CreditUpdate credit;
 	private PromotionGet promotion;
 	private HotelInfo hotel;
 	private RoomUpdate room;
 	private OrderPO orderPO;
-	
+
 	/**
 	 * @param userInfo
 	 * @param credit
@@ -54,8 +54,8 @@ public class Order {
 	}
 
 	/**
-	 * 撤销订单
-	 * 同时删除房间预订记录
+	 * 撤销订单 同时删除房间预订记录
+	 * 
 	 * @param orderID
 	 * @return ResultMessage
 	 */
@@ -63,20 +63,20 @@ public class Order {
 		try {
 			OrderPO po = order_data_service.findById(orderID);
 			// 错误：订单不存在
-			if(po == null)
+			if (po == null)
 				return ResultMessage_Order.Order_Not_Exist;
 			// 错误：订单不是未执行状态，不可撤销
-			if(!po.getOrderState().equals(OrderState.Unexecuted))
+			if (!po.getOrderState().equals(OrderState.Unexecuted))
 				return ResultMessage_Order.Order_State_Error;
-			
+
 			// 撤销订单
 			ResultMessage_Order result = order_data_service.cancelOrder(orderID);
-			if(!result.equals(ResultMessage_Order.Cancel_Successful))
+			if (!result.equals(ResultMessage_Order.Cancel_Successful))
 				return result;
-			
+
 			// 信用值处理（距离最晚订单执行时间不足6个小时则扣除订单价值一半的信用值）
 			String currentTime = Time.getCurrentTime();
-			if(Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
+			if (Time.deltaTime(currentTime, po.getLatestETime()) < 6 * 3600) {
 				checkClient();
 				ClientVO clientVO;
 				clientVO = client.getClientInfo(po.getClientID());
@@ -92,6 +92,20 @@ public class Order {
 			// 删除房间预订记录
 			checkRoom();
 			room.deleteRecord(orderID);
+
+			// Cache Update
+			OrderVO info = queryOrderById(orderID);
+			if (unexcute_cache != null) {
+				// Cache is filled
+				for (int i = 0; i < unexcute_cache.size(); i++) {
+					if (unexcute_cache.get(i).orderID.equals(info.orderID)) {
+						unexcute_cache.remove(i);
+						break;
+					}
+				}
+				canceled_cache.add(info);
+			}
+
 		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
@@ -99,13 +113,13 @@ public class Order {
 			e.printStackTrace();
 			return ResultMessage_Order.Cancel_Failed;
 		}
-		
+
 		return ResultMessage_Order.Cancel_Successful;
 	}
 
 	/**
-	 * 执行订单
-	 * 同时更新房间
+	 * 执行订单 同时更新房间
+	 * 
 	 * @param orderID
 	 * @return ResultMessage
 	 */
@@ -113,49 +127,50 @@ public class Order {
 		try {
 			orderPO = order_data_service.findById(orderID);
 			// 错误：订单不存在
-			if(orderPO == null)
+			if (orderPO == null)
 				return ResultMessage_Order.Order_Not_Exist;
 			// 错误：订单不是未执行状态，不可执行
-			if(!orderPO.getOrderState().equals(OrderState.Unexecuted))
+			if (!orderPO.getOrderState().equals(OrderState.Unexecuted))
 				return ResultMessage_Order.Order_State_Error;
 			// 错误：未到预订入住时间或已超出预订入住时间
-			if(!orderPO.getCheckInDate().equals(Time.getCurrentDate()))
+			if (!orderPO.getCheckInDate().equals(Time.getCurrentDate()))
 				return ResultMessage_Order.Date_Error;
 
 			// 执行订单
 			ResultMessage_Order result = order_data_service.executeOrder(orderID);
-			if(!result.equals(ResultMessage_Order.Execute_Successful))
+			if (!result.equals(ResultMessage_Order.Execute_Successful))
 				return result;
-						
+
 			// 信用值处理（增加等于订单总值的信用值）
 			checkClient();
 			ClientVO clientVO;
 			clientVO = client.getClientInfo(orderPO.getClientID());
-			
-			int changeValue = (int)orderPO.getValue();
+
+			int changeValue = (int) orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
 			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.ExecuteOrder, orderID);
-			
+
 			checkCredit();
 			credit.creditUpdate(creditVO);
-			
+
 			// 更新房间记录及房间状态
 			checkRoom();
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
-			
+
 		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
-		
+
 		return ResultMessage_Order.Execute_Successful;
 	}
-	
+
 	/**
 	 * 完成订单
+	 * 
 	 * @param orderID
 	 * @return
 	 */
@@ -168,28 +183,29 @@ public class Order {
 			// 错误：订单不是执行状态，不可完成
 			if (!orderPO.getOrderState().equals(OrderState.Execute))
 				return ResultMessage_Order.Order_State_Error;
-			
+
 			// 完成订单
 			ResultMessage_Order result = order_data_service.finishOrder(orderID);
-			if(!result.equals(ResultMessage_Order.Finish_Successful))
+			if (!result.equals(ResultMessage_Order.Finish_Successful))
 				return result;
-			
+
 			// 更新房间记录及房间状态
 			checkRoom();
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
 			}
-			
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
-		
+
 		return ResultMessage_Order.Finish_Successful;
 	}
 
 	/**
 	 * 订单补登记执行
+	 * 
 	 * @param orderID
 	 * @return ResultMessage
 	 */
@@ -197,13 +213,13 @@ public class Order {
 		try {
 			orderPO = order_data_service.findById(orderID);
 			// 错误：订单不存在
-			if(orderPO == null)
+			if (orderPO == null)
 				return ResultMessage_Order.Order_Not_Exist;
 			// 错误：订单不为异常状态，不可补登记执行
-			if(!orderPO.getOrderState().equals(OrderState.Exception))
+			if (!orderPO.getOrderState().equals(OrderState.Exception))
 				return ResultMessage_Order.Order_State_Error;
 			// 错误：当前时间在订单预计离开时间之后
-			if(orderPO.getEstimateCheckOutDate().compareTo(Time.getCurrentDate()) < 0)
+			if (orderPO.getEstimateCheckOutDate().compareTo(Time.getCurrentDate()) < 0)
 				return ResultMessage_Order.Date_Error;
 			// 错误：订单预订房间中有房间在此期间已被人预订
 			String checkInDate = Time.getCurrentDate();
@@ -212,13 +228,13 @@ public class Order {
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				ArrayList<RoomRecordVO> roomRecordList = room.getOrderRecord(orderPO.getHotelID(), roomNumber);
 				for (RoomRecordVO roomRecord : roomRecordList) {
-					if(checkInDate.compareTo(roomRecord.estimateCheckOutDate) > 0 
+					if (checkInDate.compareTo(roomRecord.estimateCheckOutDate) > 0
 							|| checkOutDate.compareTo(roomRecord.checkInDate) < 0)
 						continue;
 					return ResultMessage_Order.Room_Already_Ordered;
 				}
 			}
-			
+
 			// 更新房间记录及房间状态
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				// 添加新房间记录
@@ -226,32 +242,33 @@ public class Order {
 				// 入住
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
-			
+
 			// 补登记执行
 			order_data_service.putUpOrder(orderID);
 
 			// 恢复扣除信用
 			checkClient();
 			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
-			
-			int changeValue = (int)orderPO.getValue();
+
+			int changeValue = (int) orderPO.getValue();
 			int newCredit = clientVO.credit + changeValue;
 			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.PutUpOrder, orderID);
-			
+
 			checkCredit();
 			credit.creditUpdate(creditVO);
-			
+
 		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
-		
+
 		return ResultMessage_Order.Put_Up_Successful;
 	}
 
 	/**
 	 * 获得订单信息
+	 * 
 	 * @param orderID
 	 * @return
 	 * @throws RemoteException
@@ -268,6 +285,7 @@ public class Order {
 
 	/**
 	 * 获得客户在某酒店的订单列表
+	 * 
 	 * @param hotelID
 	 * @param clientID
 	 * @return
@@ -275,7 +293,7 @@ public class Order {
 	 */
 	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findUOByHotel(hotelID, clientID);
@@ -283,16 +301,17 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
 		}
-		
+
 		return orderVOList;
 	}
 
 	/**
 	 * 获得酒店房间的订单列表
+	 * 
 	 * @param hotelID
 	 * @param roomNumber
 	 * @return
@@ -300,7 +319,7 @@ public class Order {
 	 */
 	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findByRoom(hotelID, roomNumber);
@@ -308,23 +327,58 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
 		}
-		
+
 		return orderVOList;
+	}
+
+	private ArrayList<OrderVO> totalList_cache = null;
+	private ArrayList<OrderVO> unexcute_cache = null;
+	private ArrayList<OrderVO> finished_cache = null;
+	private ArrayList<OrderVO> canceled_cache = null;
+	private ArrayList<OrderVO> exception_cache = null;
+
+	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException {
+		checkCacheAndLoad(clientID);
+		switch (state) {
+		case Unexecuted:
+			return unexcute_cache;
+		case Finished:
+			return finished_cache;
+		case Canceled:
+			return canceled_cache;
+		case Exception:
+			return exception_cache;
+		default:
+			return null;
+		}
+	}
+
+	private void checkCacheAndLoad(String clientID) throws NetException {
+		if (totalList_cache == null) {
+			queryUserOrder(clientID);
+		}
 	}
 
 	/**
 	 * 获得用户所有订单列表
+	 * 
 	 * @param clientID
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<OrderVO> queryUserOrder(String clientID) throws NetException {
-		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+	private void queryUserOrder(String clientID) throws NetException {
+		// Cache 初始化
+		totalList_cache = new ArrayList<>();
+		unexcute_cache = new ArrayList<>();
+		finished_cache = new ArrayList<>();
+		canceled_cache = new ArrayList<>();
+		exception_cache = new ArrayList<>();
+
+		// Load
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findByUser(clientID);
@@ -332,17 +386,33 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
+		// Add into Cache
 		for (OrderPO orderPO : orderPOList) {
-			orderVOList.add(new OrderVO(orderPO));
+			OrderVO each = new OrderVO(orderPO);
+			totalList_cache.add(each);
+			switch (each.orderState) {
+			case Unexecuted:
+				unexcute_cache.add(each);
+				break;
+			case Finished:
+				finished_cache.add(each);
+				break;
+			case Canceled:
+				canceled_cache.add(each);
+				break;
+			case Exception:
+				exception_cache.add(each);
+				break;
+			default:
+				break;
+			}
 		}
-		
-		return orderVOList;
 	}
-	
+
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findUnexecutedOrder(date);
@@ -350,23 +420,24 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
 		}
-		
+
 		return orderVOList;
 	}
 
 	/**
 	 * 获得酒店订单列表
+	 * 
 	 * @param hotelID
 	 * @return
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findHotelOrder(hotelID);
@@ -374,23 +445,25 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
 		}
-		
+
 		return orderVOList;
 	}
-	
+
 	/**
 	 * 检查可用促销策略
+	 * 
 	 * @param iterator
 	 * @return
-	 * @throws RemoteException 
+	 * @throws RemoteException
 	 */
-	private ArrayList<PromotionVO> getAvailablePromotion(Iterator<PromotionVO> iterator, OrderMakeVO order, ClientVO client) throws NetException {
+	private ArrayList<PromotionVO> getAvailablePromotion(Iterator<PromotionVO> iterator, OrderMakeVO order,
+			ClientVO client) throws NetException {
 		ArrayList<PromotionVO> avaiPromotionList = new ArrayList<>();
-		while(iterator.hasNext()) {
+		while (iterator.hasNext()) {
 			PromotionVO vo = iterator.next();
 			switch (vo.type) {
 			// 生日促销策略
@@ -444,19 +517,20 @@ public class Order {
 
 	/**
 	 * 生成订单
+	 * 
 	 * @param vo
 	 * @return OrderVO
-	 * @throws RemoteException 
+	 * @throws RemoteException
 	 */
 	public OrderVO makeOrder(OrderMakeVO vo) throws NetException {
 		// 错误：客户信用值为负
 		checkClient();
 		ClientVO clientVO = client.getClientInfo(vo.clientID);
-		if(clientVO.credit < 0)
+		if (clientVO.credit < 0)
 			return null;
-		
+
 		OrderVO orderVO = new OrderVO(vo);
-		
+
 		// 可用促销策略获取
 		int vipLevel = clientVO.level;
 		checkPromotion();
@@ -466,7 +540,7 @@ public class Order {
 		Comparator<PromotionVO> comparator = new Comparator<PromotionVO>() {
 			@Override
 			public int compare(PromotionVO o1, PromotionVO o2) {
-				return (int)(o1.discount.get(vipLevel) - o2.discount.get(vipLevel));
+				return (int) (o1.discount.get(vipLevel) - o2.discount.get(vipLevel));
 			}
 		};
 		Collections.sort(availablePromotion, comparator);
@@ -480,7 +554,7 @@ public class Order {
 		double value = 0;
 		try {
 			int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate) + 1;
-		
+
 			checkRoom();
 			for (String roomNumber : vo.roomNumberList)
 				value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
@@ -490,13 +564,13 @@ public class Order {
 		}
 		// 促销策略折扣
 		double promotionDiscount = 10;
-		if(availablePromotion.size() > 0)
+		if (availablePromotion.size() > 0)
 			promotionDiscount = availablePromotion.get(0).discount.get(vipLevel);
 		// 会员等级折扣
 		double memberDiscount = promotion.getDiscount(vipLevel);
 		// 折扣后价格计算
 		orderVO.value = value * (promotionDiscount * 0.1) * (memberDiscount * 0.1);
-		
+
 		// 数据库记录订单信息，获取订单号
 		OrderPO po = new OrderPO(orderVO);
 		String orderID;
@@ -507,7 +581,7 @@ public class Order {
 			throw new NetException();
 		}
 		orderVO.orderID = orderID;
-		
+
 		// 添加房间记录
 		checkRoom();
 		for (String roomNumber : vo.roomNumberList) {
@@ -519,12 +593,13 @@ public class Order {
 			roomRecordPO.setEstimateCheckOutDate(vo.estimateCheckOutDate);
 			room.addRecord(roomRecordPO);
 		}
-		
+
+		unexcute_cache.add(orderVO);
 		return orderVO;
 	}
-	
+
 	private void checkClient() {
-		if(client == null) {
+		if (client == null) {
 			try {
 				client = ControllerFactory.getClientInfoInstance();
 			} catch (Exception e) {
@@ -532,10 +607,9 @@ public class Order {
 			}
 		}
 	}
-	
-	
+
 	private void checkCredit() {
-		if(credit == null) {
+		if (credit == null) {
 			try {
 				credit = ControllerFactory.getCreditUpdateInstance();
 			} catch (Exception e) {
@@ -543,9 +617,9 @@ public class Order {
 			}
 		}
 	}
-	
+
 	private void checkPromotion() {
-		if(promotion == null) {
+		if (promotion == null) {
 			try {
 				promotion = ControllerFactory.getPromotionGetInstance();
 			} catch (Exception e) {
@@ -553,9 +627,9 @@ public class Order {
 			}
 		}
 	}
-	
+
 	private void checkRoom() {
-		if(room == null) {
+		if (room == null) {
 			try {
 				room = ControllerFactory.getRoomUpdateInstance();
 			} catch (Exception e) {
@@ -563,9 +637,9 @@ public class Order {
 			}
 		}
 	}
-	
+
 	private void checkHotel() {
-		if(hotel == null) {
+		if (hotel == null) {
 			try {
 				hotel = ControllerFactory.getHotelInfoInstance();
 			} catch (Exception e) {

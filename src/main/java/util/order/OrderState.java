@@ -8,4 +8,6 @@ public enum OrderState {
 	Canceled,
 	Exception,
 	
+	All,
+	
 }

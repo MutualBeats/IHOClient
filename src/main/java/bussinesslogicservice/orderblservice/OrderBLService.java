@@ -3,6 +3,7 @@ package bussinesslogicservice.orderblservice;
 import java.util.ArrayList;
 
 import util.exception.NetException;
+import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
@@ -72,7 +73,7 @@ public interface OrderBLService {
 	 * @param clientID
 	 * @return ArrayList
 	 */
-	public ArrayList<OrderVO> queryUserOrder(String clientID) throws NetException;
+	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException;
 	/**
 	 * 酒店管理人员查询酒店订单
 	 * 

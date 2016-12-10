@@ -2,6 +2,7 @@ package vo.order;
 
 import java.util.ArrayList;
 
+import bussinesslogic.orderbl.Order;
 import po.order.OrderPO;
 import util.Time;
 import util.order.OrderState;
@@ -112,7 +113,7 @@ public class OrderVO {
 		this.numOfPeople = numOfPeople;
 		this.children = children;
 	}
-	
+
 	public OrderVO(OrderMakeVO vo) {
 		this.orderState = OrderState.Unexecuted;
 		this.clientID = vo.clientID;
@@ -134,6 +135,10 @@ public class OrderVO {
 				po.getPromotionIDList(), po.getValue(), po.getMakeTime(), po.getExecuteTime(), po.getFinishTime(),
 				po.getLatestETime(), po.getCheckInDate(), po.getEstimateCheckOutDate(), po.getActualCheckOutDate(),
 				po.getNumOfPeople(), po.isChildren());
+	}
+
+	public static OrderVO copy(OrderVO vo) {
+		return new OrderVO(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList, vo.value, vo.makeTime, vo.executeTime, vo.finishTime, vo.latestETime, vo.checkInDate, vo.estimateCheckOutDate, vo.actualCheckOutDate, vo.numOfPeople, vo.children);
 	}
 
 }

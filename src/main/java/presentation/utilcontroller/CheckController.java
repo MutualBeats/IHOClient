@@ -8,37 +8,43 @@ import presentation.utilui.WindowGrab;
 
 public class CheckController {
 
-    @FXML
-    private Label order_status;
+	@FXML
+	private Label order_status;
 
-    @FXML
-    private Button return_;
+	@FXML
+	private Label actual_in;
 
-    @FXML
-    private Label order_id7;
+	@FXML
+	private Label children;
 
-    @FXML
-    private Label expect_leave_time;
+	@FXML
+	private Label expect_leave_time;
 
-    @FXML
-    private Label expect_check_in;
+	@FXML
+	private Button back;
 
-    @FXML
-    private Label expect_population;
+	@FXML
+	private Label expect_check_in;
 
-    @FXML
-    private Label order_id;
+	@FXML
+	private Label expect_population;
 
-    @FXML
-    private Label hotel_name;
+	@FXML
+	private Label actual_out;
 
-    @FXML
-    private Label last_execute_time;
+	@FXML
+	private Label order_id;
 
-    @FXML
-    void return_(ActionEvent event) {
-    	WindowGrab .closeWindow(event);
-    }
+	@FXML
+	private Label hotel_name;
+
+	@FXML
+	private Label last_execute_time;
+
+	@FXML
+	void back(ActionEvent event) {
+		WindowGrab.closeWindow(event);
+	}
+
 
 }
-

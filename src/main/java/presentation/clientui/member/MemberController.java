@@ -1,9 +1,6 @@
 package presentation.clientui.member;
 
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
