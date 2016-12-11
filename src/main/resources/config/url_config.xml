@@ -9,6 +9,10 @@
 		<fxml fxml_path="fxml/signin.fxml"></fxml>
 		<css css_path="css/signin.css"></css>
 	</signin>
+	<check root_path="utilui/">
+		<fxml fxml_path="fxml/check.fxml"></fxml>
+		<css css_path="css/check.css"></css>
+	</check>
 	<confirm root_path="utilui/">
 		<fxml fxml_path="fxml/confirm.fxml"></fxml>
 		<css css_path="css/confirm.css"></css>
@@ -40,15 +44,30 @@
 			<css css_path="css/clientmenu.css"></css>
 		</client_menu>
 		<!-- Create order -->
-		<create_order>
-			<fxml fxml_path="fxml/create_order.fxml"></fxml>
-			<css css_path="css/create_order.css"></css>
-		</create_order>
+		<create_order_confirm>
+			<fxml fxml_path="fxml/create_order_confirm.fxml"></fxml>
+			<css css_path="css/create_order_confirm.css"></css>
+		</create_order_confirm>
+		<!-- credit -->
+		<credit>
+			<fxml fxml_path="fxml/credit.fxml"></fxml>
+			<css css_path="css/credit.css"></css>
+		</credit>
 		<!-- Evaluate hotel -->
 		<evaluate_hotel>
 			<fxml fxml_path="fxml/evaluate_hotel.fxml"></fxml>
 			<css css_path="css/evaluate_hotel.css"></css>
 		</evaluate_hotel>
+		<!-- executed check -->
+		<executed_check>
+			<fxml fxml_path="fxml/executed_check.fxml"></fxml>
+			<css css_path="css/executed_check.css"></css>
+		</executed_check>
+		<!-- history -->
+		<history>
+			<fxml fxml_path="fxml/history.fxml"></fxml>
+			<css css_path="css/history.css"></css>
+		</history>
 		<!-- Maintain messsage -->
 		<maintain_message>
 			<fxml fxml_path="fxml/maintain_message.fxml"></fxml>
@@ -64,11 +83,21 @@
 			<fxml fxml_path="fxml/revoke_order.fxml"></fxml>
 			<css css_path="css/revoke_order.css"></css>
 		</revoke_order>
+		<!-- search hotel -->
+		<search_hotel>
+			<fxml fxml_path="fxml/search_hotel.fxml"></fxml>
+			<css css_path="css/search_hotel.css"></css>
+		</search_hotel>
 	</client>
 	<!-- Client UI config finish -->
 
 	<!-- This is Staff UI config -->
 	<staff root_path="staffui/">
+		<!-- Hotel maintain confirm -->
+		<hotel_maintain_confirm>
+			<fxml fxml_path="fxml/hotel_maintain_confirm.fxml"></fxml>
+			<css css_path="css/hotel_maintain_confirm.css"></css>
+		</hotel_maintain_confirm>
 		<!-- Hotel promotion change-->
 		<hotel_promotion_change>
 			<fxml fxml_path="fxml/hotel_promotion_change.fxml"></fxml>
@@ -124,6 +153,16 @@
 			<fxml fxml_path="fxml/room_update.fxml"></fxml>
 			<css css_path="css/room_update.css"></css>
 		</room_update>
+		<!-- room create confirm -->
+		<room_create_confirm>
+			<fxml fxml_path="fxml/roomcreate_confirm.fxml"></fxml>
+			<css css_path="css/roomcreate_confirm.css"></css>
+		</room_create_confirm>
+		<!-- room update confirm -->
+		<room_update_confirm>
+			<fxml fxml_path="fxml/roomupdate_confirm.fxml"></fxml>
+			<css css_path="css/roomupdate_confirm.css"></css>
+		</room_update_confirm>
 		<!-- Staff main -->
 		<staff_main>
 			<fxml fxml_path="fxml/staff_main.fxml"></fxml>
@@ -134,6 +173,11 @@
 
 	<!-- This is Marketer UI config -->
 	<market root_path="marketui/">
+		<!-- confirm -->
+		<confirm>
+			<fxml fxml_path="fxml/confirm.fxml"></fxml>
+			<css css_path="css/confirm.css"></css>
+		</confirm>
 		<!-- Credit excute-->
 		<credit_excute>
 			<fxml fxml_path="fxml/credit_excute.fxml"></fxml>
@@ -194,6 +238,11 @@
 
 	<!-- This is Manager UI config -->
 	<manage root_path="manageui/">
+	<!--Add people confirm -->
+		<add_people_confirm>
+			<fxml fxml_path="fxml/add_people_confirm.fxml"></fxml>
+			<css css_path="css/add_people_confirm.css"></css>
+		</add_people_confirm>
 		<!--Add hotel one-->
 		<add_hotel_one>
 			<fxml fxml_path="fxml/addhotel_one.fxml"></fxml>
@@ -219,6 +268,11 @@
 			<fxml fxml_path="fxml/changemessage.fxml"></fxml>
 			<css css_path="css/changemessage.css"></css>
 		</change_message>
+		<!--Change message confirm -->
+		<change_message_confirm>
+			<fxml fxml_path="fxml/changemessageconfirm.fxml"></fxml>
+			<css css_path="css/changemessageconfirm.css"></css>
+		</change_message_confirm>
 		<!--Check menu-->
 		<check_menu>
 			<fxml fxml_path="fxml/check_menu.fxml"></fxml>

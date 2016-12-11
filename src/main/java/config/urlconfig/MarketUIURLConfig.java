@@ -21,6 +21,12 @@ public class MarketUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
+	//Market : confirm
+	
+	private static String CONFIRM_FXML;
+	
+	private static String CONFIRM_CSS;
+	
 	//Market : Credit Execute
 	
 	private static String CREDIT_EXCUTE_FXML;
@@ -115,6 +121,7 @@ public class MarketUIURLConfig {
 	private static void market_init(Element market){
 		String market_root = market.attributeValue(ROOT_PATH);
 		
+		Element confirm = market.element("confirm");
 		Element credit_excute = market.element("credit_excute");
 		Element credit = market.element("credit");
 		Element market_menu = market.element("market_menu");
@@ -129,6 +136,12 @@ public class MarketUIURLConfig {
 		
 		Element fxml;
 		Element css;
+		
+		//Confirm
+		fxml = confirm.element("fxml");
+		css = confirm.element("css");
+		CONFIRM_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		CONFIRM_CSS = market_root + css.attributeValue(CSS_PATH);
 		
 		//Credit Execute
 		fxml = credit_excute.element("fxml");
@@ -198,6 +211,23 @@ public class MarketUIURLConfig {
 		
 	}
 	
+	public static URL market_confirm_fxml_url(){
+		try {
+			return new URL(path_combine(CONFIRM_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL market_confirm_css_url(){
+		try {
+			return new URL(path_combine(CONFIRM_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public static URL market_credit_excute_fxml_url(){
 		try {

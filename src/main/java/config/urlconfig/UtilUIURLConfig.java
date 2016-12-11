@@ -21,6 +21,12 @@ public class UtilUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
+	//check
+	
+	private static String CHECK_FXML;
+	
+	private static String CHECK_CSS;
+	
 	//confirm
 	
 	private static String CONFIRM_FXML;
@@ -49,15 +55,25 @@ public class UtilUIURLConfig {
 			FILE_ROOT_PATH = root_path.attributeValue(ROOT_PATH);
 			
 			//Each stage
+			Element check = root.element("check");
 			Element confirm = root.element("confirm");
 			Element error = root.element("error");
 			
+			check_init(check);
 			confirm_init(confirm);
 			error_init(error);
 			
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private static void check_init(Element check){
+		Element check_fxml = check.element("fxml");
+		Element check_css = check.element("css");
+		String check_root = check.attributeValue(ROOT_PATH);
+		CHECK_FXML = check_root + check_fxml.attributeValue(FXML_PATH);
+		CHECK_CSS = check_root + check_css.attributeValue(CSS_PATH);
 	}
 	
 	private static void confirm_init(Element confirm){
@@ -76,6 +92,24 @@ public class UtilUIURLConfig {
 		ERROR_CSS = error_root + error_css.attributeValue(CSS_PATH);
 	}
 	
+	
+	public static URL check_fxml_url() {
+		try {
+			return new URL(path_combine(CHECK_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL check_css_url() {
+		try {
+			return new URL(path_combine(CHECK_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public static URL confirm_fxml_url() {
 		try {

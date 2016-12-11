@@ -21,6 +21,12 @@ public class ManageUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
+	//Manage : add people confirm
+	
+	private static String ADD_PEOPLE_CONFIRM_FXML;
+	
+	private static String ADD_PEOPLE_CONFIRM_CSS;
+	
 	//Manage : add hotel one
 	
 	private static String ADD_HOTEL_ONE_FXML;
@@ -50,7 +56,13 @@ public class ManageUIURLConfig {
 	private static String CHANGE_MESSAGE_FXML;
 		
 	private static String CHANGE_MESSAGE_CSS;
+	
+	//Manage : change message confirm
+	
+	private static String CHANGE_MESSAGE_CONFIRM_FXML;
 		
+	private static String CHANGE_MESSAGE_CONFIRM_CSS;
+	
 	//Manage : check menu
 		
 	private static String CHECK_MENU_FXML;
@@ -103,11 +115,13 @@ public class ManageUIURLConfig {
 	private static void manage_init(Element manage){
 		String manage_root = manage.attributeValue(ROOT_PATH);
 		
+		Element add_people_confirm = manage.element("add_people_confirm");
 		Element add_hotel_one = manage.element("add_hotel_one");
 		Element add_hotel_three = manage.element("add_hotel_three");
 		Element add_hotel_two = manage.element("add_hotel_two");
 		Element add_people = manage.element("add_people");
 		Element change_message = manage.element("change_message");
+		Element change_message_confirm = manage.element("change_message_confirm");
 		Element check_menu = manage.element("check_menu");
 		Element ID_input = manage.element("ID_input");
 		Element info_look = manage.element("info_look");
@@ -115,6 +129,12 @@ public class ManageUIURLConfig {
 		
 		Element fxml;
 		Element css;
+		
+		//add people confirm
+		fxml = add_people_confirm.element("fxml");
+		css = add_people_confirm.element("css");
+		ADD_PEOPLE_CONFIRM_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		ADD_PEOPLE_CONFIRM_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
 		//add hotel one
 		fxml = add_hotel_one.element("fxml");
@@ -146,6 +166,12 @@ public class ManageUIURLConfig {
 		CHANGE_MESSAGE_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		CHANGE_MESSAGE_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
+		//change message confirm
+		fxml = change_message_confirm.element("fxml");
+		css = change_message_confirm.element("css");
+		CHANGE_MESSAGE_CONFIRM_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		CHANGE_MESSAGE_CONFIRM_CSS = manage_root + css.attributeValue(CSS_PATH);
+		
 		//check menu
 		fxml = check_menu.element("fxml");
 		css = check_menu.element("css");
@@ -170,6 +196,24 @@ public class ManageUIURLConfig {
 		MANAGE_MENU_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		MANAGE_MENU_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
+	}
+	
+	public static URL manage_add_people_confirm_fxml(){
+		try {
+			return new URL(path_combine(ADD_PEOPLE_CONFIRM_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL manage_add_people_confirm_css(){
+		try {
+			return new URL(path_combine(ADD_PEOPLE_CONFIRM_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public static URL manage_add_hotel_one_fxml(){
@@ -256,6 +300,24 @@ public class ManageUIURLConfig {
 	public static URL manage_change_message_css(){
 		try {
 			return new URL(path_combine(CHANGE_MESSAGE_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static URL manage_change_message_confirm_fxml(){
+		try {
+			return new URL(path_combine(CHANGE_MESSAGE_CONFIRM_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL manage_change_message_confirm_css(){
+		try {
+			return new URL(path_combine(CHANGE_MESSAGE_CONFIRM_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
