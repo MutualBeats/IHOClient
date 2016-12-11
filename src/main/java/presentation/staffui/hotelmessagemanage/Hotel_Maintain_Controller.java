@@ -38,6 +38,12 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 	private ComboBox<String> hotel_field;
 
 	@FXML
+    private ComboBox<String> hotel_town;
+
+    @FXML
+    private ComboBox<String> hotel_city;
+
+	@FXML
 	private Label address_warning;
 
 	@FXML
