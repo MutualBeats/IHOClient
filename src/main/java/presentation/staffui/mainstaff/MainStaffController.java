@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogic.userbl.staff.Staff;
 import bussinesslogicservice.userblservice.StaffBLService;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,29 +57,26 @@ public class MainStaffController implements Initializable{
     
     //酒店信息管理
     private static URL MAINTAIN_HOTEL_FXML;
-    private static URL MAINTAIN_HOTEL_CSS;
-    static{
-    	try {
-    		HOTEL_PROMOTION_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion.fxml");
-    		HOTEL_PROMOTION_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_promotion.css");
-    		
-    		ROOM_MANAGE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_manage.fxml");
-    		ROOM_MANAGE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_manage.css");
-    		
-    		ORDER_MANAGE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/order_manage.fxml");
-    		ORDER_MANAGE_CSS = new URL("file:src/main/resources/ui/staffui/css/order_manage.css");
-    		
-    		MAINTAIN_HOTEL_FXML = new URL("file:src/main/resources/ui/staffui/fxml/maintain_hotel.fxml");
-    		MAINTAIN_HOTEL_CSS = new URL("file:src/main/resources/ui/staffui/css/maintain_hotel.css");
-    		
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    }
+	private static URL MAINTAIN_HOTEL_CSS;
+	
+	static {
+		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
+		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
+
+		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
+		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_room_manage_css_url();
+
+		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+
+		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
+		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
+
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		}
+	}
     
     @FXML
     void maintainMessage(ActionEvent event) {

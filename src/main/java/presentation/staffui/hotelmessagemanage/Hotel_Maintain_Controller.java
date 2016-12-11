@@ -2,9 +2,13 @@ package presentation.staffui.hotelmessagemanage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -13,8 +17,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
+import vo.hotel.HotelVO;
 
-public class Hotel_Maintain_Controller implements Confirm {
+public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@FXML
 	private Button cancel;
@@ -58,11 +64,26 @@ public class Hotel_Maintain_Controller implements Confirm {
 	private static URL CONFIRM_FXML;
 	private static URL CONFIRM_CSS;
 	static {
+		CONFIRM_FXML = StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url();
+		CONFIRM_CSS = StaffUIURLConfig.staff_hotel_maintain_confirm_css_url();
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO 测试用
 		try {
-			CONFIRM_FXML = new URL("file:src/main/resources/ui/staffui/fxml/hotel_maintain_confirm.fxml");
-			CONFIRM_CSS = new URL("file:src/main/resources/ui/staffui/css/hotel_maintain_confirm.css");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo("00000001");
+			hotel_id.setText(info.hotelID);
+			hotel_address.setText(info.address);
+			hotel_name.setText(info.hotelName);
+			hotel_star.setText("" + info.starLevel);
+			hotel_score.setText("" + info.score);
+			
+			name_warning.setText("");
+			star_warning.setText("");
+			address_warning.setText("");
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 	}
 

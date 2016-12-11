@@ -9,6 +9,7 @@ package presentation.staffui.hotelordermanage;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,16 +30,12 @@ public class Order_Manage_Controller {
 
     private static URL ORDER_CHECK_FXML;
     private static URL ORDER_CHECK_CSS;
-    static{
-    	try {
-    		ORDER_CHECK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/order_check.fxml");
-    		ORDER_CHECK_CSS = new URL("file:src/main/resources/ui/staffui/css/order_check.css");
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    }
-
-    @FXML
+	static {
+		ORDER_CHECK_FXML = StaffUIURLConfig.staff_order_check_fxml_url();
+		ORDER_CHECK_CSS = StaffUIURLConfig.staff_order_check_css_url();
+	}
+	
+	@FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }

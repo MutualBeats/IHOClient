@@ -60,14 +60,14 @@
             <Font size="15.0" />
          </font></Label>
       <TextField fx:id="hotel_id" editable="false" layoutX="260.0" layoutY="50.0" prefWidth="170.0" />
-      <TextField fx:id="hotel_name" editable="false" layoutX="260.0" layoutY="100.0" prefWidth="170.0" />
-      <TextArea fx:id="hotel_address" editable="false" layoutX="260.0" layoutY="250.0" prefHeight="70.0" prefWidth="170.0" />
+      <TextField fx:id="hotel_name" layoutX="260.0" layoutY="100.0" prefWidth="170.0" />
+      <TextArea fx:id="hotel_address" layoutX="260.0" layoutY="250.0" prefHeight="70.0" prefWidth="170.0" />
       <TextField fx:id="hotel_star" editable="false" layoutX="260.0" layoutY="343.0" prefWidth="170.0" />
       <TextField fx:id="hotel_score" editable="false" layoutX="260.0" layoutY="393.0" prefWidth="170.0" />
       <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="100.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="250.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <Label fx:id="star_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="343.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
-      <ComboBox fx:id="hotel_province" disable="true" layoutX="260.0" layoutY="150.0" prefHeight="27.0" prefWidth="170.0" />
-      <ComboBox fx:id="hotel_field" disable="true" layoutX="260.0" layoutY="200.0" prefHeight="27.0" prefWidth="170.0" />
+      <ComboBox fx:id="hotel_province" disable="true" editable="true" layoutX="260.0" layoutY="150.0" prefHeight="27.0" prefWidth="170.0" />
+      <ComboBox fx:id="hotel_field" disable="true" editable="true" layoutX="260.0" layoutY="200.0" prefHeight="27.0" prefWidth="170.0" />
    </children>
 </AnchorPane>
