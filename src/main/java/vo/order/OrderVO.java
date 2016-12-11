@@ -2,11 +2,18 @@ package vo.order;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.StringProperty;
 import po.order.OrderPO;
 import util.Time;
 import util.order.OrderState;
 
 public class OrderVO {
+	private StringProperty make_time_property;
+	private StringProperty finish_time_property;
+	private StringProperty hotel_property;
+	private StringProperty state_property;
+	private StringProperty id_property;
+
 	/**
 	 * 订单id
 	 */
@@ -114,19 +121,21 @@ public class OrderVO {
 	}
 
 	public OrderVO(OrderMakeVO vo) {
-		this.orderState = OrderState.Unexecuted;
-		this.clientID = vo.clientID;
-		this.hotelID = vo.hotelID;
-		this.roomNumberList = vo.roomNumberList;
-		this.makeTime = Time.getCurrentTime();
-		this.executeTime = "";
-		this.finishTime = "";
-		this.latestETime = vo.checkInDate + " " + "23:59:59";
-		this.checkInDate = vo.checkInDate;
-		this.estimateCheckOutDate = vo.estimateCheckOutDate;
-		this.actualCheckOutDate = "";
-		this.numOfPeople = vo.numOfPeople;
-		this.children = vo.children;
+		this("", OrderState.Unexecuted, vo.clientID, vo.hotelID, vo.roomNumberList, null, 0, Time.getCurrentTime(), "",
+				"", vo.checkInDate + " " + "23:59:59", vo.checkInDate, vo.estimateCheckOutDate, "", vo.numOfPeople,
+				vo.children);
+		// this.orderState = OrderState.Unexecuted;
+		// this.clientID = vo.clientID;
+		// this.hotelID = vo.hotelID;
+		// this.roomNumberList = vo.roomNumberList;
+		// this.makeTime = Time.getCurrentTime();
+		// this.executeTime = "";
+		// this.finishTime = "";
+		// this.latestETime = this.checkInDate = vo.checkInDate;
+		// this.estimateCheckOutDate = vo.estimateCheckOutDate;
+		// this.actualCheckOutDate = "";
+		// this.numOfPeople = vo.numOfPeople;
+		// this.children = vo.children;
 	}
 
 	public OrderVO(OrderPO po) {

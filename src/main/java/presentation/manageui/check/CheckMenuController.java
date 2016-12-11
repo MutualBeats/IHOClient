@@ -120,7 +120,7 @@ public class CheckMenuController implements Initializable {
 		marketer.setToggleGroup(buttom_group);
 		staff.setToggleGroup(buttom_group);
 		total.setSelected(true);
-
+	
 		buttom_group.selectedToggleProperty()
 				.addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) -> {
 					if (buttom_group.getSelectedToggle() != null) {
@@ -136,6 +136,12 @@ public class CheckMenuController implements Initializable {
 						}
 					}
 				});
+		
+		//Init table column
+		type.setCellValueFactory(cellData->cellData.getValue().getType_property());
+		id.setCellValueFactory(cellData->cellData.getValue().getId_property());
+		contact.setCellValueFactory(cellData->cellData.getValue().getContact_property());
+		name.setCellValueFactory(cellData->cellData.getValue().getName_property());
 	}
 
 	@FXML

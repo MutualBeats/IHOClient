@@ -2,8 +2,10 @@ package presentation.clientui.browseorder;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,10 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
-import util.order.OrderState;
 import vo.order.OrderVO;
 
 public class BrowseOrderController implements Initializable {
@@ -28,11 +30,14 @@ public class BrowseOrderController implements Initializable {
 	private TableColumn<OrderVO, String> hotel;
 
 	@FXML
-	private TableColumn<OrderVO, OrderState> state;
+	private TableColumn<OrderVO, String> state;
 
 	@FXML
 	private TableColumn<OrderVO, String> order_id;
 
+	@FXML
+	private TableView<OrderVO> order_list;
+	
 	@FXML
 	private Button executed_order;
 
@@ -86,10 +91,38 @@ public class BrowseOrderController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	private ObservableList<OrderVO> total_list;
+	private ObservableList<OrderVO> executed_list;
+	private ObservableList<OrderVO> unexecuted_list;
+	private ObservableList<OrderVO> revoked_list;
+	private ObservableList<OrderVO> exception_list;
+	
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		//Initialize order list 
+		ArrayList<OrderVO> total = (ArrayList<OrderVO>) resources.getObject("total");
+		ArrayList<OrderVO> executed = (ArrayList<OrderVO>) resources.getObject("excuted");
+		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecuted");
+		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
+		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
+		
+		total_list.addAll(total);
+		executed_list.addAll(executed);
+		unexecuted_list.addAll(unexecuted);
+		revoked_list.addAll(revoked);
+		exception_list.addAll(exception);
+		
+		order_list.setItems(total_list);
+		
+		
+		
+		//Revoke button default
+		revoke.setVisible(false);
+		revoke.setDisable(true);
+		
 	}
 
 	@FXML
@@ -104,7 +137,10 @@ public class BrowseOrderController implements Initializable {
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
-
+		//Represent the button
+		revoke.setVisible(true);
+		revoke.setDisable(false);
+		
 	}
 
 	@FXML
