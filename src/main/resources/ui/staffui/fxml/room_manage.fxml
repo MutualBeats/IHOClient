@@ -45,7 +45,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="create" layoutX="216.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="新建">
+      <Button fx:id="create" layoutX="216.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="录入">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -54,12 +54,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="225.0" layoutY="235.0" prefHeight="240.0" prefWidth="400.0">
+      <TableView fx:id="roomList" layoutX="225.0" layoutY="235.0" prefHeight="240.0" prefWidth="400.0">
          <columns>
-            <TableColumn prefWidth="100.0" text="全部" />
-            <TableColumn prefWidth="100.0" text="单人房" />
-            <TableColumn prefWidth="100.0" text="双人房" />
-            <TableColumn prefWidth="100.0" text="三人房" />
+            <TableColumn prefWidth="100.0" sortable="false" text="房间号" />
+            <TableColumn prefWidth="100.0" sortable="false" text="房间类型" />
+            <TableColumn prefWidth="100.0" text="价格" />
+            <TableColumn prefWidth="100.0" sortable="false" text="状态" />
          </columns>
       </TableView>
       <Label layoutX="250.0" layoutY="165.0" text="房间号:">

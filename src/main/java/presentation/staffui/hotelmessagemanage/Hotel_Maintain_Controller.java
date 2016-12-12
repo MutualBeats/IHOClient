@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.hotelblservice.HotelBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,8 +80,15 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 		// TODO 测试用
 		try {
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo("00000001");
+			String[] region = info.region.split(" ");
+			// TODO combobox操作
+			hotel_province.setValue(region[0]);
+			hotel_city.setValue(region[1]);
+			hotel_town.setValue(region[2]);
+			
 			hotel_id.setText(info.hotelID);
 			hotel_address.setText(info.address);
+			hotel_field.setValue(info.businessDistrict);
 			hotel_name.setText(info.hotelName);
 			hotel_star.setText("" + info.starLevel);
 			hotel_score.setText("" + info.score);
@@ -106,6 +114,20 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@Override
 	public void confirm() {
+		String newName = hotel_name.getText();
+		// TODO
+		String newRegion = hotel_province.getAccessibleText() + " " + hotel_city.getAccessibleText() + " " 
+				+ hotel_town.getAccessibleText();
+		String newDistrcit = hotel_field.getAccessibleText();
+		String newAdress = hotel_address.getText();
+		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
+		try {
+			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
+		} catch (NetException e) {
+			// TODO 连接错误
+			WindowGrab.startNetErrorWindow(WindowGrab.getStage(0));
+			e.printStackTrace();
+		}
 		System.out.println("Confirm");
 	}
 

@@ -6,15 +6,27 @@
 package presentation.staffui.roommanage;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.roomblservice.RoomBLService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
+import vo.room.RoomVO;
 
-public class RoomManageController {
+public class RoomManageController implements Initializable {
 
     @FXML
     private Button cancel;
@@ -30,7 +42,11 @@ public class RoomManageController {
 
     @FXML
     private Button look;
-
+    
+    @FXML
+    private TableView<RoomData> roomList;
+    
+    private ObservableList<RoomData> data = FXCollections.observableArrayList();
 
     private static URL ROOM_CREATE_FXML;
     private static URL ROOM_CREATE_CSS;
@@ -55,6 +71,29 @@ public class RoomManageController {
 			e.printStackTrace();
 		}
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			ObservableList<TableColumn<RoomData, ?>> observableList = roomList.getColumns();
+			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
+			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("roomType"));
+			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("roomPrice"));
+			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("roomState"));
+			
+			RoomBLService roomBL = ControllerFactory.getRoomBLServiceInstance();
+			// TODO 获取酒店id
+			ArrayList<RoomVO> roomVOList = roomBL.getRoomList("00000001");
+			for (RoomVO room : roomVOList) {
+				RoomData roomData = new RoomData(room.roomNumber, room.type, room.price, room.condition);
+				data.add(roomData);
+			}
+			roomList.setItems(data);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+		}
+	}
+    
     @FXML
     void change(ActionEvent event) {	
     	Window window = WindowGrab.getWindow(event);
