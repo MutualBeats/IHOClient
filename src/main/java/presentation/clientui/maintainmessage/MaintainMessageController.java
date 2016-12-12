@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import presentation.utilui.WindowGrab;
 
 public class MaintainMessageController {
@@ -29,10 +30,10 @@ public class MaintainMessageController {
     private Button return_;
 
     @FXML
-    private Label name_real;
+    private TextField name_real;
 
     @FXML
-    private Label name;
+    private TextField name;
 
     @FXML
     private Label title;
