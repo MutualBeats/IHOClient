@@ -17,21 +17,39 @@ import util.order.OrderState;
 import vo.order.OrderVO;
 
 public class MainClientController {
+
 	@FXML
+    private Button all;
+
+    @FXML
+    private Label hotel_one;
+
+    @FXML
+    private Label hotel_four;
+
+    @FXML
+    private Label user_name;
+
+    @FXML
+    private Label hotel_five;
+
+    @FXML
+    private Button history;
+
+    @FXML
+    private Label title;
+
+    @FXML
+    private Label hotel_six;
+
+    @FXML
+    private Button logout;
+
+    @FXML
     private Button browse_order;
 
-	@FXML
-    private Button logout;
-	
     @FXML
-    private Label user_id;
-
-
-    @FXML
-    private Button create_order;
-
-    @FXML
-    private Button revoke_order;
+    private Button search;
 
     @FXML
     private Button member;
@@ -40,19 +58,15 @@ public class MainClientController {
     private Button maintain_message;
 
     @FXML
-    private Button evaluate_hotel;
+    private Label hotel_three;
 
     @FXML
-    private Label menu_user;
+    private Label hotel_seven;
 
     @FXML
-    private Label title;
+    private Label hotel_two;
 
-    @FXML
-    private Label menu_label;
-
-    @FXML
-    private Label user_name;
+	
     //浏览订单
     private static URL BROWSE_ORDER_FXML;
     private static URL BROWSE_ORDER_CSS;
