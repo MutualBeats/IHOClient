@@ -2,17 +2,50 @@ package vo.order;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import po.order.OrderPO;
 import util.Time;
 import util.order.OrderState;
 
 public class OrderVO {
+	private final static String STATES[] = { "未执行订单", "执行中订单", "已完成订单", "已撤销订单", "异常订单" };
+
 	private StringProperty make_time_property;
 	private StringProperty finish_time_property;
 	private StringProperty hotel_property;
 	private StringProperty state_property;
 	private StringProperty id_property;
+
+	public void setStateProperty(OrderState state) {
+		orderState = state;
+		state_property = new SimpleStringProperty(STATES[state.ordinal()]);
+	}
+
+	public void setFinishTimeProperty(String finish_time) {
+		this.finishTime = finish_time;
+		finish_time_property = new SimpleStringProperty(finish_time);
+	}
+	
+	public StringProperty getMake_time_property() {
+		return make_time_property;
+	}
+
+	public StringProperty getFinish_time_property() {
+		return finish_time_property;
+	}
+
+	public StringProperty getHotel_property() {
+		return hotel_property;
+	}
+
+	public StringProperty getState_property() {
+		return state_property;
+	}
+
+	public StringProperty getId_property() {
+		return id_property;
+	}
 
 	/**
 	 * 订单id
@@ -118,6 +151,12 @@ public class OrderVO {
 		this.actualCheckOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
+
+		make_time_property = new SimpleStringProperty(makeTime);
+		finish_time_property = new SimpleStringProperty(finishTime);
+		hotel_property = new SimpleStringProperty(hotelID);
+		state_property = new SimpleStringProperty(STATES[orderState.ordinal()]);
+		id_property = new SimpleStringProperty(orderID);
 	}
 
 	public OrderVO(OrderMakeVO vo) {

@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,10 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.Time;
+import util.exception.NetException;
+import util.order.OrderState;
+import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
 public class BrowseOrderController implements Initializable {
@@ -37,7 +43,7 @@ public class BrowseOrderController implements Initializable {
 
 	@FXML
 	private TableView<OrderVO> order_list;
-	
+
 	@FXML
 	private Button executed_order;
 
@@ -60,7 +66,7 @@ public class BrowseOrderController implements Initializable {
 	private Button revoked_order;
 
 	@FXML
-	private Button unusual_order;
+	private Button exception_order;
 
 	@FXML
 	private Button unexecuted_order;
@@ -91,66 +97,92 @@ public class BrowseOrderController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private ObservableList<OrderVO> total_list;
 	private ObservableList<OrderVO> executed_list;
 	private ObservableList<OrderVO> unexecuted_list;
 	private ObservableList<OrderVO> revoked_list;
 	private ObservableList<OrderVO> exception_list;
-	
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//Initialize order list 
+		// Initialize order list
 		ArrayList<OrderVO> total = (ArrayList<OrderVO>) resources.getObject("total");
 		ArrayList<OrderVO> executed = (ArrayList<OrderVO>) resources.getObject("excuted");
 		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecuted");
 		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
 		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
-		
+
 		total_list.addAll(total);
 		executed_list.addAll(executed);
 		unexecuted_list.addAll(unexecuted);
 		revoked_list.addAll(revoked);
 		exception_list.addAll(exception);
-		
+
 		order_list.setItems(total_list);
-		
-		
-		
-		//Revoke button default
+
+		// init column
+		initColumn();
+
+		// Revoke button default
 		revoke.setVisible(false);
 		revoke.setDisable(true);
-		
+
+	}
+
+	private void initColumn() {
+		make_time.setCellValueFactory(cellData -> cellData.getValue().getMake_time_property());
+		finish_time.setCellValueFactory(cellData -> cellData.getValue().getFinish_time_property());
+		state.setCellValueFactory(cellData -> cellData.getValue().getState_property());
+		order_id.setCellValueFactory(cellData -> cellData.getValue().getId_property());
+		// Hotel Name
+		hotel.setCellValueFactory(cellData -> {
+			try {
+				return new SimpleStringProperty(ControllerFactory.getHotelBLServiceInstance()
+						.showHotelInfo(cellData.getValue().getHotel_property().getValue()).hotelName);
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+				return new SimpleStringProperty("");
+			}
+		});
+	}
+
+	private void hideRevoke() {
+		revoke.setVisible(false);
+		revoke.setDisable(true);
 	}
 
 	@FXML
 	void all_order(ActionEvent event) {
-
+		hideRevoke();
+		order_list.setItems(total_list);
 	}
 
 	@FXML
 	void executed_order(ActionEvent event) {
-
+		hideRevoke();
+		order_list.setItems(executed_list);
 	}
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
-		//Represent the button
+		// Represent the button
 		revoke.setVisible(true);
 		revoke.setDisable(false);
-		
+		order_list.setItems(unexecuted_list);
 	}
 
 	@FXML
 	void revoked_order(ActionEvent event) {
-
+		hideRevoke();
+		order_list.setItems(revoked_list);
 	}
 
 	@FXML
-	void unusual_order(ActionEvent event) {
-
+	void exception_order(ActionEvent event) {
+		hideRevoke();
+		order_list.setItems(exception_list);
 	}
 
 	@FXML
@@ -169,7 +201,28 @@ public class BrowseOrderController implements Initializable {
 
 	@FXML
 	void unexecuted_revoke(ActionEvent event) {
+		OrderVO select = order_list.getSelectionModel().getSelectedItem();
+		Window window = WindowGrab.getWindow(event);
+		if (select != null) {
+			try {
+				ResultMessage_Order result = ControllerFactory.getOrderBLServiceInstance().cancelOrder("");
+				if (result == ResultMessage_Order.Cancel_Successful) {
+					WindowGrab.startNoticeWindow(window, "撤销订单成功");
+					// 界面暂时更新
+					unexecuted_list.remove(select);
+					select.setFinishTimeProperty(Time.getCurrentTime());
+					select.setStateProperty(OrderState.Canceled);
+					revoked_list.add(0, select);
 
+				} else {
+					WindowGrab.startNoticeWindow(window, "撤销订单失败");
+				}
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+			}
+		} else {
+			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
+		}
 	}
 
 	@FXML
