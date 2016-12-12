@@ -3,6 +3,7 @@ package presentation.clientui.mainclient;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.order.OrderState;
+import vo.order.OrderVO;
 
 public class MainClientController {
 	@FXML
@@ -101,6 +104,10 @@ public class MainClientController {
 
     @FXML
     void browse_order(ActionEvent event) {
+    	OrderVO vo = new OrderVO("123", OrderState.Canceled, "123", "213", new ArrayList<>(), new ArrayList<>(), 10000, "1111", "1111", "1111", "222", "222", "111", "213", 3, false);
+    	ArrayList<OrderVO> total = new ArrayList<>();
+    	total.add(vo);
+    	
     	Scene frame =WindowGrab.getScene(event);
     	WindowGrab.changeScene(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame);
     	Stage stage=WindowGrab.getStage(0);

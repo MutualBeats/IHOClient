@@ -1,12 +1,16 @@
 package presentation.utilcontroller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
-public class CheckController {
+public class CheckController implements Initializable{
 
 	@FXML
 	private Label order_status;
@@ -44,6 +48,11 @@ public class CheckController {
 	@FXML
 	void back(ActionEvent event) {
 		WindowGrab.closeWindow(event);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
 	}
 
 

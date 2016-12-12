@@ -113,7 +113,6 @@ public class BrowseOrderController implements Initializable {
 		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecuted");
 		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
 		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
-
 		total_list.addAll(total);
 		executed_list.addAll(executed);
 		unexecuted_list.addAll(unexecuted);
