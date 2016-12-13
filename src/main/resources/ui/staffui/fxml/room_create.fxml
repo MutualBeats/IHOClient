@@ -12,11 +12,6 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
          <children>
             <Accordion layoutY="115.0" />
-            <Text layoutX="100.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="录入房间号码：" wrappingWidth="100.0" />
-            <Text layoutX="100.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="录入房间类型：" />
-            <Text layoutX="100.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="录入房间价格：" />
-            <TextField layoutX="230.0" layoutY="148.0" prefHeight="15.0" prefWidth="160.0" />
-            <TextField layoutX="230.0" layoutY="297.0" prefHeight="15.0" prefWidth="160.0" />
             <Button fx:id="cancel" layoutX="265.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
             <Button fx:id="confirm" layoutX="135.0" layoutY="380.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="确认" />
             <Label ellipsisString="" layoutX="51.0" layoutY="89.0" prefHeight="26.0" prefWidth="134.0" text="录入客房信息">
@@ -24,7 +19,13 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="room_type" layoutX="229.0" layoutY="225.0" prefHeight="27.0" prefWidth="160.0" promptText="请选择房间类型" />
+            <TableView layoutX="90.0" layoutY="144.0" prefHeight="200.0" prefWidth="300.0">
+              <columns>
+                <TableColumn prefWidth="100.0" text="房间号" />
+                <TableColumn prefWidth="100.0" text="房间类型" />
+                  <TableColumn prefWidth="100.0" text="房间价格" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
   </items>
 </SplitPane>
