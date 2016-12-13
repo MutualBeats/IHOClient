@@ -6,6 +6,7 @@ package data_test.credit;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.junit.Before;
@@ -34,7 +35,8 @@ public class CreditDataTest {
 	@Test
 	public void testFind() {
 		try {
-			Iterator<CreditVO> it = creditDataHelper.find("1234567890");
+			ArrayList<CreditVO> list = creditDataHelper.find("1234567890");
+			Iterator<CreditVO> it = list.iterator();
 			for(; it.hasNext();) {
 				if(!it.next().clientID.equals("1234567890"))
 					fail("Find Error!");
