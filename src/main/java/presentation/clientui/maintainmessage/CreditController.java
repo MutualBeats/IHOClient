@@ -48,7 +48,11 @@ public class CreditController implements Initializable{
 		ObservableList<CreditVO> credits = FXCollections.observableArrayList();
 		credits.addAll(credit_change_list);
 		credit_list.setItems(credits);
-		//TODO : initialize the column of table view
+		//initialize the column of table view
+		date.setCellValueFactory(cellData->cellData.getValue().getTime_property());
+		value_of_change.setCellValueFactory(cellData->cellData.getValue().getChange_property().asObject());
+		reson.setCellValueFactory(cellData->cellData.getValue().getReson_property());
+		cur_value.setCellValueFactory(cellData->cellData.getValue().getAfter_property().asObject());
 	}
 
 }

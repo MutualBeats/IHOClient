@@ -6,10 +6,20 @@ import util.resultmessage.ResultMessage_Verify;
 
 public class BaseVO {
 	
-	private final StringProperty id_property;
-	private final StringProperty name_property;
-	private final StringProperty contact_property;
-	private final StringProperty type_property;
+	private StringProperty id_property;
+	private StringProperty name_property;
+	private StringProperty contact_property;
+	private StringProperty type_property;
+	
+	public void setNameProperty(String name) {
+		this.name = name;
+		name_property = new SimpleStringProperty(name);
+	}
+	
+	public void setContactProperty(String contact) {
+		contactWay = contact;
+		contact_property = new SimpleStringProperty(contact);
+	}
 	
 	public StringProperty getId_property() {
 		return id_property;

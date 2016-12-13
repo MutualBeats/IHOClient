@@ -53,8 +53,8 @@ public class ClientInformationController extends InformationLookController {
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
 			if (result == ResultMessage_User.UpdateSuccess) {
-				info.name = name.getText();
-				info.contactWay = phone.getText();
+				info.setNameProperty(name.getText());
+				info.setContactProperty(phone.getText());
 			}
 		} catch (Exception e) {
 			WindowGrab.startNetErrorWindow(window);
