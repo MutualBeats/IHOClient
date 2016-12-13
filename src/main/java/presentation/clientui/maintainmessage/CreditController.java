@@ -1,40 +1,55 @@
 package presentation.clientui.maintainmessage;
 
 
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import presentation.utilui.WindowGrab;
+import vo.credit.CreditVO;
 
-public class CreditController {
+public class CreditController implements Initializable{
 
     @FXML
     private Button cancel;
     
-    private static URL MAINTAIN_MESSAGE_FXML;
-    private static URL MAINTAIN_MESSAGE_CSS;
-    
-    
-    static{
-    	try {
-    		MAINTAIN_MESSAGE_FXML=new URL("file:src/main/resources/ui/clientui/fxml/maintain_message.fxml");
-    		MAINTAIN_MESSAGE_CSS=new URL("file:src/main/resources/ui/clientui/css/maintain_message.css");
-			
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+    private TableView<CreditVO> credit_list;
     
     @FXML
+    private TableColumn<CreditVO, String> date;
+
+    @FXML
+    private TableColumn<CreditVO, Integer> value_of_change;
+
+    @FXML
+    private TableColumn<CreditVO, String> reson;
+
+    @FXML
+    private TableColumn<CreditVO, Integer> cur_value;
+
+    @FXML
     void cancel(ActionEvent event) {
-    	Scene frame=WindowGrab.getScene(event);
-    	WindowGrab.changeScene(MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS, frame);
+    	WindowGrab.closeWindow(event);
      }
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		@SuppressWarnings("unchecked")
+		ArrayList<CreditVO> credit_change_list = (ArrayList<CreditVO>) resources.getObject("credit");
+		ObservableList<CreditVO> credits = FXCollections.observableArrayList();
+		credits.addAll(credit_change_list);
+		credit_list.setItems(credits);
+		//TODO : initialize the column of table view
+	}
 
 }
 

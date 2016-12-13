@@ -8,17 +8,18 @@
 
 <AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.maintainmessage.CreditController">
    <children>
-      <Label layoutX="75.0" layoutY="75.0" text="信用值更改详情">
+      <Label layoutX="22.0" layoutY="44.0" text="信用值更改详情">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Button fx:id="cancel" layoutX="210.0" layoutY="375.0" mnemonicParsing="false" onAction="#cancel" prefWidth="60.0" />
-      <TreeTableView layoutX="90.0" layoutY="140.0" prefHeight="200.0" prefWidth="300.0">
+      <Button fx:id="cancel" layoutX="200.0" layoutY="383.0" mnemonicParsing="false" onAction="#cancel" prefWidth="60.0" />
+      <TableView fx:id="credit_list" layoutX="22.0" layoutY="121.0" prefHeight="233.0" prefWidth="417.0">
         <columns>
-          <TreeTableColumn prefWidth="120.0" text="日期" />
-          <TreeTableColumn prefWidth="90.0" text="信用变更值" />
-            <TreeTableColumn prefWidth="90.0" text="当前信用值" />
+          <TableColumn fx:id="date" prefWidth="99.0" text="日期" />
+            <TableColumn fx:id="reson" prefWidth="117.0" text="变更原因" />
+          <TableColumn fx:id="value_of_change" prefWidth="111.0" text="信用变更值" />
+            <TableColumn fx:id="cur_value" prefWidth="89.0" text="变更后信用值" />
         </columns>
-      </TreeTableView>
+      </TableView>
    </children>
 </AnchorPane>

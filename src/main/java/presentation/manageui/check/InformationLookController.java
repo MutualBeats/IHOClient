@@ -26,16 +26,16 @@ public abstract class InformationLookController implements Initializable, Confir
 	Button change;
 
 	@FXML
-	Label user_name;
+	protected Label user_name;
 
 	@FXML
-	TextField phone;
+	protected TextField phone;
 
 	@FXML
-	TextField name;
+	protected TextField name;
 
 	@FXML
-	Label type;
+	protected Label type;
 
 	@FXML
 	Label phone_warning;
@@ -49,7 +49,11 @@ public abstract class InformationLookController implements Initializable, Confir
 
 	@FXML
 	void cancel(ActionEvent event) {
-		WindowGrab.closeWindow(event);
+		if (modify_state) {
+			toInfoState();
+		} else {
+			WindowGrab.closeWindow(event);
+		}
 	}
 
 	@FXML
@@ -128,7 +132,9 @@ public abstract class InformationLookController implements Initializable, Confir
 		return ph_check;
 	}
 
-	@Override
+	/**
+	 * 选择确认修改用户信息后的确认处理方法
+	 */
 	public abstract void confirm();
 
 	protected void handleResult(ResultMessage_User result, Window window) {

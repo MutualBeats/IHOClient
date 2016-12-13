@@ -9,39 +9,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="470.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.maintainmessage.MaintainMessageController">
-   <children>
-      <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
-      <Label layoutX="60.0" layoutY="99.0" text="个人信息">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="90.0" layoutY="169.0" text="姓名 :">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="90.0" layoutY="219.0" text="用户名 :">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="90.0" layoutY="269.0" text="当前信用值 :">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="90.0" layoutY="350.0" text="联系方式 :">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="credit" layoutX="200.0" layoutY="265.0" prefHeight="20.0" prefWidth="100.0" />
-      <Label fx:id="phone" layoutX="200.0" layoutY="350.0" prefHeight="20.0" prefWidth="100.0" />
-      <Button fx:id="change" layoutX="140.0" layoutY="400.0" mnemonicParsing="false" onAction="#change" prefWidth="60.0" />
-      <Button fx:id="return_" layoutX="280.0" layoutY="400.0" mnemonicParsing="false" onAction="#return_" prefWidth="60.0" />
-      <Button fx:id="credit_history" layoutX="200.0" layoutY="305.0" mnemonicParsing="false" onAction="#credit_history" prefWidth="90.0" />
-      <TextField fx:id="name_real" layoutX="200.0" layoutY="165.0" />
-      <TextField fx:id="name" layoutX="200.0" layoutY="215.0" />
-   </children>
+	<children>
+		<Label fx:id="title" layoutX="25.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" />
+		<Text layoutX="33.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值：" wrappingWidth="53.0" />
+		<Text layoutX="33.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
+		<Text layoutX="33.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
+		<Text layoutX="33.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
+		<TextField fx:id="name" editable="false" layoutX="118.0" layoutY="100.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
+		<TextField fx:id="phone" editable="false" layoutX="118.0" layoutY="140.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
+		<Button fx:id="cancel" layoutX="278.0" layoutY="423.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="返回" />
+		<Button fx:id="change" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#change" prefHeight="30.0" prefWidth="80.0" text="修改" />
+		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="97.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="140.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
+      <Text layoutX="33.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员类型：" />
+      <Text layoutX="33.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员等级：" />
+      <Text layoutX="33.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员信息：" />
+      <Label fx:id="user_name" layoutX="118.0" layoutY="60.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_type" layoutX="118.0" layoutY="180.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_level" layoutX="118.0" layoutY="220.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_info" layoutX="118.0" layoutY="260.0" prefHeight="60.0" prefWidth="170.0" />
+      <Label fx:id="credit" layoutX="118.0" layoutY="336.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="type" layoutX="118.0" layoutY="374.0" prefHeight="25.0" prefWidth="170.0" />
+		<Button fx:id="credit_history" layoutX="339.0" layoutY="336.0" mnemonicParsing="false" onAction="#credit_history" prefWidth="90.0" />
+		
+	</children>
 </AnchorPane>

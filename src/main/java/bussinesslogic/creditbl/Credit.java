@@ -1,7 +1,7 @@
 package bussinesslogic.creditbl;
 
 import java.rmi.RemoteException;
-import java.util.Iterator;
+import java.util.ArrayList;
 
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
@@ -37,7 +37,7 @@ public class Credit{
 	 * @return Iterator of Credit Record
 	 * @throws RemoteException 
 	 */
-	public Iterator<CreditVO> checkCreditRecord(String clientID) throws NetException {
+	public ArrayList<CreditVO> checkCreditRecord(String clientID) throws NetException {
 		return credit_data_service.find(clientID);
 	}
 	

@@ -1,6 +1,6 @@
 package bussinesslogic.creditbl;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogic.userbl.client.CreditRegister;
@@ -16,7 +16,7 @@ public class CreditController implements CreditBLService, CreditUpdate, CreditRe
 	public CreditController() throws NetException{}
 
 	@Override
-	public Iterator<CreditVO> checkCreditRecord(String clientID) throws NetException {
+	public ArrayList<CreditVO> checkCreditRecord(String clientID) throws NetException {
 		return credit.checkCreditRecord(clientID);
 	}
 

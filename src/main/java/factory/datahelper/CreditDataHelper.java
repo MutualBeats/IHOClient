@@ -69,14 +69,14 @@ public class CreditDataHelper {
 		return insert_result;
 	}
 
-	public Iterator<CreditVO> find(String clientID) throws NetException {
+	public ArrayList<CreditVO> find(String clientID) throws NetException {
 		checkAndUpdateCache(clientID);
 		// Copy And Change To VO.
 		ArrayList<CreditVO> record_copy = new ArrayList<>();
 		for (Iterator<CreditPO> it = credit_record_cache.iterator(); it.hasNext();) {
 			record_copy.add(new CreditVO(it.next()));
 		}
-		return record_copy.iterator();
+		return record_copy;
 	}
 
 	public CreditPO getNewestCredit(String clientID) throws NetException {

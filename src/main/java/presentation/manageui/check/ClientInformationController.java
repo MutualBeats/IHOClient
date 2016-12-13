@@ -26,7 +26,7 @@ public class ClientInformationController extends InformationLookController {
 	@FXML
 	private Label member_level;
 
-	private ClientVO info;
+	protected ClientVO info;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +52,10 @@ public class ClientInformationController extends InformationLookController {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeClientInfo(vo);
+			if (result == ResultMessage_User.UpdateSuccess) {
+				info.name = name.getText();
+				info.contactWay = phone.getText();
+			}
 		} catch (Exception e) {
 			WindowGrab.startNetErrorWindow(window);
 			return;

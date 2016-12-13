@@ -33,6 +33,10 @@ public class MarketerInformationController extends InformationLookController {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().changeMarketerData(vo);
+			if (result == ResultMessage_User.UpdateSuccess) {
+				info.name = name.getText();
+				info.contactWay = phone.getText();
+			}
 		} catch (Exception e) {
 			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
 			return;

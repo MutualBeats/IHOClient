@@ -83,7 +83,7 @@ public class BrowseOrderController implements Initializable {
 	static {
 		try {
 
-			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/check.fxml");
+			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
 			CHECK_CSS = new URL("file:src/main/resources/ui/clientui/css/check.css");
 
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
