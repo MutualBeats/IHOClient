@@ -1,11 +1,9 @@
 package presentation.staffui.hotelmessagemanage;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogicservice.hotelblservice.HotelBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,15 +32,18 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@FXML
 	private Button update;
-
+	
 	@FXML
-	private ComboBox<String> hotel_field;
+	private ComboBox<String> hotel_province;
 
 	@FXML
     private ComboBox<String> hotel_town;
 
     @FXML
     private ComboBox<String> hotel_city;
+    
+	@FXML
+	private ComboBox<String> hotel_field;
 
 	@FXML
 	private Label address_warning;
@@ -52,9 +53,6 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@FXML
 	private TextField hotel_name;
-
-	@FXML
-	private ComboBox<String> hotel_province;
 
 	@FXML
 	private Label hotel_maintain_title;
@@ -121,14 +119,14 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 		String newDistrcit = hotel_field.getAccessibleText();
 		String newAdress = hotel_address.getText();
 		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
+		
 		try {
 			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
 		} catch (NetException e) {
-			// TODO 连接错误
-			WindowGrab.startNetErrorWindow(WindowGrab.getStage(0));
+			// TODO 错误提示
 			e.printStackTrace();
 		}
-		System.out.println("Confirm");
+		
 	}
 
 }

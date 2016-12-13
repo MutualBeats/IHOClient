@@ -14,7 +14,7 @@ public class ConfirmController {
 
     @FXML
     void confirm(ActionEvent event) {
-    	
+    	System.out.println("Confirm");
     }
 
     @FXML

@@ -23,7 +23,7 @@
       </Rectangle>
       <Accordion layoutY="115.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="change" layoutX="446.0" layoutY="500.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" text="修改">
+      <Button fx:id="delete" layoutX="446.0" layoutY="500.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="60.0" text="删除">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -51,14 +51,15 @@
          </font></Button>
       <TableView layoutX="150.0" layoutY="230.0" prefHeight="240.0" prefWidth="520.0">
          <columns>
-            <TableColumn prefWidth="60.0" text="ID" />
-            <TableColumn prefWidth="98.0" text="名称" />
-            <TableColumn prefWidth="125.0" text="开始时间" />
-            <TableColumn editable="false" prefWidth="125.0" text="结束时间" />
-            <TableColumn editable="false" prefWidth="111.0" text="优惠" />
+            <TableColumn editable="false" prefWidth="60.0" text="ID" />
+            <TableColumn editable="false" prefWidth="93.0" sortable="false" text="名称" />
+            <TableColumn editable="false" prefWidth="89.0" sortable="false" text="类型" />
+            <TableColumn editable="false" prefWidth="102.0" sortable="false" text="开始时间" />
+            <TableColumn editable="false" prefWidth="100.0" sortable="false" text="结束时间" />
+            <TableColumn editable="false" prefWidth="75.0" sortType="DESCENDING" text="折扣" />
          </columns>
       </TableView>
-      <Button fx:id="create1" layoutX="550.0" layoutY="154.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="搜索">
+      <Button fx:id="search" layoutX="550.0" layoutY="154.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="60.0" text="搜索">
          <font>
             <Font size="15.0" />
          </font>

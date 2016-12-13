@@ -2,14 +2,24 @@ package presentation.staffui.roommanage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
-public class RoomCreateController {
+public class RoomCreateController implements Initializable {
+	
+	private final ObservableList<String> roomType = FXCollections.observableArrayList("单人间", "双人间", "三人间", "四人间");
+	
+	@FXML
+	private ComboBox<String> room_type;
 
     @FXML
     private Button cancel;
@@ -28,6 +38,11 @@ public class RoomCreateController {
 			e.printStackTrace();
 		}
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		room_type.setItems(roomType);
+	}
     
     @FXML
     void cancel(ActionEvent event) {
@@ -37,8 +52,8 @@ public class RoomCreateController {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window,"确认", ROOM_CREATE_CONFIRM_FXML,ROOM_CREATE_CONFIRM_CSS);   
-  
+		WindowGrab.startWindow(window,"确认", ROOM_CREATE_CONFIRM_FXML,ROOM_CREATE_CONFIRM_CSS);
     }
+
 
 }

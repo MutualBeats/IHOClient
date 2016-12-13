@@ -45,11 +45,11 @@
       <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="110.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="250.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <Label fx:id="star_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="335.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
-      <ComboBox fx:id="hotel_province" editable="true" layoutX="165.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="hotel_field" editable="true" layoutX="445.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="hotel_province" layoutX="165.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="hotel_field" layoutX="445.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
       <Label layoutX="348.0" layoutY="164.0" text="酒店所属市 :" />
       <Label layoutX="60.0" layoutY="210.0" text="酒店所属县 :" />
-      <ComboBox fx:id="hotel_city" editable="true" layoutX="445.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="hotel_town" editable="true" layoutX="165.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="hotel_city" layoutX="445.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="hotel_town" layoutX="165.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

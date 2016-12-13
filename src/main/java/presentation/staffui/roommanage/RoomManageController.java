@@ -44,7 +44,7 @@ public class RoomManageController implements Initializable {
     private Button look;
     
     @FXML
-    private TableView<RoomData> roomList;
+    private TableView<RoomData> room_table;
     
     private ObservableList<RoomData> data = FXCollections.observableArrayList();
 
@@ -75,7 +75,7 @@ public class RoomManageController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			ObservableList<TableColumn<RoomData, ?>> observableList = roomList.getColumns();
+			ObservableList<TableColumn<RoomData, ?>> observableList = room_table.getColumns();
 			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
 			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("roomType"));
 			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("roomPrice"));
@@ -88,7 +88,7 @@ public class RoomManageController implements Initializable {
 				RoomData roomData = new RoomData(room.roomNumber, room.type, room.price, room.condition);
 				data.add(roomData);
 			}
-			roomList.setItems(data);
+			room_table.setItems(data);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
@@ -97,7 +97,7 @@ public class RoomManageController implements Initializable {
     @FXML
     void change(ActionEvent event) {	
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "修改客房信息",ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);   
+    	WindowGrab.startWindow(window, "修改客房信息",ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);
 	   }
 
     @FXML
@@ -108,13 +108,13 @@ public class RoomManageController implements Initializable {
     @FXML
     void look(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS);   
+		WindowGrab.startWindow(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS);
     }
 
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "录入客房",ROOM_CREATE_FXML,ROOM_CREATE_CSS);   
+		WindowGrab.startWindow(window, "录入客房",ROOM_CREATE_FXML,ROOM_CREATE_CSS);
     }
 
 }

@@ -13,6 +13,10 @@ import util.room.RoomType;
 
 public final class RoomData {
 	
+	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
+	
+	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
+	
 	private final StringProperty roomNumber = new SimpleStringProperty();
 	
 	private final StringProperty roomType = new SimpleStringProperty();
@@ -41,24 +45,7 @@ public final class RoomData {
 	}
 	
 	public void setRoomType(RoomType roomType) {
-		String type;
-		switch (roomType) {
-		case Single:
-			type = "单人房";
-			break;
-		case Double:
-			type = "双人房";
-			break;
-		case Triple:
-			type = "三人房";
-			break;
-		case Four:
-			type = "四人房";
-			break;
-		default:
-			type = "";
-		}
-		this.roomType.set(type);
+		this.roomType.set(ROOM_TYPE[roomType.ordinal()]);
 	}
 
 	public String getRoomType() {
@@ -82,22 +69,7 @@ public final class RoomData {
 	}
 	
 	public void setRoomState(RoomState roomState) {
-		String state;
-		switch (roomState) {
-		case NotReserved:
-			state = "未预订";
-			break;
-		case Occupied:
-			state = "已入住";
-			break;
-		case Reserved:
-			state = "已预订";
-			break;
-		default:
-			state = "";
-			break;
-		}
-		this.roomState.set(state);
+		this.roomState.set(ROOM_STATE[roomState.ordinal()]);
 	}
 
 	public String getRoomState() {
