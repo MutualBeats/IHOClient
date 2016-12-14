@@ -187,7 +187,11 @@ public class WindowGrab {
 	public static Window getWindow(Event event) {
 		return getScene(event).getWindow();
 	}
-
+	
+	
+	public static Window getWindowByScene(Scene scene) {
+		return scene.getWindow();
+	}
 	/**
 	 * 获取当前场景
 	 * 

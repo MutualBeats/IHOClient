@@ -16,8 +16,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
+import presentation.utilcontroller.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
 import util.Time;
 import util.exception.NetException;
@@ -186,8 +187,15 @@ public class BrowseOrderController implements Initializable {
 
 	@FXML
 	void check(ActionEvent event) {
+		// Check Order Information
+		TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
+		OrderVO info = model.getSelectedItem();
+		// TODO : the reach of hotel name is waiting to check.
+		String hotel_name = hotel.getCellData(model.getSelectedIndex());
+		OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
+		WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+		// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
 	}
 
 	@FXML
@@ -210,7 +218,6 @@ public class BrowseOrderController implements Initializable {
 					select.setFinishTimeProperty(Time.getCurrentTime());
 					select.setStateProperty(OrderState.Canceled);
 					revoked_list.add(0, select);
-
 				} else {
 					WindowGrab.startNoticeWindow(window, "撤销订单失败");
 				}

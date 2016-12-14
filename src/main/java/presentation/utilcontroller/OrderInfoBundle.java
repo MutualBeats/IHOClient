@@ -5,14 +5,14 @@ import java.util.ResourceBundle;
 
 import vo.order.OrderVO;
 
-public class OrderInfoBundle extends ResourceBundle{
-	
+public class OrderInfoBundle extends ResourceBundle {
+
 	private OrderVO order_info;
 	private final static String ORDER = "order_info";
-	
+
 	private String hotel_name;
 	private final static String HOTEL = "hotel_name";
-	
+
 	public OrderInfoBundle(OrderVO order_info, String hotel_name) {
 		super();
 		this.order_info = order_info;
@@ -21,9 +21,9 @@ public class OrderInfoBundle extends ResourceBundle{
 
 	@Override
 	protected Object handleGetObject(String key) {
-		if(ORDER.equals(key)) {
+		if (ORDER.equals(key)) {
 			return order_info;
-		} else if(HOTEL.equals(key)) {
+		} else if (HOTEL.equals(key)) {
 			return hotel_name;
 		}
 		return null;
@@ -31,7 +31,6 @@ public class OrderInfoBundle extends ResourceBundle{
 
 	@Override
 	public Enumeration<String> getKeys() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

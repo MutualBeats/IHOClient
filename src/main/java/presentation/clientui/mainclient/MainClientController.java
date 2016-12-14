@@ -3,18 +3,17 @@ package presentation.clientui.mainclient;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
-import util.order.OrderState;
-import vo.order.OrderVO;
+import util.exception.NetException;
 
 public class MainClientController {
 
@@ -122,8 +121,19 @@ public class MainClientController {
 //    	ArrayList<OrderVO> total = new ArrayList<>();
 //    	total.add(vo);
 //    	Ar
-    	
     	Scene frame =WindowGrab.getScene(event);
+    	OrderBLService service = null;
+    	try {
+			service = ControllerFactory.getOrderBLServiceInstance();
+		} catch (NetException e) {
+			Window window = WindowGrab.getWindowByScene(frame);
+			WindowGrab.startNetErrorWindow(window);
+			return;
+		}
+    	
+//    	ArrayList<OrderVO> total_list = service.queryUserOrder(clientID, state)
+    	
+    	
     	WindowGrab.changeScene(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame);
 //    	Stage stage=WindowGrab.getStage(0);
 //    	stage.setTitle("浏览订单");
