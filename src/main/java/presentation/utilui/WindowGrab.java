@@ -74,7 +74,7 @@ public class WindowGrab {
 	public static void startModifyConfirmWindow(Window owner, Confirm confirm) {
 		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
 	}
-	
+
 	public static void startConfirmWindow(Window owner, Confirm confirm, String message) {
 		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
 	}
@@ -96,25 +96,25 @@ public class WindowGrab {
 				ManageUIURLConfig.manage_ID_input_css(), new IDResourceBundle(handle));
 	}
 
-	private static URL manage_fxml ;
-	private static URL staff_fxml ;
-	private static URL marketer_fxml ;
-	private static URL client_fxml ;
-	private static URL info_css ;
-	
+	private static URL manage_fxml;
+	private static URL staff_fxml;
+	private static URL marketer_fxml;
+	private static URL client_fxml;
+	private static URL info_css;
+
 	static {
 		try {
 			manage_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookManager.fxml");
-			staff_fxml  = new URL("file:src/main/resources/ui/manageui/fxml/informationLookStaff.fxml");
+			staff_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookStaff.fxml");
 			marketer_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml");
-			client_fxml  = new URL("file:src/main/resources/ui/manageui/fxml/informationLookClient.fxml");
-			info_css  = new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
+			client_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookClient.fxml");
+			info_css = new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void openManageInformation(Object info, Window window) {
 		openInformation(new InformationBundle(info), manage_fxml, window);
 	}
@@ -135,7 +135,7 @@ public class WindowGrab {
 		WindowGrab.startWindowWithBundle(window, "人员信息", fxml, info_css, bundle);
 		WindowGrab.closeWindow(window);
 	}
-	
+
 	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,
 			ResourceBundle bundle) {
 		Stage stage = new Stage();
@@ -187,11 +187,11 @@ public class WindowGrab {
 	public static Window getWindow(Event event) {
 		return getScene(event).getWindow();
 	}
-	
-	
+
 	public static Window getWindowByScene(Scene scene) {
 		return scene.getWindow();
 	}
+
 	/**
 	 * 获取当前场景
 	 * 
@@ -213,15 +213,24 @@ public class WindowGrab {
 	 *            : 展示界面承载
 	 */
 	public static void changeScene(URL fxml_path, URL css_path, Scene frame) {
+		changeSceneWithBunle(fxml_path, css_path, frame, null);
+	}
+
+	public static void changeSceneWithBunle(URL fxml_path, URL css_path, Scene frame, ResourceBundle bundle) {
 		Parent root = null;
 		try {
-			root = FXMLLoader.load(fxml_path);
+			if (bundle == null) {
+				root = FXMLLoader.load(fxml_path);
+			} else {
+				root = FXMLLoader.load(fxml_path, bundle);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		frame.getStylesheets().clear();
 		frame.getStylesheets().add(css_path.toExternalForm());
 		frame.setRoot(root);
+
 	}
 
 	public static Scene getSceneByStage(int index) {
@@ -274,14 +283,14 @@ public class WindowGrab {
 	static class ConfirmResourceBundle extends ResourceBundle {
 		private Confirm confirm;
 		private final static String CONFIRM_KEY = "confirm";
-		
+
 		private String message;
 		private final static String MESSAGE_KEY = "message";
 
 		public ConfirmResourceBundle(Confirm confirm) {
 			this(confirm, null);
 		}
-		
+
 		public ConfirmResourceBundle(Confirm confirm, String message) {
 			this.confirm = confirm;
 			this.message = message;
@@ -292,7 +301,7 @@ public class WindowGrab {
 			if (CONFIRM_KEY.equals(key)) {
 				return confirm;
 			}
-			if(MESSAGE_KEY.equals(key) ) {
+			if (MESSAGE_KEY.equals(key)) {
 				return message;
 			}
 			return null;
