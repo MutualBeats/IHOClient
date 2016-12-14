@@ -114,7 +114,7 @@ public class RoomManageController implements Initializable {
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "录入客房",ROOM_CREATE_FXML,ROOM_CREATE_CSS);
+		WindowGrab.startWindow(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS);
     }
 
 }
