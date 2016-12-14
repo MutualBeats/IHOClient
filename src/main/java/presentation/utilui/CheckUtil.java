@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -30,6 +31,11 @@ public class CheckUtil {
 	}
 
 	public static boolean checkText(TextField text) {
+		String content = text.getText();
+		return pattern.matcher(content).matches();
+	}
+	
+	public static boolean checkText(TextArea text) {
 		String content = text.getText();
 		return pattern.matcher(content).matches();
 	}

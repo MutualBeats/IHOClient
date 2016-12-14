@@ -8,45 +8,43 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import presentation.utilui.WindowGrab;
 
-public class HistoryController {
+public class HistoryController { 
 
 	@FXML
-    private Button history_hotel;
+    private Button cancel;
 
     @FXML
-    private Button all;
+    private TableView<?> hotel_list;
 
     @FXML
-    private Button check_order;
+    private TableColumn<?, ?> province;
 
     @FXML
-    private Pane history_all_pane;
+    private TableColumn<?, ?> field;
+
+    @FXML
+    private TableColumn<?, ?> city;
+
+    @FXML
+    private Button info_look;
+
+    @FXML
+    private TableColumn<?, ?> name;
 
     @FXML
     private Pane history_hotel_pane;
 
     @FXML
-    private Pane history_order_pane;
-
-    @FXML
     private Label title;
 
     @FXML
-    private Button check_all;
-
-    @FXML
-    private Button check_hotel;
-
-    @FXML
-    private Button history_order;
-
-    
-    @FXML
-    private Button cancel;
+    private TableColumn<?, ?> group;
     
     
     private static URL CHECK_FXML;
@@ -70,42 +68,7 @@ public class HistoryController {
 		}
     }
     
-    
-    @FXML
-    void history_hotel(ActionEvent event) {
-    	history_all_pane.setVisible(false);
-    	history_order_pane.setVisible(false);
-    	history_hotel_pane.setVisible(true);
-    }
-
-    @FXML
-    void history_order(ActionEvent event) {
-    	history_all_pane.setVisible(false);
-    	history_hotel_pane.setVisible(false);
-    	history_order_pane.setVisible(true);
-    }
-
-    @FXML
-    void all(ActionEvent event) {
-    	history_order_pane.setVisible(false);
-    	history_hotel_pane.setVisible(false);
-    	history_all_pane.setVisible(true);
-    }
-
-    @FXML
-    void check_all(ActionEvent event) {
-
-    }
-
-    @FXML
-    void check_hotel(ActionEvent event) {
-
-    }
-
-    @FXML
-    void check_order(ActionEvent event) {
-
-    }
+   
     
     @FXML
     void cancel(ActionEvent event) {

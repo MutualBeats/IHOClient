@@ -20,6 +20,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.OrderInfoBundle;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.Time;
 import util.exception.NetException;
@@ -27,7 +28,7 @@ import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
-public class BrowseOrderController implements Initializable, Confirm{
+public class BrowseOrderController implements Initializable, Confirm {
 	@FXML
 	private TableColumn<OrderVO, String> make_time;
 
@@ -51,10 +52,10 @@ public class BrowseOrderController implements Initializable, Confirm{
 
 	@FXML
 	private Button revoke;
-	
+
 	@FXML
 	private Button evaluate;
-	
+
 	@FXML
 	private Button all_order;
 
@@ -63,7 +64,7 @@ public class BrowseOrderController implements Initializable, Confirm{
 
 	@FXML
 	private Label title;
-	
+
 	@FXML
 	private Button executed_order;
 
@@ -156,12 +157,12 @@ public class BrowseOrderController implements Initializable, Confirm{
 		revoke.setVisible(false);
 		revoke.setDisable(true);
 	}
-	
+
 	private void hideEvalutate() {
 		evaluate.setVisible(false);
 		evaluate.setDisable(true);
 	}
-	
+
 	@FXML
 	void all_order(ActionEvent event) {
 		hideRevoke();
@@ -198,20 +199,24 @@ public class BrowseOrderController implements Initializable, Confirm{
 		hideRevoke();
 		order_list.setItems(exception_list);
 	}
-	
-	
-	
+
 	@FXML
 	void check(ActionEvent event) {
 		// Check Order Information
 		TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
-		OrderVO info = model.getSelectedItem();
-		// TODO : the reach of hotel name is waiting to check.
-		String hotel_name = hotel.getCellData(model.getSelectedIndex());
-		OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
-		// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
+		int select_index = model.getSelectedIndex();
+		if (select_index == -1) {
+			WindowGrab.startNoticeWindow(window, "请选择要查看订单");
+		} else {
+			OrderVO info = model.getSelectedItem();
+			// TODO : the reach of hotel name is waiting to check.
+			String hotel_name = hotel.getCellData(model.getSelectedIndex());
+			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
+
+			WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+			// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
+		}
 	}
 
 	@FXML
@@ -223,21 +228,14 @@ public class BrowseOrderController implements Initializable, Confirm{
 	@FXML
 	void evaluate(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		//Evaluate Window 
+		// Evaluate Window
 		
 	}
-	
+
 	@FXML
 	void unexecuted_revoke(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		WindowGrab.startConfirmWindow(window, this, "是否确认撤销订单？");
-	}
-
-	@FXML
-	void executed_check(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看订单详情", EXECUTE_CHECK_FXML, EXECUTE_CHECK_CSS);
-
 	}
 
 	@Override

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.searchhotel.HistoryController">
+   <children>
+      <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
+      <Button fx:id="history_hotel" layoutX="145.0" layoutY="97.0" mnemonicParsing="false" onAction="#history_hotel" prefWidth="100.0" />
+      <Button fx:id="history_order" layoutX="245.0" layoutY="97.0" mnemonicParsing="false" onAction="#history_order" prefWidth="100.0" />
+      <Button fx:id="all" layoutX="65.0" layoutY="97.0" mnemonicParsing="false" onAction="#all" prefWidth="80.0" />
+      <Pane fx:id="history_all_pane" layoutX="65.0" layoutY="145.0" prefHeight="375.0" prefWidth="675.0">
+         <children>
+            <TreeTableView layoutX="125.0" layoutY="30.0" prefHeight="135.0" prefWidth="450.0">
+               <columns>
+                  <TreeTableColumn prefWidth="75.0" text="订单号" />
+                  <TreeTableColumn prefWidth="75.0" text="下单时间" />
+                  <TreeTableColumn prefWidth="75.0" text="酒店名称" />
+                  <TreeTableColumn prefWidth="75.0" text="订单价格" />
+                  <TreeTableColumn prefWidth="75.0" text="订单折扣" />
+                  <TreeTableColumn prefWidth="75.0" text="有无儿童" />
+               </columns>
+            </TreeTableView>
+            <Label layoutX="55.0" text="历史订单详情">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="55.0" layoutY="179.0" text="历史酒店详情">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TreeTableView layoutX="100.0" layoutY="210.0" prefHeight="135.0" prefWidth="525.0">
+               <columns>
+                  <TreeTableColumn prefWidth="75.0" text="酒店名称" />
+                  <TreeTableColumn prefWidth="75.0" text="省" />
+                  <TreeTableColumn prefWidth="75.0" text="市" />
+                  <TreeTableColumn prefWidth="75.0" text="县" />
+                  <TreeTableColumn prefWidth="75.0" text="商圈" />
+                  <TreeTableColumn prefWidth="75.0" text="星级" />
+                  <TreeTableColumn prefWidth="75.0" text="评分" />
+               </columns>
+            </TreeTableView>
+            <Button fx:id="check_all" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#check_all" prefWidth="60.0" />
+         </children></Pane>
+      <Pane fx:id="history_hotel_pane" layoutX="65.0" layoutY="145.0" prefHeight="375.0" prefWidth="675.0" visible="false">
+         <children>
+            <Label layoutX="55.0" layoutY="35.0" text="历史酒店详情">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TreeTableView layoutX="90.0" layoutY="90.0" prefHeight="235.0" prefWidth="525.0">
+               <columns>
+                  <TreeTableColumn prefWidth="75.0" text="酒店名称" />
+                  <TreeTableColumn prefWidth="75.0" text="省" />
+                  <TreeTableColumn prefWidth="75.0" text="市" />
+                  <TreeTableColumn prefWidth="75.0" text="县" />
+                  <TreeTableColumn prefWidth="75.0" text="商圈" />
+                  <TreeTableColumn prefWidth="75.0" text="星级" />
+                  <TreeTableColumn prefWidth="75.0" text="评分" />
+               </columns>
+            </TreeTableView>
+            <Button fx:id="check_hotel" layoutX="575.0" layoutY="35.0" mnemonicParsing="false" onAction="#check_hotel" prefWidth="60.0" />
+         </children></Pane>
+      <Pane fx:id="history_order_pane" layoutX="65.0" layoutY="145.0" prefHeight="375.0" prefWidth="675.0" visible="false">
+         <children>
+            <TreeTableView layoutX="90.0" layoutY="90.0" prefHeight="235.0" prefWidth="500.0">
+              <columns>
+                <TreeTableColumn prefWidth="75.0" text="订单号" />
+                <TreeTableColumn prefWidth="75.0" text="下单时间" />
+                  <TreeTableColumn prefWidth="75.0" text="酒店名称" />
+                  <TreeTableColumn prefWidth="75.0" text="订单价格" />
+                  <TreeTableColumn prefWidth="75.0" text="订单折扣" />
+                  <TreeTableColumn prefWidth="75.0" text="有无儿童" />
+              </columns>
+            </TreeTableView>
+            <Label layoutX="65.0" layoutY="45.0" text="历史订单详情">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="check_order" layoutX="540.0" layoutY="40.0" mnemonicParsing="false" onAction="#check_order" prefWidth="60.0" />
+         </children>
+      </Pane>
+      <Button fx:id="cancel" layoutX="665.0" layoutY="97.0" mnemonicParsing="false" onAction="#cancel" prefWidth="60.0" />
+   </children>
+</AnchorPane>
