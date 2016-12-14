@@ -334,6 +334,15 @@ public class Order {
 
 		return orderVOList;
 	}
+	
+	public ResultMessage_Order orderEvaluate(String orderID) {
+		try {
+			return order_data_service.orderEvaluate(orderID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Order.Net_Error;
+		}
+	}
 
 	private ArrayList<OrderVO> totalList_cache = null;
 	private ArrayList<OrderVO> unexcute_cache = null;
@@ -602,7 +611,7 @@ public class Order {
 		if (client == null) {
 			try {
 				client = ControllerFactory.getClientInfoInstance();
-			} catch (Exception e) {
+			} catch (NetException e) {
 				e.printStackTrace();
 			}
 		}
@@ -612,7 +621,7 @@ public class Order {
 		if (credit == null) {
 			try {
 				credit = ControllerFactory.getCreditUpdateInstance();
-			} catch (Exception e) {
+			} catch (NetException e) {
 				e.printStackTrace();
 			}
 		}
@@ -622,7 +631,7 @@ public class Order {
 		if (promotion == null) {
 			try {
 				promotion = ControllerFactory.getPromotionGetInstance();
-			} catch (Exception e) {
+			} catch (NetException e) {
 				e.printStackTrace();
 			}
 		}

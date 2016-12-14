@@ -23,6 +23,10 @@ public class HotelEvaluationPO implements Serializable {
 	 */
 	private String clientID;
 	/**
+	 * 订单号
+	 */
+	private String orderID;
+	/**
 	 * 评价时间
 	 */
 	private String evaluateTime;
@@ -36,59 +40,81 @@ public class HotelEvaluationPO implements Serializable {
 	private String evaluateInfo;
 	
 	/**
-	 * 构造方法
 	 * @param hotelID
 	 * @param clientID
+	 * @param orderID
 	 * @param evaluateTime
 	 * @param evaluateScore
 	 * @param evaluateInfo
 	 */
-	public HotelEvaluationPO(String hotelID, String clientID, String evaluateTime, int evaluateScore,
+	public HotelEvaluationPO(String hotelID, String clientID, String orderID, String evaluateTime, int evaluateScore,
 			String evaluateInfo) {
 		super();
 		this.hotelID = hotelID;
 		this.clientID = clientID;
+		this.orderID = orderID;
 		this.evaluateTime = evaluateTime;
 		this.evaluateScore = evaluateScore;
 		this.evaluateInfo = evaluateInfo;
 	}
-	
+
 	public HotelEvaluationPO() {
 	}
 	
 	public HotelEvaluationPO(HotelEvaluationVO vo) {
-		this(vo.hotelID, vo.clientID, vo.evaluateTime, vo.evaluateScore, vo.evaluateInfo);
+		this(vo.hotelID, vo.clientID, vo.orderID, vo.evaluateTime, vo.evaluateScore, vo.evaluateInfo);
 	}
 
 	public String getHotelID() {
 		return hotelID;
 	}
+
 	public void setHotelID(String hotelID) {
 		this.hotelID = hotelID;
 	}
+
 	public String getClientID() {
 		return clientID;
 	}
+
 	public void setClientID(String clientID) {
 		this.clientID = clientID;
 	}
+
+	public String getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+
 	public String getEvaluateTime() {
 		return evaluateTime;
 	}
+
 	public void setEvaluateTime(String evaluateTime) {
 		this.evaluateTime = evaluateTime;
 	}
+
 	public int getEvaluateScore() {
 		return evaluateScore;
 	}
+
 	public void setEvaluateScore(int evaluateScore) {
 		this.evaluateScore = evaluateScore;
 	}
+
 	public String getEvaluateInfo() {
 		return evaluateInfo;
 	}
+
 	public void setEvaluateInfo(String evaluateInfo) {
 		this.evaluateInfo = evaluateInfo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 

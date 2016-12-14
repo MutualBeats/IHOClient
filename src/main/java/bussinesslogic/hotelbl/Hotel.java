@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import factory.datahelper.DataHelperFactory;
 import factory.datahelper.HotelDataHelper;
 import po.hotel.HotelEvaluationPO;
@@ -32,6 +33,8 @@ public class Hotel {
 
 	private HotelPO hotelPO = null;
 	private HotelDataHelper hotel_data_service;
+	
+	private OrderUpdate order;
 
 	public Hotel() throws NetException {
 		hotel_data_service = DataHelperFactory.getDataFactoryHelperInstance().getHotelDatabase();
@@ -128,6 +131,10 @@ public class Hotel {
 	 * @return
 	 */
 	public ResultMessage_Hotel evaluate(HotelEvaluationVO vo) {
+		// 更新订单为已评价
+		// TODO 错误信息
+		checkOrder();
+		order.orderEvaluate(vo.orderID);
 		return hotel_data_service.evaluate(new HotelEvaluationPO(vo));
 	}
 
@@ -141,6 +148,16 @@ public class Hotel {
 	 */
 	public String addHotel(HotelVO vo) throws NetException {
 		return hotel_data_service.addHotel(new HotelPO(vo));
+	}
+	
+	private void checkOrder() {
+		if(order == null) {
+			try {
+				order = ControllerFactory.getOrderUpdate();
+			} catch (NetException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

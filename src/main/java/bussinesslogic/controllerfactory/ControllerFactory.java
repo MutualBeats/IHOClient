@@ -2,6 +2,7 @@ package bussinesslogic.controllerfactory;
 
 import bussinesslogic.creditbl.CreditController;
 import bussinesslogic.hotelbl.HotelController;
+import bussinesslogic.hotelbl.OrderUpdate;
 import bussinesslogic.orderbl.ClientInfo;
 import bussinesslogic.orderbl.CreditUpdate;
 import bussinesslogic.orderbl.HotelInfo;
@@ -187,6 +188,13 @@ public class ControllerFactory {
 			identify_service = DataHelperFactory.getDataFactoryHelperInstance().getIdentityService();
 		}
 		return identify_service;
+	}
+	
+	public static OrderUpdate getOrderUpdate() throws NetException {
+		if(orderController == null) {
+			orderController = new OrderController();
+		}
+		return orderController;
 	}
 	
 }

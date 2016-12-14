@@ -17,6 +17,10 @@ public class HotelEvaluationVO {
 	 */
 	public String clientID;
 	/**
+	 * 订单号
+	 */
+	public String orderID;
+	/**
 	 * 评价时间
 	 */
 	public String evaluateTime;
@@ -31,23 +35,27 @@ public class HotelEvaluationVO {
 
 	/**
 	 * @param hotelID
-	 * @param clientName
+	 * @param clientID
+	 * @param orderID
 	 * @param evaluateTime
 	 * @param evaluateScore
 	 * @param evaluateInfo
 	 */
-	public HotelEvaluationVO(String hotelID, String clientName, String evaluateTime, int evaluateScore,
+	public HotelEvaluationVO(String hotelID, String clientID, String orderID, String evaluateTime, int evaluateScore,
 			String evaluateInfo) {
 		super();
 		this.hotelID = hotelID;
-		this.clientID = clientName;
+		this.clientID = clientID;
+		this.orderID = orderID;
 		this.evaluateTime = evaluateTime;
 		this.evaluateScore = evaluateScore;
 		this.evaluateInfo = evaluateInfo;
 	}
 
+
+
 	public HotelEvaluationVO(HotelEvaluationPO po) {
-		this(po.getHotelID(), po.getClientID(), po.getEvaluateTime(), po.getEvaluateScore(), po.getEvaluateInfo());
+		this(po.getHotelID(), po.getClientID(), po.getOrderID(), po.getEvaluateTime(), po.getEvaluateScore(), po.getEvaluateInfo());
 	}
 
 }

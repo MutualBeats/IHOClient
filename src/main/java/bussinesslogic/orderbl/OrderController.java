@@ -2,6 +2,7 @@ package bussinesslogic.orderbl;
 
 import java.util.ArrayList;
 
+import bussinesslogic.hotelbl.OrderUpdate;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import util.exception.NetException;
 import util.order.OrderState;
@@ -9,7 +10,7 @@ import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
 
-public class OrderController implements OrderBLService{
+public class OrderController implements OrderBLService, OrderUpdate {
 	
 	private Order order = new Order();
 
@@ -66,6 +67,11 @@ public class OrderController implements OrderBLService{
 	@Override
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException {
 		return order.queryUnexecutedOrder(date);
+	}
+
+	@Override
+	public ResultMessage_Order orderEvaluate(String orderID) {
+		return order.orderEvaluate(orderID);
 	}
 
 	

@@ -10,6 +10,9 @@ public enum ResultMessage_Order {
 	
 	Order_Not_Exist,
 	
+	Order_Already_Evaluate,
+	Evaluate_Successful,
+	
 	Date_Error,
 	
 	Room_Already_Ordered,

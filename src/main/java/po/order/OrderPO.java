@@ -79,6 +79,10 @@ public class OrderPO implements Serializable {
 	 * 有无儿童
 	 */
 	private boolean children;
+	/**
+	 * 是否评价
+	 */
+	private boolean isEvaluate;
 
 	/**
 	 * @param orderID
@@ -97,11 +101,12 @@ public class OrderPO implements Serializable {
 	 * @param actualCheckOutDate
 	 * @param numOfPeople
 	 * @param children
+	 * @param isEvaluate
 	 */
 	public OrderPO(String orderID, OrderState orderState, String clientID, String hotelID,
 			ArrayList<String> roomNumberList, ArrayList<String> promotionIDList, double value, String makeTime,
 			String executeTime, String finishTime, String latestETime, String checkInDate, String estimateCheckOutDate,
-			String actualCheckOutDate, int numOfPeople, boolean children) {
+			String actualCheckOutDate, int numOfPeople, boolean children, boolean isEvaluate) {
 		super();
 		this.orderID = orderID;
 		this.orderState = orderState;
@@ -119,12 +124,13 @@ public class OrderPO implements Serializable {
 		this.actualCheckOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
+		this.isEvaluate = isEvaluate;
 	}
 
 	public OrderPO(OrderVO vo) {
 		this(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList, vo.value,
 				vo.makeTime, vo.executeTime, vo.finishTime, vo.latest_execute_time, vo.estimate_checkInDate, vo.estimate_checkOutDate,
-				vo.actual_checkOutDate, vo.numOfPeople, vo.children);
+				vo.actual_checkOutDate, vo.numOfPeople, vo.children, vo.isEvaluate);
 	}
 
 	public OrderPO() {
@@ -257,5 +263,14 @@ public class OrderPO implements Serializable {
 	public void setChildren(boolean children) {
 		this.children = children;
 	}
+
+	public boolean isEvaluate() {
+		return isEvaluate;
+	}
+
+	public void setEvaluate(boolean isEvaluate) {
+		this.isEvaluate = isEvaluate;
+	}
+	
 
 }
