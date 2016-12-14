@@ -46,6 +46,10 @@ public class OrderVO {
 	public StringProperty getId_property() {
 		return id_property;
 	}
+	
+	public String getOrderState() {
+		return STATES[orderState.ordinal()];
+	}
 
 	/**
 	 * 订单id
