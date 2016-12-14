@@ -43,7 +43,7 @@ public class SearchHotelController {
     
     @FXML
     void on_search(ActionEvent event) {
-
+    	
     }
 
     @FXML

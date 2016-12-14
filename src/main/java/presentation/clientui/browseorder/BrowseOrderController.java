@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
+import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
 import util.Time;
@@ -26,7 +27,7 @@ import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
-public class BrowseOrderController implements Initializable {
+public class BrowseOrderController implements Initializable, Confirm{
 	@FXML
 	private TableColumn<OrderVO, String> make_time;
 
@@ -46,14 +47,14 @@ public class BrowseOrderController implements Initializable {
 	private TableView<OrderVO> order_list;
 
 	@FXML
-	private Button executed_order;
-
-	@FXML
 	private Button back;
 
 	@FXML
 	private Button revoke;
-
+	
+	@FXML
+	private Button evaluate;
+	
 	@FXML
 	private Button all_order;
 
@@ -62,6 +63,9 @@ public class BrowseOrderController implements Initializable {
 
 	@FXML
 	private Label title;
+	
+	@FXML
+	private Button executed_order;
 
 	@FXML
 	private Button revoked_order;
@@ -152,21 +156,30 @@ public class BrowseOrderController implements Initializable {
 		revoke.setVisible(false);
 		revoke.setDisable(true);
 	}
-
+	
+	private void hideEvalutate() {
+		evaluate.setVisible(false);
+		evaluate.setDisable(true);
+	}
+	
 	@FXML
 	void all_order(ActionEvent event) {
 		hideRevoke();
+		hideEvalutate();
 		order_list.setItems(total_list);
 	}
 
 	@FXML
 	void executed_order(ActionEvent event) {
 		hideRevoke();
+		evaluate.setVisible(true);
+		evaluate.setDisable(false);
 		order_list.setItems(executed_list);
 	}
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
+		hideEvalutate();
 		// Represent the button
 		revoke.setVisible(true);
 		revoke.setDisable(false);
@@ -176,6 +189,7 @@ public class BrowseOrderController implements Initializable {
 	@FXML
 	void revoked_order(ActionEvent event) {
 		hideRevoke();
+		hideEvalutate();
 		order_list.setItems(revoked_list);
 	}
 
@@ -184,7 +198,9 @@ public class BrowseOrderController implements Initializable {
 		hideRevoke();
 		order_list.setItems(exception_list);
 	}
-
+	
+	
+	
 	@FXML
 	void check(ActionEvent event) {
 		// Check Order Information
@@ -205,9 +221,29 @@ public class BrowseOrderController implements Initializable {
 	}
 
 	@FXML
-	void unexecuted_revoke(ActionEvent event) {
-		OrderVO select = order_list.getSelectionModel().getSelectedItem();
+	void evaluate(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
+		//Evaluate Window 
+		
+	}
+	
+	@FXML
+	void unexecuted_revoke(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		WindowGrab.startConfirmWindow(window, this, "是否确认撤销订单？");
+	}
+
+	@FXML
+	void executed_check(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "查看订单详情", EXECUTE_CHECK_FXML, EXECUTE_CHECK_CSS);
+
+	}
+
+	@Override
+	public void confirm() {
+		OrderVO select = order_list.getSelectionModel().getSelectedItem();
+		Window window = WindowGrab.getWindowByStage(0);
 		if (select != null) {
 			try {
 				ResultMessage_Order result = ControllerFactory.getOrderBLServiceInstance().cancelOrder("");
@@ -227,13 +263,6 @@ public class BrowseOrderController implements Initializable {
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}
-	}
-
-	@FXML
-	void executed_check(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看订单详情", EXECUTE_CHECK_FXML, EXECUTE_CHECK_CSS);
-
 	}
 
 }

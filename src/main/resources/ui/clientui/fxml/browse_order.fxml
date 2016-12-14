@@ -50,5 +50,6 @@
       <Button fx:id="back" layoutX="636.0" layoutY="533.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="65.0" />
       <Button fx:id="check" layoutX="543.0" layoutY="533.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="65.0" />
       <Button fx:id="revoke" layoutX="450.0" layoutY="533.0" mnemonicParsing="false" onAction="#unexecuted_revoke" prefHeight="26.0" prefWidth="65.0" />
+      <Button fx:id="evaluate" layoutX="450.0" layoutY="533.0" mnemonicParsing="false" onAction="#evaluate" prefHeight="26.0" prefWidth="65.0" />
    </children>
 </AnchorPane>
