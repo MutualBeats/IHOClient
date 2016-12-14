@@ -54,6 +54,7 @@ public class HistoryController {
     private static URL CLIENTMENU_CSS;
     
     static{
+    	
     	try {
 			
 			CHECK_FXML=new URL("file:src/main/resources/ui/clientui/fxml/check.fxml");

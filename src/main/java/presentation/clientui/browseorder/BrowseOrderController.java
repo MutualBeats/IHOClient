@@ -20,7 +20,6 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.OrderInfoBundle;
-import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.Time;
 import util.exception.NetException;
@@ -43,6 +42,9 @@ public class BrowseOrderController implements Initializable, Confirm {
 
 	@FXML
 	private TableColumn<OrderVO, String> order_id;
+
+	@FXML
+	private TableColumn<OrderVO, String> evaluation_state;
 
 	@FXML
 	private TableView<OrderVO> order_list;
@@ -151,6 +153,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 				return new SimpleStringProperty("");
 			}
 		});
+		state.setCellValueFactory(cellData->cellData.getValue().getState_property());
 	}
 
 	private void hideRevoke() {
@@ -229,7 +232,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 	void evaluate(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		// Evaluate Window
-		
+
 	}
 
 	@FXML

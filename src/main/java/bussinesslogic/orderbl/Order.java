@@ -337,7 +337,15 @@ public class Order {
 	
 	public ResultMessage_Order orderEvaluate(String orderID) {
 		try {
-			return order_data_service.orderEvaluate(orderID);
+			ResultMessage_Order result = order_data_service.orderEvaluate(orderID);
+			if(result == ResultMessage_Order.Evaluate_Successful) {
+				for(OrderVO vo : finished_cache) {
+					if(vo.orderID.equals(orderID)) {
+						vo.setEvaluationState(true);
+					}
+				}
+			}
+			return result;
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;

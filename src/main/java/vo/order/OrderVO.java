@@ -10,12 +10,15 @@ import util.order.OrderState;
 
 public class OrderVO {
 	private final static String STATES[] = { "未执行订单", "执行中订单", "已完成订单", "已撤销订单", "异常订单" };
+	private final static String EVA_FINISH = "已评价";
+	private final static String EVA_UNFINISH = "未评价";
 
 	private StringProperty make_time_property;
 	private StringProperty finish_time_property;
 	private StringProperty hotel_property;
 	private StringProperty state_property;
 	private StringProperty id_property;
+	private StringProperty evaluation_state;
 
 	public void setStateProperty(OrderState state) {
 		orderState = state;
@@ -26,7 +29,16 @@ public class OrderVO {
 		this.finishTime = finish_time;
 		finish_time_property = new SimpleStringProperty(finish_time);
 	}
-	
+
+	public void setEvaluationState(boolean isEvaluate) {
+		this.isEvaluate = isEvaluate;
+		evaluation_state = new SimpleStringProperty(isEvaluate ? EVA_FINISH : EVA_UNFINISH);
+	}
+
+	public StringProperty getEvaluateState() {
+		return evaluation_state;
+	}
+
 	public StringProperty getMake_time_property() {
 		return make_time_property;
 	}
@@ -46,7 +58,7 @@ public class OrderVO {
 	public StringProperty getId_property() {
 		return id_property;
 	}
-	
+
 	public String getOrderState() {
 		return STATES[orderState.ordinal()];
 	}
@@ -117,6 +129,11 @@ public class OrderVO {
 	public boolean children;
 
 	/**
+	 * 是否已评价
+	 */
+	public boolean isEvaluate;
+
+	/**
 	 * @param orderID
 	 * @param orderState
 	 * @param clientID
@@ -137,7 +154,7 @@ public class OrderVO {
 	public OrderVO(String orderID, OrderState orderState, String clientID, String hotelID,
 			ArrayList<String> roomNumberList, ArrayList<String> promotionIDList, double value, String makeTime,
 			String executeTime, String finishTime, String latestETime, String checkInDate, String estimateCheckOutDate,
-			String actualCheckOutDate, int numOfPeople, boolean children) {
+			String actualCheckOutDate, int numOfPeople, boolean children, boolean isEvaluate) {
 		super();
 		this.orderID = orderID;
 		this.orderState = orderState;
@@ -155,18 +172,20 @@ public class OrderVO {
 		this.actual_checkOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
+		this.isEvaluate = isEvaluate;
 
 		make_time_property = new SimpleStringProperty(makeTime);
 		finish_time_property = new SimpleStringProperty(finishTime);
 		hotel_property = new SimpleStringProperty(hotelID);
 		state_property = new SimpleStringProperty(STATES[orderState.ordinal()]);
 		id_property = new SimpleStringProperty(orderID);
+		evaluation_state = new SimpleStringProperty(isEvaluate ? EVA_FINISH : EVA_UNFINISH);
 	}
 
 	public OrderVO(OrderMakeVO vo) {
 		this("", OrderState.Unexecuted, vo.clientID, vo.hotelID, vo.roomNumberList, null, 0, Time.getCurrentTime(), "",
 				"", vo.checkInDate + " " + "23:59:59", vo.checkInDate, vo.estimateCheckOutDate, "", vo.numOfPeople,
-				vo.children);
+				vo.children, false);
 		// this.orderState = OrderState.Unexecuted;
 		// this.clientID = vo.clientID;
 		// this.hotelID = vo.hotelID;
@@ -185,13 +204,13 @@ public class OrderVO {
 		this(po.getOrderID(), po.getOrderState(), po.getClientID(), po.getHotelID(), po.getRoomNumberList(),
 				po.getPromotionIDList(), po.getValue(), po.getMakeTime(), po.getExecuteTime(), po.getFinishTime(),
 				po.getLatestETime(), po.getCheckInDate(), po.getEstimateCheckOutDate(), po.getActualCheckOutDate(),
-				po.getNumOfPeople(), po.isChildren());
+				po.getNumOfPeople(), po.isChildren(), po.isEvaluate());
 	}
 
 	public static OrderVO copy(OrderVO vo) {
 		return new OrderVO(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList,
 				vo.value, vo.makeTime, vo.executeTime, vo.finishTime, vo.latest_execute_time, vo.estimate_checkInDate,
-				vo.estimate_checkOutDate, vo.actual_checkOutDate, vo.numOfPeople, vo.children);
+				vo.estimate_checkOutDate, vo.actual_checkOutDate, vo.numOfPeople, vo.children, vo.isEvaluate);
 	}
 
 }

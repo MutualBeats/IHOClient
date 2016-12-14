@@ -39,6 +39,7 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	private Label title;
 
 	private String hotel_id;
+	private String order_id;
 
 	@FXML
 	void confirm(ActionEvent event) {
@@ -56,16 +57,17 @@ public class EvaluateHotelController implements Initializable, Confirm {
 		Window window = WindowGrab.getWindowByStage(1);
 		if (CheckUtil.checkSelect(marks) && CheckUtil.checkText(evaluation)) {
 			int mark = marks.getSelectionModel().getSelectedItem();
-			HotelEvaluationVO vo = new HotelEvaluationVO(hotel_id, UserCache.getID(), "", mark, evaluation.getText());
+			HotelEvaluationVO vo = new HotelEvaluationVO(hotel_id, UserCache.getID(), order_id, "", mark,
+					evaluation.getText());
 			ResultMessage_Hotel result = ResultMessage_Hotel.Evaluate_Successful;
 			try {
 				result = ControllerFactory.getHotelBLServiceInstance().evaluate(vo);
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 			}
-			if(result == ResultMessage_Hotel.Net_Error) {
+			if (result == ResultMessage_Hotel.Net_Error) {
 				WindowGrab.startNetErrorWindow(window);
-			} else if(result == ResultMessage_Hotel.Evaluate_Successful) {
+			} else if (result == ResultMessage_Hotel.Evaluate_Successful) {
 				WindowGrab.closeWindow(window);
 				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "成功评论");
 			} else {
@@ -78,5 +80,6 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	public void initialize(URL location, ResourceBundle resources) {
 		marks.getItems().addAll(StarConfig.SCORE_SEPERATE);
 		hotel_id = resources.getString("hotel_id");
+		order_id = resources.getString("order_id");
 	}
 }
