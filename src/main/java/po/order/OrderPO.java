@@ -123,8 +123,8 @@ public class OrderPO implements Serializable {
 
 	public OrderPO(OrderVO vo) {
 		this(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList, vo.value,
-				vo.makeTime, vo.executeTime, vo.finishTime, vo.latestETime, vo.checkInDate, vo.estimateCheckOutDate,
-				vo.actualCheckOutDate, vo.numOfPeople, vo.children);
+				vo.makeTime, vo.executeTime, vo.finishTime, vo.latest_execute_time, vo.estimate_checkInDate, vo.estimate_checkOutDate,
+				vo.actual_checkOutDate, vo.numOfPeople, vo.children);
 	}
 
 	public OrderPO() {

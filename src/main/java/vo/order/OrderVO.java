@@ -90,19 +90,19 @@ public class OrderVO {
 	/**
 	 * 最晚订单执行时间
 	 */
-	public String latestETime;
+	public String latest_execute_time;
 	/**
 	 * 预订入住日期
 	 */
-	public String checkInDate;
+	public String estimate_checkInDate;
 	/**
 	 * 预订离开时间
 	 */
-	public String estimateCheckOutDate;
+	public String estimate_checkOutDate;
 	/**
 	 * 实际离开日期
 	 */
-	public String actualCheckOutDate;
+	public String actual_checkOutDate;
 	/**
 	 * 预计入住人数
 	 */
@@ -145,10 +145,10 @@ public class OrderVO {
 		this.makeTime = makeTime;
 		this.executeTime = executeTime;
 		this.finishTime = finishTime;
-		this.latestETime = latestETime;
-		this.checkInDate = checkInDate;
-		this.estimateCheckOutDate = estimateCheckOutDate;
-		this.actualCheckOutDate = actualCheckOutDate;
+		this.latest_execute_time = latestETime;
+		this.estimate_checkInDate = checkInDate;
+		this.estimate_checkOutDate = estimateCheckOutDate;
+		this.actual_checkOutDate = actualCheckOutDate;
 		this.numOfPeople = numOfPeople;
 		this.children = children;
 
@@ -186,8 +186,8 @@ public class OrderVO {
 
 	public static OrderVO copy(OrderVO vo) {
 		return new OrderVO(vo.orderID, vo.orderState, vo.clientID, vo.hotelID, vo.roomNumberList, vo.promotionIDList,
-				vo.value, vo.makeTime, vo.executeTime, vo.finishTime, vo.latestETime, vo.checkInDate,
-				vo.estimateCheckOutDate, vo.actualCheckOutDate, vo.numOfPeople, vo.children);
+				vo.value, vo.makeTime, vo.executeTime, vo.finishTime, vo.latest_execute_time, vo.estimate_checkInDate,
+				vo.estimate_checkOutDate, vo.actual_checkOutDate, vo.numOfPeople, vo.children);
 	}
 
 }

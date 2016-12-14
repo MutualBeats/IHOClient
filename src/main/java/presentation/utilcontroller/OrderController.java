@@ -59,7 +59,19 @@ public class OrderController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		OrderVO order_info = (OrderVO) resources.getObject("info");
+		OrderVO info = (OrderVO) resources.getObject("info");
+		
+		make_time.setText(info.makeTime);
+		finish_time.setText(info.finishTime);
+		
+		expect_check_in.setText(info.estimate_checkInDate);
+		expect_leave_time.setText(info.estimate_checkOutDate);
+		
+		actual_in.setText(info.executeTime);
+		actual_out.setText(info.actual_checkOutDate);
+		
+//		hotel_name.setTex
+		
 	}
 
 }
