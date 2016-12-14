@@ -109,7 +109,7 @@ public class MainClientController {
     	} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}	
     }
     
     
@@ -118,14 +118,15 @@ public class MainClientController {
 
     @FXML
     void browse_order(ActionEvent event) {
-    	OrderVO vo = new OrderVO("123", OrderState.Canceled, "123", "213", new ArrayList<>(), new ArrayList<>(), 10000, "1111", "1111", "1111", "222", "222", "111", "213", 3, false);
-    	ArrayList<OrderVO> total = new ArrayList<>();
-    	total.add(vo);
+//    	OrderVO vo = new OrderVO("123", OrderState.Canceled, "123", "213", new ArrayList<>(), new ArrayList<>(), 10000, "1111", "1111", "1111", "222", "222", "111", "213", 3, false);
+//    	ArrayList<OrderVO> total = new ArrayList<>();
+//    	total.add(vo);
+//    	Ar
     	
     	Scene frame =WindowGrab.getScene(event);
     	WindowGrab.changeScene(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame);
-    	Stage stage=WindowGrab.getStage(0);
-    	stage.setTitle("浏览订单");
+//    	Stage stage=WindowGrab.getStage(0);
+//    	stage.setTitle("浏览订单");
     }
 
    
@@ -152,16 +153,16 @@ public class MainClientController {
     void on_search(ActionEvent event) {
     	Scene frame =WindowGrab.getScene(event);
     	WindowGrab.changeScene(SEARCH_HOTEL_FXML, SEARCH_HOTEL_CSS, frame);
-    	Stage stage=WindowGrab.getStage(0);
-    	stage.setTitle("搜索酒店");
+//    	Stage stage=WindowGrab.getStage(0);
+//    	stage.setTitle("搜索酒店");
     
     }
     @FXML
     void history(ActionEvent event) {
     	Scene frame =WindowGrab.getScene(event);
     	WindowGrab.changeScene(HISTORY_FXML, HISTORY_CSS, frame);
-    	Stage stage=WindowGrab.getStage(0);
-    	stage.setTitle("历史记录");
+//    	Stage stage=WindowGrab.getStage(0);
+//    	stage.setTitle("历史记录");
     }
 }
 

@@ -9,11 +9,33 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
+import vo.order.OrderVO;
 
-public class CheckController implements Initializable{
+public class OrderController implements Initializable {
+
+	@FXML
+	private Label make_time;
+
+	@FXML
+	private Button back;
+
+	@FXML
+	private Label expect_check_in;
+
+	@FXML
+	private Label actual_out;
+
+	@FXML
+	private Label finish_time;
+
+	@FXML
+	private Label hotel_name;
 
 	@FXML
 	private Label order_status;
+
+	@FXML
+	private Label people_num;
 
 	@FXML
 	private Label actual_in;
@@ -25,22 +47,7 @@ public class CheckController implements Initializable{
 	private Label expect_leave_time;
 
 	@FXML
-	private Button back;
-
-	@FXML
-	private Label expect_check_in;
-
-	@FXML
-	private Label expect_population;
-
-	@FXML
-	private Label actual_out;
-
-	@FXML
 	private Label order_id;
-
-	@FXML
-	private Label hotel_name;
 
 	@FXML
 	private Label last_execute_time;
@@ -52,8 +59,7 @@ public class CheckController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		OrderVO order_info = (OrderVO) resources.getObject("info");
 	}
-
 
 }

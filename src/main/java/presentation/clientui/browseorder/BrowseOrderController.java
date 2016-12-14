@@ -84,7 +84,7 @@ public class BrowseOrderController implements Initializable {
 		try {
 
 			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
-			CHECK_CSS = new URL("file:src/main/resources/ui/clientui/css/check.css");
+			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
 
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS = new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
@@ -194,8 +194,6 @@ public class BrowseOrderController implements Initializable {
 	void back(ActionEvent event) {
 		Scene frame = WindowGrab.getScene(event);
 		WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
-		Stage stage = WindowGrab.getStage(0);
-		stage.setTitle("Client Menu");
 	}
 
 	@FXML
