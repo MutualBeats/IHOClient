@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import util.resultmessage.ResultMessage_Verify;
 
-public interface Identify extends Remote{
+public interface Identify extends Remote {
 	
 	public ResultMessage_Verify login(String user_name, String password) throws RemoteException;
 	

@@ -21,15 +21,22 @@ public interface OrderDataService extends Remote{
 	 * 补录订单
 	 * 
 	 * @param orderID
-	 * @return
+	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Order putUpOrder(String orderID) throws RemoteException;
 	/**
+	 * 申诉订单
+	 * @param orderID
+	 * @return ResultMessage
+	 * @throws RemoteException
+	 */
+	public ResultMessage_Order appealOrder(String orderID) throws RemoteException;
+	/**
 	 * 撤销订单
 	 * 
 	 * @param po
-	 * @return
+	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Order cancelOrder(String orderID) throws RemoteException;
@@ -37,14 +44,14 @@ public interface OrderDataService extends Remote{
 	 * 执行订单
 	 * 
 	 * @param orderID
-	 * @return
+	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Order executeOrder(String orderID) throws RemoteException;
 	/**
 	 * 完成订单
 	 * @param orderID
-	 * @return
+	 * @return ResultMessage
 	 * @throws RemoteException
 	 */
 	public ResultMessage_Order finishOrder(String orderID) throws RemoteException;
@@ -52,7 +59,7 @@ public interface OrderDataService extends Remote{
 	 * 根据orderId查询订单
 	 * 
 	 * @param orderID
-	 * @return
+	 * @return 
 	 * @throws RemoteException
 	 */
 	public OrderPO findById(String orderID) throws RemoteException;

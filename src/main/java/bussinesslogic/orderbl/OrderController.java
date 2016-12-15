@@ -33,6 +33,11 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	public ResultMessage_Order putUpOrder(String orderID) {
 		return order.putUpOrder(orderID);
 	}
+	
+	@Override
+	public ResultMessage_Order appeal(String orderID, boolean all) {
+		return order.appealOrder(orderID, all);
+	}
 
 	@Override
 	public OrderVO queryOrderById(String orderID) throws NetException {

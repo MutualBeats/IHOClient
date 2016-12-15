@@ -265,6 +265,29 @@ public class Order {
 
 		return ResultMessage_Order.Put_Up_Successful;
 	}
+	
+	public ResultMessage_Order appealOrder(String orderID, boolean all) {
+		// TODO 申诉订单
+		try {
+			orderPO = order_data_service.findById(orderID);
+			if (orderPO == null)
+				return ResultMessage_Order.Order_Not_Exist;
+			// 错误：订单不为异常状态，不可补登记执行
+			if (!orderPO.getOrderState().equals(OrderState.Exception))
+				return ResultMessage_Order.Order_State_Error;
+			
+			// 申诉订单（改变状态为已撤销，记录撤销时间）
+			order_data_service.appealOrder(orderID);
+			// 信用值处理
+			
+			
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage_Order.Net_Error;
+		}
+		return ResultMessage_Order.Appeal_Successful;
+	}
 
 	/**
 	 * 获得订单信息

@@ -116,16 +116,17 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 		// TODO
 		String newRegion = hotel_province.getAccessibleText() + " " + hotel_city.getAccessibleText() + " " 
 				+ hotel_town.getAccessibleText();
-		String newDistrcit = hotel_field.getAccessibleText();
+		String newDistrcit = hotel_field.getSelectionModel().getSelectedItem();
 		String newAdress = hotel_address.getText();
-		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
+//		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
 		
-		try {
-			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
-		} catch (NetException e) {
-			// TODO 错误提示
-			e.printStackTrace();
-		}
+		System.out.println(newDistrcit + "  " + newAdress);
+//		try {
+//			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
+//		} catch (NetException e) {
+//			// TODO 错误提示
+//			e.printStackTrace();
+//		}
 		
 	}
 
