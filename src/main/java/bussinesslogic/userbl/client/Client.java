@@ -128,7 +128,7 @@ public class Client {
 			}
 		}
 		MemberPO po = MemberVO.transformVOToPO(vo);
-
+		
 		try {
 			result = clientDataService.registerMember(po);
 		} catch (RemoteException e) {
