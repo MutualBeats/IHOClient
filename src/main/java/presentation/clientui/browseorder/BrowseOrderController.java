@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.ClientUIURLConfig;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.OrderInfoBundle;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.Time;
 import util.exception.NetException;
@@ -82,8 +84,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
 
-	private static URL EXECUTE_CHECK_FXML;
-	private static URL EXECUTE_CHECK_CSS;
+	
 
 	private static URL CLIENTMENU_FXML;
 	private static URL CLIENTMENU_CSS;
@@ -96,9 +97,6 @@ public class BrowseOrderController implements Initializable, Confirm {
 
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS = new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
-
-			EXECUTE_CHECK_FXML = new URL("file:src/main/resources/ui/clientui/fxml/executed_check.fxml");
-			EXECUTE_CHECK_CSS = new URL("file:src/main/resources/ui/clientui/css/executed_check.css");
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -153,7 +151,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 				return new SimpleStringProperty("");
 			}
 		});
-		state.setCellValueFactory(cellData->cellData.getValue().getState_property());
+		state.setCellValueFactory(cellData -> cellData.getValue().getState_property());
 	}
 
 	private void hideRevoke() {
@@ -210,7 +208,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 		Window window = WindowGrab.getWindow(event);
 		int select_index = model.getSelectedIndex();
 		if (select_index == -1) {
-			WindowGrab.startNoticeWindow(window, "请选择要查看订单");
+			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		} else {
 			OrderVO info = model.getSelectedItem();
 			// TODO : the reach of hotel name is waiting to check.
@@ -231,8 +229,19 @@ public class BrowseOrderController implements Initializable, Confirm {
 	@FXML
 	void evaluate(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		// Evaluate Window
-
+		if (CheckUtil.checkSelect(order_list)) {
+			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
+			if (!vo.isEvaluate) {
+				// 检查是否为未评价
+				ResourceBundle bundle = new EvaluationBundle(null);
+				WindowGrab.startWindowWithBundle(window, "评价酒店", ClientUIURLConfig.client_evaluate_hotel_fxml_url(),
+						ClientUIURLConfig.client_evaluate_hotel_css_url(), bundle);
+			} else {
+				WindowGrab.startNoticeWindow(window, "该订单已评价");
+			}
+		} else {
+			WindowGrab.startNoticeWindow(window, "请选择要评价的订单");
+		}
 	}
 
 	@FXML

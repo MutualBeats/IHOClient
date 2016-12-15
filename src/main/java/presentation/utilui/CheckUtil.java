@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
@@ -43,6 +44,10 @@ public class CheckUtil {
 	public static boolean checkSelect(DatePicker picker) {
 		String date = picker.getEditor().getText();
 		return date.length() == 0;
+	}
+	
+	public static boolean checkSelect(TableView<?> tableView) {
+		return tableView.getSelectionModel().getSelectedIndex() != -1;
 	}
 
 	public static void init(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s, LocalDate e) {

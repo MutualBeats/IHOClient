@@ -15,7 +15,9 @@ import javafx.stage.Window;
 import presentation.manageui.check.ClientInformationController;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
+import util.resultmessage.ResultMessage_User;
 import vo.credit.CreditVO;
+import vo.user.ClientInfoChangeVO;
 
 public class MaintainMessageController extends ClientInformationController {
 
@@ -46,6 +48,24 @@ public class MaintainMessageController extends ClientInformationController {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
+	}
+	
+	@Override
+	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(1);
+		ClientInfoChangeVO vo = new ClientInfoChangeVO(info.id, name.getText(), phone.getText());
+		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
+		try {
+			result = ControllerFactory.getClientBLServiceInstance().changeClientInfo(vo);
+			if (result == ResultMessage_User.UpdateSuccess) {
+				info.setNameProperty(name.getText());
+				info.setContactProperty(phone.getText());
+			}
+		} catch (Exception e) {
+			WindowGrab.startNetErrorWindow(window);
+			return;
+		}
+		handleResult(result, window);
 	}
 
 //	@Override

@@ -20,6 +20,7 @@ import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
+import vo.order.OrderVO;
 
 public class EvaluateHotelController implements Initializable, Confirm {
 
@@ -38,8 +39,8 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	@FXML
 	private Label title;
 
-	private String hotel_id;
-	private String order_id;
+//	private String hotel_id;
+	private OrderVO order;
 
 	@FXML
 	void confirm(ActionEvent event) {
@@ -51,13 +52,20 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	void cancel(ActionEvent event) {
 		WindowGrab.closeWindow(event);
 	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		marks.getItems().addAll(StarConfig.SCORE_SEPERATE);
+//		hotel_id = resources.getString("hotel_id");
+		order = (OrderVO) resources.getObject("order_info");
+	}
 
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
 		if (CheckUtil.checkSelect(marks) && CheckUtil.checkText(evaluation)) {
 			int mark = marks.getSelectionModel().getSelectedItem();
-			HotelEvaluationVO vo = new HotelEvaluationVO(hotel_id, UserCache.getID(), order_id, "", mark,
+			HotelEvaluationVO vo = new HotelEvaluationVO(order.hotelID, UserCache.getID(), order.orderID, "", mark,
 					evaluation.getText());
 			ResultMessage_Hotel result = ResultMessage_Hotel.Evaluate_Successful;
 			try {
@@ -68,6 +76,7 @@ public class EvaluateHotelController implements Initializable, Confirm {
 			if (result == ResultMessage_Hotel.Net_Error) {
 				WindowGrab.startNetErrorWindow(window);
 			} else if (result == ResultMessage_Hotel.Evaluate_Successful) {
+				order.setEvaluationState(true);
 				WindowGrab.closeWindow(window);
 				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "成功评论");
 			} else {
@@ -76,10 +85,5 @@ public class EvaluateHotelController implements Initializable, Confirm {
 		}
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		marks.getItems().addAll(StarConfig.SCORE_SEPERATE);
-		hotel_id = resources.getString("hotel_id");
-		order_id = resources.getString("order_id");
-	}
+	
 }
