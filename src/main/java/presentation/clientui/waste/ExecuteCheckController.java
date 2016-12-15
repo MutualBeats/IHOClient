@@ -1,4 +1,4 @@
-package presentation.clientui.browseorder;
+package presentation.clientui.waste;
 
 
 import java.net.MalformedURLException;
@@ -52,7 +52,6 @@ public class ExecuteCheckController {
 			
     		EVALUATE_HOTEL_FXML=new URL("file:src/main/resources/ui/clientui/fxml/evaluate_hotel.fxml");
     		EVALUATE_HOTEL_CSS=new URL("file:src/main/resources/ui/clientui/css/evaluate_hotel.css");
-			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

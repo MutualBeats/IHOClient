@@ -1,4 +1,4 @@
-package presentation.clientui.browseorder;
+package presentation.clientui.waste;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
