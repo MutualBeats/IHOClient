@@ -76,27 +76,27 @@ public class HotelPromotionController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO
-		try {
-			ObservableList<TableColumn<HotelPromotionData, ?>> observableList = hotelPromotionTable.getColumns();
-			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("promotionID"));
-			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("promotionName"));
-			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("promotionType"));
-			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("startDate"));
-			observableList.get(4).setCellValueFactory(new PropertyValueFactory<>("endDate"));
-			observableList.get(5).setCellValueFactory(new PropertyValueFactory<>("discount"));
-			
-			PromotionBLService promotionBL = ControllerFactory.getPromotionBLServiceInstance();
-			// TODO 获取酒店id
-			ArrayList<PromotionVO> hotelPromotionVOList = promotionBL.getHotelPromotion("00000001");
-			for (PromotionVO promotion : hotelPromotionVOList) {
-				HotelPromotionData promotionData = new HotelPromotionData(promotion.promotionID, promotion.promotionName, promotion.type, promotion.startDate, promotion.finishDate, 9.0);
-				data.add(promotionData);
-			}
-			hotelPromotionTable.setItems(data);
-		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
-		}
+//		// TODO
+//		try {
+//			ObservableList<TableColumn<HotelPromotionData, ?>> observableList = hotelPromotionTable.getColumns();
+//			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("promotionID"));
+//			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("promotionName"));
+//			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("promotionType"));
+//			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("startDate"));
+//			observableList.get(4).setCellValueFactory(new PropertyValueFactory<>("endDate"));
+//			observableList.get(5).setCellValueFactory(new PropertyValueFactory<>("discount"));
+//			
+//			PromotionBLService promotionBL = ControllerFactory.getPromotionBLServiceInstance();
+//			// TODO 获取酒店id
+//			ArrayList<PromotionVO> hotelPromotionVOList = promotionBL.getHotelPromotion("00000001");
+//			for (PromotionVO promotion : hotelPromotionVOList) {
+//				HotelPromotionData promotionData = new HotelPromotionData(promotion.promotionID, promotion.promotionName, promotion.type, promotion.startDate, promotion.finishDate, 9.0);
+//				data.add(promotionData);
+//			}
+//			hotelPromotionTable.setItems(data);
+//		} catch (NetException e) {
+//			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+//		}
 	}
 	
 	@FXML

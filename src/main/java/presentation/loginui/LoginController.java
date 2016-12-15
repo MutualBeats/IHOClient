@@ -27,23 +27,30 @@ import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Verify;
 
-public class LoginController implements Initializable{
-	
-	@FXML Button signin;
-	@FXML Button login;
-	@FXML Button visit;
-	@FXML Button exit;
-	@FXML TextField user_name;
-	@FXML PasswordField password;
-	
-	@FXML Label name_warning;
-	@FXML Label pass_warning;
-	
-	
+public class LoginController implements Initializable {
+
+	@FXML
+	Button signin;
+	@FXML
+	Button login;
+	@FXML
+	Button visit;
+	@FXML
+	Button exit;
+	@FXML
+	TextField user_name;
+	@FXML
+	PasswordField password;
+
+	@FXML
+	Label name_warning;
+	@FXML
+	Label pass_warning;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
-	
+
 	@FXML
 	public void signin(ActionEvent event) {
 		URL fxml = LoginUIURLConfig.signin_fxml_url();
@@ -57,70 +64,77 @@ public class LoginController implements Initializable{
 		String name = user_name.getText();
 		String pass = password.getText();
 		Window window = WindowGrab.getWindow(event);
-		if(name.length() == 0) {
+		boolean name_in = CheckUtil.checkText(user_name);
+		boolean pass_in = CheckUtil.checkText(password);
+		if (!name_in) {
 			name_warning.setText("请输入用户名");
 		}
-		if(pass.length() == 0) {
+		if (!pass_in) {
 			pass_warning.setText("请输入密码");
 		}
-		//TODO : check the internet
-		try {
-			Identify identify = ControllerFactory.getIdentityService();
-			ResultMessage_Verify type = identify.login(name, pass);
-			if(type == ResultMessage_Verify.NET_ERROR) {
-				WindowGrab.startNetErrorWindow(window);
-			} else if(type == ResultMessage_Verify.USER_NOT_EXIST){
-				name_warning.setText("该用户不存在");
-			} else {
-				UserCache.init_Cache(name);
-				switch (type) {
-				case CLIENT:
-					WindowGrab.changeScene(ClientUIURLConfig.client_menu_fxml_url(), ClientUIURLConfig.client_menu_css_url(), event);
-					break;
-				case STAFF:
-					WindowGrab.changeScene(StaffUIURLConfig.staff_main_fxml_url(), StaffUIURLConfig.staff_main_css_url(), event);
-					break;
-				case MARKETER:
-					WindowGrab.changeScene(MarketUIURLConfig.market_market_menu_fxml_url(), MarketUIURLConfig.market_market_menu_css_url(), event);
-					break;
-				case MANAGER:
-					WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(), ManageUIURLConfig.manage_menu_css(), event);
-					break;
-				default:
-					break;
+		if (name_in && pass_in) {
+			// TODO : check the internet
+			try {
+				Identify identify = ControllerFactory.getIdentityService();
+				ResultMessage_Verify type = identify.login(name, pass);
+				if (type == ResultMessage_Verify.NET_ERROR) {
+					WindowGrab.startNetErrorWindow(window);
+				} else if (type == ResultMessage_Verify.USER_NOT_EXIST) {
+					name_warning.setText("该用户不存在");
+				} else {
+					UserCache.init_Cache(name);
+					switch (type) {
+					case CLIENT:
+						WindowGrab.changeScene(ClientUIURLConfig.client_menu_fxml_url(),
+								ClientUIURLConfig.client_menu_css_url(), event);
+						break;
+					case STAFF:
+						WindowGrab.changeScene(StaffUIURLConfig.staff_main_fxml_url(),
+								StaffUIURLConfig.staff_main_css_url(), event);
+						break;
+					case MARKETER:
+						WindowGrab.changeScene(MarketUIURLConfig.market_market_menu_fxml_url(),
+								MarketUIURLConfig.market_market_menu_css_url(), event);
+						break;
+					case MANAGER:
+						WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(),
+								ManageUIURLConfig.manage_menu_css(), event);
+						break;
+					default:
+						break;
+					}
 				}
+			} catch (NetException | RemoteException e) {
+				WindowGrab.startNetErrorWindow(window);
 			}
-		} catch (NetException | RemoteException e) {
-			WindowGrab.startNetErrorWindow(window);
 		}
 	}
-	
+
 	@FXML
 	public void visit(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		WindowGrab.startNoticeWindow(window, "该功能暂时还未开通");
-		//TODO : Change to user stage 
-//		ObservableList<Stage> stage = FXRobotHelper.getStages();
-//		Dialog dialog = new Dialog("Test", stage.get(0), "Test");
-//		dialog.showDialog();
+		// TODO : Change to user stage
+		// ObservableList<Stage> stage = FXRobotHelper.getStages();
+		// Dialog dialog = new Dialog("Test", stage.get(0), "Test");
+		// dialog.showDialog();
 	}
-	
+
 	@FXML
 	public void exit(ActionEvent event) {
 		System.exit(0);
 	}
-	
+
 	@FXML
 	public void userNameModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(name_warning);
 	}
-	
+
 	@FXML
 	public void passwordModify(MouseEvent event) {
-		if(CheckUtil.checkWarningBefore(pass_warning)) {
+		if (CheckUtil.checkWarningBefore(pass_warning)) {
 			password.setText("");
 		}
 	}
 
-	
 }

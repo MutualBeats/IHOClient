@@ -267,7 +267,7 @@ public class Order {
 	}
 	
 	public ResultMessage_Order appealOrder(String orderID, boolean all) {
-		// TODO 申诉订单
+		// TODO 申诉订单 未测试
 		try {
 			orderPO = order_data_service.findById(orderID);
 			if (orderPO == null)
@@ -278,11 +278,22 @@ public class Order {
 			
 			// 申诉订单（改变状态为已撤销，记录撤销时间）
 			order_data_service.appealOrder(orderID);
+			
 			// 信用值处理
+			checkClient();
+			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
 			
+			int changeValue = (int) orderPO.getValue();
+			changeValue = all ? changeValue : changeValue / 2;
+			int newCredit = clientVO.credit + changeValue;
 			
+			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
+					CreditChangeAction.AppealOrder, orderID);
+
+			checkCredit();
+			credit.creditUpdate(creditVO);
 			
-		} catch (RemoteException e) {
+		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
