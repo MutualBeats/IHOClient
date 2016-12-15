@@ -61,7 +61,7 @@ public class MemberController implements Confirm{
 
 	@Override
 	public void confirm() {
-		MemberVO memberVO = new MemberVO(clientID, memberType, level, memberMessage)
+//		MemberVO memberVO = new MemberVO(clientID, memberType, level, memberMessage)
 		if(original_pane.isVisible()) {
 			//普通会员
 			
