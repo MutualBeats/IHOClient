@@ -1,7 +1,5 @@
 package presentation.loginui;
 
-import java.net.URL;
-
 import config.urlconfig.LoginUIURLConfig;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

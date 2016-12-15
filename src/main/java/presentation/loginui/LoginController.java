@@ -1,12 +1,20 @@
 package presentation.loginui;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.ClientUIURLConfig;
 import config.urlconfig.LoginUIURLConfig;
+import config.urlconfig.ManageUIURLConfig;
+import config.urlconfig.MarketUIURLConfig;
+import config.urlconfig.StaffUIURLConfig;
+import dataservice.utildataservice.Identify;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -15,6 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
+import util.exception.NetException;
+import util.resultmessage.ResultMessage_Verify;
 
 public class LoginController implements Initializable{
 	
@@ -45,6 +56,7 @@ public class LoginController implements Initializable{
 	public void login(ActionEvent event) {
 		String name = user_name.getText();
 		String pass = password.getText();
+		Window window = WindowGrab.getWindow(event);
 		if(name.length() == 0) {
 			name_warning.setText("请输入用户名");
 		}
@@ -52,12 +64,41 @@ public class LoginController implements Initializable{
 			pass_warning.setText("请输入密码");
 		}
 		//TODO : check the internet
-		
-		//TODO : change to the user stage
+		try {
+			Identify identify = ControllerFactory.getIdentityService();
+			ResultMessage_Verify type = identify.login(name, pass);
+			if(type == ResultMessage_Verify.NET_ERROR) {
+				WindowGrab.startNetErrorWindow(window);
+			} else if(type == ResultMessage_Verify.USER_NOT_EXIST){
+				name_warning.setText("该用户不存在");
+			} else {
+				UserCache.init_Cache(name);
+				switch (type) {
+				case CLIENT:
+					WindowGrab.changeScene(ClientUIURLConfig.client_menu_fxml_url(), ClientUIURLConfig.client_menu_css_url(), event);
+					break;
+				case STAFF:
+					WindowGrab.changeScene(StaffUIURLConfig.staff_main_fxml_url(), StaffUIURLConfig.staff_main_css_url(), event);
+					break;
+				case MARKETER:
+					WindowGrab.changeScene(MarketUIURLConfig.market_market_menu_fxml_url(), MarketUIURLConfig.market_market_menu_css_url(), event);
+					break;
+				case MANAGER:
+					WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(), ManageUIURLConfig.manage_menu_css(), event);
+					break;
+				default:
+					break;
+				}
+			}
+		} catch (NetException | RemoteException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
 	}
 	
 	@FXML
 	public void visit(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		WindowGrab.startNoticeWindow(window, "该功能暂时还未开通");
 		//TODO : Change to user stage 
 //		ObservableList<Stage> stage = FXRobotHelper.getStages();
 //		Dialog dialog = new Dialog("Test", stage.get(0), "Test");
