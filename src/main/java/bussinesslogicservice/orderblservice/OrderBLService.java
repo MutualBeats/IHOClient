@@ -25,6 +25,14 @@ public interface OrderBLService {
 	 */
 	public ResultMessage_Order cancelOrder(String orderID);
 	/**
+	 * 订单申诉
+	 * 
+	 * @param orderID
+	 * @param all
+	 * @return
+	 */
+	public ResultMessage_Order appeal(String orderID,boolean all); 
+	/**
 	 * 执行订单
 	 * 
 	 * @param orderID

@@ -12,7 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
+import presentation.utilcontroller.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
 import vo.order.OrderVO;
 
@@ -48,6 +51,9 @@ public abstract class OrderListView implements Initializable {
 	@FXML
 	private TableColumn<OrderVO, String> hotelname;
 	
+
+	final ToggleGroup buttom_group = new ToggleGroup();
+	
 	private static URL ORDER_INFO_FXML;
     private static URL ORDER_INFO_CSS;
     
@@ -72,14 +78,30 @@ public abstract class OrderListView implements Initializable {
 
 	@FXML
 	void on_check(ActionEvent event) {
-		Window window=WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "订单详细信息", ORDER_INFO_FXML, ORDER_INFO_CSS);
+		// Check Order Information
+		TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
+		Window window = WindowGrab.getWindow(event);
+		int select_index = model.getSelectedIndex();
+		if (select_index == -1) {
+			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
+		} 
+		else {
+			OrderVO info = model.getSelectedItem();
+			// TODO : the reach of hotel name is waiting to check.
+			String hotel_name = hotelname.getCellData(model.getSelectedIndex());
+			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
+
+			WindowGrab.startWindowWithBundle(window, "订单详情", ORDER_INFO_FXML, ORDER_INFO_CSS, bundle);
+			// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
+		}
     	
 	}
 
 	@FXML
 	void on_search(ActionEvent event) {
-
+		String id=id_text.getText();
+		
+		
 	}
 
 }
