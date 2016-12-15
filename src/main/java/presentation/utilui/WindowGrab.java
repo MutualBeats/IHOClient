@@ -72,11 +72,11 @@ public class WindowGrab {
 	}
 
 	public static void startModifyConfirmWindow(Window owner, Confirm confirm) {
-		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
+		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm, "是否确认修改"));
 	}
 
 	public static void startConfirmWindow(Window owner, Confirm confirm, String message) {
-		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm));
+		startWindowWithBundle(owner, "确认", CONFIRM_FXML, CONFIRM_CSS, new ConfirmResourceBundle(confirm, message));
 	}
 
 	public static void startNetErrorWindow(Window owner) {
@@ -288,7 +288,7 @@ public class WindowGrab {
 		private final static String MESSAGE_KEY = "message";
 
 		public ConfirmResourceBundle(Confirm confirm) {
-			this(confirm, null);
+			this(confirm, "是否确认");
 		}
 
 		public ConfirmResourceBundle(Confirm confirm, String message) {

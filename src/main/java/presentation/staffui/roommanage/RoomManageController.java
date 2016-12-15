@@ -44,9 +44,9 @@ public class RoomManageController implements Initializable {
     private Button look;
     
     @FXML
-    private TableView<RoomData> room_table;
+    private TableView<RoomVO> room_table;
     
-    private ObservableList<RoomData> data = FXCollections.observableArrayList();
+    private ObservableList<RoomVO> data = FXCollections.observableArrayList();
 
     private static URL ROOM_CREATE_FXML;
     private static URL ROOM_CREATE_CSS;
@@ -75,18 +75,22 @@ public class RoomManageController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			ObservableList<TableColumn<RoomData, ?>> observableList = room_table.getColumns();
-			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
-			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("roomType"));
-			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("roomPrice"));
-			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("roomState"));
+			ObservableList<TableColumn<RoomVO, ?>> observableList = room_table.getColumns();
+			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("roomNumberProperty"));
+			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("roomTypeProperty"));
+			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("roomPriceProperty"));
+			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("roomStateProperty"));
 			
 			RoomBLService roomBL = ControllerFactory.getRoomBLServiceInstance();
 			// TODO 获取酒店id
 			ArrayList<RoomVO> roomVOList = roomBL.getRoomList("00000001");
 			for (RoomVO room : roomVOList) {
-				RoomData roomData = new RoomData(room.roomNumber, room.type, room.price, room.condition);
-				data.add(roomData);
+				room.setRoomNumber(room.roomNumber);
+				room.setRoomType(room.type);
+				room.setRoomPrice(room.price);
+				room.setRoomState(room.condition);
+//				RoomData roomData = new RoomData(room.roomNumber, room.type, room.price, room.condition);
+				data.add(room);
 			}
 			room_table.setItems(data);
 		} catch (NetException e) {
