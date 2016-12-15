@@ -4,11 +4,14 @@ package presentation.clientui.member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
+import vo.user.MemberVO;
 
 public class MemberController implements Confirm{
 
@@ -26,6 +29,12 @@ public class MemberController implements Confirm{
 
     @FXML
     private Label title;
+    
+    @FXML
+    private TextField enterprise;
+    
+    @FXML
+    private DatePicker birth;
 
     @FXML
     void cancel(ActionEvent event) {
@@ -52,8 +61,13 @@ public class MemberController implements Confirm{
 
 	@Override
 	public void confirm() {
-		// TODO Auto-generated method stub
-		
+		MemberVO memberVO = new MemberVO(clientID, memberType, level, memberMessage)
+		if(original_pane.isVisible()) {
+			//普通会员
+			
+		} else {
+			//企业会员
+		}
 	}
 }
 

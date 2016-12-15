@@ -3,8 +3,6 @@ package presentation.manageui.mainmanager;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.sun.media.jfxmedia.events.NewFrameEvent;
-
 import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

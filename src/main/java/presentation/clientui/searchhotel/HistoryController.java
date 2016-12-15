@@ -72,7 +72,7 @@ public class HistoryController implements Initializable{
 
 	@FXML
 	void info_look(ActionEvent event) {
-		
+		// TODO : 
 	}
 
 	@FXML

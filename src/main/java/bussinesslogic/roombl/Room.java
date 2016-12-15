@@ -103,7 +103,7 @@ public class Room {
 		Iterator<RoomRecordPO> iterator = room_service.getOrderRecord(hotelID, roomNumber);
 		while(iterator.hasNext()) {
 			RoomRecordPO each = iterator.next();
-			records.add(new RoomRecordVO(each.getCheckInDate(), each.getEstimateCheckOutDate()));
+			records.add(new RoomRecordVO(each.getCheckInDate(), each.getEstimateCheckOutDate(),each.getOrderID()));
 		}
 		return records;
 	}

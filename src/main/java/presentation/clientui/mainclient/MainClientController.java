@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogic.orderbl.Order;
+import bussinesslogic.userbl.client.Client;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,11 +16,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.clientui.browseorder.OrderListBundle;
+import presentation.utilcontroller.InformationBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.order.OrderState;
 import vo.order.OrderVO;
+import vo.user.ClientVO;
 
 public class MainClientController {
 
@@ -163,7 +166,12 @@ public class MainClientController {
 	@FXML
 	void maintain_message(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "个人信息详情", MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS);
+		try {
+			ClientVO info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
+			WindowGrab.startWindowWithBundle(window, "个人信息详情", MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS, new InformationBundle(info));
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
 	}
 
 	@FXML
