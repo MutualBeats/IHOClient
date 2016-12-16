@@ -3,6 +3,7 @@ package presentation.marketui.unusualorder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -19,6 +20,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.marketui.utilui.OrderListView;
@@ -64,7 +67,8 @@ public class UnusualOrderController extends OrderListView{
 	
 	
 	 private ObservableList<OrderVO> unusual_orderlist=FXCollections.observableArrayList();
-	    
+	 final ToggleGroup buttom_group = new ToggleGroup();
+	
 
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
@@ -122,8 +126,10 @@ public class UnusualOrderController extends OrderListView{
 
     @FXML
     void on_search(ActionEvent event) {
-
+    	
     }
+    
+    
     @FXML
     void on_revoke(ActionEvent event) {
     	// Revoke Order

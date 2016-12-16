@@ -2,8 +2,13 @@ package presentation.marketui.utilui;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.collections.ObservableListWrapper;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,12 +17,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.utilcontroller.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
 import vo.order.OrderVO;
+import vo.user.BaseVO;
 
 public abstract class OrderListView implements Initializable {
 
@@ -51,8 +58,7 @@ public abstract class OrderListView implements Initializable {
 	@FXML
 	private TableColumn<OrderVO, String> hotelname;
 	
-
-	final ToggleGroup buttom_group = new ToggleGroup();
+	private ObservableList<OrderVO> orderList = FXCollections.observableArrayList();
 	
 	private static URL ORDER_INFO_FXML;
     private static URL ORDER_INFO_CSS;
@@ -69,7 +75,7 @@ public abstract class OrderListView implements Initializable {
     }
 	
 	@Override
-	public abstract void initialize(URL location, ResourceBundle resources);
+	public  abstract void initialize(URL location, ResourceBundle resources);
 	
 	@FXML
 	void cancel(ActionEvent event) {
@@ -100,8 +106,21 @@ public abstract class OrderListView implements Initializable {
 	@FXML
 	void on_search(ActionEvent event) {
 		String id=id_text.getText();
-		
+		ObservableList<OrderVO> satisfy = null;
+		satisfy=getSatisfyList(orderList.iterator(), id);
+	}
+	
+	
+	private ObservableList<OrderVO> getSatisfyList(Iterator<OrderVO> iterator , String filter) {
+		ObservableList<OrderVO> orderVOs=FXCollections.observableArrayList();
+		while (iterator.hasNext()) {
+			OrderVO each=iterator.next();
+			if(each.orderID.contains(filter)){
+				orderVOs.add(each);
+			}
+		}
+		return orderVOs;
 		
 	}
-
+	
 }
