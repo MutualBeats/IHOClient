@@ -15,11 +15,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.LocationBoxController;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.hotel.HotelVO;
 
-public class Hotel_Maintain_Controller implements Confirm, Initializable {
+public class Hotel_Maintain_Controller extends LocationBoxController implements Confirm, Initializable {
 
 	@FXML
 	private Button cancel;
@@ -43,7 +45,7 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
     private ComboBox<String> hotel_city;
     
 	@FXML
-	private ComboBox<String> hotel_field;
+	private ComboBox<String> hotel_district;
 
 	@FXML
 	private Label address_warning;
@@ -62,9 +64,6 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@FXML
 	private Label name_warning;
-
-	@FXML
-	private Label star_warning;
 
 	private static URL CONFIRM_FXML;
 	private static URL CONFIRM_CSS;
@@ -86,13 +85,12 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 			
 			hotel_id.setText(info.hotelID);
 			hotel_address.setText(info.address);
-			hotel_field.setValue(info.businessDistrict);
+			hotel_district.setValue(info.businessDistrict);
 			hotel_name.setText(info.hotelName);
 			hotel_star.setText("" + info.starLevel);
 			hotel_score.setText("" + info.score);
 			
 			name_warning.setText("");
-			star_warning.setText("");
 			address_warning.setText("");
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
@@ -101,33 +99,52 @@ public class Hotel_Maintain_Controller implements Confirm, Initializable {
 
 	@FXML
 	void update(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startModifyConfirmWindow(window, this);
+		boolean name_in = CheckUtil.checkText(hotel_name);
+		boolean adress_in = CheckUtil.checkText(hotel_address);
+		if (!name_in)
+			name_warning.setText("请输入酒店名称");
+		if (!adress_in)
+			address_warning.setText("请输入地址");
+		if(name_in && adress_in) {
+			Window window = WindowGrab.getWindow(event);
+			WindowGrab.startModifyConfirmWindow(window, this);
+		}
 	}
 
 	@FXML
 	void cancel(ActionEvent event) {
 		WindowGrab.closeWindow(event);
 	}
+	
+	@FXML
+	public void hotelNameModify() {
+		CheckUtil.checkWarningBefore(name_warning);
+	}
+	
+	@FXML
+	public void hotelAdressModify() {
+		CheckUtil.checkWarningBefore(address_warning);
+	}
 
 	@Override
 	public void confirm() {
 		String newName = hotel_name.getText();
-		// TODO
-		String newRegion = hotel_province.getAccessibleText() + " " + hotel_city.getAccessibleText() + " " 
-				+ hotel_town.getAccessibleText();
-		String newDistrcit = hotel_field.getSelectionModel().getSelectedItem();
+		String newProvince = hotel_province.getSelectionModel().getSelectedItem();
+		String newCity = hotel_city.getSelectionModel().getSelectedItem();
+		String newTown = hotel_town.getSelectionModel().getSelectedItem();
+		String newRegion = newProvince + " " + newCity + " " + newTown;
+		String newDistrcit = hotel_district.getSelectionModel().getSelectedItem();
 		String newAdress = hotel_address.getText();
-//		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
-		
-		System.out.println(newDistrcit + "  " + newAdress);
-//		try {
-//			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
-//		} catch (NetException e) {
-//			// TODO 错误提示
-//			e.printStackTrace();
-//		}
-		
+
+		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
+		try {
+			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
+		} catch (NetException e) {
+			e.printStackTrace();
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+		}
+		// TODO 窗口重叠
+		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "修改成功");
 	}
 
 }

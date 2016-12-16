@@ -4,23 +4,31 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import vo.room.RoomVO;
 
 public class RoomCreateController implements Initializable {
 	
-	private final ObservableList<String> roomType = FXCollections.observableArrayList("单人间", "双人间", "三人间", "四人间");
+	@FXML
+	private TableColumn<RoomVO, String> room_number;
 	
 	@FXML
-	private ComboBox<String> room_type;
-
+	private TableColumn<RoomVO, ComboBox<String>> room_type;
+	
+	@FXML
+	private TableColumn<RoomVO, Integer> room_price;
+	
+	@FXML
+	private TableView<RoomVO> import_room_list;
+	
     @FXML
     private Button cancel;
 
@@ -42,7 +50,7 @@ public class RoomCreateController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO
-		room_type.setItems(roomType);
+		
 	}
     
     @FXML

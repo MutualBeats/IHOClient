@@ -20,13 +20,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
 import util.exception.NetException;
 import vo.room.RoomVO;
 
 public class RoomManageController implements Initializable {
+	@FXML
+	private TableColumn<RoomVO, String> room_number;
+	
+	@FXML
+	private TableColumn<RoomVO, String> room_type;
+	
+	@FXML
+	private TableColumn<RoomVO, Integer> room_price;
+	
+	@FXML
+	private TableColumn<RoomVO, String> room_state;
+	
+    @FXML
+    private TableView<RoomVO> room_list;
 
     @FXML
     private Button cancel;
@@ -43,11 +57,6 @@ public class RoomManageController implements Initializable {
     @FXML
     private Button look;
     
-    @FXML
-    private TableView<RoomVO> room_table;
-    
-    private ObservableList<RoomVO> data = FXCollections.observableArrayList();
-
     private static URL ROOM_CREATE_FXML;
     private static URL ROOM_CREATE_CSS;
     
@@ -71,38 +80,35 @@ public class RoomManageController implements Initializable {
 			e.printStackTrace();
 		}
     }
+        
+    private ObservableList<RoomVO> list = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			ObservableList<TableColumn<RoomVO, ?>> observableList = room_table.getColumns();
-			observableList.get(0).setCellValueFactory(new PropertyValueFactory<>("roomNumberProperty"));
-			observableList.get(1).setCellValueFactory(new PropertyValueFactory<>("roomTypeProperty"));
-			observableList.get(2).setCellValueFactory(new PropertyValueFactory<>("roomPriceProperty"));
-			observableList.get(3).setCellValueFactory(new PropertyValueFactory<>("roomStateProperty"));
-			
+			String hotelID = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID()).hotelID;
 			RoomBLService roomBL = ControllerFactory.getRoomBLServiceInstance();
-			// TODO 获取酒店id
-			ArrayList<RoomVO> roomVOList = roomBL.getRoomList("00000001");
-			for (RoomVO room : roomVOList) {
-				room.setRoomNumber(room.roomNumber);
-				room.setRoomType(room.type);
-				room.setRoomPrice(room.price);
-				room.setRoomState(room.condition);
-//				RoomData roomData = new RoomData(room.roomNumber, room.type, room.price, room.condition);
-				data.add(room);
-			}
-			room_table.setItems(data);
+			ArrayList<RoomVO> roomVOList = roomBL.getRoomList(hotelID);
+			list.addAll(roomVOList);
+			room_list.setItems(list);
+			initColumn();
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 	}
+	
+	private void initColumn() {
+		room_number.setCellValueFactory(cellData -> cellData.getValue().getRoomNumberProperty());
+		room_type.setCellValueFactory(cellData -> cellData.getValue().getRoomTypeProperty());
+		room_price.setCellValueFactory(cellData -> cellData.getValue().getRoomPriceProperty().asObject());
+		room_state.setCellValueFactory(cellData -> cellData.getValue().getRoomStateProperty());
+	}
     
     @FXML
-    void change(ActionEvent event) {	
+    void change(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
     	WindowGrab.startWindow(window, "修改客房信息",ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);
-	   }
+	}
 
     @FXML
     void cancel(ActionEvent event) {

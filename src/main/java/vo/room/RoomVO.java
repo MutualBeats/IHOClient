@@ -17,20 +17,16 @@ public class RoomVO {
 	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
 	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
 	
-	private final StringProperty roomNumberProperty = new SimpleStringProperty();
-	private final StringProperty roomTypeProperty = new SimpleStringProperty();
-	private final IntegerProperty roomPriceProperty = new SimpleIntegerProperty();
-	private final StringProperty roomStateProperty = new SimpleStringProperty();
+	private StringProperty roomNumberProperty = new SimpleStringProperty();
+	private StringProperty roomTypeProperty = new SimpleStringProperty();
+	private IntegerProperty roomPriceProperty = new SimpleIntegerProperty();
+	private StringProperty roomStateProperty = new SimpleStringProperty();
 	
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumberProperty.set(roomNumber);
 	}
-	
-	public String getRoomNumber() {
-		return roomNumberProperty.get();
-	}
-	
-	public StringProperty roomNumberProperty() {
+
+	public StringProperty getRoomNumberProperty() {
 		return roomNumberProperty;
 	}
 	
@@ -38,11 +34,7 @@ public class RoomVO {
 		this.roomTypeProperty.set(ROOM_TYPE[roomType.ordinal()]);
 	}
 	
-	public String getRoomType() {
-		return roomTypeProperty.get();
-	}
-	
-	public StringProperty roomTypeProperty() {
+	public StringProperty getRoomTypeProperty() {
 		return roomTypeProperty;
 	}
 	
@@ -50,24 +42,16 @@ public class RoomVO {
 		this.roomPriceProperty.set(roomPrice);
 	}
 	
-	public IntegerProperty roomPriceProperty() {
+	public IntegerProperty getRoomPriceProperty() {
 		return roomPriceProperty;
-	}
-	
-	public int getRoomPrice() {
-		return roomPriceProperty.get();
 	}
 	
 	public void setRoomState(RoomState roomState) {
 		this.roomStateProperty.set(ROOM_STATE[roomState.ordinal()]);
 	}
 	
-	public StringProperty roomStateProperty() {
+	public StringProperty getRoomStateProperty() {
 		return roomStateProperty;
-	}
-	
-	public String getRoomState() {
-		return roomStateProperty.get();
 	}
 	
 	/**
@@ -105,6 +89,11 @@ public class RoomVO {
 		this.type = type;
 		this.price = price;
 		this.condition = condition;
+		
+		setRoomNumber(roomNumber);
+		setRoomType(type);
+		setRoomPrice(price);
+		setRoomState(condition);
 	}
 
 	public RoomVO(RoomPO info) {

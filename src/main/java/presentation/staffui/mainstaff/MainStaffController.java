@@ -3,6 +3,7 @@ package presentation.staffui.mainstaff;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
+import util.exception.NetException;
+import vo.user.StaffVO;
 
 public class MainStaffController implements Initializable{
 
@@ -38,6 +42,8 @@ public class MainStaffController implements Initializable{
 
     @FXML
     private Button promotion;
+    
+    private StaffVO staff;
     
     //酒店促销策略
     private static URL HOTEL_PROMOTION_FXML;
@@ -72,6 +78,14 @@ public class MainStaffController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			staff = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID());
+			staffID.setText(staff.id);
+			staffName.setText(staff.name);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			e.printStackTrace();
+		}
 	}
     
     @FXML

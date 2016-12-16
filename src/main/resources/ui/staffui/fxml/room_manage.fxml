@@ -54,12 +54,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="room_table" layoutX="225.0" layoutY="235.0" prefHeight="240.0" prefWidth="400.0">
+      <TableView fx:id="room_list" layoutX="225.0" layoutY="235.0" prefHeight="240.0" prefWidth="400.0">
          <columns>
-            <TableColumn prefWidth="100.0" sortable="false" text="房间号" />
-            <TableColumn prefWidth="100.0" sortable="false" text="房间类型" />
-            <TableColumn prefWidth="100.0" text="价格" />
-            <TableColumn prefWidth="100.0" sortable="false" text="状态" />
+            <TableColumn fx:id="room_number" prefWidth="100.0" text="房间号" />
+            <TableColumn fx:id="room_type" prefWidth="100.0" text="房间类型" />
+            <TableColumn fx:id="room_price" prefWidth="100.0" text="价格" />
+            <TableColumn fx:id="room_state" prefWidth="100.0" text="状态" />
          </columns>
       </TableView>
       <Label layoutX="250.0" layoutY="165.0" text="房间号:">

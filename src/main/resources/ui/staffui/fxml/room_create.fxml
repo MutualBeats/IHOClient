@@ -19,11 +19,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView layoutX="90.0" layoutY="144.0" prefHeight="200.0" prefWidth="300.0">
+            <TableView fx:id="import_room_list" editable="true" layoutX="90.0" layoutY="144.0" prefHeight="200.0" prefWidth="300.0">
               <columns>
-                <TableColumn prefWidth="100.0" text="房间号" />
-                <TableColumn prefWidth="100.0" text="房间类型" />
-                  <TableColumn prefWidth="100.0" text="房间价格" />
+                <TableColumn fx:id="room_number" prefWidth="100.0" sortable="false" text="房间号" />
+                <TableColumn fx:id="room_type" prefWidth="100.0" sortable="false" text="房间类型" />
+                  <TableColumn fx:id="room_price" prefWidth="100.0" sortable="false" text="房间价格" />
               </columns>
             </TableView>
          </children></AnchorPane>

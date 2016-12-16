@@ -38,15 +38,14 @@
       <Label layoutX="120.0" layoutY="343.0" text="酒店星级:" />
       <Label layoutX="120.0" layoutY="393.0" text="酒店评分:" />
       <TextField fx:id="hotel_id" disable="true" editable="false" layoutX="260.0" layoutY="65.0" prefWidth="150.0" />
-      <TextField fx:id="hotel_name" layoutX="260.0" layoutY="105.0" prefWidth="150.0" />
-      <TextArea fx:id="hotel_address" layoutX="260.0" layoutY="250.0" prefHeight="70.0" prefWidth="170.0" />
+      <TextField fx:id="hotel_name" layoutX="260.0" layoutY="105.0" onMouseClicked="#hotelNameModify" prefWidth="150.0" />
+      <TextArea fx:id="hotel_address" layoutX="260.0" layoutY="250.0" onMouseClicked="#hotelAdressModify" prefHeight="70.0" prefWidth="170.0" />
       <TextField fx:id="hotel_star" disable="true" editable="false" layoutX="260.0" layoutY="335.0" prefWidth="150.0" />
       <TextField fx:id="hotel_score" disable="true" editable="false" layoutX="260.0" layoutY="385.0" prefWidth="150.0" />
       <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="110.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="250.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
-      <Label fx:id="star_warning" alignment="TOP_LEFT" layoutX="445.0" layoutY="335.0" prefHeight="50.0" prefWidth="155.0" text="Label" textFill="#e40c0c" />
       <ComboBox fx:id="hotel_province" layoutX="165.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="hotel_field" layoutX="445.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="hotel_district" layoutX="445.0" layoutY="205.0" prefHeight="27.0" prefWidth="150.0" />
       <Label layoutX="348.0" layoutY="164.0" text="酒店所属市 :" />
       <Label layoutX="60.0" layoutY="210.0" text="酒店所属县 :" />
       <ComboBox fx:id="hotel_city" layoutX="445.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />
