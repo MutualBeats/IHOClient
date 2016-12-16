@@ -3,8 +3,6 @@ package presentation.clientui.maintainmessage;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
@@ -12,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
+import presentation.bundle.CreditListBundle;
 import presentation.manageui.check.ClientInformationController;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
@@ -77,30 +76,5 @@ public class MaintainMessageController extends ClientInformationController {
 //		type.setText(info.credit + "");
 //	}
 //	
-	class CreditListBundle extends ResourceBundle {
-
-		private ArrayList<CreditVO> credit_record;
-
-		private final static String RECORD = "credit";
-
-		public CreditListBundle(ArrayList<CreditVO> credit_record) {
-			super();
-			this.credit_record = credit_record;
-		}
-
-		@Override
-		protected Object handleGetObject(String key) {
-			if (RECORD.equals(key)) {
-				return credit_record;
-			}
-			return null;
-		}
-
-		@Override
-		public Enumeration<String> getKeys() {
-			return null;
-		}
-
-	}
 
 }

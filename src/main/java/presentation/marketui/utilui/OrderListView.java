@@ -21,7 +21,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
-import presentation.utilcontroller.OrderInfoBundle;
+import presentation.bundle.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
 import vo.order.OrderVO;
 import vo.user.BaseVO;

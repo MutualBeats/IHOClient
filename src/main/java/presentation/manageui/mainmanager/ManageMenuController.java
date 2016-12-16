@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
-import presentation.manageui.change.ManageIDInputHandle;
+import presentation.bundle.ManageIDInputHandle;
 import presentation.utilui.WindowGrab;
 
 public class ManageMenuController {

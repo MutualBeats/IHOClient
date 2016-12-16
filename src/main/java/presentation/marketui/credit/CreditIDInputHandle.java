@@ -5,7 +5,7 @@ import java.net.URL;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.stage.Window;
-import presentation.utilcontroller.InformationBundle;
+import presentation.bundle.InformationBundle;
 import presentation.utilcontroller.ResultHandle;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;

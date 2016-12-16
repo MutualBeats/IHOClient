@@ -20,8 +20,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import presentation.bundle.InformationBundle;
 import presentation.utilcontroller.Confirm;
-import presentation.utilcontroller.InformationBundle;
 import presentation.utilcontroller.ResultHandle;
 
 /**

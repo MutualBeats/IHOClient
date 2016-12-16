@@ -1,4 +1,4 @@
-package presentation.manageui.change;
+package presentation.bundle;
 
 import java.rmi.RemoteException;
 

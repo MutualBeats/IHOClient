@@ -16,6 +16,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import vo.hotel.HotelVO;
 
@@ -72,7 +74,13 @@ public class HistoryController implements Initializable{
 
 	@FXML
 	void info_look(ActionEvent event) {
-		// TODO : 
+		Window window = WindowGrab.getWindow(event);
+		if(CheckUtil.checkSelect(hotel_list)){
+			HotelVO hotel = hotel_list.getSelectionModel().getSelectedItem();
+//			HotelI
+		} else {
+			WindowGrab.startNoticeWindow(window, "请选择你要查看的酒店信息");
+		}
 	}
 
 	@FXML

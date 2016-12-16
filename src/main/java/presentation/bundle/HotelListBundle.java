@@ -1,4 +1,4 @@
-package presentation.clientui.searchhotel;
+package presentation.bundle;
 
 import java.util.ArrayList;
 import java.util.Enumeration;

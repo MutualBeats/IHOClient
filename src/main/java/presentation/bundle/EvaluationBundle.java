@@ -1,4 +1,4 @@
-package presentation.clientui.browseorder;
+package presentation.bundle;
 
 import java.util.Enumeration;
 import java.util.ResourceBundle;
