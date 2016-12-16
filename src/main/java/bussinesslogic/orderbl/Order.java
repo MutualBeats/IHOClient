@@ -265,7 +265,7 @@ public class Order {
 
 		return ResultMessage_Order.Put_Up_Successful;
 	}
-	
+
 	public ResultMessage_Order appealOrder(String orderID, boolean all) {
 		// TODO 申诉订单 未测试
 		try {
@@ -275,24 +275,24 @@ public class Order {
 			// 错误：订单不为异常状态，不可补登记执行
 			if (!orderPO.getOrderState().equals(OrderState.Exception))
 				return ResultMessage_Order.Order_State_Error;
-			
+
 			// 申诉订单（改变状态为已撤销，记录撤销时间）
 			order_data_service.appealOrder(orderID);
-			
+
 			// 信用值处理
 			checkClient();
 			ClientVO clientVO = client.getClientInfo(orderPO.getClientID());
-			
+
 			int changeValue = (int) orderPO.getValue();
 			changeValue = all ? changeValue : changeValue / 2;
 			int newCredit = clientVO.credit + changeValue;
-			
+
 			CreditVO creditVO = new CreditVO(orderPO.getClientID(), Time.getCurrentTime(), changeValue, newCredit,
 					CreditChangeAction.AppealOrder, orderID);
 
 			checkCredit();
 			credit.creditUpdate(creditVO);
-			
+
 		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
@@ -368,13 +368,13 @@ public class Order {
 
 		return orderVOList;
 	}
-	
+
 	public ResultMessage_Order orderEvaluate(String orderID) {
 		try {
 			ResultMessage_Order result = order_data_service.orderEvaluate(orderID);
-			if(result == ResultMessage_Order.Evaluate_Successful) {
-				for(OrderVO vo : finished_cache) {
-					if(vo.orderID.equals(orderID)) {
+			if (result == ResultMessage_Order.Evaluate_Successful) {
+				for (OrderVO vo : finished_cache) {
+					if (vo.orderID.equals(orderID)) {
 						vo.setEvaluationState(true);
 					}
 				}
@@ -394,7 +394,10 @@ public class Order {
 
 	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException {
 		checkCacheAndLoad(clientID);
+
 		switch (state) {
+		case All:
+			return totalList_cache;
 		case Unexecuted:
 			return unexcute_cache;
 		case Finished:
@@ -411,6 +414,7 @@ public class Order {
 	private void checkCacheAndLoad(String clientID) throws NetException {
 		if (totalList_cache == null) {
 			queryUserOrder(clientID);
+			System.out.println("ORDER");
 		}
 	}
 
@@ -434,7 +438,7 @@ public class Order {
 		try {
 			orderPOList = order_data_service.findByUser(clientID);
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new NetException();
 		}
 
@@ -478,10 +482,10 @@ public class Order {
 
 		return orderVOList;
 	}
-	
+
 	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException {
 		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-		
+
 		ArrayList<OrderPO> orderPOList;
 		try {
 			orderPOList = order_data_service.findAbnormalOrder();
@@ -489,12 +493,12 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
+
 		for (OrderPO orderPO : orderPOList) {
 			orderVOList.add(new OrderVO(orderPO));
 		}
 
-		return orderVOList;	
+		return orderVOList;
 	}
 
 	/**

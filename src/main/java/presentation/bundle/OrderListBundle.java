@@ -18,22 +18,29 @@ import vo.order.OrderVO;
 public class OrderListBundle extends ResourceBundle {
 
 	private ArrayList<OrderVO> total_list;
-	private ArrayList<OrderVO> executed_list;
+	private ArrayList<OrderVO> finish_list;
 	private ArrayList<OrderVO> unexecute_list;
 	private ArrayList<OrderVO> revoked_list;
 	private ArrayList<OrderVO> exception_list;
 
 	private final static String TOTAL = "total";
-	private final static String EXE = "execute";
+	private final static String FINISH = "finish";
 	private final static String UN_EXE = "unexecute";
 	private final static String REVOKE = "revoked";
 	private final static String EXCEPTION = "exception";
 
-	public OrderListBundle(ArrayList<OrderVO> total_list, ArrayList<OrderVO> executed_list,
+	/**
+	 * @param total_list
+	 * @param finish_list
+	 * @param unexecute_list
+	 * @param revoked_list
+	 * @param exception_list
+	 */
+	public OrderListBundle(ArrayList<OrderVO> total_list, ArrayList<OrderVO> finish_list,
 			ArrayList<OrderVO> unexecute_list, ArrayList<OrderVO> revoked_list, ArrayList<OrderVO> exception_list) {
 		super();
 		this.total_list = total_list;
-		this.executed_list = executed_list;
+		this.finish_list = finish_list;
 		this.unexecute_list = unexecute_list;
 		this.revoked_list = revoked_list;
 		this.exception_list = exception_list;
@@ -43,8 +50,8 @@ public class OrderListBundle extends ResourceBundle {
 	protected Object handleGetObject(String key) {
 		if (TOTAL.equals(key)) {
 			return total_list;
-		} else if (EXE.equals(key)) {
-			return executed_list;
+		} else if (FINISH.equals(key)) {
+			return finish_list;
 		} else if (UN_EXE.equals(key)) {
 			return unexecute_list;
 		} else if (REVOKE.equals(key)) {

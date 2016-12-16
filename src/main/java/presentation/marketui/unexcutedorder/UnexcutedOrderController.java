@@ -55,17 +55,13 @@ public class UnexcutedOrderController extends OrderListView{
     @FXML
     private TableColumn<OrderVO,String> hotelname;
 
-    private ObservableList<OrderVO> unexecute_orderlist=FXCollections.observableArrayList();
     
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
 		ArrayList<OrderVO> unexecute_order=(ArrayList<OrderVO>) resources.getObject("unexecuted");
-		unexecute_orderlist.addAll(unexecute_order);
-		
-		order_list.setItems(unexecute_orderlist);
-		
+		order_list.getItems().addAll(unexecute_order);
 		initColumn();
 	}
 	

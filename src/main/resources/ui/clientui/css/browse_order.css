@@ -35,17 +35,17 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/all_order_hover.png");
 }
 
-#unusual_order{
+#exception_order{
 	-fx-background-image: url("file:src/main/resources/image/client/unusual_order.png");
 }
-#unusual_order:hover{
+#exception_order:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/unusual_order_hover.png");
 }
 
-#unexecuted_order{
+#finished_order{
 	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order.png");
 }
-#unexecuted_order:hover{
+#finished_order:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order_hover.png");
 }
 
@@ -81,13 +81,5 @@ and open the template in the editor.
 }
 
 
-
-#return{
-	-fx-background-image: url("file:src/main/resources/image/client/return.png");
-}
-
-#return:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
-}
 
 

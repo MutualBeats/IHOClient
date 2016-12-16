@@ -21,6 +21,7 @@ public class CreditController implements Initializable{
     @FXML
     private Button cancel;
     
+    @FXML
     private TableView<CreditVO> credit_list;
     
     @FXML

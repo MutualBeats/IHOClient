@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import config.urlconfig.ClientUIURLConfig;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,7 +72,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 	private Label title;
 
 	@FXML
-	private Button executed_order;
+	private Button finished_order;
 
 	@FXML
 	private Button revoked_order;
@@ -106,7 +107,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 	}
 
 	private ObservableList<OrderVO> total_list;
-	private ObservableList<OrderVO> executed_list;
+	private ObservableList<OrderVO> finished_list;
 	private ObservableList<OrderVO> unexecuted_list;
 	private ObservableList<OrderVO> revoked_list;
 	private ObservableList<OrderVO> exception_list;
@@ -116,12 +117,19 @@ public class BrowseOrderController implements Initializable, Confirm {
 	public void initialize(URL location, ResourceBundle resources) {
 		// Initialize order list
 		ArrayList<OrderVO> total = (ArrayList<OrderVO>) resources.getObject("total");
-		ArrayList<OrderVO> executed = (ArrayList<OrderVO>) resources.getObject("excuted");
-		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecuted");
+		ArrayList<OrderVO> finish = (ArrayList<OrderVO>) resources.getObject("finish");
+		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecute");
 		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
 		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
+		
+		total_list = FXCollections.observableArrayList();
+		finished_list = FXCollections.observableArrayList();
+		unexecuted_list = FXCollections.observableArrayList();
+		revoked_list = FXCollections.observableArrayList();
+		exception_list = FXCollections.observableArrayList();
+		
 		total_list.addAll(total);
-		executed_list.addAll(executed);
+		finished_list.addAll(finish);
 		unexecuted_list.addAll(unexecuted);
 		revoked_list.addAll(revoked);
 		exception_list.addAll(exception);
@@ -177,7 +185,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 		hideRevoke();
 		evaluate.setVisible(true);
 		evaluate.setDisable(false);
-		order_list.setItems(executed_list);
+		order_list.setItems(finished_list);
 	}
 
 	@FXML

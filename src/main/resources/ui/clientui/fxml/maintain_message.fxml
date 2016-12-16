@@ -17,8 +17,8 @@
 		<Text layoutX="33.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
 		<TextField fx:id="name" editable="false" layoutX="118.0" layoutY="100.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
 		<TextField fx:id="phone" editable="false" layoutX="118.0" layoutY="140.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
-		<Button fx:id="cancel" layoutX="278.0" layoutY="423.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="返回" />
-		<Button fx:id="change" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#change" prefHeight="30.0" prefWidth="80.0" text="修改" />
+		<Button fx:id="cancel" layoutX="294.0" layoutY="423.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" />
+		<Button fx:id="change" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="65.0" />
 		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="97.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
 		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="140.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
       <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
@@ -28,10 +28,11 @@
       <Label fx:id="user_name" layoutX="118.0" layoutY="60.0" prefHeight="25.0" prefWidth="170.0" />
       <Label fx:id="member_type" layoutX="118.0" layoutY="180.0" prefHeight="25.0" prefWidth="170.0" />
       <Label fx:id="member_level" layoutX="118.0" layoutY="220.0" prefHeight="25.0" prefWidth="170.0" />
-      <Label fx:id="member_info" layoutX="118.0" layoutY="260.0" prefHeight="60.0" prefWidth="170.0" />
+      <Label fx:id="member_info" alignment="TOP_LEFT" layoutX="118.0" layoutY="260.0" prefHeight="60.0" prefWidth="170.0" />
       <Label fx:id="credit" layoutX="118.0" layoutY="336.0" prefHeight="25.0" prefWidth="170.0" />
       <Label fx:id="type" layoutX="118.0" layoutY="374.0" prefHeight="25.0" prefWidth="170.0" />
 		<Button fx:id="credit_history" layoutX="339.0" layoutY="336.0" mnemonicParsing="false" onAction="#credit_history" prefWidth="90.0" />
+      <Button fx:id="confirm" disable="true" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
 		
 	</children>
 </AnchorPane>

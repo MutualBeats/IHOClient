@@ -137,12 +137,14 @@ public class MainClientController {
 			return;
 		}
 		try {
+			System.out.println(client_id);
 			ArrayList<OrderVO> total_list = service.queryUserOrder(client_id, OrderState.All);
-			ArrayList<OrderVO> executed_list = service.queryUserOrder(client_id, OrderState.Execute);
+			ArrayList<OrderVO> finish_list = service.queryUserOrder(client_id, OrderState.Finished);
 			ArrayList<OrderVO> unexecute_list = service.queryUserOrder(client_id, OrderState.Unexecuted);
 			ArrayList<OrderVO> revoked_list = service.queryUserOrder(client_id, OrderState.Canceled);
 			ArrayList<OrderVO> exception_list = service.queryUserOrder(client_id, OrderState.Exception);
-			ResourceBundle bundle = new OrderListBundle(total_list, executed_list, unexecute_list, revoked_list, exception_list);
+		
+			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
 			WindowGrab.changeSceneWithBundle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
@@ -187,6 +189,7 @@ public class MainClientController {
 		Window window = WindowGrab.getWindow(event);
 		try {
 			ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance().queryUserOrder(UserCache.getID(), OrderState.All);
+			System.out.println("Size" + vos.size());
 			Map<String, String> hotel_ids = new HashMap<>();
 			ArrayList<HotelVO> hotel_list = new ArrayList<>();
 			for(OrderVO each : vos) {

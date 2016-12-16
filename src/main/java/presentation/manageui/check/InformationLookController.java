@@ -38,6 +38,9 @@ public abstract class InformationLookController implements Initializable, Confir
 	protected Label type;
 
 	@FXML
+	protected Button confirm;
+
+	@FXML
 	Label phone_warning;
 
 	@FXML
@@ -58,10 +61,13 @@ public abstract class InformationLookController implements Initializable, Confir
 
 	@FXML
 	void change(ActionEvent event) {
-		if (!modify_state) {
-			// 进入修改状态
-			toModifyState();
-		} else {
+		// 进入修改状态
+		toModifyState();
+	}
+
+	@FXML
+	void confirm(ActionEvent event) {
+		if (checkformatter()) {
 			// 修改确认
 			Window window = WindowGrab.getWindow(event);
 			WindowGrab.startModifyConfirmWindow(window, this);
@@ -85,14 +91,20 @@ public abstract class InformationLookController implements Initializable, Confir
 		modify_state = true;
 		name.setEditable(true);
 		phone.setEditable(true);
-		change.setText("确认");
+		change.setVisible(false);
+		change.setDisable(true);
+		confirm.setVisible(true);
+		confirm.setDisable(false);
 	}
 
 	protected void toInfoState() {
 		modify_state = false;
 		name.setEditable(false);
 		phone.setEditable(false);
-		change.setText("修改");
+		change.setVisible(true);
+		change.setDisable(false);
+		confirm.setVisible(false);
+		confirm.setDisable(true);
 	}
 
 	protected boolean checkformatter() {
