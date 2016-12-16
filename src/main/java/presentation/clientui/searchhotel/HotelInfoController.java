@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import presentation.utilui.WindowGrab;
 import vo.order.OrderVO;
 
-public class HotelMessageController implements Initializable {
+public class HotelInfoController implements Initializable {
 
 	@FXML
 	private TableColumn<OrderVO, String> make_time;

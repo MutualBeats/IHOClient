@@ -8,8 +8,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogic.orderbl.Order;
-import bussinesslogic.userbl.client.Client;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -213,8 +211,5 @@ public class MainClientController {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
-		
-		// Stage stage=WindowGrab.getStage(0);
-		// stage.setTitle("历史记录");
 	}
 }
