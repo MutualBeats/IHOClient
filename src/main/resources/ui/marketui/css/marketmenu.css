@@ -31,11 +31,11 @@
 	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_hover.png");
 }
 
-#unexcuted_order{
-	-fx-background-image:url("file:src/main/resources/image/market/unexcuted_order.png");	
+#unexecuted_order{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order.png");	
 }
-#unexcuted_order:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/unexcuted_order_hover.png");
+#unexecuted_order:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_hover.png");
 }
 
 #credit{

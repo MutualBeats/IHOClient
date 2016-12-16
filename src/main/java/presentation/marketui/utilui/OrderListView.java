@@ -96,7 +96,7 @@ public abstract class OrderListView implements Initializable {
 			// TODO : the reach of hotel name is waiting to check.
 			String hotel_name = hotelname.getCellData(model.getSelectedIndex());
 			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
-
+			
 			WindowGrab.startWindowWithBundle(window, "订单详情", ORDER_INFO_FXML, ORDER_INFO_CSS, bundle);
 			// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
 		}

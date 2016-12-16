@@ -10,6 +10,6 @@ and open the template in the editor.
 .root{
     -fx-background-image: url("file:src/main/resources/image/market/menubackground.jpg");      
 }
-#unexcuted_order_title{
-	-fx-background-image: url("file:src/main/resources/image/market/unexcuted_order_title.png"); 
+#unexecuted_order_title{
+	-fx-background-image: url("file:src/main/resources/image/market/unexecuted_order_title.png"); 
 }

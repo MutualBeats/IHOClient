@@ -3,15 +3,22 @@ package presentation.marketui.mainmarket;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import presentation.bundle.OrderInfoBundle;
+import presentation.bundle.SingleOrderListBundle;
 import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
+import vo.order.OrderVO;
 
 public class MainMarketController {
 
@@ -19,7 +26,7 @@ public class MainMarketController {
     private Button web_promotion;
 
     @FXML
-    private Button unexcuted_order;
+    private Button unexecuted_order;
 
     @FXML
     private Label staffName;
@@ -39,8 +46,6 @@ public class MainMarketController {
     @FXML
     private Label staffID;
 
-    private static URL CREDIT_FXML;
-    private static URL CREDIT_CSS;
     
     private static URL WEB_PROMOTION_FXML;
     private static URL WEB_PROMOTION_CSS;
@@ -53,17 +58,14 @@ public class MainMarketController {
     
     static{
     	try {
-    		CREDIT_FXML=new URL("file:src/main/resources/ui/marketui/fxml/credit.fxml");
-    		CREDIT_CSS=new URL("file:src/main/resources/ui/marketui/css/credit.css");
-    		
     		WEB_PROMOTION_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion.fxml");
     		WEB_PROMOTION_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion.css");
     		
     		UNUSUAL_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unusual_order.fxml");
     		UNUSUAL_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unusual_order.css");
     		
-    		UNEXCUTED_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unexcuted_order.fxml");
-    		UNEXCUTED_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unexcuted_order.css");
+    		UNEXCUTED_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unexecuted_order.fxml");
+    		UNEXCUTED_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unexecuted_order.css");
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -82,15 +84,31 @@ public class MainMarketController {
     }
 
     @FXML
-    void unexcuted_order(ActionEvent event) {
+    void unexecuted_order(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "查看未执行订单", UNEXCUTED_ORDER_FXML,UNEXCUTED_ORDER_CSS);
+    	ArrayList<OrderVO> order_info=null;
+		try {
+			order_info = ControllerFactory.getOrderBLServiceInstance().queryUnexecutedOrder(util.Time.getCurrentDate());
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	ResourceBundle bundle=new SingleOrderListBundle(order_info);
+    	WindowGrab.startWindowWithBundle(window, "查看未执行订单", UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, bundle);
     }
 
     @FXML
     void unusual_order(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "撤销异常订单", UNUSUAL_ORDER_FXML,UNUSUAL_ORDER_CSS);
+    	ArrayList<OrderVO> order_info=null;
+		try {
+			order_info = ControllerFactory.getOrderBLServiceInstance().queryAbnormalOrder();
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	ResourceBundle bundle=new SingleOrderListBundle(order_info);
+    	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNEXCUTED_ORDER_CSS, bundle);
     }
 
 }

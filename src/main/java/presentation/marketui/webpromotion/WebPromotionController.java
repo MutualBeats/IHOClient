@@ -8,17 +8,19 @@ package presentation.marketui.webpromotion;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import vo.promotion.PromotionVO;
 
-public class WebPromotionController implements PromotionUpdate{
+public class WebPromotionController implements PromotionUpdate,Initializable{
 
     @FXML
     private Button cancel;
@@ -76,6 +78,12 @@ public class WebPromotionController implements PromotionUpdate{
 	@Override
 	public void update(String promotionID) {
 		//获取单个并添加到对应类型表和总表中
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
     
 }

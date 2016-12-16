@@ -38,14 +38,6 @@ import vo.user.ClientVO;
 
 public class UnexcutedOrderController extends OrderListView{
 
-	@FXML
-    private Button cancel;
-
-    @FXML
-    private TextField id_text;
-
-    @FXML
-    private Button search;
 
     @FXML
     private TableColumn<OrderVO,String> user_name;
@@ -53,11 +45,6 @@ public class UnexcutedOrderController extends OrderListView{
     @FXML
     private TableColumn<OrderVO,String> contact;
 
-    @FXML
-    private Label unexcuted_order_title;
-
-    @FXML
-    private Button check;
 
     @FXML
     private TableColumn<OrderVO,String> id;
@@ -72,6 +59,7 @@ public class UnexcutedOrderController extends OrderListView{
     
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
 		ArrayList<OrderVO> unexecute_order=(ArrayList<OrderVO>) resources.getObject("unexecuted");
 		unexecute_orderlist.addAll(unexecute_order);
@@ -115,20 +103,6 @@ public class UnexcutedOrderController extends OrderListView{
 		});
 	}
 	
-    @FXML
-    void cancel(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void on_check(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void on_search(ActionEvent event) {
-    	
-    }
 
 
 

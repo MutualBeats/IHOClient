@@ -96,7 +96,7 @@ public class UnusualOrderController extends OrderListView{
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
 		 // TODO Auto-generated method stub
-		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("unusual");
+		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("exception");
 		unusual_orderlist.addAll(unusual);
 		
 		order_list.setItems(unusual_orderlist);
