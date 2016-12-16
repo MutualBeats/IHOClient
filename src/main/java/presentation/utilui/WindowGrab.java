@@ -213,14 +213,14 @@ public class WindowGrab {
 	 *            : 展示界面承载
 	 */
 	public static void changeScene(URL fxml_path, URL css_path, Scene frame) {
-		changeSceneWithBunle(fxml_path, css_path, frame, null);
+		changeSceneWithBundle(fxml_path, css_path, frame, null);
 	}
 	
 	public static void changeScene(URL fxml_path, URL css_path, Event event) {
 		changeScene(fxml_path, css_path, getScene(event));
 	}
 
-	public static void changeSceneWithBunle(URL fxml_path, URL css_path, Scene frame, ResourceBundle bundle) {
+	public static void changeSceneWithBundle(URL fxml_path, URL css_path, Scene frame, ResourceBundle bundle) {
 		Parent root = null;
 		try {
 			if (bundle == null) {

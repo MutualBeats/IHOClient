@@ -3,6 +3,8 @@ package presentation.clientui.mainclient;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -15,12 +17,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
+import presentation.bundle.HotelListBundle;
 import presentation.bundle.InformationBundle;
 import presentation.bundle.OrderListBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.order.OrderState;
+import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 import vo.user.ClientVO;
 
@@ -147,7 +151,7 @@ public class MainClientController {
 			ArrayList<OrderVO> revoked_list = service.queryUserOrder(client_id, OrderState.Canceled);
 			ArrayList<OrderVO> exception_list = service.queryUserOrder(client_id, OrderState.Exception);
 			ResourceBundle bundle = new OrderListBundle(total_list, executed_list, unexecute_list, revoked_list, exception_list);
-			WindowGrab.changeSceneWithBunle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
+			WindowGrab.changeSceneWithBundle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
 		} catch (NetException e) {
 			//
 		}
@@ -190,8 +194,26 @@ public class MainClientController {
 
 	@FXML
 	void history(ActionEvent event) {
-		Scene frame = WindowGrab.getScene(event);
-		WindowGrab.changeScene(HISTORY_FXML, HISTORY_CSS, frame);
+		Window window = WindowGrab.getWindow(event);
+		try {
+			ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance().queryUserOrder(UserCache.getID(), OrderState.All);
+			Map<String, String> hotel_ids = new HashMap<>();
+			ArrayList<HotelVO> hotel_list = new ArrayList<>();
+			for(OrderVO each : vos) {
+				String hotelID = each.hotelID;
+				if(!hotel_ids.containsKey(hotelID)) {
+					hotel_ids.put(hotelID, hotelID);
+					HotelVO hotel_info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
+					hotel_list.add(hotel_info);
+				}
+			}
+			HotelListBundle hotelListBundle = new HotelListBundle(hotel_list);
+			Scene frame = WindowGrab.getScene(event);
+			WindowGrab.changeSceneWithBundle(HISTORY_FXML, HISTORY_CSS, frame, hotelListBundle);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+		
 		// Stage stage=WindowGrab.getStage(0);
 		// stage.setTitle("历史记录");
 	}
