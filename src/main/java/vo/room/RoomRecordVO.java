@@ -50,16 +50,32 @@ public class RoomRecordVO {
 	 * 订单号
 	 */
 	public String order_id;
+	
+	/**
+	 * 房间所属酒店id
+	 */
+	public String hotelID;
+	
+	/**
+	 * 房间号
+	 */
+	public String roomNumber;
 
-	public RoomRecordVO(String checkInDate, String estimateCheckOutDate, String order_id) {
+	public RoomRecordVO(String checkInDate, String estimateCheckOutDate, String order_id, String hotelID,
+			String roomNumber) {
 		super();
 		this.checkInDate = checkInDate;
 		this.estimateCheckOutDate = estimateCheckOutDate;
 		this.order_id = order_id;
+		this.hotelID = hotelID;
+		this.roomNumber = roomNumber;
 		
+
 		setOrderID(order_id);
 		setCheckInDate(checkInDate);
 		setCheckOutDate(estimateCheckOutDate);
 	}
+	
+
 	
 }

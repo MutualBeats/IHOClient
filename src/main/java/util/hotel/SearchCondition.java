@@ -6,6 +6,8 @@ package util.hotel;
 
 import java.io.Serializable;
 
+import util.room.RoomType;
+
 public class SearchCondition implements Serializable{
 	/**
 	 * version id
@@ -35,6 +37,21 @@ public class SearchCondition implements Serializable{
 	 * 酒店评分
 	 */
 	public double score;
+	
+	/**
+	 * 房间最低价
+	 */
+	public int min_price;
+	
+	/**
+	 * 房间最高价
+	 */
+	public int max_price;
+	
+	/**
+	 * 房间类型
+	 */
+	public RoomType type;
 	
 	/**
 	 * 构造方法
