@@ -10,16 +10,10 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.MemberDiscountController">
    <children>
       <Accordion layoutY="115.0" />
-      <Text layoutX="110.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="策略类型 :" />
-      <Text layoutX="110.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="策略名称 :" />
       <Button fx:id="confirm" layoutX="135.0" layoutY="425.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
       <Button fx:id="cancel" layoutX="265.0" layoutY="425.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
-      <Text layoutX="225.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员商圈策略">
-         <font>
-            <Font size="14.0" />
-         </font></Text>
-      <TextField layoutX="225.0" layoutY="100.0" prefHeight="25.0" prefWidth="140.0" />
-      <Label layoutX="55.0" layoutY="145.0" text="选择商圈 :">
+      <TextField layoutX="225.0" layoutY="65.0" prefHeight="25.0" prefWidth="140.0" />
+      <Label layoutX="55.0" layoutY="150.0" text="选择商圈 :">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -28,12 +22,22 @@
       <ComboBox layoutX="250.0" layoutY="175.0" prefWidth="65.0" promptText="县" />
       <ComboBox layoutX="340.0" layoutY="175.0" prefWidth="75.0" promptText="商圈" />
       <Label layoutX="55.0" layoutY="215.0" text="会员等级及其对应折扣 :" />
-      <TreeTableView layoutX="80.0" layoutY="240.0" prefHeight="160.0" prefWidth="330.0">
+      <TableView fx:id="discount_list" layoutX="120.0" layoutY="240.0" prefHeight="160.0" prefWidth="240.0">
         <columns>
-          <TreeTableColumn prefWidth="110.0" text="起始VIP等级" />
-          <TreeTableColumn prefWidth="110.0" text="终止VIP等级" />
-            <TreeTableColumn prefWidth="110.0" text="对应折扣" />
+          <TableColumn prefWidth="120.0" text="VIP等级" />
+          <TableColumn fx:id="discount" prefWidth="120.0" text="折扣" />
         </columns>
-      </TreeTableView>
+      </TableView>
+      <Label layoutX="110.0" layoutY="75.0" text="策略名称 ：" />
+      <Label layoutX="110.0" layoutY="47.0" text="策略类型 ：" />
+      <Label layoutX="233.0" layoutY="46.0" text="会员商圈策略" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="110.0" layoutY="100.0" text="开始时间 ：" />
+      <Label layoutX="110.0" layoutY="125.0" text="结束时间 ：" />
+      <DatePicker layoutX="225.0" layoutY="95.0" prefHeight="20.0" prefWidth="150.0" />
+      <DatePicker layoutX="225.0" layoutY="125.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

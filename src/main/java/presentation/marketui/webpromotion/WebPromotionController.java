@@ -16,12 +16,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import vo.promotion.PromotionVO;
 
 public class WebPromotionController implements PromotionUpdate,Initializable{
+	
+	@FXML
+    private MenuItem time_discount;
 
+    @FXML
+    private MenuItem member_discount;
+    
     @FXML
     private Button cancel;
 

@@ -10,13 +10,13 @@ public interface PromotionBLService {
 	/**
 	 * 添加酒店促销策略
 	 * @param vo
-	 * @return ResultMessage
+	 * @return Id
 	 */
 	public String addhotelPromotion (PromotionVO vo) throws NetException;
 	/**
 	 * 添加网站促销策略
 	 * @param vo
-	 * @return ResultMessage
+	 * @return promotion_ID
 	 */
 	public String addWebPromotion (PromotionVO vo) throws NetException;
 	/**
