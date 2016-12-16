@@ -44,12 +44,23 @@ public interface RoomBLService {
 	 */
 	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws NetException;
 	/**
-	 * 客户入住
+	 * 添加线下房间记录
+	 * @param roomRecord
+	 * @return
+	 */
+	public ResultMessage_Room addRecord(RoomRecordVO roomRecord);
+	/**
+	 * 客户线下入住
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return ResultMessage
 	 */
 	public ResultMessage_Room checkIn(String hotelID, String roomNumber);
-
 	/**
-	 * 客户退房
+	 * 客户线下退房
+	 * @param hotelID
+	 * @param roomNumber
+	 * @return ResultMessage
 	 */
 	public ResultMessage_Room checkOut(String hotelID, String roomNumber);
 }

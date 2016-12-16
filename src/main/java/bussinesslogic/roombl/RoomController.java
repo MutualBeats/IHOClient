@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import bussinesslogic.orderbl.RoomUpdate;
 import bussinesslogicservice.roomblservice.RoomBLService;
-import po.room.RoomRecordPO;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
@@ -37,18 +36,22 @@ public class RoomController implements RoomBLService, RoomUpdate{
 	public ArrayList<RoomVO> getRoomList(String hotelID) throws NetException {
 		return room.getRoomList(hotelID);
 	}
+	
 	@Override
 	public ArrayList<RoomRecordVO> getOrderRecord(String hotelID, String roomNumber) throws NetException {
 		return room.getOrderReord(hotelID, roomNumber);
 	}
+
 	@Override
-	public ResultMessage_Room addRecord(RoomRecordPO record) {
-		return room.addRecord(record);
+	public ResultMessage_Room addRecord(RoomRecordVO roomRecord) {
+		return room.addRecord(roomRecord);
 	}
+	
 	@Override
 	public ResultMessage_Room deleteRecord(String orderID) {
 		return room.deleteRecord(orderID);
 	}
+	
 	@Override
 	public RoomVO getRoomInfo(String hotelID, String roomNumber ) throws NetException {
 		return room.getRoomInfo(hotelID, roomNumber);

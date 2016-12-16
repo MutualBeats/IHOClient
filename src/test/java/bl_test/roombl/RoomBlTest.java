@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.roombl.RoomController;
-import po.room.RoomRecordPO;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import util.room.RoomState;
@@ -89,17 +88,15 @@ public class RoomBlTest {
 	public void testRecord() {
 		ResultMessage_Room result = null;
 		result = controller
-				.addRecord(new RoomRecordPO("00000001", "3B323", "0000000000000004"
-						, "2016/11/29", "2016/11/30"));
+				.addRecord(new RoomRecordVO("2016/11/29", "2016/11/30", "0000000000000004", "00000001", "3B323"));
 		if (!result.equals(ResultMessage_Room.Net_Error)) {
 			assertEquals(result, ResultMessage_Room.Record_Add_Successful);
 			result = controller.deleteRecord("0000000000000004");
 			if (!result.equals(ResultMessage_Room.Net_Error)) {
 				assertEquals(result, ResultMessage_Room.Record_Delete_Successful);
-				result = controller
-						.addRecord(new RoomRecordPO("00000001", "3B323", "0000000000000005"
-								, "2016/11/30", "2016/11/32"));
-				if(!result.equals(ResultMessage_Room.Net_Error)) {
+				result = controller.addRecord(
+						new RoomRecordVO("2016/11/30", "2016/11/32", "0000000000000005", "00000001", "3B323"));
+				if (!result.equals(ResultMessage_Room.Net_Error)) {
 					assertEquals(result, ResultMessage_Room.Record_Add_Successful);
 					result = controller.deleteRecord("0000000000000005");
 					assertEquals(ResultMessage_Room.Record_Delete_Successful, result);

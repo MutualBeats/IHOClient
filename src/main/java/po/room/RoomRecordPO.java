@@ -6,6 +6,8 @@ package po.room;
 
 import java.io.Serializable;
 
+import vo.room.RoomRecordVO;
+
 public class RoomRecordPO implements Serializable {
 	/**
 	 * version id
@@ -55,6 +57,10 @@ public class RoomRecordPO implements Serializable {
 	}
 
 	public RoomRecordPO() {
+	}
+	
+	public RoomRecordPO(RoomRecordVO record) {
+		this(record.hotelID, record.roomNumber, record.order_id, record.checkInDate, record.estimateCheckOutDate);
 	}
 
 	public String getHotelID() {

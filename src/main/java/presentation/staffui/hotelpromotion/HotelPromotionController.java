@@ -4,15 +4,9 @@
  * and open the template in the editor.
  */
 package presentation.staffui.hotelpromotion;
-import java.awt.Desktop.Action;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogicservice.promotionblservice.PromotionBLService;
-import bussinesslogicservice.roomblservice.RoomBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,15 +15,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
-import presentation.staffui.roommanage.RoomData;
 import presentation.utilui.WindowGrab;
-import util.exception.NetException;
-import vo.promotion.PromotionVO;
-import vo.room.RoomVO;
 
 public class HotelPromotionController implements Initializable {
 	

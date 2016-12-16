@@ -2,7 +2,6 @@ package bussinesslogic.orderbl;
 
 import java.util.ArrayList;
 
-import po.room.RoomRecordPO;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
@@ -11,7 +10,7 @@ public interface RoomUpdate {
 	
 	public int getRoomPrice(String hotelID, String roomNumber) throws NetException;
 	
-	public ResultMessage_Room addRecord(RoomRecordPO record);
+	public ResultMessage_Room addRecord(RoomRecordVO record);
 
 	public ResultMessage_Room deleteRecord(String orderID);
 	

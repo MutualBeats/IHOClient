@@ -82,7 +82,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		// TODO
+		// TODO 如何获取DatePicker
 		RoomRecordVO roomRecord;
 		
 	}

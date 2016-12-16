@@ -114,8 +114,8 @@ public class Room {
 	 * @param record
 	 * @return
 	 */
-	public ResultMessage_Room addRecord(RoomRecordPO record) {
-		return room_service.addRecord(record);
+	public ResultMessage_Room addRecord(RoomRecordVO record) {
+		return room_service.addRecord(new RoomRecordPO(record));
 	}
 
 	/**

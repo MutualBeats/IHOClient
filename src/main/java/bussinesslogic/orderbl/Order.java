@@ -11,7 +11,6 @@ import bussinesslogic.controllerfactory.ControllerFactory;
 import dataservice.orderdataservice.OrderDataService;
 import factory.datahelper.DataHelperFactory;
 import po.order.OrderPO;
-import po.room.RoomRecordPO;
 import util.Time;
 import util.credit.CreditChangeAction;
 import util.exception.NetException;
@@ -238,7 +237,7 @@ public class Order {
 			// 更新房间记录及房间状态
 			for (String roomNumber : orderPO.getRoomNumberList()) {
 				// 添加新房间记录
-				room.addRecord(new RoomRecordPO(orderPO.getHotelID(), roomNumber, orderID, checkInDate, checkOutDate));
+				room.addRecord(new RoomRecordVO(checkInDate, checkOutDate, orderID, orderPO.getHotelID(), roomNumber));
 				// 入住
 				room.onlineCheckIn(orderPO.getHotelID(), roomNumber);
 			}
@@ -658,13 +657,10 @@ public class Order {
 		// 添加房间记录
 		checkRoom();
 		for (String roomNumber : vo.roomNumberList) {
-			RoomRecordPO roomRecordPO = new RoomRecordPO();
-			roomRecordPO.setHotelID(vo.hotelID);
-			roomRecordPO.setRoomNumber(roomNumber);
-			roomRecordPO.setOrderID(orderID);
-			roomRecordPO.setCheckInDate(vo.checkInDate);
-			roomRecordPO.setEstimateCheckOutDate(vo.estimateCheckOutDate);
-			room.addRecord(roomRecordPO);
+			RoomRecordVO roomRecordVO = new RoomRecordVO(vo.checkInDate, vo.estimateCheckOutDate, orderID, vo.hotelID,
+					roomNumber);
+
+			room.addRecord(roomRecordVO);
 		}
 
 		unexcute_cache.add(orderVO);
