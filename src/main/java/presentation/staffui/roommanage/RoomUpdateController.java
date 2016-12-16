@@ -2,14 +2,29 @@ package presentation.staffui.roommanage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
-public class RoomUpdateController {
+public class RoomUpdateController implements Initializable {
+	
+	@FXML
+	private Label room_number;
+	
+	@FXML
+	private Label room_type;
+	
+	@FXML
+	private Label room_price;
+	
+	@FXML
+	private Label room_state;
 
     @FXML
     private Button cancel;
@@ -28,6 +43,11 @@ public class RoomUpdateController {
 			e.printStackTrace();
 		}
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
     
     @FXML
     void cancel(ActionEvent event) {
@@ -40,5 +60,6 @@ public class RoomUpdateController {
 		WindowGrab.startWindow(window,"确认", ROOM_UPDATE_CONFIRM_FXML,ROOM_UPDATE_CONFIRM_CSS);
   
     }
+
 
 }

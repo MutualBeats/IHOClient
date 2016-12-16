@@ -1,12 +1,12 @@
 package presentation.staffui.roommanage;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.roomblservice.RoomBLService;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,14 +66,11 @@ public class RoomCheckController implements Initializable {
     private static URL ROOM_RECORD_ADD_FXML;
     private static URL ROOM_RECORD_ADD_CSS;
     
-    static{
-    	try {
-    		ROOM_RECORD_ADD_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
-    		ROOM_RECORD_ADD_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    }
+	static {
+		// TODO 文件名字修改
+		ROOM_RECORD_ADD_FXML = StaffUIURLConfig.staff_room_update_fxml_url();
+		ROOM_RECORD_ADD_CSS = StaffUIURLConfig.staff_room_update_css_url();
+	}
     
     private RoomVO room;
     

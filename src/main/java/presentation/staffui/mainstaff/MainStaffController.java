@@ -99,15 +99,15 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void manageOrder(ActionEvent event) {
-    	Scene frame = WindowGrab.getScene(event);
-		Window window = WindowGrab.getWindowByScene(frame);
-		OrderBLService orderBLService = null;
-		try {
-			orderBLService = ControllerFactory.getOrderBLServiceInstance();
-		} catch (NetException e) {
-			e.printStackTrace();
-			return;
-		}
+//    	Scene frame = WindowGrab.getScene(event);
+//		Window window = WindowGrab.getWindowByScene(frame);
+//		OrderBLService orderBLService = null;
+//		try {
+//			orderBLService = ControllerFactory.getOrderBLServiceInstance();
+//		} catch (NetException e) {
+//			e.printStackTrace();
+//			return;
+//		}
     	Window owner = WindowGrab.getWindow(event);
     	WindowGrab.startWindow(owner, "管理订单", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
     }
