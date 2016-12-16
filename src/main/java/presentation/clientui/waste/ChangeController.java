@@ -1,4 +1,4 @@
-package presentation.clientui.maintainmessage;
+package presentation.clientui.waste;
 
 import java.net.MalformedURLException;
 import java.net.URL;

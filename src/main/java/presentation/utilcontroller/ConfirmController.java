@@ -25,8 +25,8 @@ public class ConfirmController implements Initializable{
 	
 	@FXML
 	void confirm(ActionEvent event) {
-		owner.confirm();
 		WindowGrab.closeWindow(event);
+		owner.confirm();
 	}
 
 	@FXML

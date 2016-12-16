@@ -49,7 +49,7 @@ public class MemberController implements Confirm {
 	@FXML
 	void confirm(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startModifyConfirmWindow(window, this);
+		WindowGrab.startConfirmWindow(window, this, "是否确认注册会员？");
 	}
 
 	@FXML
