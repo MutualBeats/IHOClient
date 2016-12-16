@@ -48,7 +48,7 @@ public class HotelDataTest {
 	
 	@Test
 	public void testFindHotelByCondition() {
-		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", null, 5, 4);
+		SearchCondition sc = new SearchCondition(null, "如皋市", "如城街道", null, 5, 4, );
 		Iterator<HotelPO> it = null;
 		try {
 			it = hotelDataHelper.findHotelByCondition(sc);

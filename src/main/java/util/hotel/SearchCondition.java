@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 import util.room.RoomType;
 
-public class SearchCondition implements Serializable{
+public class SearchCondition implements Serializable {
 	/**
 	 * version id
 	 */
@@ -37,33 +37,31 @@ public class SearchCondition implements Serializable{
 	 * 酒店评分
 	 */
 	public double score;
-	
+
+	/*-------------------------------------------*/
+
 	/**
 	 * 房间最低价
 	 */
 	public int min_price;
-	
+
 	/**
 	 * 房间最高价
 	 */
 	public int max_price;
-	
+
 	/**
 	 * 房间类型
 	 */
 	public RoomType type;
-	
+
 	/**
-	 * 构造方法
-	 * @param address
-	 * @param region
-	 * @param businessDistrict
-	 * @param hotelName
-	 * @param starLevel
-	 * @param score
+	 * 是否曾经预定
 	 */
+	public boolean order_before;
+
 	public SearchCondition(String address, String region, String businessDistrict, String hotelName, int starLevel,
-			double score) {
+			double score, int min_price, int max_price, RoomType type, boolean order_before) {
 		super();
 		this.address = address;
 		this.region = region;
@@ -71,6 +69,10 @@ public class SearchCondition implements Serializable{
 		this.hotelName = hotelName;
 		this.starLevel = starLevel;
 		this.score = score;
+		this.min_price = min_price;
+		this.max_price = max_price;
+		this.type = type;
+		this.order_before = order_before;
 	}
-	
+
 }
