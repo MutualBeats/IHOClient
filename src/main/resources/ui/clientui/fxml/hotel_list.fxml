@@ -19,13 +19,13 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="hotel_list" layoutX="90.0" layoutY="90.0" prefHeight="235.0" prefWidth="525.0">
+            <TableView fx:id="hotel_list" layoutX="39.0" layoutY="83.0" prefHeight="269.0" prefWidth="597.0">
                <columns>
-                  <TableColumn fx:id="name" prefWidth="165.0" text="酒店名称" />
-                  <TableColumn fx:id="province" prefWidth="90.0" text="省" />
-                  <TableColumn fx:id="city" prefWidth="90.0" text="市" />
-                  <TableColumn fx:id="field" prefWidth="90.0" text="县" />
-                  <TableColumn fx:id="group" prefWidth="90.0" text="商圈" />
+                  <TableColumn fx:id="name" editable="false" prefWidth="190.0" resizable="false" text="酒店名称" />
+                  <TableColumn fx:id="province" editable="false" prefWidth="90.0" resizable="false" text="省" />
+                  <TableColumn fx:id="city" editable="false" prefWidth="90.0" resizable="false" text="市" />
+                  <TableColumn fx:id="field" editable="false" prefWidth="90.0" resizable="false" text="县" />
+                  <TableColumn fx:id="group" editable="false" prefWidth="136.0" resizable="false" text="商圈" />
                </columns>
             </TableView>
          </children></Pane>

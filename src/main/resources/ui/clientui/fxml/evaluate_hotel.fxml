@@ -17,7 +17,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="marks" layoutX="230.0" layoutY="87.0" prefWidth="150.0" />
+      <ComboBox fx:id="marks" layoutX="230.0" layoutY="87.0" prefWidth="150.0" />
       <Label layoutX="80.0" layoutY="143.0" text="请输入您的评价 :">
          <font>
             <Font size="15.0" />

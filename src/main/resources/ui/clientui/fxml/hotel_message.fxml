@@ -32,10 +32,10 @@
       <Label layoutX="24.0" layoutY="61.0" text="酒店名称 :" />
       <TableView layoutX="7.0" layoutY="258.0" prefHeight="154.0" prefWidth="446.0">
         <columns>
-          <TableColumn prefWidth="158.0" text="订单号" />
+          <TableColumn editable="false" prefWidth="158.0" resizable="false" text="订单号" />
           <TableColumn prefWidth="106.0" text="订单生成时间" />
             <TableColumn prefWidth="107.0" text="订单完成时间" />
-            <TableColumn prefWidth="74.0" text="订单状态" />
+            <TableColumn editable="false" prefWidth="74.0" resizable="false" text="订单状态" />
         </columns>
       </TableView>
       <Button fx:id="check" layoutX="202.0" layoutY="425.0" mnemonicParsing="false" onAction="#check" prefWidth="60.0" text="查看" />
