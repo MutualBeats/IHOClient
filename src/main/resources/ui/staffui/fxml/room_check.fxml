@@ -16,10 +16,7 @@
             <Text layoutX="254.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型：" />
             <Text layoutX="63.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间价格：" />
             <Text layoutX="254.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态：" />
-            <TextField fx:id="room_number" editable="false" layoutX="137.0" layoutY="69.0" prefHeight="27.0" prefWidth="82.0" />
-            <TextField fx:id="room_price" editable="false" layoutX="137.0" layoutY="102.0" prefHeight="27.0" prefWidth="82.0" />
-            <TextField fx:id="room_type" editable="false" layoutX="332.0" layoutY="69.0" prefHeight="27.0" prefWidth="82.0" />
-            <TextField fx:id="room_state" editable="false" layoutX="332.0" layoutY="102.0" prefHeight="27.0" prefWidth="82.0" />
+            <Label fx:id="room_number" layoutX="146.0" layoutY="70.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
             <Button fx:id="cancel" layoutX="350.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
             <Button fx:id="addRecord" layoutX="55.0" layoutY="421.0" mnemonicParsing="false" onAction="#addRecord" prefHeight="27.0" prefWidth="82.0" text="添加记录" />
             <Button fx:id="checkIn" layoutX="164.0" layoutY="421.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="26.0" prefWidth="65.0" text="入住" />
@@ -37,6 +34,9 @@
                   <TableColumn fx:id="estimate_check_out_date" prefWidth="94.0" text="预计离开时间" />
                </columns>
             </TableView>
+            <Label fx:id="room_price" layoutX="146.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
+            <Label fx:id="room_type" layoutX="332.0" layoutY="70.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
+            <Label fx:id="room_state" layoutX="332.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
          </children></AnchorPane>
   </items>
 </SplitPane>

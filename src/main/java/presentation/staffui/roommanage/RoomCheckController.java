@@ -13,27 +13,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.room.RoomRecordVO;
+import vo.room.RoomVO;
 
 public class RoomCheckController implements Initializable {
 	
-	@FXML
-	private TextField room_number;
+	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
+	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
 	
 	@FXML
-	private TextField room_type;
+	private Label room_number;
 	
 	@FXML
-	private TextField room_price;
+	private Label room_type;
 	
 	@FXML
-	private TextField room_state;
+	private Label room_price;
+	
+	@FXML
+	private Label room_state;
 	
 	@FXML
 	private TableColumn<RoomRecordVO, String> order_id;
@@ -59,17 +63,19 @@ public class RoomCheckController implements Initializable {
     @FXML
     private Button cancel;
 
-    private static URL ROOM_UPDATE_FXML;
-    private static URL ROOM_UPDATE_CSS;
+    private static URL ROOM_RECORD_ADD_FXML;
+    private static URL ROOM_RECORD_ADD_CSS;
     
     static{
     	try {
-    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
-    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
+    		ROOM_RECORD_ADD_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
+    		ROOM_RECORD_ADD_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
     }
+    
+    private RoomVO room;
     
     private RoomBLService roomBLService;
     
@@ -77,18 +83,20 @@ public class RoomCheckController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO 房间信息初始化
 //		room_record_list.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
+		room = (RoomVO)resources.getObject("room");
+		room_number.setText(room.roomNumber);
+		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
+		room_price.setText("" + room.price);
+		room_state.setText(ROOM_STATE[room.condition.ordinal()]);
 		try {
-			// 房间未来记录获取
+			// 未来房间记录获取
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();
-			// TODO 具体酒店id 房间号获取
-			ArrayList<RoomRecordVO> roomRecordList = roomBLService.getOrderRecord("00000001", "3B321");
+			ArrayList<RoomRecordVO> roomRecordList = roomBLService.getOrderRecord(room.hotelID, room.roomNumber);
 			list.addAll(roomRecordList);
 			room_record_list.setItems(list);
 			initColumn();
 		} catch (NetException e) {
-			e.printStackTrace();
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 	}
@@ -102,7 +110,7 @@ public class RoomCheckController implements Initializable {
     @FXML
     void addRecord(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window,"更新客房信息", ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);
+		WindowGrab.startWindow(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS);
     }
     
     @FXML
