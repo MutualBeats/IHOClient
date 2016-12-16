@@ -2,8 +2,10 @@ package presentation.staffui.hotelmessagemanage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.ResourceBundle.Control;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.hotelblservice.HotelBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
 import util.exception.NetException;
 import vo.hotel.HotelVO;
 
@@ -71,19 +74,21 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		CONFIRM_FXML = StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url();
 		CONFIRM_CSS = StaffUIURLConfig.staff_hotel_maintain_confirm_css_url();
 	}
-	
+		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO 测试用
 		try {
-			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo("00000001");
+			String hotelID = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID()).hotelID;
+			
+			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 			String[] region = info.region.split(" ");
 			// TODO combobox操作
 			hotel_province.setValue(region[0]);
 			hotel_city.setValue(region[1]);
 			hotel_town.setValue(region[2]);
 			
-			hotel_id.setText(info.hotelID);
+			hotel_id.setText(hotelID);
 			hotel_address.setText(info.address);
 			hotel_district.setValue(info.businessDistrict);
 			hotel_name.setText(info.hotelName);
@@ -143,8 +148,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			e.printStackTrace();
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
-		// TODO 窗口重叠
-		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "修改成功");
+		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "修改成功");
 	}
 
 }

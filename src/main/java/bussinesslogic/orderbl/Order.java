@@ -478,6 +478,24 @@ public class Order {
 
 		return orderVOList;
 	}
+	
+	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException {
+		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
+		
+		ArrayList<OrderPO> orderPOList;
+		try {
+			orderPOList = order_data_service.findAbnormalOrder();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
+		
+		for (OrderPO orderPO : orderPOList) {
+			orderVOList.add(new OrderVO(orderPO));
+		}
+
+		return orderVOList;	
+	}
 
 	/**
 	 * 获得酒店订单列表

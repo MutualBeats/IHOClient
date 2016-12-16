@@ -98,12 +98,19 @@ public interface OrderDataService extends Remote{
 	 */
 	public ArrayList<OrderPO> findHotelOrder(String hotelID) throws RemoteException;
 	/**
-	 * 查找网站未执行订单
+	 * 查找网站某天未执行订单
 	 * 
 	 * @return
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderPO> findUnexecutedOrder(String date) throws RemoteException;
+	/**
+	 * 查找网站异常订单
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderPO> findAbnormalOrder() throws RemoteException;
 	/**
 	 * 更新订单为已评价状态
 	 * @param orderID

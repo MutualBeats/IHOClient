@@ -79,5 +79,9 @@ public class OrderController implements OrderBLService, OrderUpdate {
 		return order.orderEvaluate(orderID);
 	}
 
+	@Override
+	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException {
+		return order.queryAbnormalOrder();
+	}
 	
 }

@@ -3,11 +3,14 @@ package presentation.staffui.mainstaff;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bl_test.orderbl.OrderBlTest;
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.orderblservice.OrderBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -96,6 +99,15 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void manageOrder(ActionEvent event) {
+    	Scene frame = WindowGrab.getScene(event);
+		Window window = WindowGrab.getWindowByScene(frame);
+		OrderBLService orderBLService = null;
+		try {
+			orderBLService = ControllerFactory.getOrderBLServiceInstance();
+		} catch (NetException e) {
+			e.printStackTrace();
+			return;
+		}
     	Window owner = WindowGrab.getWindow(event);
     	WindowGrab.startWindow(owner, "管理订单", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
     }

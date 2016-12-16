@@ -78,7 +78,7 @@ public class RoomCheckController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO 房间信息初始化
-		
+//		room_record_list.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
 		try {
 			// 房间未来记录获取
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();

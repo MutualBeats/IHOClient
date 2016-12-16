@@ -95,6 +95,12 @@ public interface OrderBLService {
 	 * @return ArrayList
 	 */
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException;
+	/**
+	 * 获取所有异常订单
+	 * @return ArrayList
+	 * @throws NetException
+	 */
+	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException;
 	
 }
 
