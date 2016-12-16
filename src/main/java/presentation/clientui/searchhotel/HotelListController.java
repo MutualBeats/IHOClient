@@ -23,28 +23,28 @@ import util.exception.NetException;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
-public class HistoryController implements Initializable {
+public class HotelListController implements Initializable {
 
 	@FXML
-	private Button cancel;
+	private Button back;
 
 	@FXML
-	private TableView<HotelVO> hotel_list;
+	protected TableView<HotelVO> hotel_list;
 
 	@FXML
-	private TableColumn<HotelVO, String> province;
+	protected TableColumn<HotelVO, String> province;
 
 	@FXML
-	private TableColumn<HotelVO, String> field;
+	protected TableColumn<HotelVO, String> field;
 
 	@FXML
-	private TableColumn<HotelVO, String> city;
+	protected TableColumn<HotelVO, String> city;
 
 	@FXML
-	private TableColumn<HotelVO, String> name;
+	protected TableColumn<HotelVO, String> name;
 
 	@FXML
-	private TableColumn<HotelVO, String> group;
+	protected TableColumn<HotelVO, String> group;
 
 	@FXML
 	private Button info_look;
@@ -88,7 +88,7 @@ public class HistoryController implements Initializable {
 	}
 
 	@FXML
-	void cancel(ActionEvent event) {
+	void back(ActionEvent event) {
 		Scene frame = WindowGrab.getScene(event);
 		WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
 	}

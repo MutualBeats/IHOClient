@@ -1,6 +1,8 @@
 package presentation.clientui.searchhotel;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,7 +15,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Window;
+import presentation.bundle.OrderInfoBundle;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
 public class HotelInfoController implements Initializable {
@@ -37,7 +43,7 @@ public class HotelInfoController implements Initializable {
 	private ComboBox<String> hotel_field;
 
 	@FXML
-	private ComboBox<String> hotel_town;
+	private ComboBox<String> hotel_group;
 
 	@FXML
 	private ComboBox<String> hotel_city;
@@ -46,7 +52,7 @@ public class HotelInfoController implements Initializable {
 	private ComboBox<String> hotel_province;
 
 	@FXML
-	private TextField hotel_star;
+	private ComboBox<Integer> hotel_star;
 
 	@FXML
 	private TextField hotel_id;
@@ -70,26 +76,69 @@ public class HotelInfoController implements Initializable {
 	private Button check;
 
 	@FXML
-	private Button cancel;
+	private Button back;
 
-	@FXML
-	void check(ActionEvent event) {
+	private static URL CHECK_FXML;
+	private static URL CHECK_CSS;
 
+	static {
+		try {
+
+			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
+			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
-	void cancel(ActionEvent event) {
+	void check(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		if (CheckUtil.checkSelect(order_list)) {
+			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
+			OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name.getText());
+			WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+		} else {
+			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
+		}
+	}
+
+	@FXML
+	void back(ActionEvent event) {
 		WindowGrab.closeWindow(event);
 	}
 
 	@FXML
 	void order(ActionEvent event) {
-
+		//TODO : 生成订单界面
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		HotelVO hotel_info = (HotelVO) resources.getObject("hotel");
+		@SuppressWarnings("unchecked")
+		ArrayList<OrderVO> orderList = (ArrayList<OrderVO>) resources.getObject("order_list");
+
+		String locate[] = hotel_info.region.split("\\s");
+
+		hotel_province.getEditor().setText(locate[0]);
+		hotel_city.getEditor().setText(locate[1]);
+		hotel_field.getEditor().setText(locate[2]);
+		hotel_group.getEditor().setText(hotel_info.businessDistrict);
+		hotel_star.getEditor().setText(hotel_info.starLevel + "");
+		hotel_id.setText(hotel_info.hotelID);
+		hotel_address.setText(hotel_info.address);
+		hotel_name.setText(hotel_info.hotelName);
+		hotel_score.setText(hotel_info.score + "");
+
+		order_list.getItems().addAll(orderList);
+
+		make_time.setCellValueFactory(cellData -> cellData.getValue().getMake_time_property());
+		finish_time.setCellValueFactory(cellData -> cellData.getValue().getFinish_time_property());
+		state.setCellValueFactory(cellData -> cellData.getValue().getState_property());
+		order_id.setCellValueFactory(cellData -> cellData.getValue().getId_property());
 	}
 
 }

@@ -110,8 +110,8 @@ public class MainClientController {
 			SEARCH_HOTEL_FXML = new URL("file:src/main/resources/ui/clientui/fxml/search_hotel.fxml");
 			SEARCH_HOTEL_CSS = new URL("file:src/main/resources/ui/clientui/css/search_hotel.css");
 
-			HISTORY_FXML = new URL("file:src/main/resources/ui/clientui/fxml/history.fxml");
-			HISTORY_CSS = new URL("file:src/main/resources/ui/clientui/css/history.css");
+			HISTORY_FXML = new URL("file:src/main/resources/ui/clientui/fxml/hotel_list.fxml");
+			HISTORY_CSS = new URL("file:src/main/resources/ui/clientui/css/hotel_list.css");
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -121,12 +121,6 @@ public class MainClientController {
 
 	@FXML
 	void browse_order(ActionEvent event) {
-		// OrderVO vo = new OrderVO("123", OrderState.Canceled, "123", "213",
-		// new ArrayList<>(), new ArrayList<>(), 10000, "1111", "1111", "1111",
-		// "222", "222", "111", "213", 3, false);
-		// ArrayList<OrderVO> total = new ArrayList<>();
-		// total.add(vo);
-		// Ar
 		Scene frame = WindowGrab.getScene(event);
 		Window window = WindowGrab.getWindowByScene(frame);
 		OrderBLService service = null;
@@ -151,10 +145,8 @@ public class MainClientController {
 			ResourceBundle bundle = new OrderListBundle(total_list, executed_list, unexecute_list, revoked_list, exception_list);
 			WindowGrab.changeSceneWithBundle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
 		} catch (NetException e) {
-			//
+			WindowGrab.startNetErrorWindow(window);
 		}
-
-		
 		// Stage stage=WindowGrab.getStage(0);
 		// stage.setTitle("浏览订单");
 	}
