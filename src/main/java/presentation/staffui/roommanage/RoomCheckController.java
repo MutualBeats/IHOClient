@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.bundle.RoomInfoBundle;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.room.RoomRecordVO;
@@ -107,7 +108,7 @@ public class RoomCheckController implements Initializable {
     @FXML
     void addRecord(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS);
+		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoBundle(room));
     }
     
     @FXML

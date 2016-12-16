@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.bundle.RoomInfoBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -118,7 +119,12 @@ public class RoomManageController implements Initializable {
     @FXML
     void look(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS);
+    	RoomVO roomVO = room_list.getSelectionModel().getSelectedItem();
+    	if(roomVO == null) {
+    		WindowGrab.startNoticeWindow(window, "请选择房间");
+    		return;
+    	}
+		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoBundle(roomVO));
     }
 
     @FXML
