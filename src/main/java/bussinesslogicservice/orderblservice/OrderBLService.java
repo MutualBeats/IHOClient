@@ -88,7 +88,7 @@ public interface OrderBLService {
 	 * @param hotelID
 	 * @return ArrayList
 	 */
-	public ArrayList<OrderVO> queryHotelOrder(String hotelID) throws NetException;
+	public ArrayList<OrderVO> queryHotelOrder(String hotelID, OrderState state) throws NetException;
 	/**
 	 * 网站营销人员查看某天未执行订单
 	 * @param date

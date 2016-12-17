@@ -36,11 +36,6 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="250.0" layoutY="129.0" text="房间类型:">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <TextField layoutX="375.0" layoutY="120.0" />
       <Button fx:id="look" layoutX="335.0" layoutY="500.0" mnemonicParsing="false" onAction="#look" prefHeight="26.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
@@ -49,12 +44,12 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="200.0" layoutY="200.0" text="搜索结果">
+      <Label layoutX="203.0" layoutY="181.0" text="房间列表">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="room_list" layoutX="225.0" layoutY="235.0" prefHeight="240.0" prefWidth="400.0">
+      <TableView fx:id="room_list" layoutX="225.0" layoutY="214.0" prefHeight="261.0" prefWidth="400.0">
          <columns>
             <TableColumn fx:id="room_number" prefWidth="100.0" text="房间号" />
             <TableColumn fx:id="room_type" prefWidth="100.0" text="房间类型" />
@@ -62,11 +57,11 @@
             <TableColumn fx:id="room_state" prefWidth="100.0" text="状态" />
          </columns>
       </TableView>
-      <Label layoutX="250.0" layoutY="165.0" text="房间号:">
+      <Label layoutX="251.0" layoutY="142.0" text="房间号:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField layoutX="375.0" layoutY="160.0" />
-      <Button layoutX="562.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="搜索" />
+      <TextField layoutX="342.0" layoutY="138.0" />
+      <Button layoutX="545.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="搜索" />
    </children>
 </AnchorPane>
