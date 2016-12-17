@@ -35,26 +35,14 @@ import vo.order.OrderVO;
 
 public class UnusualOrderController extends OrderListView{
 
-	 @FXML
-	 private Button cancel;
-	 
-	 @FXML
-	 private TextField id_text;
-	 
-	 @FXML
-	 private Button search;
 	 
 	 @FXML
 	 private TableColumn<OrderVO,String> user_name;
 	 
 	 @FXML
 	 private TableColumn<OrderVO,String> contact;
-	 
-	 @FXML
-	 private Button revoke;
-	 
-	 @FXML
-	 private Button check;
+	
+
 
 	 @FXML
 	 private TableColumn<OrderVO,String> order_id;
@@ -137,20 +125,6 @@ public class UnusualOrderController extends OrderListView{
 			}
 		});
 	 }
-    @FXML
-    void cancel(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void check(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void on_search(ActionEvent event) {
-    	
-    }
     
     
     @FXML

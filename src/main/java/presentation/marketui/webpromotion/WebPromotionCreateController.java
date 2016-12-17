@@ -3,9 +3,10 @@ package presentation.marketui.webpromotion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 
-public class WebPromotionCreateController {
+public class WebPromotionCreateController implements Confirm{
 
     @FXML
     private Button confirm;
@@ -23,6 +24,12 @@ public class WebPromotionCreateController {
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
+
+	@Override
+	public void confirm() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
 

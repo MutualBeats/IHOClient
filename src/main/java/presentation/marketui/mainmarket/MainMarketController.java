@@ -9,16 +9,20 @@ import java.util.ResourceBundle;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import presentation.bundle.InformationBundle;
 import presentation.bundle.OrderInfoBundle;
+import presentation.bundle.PromotionBundle;
 import presentation.bundle.SingleOrderListBundle;
 import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.order.OrderVO;
+import vo.promotion.PromotionVO;
 
 public class MainMarketController {
 
@@ -73,9 +77,17 @@ public class MainMarketController {
     }
     @FXML
     void web_promotion(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "制定网站促销策略", WEB_PROMOTION_FXML,WEB_PROMOTION_CSS);   
-    }
+    	Window window=WindowGrab.getWindow(event);
+    	ArrayList<PromotionVO> promotionList=null;
+    	try {
+			promotionList=ControllerFactory.getPromotionBLServiceInstance().getWebPromotion();
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	ResourceBundle bundle=new PromotionBundle(promotionList);
+    	WindowGrab.startWindowWithBundle(window, "网站促销策略", WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, bundle);   
+    	}
 
     @FXML
     void credit(ActionEvent event) {
