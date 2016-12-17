@@ -107,14 +107,17 @@ public abstract class SearchView extends LocationBoxController implements Initia
 			int min_price = min_p ? Integer.parseInt(low_price.getText()) : -1;
 			int max_price = max_p ? Integer.parseInt(hi_price.getText()) : -1;
 
+			String in_time = es_in.getEditor().getText();
+			String out_time = es_in.getEditor().getText();
+
 			if (min_price <= max_price) {
-				SearchCondition condition = new SearchCondition(region, group_name, hotelName, star_le, scor, min_price,
-						max_price, type, history.isSelected());
+				SearchCondition condition = new SearchCondition(region, group_name, hotelName, star_le, scor, in_time,
+						out_time, min_price, max_price, type, history.isSelected());
 				try {
 					ArrayList<HotelVO> hotelVOs = ControllerFactory.getHotelBLServiceInstance()
 							.getHotelsSatisfyCondition(condition);
-					
-					//酒店是否曾预定判断
+
+					// 酒店是否曾预定判断
 					ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance()
 							.queryUserOrder(UserCache.getID(), OrderState.All);
 					Map<String, String> hotel_ids = new HashMap<>();
