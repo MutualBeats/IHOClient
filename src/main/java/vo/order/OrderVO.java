@@ -207,9 +207,9 @@ public class OrderVO {
 	}
 
 	public OrderVO(OrderMakeVO vo) {
-		this("", OrderState.Unexecuted, vo.clientID, vo.hotelID, vo.roomNumberList, null, 0, Time.getCurrentTime(), "",
-				"", vo.checkInDate + " " + "23:59:59", vo.checkInDate, vo.estimateCheckOutDate, "", vo.numOfPeople,
-				vo.children, false);
+		this("", OrderState.Unexecuted, vo.clientID, vo.hotelID, vo.roomNumberList, new ArrayList<>(), 0,
+				Time.getCurrentTime(), "", "", vo.checkInDate + " " + "23:59:59", vo.checkInDate,
+				vo.estimateCheckOutDate, "", vo.numOfPeople, vo.children, false);
 		// this.orderState = OrderState.Unexecuted;
 		// this.clientID = vo.clientID;
 		// this.hotelID = vo.hotelID;
