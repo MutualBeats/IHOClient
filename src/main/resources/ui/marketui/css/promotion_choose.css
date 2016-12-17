@@ -11,7 +11,10 @@ and open the template in the editor.
 .root{
   -fx-background-image: url("file:src/main/resources/image/market/background.jpg");
  }
-
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
 #cancel{
 	-fx-background-image: url("file:src/main/resources/image/market/cancel.png");
 }

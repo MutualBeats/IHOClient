@@ -1,16 +1,21 @@
 package presentation.marketui.webpromotion;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
+import vo.promotion.PromotionVO;
 
-public class PromotionCheckController {
+public class PromotionCheckController implements Initializable{
 
     @FXML
     private Button cancel;
@@ -30,6 +35,14 @@ public class PromotionCheckController {
     @FXML
     private Label time_end;
 
+    private PromotionVO promotionVO;
+    @Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		promotionVO=(PromotionVO)resources.getObject("promotion");
+
+	}
+ 
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
@@ -37,33 +50,29 @@ public class PromotionCheckController {
 
     @FXML
     void promotion_ID(ActionEvent event) {
-    	promotion_ID.setText();
+    	promotion_ID.setText(promotionVO.promotionID);
     }
 
     @FXML
     void promotion_name(ActionEvent event) {
-    	promotion_name.setText();
+    	promotion_name.setText(promotionVO.promotionName);
     }
 
     @FXML
     void time_start(ActionEvent event) {
-    	time_start.setText();
+    	time_start.setText(promotionVO.startDate);
     }
 
     @FXML
     void time_end(ActionEvent event) {
-    	time_end.setText();
+    	time_end.setText(promotionVO.finishDate);
     }
 
     @FXML
     void discount(ActionEvent event) {
-    	try {
-			discount.setText();
-		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	discount.setText(promotionVO.discount.toString());
     }
 
+	
 }
 

@@ -24,6 +24,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.bundle.PromotionInfoBundle;
 import presentation.utilui.WindowGrab;
 import vo.promotion.PromotionVO;
 
@@ -69,20 +70,27 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     
     private ObservableList<PromotionVO> total;    
 
-    private static URL WEB_PROMOTION_CREATE_FXML;
-    private static URL WEB_PROMOTION_CREATE_CSS;
+    private static URL WEB_PROMOTION_CHOOSE_FXML;
+    private static URL WEB_PROMOTION_CHOOSE_CSS;
     
     private static URL WEB_PROMOTION_UPDATE_FXML;
     private static URL WEB_PROMOTION_UPDATE_CSS;
     
+    
+    private static URL WEB_PROMOTION_CHECK_FXML;
+    private static URL WEB_PROMOTION_CHECK_CSS;
+    
     static{
     	try {
     		
-    		WEB_PROMOTION_CREATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_create.fxml");
-    		WEB_PROMOTION_CREATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_create.css");
+    		WEB_PROMOTION_CHOOSE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_choose.fxml");
+    		WEB_PROMOTION_CHOOSE_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_choose.css");
     		
-    		WEB_PROMOTION_UPDATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_choose.fxml");
-    		WEB_PROMOTION_UPDATE_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_choose.css");
+    		WEB_PROMOTION_UPDATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_update.fxml");
+    		WEB_PROMOTION_UPDATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_update.css");
+    		
+    		WEB_PROMOTION_CHECK_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_check.fxml");
+    		WEB_PROMOTION_CHECK_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_check.css");
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -94,7 +102,7 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		ArrayList<PromotionVO> total_promotion=(ArrayList<PromotionVO>)resources.getObject("promotion");
+		ArrayList<PromotionVO> total_promotion=(ArrayList<PromotionVO>)resources.getObject("total_promotion");
 		total=FXCollections.observableArrayList();
 		
 		total.addAll(total_promotion);
@@ -129,14 +137,24 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     @FXML
     void create(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-     	WindowGrab.startWindow(window, "新建网站促销策略", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
+     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS);
    
     }
 
 	@Override
 	public void update(String promotionID) {
 		//获取单个并添加到对应类型表和总表中
+		
+		
 	}
 
+	@FXML
+    void check(ActionEvent event) {
+		Window window =WindowGrab.getWindow(event);
+		PromotionVO promotion=null;
+		promotion=promotion_list.getSelectionModel().getSelectedItem();
+		ResourceBundle bundle=new PromotionInfoBundle(promotion);
+		WindowGrab.startWindowWithBundle(window, "促销策略详情", WEB_PROMOTION_CHECK_FXML	, WEB_PROMOTION_CHECK_CSS, bundle);
+    }
 }
 

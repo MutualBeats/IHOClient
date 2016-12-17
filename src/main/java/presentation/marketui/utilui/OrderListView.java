@@ -56,6 +56,9 @@ public abstract class OrderListView implements Initializable {
 	private TableColumn<OrderVO, String> id;
 
 	@FXML
+    private Label promotionName;
+	
+	@FXML
 	private TableColumn<OrderVO, String> hotelname;
 	
 	private ObservableList<OrderVO> orderList = FXCollections.observableArrayList();
@@ -95,7 +98,8 @@ public abstract class OrderListView implements Initializable {
 			OrderVO info = model.getSelectedItem();
 			// TODO : the reach of hotel name is waiting to check.
 			String hotel_name = hotelname.getCellData(model.getSelectedIndex());
-			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
+			String promotion_name=promotionName.getText();
+			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name, promotion_name);
 			
 			WindowGrab.startWindowWithBundle(window, "订单详情", ORDER_INFO_FXML, ORDER_INFO_CSS, bundle);
 			// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
