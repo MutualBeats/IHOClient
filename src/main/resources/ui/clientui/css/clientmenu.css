@@ -19,10 +19,10 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/title.png");
 }
 
-#all{
+#first{
 	-fx-background-image: url("file:src/main/resources/image/client/all.png");
 }
-#all:hover{
+#first:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/all_hover.png");
 }
 
@@ -59,10 +59,10 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/message_hover.png");
 }
 
-#history{
+#history_hotel{
 	-fx-background-image: url("file:src/main/resources/image/client/history.png");
 }
-#history:hover{
+#history_hotel:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/history_hover.png");
 }
 
