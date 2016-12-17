@@ -181,7 +181,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 	}
 
 	@FXML
-	void executed_order(ActionEvent event) {
+	void finished_order(ActionEvent event) {
 		hideRevoke();
 		evaluate.setVisible(true);
 		evaluate.setDisable(false);

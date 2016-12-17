@@ -42,10 +42,10 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/unusual_order_hover.png");
 }
 
-#finished_order{
+#unexecuted_order{
 	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order.png");
 }
-#finished_order:hover{
+#unexecuted_order:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/unexecuted_order_hover.png");
 }
 
@@ -56,10 +56,10 @@ and open the template in the editor.
 	-fx-background-image: url("file:src/main/resources/image/client/revoked_order_hover.png");
 }
 
-#executed_order{
+#finished_order{
 	-fx-background-image: url("file:src/main/resources/image/client/executed_order.png");
 }
-#executed_order:hover{
+#finished_order:hover{
 	-fx-background-image: url("file:src/main/resources/image/client/executed_order_hover.png");
 }
 

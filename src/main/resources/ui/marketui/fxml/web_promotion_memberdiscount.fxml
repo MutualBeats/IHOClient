@@ -35,9 +35,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="100.0" text="开始时间 ：" />
-      <Label layoutX="110.0" layoutY="125.0" text="结束时间 ：" />
-      <DatePicker layoutX="225.0" layoutY="95.0" prefHeight="20.0" prefWidth="150.0" />
-      <DatePicker layoutX="225.0" layoutY="125.0" prefWidth="150.0" />
+      <Label layoutX="110.0" layoutY="105.0" text="开始时间 ：" />
+      <Label layoutX="110.0" layoutY="130.0" text="结束时间 ：" />
+      <DatePicker fx:id="startTime" layoutX="225.0" layoutY="95.0" prefHeight="20.0" prefWidth="150.0" />
+      <DatePicker fx:id="finishTime" layoutX="225.0" layoutY="125.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
