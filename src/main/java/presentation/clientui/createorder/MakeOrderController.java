@@ -179,7 +179,7 @@ public class MakeOrderController implements Initializable, Confirm {
 			try {
 				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
 						.getPromotionById(vo.promotionIDList.get(0)).promotionName;
-				OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name.getText(), promotion_name);
+				OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_n, promotion_name);
 				WindowGrab.startWindowWithBundle(info_window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(info_window);

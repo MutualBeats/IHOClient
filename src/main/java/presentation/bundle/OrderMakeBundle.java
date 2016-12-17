@@ -19,8 +19,9 @@ public class OrderMakeBundle extends ResourceBundle {
 	private ArrayList<RoomVO> rooms;
 	private final static String ROOMS = "room_list";
 
-	public OrderMakeBundle(HotelVO hotel_info, ArrayList<RoomVO> rooms) {
+	public OrderMakeBundle(ClientVO client_info, HotelVO hotel_info,  ArrayList<RoomVO> rooms) {
 		super();
+		this.client_info = client_info;
 		this.hotel_info = hotel_info;
 		this.rooms = rooms;
 	}

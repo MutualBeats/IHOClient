@@ -58,5 +58,6 @@
             <TableColumn fx:id="book_before" editable="false" prefWidth="60.0" resizable="false" text="曾预定" />
          </columns>
       </TableView>
+      <Button fx:id="make_order" layoutX="585.0" layoutY="564.0" mnemonicParsing="false" onAction="#make_order" prefHeight="30.0" prefWidth="60.0" text="下单" />
    </children>
 </AnchorPane>

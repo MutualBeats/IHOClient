@@ -18,11 +18,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.bundle.OrderInfoBundle;
+import presentation.bundle.OrderMakeBundle;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
 import util.exception.NetException;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
+import vo.room.RoomVO;
+import vo.user.ClientVO;
 
 public class HotelInfoController implements Initializable {
 
@@ -79,9 +83,14 @@ public class HotelInfoController implements Initializable {
 
 	@FXML
 	private Button back;
+	
+	private HotelVO hotel_info;
 
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
+	
+	private static URL MAKEORDER_FXML;
+	private static URL MAKEORDER_CSS;
 
 	static {
 		try {
@@ -89,6 +98,9 @@ public class HotelInfoController implements Initializable {
 			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
 			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
 
+			MAKEORDER_FXML = new URL("file:src/main/resources/ui/clientui/fxml/makeorder.fxml");
+			MAKEORDER_CSS = new URL("file:src/main/resources/ui/clientui/css/makeorder.css");
+			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -121,12 +133,21 @@ public class HotelInfoController implements Initializable {
 
 	@FXML
 	void order(ActionEvent event) {
-		//TODO : 生成订单界面
+		WindowGrab.closeWindow(event);
+		Window window = WindowGrab.getWindowByStage(0);
+		try {
+			ClientVO client_info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
+			ArrayList<RoomVO> rooms = ControllerFactory.getRoomBLServiceInstance().getRoomList(hotel_info.hotelID);
+			OrderMakeBundle bundle = new OrderMakeBundle(client_info, hotel_info, rooms);
+			WindowGrab.startWindowWithBundle(window, "生成订单", MAKEORDER_FXML, MAKEORDER_CSS, bundle);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		HotelVO hotel_info = (HotelVO) resources.getObject("hotel");
+		hotel_info = (HotelVO) resources.getObject("hotel");
 		@SuppressWarnings("unchecked")
 		ArrayList<OrderVO> orderList = (ArrayList<OrderVO>) resources.getObject("order_list");
 
