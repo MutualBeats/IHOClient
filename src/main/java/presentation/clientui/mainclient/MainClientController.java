@@ -18,6 +18,7 @@ import javafx.stage.Window;
 import presentation.bundle.HotelListBundle;
 import presentation.bundle.InformationBundle;
 import presentation.bundle.OrderListBundle;
+import presentation.clientui.utilui.SearchView;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -26,31 +27,10 @@ import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 import vo.user.ClientVO;
 
-public class MainClientController {
+public class MainClientController extends SearchView {
 
 	@FXML
-	private Button all;
-
-	@FXML
-	private Label hotel_one;
-
-	@FXML
-	private Label hotel_four;
-
-	@FXML
-	private Label user_name;
-
-	@FXML
-	private Label hotel_five;
-
-	@FXML
-	private Button history;
-
-	@FXML
-	private Label title;
-
-	@FXML
-	private Label hotel_six;
+	private Button first;
 
 	@FXML
 	private Button logout;
@@ -66,6 +46,27 @@ public class MainClientController {
 
 	@FXML
 	private Button maintain_message;
+
+	@FXML
+	private Button history_hotel;
+
+	@FXML
+	private Label hotel_one;
+
+	@FXML
+	private Label hotel_four;
+
+	@FXML
+	private Label user_name;
+
+	@FXML
+	private Label hotel_five;
+
+	@FXML
+	private Label title;
+
+	@FXML
+	private Label hotel_six;
 
 	@FXML
 	private Label hotel_three;
@@ -118,6 +119,11 @@ public class MainClientController {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
+	}
 
 	@FXML
 	void browse_order(ActionEvent event) {
@@ -143,14 +149,13 @@ public class MainClientController {
 			ArrayList<OrderVO> unexecute_list = service.queryUserOrder(client_id, OrderState.Unexecuted);
 			ArrayList<OrderVO> revoked_list = service.queryUserOrder(client_id, OrderState.Canceled);
 			ArrayList<OrderVO> exception_list = service.queryUserOrder(client_id, OrderState.Exception);
-		
-			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
+
+			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list,
+					exception_list);
 			WindowGrab.changeSceneWithBundle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
-		// Stage stage=WindowGrab.getStage(0);
-		// stage.setTitle("浏览订单");
 	}
 
 	@FXML
@@ -164,7 +169,8 @@ public class MainClientController {
 		Window window = WindowGrab.getWindow(event);
 		try {
 			ClientVO info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
-			WindowGrab.startWindowWithBundle(window, "个人信息详情", MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS, new InformationBundle(info));
+			WindowGrab.startWindowWithBundle(window, "个人信息详情", MAINTAIN_MESSAGE_FXML, MAINTAIN_MESSAGE_CSS,
+					new InformationBundle(info));
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
@@ -176,25 +182,16 @@ public class MainClientController {
 	}
 
 	@FXML
-	void on_search(ActionEvent event) {
-		Scene frame = WindowGrab.getScene(event);
-		WindowGrab.changeScene(SEARCH_HOTEL_FXML, SEARCH_HOTEL_CSS, frame);
-		// Stage stage=WindowGrab.getStage(0);
-		// stage.setTitle("搜索酒店");
-
-	}
-
-	@FXML
 	void history(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		try {
-			ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance().queryUserOrder(UserCache.getID(), OrderState.All);
-			System.out.println("Size" + vos.size());
+			ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance().queryUserOrder(UserCache.getID(),
+					OrderState.All);
 			Map<String, String> hotel_ids = new HashMap<>();
 			ArrayList<HotelVO> hotel_list = new ArrayList<>();
-			for(OrderVO each : vos) {
+			for (OrderVO each : vos) {
 				String hotelID = each.hotelID;
-				if(!hotel_ids.containsKey(hotelID)) {
+				if (!hotel_ids.containsKey(hotelID)) {
 					hotel_ids.put(hotelID, hotelID);
 					HotelVO hotel_info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 					hotel_list.add(hotel_info);
@@ -206,5 +203,12 @@ public class MainClientController {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
+	}
+
+	@Override
+	public void handle(ArrayList<HotelVO> hotel_vos) {
+		Scene frame = WindowGrab.getSceneByStage(0);
+		HotelListBundle bundle = new HotelListBundle(hotel_vos);
+		WindowGrab.changeSceneWithBundle(SEARCH_HOTEL_FXML, SEARCH_HOTEL_CSS, frame, bundle);
 	}
 }

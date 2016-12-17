@@ -21,10 +21,10 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ComboBox fx:id="province" layoutX="115.0" layoutY="31.0" prefWidth="120.0" promptText="省" />
-            <ComboBox fx:id="city" layoutX="320.0" layoutY="31.0" prefWidth="120.0" promptText="市" />
-            <ComboBox fx:id="field" layoutX="525.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
-            <ComboBox fx:id="group" layoutX="115.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
+            <ComboBox fx:id="province" layoutX="90.0" layoutY="31.0" prefWidth="120.0" promptText="省" />
+            <ComboBox fx:id="city" layoutX="274.0" layoutY="31.0" prefWidth="120.0" promptText="市" />
+            <ComboBox fx:id="field" layoutX="460.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
+            <ComboBox fx:id="group" layoutX="90.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
             <Label layoutX="90.0" layoutY="126.0" text="预计入住时间 :" />
             <DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0" prefWidth="150.0" />
             <Label layoutX="400.0" layoutY="126.0" text="预计离开时间 :" />
@@ -38,8 +38,10 @@
             <Label layoutX="400.0" layoutY="188.0" text="最高价格 :" />
             <TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0" prefWidth="100.0" />
             <Button fx:id="search" layoutX="653.0" layoutY="182.0" mnemonicParsing="false" onAction="#on_search" prefHeight="30.0" prefWidth="60.0" />
-            <ComboBox fx:id="star" layoutX="320.0" layoutY="81.0" prefWidth="120.0" promptText="星级" />
-            <ComboBox fx:id="room_type" layoutX="525.0" layoutY="81.0" prefWidth="120.0" promptText="房间类型" />
+            <ComboBox fx:id="star" layoutX="275.0" layoutY="81.0" prefWidth="120.0" promptText="星级" />
+            <ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0" prefWidth="120.0" promptText="房间类型" />
+            <RadioButton fx:id="all" layoutX="633.0" layoutY="36.0" mnemonicParsing="false" text="全部酒店" />
+            <RadioButton fx:id="history" layoutX="633.0" layoutY="86.0" mnemonicParsing="false" text="历史酒店" />
          </children>
       </Pane>
       <Button fx:id="info_look" layoutX="675.0" layoutY="564.0" mnemonicParsing="false" onAction="#info_look" prefHeight="30.0" prefWidth="60.0" />

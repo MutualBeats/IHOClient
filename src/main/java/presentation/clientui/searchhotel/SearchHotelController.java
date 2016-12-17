@@ -6,21 +6,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import config.location.Province;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.bundle.HotelInfoBundle;
-import presentation.utilcontroller.LocationBoxController;
+import presentation.clientui.utilui.SearchView;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
@@ -28,40 +22,13 @@ import util.exception.NetException;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
-public class SearchHotelController extends LocationBoxController implements Initializable {
-
-	@FXML
-	private Label title;
-
-	@FXML
-	private Button search;
+public class SearchHotelController extends SearchView {
 
 	@FXML
 	private Button back;
 
 	@FXML
 	private Button info_look;
-
-	@FXML
-	private ComboBox<String> room_type;
-
-	@FXML
-	private TextField hotel_name;
-
-	@FXML
-	private DatePicker es_in;
-
-	@FXML
-	private DatePicker es_leave;
-
-	@FXML
-	private TextField score;
-
-	@FXML
-	private TextField low_price;
-
-	@FXML
-	private TextField hi_price;
 
 	@FXML
 	private TableView<HotelVO> hotel_list;
@@ -82,18 +49,13 @@ public class SearchHotelController extends LocationBoxController implements Init
 	private TableColumn<HotelVO, String> group_col;
 
 	@FXML
-	private TableColumn<HotelVO, String> star_col;
+	private TableColumn<HotelVO, Integer> star_col;
 
 	@FXML
-	private TableColumn<HotelVO, String> score_col;
+	private TableColumn<HotelVO, Double> score_col;
 
 	@FXML
 	private TableColumn<HotelVO, String> book_before;
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		super.initialize(location, resources);
-	}
 
 	private static URL HOTEL_FXML;
 	private static URL HOTEL_CSS;
@@ -110,6 +72,22 @@ public class SearchHotelController extends LocationBoxController implements Init
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
+		@SuppressWarnings("unchecked")
+		ArrayList<HotelVO> hotel_info = (ArrayList<HotelVO>) resources.getObject("hotel_list");
+		hotel_list.getItems().addAll(hotel_info);
+		province_col.setCellValueFactory(cellData -> cellData.getValue().getProvince_property());
+		city_col.setCellValueFactory(cellData -> cellData.getValue().getCity_property());
+		field_col.setCellValueFactory(cellData -> cellData.getValue().getField_property());
+		group_col.setCellValueFactory(cellData -> cellData.getValue().getGroup_property());
+		hotel_name_col.setCellValueFactory(cellData -> cellData.getValue().getName_property());
+		star_col.setCellValueFactory(cellData->cellData.getValue().getStar_property().asObject());
+		score_col.setCellValueFactory(cellData->cellData.getValue().getScore_property().asObject());
+		book_before.setCellValueFactory(cellData->cellData.getValue().getBook_before());
 	}
 
 	@FXML
@@ -134,6 +112,11 @@ public class SearchHotelController extends LocationBoxController implements Init
 	void back(ActionEvent event) {
 		Scene frame = WindowGrab.getScene(event);
 		WindowGrab.changeScene(CLIENTMENU_FXML, CLIENTMENU_CSS, frame);
+	}
+
+	public void handle(ArrayList<HotelVO> hotel_vos) {
+		hotel_list.getItems().clear();
+		hotel_list.getItems().addAll(hotel_vos);
 	}
 
 }

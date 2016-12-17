@@ -4,18 +4,33 @@
  */
 package vo.hotel;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import po.hotel.HotelPO;
 
 public class HotelVO {
-	
+
 	private StringProperty province_property;
 	private StringProperty field_property;
 	private StringProperty city_property;
 	private StringProperty name_property;
 	private StringProperty group_property;
-	
+	private DoubleProperty score_property;
+	private IntegerProperty star_property;
+	private StringProperty book_before;
+
+	public StringProperty getBook_before() {
+		return book_before;
+	}
+
+	public void setBook_before(boolean book_before) {
+		this.book_before = new SimpleStringProperty(book_before ? "是" : "否");
+	}
+
 	public StringProperty getProvince_property() {
 		return province_property;
 	}
@@ -34,6 +49,14 @@ public class HotelVO {
 
 	public StringProperty getGroup_property() {
 		return group_property;
+	}
+
+	public DoubleProperty getScore_property() {
+		return score_property;
+	}
+
+	public IntegerProperty getStar_property() {
+		return star_property;
 	}
 
 	/**
@@ -104,15 +127,17 @@ public class HotelVO {
 		this.score = po.getScore();
 		init();
 	}
-	
-	private void init() { 
+
+	private void init() {
 		String places[] = region.split("\\s");
 		province_property = new SimpleStringProperty(places[0]);
 		city_property = new SimpleStringProperty(places[1]);
 		field_property = new SimpleStringProperty(places[2]);
 		group_property = new SimpleStringProperty(businessDistrict);
 		name_property = new SimpleStringProperty(hotelName);
-		
+		star_property = new SimpleIntegerProperty(starLevel);
+		score_property = new SimpleDoubleProperty(score);
+		setBook_before(false);
 	}
 
 }
