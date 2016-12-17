@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.PromotionChooseController">
+   <children>
+      <Accordion layoutY="115.0" />
+      <Text layoutX="47.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择促销策略类型 :">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="create" layoutX="75.0" layoutY="140.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="65.0" />
+      <Button fx:id="cancel" layoutX="215.0" layoutY="140.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" />
+      <RadioButton fx:id="field" layoutX="47.0" layoutY="95.0" mnemonicParsing="false" text="会员商圈促销策略">
+         <toggleGroup>
+            <ToggleGroup fx:id="promotion" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="time" layoutX="197.0" layoutY="95.0" mnemonicParsing="false" text="限时促销策略" toggleGroup="$promotion" />
+   </children>
+</AnchorPane>

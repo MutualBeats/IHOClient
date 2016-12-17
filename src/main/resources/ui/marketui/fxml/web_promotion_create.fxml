@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.WebPromotionCreateController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
+         <children>
+            <Accordion layoutY="115.0" />
+            <Text layoutX="68.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略信息" wrappingWidth="200.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text layoutX="68.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略名称：" />
+            <Text layoutX="84.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
+            <Text layoutX="68.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="开始时间：" />
+            <TextField layoutX="191.0" layoutY="88.0" prefHeight="15.0" prefWidth="160.0" />
+            <Button fx:id="cancel" layoutX="270.0" layoutY="415.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
+            <Text layoutX="68.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="结束时间：" />
+            <Button fx:id="confirm" layoutX="130.0" layoutY="415.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="确认" />
+            <DatePicker layoutX="191.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
+            <DatePicker layoutX="191.0" layoutY="201.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label layoutX="378.0" layoutY="93.0" text="警告" textFill="RED" />
+            <Label layoutX="378.0" layoutY="168.0" text="警告" textFill="RED" />
+            <Label layoutX="378.0" layoutY="203.0" text="警告" textFill="RED" />
+            <Label layoutX="378.0" layoutY="273.0" text="警告" textFill="RED" />
+            <Line endX="100.0" layoutX="256.0" layoutY="262.0" startX="-100.0" />
+            <Label layoutX="166.0" layoutY="238.0" text="vip0" />
+            <Label layoutX="215.0" layoutY="238.0" text="vip1" />
+            <Label layoutX="266.0" layoutY="238.0" text="vip2" />
+            <Label layoutX="319.0" layoutY="238.0" text="vip3" />
+            <TextField layoutX="158.0" layoutY="268.0" prefHeight="27.0" prefWidth="44.0" />
+            <TextField layoutX="207.0" layoutY="268.0" prefHeight="27.0" prefWidth="44.0" />
+            <TextField layoutX="258.0" layoutY="268.0" prefHeight="27.0" prefWidth="44.0" />
+            <TextField layoutX="311.0" layoutY="268.0" prefHeight="27.0" prefWidth="44.0" />
+            <Text layoutX="66.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略类型：" />
+            <ComboBox layoutX="191.0" layoutY="127.0" prefHeight="27.0" prefWidth="160.0" />
+            <Label layoutX="378.0" layoutY="132.0" text="警告" textFill="RED" />
+            <Pane fx:id="field" layoutX="50.0" layoutY="305.0" prefHeight="110.0" prefWidth="350.0" visible="false">
+               <children>
+                  <ComboBox layoutX="30.0" layoutY="15.0" prefWidth="130.0" promptText="省" />
+                  <ComboBox layoutX="205.0" layoutY="15.0" prefWidth="130.0" promptText="市" />
+                  <ComboBox layoutX="30.0" layoutY="60.0" prefWidth="130.0" promptText="县" />
+                  <ComboBox layoutX="205.0" layoutY="60.0" prefWidth="130.0" promptText="商圈" />
+               </children>
+            </Pane>
+            <Pane fx:id="field" layoutX="50.0" layoutY="300.0" prefHeight="100.0" prefWidth="350.0" visible="false">
+               <children>
+                  <ComboBox layoutX="30.0" layoutY="10.0" prefWidth="130.0" promptText="省" />
+                  <ComboBox layoutX="30.0" layoutY="60.0" prefWidth="130.0" promptText="县" />
+                  <ComboBox layoutX="200.0" layoutY="60.0" prefWidth="130.0" promptText="商圈" />
+                  <ComboBox layoutX="200.0" layoutY="10.0" prefWidth="130.0" promptText="市" />
+               </children>
+            </Pane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

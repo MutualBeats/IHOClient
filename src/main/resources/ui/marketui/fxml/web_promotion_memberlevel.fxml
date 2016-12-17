@@ -20,10 +20,10 @@
       <Label layoutX="55.0" layoutY="145.0" text="会员等级及其对应折扣 :" />
       <TreeTableView layoutX="65.0" layoutY="180.0" prefHeight="185.0" prefWidth="360.0">
         <columns>
-          <TreeTableColumn prefWidth="90.0" text="会员等级" />
+          <TreeTableColumn fx:id="level" prefWidth="90.0" text="会员等级" />
           <TreeTableColumn prefWidth="90.0" text="起始信用值" />
             <TreeTableColumn prefWidth="90.0" text="终止信用值" />
-            <TreeTableColumn prefWidth="90.0" text="对应折扣" />
+            <TreeTableColumn fx:id="discount" prefWidth="90.0" text="对应折扣" />
         </columns>
       </TreeTableView>
    </children>

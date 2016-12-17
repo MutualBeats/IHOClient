@@ -69,8 +69,8 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     
     private ObservableList<PromotionVO> total;    
 
-    private static URL WEB_PROMOTION_CREATE_CSS;
-    private static URL WEB_PROMOTION_CREATE_FXML;
+    private static URL WEB_PROMOTION_CHOOSE_CSS;
+    private static URL WEB_PROMOTION_CHOOSE_FXML;
     
     private static URL WEB_PROMOTION_CHECK_FXML;
     private static URL WEB_PROMOTION_CHECK_CSS;
@@ -78,8 +78,8 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     static{
     	try {
     		
-    		WEB_PROMOTION_CREATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_create.fxml");
-    		WEB_PROMOTION_CREATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_create.css");
+    		WEB_PROMOTION_CHOOSE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_choose.fxml");
+    		WEB_PROMOTION_CHOOSE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_choose.css");
     		
     		WEB_PROMOTION_CHECK_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_check.fxml");
     		WEB_PROMOTION_CHECK_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_check.css");
@@ -130,7 +130,7 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     @FXML
     void create(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
+     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS);
    
     }
 
