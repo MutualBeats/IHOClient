@@ -44,6 +44,14 @@ public class Time {
 		return (long)(endTime.getTime() - beginTime.getTime()) / 1000;
 	}
 	
+	/**
+	 * 计算时间间隔
+	 * 
+	 * @param date1
+	 * @param date2
+	 * @return 返回为正如果Date2晚于Date1
+	 * @throws ParseException
+	 */
 	public static int deltaDate(String date1, String date2) throws ParseException {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
 		Date beginDate = df.parse(date1);

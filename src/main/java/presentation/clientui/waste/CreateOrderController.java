@@ -1,4 +1,4 @@
-package presentation.clientui.createorder;
+package presentation.clientui.waste;
 
 import java.net.MalformedURLException;
 import java.net.URL;

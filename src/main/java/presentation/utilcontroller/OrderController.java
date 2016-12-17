@@ -1,6 +1,7 @@
 package presentation.utilcontroller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -57,7 +58,13 @@ public class OrderController implements Initializable {
 
 	@FXML
 	private Label children;
-
+	
+	
+	@FXML
+	private Label room_list;
+	
+	@FXML
+	private Label promotion;
 	
 	@FXML
 	private Button back;
@@ -71,6 +78,8 @@ public class OrderController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		OrderVO info = (OrderVO) resources.getObject("order_info");
+		promotion.setText(resources.getString("promotion_name"));
+		
 		String hotel = resources.getString("hotel_name");
 		
 		user_name.setText(info.clientID);
@@ -92,6 +101,16 @@ public class OrderController implements Initializable {
 		
 		people_num.setText(info.numOfPeople+"");
 		children.setText(info.children ? "有" : "无");
+		
+		ArrayList<String> rooms = info.roomNumberList;
+		String room = "";
+		for(String roomnumber : rooms) {
+			room = roomnumber + " " ;
+		}
+		room_list.setText(room);
+		
+
+		
 	}
 
 }

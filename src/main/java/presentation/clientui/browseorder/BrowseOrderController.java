@@ -86,8 +86,6 @@ public class BrowseOrderController implements Initializable, Confirm {
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
 
-	
-
 	private static URL CLIENTMENU_FXML;
 	private static URL CLIENTMENU_CSS;
 
@@ -121,13 +119,13 @@ public class BrowseOrderController implements Initializable, Confirm {
 		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecute");
 		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
 		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
-		
+
 		total_list = FXCollections.observableArrayList();
 		finished_list = FXCollections.observableArrayList();
 		unexecuted_list = FXCollections.observableArrayList();
 		revoked_list = FXCollections.observableArrayList();
 		exception_list = FXCollections.observableArrayList();
-		
+
 		total_list.addAll(total);
 		finished_list.addAll(finish);
 		unexecuted_list.addAll(unexecuted);
@@ -222,10 +220,14 @@ public class BrowseOrderController implements Initializable, Confirm {
 			OrderVO info = model.getSelectedItem();
 			// TODO : the reach of hotel name is waiting to check.
 			String hotel_name = hotel.getCellData(model.getSelectedIndex());
-			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
-
-			WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
-			// WindowGrab.startWindow(window, "查看订单详情", CHECK_FXML, CHECK_CSS);
+			try {
+				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
+						.getPromotionById(info.promotionIDList.get(0)).promotionName;
+				OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name, promotion_name);
+				WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+			}
 		}
 	}
 

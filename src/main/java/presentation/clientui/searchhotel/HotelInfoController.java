@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,7 @@ import javafx.stage.Window;
 import presentation.bundle.OrderInfoBundle;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
@@ -98,8 +100,15 @@ public class HotelInfoController implements Initializable {
 		Window window = WindowGrab.getWindow(event);
 		if (CheckUtil.checkSelect(order_list)) {
 			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
-			OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name.getText());
-			WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+			try {
+				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
+						.getPromotionById(vo.promotionIDList.get(0)).promotionName;
+				OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name.getText(), promotion_name);
+				WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+			}
+			
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}
