@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,15 +19,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
 import presentation.bundle.PromotionInfoBundle;
+import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 import vo.promotion.PromotionVO;
 
-public class WebPromotionController implements PromotionUpdate,Initializable{
+public class WebPromotionController implements PromotionUpdate,Initializable,Confirm{
 	
 	@FXML
     private Button cancel;
@@ -52,7 +51,7 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     private TableColumn<PromotionVO, String> promotion_name;
 
     @FXML
-    private Button update;
+    private Button delete;
 
     @FXML
     private TableView<PromotionVO> promotion_list;
@@ -70,12 +69,8 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     
     private ObservableList<PromotionVO> total;    
 
-    private static URL WEB_PROMOTION_CHOOSE_FXML;
-    private static URL WEB_PROMOTION_CHOOSE_CSS;
-    
-    private static URL WEB_PROMOTION_UPDATE_FXML;
-    private static URL WEB_PROMOTION_UPDATE_CSS;
-    
+    private static URL WEB_PROMOTION_CREATE_CSS;
+    private static URL WEB_PROMOTION_CREATE_FXML;
     
     private static URL WEB_PROMOTION_CHECK_FXML;
     private static URL WEB_PROMOTION_CHECK_CSS;
@@ -83,11 +78,8 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     static{
     	try {
     		
-    		WEB_PROMOTION_CHOOSE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_choose.fxml");
-    		WEB_PROMOTION_CHOOSE_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_choose.css");
-    		
-    		WEB_PROMOTION_UPDATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_update.fxml");
-    		WEB_PROMOTION_UPDATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_update.css");
+    		WEB_PROMOTION_CREATE_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion_create.fxml");
+    		WEB_PROMOTION_CREATE_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion_create.css");
     		
     		WEB_PROMOTION_CHECK_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_check.fxml");
     		WEB_PROMOTION_CHECK_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_check.css");
@@ -131,22 +123,18 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
     @FXML
     void update(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "修改网站促销策略", WEB_PROMOTION_UPDATE_FXML,WEB_PROMOTION_UPDATE_CSS);
+     	WindowGrab.startConfirmWindow(window, this, "是否确认删除？");
+     	
     }
 
     @FXML
     void create(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS);
+     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CREATE_FXML,WEB_PROMOTION_CREATE_CSS);
    
     }
 
-	@Override
-	public void update(String promotionID) {
-		//获取单个并添加到对应类型表和总表中
-		
-		
-	}
+
 
 	@FXML
     void check(ActionEvent event) {
@@ -156,5 +144,20 @@ public class WebPromotionController implements PromotionUpdate,Initializable{
 		ResourceBundle bundle=new PromotionInfoBundle(promotion);
 		WindowGrab.startWindowWithBundle(window, "促销策略详情", WEB_PROMOTION_CHECK_FXML	, WEB_PROMOTION_CHECK_CSS, bundle);
     }
+
+
+	@Override
+	public void confirm() {
+		// 确认是否删除订单
+		String id=promotion_list.getSelectionModel().getSelectedItem().promotionID;
+		
+	}
+
+
+	@Override
+	public void update(String promotionID) {
+		// 添加或者删除订单后本地刷新
+		
+	}
 }
 

@@ -120,7 +120,7 @@ public class MainMarketController {
 			e.printStackTrace();
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
-    	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNEXCUTED_ORDER_CSS, bundle);
+    	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, bundle);
     }
 
 }

@@ -40,37 +40,16 @@ public class PromotionCheckController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		promotionVO=(PromotionVO)resources.getObject("promotion");
-
-	}
+		promotion_ID.setText(promotionVO.promotionID);
+    	promotion_name.setText(promotionVO.promotionName);
+    	time_start.setText(promotionVO.startDate);
+    	time_end.setText(promotionVO.finishDate);
+    	discount.setText(promotionVO.discount.toString());
+		}
  
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
-    }
-
-    @FXML
-    void promotion_ID(ActionEvent event) {
-    	promotion_ID.setText(promotionVO.promotionID);
-    }
-
-    @FXML
-    void promotion_name(ActionEvent event) {
-    	promotion_name.setText(promotionVO.promotionName);
-    }
-
-    @FXML
-    void time_start(ActionEvent event) {
-    	time_start.setText(promotionVO.startDate);
-    }
-
-    @FXML
-    void time_end(ActionEvent event) {
-    	time_end.setText(promotionVO.finishDate);
-    }
-
-    @FXML
-    void discount(ActionEvent event) {
-    	discount.setText(promotionVO.discount.toString());
     }
 
 	

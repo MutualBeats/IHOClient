@@ -10,7 +10,7 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.ConfirmController">
    <children>
       <Accordion layoutY="115.0" />
-      <Text fx:id="confirm_text" layoutX="125.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认修改">
+      <Text fx:id="confirm_text" layoutX="115.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认修改 ?">
          <font>
             <Font size="18.0" />
          </font></Text>
