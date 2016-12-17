@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.bundle.PromotionInfoBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
@@ -124,9 +125,13 @@ public class HotelPromotionController implements Initializable, Confirm {
 
     @FXML
     void check(ActionEvent event) {
-    	// TODO
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "查看促销策略",HOTEL_PROMOTION_LOOK_FXML,HOTEL_PROMOTION_LOOK_CSS);
+    	PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
+    	if(promotionVO == null) {
+    		WindowGrab.startNoticeWindow(window, "请选择促销策略");
+    		return;
+    	}
+    	WindowGrab.startWindowWithBundle(window, "查看促销策略", HOTEL_PROMOTION_LOOK_FXML, HOTEL_PROMOTION_LOOK_CSS, new PromotionInfoBundle(promotionVO));
     }
 
     @FXML

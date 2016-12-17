@@ -10,6 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.ResourceBundle.Control;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
@@ -195,12 +196,15 @@ public class Order_Manage_Controller implements Initializable, Confirm {
 		} else {
 			OrderVO info = model.getSelectedItem();
 			String hotel_name = null;
+			String promotion_name = "无";
 			try {
 				hotel_name = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(UserCache.getHotelID()).hotelName;
+				if(info.promotionIDList.size() > 0)
+					promotion_name = ControllerFactory.getPromotionBLServiceInstance().getPromotionById(info.promotionIDList.get(0)).promotionName;
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 			}
-			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name);
+			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name, promotion_name);
 
 			WindowGrab.startWindowWithBundle(window, "订单详情", ORDER_CHECK_FXML, ORDER_CHECK_CSS, bundle);
 		}
