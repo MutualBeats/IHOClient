@@ -1,9 +1,9 @@
 package presentation.staffui.mainstaff;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import bl_test.orderbl.OrderBlTest;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import config.urlconfig.StaffUIURLConfig;
@@ -15,9 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import presentation.bundle.OrderListBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
+import util.order.OrderState;
+import vo.order.OrderVO;
 import vo.user.StaffVO;
 
 public class MainStaffController implements Initializable{
@@ -45,9 +48,7 @@ public class MainStaffController implements Initializable{
 
     @FXML
     private Button promotion;
-    
-    private StaffVO staff;
-    
+        
     //酒店促销策略
     private static URL HOTEL_PROMOTION_FXML;
     private static URL HOTEL_PROMOTION_CSS;
@@ -82,12 +83,12 @@ public class MainStaffController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			staff = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID());
+			StaffVO staff = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID());
+			UserCache.setHotelID(staff.hotelID);
 			staffID.setText(staff.id);
 			staffName.setText(staff.name);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
-			e.printStackTrace();
 		}
 	}
     
@@ -99,17 +100,29 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void manageOrder(ActionEvent event) {
-//    	Scene frame = WindowGrab.getScene(event);
-//		Window window = WindowGrab.getWindowByScene(frame);
-//		OrderBLService orderBLService = null;
-//		try {
-//			orderBLService = ControllerFactory.getOrderBLServiceInstance();
-//		} catch (NetException e) {
-//			e.printStackTrace();
-//			return;
-//		}
-    	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, "管理订单", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
+		Scene frame = WindowGrab.getScene(event);
+		Window window = WindowGrab.getWindowByScene(frame);
+		OrderBLService service = null;
+		try {
+			service = ControllerFactory.getOrderBLServiceInstance();
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+			return;
+		}
+
+		String hotelID = UserCache.getHotelID();
+		try {
+			ArrayList<OrderVO> total_list = service.queryHotelOrder(hotelID, OrderState.All);
+			ArrayList<OrderVO> finish_list = service.queryHotelOrder(hotelID, OrderState.Finished);
+			ArrayList<OrderVO> unexecute_list = service.queryHotelOrder(hotelID, OrderState.Unexecuted);
+			ArrayList<OrderVO> revoked_list = service.queryHotelOrder(hotelID, OrderState.Canceled);
+			ArrayList<OrderVO> exception_list = service.queryHotelOrder(hotelID, OrderState.Exception);
+		
+			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
+			WindowGrab.changeSceneWithBundle(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, frame, bundle);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
     }
 
     @FXML

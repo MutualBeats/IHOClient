@@ -79,7 +79,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO 测试用
 		try {
-			String hotelID = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID()).hotelID;
+			String hotelID = UserCache.getHotelID();
 			
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 			String[] region = info.region.split(" ");

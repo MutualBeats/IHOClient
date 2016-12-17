@@ -114,14 +114,54 @@ public class RoomCheckController implements Initializable {
     
     @FXML
     void checkIn(ActionEvent event) {
-    	// TODO 线下入住
+    	// 线下入住
+    	Window window = WindowGrab.getWindow(event);
     	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
+    	switch (result) {
+		case Check_In_Successful:
+			WindowGrab.startNoticeWindow(window, "入住成功");
+			break;
+		case Room_State_Error:
+			WindowGrab.startNoticeWindow(window, "房间不是已预订状态，无法入住");
+			break;
+		case Room_Record_Not_Exist:
+			WindowGrab.startNoticeWindow(window, "房间记录不存在");
+			break;
+		case Not_Offline_Error:
+			WindowGrab.startNoticeWindow(window, "线上入住不可直接操作房间");
+			break;
+		case Net_Error:
+			WindowGrab.startNetErrorWindow(window);
+		default:
+			WindowGrab.startNoticeWindow(window, "异常错误");
+			break;
+		}
     }
     
     @FXML
     void checkOut(ActionEvent event) {
-    	// TODO 线下退房
+    	// 线下退房
+    	Window window = WindowGrab.getWindow(event);
     	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
+    	switch (result) {
+		case Check_Out_Successful:
+			WindowGrab.startNoticeWindow(window, "退房成功");
+			break;
+		case Room_State_Error:
+			WindowGrab.startNoticeWindow(window, "房间不是已预订状态，无法入住");
+			break;
+		case Room_Record_Not_Exist:
+			WindowGrab.startNoticeWindow(window, "房间记录不存在");
+			break;
+		case Not_Offline_Error:
+			WindowGrab.startNoticeWindow(window, "线上入住不可直接操作房间");
+			break;
+		case Net_Error:
+			WindowGrab.startNetErrorWindow(window);
+		default:
+			WindowGrab.startNoticeWindow(window, "异常错误");
+			break;
+		}
     }
     
     @FXML

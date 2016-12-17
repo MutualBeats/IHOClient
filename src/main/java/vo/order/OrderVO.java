@@ -19,6 +19,10 @@ public class OrderVO {
 	private StringProperty state_property;
 	private StringProperty id_property;
 	private StringProperty evaluation_state;
+	private StringProperty client_property;
+	private StringProperty check_in_date;
+	private StringProperty estimate_check_out_date;
+	private StringProperty actual_check_out_date;
 
 	public void setStateProperty(OrderState state) {
 		orderState = state;
@@ -61,6 +65,22 @@ public class OrderVO {
 
 	public String getOrderState() {
 		return STATES[orderState.ordinal()];
+	}
+	
+	public StringProperty getClientProperty() {
+		return client_property;
+	}
+	
+	public StringProperty getCheck_in_date_property() {
+		return check_in_date;
+	}
+	
+	public StringProperty getEstimate_check_out_date_property() {
+		return estimate_check_out_date;
+	}
+	
+	public StringProperty getActual_check_out_date_property() {
+		return actual_check_out_date;
 	}
 
 	/**
@@ -180,6 +200,10 @@ public class OrderVO {
 		state_property = new SimpleStringProperty(STATES[orderState.ordinal()]);
 		id_property = new SimpleStringProperty(orderID);
 		evaluation_state = new SimpleStringProperty(isEvaluate ? EVA_FINISH : EVA_UNFINISH);
+		client_property = new SimpleStringProperty(clientID);
+		check_in_date = new SimpleStringProperty(checkInDate);
+		estimate_check_out_date = new SimpleStringProperty(estimateCheckOutDate);
+		actual_check_out_date = new SimpleStringProperty(actualCheckOutDate);
 	}
 
 	public OrderVO(OrderMakeVO vo) {

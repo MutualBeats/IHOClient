@@ -15,17 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
-import presentation.manageui.addhotel.ViewCache;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
-import util.resultmessage.ResultMessage_Room;
 import util.room.RoomState;
 import util.room.RoomType;
 import vo.room.RoomVO;
-import vo.user.BaseVO;
-import vo.user.StaffVO;
 
 public class RoomCreateController implements Initializable, Confirm {
 	
@@ -71,7 +67,6 @@ public class RoomCreateController implements Initializable, Confirm {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	// TODO 输入合法性检测
     	int roomTypeIndex = room_type.getSelectionModel().getSelectedIndex();
     	if(roomTypeIndex == -1) {
     		WindowGrab.startNoticeWindow(window, "请选择房间类型");
@@ -92,7 +87,6 @@ public class RoomCreateController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		// TODO
 		String hotelID = UserCache.getHotelID();
 		RoomType roomType = RoomType.values()[room_type.getSelectionModel().getSelectedIndex()];
 		String roomNumber = room_number.getText();
@@ -104,9 +98,9 @@ public class RoomCreateController implements Initializable, Confirm {
 			ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			return;
 		}
-
+		// TODO 成功提示 房间列表添加
 	}
-
 
 }
