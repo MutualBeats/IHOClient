@@ -19,13 +19,24 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="import_room_list" editable="true" layoutX="90.0" layoutY="144.0" prefHeight="200.0" prefWidth="300.0">
-              <columns>
-                <TableColumn fx:id="room_number" prefWidth="100.0" sortable="false" text="房间号" />
-                <TableColumn fx:id="room_type" prefWidth="100.0" sortable="false" text="房间类型" />
-                  <TableColumn fx:id="room_price" prefWidth="100.0" sortable="false" text="房间价格" />
-              </columns>
-            </TableView>
+            <Label ellipsisString="" layoutX="71.0" layoutY="217.0" prefHeight="26.0" prefWidth="94.0" text="房间号:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label ellipsisString="" layoutX="71.0" layoutY="151.0" prefHeight="26.0" prefWidth="94.0" text="房间类型:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label ellipsisString="" layoutX="71.0" layoutY="287.0" prefHeight="26.0" prefWidth="94.0" text="房间价格:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="room_type" layoutX="190.0" layoutY="151.0" prefWidth="150.0" />
+            <TextField fx:id="room_number" layoutX="190.0" layoutY="217.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField fx:id="room_price" layoutX="190.0" layoutY="287.0" prefHeight="27.0" prefWidth="150.0" />
          </children></AnchorPane>
   </items>
 </SplitPane>

@@ -20,6 +20,7 @@ import javafx.stage.Window;
 import presentation.bundle.RoomInfoBundle;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
+import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
@@ -114,13 +115,13 @@ public class RoomCheckController implements Initializable {
     @FXML
     void checkIn(ActionEvent event) {
     	// TODO 线下入住
-    	
+    	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
     }
     
     @FXML
     void checkOut(ActionEvent event) {
     	// TODO 线下退房
-    	
+    	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
     }
     
     @FXML

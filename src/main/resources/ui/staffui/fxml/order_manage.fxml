@@ -32,35 +32,53 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="200.0" layoutY="147.0" prefHeight="27.0" text="订单号:">
+      <Label layoutX="205.0" layoutY="130.0" prefHeight="27.0" text="订单号:">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField layoutX="268.0" layoutY="147.0" />
+      <TextField layoutX="273.0" layoutY="130.0" />
       <Button fx:id="check" layoutX="250.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
          </font></Button>
       <TableView layoutX="49.0" layoutY="235.0" prefHeight="257.0" prefWidth="700.0">
          <columns>
-            <TableColumn prefWidth="90.0" text="订单ID" />
-            <TableColumn prefWidth="90.0" text="用户ID" />
-            <TableColumn prefWidth="70.0" text="会员ID" />
-            <TableColumn prefWidth="70.0" text="会员类型" />
-            <TableColumn prefWidth="90.0" text="订单生成时间" />
-            <TableColumn prefWidth="45.0" text="房间号" />
-            <TableColumn prefWidth="90.0" text="预定时间段" />
-            <TableColumn prefWidth="90.0" text="预计离开时间" />
-            <TableColumn prefWidth="65.0" text="订单状态" />
+            <TableColumn prefWidth="111.0" text="订单号" />
+            <TableColumn prefWidth="95.0" text="客户" />
+            <TableColumn prefWidth="107.0" text="订单状态" />
+            <TableColumn prefWidth="121.0" text="入住时间" />
+            <TableColumn prefWidth="125.0" text="预计离开时间" />
+            <TableColumn prefWidth="139.0" text="实际离开时间" />
          </columns>
       </TableView>
-      <Button layoutX="468.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="搜索" />
-      <CheckBox layoutX="85.0" layoutY="195.0" mnemonicParsing="false" text="已执行订单" />
-      <CheckBox layoutX="225.0" layoutY="195.0" mnemonicParsing="false" text="未执行订单" />
-      <CheckBox layoutX="365.0" layoutY="195.0" mnemonicParsing="false" text="已撤销订单" />
-      <CheckBox layoutX="505.0" layoutY="195.0" mnemonicParsing="false" text="异常订单" />
-      <CheckBox layoutX="625.0" layoutY="195.0" mnemonicParsing="false" text="本地异常订单" />
+      <Button layoutX="473.0" layoutY="130.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="搜索" />
       <Button layoutX="375.0" layoutY="500.0" mnemonicParsing="false" onAction="#supply" prefWidth="60.0" text="补录">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Line endX="600.0" layoutX="97.0" layoutY="212.0" />
+      <Button fx:id="exception_order" layoutX="597.0" layoutY="183.0" mnemonicParsing="false" onAction="#exception_order" prefWidth="100.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="revoked_order" layoutX="472.0" layoutY="183.0" mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="unexecuted_order" layoutX="347.0" layoutY="183.0" mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="finished_order" layoutX="222.0" layoutY="183.0" mnemonicParsing="false" onAction="#executed_order" prefWidth="100.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="all_order" layoutX="97.0" layoutY="183.0" mnemonicParsing="false" onAction="#all_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>

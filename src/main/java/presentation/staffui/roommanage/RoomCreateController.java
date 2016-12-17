@@ -2,32 +2,43 @@ package presentation.staffui.roommanage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import presentation.manageui.addhotel.ViewCache;
+import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
+import util.exception.NetException;
+import util.resultmessage.ResultMessage_Room;
+import util.room.RoomState;
+import util.room.RoomType;
 import vo.room.RoomVO;
+import vo.user.BaseVO;
+import vo.user.StaffVO;
 
-public class RoomCreateController implements Initializable {
+public class RoomCreateController implements Initializable, Confirm {
+	
+	private static final ObservableList<String> ROOM_TYPE = FXCollections.observableArrayList("单人间", "双人间", "三人间", "四人间");
 	
 	@FXML
-	private TableColumn<RoomVO, String> room_number;
+	private ComboBox<String> room_type;
 	
 	@FXML
-	private TableColumn<RoomVO, ComboBox<String>> room_type;
+	private TextField room_number;
 	
 	@FXML
-	private TableColumn<RoomVO, Integer> room_price;
-	
-	@FXML
-	private TableView<RoomVO> import_room_list;
+	private TextField room_price;
 	
     @FXML
     private Button cancel;
@@ -49,8 +60,7 @@ public class RoomCreateController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO
-		
+		room_type.setItems(ROOM_TYPE);
 	}
     
     @FXML
@@ -61,8 +71,42 @@ public class RoomCreateController implements Initializable {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window,"确认", ROOM_CREATE_CONFIRM_FXML,ROOM_CREATE_CONFIRM_CSS);
+    	// TODO 输入合法性检测
+    	int roomTypeIndex = room_type.getSelectionModel().getSelectedIndex();
+    	if(roomTypeIndex == -1) {
+    		WindowGrab.startNoticeWindow(window, "请选择房间类型");
+    		return;
+    	}
+    	try {
+    		int roomPrice = Integer.parseInt(room_price.getText());
+    		if(roomPrice < 0) {
+    			WindowGrab.startNoticeWindow(window, "房间价格不可为负");
+    			return;
+    		}
+    	} catch (NumberFormatException e) {
+    		WindowGrab.startNoticeWindow(window, "请输入正确的价格");
+    		return;
+    	}
+    	WindowGrab.startConfirmWindow(window, this, "是否确认录入");
     }
+
+	@Override
+	public void confirm() {
+		// TODO
+		String hotelID = UserCache.getHotelID();
+		RoomType roomType = RoomType.values()[room_type.getSelectionModel().getSelectedIndex()];
+		String roomNumber = room_number.getText();
+		int roomPrice = Integer.parseInt(room_price.getText());
+		RoomVO room = new RoomVO(hotelID, roomNumber, roomType, roomPrice, RoomState.NotReserved);
+		ArrayList<RoomVO> importList = new ArrayList<>();
+		importList.add(room);
+		try {
+			ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+		}
+
+	}
 
 
 }
