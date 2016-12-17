@@ -2,10 +2,44 @@ package vo.promotion;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import po.promotion.PromotionPO;
 import util.promotion.PromotionType;
 
 public class PromotionVO {
+	
+	private StringProperty promotionIDProperty;
+	private StringProperty promotionNameProperty;
+	private StringProperty promotionTypeProperty;
+	private StringProperty hotelIDProperty;
+	private StringProperty startDateProperty;
+	private StringProperty finishDateProperty;
+	
+	public StringProperty getPromotionIDProperty() {
+		return promotionIDProperty;
+	}
+
+	public StringProperty getPromotionNameProperty() {
+		return promotionNameProperty;
+	}
+
+	public StringProperty getPromotionTypeProperty() {
+		return promotionTypeProperty;
+	}
+
+	public StringProperty getHotelIDProperty() {
+		return hotelIDProperty;
+	}
+
+	public StringProperty getStartDateProperty() {
+		return startDateProperty;
+	}
+
+	public StringProperty getFinishDateProperty() {
+		return finishDateProperty;
+	}
+
 	/**
 	 * 促销策略id
 	 */
@@ -54,6 +88,12 @@ public class PromotionVO {
 		this.hotelID = hotelID;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
+		
+		promotionIDProperty = new SimpleStringProperty(promotionID);
+		promotionNameProperty = new SimpleStringProperty(promotionName);
+		promotionTypeProperty = new SimpleStringProperty(type.toString());
+		startDateProperty = new SimpleStringProperty(startDate);
+		finishDateProperty = new SimpleStringProperty(finishDate);
 	}
 
 	public PromotionVO(PromotionPO po) {
