@@ -73,7 +73,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="finished_order" layoutX="222.0" layoutY="183.0" mnemonicParsing="false" onAction="#executed_order" prefWidth="100.0">
+      <Button fx:id="finished_order" layoutX="222.0" layoutY="183.0" mnemonicParsing="false" onAction="#finished_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>

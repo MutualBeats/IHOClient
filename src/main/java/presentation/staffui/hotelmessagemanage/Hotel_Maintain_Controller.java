@@ -2,10 +2,8 @@ package presentation.staffui.hotelmessagemanage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.ResourceBundle.Control;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogicservice.hotelblservice.HotelBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,7 +81,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 			String[] region = info.region.split(" ");
-			// TODO combobox操作
+			// TODO combobox初始化
 			hotel_province.setValue(region[0]);
 			hotel_city.setValue(region[1]);
 			hotel_town.setValue(region[2]);

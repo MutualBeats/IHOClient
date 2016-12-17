@@ -76,13 +76,14 @@ public class RoomUpdateController implements Initializable, Confirm {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
+    	// TODO 输入合法性检测
 //		WindowGrab.startWindow(window,"确认", ROOM_UPDATE_CONFIRM_FXML,ROOM_UPDATE_CONFIRM_CSS);
 		WindowGrab.startConfirmWindow(window, this, "是否确认添加房间记录");
     }
 
 	@Override
 	public void confirm() {
-		// TODO 如何获取DatePicker
+		// TODO DatePicker操作
 		RoomRecordVO roomRecord;
 		
 	}

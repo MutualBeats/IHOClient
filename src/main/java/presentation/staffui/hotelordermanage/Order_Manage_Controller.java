@@ -143,6 +143,44 @@ public class Order_Manage_Controller implements Initializable, Confirm {
 	}
 	
 	@FXML
+	void all_order(ActionEvent event) {
+//		hideRevoke();
+//		hideEvalutate();
+		order_list.setItems(total_list);
+	}
+
+	@FXML
+	void finished_order(ActionEvent event) {
+//		hideRevoke();
+//		evaluate.setVisible(true);
+//		evaluate.setDisable(false);
+		order_list.setItems(finished_list);
+	}
+
+	@FXML
+	void unexecuted_order(ActionEvent event) {
+//		hideEvalutate();
+//		// Represent the button
+//		revoke.setVisible(true);
+//		revoke.setDisable(false);
+		order_list.setItems(unexecuted_list);
+	}
+
+	@FXML
+	void revoked_order(ActionEvent event) {
+//		hideRevoke();
+//		hideEvalutate();
+		order_list.setItems(revoked_list);
+	}
+
+	@FXML
+	void exception_order(ActionEvent event) {
+//		hideRevoke();
+		order_list.setItems(exception_list);
+	}
+
+	
+	@FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
@@ -199,6 +237,7 @@ public class Order_Manage_Controller implements Initializable, Confirm {
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
 			switch (result) {
 			case Put_Up_Successful:
+				// TODO 修改TableView中对应订单状态
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Room_Already_Ordered:

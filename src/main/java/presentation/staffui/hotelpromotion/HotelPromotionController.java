@@ -21,12 +21,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
+import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
-public class HotelPromotionController implements Initializable {
+public class HotelPromotionController implements Initializable, Confirm {
 	
 	@FXML
 	private TableColumn<PromotionVO, String> promotion_id;
@@ -68,16 +70,12 @@ public class HotelPromotionController implements Initializable {
     private static URL HOTEL_PROMOTION_CREATE_CSS;
     private static URL HOTEL_PROMOTION_LOOK_FXML;
     private static URL HOTEL_PROMOTION_LOOK_CSS;
-    private static URL HOTEL_PROMOTION_CHANGE_FXML;
-	private static URL HOTEL_PROMOTION_CHANGE_CSS;
 
 	static {
 		HOTEL_PROMOTION_CREATE_FXML = StaffUIURLConfig.staff_hotel_promotion_create_fxml_url();
 		HOTEL_PROMOTION_CREATE_CSS = StaffUIURLConfig.staff_hotel_promotion_create_css_url();
 		HOTEL_PROMOTION_LOOK_FXML = StaffUIURLConfig.staff_hotel_promotion_check_fxml_url();
 		HOTEL_PROMOTION_LOOK_CSS = StaffUIURLConfig.staff_hotel_promotion_check_css_url();
-		HOTEL_PROMOTION_CHANGE_FXML = StaffUIURLConfig.staff_hotel_promotion_change_fxml_url();
-		HOTEL_PROMOTION_CHANGE_CSS = StaffUIURLConfig.staff_hotel_promotion_change_css_url();
     }
 	
 	private ObservableList<PromotionVO> list = FXCollections.observableArrayList();
@@ -86,7 +84,6 @@ public class HotelPromotionController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			PromotionBLService promotionBL = ControllerFactory.getPromotionBLServiceInstance();
-			// TODO 获取酒店id
 			ArrayList<PromotionVO> hotelPromotionVOList = promotionBL.getHotelPromotion(UserCache.getHotelID());
 			list.addAll(hotelPromotionVOList);
 			promotion_list.setItems(list);
@@ -112,7 +109,12 @@ public class HotelPromotionController implements Initializable {
     @FXML
     void delete(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "删除促销策略",HOTEL_PROMOTION_CHANGE_FXML,HOTEL_PROMOTION_CHANGE_CSS);
+    	int promotionIndex = promotion_list.getSelectionModel().getSelectedIndex();
+    	if(promotionIndex == -1) {
+    		WindowGrab.startNoticeWindow(window, "请选择促销策略");
+    		return;
+    	}
+    	WindowGrab.startConfirmWindow(window, this, "是否确认删除");
 	}
 
     @FXML
@@ -122,15 +124,45 @@ public class HotelPromotionController implements Initializable {
 
     @FXML
     void check(ActionEvent event) {
+    	// TODO
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(window, "查看促销策略",HOTEL_PROMOTION_LOOK_FXML,HOTEL_PROMOTION_LOOK_CSS);
     }
 
     @FXML
     void create(ActionEvent event) {
+    	// TODO
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(window, "新建促销策略",HOTEL_PROMOTION_CREATE_FXML,HOTEL_PROMOTION_CREATE_CSS);
     }
+
+	@Override
+	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(0);
+		PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
+		int index = promotion_list.getSelectionModel().getSelectedIndex();
+		try {
+			ResultMessage_Promotion result = ControllerFactory.getPromotionBLServiceInstance().cancel(promotionVO.promotionID);
+			switch (result) {
+			case Delete_Successful:
+				promotion_list.getItems().remove(index);
+				// TODO 提示窗口问题
+				WindowGrab.startNoticeWindow(window, "删除成功");
+				break;
+			case Promotion_Not_Exist:
+				WindowGrab.startNoticeWindow(window, "促销策略不存在");
+				break;
+			case Net_Error:
+				WindowGrab.startNetErrorWindow(window);
+				break;
+			default:
+				WindowGrab.startNoticeWindow(window, "异常错误");
+				break;
+			}
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+	}
 
 }
 

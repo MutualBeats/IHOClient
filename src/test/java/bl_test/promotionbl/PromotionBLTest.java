@@ -11,6 +11,7 @@ import bussinesslogic.promotionbl.Promotion;
 import util.exception.NetException;
 import util.promotion.PromotionType;
 import util.resultmessage.ResultMessage_Promotion;
+import vo.promotion.EnterprisePromotionVO;
 import vo.promotion.PromotionVO;
 
 public class PromotionBLTest {
@@ -81,29 +82,33 @@ public class PromotionBLTest {
 		assertEquals(ResultMessage_Promotion.Level_Make_Successful, result);
 	}
 	
-//	@Test
-//	public void testAddPromotion() {
-//		ArrayList<Double> discount = new ArrayList<>();
-//		discount.add(10.0);
-//		discount.add(9.0);
-//		discount.add(8.0);
-//		discount.add(7.0);
-//		ArrayList<String> enterpriseList = new ArrayList<>();
-//		enterpriseList.add("腾讯企业");
-//		enterpriseList.add("南京大学软件学院");
-//		PromotionVO vo = new EnterprisePromotionVO(null, "测试1", PromotionType.Enterprise, 
-//				discount, "00000002", "2016/12/07", "2016/12/08", enterpriseList);
-//		ResultMessage_Promotion result = promotion.addhotelPromotion(vo);
-//		assertEquals(ResultMessage_Promotion.Add_Successful, result);
-//	}
+	@Test
+	public void testAddPromotion() {
+		ArrayList<Double> discount = new ArrayList<>();
+		discount.add(10.0);
+		discount.add(9.0);
+		discount.add(8.0);
+		discount.add(7.0);
+		ArrayList<String> enterpriseList = new ArrayList<>();
+		enterpriseList.add("腾讯企业");
+		enterpriseList.add("南京大学软件学院");
+		PromotionVO vo = new EnterprisePromotionVO(null, "测试1", PromotionType.Enterprise, 
+				discount, "00000002", "2016/12/18", "2017/01/01", enterpriseList);
+		try {
+			String id = promotion.addhotelPromotion(vo);
+			System.out.println(id);
+		} catch (NetException e) {
+			e.printStackTrace();
+		}
+	}
 	
-//	@Test
-//	public void testDeletePromotion() {
-//		ResultMessage_Promotion result;
-//		result = promotion.cancel("100000");
-//		assertEquals(ResultMessage_Promotion.Promotion_Not_Exist, result);
+	@Test
+	public void testDeletePromotion() {
+		ResultMessage_Promotion result;
+		result = promotion.cancel("100000");
+		assertEquals(ResultMessage_Promotion.Promotion_Not_Exist, result);
 //		result = promotion.cancel("000007");
 //		assertEquals(ResultMessage_Promotion.Delete_Successful, result);
-//	}
+	}
 
 }

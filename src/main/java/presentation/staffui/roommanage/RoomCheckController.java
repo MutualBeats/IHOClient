@@ -119,6 +119,7 @@ public class RoomCheckController implements Initializable {
     	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_In_Successful:
+			// TODO TableView修改
 			WindowGrab.startNoticeWindow(window, "入住成功");
 			break;
 		case Room_State_Error:
@@ -145,6 +146,7 @@ public class RoomCheckController implements Initializable {
     	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_Out_Successful:
+			// TODO TableView修改
 			WindowGrab.startNoticeWindow(window, "退房成功");
 			break;
 		case Room_State_Error:
