@@ -17,7 +17,7 @@ import javafx.util.StringConverter;
 public class CheckUtil {
 
 	private final static Pattern pattern = Pattern.compile("[\\S]+");
-	private final static Pattern score_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
+	private final static Pattern point_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
 	private final static Pattern value_pattern = Pattern.compile("^[1-9]\\d*$");
 
 	public static boolean checkWarningBefore(Label label) {
@@ -34,7 +34,17 @@ public class CheckUtil {
 	}
 
 	public static boolean checkScore(String score) {
-		return score_pattern.matcher(score).matches();
+		return point_pattern.matcher(score).matches();
+	}
+
+	public static boolean checkDiscount(String discount) {
+		if(point_pattern.matcher(discount).matches()) {
+			if(Double.parseDouble(discount) > 10) {
+				return false;
+			}
+			return true;
+		}
+		return false;
 	}
 
 	public static boolean checkSelect(ComboBox<?> comboBox) {

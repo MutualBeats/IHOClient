@@ -32,125 +32,117 @@ import vo.promotion.PromotionVO;
 
 public class HotelPromotionCreateController implements Initializable, Confirm, Update {
 
-    @FXML
-    private Button cancel;
+	@FXML
+	private Button cancel;
 
-    @FXML
-    private ComboBox<String> promotion_type;
+	@FXML
+	private ComboBox<String> promotion_type;
 
-    @FXML
-    private Label discount_warning;
+	@FXML
+	private Label discount_warning;
 
-    @FXML
-    private TextField discount_lv2;
+	@FXML
+	private TextField discount_lv2;
 
-    @FXML
-    private TextField discount_lv3;
+	@FXML
+	private TextField discount_lv3;
 
-    @FXML
-    private TextField discount_lv0;
+	@FXML
+	private TextField discount_lv0;
 
-    @FXML
-    private TextField discount_lv1;
+	@FXML
+	private TextField discount_lv1;
 
-    @FXML
-    private Button confirm;
+	@FXML
+	private Button confirm;
 
-    @FXML
-    private TextField promotion_name;
+	@FXML
+	private TextField promotion_name;
 
-    @FXML
-    private DatePicker finish_date;
+	@FXML
+	private DatePicker finish_date;
 
-    @FXML
-    private Label type_warning;
+	@FXML
+	private Label type_warning;
 
-    @FXML
-    private Label enterprise_warning;
+	@FXML
+	private Label enterprise_warning;
 
-    @FXML
-    private Text enterprise_label;
-    
-    @FXML
-    private ListView<String> enterprise_list;
-    
-    @FXML
-    private Button add_enterprise;
+	@FXML
+	private Text enterprise_label;
 
-    @FXML
-    private DatePicker start_date;
+	@FXML
+	private ListView<String> enterprise_list;
 
-    @FXML
-    private Label name_warning;
-    
-    private static URL ENTERPRISE_INPUT_FXML;
-    private static URL ENTERPRISE_INPUT_CSS;
-    
-    static {
-    	try {
+	@FXML
+	private Button add_enterprise;
+
+	@FXML
+	private DatePicker start_date;
+
+	@FXML
+	private Label name_warning;
+
+	private static URL ENTERPRISE_INPUT_FXML;
+	private static URL ENTERPRISE_INPUT_CSS;
+
+	static {
+		try {
 			ENTERPRISE_INPUT_FXML = new URL("file:src/main/resources/ui/staffui/fxml/enterprise_input.fxml");
-	    	ENTERPRISE_INPUT_CSS = new URL("file:src/main/resources/ui/staffui/css/enterprise_input.fxml");
+			ENTERPRISE_INPUT_CSS = new URL("file:src/main/resources/ui/staffui/css/enterprise_input.fxml");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-    }
+	}
 
-    @FXML
-    void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
-    }
-        
+	@FXML
+	void cancel(ActionEvent event) {
+		WindowGrab.closeWindow(event);
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ObservableList<String> promotionTypes = FXCollections.observableArrayList(PromotionType.Birthday.toString(), PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
+		ObservableList<String> promotionTypes = FXCollections.observableArrayList(PromotionType.Birthday.toString(),
+				PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
 		promotion_type.setItems(promotionTypes);
 		CheckUtil.init(start_date, finish_date, LocalDate.now(), LocalDate.now());
 	}
 
-    @FXML
-    void confirm(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-    	if(checkInput())
-    		WindowGrab.startConfirmWindow(window, this, "是否确认新建促销策略");
-    }
-    
-    private boolean checkInput() {
-    	boolean check = true;
-		if (promotion_name.getText() == "") {
+	@FXML
+	void confirm(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		if (checkInput())
+			WindowGrab.startConfirmWindow(window, this, "是否确认新建促销策略");
+	}
+
+	private boolean checkInput() {
+		boolean check = true;
+		if (CheckUtil.checkText(promotion_name)) {
 			name_warning.setText("请输入名称");
 			check = false;
 		}
-		if (promotion_type.getSelectionModel().getSelectedIndex() == -1) {
+		if (CheckUtil.checkSelect(promotion_type)) {
 			type_warning.setText("请选择类型");
 			check = false;
 		}
 
 		try {
-			if (Double.parseDouble(discount_lv0.getText()) <= 0 || Double.parseDouble(discount_lv0.getText()) > 10) {
+			if (!(CheckUtil.checkDiscount(discount_lv0.getText()) && CheckUtil.checkDiscount(discount_lv1.getText())
+					&& CheckUtil.checkDiscount(discount_lv2.getText())
+					&& CheckUtil.checkDiscount(discount_lv3.getText()))) {
 				discount_warning.setText("折扣数值错误");
 				check = false;
 			}
-			if (Double.parseDouble(discount_lv1.getText()) <= 0 || Double.parseDouble(discount_lv1.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
-				check = false;
-			}
-			if (Double.parseDouble(discount_lv2.getText()) <= 0 || Double.parseDouble(discount_lv2.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
-				check = false;
-			}
-			if (Double.parseDouble(discount_lv3.getText()) <= 0 || Double.parseDouble(discount_lv3.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
-				check = false;
-			}
-    	} catch (NumberFormatException e) {
-    		discount_warning.setText("折扣格式错误");
+		} catch (NumberFormatException e) {
+			discount_warning.setText("折扣格式错误");
 		}
-    	if(promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise") && enterprise_list.getItems().size() == 0) {
-    		enterprise_warning.setText("未添加企业");
-    		check = false;
-    	}
-    	return check;
-    }
+		if (promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")
+				&& enterprise_list.getItems().size() == 0) {
+			enterprise_warning.setText("未添加企业");
+			check = false;
+		}
+		return check;
+	}
 
 	@Override
 	public void confirm() {
@@ -164,16 +156,16 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		discount.add(Double.parseDouble(discount_lv1.getText()));
 		discount.add(Double.parseDouble(discount_lv2.getText()));
 		discount.add(Double.parseDouble(discount_lv3.getText()));
-		
+
 		PromotionVO promotionVO = null;
-		if(type == PromotionType.Enterprise) {
+		if (type == PromotionType.Enterprise) {
 			ArrayList<String> enterpriseList = new ArrayList<>();
 			for (String each : enterprise_list.getItems()) {
 				enterpriseList.add(each);
 			}
-			promotionVO = new EnterprisePromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate, enterpriseList);
-		}
-		else
+			promotionVO = new EnterprisePromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate,
+					finishDate, enterpriseList);
+		} else
 			promotionVO = new PromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate);
 		try {
 			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(promotionVO);
@@ -182,40 +174,40 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 		// TODO 更新promotion列表
-		
+
 	}
-	
+
 	@FXML
 	void addEnterprise(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		
-		WindowGrab.startWindowWithBundle(window, "企业名输入", ENTERPRISE_INPUT_FXML, ENTERPRISE_INPUT_CSS, new EnterpriseUpdateBundle(this));
+
+		WindowGrab.startWindowWithBundle(window, "企业名输入", ENTERPRISE_INPUT_FXML, ENTERPRISE_INPUT_CSS,
+				new EnterpriseUpdateBundle(this));
 	}
-	
+
 	@FXML
-    void nameModify(ActionEvent event) {
+	void nameModify(ActionEvent event) {
 		CheckUtil.checkWarningBefore(name_warning);
-    }
+	}
 
-    @FXML
-    void discountModify(ActionEvent event) {
-    	CheckUtil.checkWarningBefore(discount_warning);
-    }
+	@FXML
+	void discountModify(ActionEvent event) {
+		CheckUtil.checkWarningBefore(discount_warning);
+	}
 
-    @FXML
-    void typeModify(ActionEvent event) {
-    	CheckUtil.checkWarningBefore(type_warning);
-    	if(promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")) {
-    		enterprise_label.setVisible(true);
-    		enterprise_list.setVisible(true);
-    		add_enterprise.setVisible(true);
-    	}
-    	else {
-    		enterprise_label.setVisible(false);
-    		enterprise_list.setVisible(false);
-    		add_enterprise.setVisible(false);
-    	}
-    }
+	@FXML
+	void typeModify(ActionEvent event) {
+		CheckUtil.checkWarningBefore(type_warning);
+		if (promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")) {
+			enterprise_label.setVisible(true);
+			enterprise_list.setVisible(true);
+			add_enterprise.setVisible(true);
+		} else {
+			enterprise_label.setVisible(false);
+			enterprise_list.setVisible(false);
+			add_enterprise.setVisible(false);
+		}
+	}
 
 	@Override
 	public void update(String enter_name) {
