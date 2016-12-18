@@ -53,10 +53,13 @@ public class RoomCreateController implements Initializable, Confirm {
 			e.printStackTrace();
 		}
     }
+    
+    private UpdateRoom update;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		room_type.setItems(ROOM_TYPE);
+		update = (UpdateRoom) resources.getObject("update");
 	}
     
     @FXML
@@ -109,7 +112,7 @@ public class RoomCreateController implements Initializable, Confirm {
 			return;
 		}
 		// TODO 成功提示 房间列表添加
-		
+		update.update(room);
 	}
 
 }

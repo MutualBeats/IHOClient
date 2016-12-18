@@ -233,6 +233,9 @@ public class Order_Manage_Controller implements Initializable {
 			switch (result) {
 			case Execute_Successful:
 				// TODO 修改TableView中对应订单状态
+				unexecuted_list.remove(info);
+				info = orderBLService.queryOrderById(info.orderID);
+				
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Order_State_Error:
@@ -316,6 +319,9 @@ public class Order_Manage_Controller implements Initializable {
 			switch (result) {
 			case Put_Up_Successful:
 				// TODO 修改TableView中对应订单状态
+				exception_list.remove(info);
+				info = orderBLService.queryOrderById(info.orderID);
+				
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Room_Already_Ordered:

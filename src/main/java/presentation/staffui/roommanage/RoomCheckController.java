@@ -24,7 +24,7 @@ import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
-public class RoomCheckController implements Initializable {
+public class RoomCheckController implements Initializable, UpdateRoomRecord {
 	
 	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
 	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
@@ -82,6 +82,7 @@ public class RoomCheckController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 //		room_record_list.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
 		room = (RoomVO)resources.getObject("room");
 		room_number.setText(room.roomNumber);
@@ -170,5 +171,10 @@ public class RoomCheckController implements Initializable {
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
+
+	@Override
+	public void update(RoomRecordVO roomRecord) {
+		room_record_list.getItems().add(roomRecord);
+	}
 
 }

@@ -22,12 +22,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
 import presentation.bundle.RoomInfoBundle;
+import presentation.bundle.RoomUpdateBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import vo.room.RoomVO;
 
-public class RoomManageController implements Initializable {
+public class RoomManageController implements Initializable, UpdateRoom {
 	@FXML
 	private TableColumn<RoomVO, String> room_number;
 	
@@ -121,7 +122,12 @@ public class RoomManageController implements Initializable {
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS);
+		WindowGrab.startWindowWithBundle(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS, new RoomUpdateBundle(this));
     }
+
+	@Override
+	public void update(RoomVO room) {
+		room_list.getItems().add(room);
+	}
 
 }
