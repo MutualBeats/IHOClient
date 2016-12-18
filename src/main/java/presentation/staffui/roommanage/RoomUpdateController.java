@@ -2,6 +2,7 @@ package presentation.staffui.roommanage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -13,6 +14,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.room.RoomRecordVO;
@@ -40,12 +42,6 @@ public class RoomUpdateController implements Initializable, Confirm {
 	
 	@FXML
 	private DatePicker estimate_check_out_date;
-	
-	@FXML
-	private Label check_in_warning;
-	
-	@FXML
-	private Label check_out_warning;
 
     @FXML
     private Button cancel;
@@ -74,6 +70,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
 		room_price.setText("" + room.price);
 		room_state.setText(ROOM_STATE[room.condition.ordinal()]);
+		CheckUtil.init(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
 	}
     
     @FXML
@@ -84,35 +81,11 @@ public class RoomUpdateController implements Initializable, Confirm {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	// TODO 输入合法性检测
-		String checkInDate = check_in_date.getEditor().getText();
-		if (util.Time.getCurrentDate().compareTo(checkInDate) > 0) {
-			check_in_warning.setText("入住日期不可在当前日期前");
-			return;
-		}
-		String checkOutDate = estimate_check_out_date.getEditor().getText();
-		if(checkInDate.compareTo(checkOutDate) > 0) {
-			check_out_warning.setText("预计离开日期不可在入住日期前");
-			return;
-		}
 		WindowGrab.startConfirmWindow(window, this, "是否确认添加房间记录");
-    }
-    
-    @FXML
-    void checkInDate() {
-    	if (!check_in_warning.getText().equals(""))
-    		check_in_warning.setText("");
-    }
-    
-    @FXML
-    void checkOutDate() {
-    	if (!check_out_warning.getText().equals(""))
-    		check_out_warning.setText("");
     }
 
 	@Override
 	public void confirm() {
-		// TODO DatePicker操作
 		String checkInDate = check_in_date.getEditor().getText();
 		String checkOutDate = estimate_check_out_date.getEditor().getText();
 		
@@ -120,8 +93,9 @@ public class RoomUpdateController implements Initializable, Confirm {
 		try {
 			ControllerFactory.getRoomBLServiceInstance().addRecord(roomRecord);
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
+		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
 		// TODO 房间记录列表添加
 		
 	}

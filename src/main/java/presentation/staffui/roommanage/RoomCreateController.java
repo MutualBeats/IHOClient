@@ -102,9 +102,10 @@ public class RoomCreateController implements Initializable, Confirm {
 			ArrayList<String> failList = ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
 			if(failList.size() > 0)
 				// TODO 窗口
-				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "房间号已存在");
+				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "房间号已存在");
+			
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 			return;
 		}
 		// TODO 成功提示 房间列表添加

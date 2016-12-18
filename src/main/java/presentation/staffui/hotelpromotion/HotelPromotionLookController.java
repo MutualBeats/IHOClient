@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
@@ -51,7 +52,7 @@ public class HotelPromotionLookController implements Initializable {
     private Text enterprise_text;
     
     @FXML
-    private TableView<String> enterprise_list;
+    private ListView<String> enterprise_list;
     
     @FXML
     private TableColumn<Discount, String> discount;
@@ -62,8 +63,8 @@ public class HotelPromotionLookController implements Initializable {
     @FXML
     private TableView<Discount> discount_list;
     
-    private ObservableList<Discount> discountList = FXCollections.observableArrayList();
-    private ObservableList<String> enterpriseList = FXCollections.observableArrayList();
+    private ObservableList<Discount> discountItems = FXCollections.observableArrayList();
+    private ObservableList<String> enterpriseItems = FXCollections.observableArrayList();
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -83,9 +84,9 @@ public class HotelPromotionLookController implements Initializable {
 		}
 		
 		for (int i = 0; i < promotion.discount.size(); i++)
-			discountList.add(new Discount(i, promotion.discount.get(i)));
+			discountItems.add(new Discount(i, promotion.discount.get(i)));
 		
-		discount_list.setItems(discountList);
+		discount_list.setItems(discountItems);
 		member_level.setCellValueFactory(cellData -> cellData.getValue().getLevelProperty());
 		discount.setCellValueFactory(cellData -> cellData.getValue().getDiscountProperty());
 		
@@ -94,10 +95,8 @@ public class HotelPromotionLookController implements Initializable {
 			enterprise_list.setVisible(true);
 			EnterprisePromotionVO vo = (EnterprisePromotionVO)promotion;
 			ArrayList<String> enterprises = vo.enterpriseList;
-			enterpriseList.addAll(enterprises);
-			enterprise_list.setItems(enterpriseList);
-			// TODO 显示企业名称
-			
+			enterpriseItems.addAll(enterprises);
+			enterprise_list.setItems(enterpriseItems);
 		}
 		
 	}

@@ -52,10 +52,8 @@
             </Text>
             <Label fx:id="room_price" layoutX="164.0" layoutY="177.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
             <Label fx:id="room_state" layoutX="336.0" layoutY="176.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
-            <DatePicker fx:id="check_in_date" layoutX="202.0" layoutY="229.0" onAction="#checkInDate" prefHeight="27.0" prefWidth="160.0" />
-            <DatePicker fx:id="estimate_check_out_date" layoutX="202.0" layoutY="284.0" onAction="#checkOutDate" prefHeight="27.0" prefWidth="160.0" />
-            <Label fx:id="check_in_warning" layoutX="300.0" layoutY="267.0" prefHeight="17.0" prefWidth="101.0" textFill="RED" />
-            <Label fx:id="check_out_warning" layoutX="300.0" layoutY="318.0" prefHeight="17.0" prefWidth="101.0" textFill="RED" />
+            <DatePicker fx:id="check_in_date" layoutX="202.0" layoutY="229.0" prefHeight="27.0" prefWidth="160.0" />
+            <DatePicker fx:id="estimate_check_out_date" layoutX="202.0" layoutY="284.0" prefHeight="27.0" prefWidth="160.0" />
          </children></AnchorPane>
   </items>
 </SplitPane>

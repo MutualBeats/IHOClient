@@ -50,9 +50,6 @@ public class RoomManageController implements Initializable {
     private Label promotion_title;
 
     @FXML
-    private Button change;
-
-    @FXML
     private Button create;
 
     @FXML
@@ -103,12 +100,6 @@ public class RoomManageController implements Initializable {
 		room_type.setCellValueFactory(cellData -> cellData.getValue().getRoomTypeProperty());
 		room_price.setCellValueFactory(cellData -> cellData.getValue().getRoomPriceProperty().asObject());
 		room_state.setCellValueFactory(cellData -> cellData.getValue().getRoomStateProperty());
-	}
-    
-    @FXML
-    void change(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(window, "修改客房信息",ROOM_UPDATE_FXML,ROOM_UPDATE_CSS);
 	}
 
     @FXML

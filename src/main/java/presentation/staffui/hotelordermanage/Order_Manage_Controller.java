@@ -182,7 +182,6 @@ public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
     void cancel(ActionEvent event) {
-		// TODO 直接关闭所有窗口
     	WindowGrab.closeWindow(event);
     }
 
@@ -311,7 +310,6 @@ public class Order_Manage_Controller implements Initializable {
 			WindowGrab.startNoticeWindow(window, "超出时间无法补录");
 			return;
 		}
-//		WindowGrab.startConfirmWindow(window, this, "是否确认补录");
 		try {
 			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);

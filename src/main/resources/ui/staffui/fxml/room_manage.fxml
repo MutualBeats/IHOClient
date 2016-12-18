@@ -23,24 +23,20 @@
       </Rectangle>
       <Accordion layoutY="115.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="change" layoutX="455.0" layoutY="500.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" text="修改">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
       <Label fx:id="room_title" layoutX="50.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="575.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
+      <Button fx:id="cancel" layoutX="537.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="look" layoutX="335.0" layoutY="500.0" mnemonicParsing="false" onAction="#look" prefHeight="26.0" prefWidth="60.0" text="查看">
+      <Button fx:id="look" layoutX="395.0" layoutY="500.0" mnemonicParsing="false" onAction="#look" prefHeight="26.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="create" layoutX="216.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="录入">
+      <Button fx:id="create" layoutX="245.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="录入">
          <font>
             <Font size="15.0" />
          </font></Button>

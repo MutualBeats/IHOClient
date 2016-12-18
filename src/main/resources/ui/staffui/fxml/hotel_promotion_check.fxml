@@ -37,11 +37,7 @@
               </columns>
             </TableView>
             <Text fx:id="enterprise_text" layoutX="237.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="合作企业:" visible="false" />
-            <TableView fx:id="enterprise_list" layoutX="317.0" layoutY="220.0" prefHeight="160.0" prefWidth="100.0" visible="false">
-              <columns>
-                <TableColumn fx:id="enterprise" prefWidth="99.0" text="合作企业" />
-              </columns>
-            </TableView>
+            <ListView fx:id="enterprise_list" layoutX="307.0" layoutY="219.0" prefHeight="160.0" prefWidth="118.0" visible="false" />
          </children></AnchorPane>
   </items>
 </SplitPane>
