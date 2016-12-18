@@ -70,6 +70,7 @@ public class MainMarketController {
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
+			
 		}
     }
     @FXML
@@ -83,7 +84,7 @@ public class MainMarketController {
 			e.printStackTrace();
 		}
     	ResourceBundle bundle=new PromotionBundle(promotionList);
-    	WindowGrab.startWindowWithBundle(window, "网站促销策略", WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, bundle);   
+    	WindowGrab.startWindowWithBundle(window, "网站促销策略", WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, bundle);
     	}
 
     @FXML

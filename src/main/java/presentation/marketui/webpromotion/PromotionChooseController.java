@@ -1,13 +1,9 @@
 package presentation.marketui.webpromotion;
 
-import java.awt.image.RescaleOp;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.print.CancelablePrintJob;
-
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

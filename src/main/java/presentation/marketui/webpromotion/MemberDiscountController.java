@@ -10,11 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import presentation.staffui.hotelpromotion.Update;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.CheckUtil;
@@ -65,19 +65,9 @@ public class MemberDiscountController extends LocationBoxController implements C
     private Label name_warning;
 
     @FXML
-    private ComboBox<String> city;
-    
-    @FXML
-    private ComboBox<String> country;
-    
-    @FXML
-    private ComboBox<String> province;
-
-    @FXML
-    private ComboBox<String> district;
-    
-    @FXML
     private Label field_warning;
+    
+    private PromotionUpdate update;
     
     @FXML
     void confirm(ActionEvent event) {
@@ -100,12 +90,12 @@ public class MemberDiscountController extends LocationBoxController implements C
 			field_warning.setText("请选择商圈");
 			check = false;
 		}
-		if(country.getSelectionModel().getSelectedIndex()==-1){
+		if(field.getSelectionModel().getSelectedIndex()==-1){
 			field_warning.setText("请选择商圈");
 			check = false;
 		}
 		
-		if(district.getSelectionModel().getSelectedIndex()==-1){
+		if(group.getSelectionModel().getSelectedIndex()==-1){
 			field_warning.setText("请选择商圈");
 			check = false;
 		}
@@ -151,6 +141,7 @@ public class MemberDiscountController extends LocationBoxController implements C
 	@Override
 	public void confirm() {
 		// TODO Auto-generated method stub
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(3));
 		String name=promotionName.getText();
 		String start=startTime.getEditor().getText();
 		String finish=finishTime.getEditor().getText();
@@ -161,13 +152,14 @@ public class MemberDiscountController extends LocationBoxController implements C
 		discount.add(Double.parseDouble(discount_lv3.getText()));
 		
 		ArrayList<String> districtList=new ArrayList<>();
-		districtList.add(district.getEditor().getText());
+		districtList.add(group.getEditor().getText());
 		
 		DistrictPromotionVO promotionVO = new DistrictPromotionVO("", name, PromotionType.BusinessDistrict, discount , "", start, finish, districtList);
 
 		try {
 			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(promotionVO);
 			promotionVO.promotionID = promotionID;
+			update.update(promotionID);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
@@ -187,6 +179,7 @@ public class MemberDiscountController extends LocationBoxController implements C
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 初始化商圈和时间
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
 		super.initialize(location, resources);
 		CheckUtil.init(startTime, finishTime, LocalDate.now(), LocalDate.now());
 		

@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,7 +24,7 @@ import util.exception.NetException;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
-public class UnusualOrderController extends OrderListView{
+public class UnusualOrderController extends OrderListView implements Initializable{
 
 	 
 	 @FXML
@@ -47,7 +48,7 @@ public class UnusualOrderController extends OrderListView{
 	 private TableColumn<OrderVO,String> hotelname;
 	
 	
-	 private ObservableList<OrderVO> unusual_orderlist=FXCollections.observableArrayList();
+	 private ObservableList<OrderVO> unusual_orderlist;
 	 final ToggleGroup buttom_group = new ToggleGroup();
 	
 	 private static URL APPEAL_FXML;
@@ -75,8 +76,8 @@ public class UnusualOrderController extends OrderListView{
 	 public void initialize(URL location, ResourceBundle resources) {
 		 // TODO Auto-generated method stub
 		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("order_list");
+		unusual_orderlist=FXCollections.observableArrayList();
 		unusual_orderlist.addAll(unusual);
-		
 		order_list.setItems(unusual_orderlist);
 		
 		initColumn();

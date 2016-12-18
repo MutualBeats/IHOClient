@@ -2,7 +2,6 @@ package presentation.marketui.webpromotion;
 
 
 import java.util.ArrayList;
-import java.util.zip.CheckedInputStream;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
@@ -17,8 +16,6 @@ import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
-import vo.promotion.DistrictPromotionVO;
-import vo.promotion.PromotionVO;
 
 public class MemberLevelController implements Confirm{
 

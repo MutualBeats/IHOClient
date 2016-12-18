@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.WebPromotionController">
    <children>
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="480.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="600.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -25,32 +25,32 @@
             </Lighting>
          </effect>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="580.0">
          <effect>
             <InnerShadow color="#c3ba84" />
          </effect>
       </Rectangle>
-      <Label fx:id="web_promotion_title" layoutX="35.0" layoutY="35.0" prefHeight="50.0" prefWidth="180.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="web_promotion_title" layoutX="35.0" layoutY="30.0" prefHeight="50.0" prefWidth="180.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="570.0" layoutY="525.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消" textOverrun="CLIP">
+      <Button fx:id="cancel" layoutX="615.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="delete" contentDisplay="CENTER" layoutX="350.0" layoutY="525.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" text="删除" textOverrun="CLIP">
+      <Button fx:id="delete" contentDisplay="CENTER" layoutX="405.0" layoutY="500.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="160.0" layoutY="200.0" text="搜索结果: ">
+      <Label layoutX="250.0" layoutY="150.0" text="搜索结果: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="promotion_list" layoutX="170.0" layoutY="240.0" prefHeight="270.0" prefWidth="500.0">
+      <TableView fx:id="promotion_list" layoutX="230.0" layoutY="200.0" prefHeight="270.0" prefWidth="500.0">
          <columns>
             <TableColumn fx:id="id_list" prefWidth="120.0" text="ID" />
             <TableColumn fx:id="promotion_name" prefWidth="100.0" text="名称" />
@@ -59,22 +59,20 @@
             <TableColumn fx:id="type" prefWidth="100.0" text="类型" />
          </columns>
       </TableView>
-      <Button layoutX="560.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
+      <Button fx:id="create" contentDisplay="CENTER" layoutX="300.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="60.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField blendMode="DARKEN" layoutX="315.0" layoutY="145.0" prefHeight="30.0" prefWidth="180.0" promptText="促销策略名称/ID" />
-      <Button fx:id="create" contentDisplay="CENTER" layoutX="230.0" layoutY="525.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="60.0" text="新建" textOverrun="CLIP">
+      <Button fx:id="check" layoutX="510.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="460.0" layoutY="525.0" mnemonicParsing="false" onAction="#check" prefWidth="60.0" text="查看">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button layoutX="543.0" layoutY="199.0" mnemonicParsing="false" onAction="#member_level" text="制定会员等级" />
+      <Button fx:id="level" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#member_level" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unusual_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="web_promotion" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="credit" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>
