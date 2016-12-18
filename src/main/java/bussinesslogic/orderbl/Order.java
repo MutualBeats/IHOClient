@@ -413,7 +413,6 @@ public class Order {
 	private void checkCacheAndLoad(String clientID) throws NetException {
 		if (totalList_cache == null) {
 			queryUserOrder(clientID);
-			System.out.println("ORDER");
 		}
 	}
 

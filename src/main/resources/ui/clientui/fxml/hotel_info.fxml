@@ -38,9 +38,9 @@
       <Button fx:id="order" layoutX="280.0" layoutY="442.0" mnemonicParsing="false" onAction="#order" prefWidth="60.0" text="预定" />
       <TableView fx:id="order_list" layoutX="41.0" layoutY="236.0" prefHeight="200.0" prefWidth="543.0">
          <columns>
-            <TableColumn fx:id="order_id" editable="false" prefWidth="194.0" resizable="false" text="订单号" />
-            <TableColumn fx:id="make_time" editable="false" prefWidth="172.0" resizable="false" text="订单生成时间" />
-            <TableColumn fx:id="finish_time" editable="false" prefWidth="91.0" resizable="false" text="订单完成时间" />
+            <TableColumn fx:id="order_id" editable="false" prefWidth="176.0" resizable="false" text="订单号" />
+            <TableColumn fx:id="make_time" editable="false" prefWidth="143.0" resizable="false" text="订单生成时间" />
+            <TableColumn fx:id="finish_time" editable="false" prefWidth="138.0" resizable="false" text="订单完成时间" />
             <TableColumn fx:id="state" editable="false" prefWidth="85.0" resizable="false" text="订单状态" />
          </columns>
       </TableView>

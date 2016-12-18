@@ -40,22 +40,19 @@ import vo.user.ClientVO;
 public class MakeOrderController implements Initializable, Confirm {
 
 	@FXML
-	private Button make;
+	private ComboBox<Integer> hotel_star;
+
+	@FXML
+	private TableColumn<RoomVO, String> room_number;
 
 	@FXML
 	private Button back;
 
 	@FXML
-	private ComboBox<Integer> hotel_star;
-
-	@FXML
-	private TextField name;
-
-	@FXML
-	private TextField contact;
-
-	@FXML
 	private TextArea hotel_address;
+
+	@FXML
+	private DatePicker ou_time;
 
 	@FXML
 	private TextField hotel_name;
@@ -64,25 +61,28 @@ public class MakeOrderController implements Initializable, Confirm {
 	private DatePicker in_time;
 
 	@FXML
-	private DatePicker ou_time;
-
-	@FXML
 	private TextField people_num;
 
 	@FXML
 	private CheckBox children;
 
 	@FXML
+	private TableColumn<RoomVO, Integer> price;
+
+	@FXML
+	private TextField contact;
+
+	@FXML
+	private TextField name;
+
+	@FXML
+	private Button make;
+
+	@FXML
 	private TableView<RoomVO> room_list;
 
 	@FXML
 	private TableColumn<RoomVO, String> room_type;
-
-	@FXML
-	private TableColumn<RoomVO, String> room_number;
-
-	@FXML
-	private TableColumn<RoomVO, Integer> price;
 
 	private String hotel_id;
 
@@ -112,15 +112,18 @@ public class MakeOrderController implements Initializable, Confirm {
 		rooms = (ArrayList<RoomVO>) resources.getObject("room_list");
 		name.setText(client_info.name);
 		contact.setText(client_info.contactWay);
+		hotel_name.setText(hotel_info.hotelName);
 		hotel_id = hotel_info.hotelID;
-		hotel_star.getEditor().setText(hotel_info.starLevel + "");
+		hotel_star.getItems().add(hotel_info.starLevel);
+		hotel_star.getSelectionModel().select(0);
 		hotel_address.setText(hotel_info.address);
 		/* 列表信息初始化 */
-		room_list.getItems().addAll(rooms);
-		room_list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		room_type.setCellValueFactory(cellData -> cellData.getValue().getRoomTypeProperty());
 		room_number.setCellValueFactory(cellData -> cellData.getValue().getRoomNumberProperty());
 		price.setCellValueFactory(cellData -> cellData.getValue().getRoomPriceProperty().asObject());
+
+		room_list.getItems().addAll(rooms);
+		room_list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 		/* DatePicker初始化 */
 		CheckUtil.init(in_time, ou_time, LocalDate.now(), LocalDate.now());
@@ -141,9 +144,9 @@ public class MakeOrderController implements Initializable, Confirm {
 		if (nums && select_rooms) {
 			WindowGrab.startConfirmWindow(window, this, "是否确认订单信息无误？");
 		} else if (!nums) {
-			WindowGrab.startNoticeWindow(window, "请填写入住人数，入住人数应为正整数。");
+			WindowGrab.startErrorWindow(window, "请填写入住人数");
 		} else {
-			WindowGrab.startNoticeWindow(window, "请选择入住房间");
+			WindowGrab.startErrorWindow(window, "请选择入住房间");
 		}
 	}
 
@@ -173,7 +176,7 @@ public class MakeOrderController implements Initializable, Confirm {
 		try {
 			OrderVO vo = ControllerFactory.getOrderBLServiceInstance().makeOrder(makeVO);
 			String hotel_n = hotel_name.getText();
-			/*订单生成窗口关闭*/
+			/* 订单生成窗口关闭 */
 			WindowGrab.closeWindow(window);
 			Window info_window = WindowGrab.getWindowByStage(0);
 			try {

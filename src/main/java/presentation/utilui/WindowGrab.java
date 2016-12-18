@@ -38,6 +38,8 @@ public class WindowGrab {
 	private static URL CONFIRM_CSS;
 	private static URL ERROR_FXML;
 	private static URL ERROR_CSS;
+	private static URL NOTICE_FXML;
+	private static URL NOTICE_CSS;
 
 	static {
 		try {
@@ -45,6 +47,8 @@ public class WindowGrab {
 			CONFIRM_CSS = new URL("file:src/main/resources/ui/utilui/css/confirm.css");
 			ERROR_FXML = new URL("file:src/main/resources/ui/utilui/fxml/error.fxml");
 			ERROR_CSS = new URL("file:src/main/resources/ui/utilui/css/error.css");
+			NOTICE_FXML = new URL("file:src/main/resources/ui/utilui/fxml/notice.fxml");
+			NOTICE_CSS = new URL("file:src/main/resources/ui/utilui/css/notice.css");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,7 +92,7 @@ public class WindowGrab {
 	}
 
 	public static void startNoticeWindow(Window owner, String message) {
-		startWindowWithBundle(owner, "提示", ERROR_FXML, ERROR_CSS, new ErrorMessageBundle(message));
+		startWindowWithBundle(owner, "提示", NOTICE_FXML, NOTICE_CSS, new ErrorMessageBundle(message));
 	}
 
 	public static void startIDInputWindow(Window owner, ResultHandle handle) {
@@ -133,7 +137,6 @@ public class WindowGrab {
 
 	private static void openInformation(ResourceBundle bundle, URL fxml, Window window) {
 		WindowGrab.startWindowWithBundle(window, "人员信息", fxml, info_css, bundle);
-		WindowGrab.closeWindow(window);
 	}
 
 	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,

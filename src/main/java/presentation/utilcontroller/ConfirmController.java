@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
+import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
 public class ConfirmController implements Initializable{
@@ -19,7 +19,7 @@ public class ConfirmController implements Initializable{
 	private Button cancel;
 	
 	@FXML
-    private Text confirm_text;
+    private Label confirm_text;
 	
 	private Confirm owner;
 	

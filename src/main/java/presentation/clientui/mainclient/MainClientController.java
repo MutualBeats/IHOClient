@@ -23,6 +23,7 @@ import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.order.OrderState;
+import util.user.MemberType;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 import vo.user.ClientVO;
@@ -119,7 +120,7 @@ public class MainClientController extends SearchView {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
@@ -143,7 +144,6 @@ public class MainClientController extends SearchView {
 			return;
 		}
 		try {
-			System.out.println(client_id);
 			ArrayList<OrderVO> total_list = service.queryUserOrder(client_id, OrderState.All);
 			ArrayList<OrderVO> finish_list = service.queryUserOrder(client_id, OrderState.Finished);
 			ArrayList<OrderVO> unexecute_list = service.queryUserOrder(client_id, OrderState.Unexecuted);
@@ -161,7 +161,16 @@ public class MainClientController extends SearchView {
 	@FXML
 	void member(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "注册会员", MEMBER_FXML, MEMBER_CSS);
+		try {
+			if (ControllerFactory.getClientBLServiceInstance()
+					.getClientInfo(UserCache.getID()).memberType == MemberType.Not) {
+				WindowGrab.startWindow(window, "注册会员", MEMBER_FXML, MEMBER_CSS);
+			} else {
+				WindowGrab.startNoticeWindow(window, "您已是会员，无需重复注册");
+			}
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
 	}
 
 	@FXML

@@ -34,6 +34,7 @@ public class AddHotelController_three {
 		try {
 			String hotelID = ControllerFactory.getManagerBLServiceInstance().addHotel(hotel_info);
 			if (hotelID != null) {
+				System.out.println("SUCCESS");
 				staff_info.hotelID = hotelID;
 				result = ControllerFactory.getManagerBLServiceInstance().addStaff(staff_info, ViewCache.ps);
 			} else {
@@ -46,7 +47,7 @@ public class AddHotelController_three {
 		// 人员注册成功，代表酒店生成成功。
 		if (result == ResultMessage_User.Net_Error) {
 			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
-		} else if (result == ResultMessage_User.PEOPLE_ADD_SUCCESS) {
+		} else if (result == ResultMessage_User.Register_Success) {
 			WindowGrab.closeWindow(event);
 			ViewCache.clearCache();
 			WindowGrab.startNoticeWindow(window, "酒店添加成功");

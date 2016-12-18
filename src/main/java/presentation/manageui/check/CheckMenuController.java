@@ -129,7 +129,7 @@ public class CheckMenuController implements Initializable {
 							people.setItems(total_list);
 						} else if (toggle == client) {
 							people.setItems(client_list);
-						} else if (toggle == staff_list) {
+						} else if (toggle == staff) {
 							people.setItems(staff_list);
 						} else {
 							people.setItems(marketer_list);
@@ -185,7 +185,7 @@ public class CheckMenuController implements Initializable {
 				satisfy = getSatisfyList(total_list.iterator(), filter);
 			} else if (toggle == client) {
 				satisfy = getSatisfyList(client_list.iterator(), filter);
-			} else if (toggle == staff_list) {
+			} else if (toggle == staff) {
 				satisfy = getSatisfyList(staff_list.iterator(), filter);
 			} else {
 				satisfy = getSatisfyList(marketer_list.iterator(), filter);

@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
-public class ErrorController implements Initializable{
+public class NoticeController implements Initializable{
 
     @FXML
     private Button confirm;

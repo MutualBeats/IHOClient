@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.MarketerInformationLookController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.MarketerInformationController">
 	<children>
 		<Accordion layoutY="115.0" />
 		<Text layoutX="35.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
@@ -27,6 +27,6 @@
 		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="244.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
       <Label fx:id="user_name" layoutX="120.0" layoutY="132.0" prefHeight="25.0" prefWidth="170.0" />
       <Label fx:id="type" layoutX="120.0" layoutY="297.0" prefHeight="25.0" prefWidth="170.0" />
-      <Button fx:id="confirm" layoutX="100.0" layoutY="382.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="确认" />
+      <Button fx:id="confirm" disable="true" layoutX="100.0" layoutY="382.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="确认" visible="false" />
 	</children>
 </AnchorPane>

@@ -11,27 +11,27 @@
 <AnchorPane prefHeight="470.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.maintainmessage.MaintainMessageController">
 	<children>
 		<Label fx:id="title" layoutX="25.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" />
-		<Text layoutX="33.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值：" wrappingWidth="53.0" />
-		<Text layoutX="33.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
-		<Text layoutX="33.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
-		<Text layoutX="33.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
-		<TextField fx:id="name" editable="false" layoutX="118.0" layoutY="100.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
-		<TextField fx:id="phone" editable="false" layoutX="118.0" layoutY="140.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
+		<Text layoutX="36.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值：" wrappingWidth="53.0" />
+		<Text layoutX="34.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
+		<Text layoutX="34.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
+		<Text layoutX="36.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
+		<TextField fx:id="name" editable="false" layoutX="119.0" layoutY="126.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
+		<TextField fx:id="phone" editable="false" layoutX="119.0" layoutY="166.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
 		<Button fx:id="cancel" layoutX="294.0" layoutY="423.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" />
 		<Button fx:id="change" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="65.0" />
 		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="97.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
 		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="305.0" layoutY="140.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
-      <Text layoutX="33.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员类型：" />
-      <Text layoutX="33.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员等级：" />
-      <Text layoutX="33.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员信息：" />
-      <Label fx:id="user_name" layoutX="118.0" layoutY="60.0" prefHeight="25.0" prefWidth="170.0" />
-      <Label fx:id="member_type" layoutX="118.0" layoutY="180.0" prefHeight="25.0" prefWidth="170.0" />
-      <Label fx:id="member_level" layoutX="118.0" layoutY="220.0" prefHeight="25.0" prefWidth="170.0" />
-      <Label fx:id="member_info" alignment="TOP_LEFT" layoutX="118.0" layoutY="260.0" prefHeight="60.0" prefWidth="170.0" />
-      <Label fx:id="credit" layoutX="118.0" layoutY="336.0" prefHeight="25.0" prefWidth="170.0" />
-      <Label fx:id="type" layoutX="118.0" layoutY="374.0" prefHeight="25.0" prefWidth="170.0" />
-		<Button fx:id="credit_history" layoutX="339.0" layoutY="336.0" mnemonicParsing="false" onAction="#credit_history" prefWidth="90.0" />
+      <Text layoutX="34.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
+      <Text layoutX="34.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员类型：" />
+      <Text layoutX="34.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员等级：" />
+      <Text layoutX="34.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员信息：" />
+      <Label fx:id="user_name" layoutX="119.0" layoutY="86.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_type" layoutX="119.0" layoutY="206.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_level" layoutX="119.0" layoutY="246.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="member_info" alignment="TOP_LEFT" layoutX="119.0" layoutY="286.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="credit" layoutX="121.0" layoutY="322.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label fx:id="type" layoutX="121.0" layoutY="360.0" prefHeight="25.0" prefWidth="170.0" />
+		<Button fx:id="credit_history" layoutX="342.0" layoutY="322.0" mnemonicParsing="false" onAction="#credit_history" prefWidth="90.0" />
       <Button fx:id="confirm" disable="true" layoutX="100.0" layoutY="423.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
 		
 	</children>

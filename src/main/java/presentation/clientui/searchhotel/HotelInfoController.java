@@ -83,12 +83,12 @@ public class HotelInfoController implements Initializable {
 
 	@FXML
 	private Button back;
-	
+
 	private HotelVO hotel_info;
 
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
-	
+
 	private static URL MAKEORDER_FXML;
 	private static URL MAKEORDER_CSS;
 
@@ -100,7 +100,7 @@ public class HotelInfoController implements Initializable {
 
 			MAKEORDER_FXML = new URL("file:src/main/resources/ui/clientui/fxml/makeorder.fxml");
 			MAKEORDER_CSS = new URL("file:src/main/resources/ui/clientui/css/makeorder.css");
-			
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,7 +120,7 @@ public class HotelInfoController implements Initializable {
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 			}
-			
+
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}
@@ -134,6 +134,11 @@ public class HotelInfoController implements Initializable {
 	@FXML
 	void order(ActionEvent event) {
 		WindowGrab.closeWindow(event);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		Window window = WindowGrab.getWindowByStage(0);
 		try {
 			ClientVO client_info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
@@ -152,12 +157,18 @@ public class HotelInfoController implements Initializable {
 		ArrayList<OrderVO> orderList = (ArrayList<OrderVO>) resources.getObject("order_list");
 
 		String locate[] = hotel_info.region.split("\\s");
-
-		hotel_province.getEditor().setText(locate[0]);
-		hotel_city.getEditor().setText(locate[1]);
-		hotel_field.getEditor().setText(locate[2]);
-		hotel_group.getEditor().setText(hotel_info.businessDistrict);
-		hotel_star.getEditor().setText(hotel_info.starLevel + "");
+		System.out.println(hotel_info.region);
+		System.out.println(locate.length);
+		hotel_province.getItems().add(locate[0]);
+		hotel_province.getSelectionModel().select(0);
+		hotel_city.getItems().add(locate[1]);
+		hotel_city.getSelectionModel().select(0);
+		hotel_field.getItems().add(locate[2]);
+		hotel_field.getSelectionModel().select(0);
+		hotel_group.getItems().add(hotel_info.businessDistrict);
+		hotel_group.getSelectionModel().select(0);
+		hotel_star.getItems().add(hotel_info.starLevel);
+		hotel_star.getSelectionModel().select(0);
 		hotel_id.setText(hotel_info.hotelID);
 		hotel_address.setText(hotel_info.address);
 		hotel_name.setText(hotel_info.hotelName);

@@ -61,7 +61,7 @@
          </font>
       </Button>
       <Label fx:id="check_title" layoutX="40.0" layoutY="35.0" prefHeight="45.0" prefWidth="225.0" />
-      <RadioButton fx:id="totel" layoutX="170.0" layoutY="175.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="全部" />
+      <RadioButton fx:id="total" layoutX="170.0" layoutY="175.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="全部" />
       <RadioButton fx:id="client" layoutX="282.0" layoutY="175.0" mnemonicParsing="false" text="普通用户" />
       <RadioButton fx:id="staff" layoutX="400.0" layoutY="175.0" mnemonicParsing="false" text="酒店工作人员" />
       <RadioButton fx:id="marketer" layoutX="544.0" layoutY="175.0" mnemonicParsing="false" text="网站营销人员" />

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"fx:controller="presentation.clientui.createorder.MakeOrderController">
+<AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.createorder.MakeOrderController">
    <children>
       <Label alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="45.0" prefWidth="118.0" text="生成订单">
          <font>
@@ -23,15 +23,15 @@
       <TextField fx:id="name" disable="true" layoutX="132.0" layoutY="72.0" prefWidth="150.0" />
       <Label layoutX="312.0" layoutY="72.0" prefHeight="27.0" text="联系方式:" />
       <TextField fx:id="contact" disable="true" layoutX="422.0" layoutY="72.0" prefWidth="150.0" />
-      <DatePicker fx:id="ou_time" editable="false" layoutX="422.0" layoutY="264.0" prefWidth="150.0" />
+      <DatePicker fx:id="ou_time" editable="false" layoutX="422.0" layoutY="264.0" prefWidth="150.0" showWeekNumbers="true" />
       <Label layoutX="312.0" layoutY="269.0" text="离开时间:" />
-      <DatePicker fx:id="in_time" editable="false" layoutX="132.0" layoutY="264.0" prefWidth="150.0" />
+      <DatePicker fx:id="in_time" editable="false" layoutX="132.0" layoutY="264.0" prefWidth="150.0" showWeekNumbers="true" />
       <Label layoutX="30.0" layoutY="269.0" text="入住时间:" />
-      <TableView fx:id="room_list" layoutX="41.0" layoutY="311.0" prefHeight="266.0" prefWidth="518.0">
+      <TableView fx:id="room_list" editable="true" layoutX="41.0" layoutY="311.0" prefHeight="266.0" prefWidth="518.0">
         <columns>
-          <TableColumn fx:id="room_number" editable="false" prefWidth="187.0" resizable="false" text="房间号" />
-          <TableColumn fx:id="room_type" editable="false" prefWidth="139.0" resizable="false" text="房间类型" />
-            <TableColumn fx:id="price" editable="false" prefWidth="191.0" resizable="false" text="价格" />
+          <TableColumn fx:id="room_number" prefWidth="187.0" text="房间号" />
+          <TableColumn fx:id="room_type" prefWidth="139.0" text="房间类型" />
+            <TableColumn fx:id="price" prefWidth="191.0" text="价格" />
         </columns>
       </TableView>
       <TextField fx:id="people_num" layoutX="131.0" layoutY="225.0" prefWidth="150.0" />

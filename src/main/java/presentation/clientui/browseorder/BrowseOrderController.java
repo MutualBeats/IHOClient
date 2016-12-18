@@ -258,7 +258,11 @@ public class BrowseOrderController implements Initializable, Confirm {
 	@FXML
 	void unexecuted_revoke(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startConfirmWindow(window, this, "是否确认撤销订单？");
+		if (CheckUtil.checkSelect(order_list)) {
+			WindowGrab.startConfirmWindow(window, this, "是否确认撤销订单？");
+		} else {
+			WindowGrab.startNoticeWindow(window, "请选择订单");
+		}
 	}
 
 	@Override
@@ -267,22 +271,21 @@ public class BrowseOrderController implements Initializable, Confirm {
 		Window window = WindowGrab.getWindowByStage(0);
 		if (select != null) {
 			try {
-				ResultMessage_Order result = ControllerFactory.getOrderBLServiceInstance().cancelOrder("");
+				ResultMessage_Order result = ControllerFactory.getOrderBLServiceInstance().cancelOrder(select.orderID);
+//				ResultMessage_Order result = ResultMessage_Order.Cancel_Successful;
 				if (result == ResultMessage_Order.Cancel_Successful) {
-					WindowGrab.startNoticeWindow(window, "撤销订单成功");
 					// 界面暂时更新
 					unexecuted_list.remove(select);
 					select.setFinishTimeProperty(Time.getCurrentTime());
 					select.setStateProperty(OrderState.Canceled);
 					revoked_list.add(0, select);
+					WindowGrab.startNoticeWindow(window, "撤销订单成功");
 				} else {
 					WindowGrab.startNoticeWindow(window, "撤销订单失败");
 				}
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 			}
-		} else {
-			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}
 	}
 

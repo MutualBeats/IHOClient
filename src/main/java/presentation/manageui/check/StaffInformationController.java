@@ -12,7 +12,7 @@ import util.resultmessage.ResultMessage_User;
 import vo.user.StaffChangeVO;
 import vo.user.StaffVO;
 
-public class StaffInfomationController extends InformationLookController {
+public class StaffInformationController extends InformationLookController {
 
 	@FXML
 	Label hotel_id;
