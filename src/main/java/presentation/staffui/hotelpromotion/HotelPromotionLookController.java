@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -47,7 +48,7 @@ public class HotelPromotionLookController implements Initializable {
     private Label start_date;
     
     @FXML
-    private Label enterprise_text;
+    private Text enterprise_text;
     
     @FXML
     private TableView<String> enterprise_list;
@@ -95,7 +96,8 @@ public class HotelPromotionLookController implements Initializable {
 			ArrayList<String> enterprises = vo.enterpriseList;
 			enterpriseList.addAll(enterprises);
 			enterprise_list.setItems(enterpriseList);
-			// TODO 显示
+			// TODO 显示企业名称
+			
 		}
 		
 	}

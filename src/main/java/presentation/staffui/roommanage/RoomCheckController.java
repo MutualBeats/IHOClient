@@ -123,7 +123,7 @@ public class RoomCheckController implements Initializable {
 			WindowGrab.startNoticeWindow(window, "入住成功");
 			break;
 		case Room_State_Error:
-			WindowGrab.startNoticeWindow(window, "房间不是已预订状态，无法入住");
+			WindowGrab.startNoticeWindow(window, "房间不是已预订状态");
 			break;
 		case Room_Record_Not_Exist:
 			WindowGrab.startNoticeWindow(window, "房间记录不存在");
@@ -150,7 +150,7 @@ public class RoomCheckController implements Initializable {
 			WindowGrab.startNoticeWindow(window, "退房成功");
 			break;
 		case Room_State_Error:
-			WindowGrab.startNoticeWindow(window, "房间不是已预订状态，无法入住");
+			WindowGrab.startNoticeWindow(window, "房间不是已入住状态");
 			break;
 		case Room_Record_Not_Exist:
 			WindowGrab.startNoticeWindow(window, "房间记录不存在");

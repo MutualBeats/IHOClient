@@ -136,7 +136,6 @@ public class HotelPromotionController implements Initializable, Confirm {
 
     @FXML
     void create(ActionEvent event) {
-    	// TODO
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(window, "新建促销策略",HOTEL_PROMOTION_CREATE_FXML,HOTEL_PROMOTION_CREATE_CSS);
     }
