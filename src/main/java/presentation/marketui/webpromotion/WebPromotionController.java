@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javax.management.relation.RoleUnresolved;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -144,7 +146,8 @@ public class WebPromotionController implements Initializable,Confirm{
     @FXML
     void create(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-     	WindowGrab.startWindow(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS);
+     	ResourceBundle bundle=null;
+     	WindowGrab.startWindowWithBundle(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS, bundle);
    
     }
 

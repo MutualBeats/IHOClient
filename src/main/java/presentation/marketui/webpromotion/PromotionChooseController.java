@@ -10,6 +10,7 @@ import javax.print.CancelablePrintJob;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
@@ -17,8 +18,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 
-public class PromotionChooseController {
-
+public class PromotionChooseController implements Initializable{
+	
+	
     @FXML
     private Button cancel;
 
@@ -33,6 +35,8 @@ public class PromotionChooseController {
     
     @FXML
     private RadioButton time;
+    
+    private ResourceBundle resourceBundle=null;
     
     private static URL FIELD_FXML;
     private static URL FIELD_CSS;
@@ -59,10 +63,9 @@ public class PromotionChooseController {
     
     @FXML
     void create(ActionEvent event) {
-    	ResourceBundle bundle=null;
+    	ResourceBundle bundle=resourceBundle;
     	Window window=WindowGrab.getWindow(event);
 		boolean start=true;
-		
 		if (promotion.getSelectedToggle() != null) {
 				Toggle toggle = promotion.getSelectedToggle();
 				if (toggle == field) { 
@@ -73,10 +76,10 @@ public class PromotionChooseController {
 				}
 			}
     	if (start) {
-    		WindowGrab.startWindowWithBundle(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS, bundle);
+    		WindowGrab.startWindowWithBundle(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS,bundle);
     	}
     	else{
-    		WindowGrab.startWindowWithBundle(window, "新建限时促销策略", TIME_FXML, TIME_CSS, bundle);
+    		WindowGrab.startWindowWithBundle(window, "新建限时促销策略", TIME_FXML, TIME_CSS,bundle);
     	}
 		
     }
@@ -85,5 +88,14 @@ public class PromotionChooseController {
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
+
+	/* (non-Javadoc)
+	 * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		resourceBundle=resources;
+	}
 }
 
