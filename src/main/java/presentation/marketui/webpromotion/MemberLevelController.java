@@ -4,6 +4,7 @@ package presentation.marketui.webpromotion;
 import java.util.ArrayList;
 import java.util.zip.CheckedInputStream;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +15,8 @@ import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
+import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.DistrictPromotionVO;
 import vo.promotion.PromotionVO;
 
@@ -58,41 +61,42 @@ public class MemberLevelController implements Confirm{
     @FXML
     void confirm(ActionEvent event) {
     	Window window=WindowGrab.getWindow(event);
-    	if(CheckedIn())
-    	WindowGrab.startConfirmWindow(window, this, "是否确认该操作？");
+    	if(CheckedIn()){
+    		WindowGrab.startConfirmWindow(window, this, "是否确认该操作？");
+    		}
     }
 
     private boolean CheckedIn() {
 		//判断输入
     	boolean check=true;
-    	if(discount_lv0.getText()==""){
+    	if(discount_lv0.getText().isEmpty()){
     		discount_warning.setText("请输入折扣信息");
     		 check=false;
     	}
-    	if(discount_lv1.getText()==""){
+    	if(discount_lv1.getText().isEmpty()){
     		discount_warning.setText("请输入折扣信息");
     		 check=false;
     	}
-    	if(discount_lv2.getText()==""){
+    	if(discount_lv2.getText().isEmpty()){
     		discount_warning.setText("请输入折扣信息");
     		 check=false;
     	}
-    	if(discount_lv3.getText()==""){
+    	if(discount_lv3.getText().isEmpty()){
     		discount_warning.setText("请输入折扣信息");
     		 check=false;
     	}
     	
-    	if(credit_lv0.getText()==""){
+    	if(credit_lv0.getText().isEmpty()){
     		credit_warning.setText("请输入信用值");
     		 check=false;
     	}
     	
-    	if(credit_lv1.getText()==""){
+    	if(credit_lv1.getText().isEmpty()){
     		credit_warning.setText("请输入信用值");
     		 check=false;
     	}
     	
-    	if(credit_lv2.getText()==""){
+    	if(credit_lv2.getText().isEmpty()){
     		credit_warning.setText("请输入信用值");
     		 check=false;
     	}
@@ -120,18 +124,25 @@ public class MemberLevelController implements Confirm{
 	@Override
 	public void confirm() {
 		//会员等级及对应折扣获取
-		ArrayList<String> credit=new ArrayList<>();
-		credit.add(credit_lv0.getText());
-		credit.add(credit_lv1.getText());
-		credit.add(credit_lv2.getText());
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
+		ArrayList<Integer> credit=new ArrayList<>();
+		credit.add(Integer.valueOf(credit_lv0.getText()));
+		credit.add(Integer.valueOf(credit_lv1.getText()));
+		credit.add(Integer.valueOf(credit_lv2.getText()));
 		
-		ArrayList<String> discount=new ArrayList<>();
-		discount.add(discount_lv0.getText());
-		discount.add(discount_lv1.getText());
-		discount.add(discount_lv2.getText());
-		discount.add(discount_lv3.getText());
+		ArrayList<Double> discount=new ArrayList<>();
+		discount.add(Double.parseDouble(discount_lv0.getText()));
+		discount.add(Double.parseDouble(discount_lv1.getText()));
+		discount.add(Double.parseDouble(discount_lv2.getText()));
+		discount.add(Double.parseDouble(discount_lv3.getText()));
 		
-		
+		try {
+			ResultMessage_Promotion promotion=ControllerFactory.getPromotionBLServiceInstance().makeLevel(credit, discount);
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			Window window=WindowGrab.getWindowByStage(0);
+			WindowGrab.startNetErrorWindow(window);;
+		}
 	}
 
 

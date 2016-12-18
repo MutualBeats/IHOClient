@@ -59,21 +59,26 @@ public class PromotionChooseController {
     
     @FXML
     void create(ActionEvent event) {
-    	promotion.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) -> {
-    		Window window=WindowGrab.getWindow(event);
-    		if (promotion.getSelectedToggle() != null) {
+    	ResourceBundle bundle=null;
+    	Window window=WindowGrab.getWindow(event);
+		boolean start=true;
+		
+		if (promotion.getSelectedToggle() != null) {
 				Toggle toggle = promotion.getSelectedToggle();
-				ResourceBundle bundle=null;
 				if (toggle == field) { 
-					WindowGrab.startWindowWithBundle(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS, bundle);
+					start=true;
 				}
 				else {
-					WindowGrab.startWindowWithBundle(window, "新建限时促销策略", TIME_FXML, TIME_CSS, bundle);
-				
+					start=false;
 				}
 			}
-		});
-    	
+    	if (start) {
+    		WindowGrab.startWindowWithBundle(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS, bundle);
+    	}
+    	else{
+    		WindowGrab.startWindowWithBundle(window, "新建限时促销策略", TIME_FXML, TIME_CSS, bundle);
+    	}
+		
     }
 
     @FXML
