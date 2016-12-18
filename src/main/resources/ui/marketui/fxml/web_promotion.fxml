@@ -59,12 +59,12 @@
             <TableColumn fx:id="type" prefWidth="100.0" text="类型" />
          </columns>
       </TableView>
-      <Button layoutX="550.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
+      <Button layoutX="560.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="搜索" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField blendMode="DARKEN" layoutX="290.0" layoutY="145.0" prefHeight="30.0" prefWidth="180.0" promptText="促销策略名称/ID" />
+      <TextField blendMode="DARKEN" layoutX="315.0" layoutY="145.0" prefHeight="30.0" prefWidth="180.0" promptText="促销策略名称/ID" />
       <Button fx:id="create" contentDisplay="CENTER" layoutX="230.0" layoutY="525.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="60.0" text="新建" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
@@ -75,5 +75,6 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Button layoutX="543.0" layoutY="199.0" mnemonicParsing="false" onAction="#member_level" text="制定会员等级" />
    </children>
 </AnchorPane>

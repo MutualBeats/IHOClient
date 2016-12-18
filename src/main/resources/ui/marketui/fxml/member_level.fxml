@@ -19,20 +19,21 @@
             <Font size="14.0" />
          </font></Text>
       <Label layoutX="55.0" layoutY="145.0" text="会员等级及其对应折扣 :" />
-      <TextField fx:id="credit_lv3" layoutX="303.0" layoutY="220.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="credit_lv2" layoutX="250.0" layoutY="220.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="credit_lv1" layoutX="199.0" layoutY="220.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="credit_lv0" layoutX="150.0" layoutY="220.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="credit_lv2" layoutX="249.0" layoutY="238.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="credit_lv1" layoutX="198.0" layoutY="238.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="credit_lv0" layoutX="149.0" layoutY="238.0" onAction="#creditModify" prefHeight="27.0" prefWidth="44.0" />
       <Label layoutX="311.0" layoutY="190.0" text="vip3" />
       <Label layoutX="258.0" layoutY="190.0" text="vip2" />
       <Label layoutX="207.0" layoutY="190.0" text="vip1" />
       <Label layoutX="158.0" layoutY="190.0" text="vip0" />
       <Line endX="100.0" layoutX="248.0" layoutY="214.0" startX="-100.0" />
-      <Text layoutX="70.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值上限 :" />
-      <TextField fx:id="discount_lv0" layoutX="149.0" layoutY="258.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv1" layoutX="198.0" layoutY="258.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv2" layoutX="249.0" layoutY="258.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv3" layoutX="302.0" layoutY="258.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <Text layoutX="70.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
+      <Text layoutX="69.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值上限 :" />
+      <TextField fx:id="discount_lv0" layoutX="148.0" layoutY="287.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv1" layoutX="197.0" layoutY="287.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv2" layoutX="248.0" layoutY="287.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv3" layoutX="301.0" layoutY="287.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <Text layoutX="69.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
+      <Label fx:id="credit_warning" layoutX="360.0" layoutY="230.0" prefHeight="35.0" prefWidth="80.0" />
+      <Label fx:id="discount_warning" layoutX="360.0" layoutY="283.0" prefHeight="35.0" prefWidth="80.0" />
    </children>
 </AnchorPane>

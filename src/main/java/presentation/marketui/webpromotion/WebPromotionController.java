@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,9 +26,11 @@ import javafx.stage.Window;
 import presentation.bundle.PromotionInfoBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
+import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
-public class WebPromotionController implements PromotionUpdate,Initializable,Confirm{
+public class WebPromotionController implements Initializable,Confirm{
 	
 	@FXML
     private Button cancel;
@@ -75,6 +78,10 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     private static URL WEB_PROMOTION_CHECK_FXML;
     private static URL WEB_PROMOTION_CHECK_CSS;
     
+    
+    private static URL MEMBER_LEVEL_FXML;
+    private static URL MEMBER_LEVEL_CSS;
+    
     static{
     	try {
     		
@@ -83,6 +90,9 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     		
     		WEB_PROMOTION_CHECK_FXML=new URL("file:src/main/resources/ui/marketui/fxml/promotion_check.fxml");
     		WEB_PROMOTION_CHECK_CSS=new URL("file:src/main/resources/ui/marketui/css/promotion_check.css");
+    		
+    		MEMBER_LEVEL_FXML=new URL("file:src/main/resources/ui/marketui/fxml/member_level.fxml");
+    		MEMBER_LEVEL_CSS=new URL("file:src/main/resources/ui/marketui/css/member_level.css");
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -123,8 +133,12 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
     @FXML
     void update(ActionEvent event) {
      	Window window = WindowGrab.getWindow(event);
-     	WindowGrab.startConfirmWindow(window, this, "是否确认删除？");
-     	
+     	int promotionIndex = promotion_list.getSelectionModel().getSelectedIndex();
+    	if(promotionIndex == -1) {
+    		WindowGrab.startNoticeWindow(window, "请选择促销策略");
+    		return;
+    	}
+    	WindowGrab.startConfirmWindow(window, this, "是否确认删除");
     }
 
     @FXML
@@ -149,15 +163,39 @@ public class WebPromotionController implements PromotionUpdate,Initializable,Con
 	@Override
 	public void confirm() {
 		// 确认是否删除订单
-		String id=promotion_list.getSelectionModel().getSelectedItem().promotionID;
-		
+		Window window = WindowGrab.getWindowByStage(0);
+		PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
+		int index = promotion_list.getSelectionModel().getSelectedIndex();
+		try {
+			ResultMessage_Promotion result = ControllerFactory.getPromotionBLServiceInstance().cancel(promotionVO.promotionID);
+			switch (result) {
+			case Delete_Successful:
+				promotion_list.getItems().remove(index);
+				// TODO 提示窗口问题
+				WindowGrab.startNoticeWindow(window, "删除成功");
+				break;
+			case Promotion_Not_Exist:
+				WindowGrab.startNoticeWindow(window, "促销策略不存在");
+				break;
+			case Net_Error:
+				WindowGrab.startNetErrorWindow(window);
+				break;
+			default:
+				WindowGrab.startNoticeWindow(window, "异常错误");
+				break;
+			}
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+	
 	}
 
 
-	@Override
-	public void update(String promotionID) {
-		// 添加或者删除订单后本地刷新
-		
-	}
+	@FXML
+    void member_level(ActionEvent event) {
+		Window window=WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "制定会员等级折扣", MEMBER_LEVEL_FXML, MEMBER_LEVEL_CSS);
+    }
+	
 }
 

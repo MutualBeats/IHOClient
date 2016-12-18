@@ -1,7 +1,9 @@
 package presentation.marketui.webpromotion;
 
+import java.awt.image.RescaleOp;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 import javax.print.CancelablePrintJob;
 
@@ -61,11 +63,12 @@ public class PromotionChooseController {
     		Window window=WindowGrab.getWindow(event);
     		if (promotion.getSelectedToggle() != null) {
 				Toggle toggle = promotion.getSelectedToggle();
-				if (toggle == field) {
-					WindowGrab.startWindow(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS);
+				ResourceBundle bundle=null;
+				if (toggle == field) { 
+					WindowGrab.startWindowWithBundle(window, "新建会员商圈促销策略", FIELD_FXML, FIELD_CSS, bundle);
 				}
 				else {
-					WindowGrab.startWindow(window, "新建限时促销策略", TIME_FXML, TIME_CSS);
+					WindowGrab.startWindowWithBundle(window, "新建限时促销策略", TIME_FXML, TIME_CSS, bundle);
 				
 				}
 			}
