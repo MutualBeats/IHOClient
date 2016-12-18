@@ -32,7 +32,7 @@ public class CheckUtil {
 	public static boolean checkValue(String value) {
 		return value_pattern.matcher(value).matches();
 	}
-	
+
 	public static boolean checkScore(String score) {
 		return score_pattern.matcher(score).matches();
 	}
@@ -68,7 +68,7 @@ public class CheckUtil {
 			public String toString(LocalDate date) {
 				if (date != null) {
 					return date.getYear() + "/" + date.getMonthValue() + "/" + date.getDayOfMonth();
-//					return date.toString();
+					// return date.toString();
 				} else {
 					return "";
 				}
@@ -102,6 +102,8 @@ public class CheckUtil {
 							setDisable(true);
 							setStyle("-fx-background-color: #ffc0cb;");
 						}
+
+						checkOutDatePicker.setValue(checkInDatePicker.getValue().plusDays(1));
 					}
 				};
 			}
@@ -127,7 +129,6 @@ public class CheckUtil {
 
 		checkInDatePicker.setDayCellFactory(dayCellFactory2);
 		checkOutDatePicker.setDayCellFactory(dayCellFactory);
-		
 
 	}
 
