@@ -40,15 +40,15 @@
       <TextField fx:id="hotel_id" disable="true" editable="false" layoutX="155.0" layoutY="70.0" prefWidth="150.0" />
       <TextField fx:id="hotel_name" layoutX="155.0" layoutY="115.0" onMouseClicked="#hotelNameModify" prefWidth="150.0" />
       <TextArea fx:id="hotel_address" layoutX="155.0" layoutY="264.0" onMouseClicked="#hotelAdressModify" prefHeight="151.0" prefWidth="416.0" />
-      <TextField fx:id="hotel_star" disable="true" editable="false" layoutX="421.0" layoutY="70.0" prefWidth="150.0" />
+      <ComboBox fx:id="star" disable="true" editable="false" layoutX="421.0" layoutY="70.0" prefWidth="150.0" />
       <TextField fx:id="hotel_score" disable="true" editable="false" layoutX="421.0" layoutY="115.0" prefWidth="150.0" />
       <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="486.0" layoutY="422.0" prefHeight="27.0" prefWidth="113.0" textFill="#e40c0c" />
-      <ComboBox fx:id="hotel_province" layoutX="155.0" layoutY="165.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="hotel_district" layoutX="421.0" layoutY="211.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="province" layoutX="155.0" layoutY="165.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="group" layoutX="421.0" layoutY="211.0" prefHeight="27.0" prefWidth="150.0" />
       <Label layoutX="327.0" layoutY="170.0" text="酒店所属市 :" />
       <Label layoutX="61.0" layoutY="216.0" text="酒店所属县 :" />
-      <ComboBox fx:id="hotel_city" layoutX="421.0" layoutY="165.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="hotel_town" layoutX="155.0" layoutY="211.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="city" layoutX="421.0" layoutY="165.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="field" layoutX="155.0" layoutY="211.0" prefHeight="27.0" prefWidth="150.0" />
       <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="205.0" layoutY="142.0" prefHeight="27.0" prefWidth="125.0" textFill="#e40c0c" />
    </children>
 </AnchorPane>

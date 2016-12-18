@@ -4,6 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import config.location.City;
+import config.location.Field;
+import config.location.Province;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,25 +31,10 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	private Button cancel;
 
 	@FXML
-	private TextField hotel_star;
-
-	@FXML
 	private TextField hotel_id;
 
 	@FXML
 	private Button update;
-	
-	@FXML
-	private ComboBox<String> hotel_province;
-
-	@FXML
-    private ComboBox<String> hotel_town;
-
-    @FXML
-    private ComboBox<String> hotel_city;
-    
-	@FXML
-	private ComboBox<String> hotel_district;
 
 	@FXML
 	private Label address_warning;
@@ -75,22 +63,43 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
 		// TODO 测试用
 		try {
 			String hotelID = UserCache.getHotelID();
 			
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
-			String[] region = info.region.split(" ");
+			String[] region = info.region.split("\\s");
 			// TODO combobox初始化
-			hotel_province.setValue(region[0]);
-			hotel_city.setValue(region[1]);
-			hotel_town.setValue(region[2]);
+			for(Province e_p : province.getItems()) {
+				if(e_p.getProvinceName().equals(region[0])) {
+					province.getSelectionModel().select(e_p);
+				}
+			}
+			
+			for(City e_c : city.getItems()) {
+				if(e_c.getCity_name().equals(region[1])){
+					city.getSelectionModel().select(e_c);
+				}
+			}
+			
+			for(Field e_f : field.getItems()) {
+				if(e_f.getField_name().equals(region[2])){
+					field.getSelectionModel().select(e_f);
+				}
+			}
+			
+			for(String e_g : group.getItems()) {
+				if(e_g.equals(info.businessDistrict)) {
+					group.getSelectionModel().select(e_g);
+				}
+			}
 			
 			hotel_id.setText(hotelID);
 			hotel_address.setText(info.address);
-			hotel_district.setValue(info.businessDistrict);
+			
 			hotel_name.setText(info.hotelName);
-			hotel_star.setText("" + info.starLevel);
+			star.getSelectionModel().select(info.starLevel - 1);
 			hotel_score.setText("" + info.score);
 			
 			name_warning.setText("");
@@ -132,11 +141,11 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	@Override
 	public void confirm() {
 		String newName = hotel_name.getText();
-		String newProvince = hotel_province.getSelectionModel().getSelectedItem();
-		String newCity = hotel_city.getSelectionModel().getSelectedItem();
-		String newTown = hotel_town.getSelectionModel().getSelectedItem();
+		String newProvince = province.getSelectionModel().getSelectedItem().getProvinceName();
+		String newCity = city.getSelectionModel().getSelectedItem().getCity_name();
+		String newTown = field.getSelectionModel().getSelectedItem().getField_name();
 		String newRegion = newProvince + " " + newCity + " " + newTown;
-		String newDistrcit = hotel_district.getSelectionModel().getSelectedItem();
+		String newDistrcit = group.getSelectionModel().getSelectedItem();
 		String newAdress = hotel_address.getText();
 
 		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
