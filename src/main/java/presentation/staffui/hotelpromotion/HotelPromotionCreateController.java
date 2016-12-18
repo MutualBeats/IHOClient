@@ -1,5 +1,6 @@
 package presentation.staffui.hotelpromotion;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,21 +16,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
+import presentation.bundle.EnterpriseUpdateBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.promotion.PromotionType;
+import vo.promotion.EnterprisePromotionVO;
 import vo.promotion.PromotionVO;
 
-public class HotelPromotionCreateController implements Initializable, Confirm {
+public class HotelPromotionCreateController implements Initializable, Confirm, Update {
 
     @FXML
     private Button cancel;
@@ -39,12 +40,6 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
 
     @FXML
     private Label discount_warning;
-
-    @FXML
-    private TableView<String> enterprise_list;
-    
-    @FXML
-    private TableColumn<String, String> enterprise_column;
 
     @FXML
     private TextField discount_lv2;
@@ -75,25 +70,41 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
 
     @FXML
     private Text enterprise_label;
+    
+    @FXML
+    private ListView<String> enterprise_list;
+    
+    @FXML
+    private Button add_enterprise;
 
     @FXML
     private DatePicker start_date;
 
     @FXML
     private Label name_warning;
+    
+    private static URL ENTERPRISE_INPUT_FXML;
+    private static URL ENTERPRISE_INPUT_CSS;
+    
+    static {
+    	try {
+			ENTERPRISE_INPUT_FXML = new URL("file:src/main/resources/ui/staffui/fxml/enterprise_input.fxml");
+	    	ENTERPRISE_INPUT_CSS = new URL("file:src/main/resources/ui/staffui/css/enterprise_input.fxml");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+    }
 
     @FXML
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
-    
+        
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> promotionTypes = FXCollections.observableArrayList(PromotionType.Birthday.toString(), PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
 		promotion_type.setItems(promotionTypes);
 		CheckUtil.init(start_date, finish_date, LocalDate.now(), LocalDate.now());
-		enterprise_column.setCellFactory(TextFieldTableCell.forTableColumn());
-//		enterprise_list.getColumns().add(enterprise_column);
 	}
 
     @FXML
@@ -134,8 +145,10 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
     	} catch (NumberFormatException e) {
     		discount_warning.setText("折扣格式错误");
 		}
-    	// TODO 检测企业
-    	
+    	if(promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise") && enterprise_list.getItems().size() == 0) {
+    		enterprise_warning.setText("未添加企业");
+    		check = false;
+    	}
     	return check;
     }
 
@@ -151,7 +164,17 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
 		discount.add(Double.parseDouble(discount_lv1.getText()));
 		discount.add(Double.parseDouble(discount_lv2.getText()));
 		discount.add(Double.parseDouble(discount_lv3.getText()));
-		PromotionVO promotionVO = new PromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate);
+		
+		PromotionVO promotionVO = null;
+		if(type == PromotionType.Enterprise) {
+			ArrayList<String> enterpriseList = new ArrayList<>();
+			for (String each : enterprise_list.getItems()) {
+				enterpriseList.add(each);
+			}
+			promotionVO = new EnterprisePromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate, enterpriseList);
+		}
+		else
+			promotionVO = new PromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate);
 		try {
 			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(promotionVO);
 			promotionVO.promotionID = promotionID;
@@ -160,6 +183,13 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
 		}
 		// TODO 更新promotion列表
 		
+	}
+	
+	@FXML
+	void addEnterprise(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		
+		WindowGrab.startWindowWithBundle(window, "企业名输入", ENTERPRISE_INPUT_FXML, ENTERPRISE_INPUT_CSS, new EnterpriseUpdateBundle(this));
 	}
 	
 	@FXML
@@ -178,11 +208,18 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
     	if(promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")) {
     		enterprise_label.setVisible(true);
     		enterprise_list.setVisible(true);
+    		add_enterprise.setVisible(true);
     	}
     	else {
     		enterprise_label.setVisible(false);
     		enterprise_list.setVisible(false);
+    		add_enterprise.setVisible(false);
     	}
     }
+
+	@Override
+	public void update(String enter_name) {
+		enterprise_list.getItems().add(enter_name);
+	}
 
 }
