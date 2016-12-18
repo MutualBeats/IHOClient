@@ -47,9 +47,9 @@
             <ComboBox fx:id="field" layoutX="460.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
             <ComboBox fx:id="group" layoutX="90.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
             <Label layoutX="90.0" layoutY="126.0" text="预计入住时间 :" />
-            <DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0" prefWidth="150.0" />
+            <DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
             <Label layoutX="400.0" layoutY="126.0" text="预计离开时间 :" />
-            <DatePicker fx:id="es_leave" layoutX="510.0" layoutY="121.0" prefWidth="150.0" />
+            <DatePicker fx:id="es_leave" layoutX="510.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
             <Label layoutX="90.0" layoutY="157.0" text="酒店名称 :" />
             <TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0" prefWidth="100.0" />
             <Label layoutX="400.0" layoutY="157.0" text="评分 :" />

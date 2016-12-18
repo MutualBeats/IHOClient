@@ -67,7 +67,8 @@ public class CheckUtil {
 			@Override
 			public String toString(LocalDate date) {
 				if (date != null) {
-					return dateFormatter.format(date);
+					return date.getYear() + "/" + date.getMonthValue() + "/" + date.getDayOfMonth();
+//					return date.toString();
 				} else {
 					return "";
 				}
@@ -86,6 +87,7 @@ public class CheckUtil {
 		checkOutDatePicker.setConverter(converter);
 
 		checkInDatePicker.setValue(s);
+		checkOutDatePicker.setValue(checkInDatePicker.getValue().plusDays(1));
 
 		// First day factory
 		final Callback<DatePicker, DateCell> dayCellFactory2 = new Callback<DatePicker, DateCell>() {
@@ -125,7 +127,7 @@ public class CheckUtil {
 
 		checkInDatePicker.setDayCellFactory(dayCellFactory2);
 		checkOutDatePicker.setDayCellFactory(dayCellFactory);
-		checkOutDatePicker.setValue(e);
+		
 
 	}
 
