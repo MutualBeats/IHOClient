@@ -26,15 +26,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.bundle.OrderInfoBundle;
-import presentation.utilcontroller.Confirm;
 import presentation.utilui.WindowGrab;
+import util.Time;
 import util.UserCache;
 import util.exception.NetException;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
-public class Order_Manage_Controller implements Initializable, Confirm {
+public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
 	private TableView<OrderVO> order_list;
@@ -210,6 +210,89 @@ public class Order_Manage_Controller implements Initializable, Confirm {
     }
     
     @FXML
+    void execute(ActionEvent event) {
+    	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
+		Window window = WindowGrab.getWindow(event);
+		int select_index = model.getSelectedIndex();
+		if (select_index == -1) {
+			WindowGrab.startNoticeWindow(window, "请选择需要执行的订单");
+			return;
+		}
+		OrderVO info = model.getSelectedItem();
+		if(info.orderState != OrderState.Unexecuted) {
+			WindowGrab.startNoticeWindow(window, "非未执行订单，无法执行");
+			return;
+		}
+		if(info.estimate_checkInDate.compareTo(Time.getCurrentDate()) != 0) {
+			WindowGrab.startNoticeWindow(window, "未到预订入住日期，无法执行");
+			return;
+		}
+		try {
+			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
+			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
+			switch (result) {
+			case Execute_Successful:
+				// TODO 修改TableView中对应订单状态
+				WindowGrab.startNoticeWindow(window, "补录成功");
+				break;
+			case Order_State_Error:
+				WindowGrab.startNoticeWindow(window, "非未执行订单，无法执行");
+				break;
+			case Date_Error:
+				WindowGrab.startNoticeWindow(window, "未到预订入住日期，无法执行");
+				break;
+			case Net_Error:
+				WindowGrab.startNetErrorWindow(window);
+			default:
+				WindowGrab.startNoticeWindow(window, "异常错误");
+				break;
+			}
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+    }
+    
+    @FXML 
+    void finish(ActionEvent event) {
+    	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
+		Window window = WindowGrab.getWindow(event);
+		int select_index = model.getSelectedIndex();
+		if (select_index == -1) {
+			WindowGrab.startNoticeWindow(window, "请选择需要完成的订单");
+			return;
+		}
+		OrderVO info = model.getSelectedItem();
+		if(info.orderState != OrderState.Execute) {
+			WindowGrab.startNoticeWindow(window, "非执行中订单，无法完成");
+			return;
+		}
+		if(info.estimate_checkOutDate.compareTo(Time.getCurrentDate()) < 0) {
+			WindowGrab.startNoticeWindow(window, "已过预计离开日期，无法完成");
+			return;
+		}
+		try {
+			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
+			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
+			switch (result) {
+			case Execute_Successful:
+				// TODO 修改TableView中对应订单状态
+				WindowGrab.startNoticeWindow(window, "补录成功");
+				break;
+			case Order_State_Error:
+				WindowGrab.startNoticeWindow(window, "非执行中订单，无法完成");
+				break;
+			case Net_Error:
+				WindowGrab.startNetErrorWindow(window);
+			default:
+				WindowGrab.startNoticeWindow(window, "异常错误");
+				break;
+			}
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+    }
+    
+    @FXML
     void supply(ActionEvent event) {
     	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
 		Window window = WindowGrab.getWindow(event);
@@ -227,14 +310,7 @@ public class Order_Manage_Controller implements Initializable, Confirm {
 			WindowGrab.startNoticeWindow(window, "超出时间无法补录");
 			return;
 		}
-		WindowGrab.startConfirmWindow(window, this, "是否确认补录");
-    	
-    }
-
-	@Override
-	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(0);
-		OrderVO info = order_list.getSelectionModel().getSelectedItem();
+//		WindowGrab.startConfirmWindow(window, this, "是否确认补录");
 		try {
 			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
@@ -261,6 +337,8 @@ public class Order_Manage_Controller implements Initializable, Confirm {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}		
-	}
+    	
+    }
+
 
 }
