@@ -36,11 +36,10 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="234.0" layoutY="155.0" prefHeight="27.0" text="促销策略ID:">
+      <Label layoutX="153.0" layoutY="156.0" prefHeight="27.0" text="促销策略列表:">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font></Label>
-      <TextField layoutX="344.0" layoutY="155.0" prefWidth="170.0" />
       <Button fx:id="check" layoutX="314.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="60.0" text="查看">
          <font>
             <Font size="15.0" />
@@ -49,7 +48,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <TableView fx:id="promotion_list" layoutX="150.0" layoutY="230.0" prefHeight="240.0" prefWidth="520.0">
+      <TableView fx:id="promotion_list" layoutX="150.0" layoutY="207.0" prefHeight="263.0" prefWidth="520.0">
          <columns>
             <TableColumn fx:id="promotion_id" editable="false" prefWidth="60.0" text="ID" />
             <TableColumn fx:id="promotion_name" editable="false" prefWidth="109.0" sortable="false" text="名称" />
@@ -58,10 +57,5 @@
             <TableColumn fx:id="finish_date" editable="false" prefWidth="123.0" sortable="false" text="结束时间" />
          </columns>
       </TableView>
-      <Button fx:id="search" layoutX="550.0" layoutY="154.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="60.0" text="搜索">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

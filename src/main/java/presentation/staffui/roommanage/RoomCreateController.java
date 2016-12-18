@@ -72,6 +72,10 @@ public class RoomCreateController implements Initializable, Confirm {
     		WindowGrab.startNoticeWindow(window, "请选择房间类型");
     		return;
     	}
+    	if(room_number.getText() == "") {
+    		WindowGrab.startNoticeWindow(window, "房间号不可为空");
+    		return;
+    	}
     	try {
     		int roomPrice = Integer.parseInt(room_price.getText());
     		if(roomPrice < 0) {
@@ -95,7 +99,10 @@ public class RoomCreateController implements Initializable, Confirm {
 		ArrayList<RoomVO> importList = new ArrayList<>();
 		importList.add(room);
 		try {
-			ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
+			ArrayList<String> failList = ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
+			if(failList.size() > 0)
+				// TODO 窗口
+				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "房间号已存在");
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 			return;

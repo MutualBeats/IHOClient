@@ -182,6 +182,7 @@ public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
     void cancel(ActionEvent event) {
+		// TODO 直接关闭所有窗口
     	WindowGrab.closeWindow(event);
     }
 

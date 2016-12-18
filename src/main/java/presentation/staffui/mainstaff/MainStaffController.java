@@ -119,7 +119,8 @@ public class MainStaffController implements Initializable{
 			ArrayList<OrderVO> exception_list = service.queryHotelOrder(hotelID, OrderState.Exception);
 		
 			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
-			WindowGrab.changeSceneWithBundle(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, frame, bundle);
+//			WindowGrab.changeSceneWithBundle(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, frame, bundle);
+			WindowGrab.startWindowWithBundle(window, "酒店订单管理", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, bundle);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}

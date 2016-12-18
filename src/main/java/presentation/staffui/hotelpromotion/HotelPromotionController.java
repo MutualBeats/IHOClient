@@ -102,11 +102,6 @@ public class HotelPromotionController implements Initializable, Confirm {
 		finish_date.setCellValueFactory(cellData-> cellData.getValue().getFinishDateProperty());
 	}
 	
-	@FXML
-	void search(ActionEvent event) {
-		// TODO
-	}
-	
     @FXML
     void delete(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);

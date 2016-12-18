@@ -102,38 +102,42 @@ public class HotelPromotionCreateController implements Initializable, Confirm {
     
     private boolean checkInput() {
     	boolean check = true;
-    	if(promotion_name.getText() == "") {
-    		name_warning.setText("请输入名称");
-    		check = false;
-    	}
-    	if(promotion_type.getSelectionModel().getSelectedIndex() == -1) {
-    		type_warning.setText("请选择类型");
-    		check = false;
-    	}
-    	if(start_date.getEditor().getText().compareTo(util.Time.getCurrentDate()) > 0) {
-    		start_date_warning.setText("开始日期不可在今天前");
-    		check = false;
-    	}
-    	if(start_date.getEditor().getText().compareTo(finish_date.getEditor().getText()) > 0) {
-    		finish_date_warning.setText("结束日期不可在开始日期前");
-    		check = false;
-    	}
-    	if(Double.parseDouble(discount_lv0.getText()) <= 0 || Double.parseDouble(discount_lv0.getText()) > 10) {
-    		discount_warning.setText("折扣错误");
-    		check = false;
-    	}
-    	if(Double.parseDouble(discount_lv1.getText()) <= 0 || Double.parseDouble(discount_lv1.getText()) > 10) {
-    		discount_warning.setText("折扣错误");
-    		check = false;
-    	}
-    	if(Double.parseDouble(discount_lv2.getText()) <= 0 || Double.parseDouble(discount_lv2.getText()) > 10) {
-    		discount_warning.setText("折扣错误");
-    		check = false;
-    	}
-    	if(Double.parseDouble(discount_lv3.getText()) <= 0 || Double.parseDouble(discount_lv3.getText()) > 10) {
-    		discount_warning.setText("折扣错误");
-    		check = false;
-    	}
+		if (promotion_name.getText() == "") {
+			name_warning.setText("请输入名称");
+			check = false;
+		}
+		if (promotion_type.getSelectionModel().getSelectedIndex() == -1) {
+			type_warning.setText("请选择类型");
+			check = false;
+		}
+		if (start_date.getEditor().getText().compareTo(util.Time.getCurrentDate()) > 0) {
+			start_date_warning.setText("开始日期不可在今天前");
+			check = false;
+		}
+		if (start_date.getEditor().getText().compareTo(finish_date.getEditor().getText()) > 0) {
+			finish_date_warning.setText("结束日期不可在开始日期前");
+			check = false;
+		}
+		try {
+			if (Double.parseDouble(discount_lv0.getText()) <= 0 || Double.parseDouble(discount_lv0.getText()) > 10) {
+				discount_warning.setText("折扣数值错误");
+				check = false;
+			}
+			if (Double.parseDouble(discount_lv1.getText()) <= 0 || Double.parseDouble(discount_lv1.getText()) > 10) {
+				discount_warning.setText("折扣数值错误");
+				check = false;
+			}
+			if (Double.parseDouble(discount_lv2.getText()) <= 0 || Double.parseDouble(discount_lv2.getText()) > 10) {
+				discount_warning.setText("折扣数值错误");
+				check = false;
+			}
+			if (Double.parseDouble(discount_lv3.getText()) <= 0 || Double.parseDouble(discount_lv3.getText()) > 10) {
+				discount_warning.setText("折扣数值错误");
+				check = false;
+			}
+    	} catch (NumberFormatException e) {
+    		discount_warning.setText("折扣格式错误");
+		}
     	// TODO 检测企业
     	
     	return check;
