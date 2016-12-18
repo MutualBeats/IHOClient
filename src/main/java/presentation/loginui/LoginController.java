@@ -81,7 +81,9 @@ public class LoginController implements Initializable {
 					WindowGrab.startNetErrorWindow(window);
 				} else if (type == ResultMessage_Verify.USER_NOT_EXIST) {
 					name_warning.setText("该用户不存在");
-				} else {
+				} else if (type == ResultMessage_Verify.PASSWORD_WRONG) {
+					pass_warning.setText("密码错误");
+				}else {
 					UserCache.init_Cache(name);
 					switch (type) {
 					case CLIENT:
