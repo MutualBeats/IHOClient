@@ -3,33 +3,23 @@ package presentation.marketui.unusualorder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogic.orderbl.Order;
-import bussinesslogic.orderbl.OrderController;
-import config.urlconfig.MarketUIURLConfig;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TableView.TableViewSelectionModel;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Window;
-import presentation.bundle.OrderInfoBundle;
 import presentation.marketui.utilui.OrderListView;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
-import util.order.OrderState;
-import util.resultmessage.ResultMessage_Credit;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
@@ -80,11 +70,11 @@ public class UnusualOrderController extends OrderListView{
 		 
 	 }
 	 
-	 
+	 @SuppressWarnings("unchecked")
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
 		 // TODO Auto-generated method stub
-		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("exception");
+		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("order_list");
 		unusual_orderlist.addAll(unusual);
 		
 		order_list.setItems(unusual_orderlist);
@@ -126,7 +116,11 @@ public class UnusualOrderController extends OrderListView{
 		});
 	 }
     
-    
+	 @FXML
+	 void check(ActionEvent event) {
+
+	 }
+	 
     @FXML
     void on_revoke(ActionEvent event) {
     	// Revoke Order
@@ -147,7 +141,6 @@ public class UnusualOrderController extends OrderListView{
     		WindowGrab.startNoticeWindow(window, "请选择要撤销的订单");
     	}
     	else{
-    		OrderVO info = model.getSelectedItem();
     		String order_ID = order_id.getCellData(model.getSelectedIndex());
     		ResultMessage_Order result=ResultMessage_Order.Appeal_Successful;
     		

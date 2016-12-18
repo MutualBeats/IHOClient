@@ -5,36 +5,19 @@
  */
 package presentation.marketui.unexcutedorder;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.naming.ldap.ControlFactory;
-import javax.swing.text.SimpleAttributeSet;
-
-import org.dom4j.tree.SingleIterator;
-
 import bussinesslogic.controllerfactory.ControllerFactory;
-import config.urlconfig.ManageUIURLConfig;
-import config.urlconfig.MarketUIURLConfig;
-import config.urlconfig.UtilUIURLConfig;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.stage.Window;
 import presentation.marketui.utilui.OrderListView;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import vo.order.OrderVO;
-import vo.user.ClientVO;
 
 public class UnexcutedOrderController extends OrderListView{
 
@@ -60,7 +43,7 @@ public class UnexcutedOrderController extends OrderListView{
 	@Override
 	@SuppressWarnings("unchecked")
 	public void initialize(URL location, ResourceBundle resources) {
-		ArrayList<OrderVO> unexecute_order=(ArrayList<OrderVO>) resources.getObject("unexecuted");
+		ArrayList<OrderVO> unexecute_order=(ArrayList<OrderVO>) resources.getObject("order_list");
 		order_list.getItems().addAll(unexecute_order);
 		initColumn();
 	}
@@ -98,8 +81,6 @@ public class UnexcutedOrderController extends OrderListView{
 			}
 		});
 	}
-	
-
 
 
 

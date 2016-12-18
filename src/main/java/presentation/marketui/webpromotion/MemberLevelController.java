@@ -137,7 +137,7 @@ public class MemberLevelController implements Confirm{
 		discount.add(Double.parseDouble(discount_lv3.getText()));
 		
 		try {
-			ResultMessage_Promotion promotion=ControllerFactory.getPromotionBLServiceInstance().makeLevel(credit, discount);
+			ResultMessage_Promotion levelInfo=ControllerFactory.getPromotionBLServiceInstance().makeLevel(credit, discount);
 		} catch (NetException e) {
 			// TODO Auto-generated catch block
 			Window window=WindowGrab.getWindowByStage(0);
