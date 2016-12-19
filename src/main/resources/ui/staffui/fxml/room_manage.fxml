@@ -45,7 +45,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="room_list" layoutX="225.0" layoutY="180.0" prefHeight="295.0" prefWidth="400.0">
+      <TableView fx:id="room_list" layoutX="210.0" layoutY="180.0" prefHeight="295.0" prefWidth="400.0">
          <columns>
             <TableColumn fx:id="room_number" prefWidth="100.0" text="房间号" />
             <TableColumn fx:id="room_type" prefWidth="100.0" text="房间类型" />
@@ -53,5 +53,10 @@
             <TableColumn fx:id="room_state" prefWidth="100.0" text="状态" />
          </columns>
       </TableView>
+      <Button fx:id="refresh" layoutX="305.0" layoutY="136.0" mnemonicParsing="false" onAction="#refresh" prefHeight="8.0" prefWidth="53.0" text="刷新">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

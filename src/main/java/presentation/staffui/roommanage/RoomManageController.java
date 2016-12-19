@@ -43,6 +43,9 @@ public class RoomManageController implements Initializable, UpdateRoom {
 	
     @FXML
     private TableView<RoomVO> room_list;
+    
+    @FXML
+    private Button refresh;
 
     @FXML
     private Button cancel;
@@ -84,15 +87,20 @@ public class RoomManageController implements Initializable, UpdateRoom {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		refresh(null);
+	}
+	
+	@FXML
+	void refresh(ActionEvent event) {
 		try {
-			String hotelID = ControllerFactory.getStaffBLServiceInstance().showData(UserCache.getID()).hotelID;
 			RoomBLService roomBL = ControllerFactory.getRoomBLServiceInstance();
-			ArrayList<RoomVO> roomVOList = roomBL.getRoomList(hotelID);
+			ArrayList<RoomVO> roomVOList = roomBL.getRoomList(UserCache.getHotelID());
+			list.clear();
 			list.addAll(roomVOList);
 			room_list.setItems(list);
 			initColumn();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
 	}
 	
