@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.MD5;
 import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Verify;
@@ -75,6 +76,8 @@ public class LoginController implements Initializable {
 			// TODO : check the internet
 			try {
 				Identify identify = ControllerFactory.getIdentityService();
+				//密码加密//
+				pass = MD5.md5(pass);
 				ResultMessage_Verify type = identify.login(name, pass);
 				if (type == ResultMessage_Verify.NET_ERROR) {
 					WindowGrab.startNetErrorWindow(window);

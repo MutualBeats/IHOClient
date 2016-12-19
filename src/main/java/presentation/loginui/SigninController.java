@@ -11,6 +11,7 @@ import javafx.stage.Window;
 import presentation.utilcontroller.RegistCheckController;
 import presentation.utilui.ResultDeal;
 import presentation.utilui.WindowGrab;
+import util.MD5;
 import util.resultmessage.ResultMessage_User;
 import vo.user.ClientRegistVO;
 
@@ -30,6 +31,8 @@ public class SigninController extends RegistCheckController implements Initializ
 				String u_name = name.getText();
 				String contactWay = phone.getText();
 				String psw = ps.getText();
+				//密码加密
+				psw = MD5.md5(psw);
 				ClientRegistVO info = new ClientRegistVO(id, u_name, contactWay, psw);
 				ResultMessage_User result = ResultMessage_User.Register_Success;
 				try {

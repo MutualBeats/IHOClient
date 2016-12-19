@@ -13,6 +13,7 @@ import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.RegistCheckController;
 import presentation.utilui.ResultDeal;
 import presentation.utilui.WindowGrab;
+import util.MD5;
 import util.resultmessage.ResultMessage_User;
 import vo.user.MarketerVO;
 
@@ -47,7 +48,7 @@ public class AddPeopleController extends RegistCheckController implements Initia
 		String contactWay = phone.getText();
 		MarketerVO info = new MarketerVO(id, u_name, contactWay);
 		String password = ps.getText();
-
+		password = MD5.md5(password);
 		try {
 			result = ControllerFactory.getManagerBLServiceInstance().addMarketer(info, password);
 		} catch (Exception e) {

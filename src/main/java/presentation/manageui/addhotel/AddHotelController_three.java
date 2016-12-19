@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
+import util.MD5;
 import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.StaffVO;
@@ -36,7 +37,7 @@ public class AddHotelController_three {
 			if (hotelID != null) {
 				System.out.println("SUCCESS");
 				staff_info.hotelID = hotelID;
-				result = ControllerFactory.getManagerBLServiceInstance().addStaff(staff_info, ViewCache.ps);
+				result = ControllerFactory.getManagerBLServiceInstance().addStaff(staff_info, MD5.md5(ViewCache.ps));
 			} else {
 				result = ResultMessage_User.PEOPLE_ADD_FAILED;
 			}
