@@ -22,14 +22,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
 import presentation.bundle.PromotionInfoBundle;
+import presentation.bundle.PromotionUpdateBundle;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.PromotionUpdate;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
-public class HotelPromotionController implements Initializable, Confirm {
+public class HotelPromotionController implements Initializable, PromotionUpdate, Confirm {
 	
 	@FXML
 	private TableColumn<PromotionVO, String> promotion_id;
@@ -132,12 +134,13 @@ public class HotelPromotionController implements Initializable, Confirm {
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "新建促销策略",HOTEL_PROMOTION_CREATE_FXML,HOTEL_PROMOTION_CREATE_CSS);
+//		WindowGrab.startWindow(window, "新建促销策略",HOTEL_PROMOTION_CREATE_FXML,HOTEL_PROMOTION_CREATE_CSS);
+		WindowGrab.startWindowWithBundle(window, "", HOTEL_PROMOTION_CREATE_FXML, HOTEL_PROMOTION_CREATE_CSS, new PromotionUpdateBundle(this));
     }
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(0);
+		Window window = WindowGrab.getWindowByStage(1);
 		PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
 		int index = promotion_list.getSelectionModel().getSelectedIndex();
 		try {
@@ -163,5 +166,9 @@ public class HotelPromotionController implements Initializable, Confirm {
 		}
 	}
 
-}
+	@Override
+	public void update(PromotionVO vo) {
+		promotion_list.getItems().add(vo);
+	}
 
+}

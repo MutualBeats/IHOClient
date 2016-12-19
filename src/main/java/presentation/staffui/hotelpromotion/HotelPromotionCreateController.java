@@ -22,6 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Window;
 import presentation.bundle.EnterpriseUpdateBundle;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.PromotionUpdate;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
@@ -95,6 +96,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		}
 	}
 	
+	private PromotionUpdate update;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -102,6 +104,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 				PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
 		promotion_type.setItems(promotionTypes);
 		CheckUtil.init(start_date, finish_date, LocalDate.now(), LocalDate.now());
+		update = (PromotionUpdate) resources.getObject("update");
 	}
 
 	@FXML
@@ -169,12 +172,13 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			promotionVO = new PromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate);
 		try {
 			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(promotionVO);
-			promotionVO.promotionID = promotionID;
+//			promotionVO.promotionID = promotionID;
+			promotionVO.setPromotionIDProperty(promotionID);
+			// 更新promotion列表
+			update.update(promotionVO);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
-		// TODO 更新promotion列表
-
 	}
 
 	@FXML
