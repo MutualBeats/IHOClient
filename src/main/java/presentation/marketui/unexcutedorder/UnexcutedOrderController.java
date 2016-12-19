@@ -134,8 +134,8 @@ public class UnexcutedOrderController extends OrderListView{
     	try {
 			promotionList=ControllerFactory.getPromotionBLServiceInstance().getWebPromotion();
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new PromotionBundle(promotionList);
     	WindowGrab.changeSceneWithBundle(WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, frame, bundle);
@@ -149,8 +149,8 @@ public class UnexcutedOrderController extends OrderListView{
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryAbnormalOrder();
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
     	WindowGrab.changeSceneWithBundle(UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, frame, bundle);

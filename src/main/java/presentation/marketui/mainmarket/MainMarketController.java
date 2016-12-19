@@ -100,8 +100,7 @@ public class MainMarketController {
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryUnexecutedOrder(util.Time.getCurrentDate());
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
     	WindowGrab.startWindowWithBundle(window, "查看未执行订单", UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, bundle);
@@ -114,8 +113,7 @@ public class MainMarketController {
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryAbnormalOrder();
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
     	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, bundle);

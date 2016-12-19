@@ -12,17 +12,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Window;
+import presentation.bundle.PromotionBundle;
+import presentation.bundle.SingleOrderListBundle;
+import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.marketui.utilui.OrderListView;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
+import vo.promotion.PromotionVO;
 
 public class UnusualOrderController extends OrderListView implements Initializable{
 
@@ -33,8 +39,15 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 @FXML
 	 private TableColumn<OrderVO,String> contact;
 	
+	 @FXML
+	 private Button web_promotion;
+	 
+	 @FXML
+	 private Button unusual_order;
 
-
+	 @FXML
+	 private Button unexecuted_order;
+	    
 	 @FXML
 	 private TableColumn<OrderVO,String> order_id;
 	 
@@ -47,23 +60,32 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 @FXML
 	 private TableColumn<OrderVO,String> hotelname;
 	
-	
+	 @FXML
+	 private Button credit;
+	 
 	 private ObservableList<OrderVO> unusual_orderlist;
 	 final ToggleGroup buttom_group = new ToggleGroup();
 	
 	 private static URL APPEAL_FXML;
 	 private static URL APPEAL_CSS;
 	 
-	 private static URL UNUSUAL_ORDER_FXML;
-	 private static URL UNUSUAL_ORDER_CSS;
+	 private static URL UNEXCUTED_ORDER_FXML;
+	 private static URL UNEXCUTED_ORDER_CSS;
+	    
+	 private static URL WEB_PROMOTION_FXML;
+	 private static URL WEB_PROMOTION_CSS;
 	 
 	 static{
 		 try {
 			APPEAL_FXML=new URL("file: src/main/resources/ui/marketui/fxml/appeal_credit.fxml");
 			APPEAL_CSS=new URL("file: src/main/resources/ui/marketui/css/appeal_credit.css");
 			
-			UNUSUAL_ORDER_FXML=new URL("file: src/main/resources/ui/marketui/fxml/unusual_order.fxml");
-			UNUSUAL_ORDER_CSS=new URL("file: src/main/resources/ui/marketui/css/unusual_order.css");
+			WEB_PROMOTION_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion.fxml");
+    		WEB_PROMOTION_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion.css");
+    		
+    		UNEXCUTED_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unexecuted_order.fxml");
+    		UNEXCUTED_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unexecuted_order.css");
+    		
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +113,6 @@ public class UnusualOrderController extends OrderListView implements Initializab
 				return ControllerFactory.getClientBLServiceInstance().getClientInfo(celldata.getValue().clientID).getName_property();
 			} catch (NetException e1) {
 				// TODO Net Exception
-				
 				return new SimpleStringProperty("");
 			}
 		});
@@ -117,10 +138,7 @@ public class UnusualOrderController extends OrderListView implements Initializab
 		});
 	 }
     
-	 @FXML
-	 void check(ActionEvent event) {
-
-	 }
+	 
 	 
     @FXML
     void on_revoke(ActionEvent event) {
@@ -154,14 +172,47 @@ public class UnusualOrderController extends OrderListView implements Initializab
 			}
     		if(result==ResultMessage_Order.Appeal_Successful){
     			WindowGrab.startNoticeWindow(window, "撤销订单成功！");
-    			//本地刷新记录
-    			WindowGrab.closeWindow(event);
-    			WindowGrab.startWindow(window, "查看异常订单", UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS);
     		}
     		else{
     			WindowGrab.startNoticeWindow(window, "撤销订单失败！");
     			
     		}
     	}
+    }
+    
+    @FXML
+    void unexecuted_order(ActionEvent event) {
+    	Scene frame=WindowGrab.getScene(event);
+    	ArrayList<OrderVO> order_info=null;
+		try {
+			order_info = ControllerFactory.getOrderBLServiceInstance().queryUnexecutedOrder(util.Time.getCurrentDate());
+		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
+		}
+    	ResourceBundle bundle=new SingleOrderListBundle(order_info);
+    	WindowGrab.changeSceneWithBundle(UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, frame, bundle);
+    
+    }
+
+    @FXML
+    void web_promotion(ActionEvent event) {
+    	Scene frame=WindowGrab.getScene(event);
+    	ArrayList<PromotionVO> promotionList=null;
+    	try {
+			promotionList=ControllerFactory.getPromotionBLServiceInstance().getWebPromotion();
+		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
+		}
+    	ResourceBundle bundle=new PromotionBundle(promotionList);
+    	WindowGrab.changeSceneWithBundle(WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, frame, bundle);
+    	
+    }
+
+    @FXML
+    void on_credit(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+    	WindowGrab.startIDInputWindow(window, new CreditIDInputHandle());
     }
 }

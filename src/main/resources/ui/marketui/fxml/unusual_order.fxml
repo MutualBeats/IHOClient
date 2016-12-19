@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.unusualorder.UnusualOrderController">
    <children>
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="480.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="600.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -25,38 +25,32 @@
             </Lighting>
          </effect>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="580.0">
          <effect>
             <InnerShadow color="#c3ba84" />
          </effect>
       </Rectangle>
-      <Label fx:id="unusualorder_title" layoutX="35.0" layoutY="35.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="unusualorder_title" layoutX="35.0" layoutY="25.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="500.0" layoutY="515.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" text="取消" textOverrun="CLIP">
+      <Button fx:id="cancel" layoutX="565.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" text="取消" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="235.0" layoutY="150.0" text="订单ID:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="id_text" blendMode="DARKEN" layoutX="325.0" layoutY="145.0" prefHeight="30.0" prefWidth="200.0" />
-      <Button fx:id="check" contentDisplay="CENTER" layoutX="380.0" layoutY="515.0" mnemonicParsing="false" onAction="#check" prefHeight="20.0" prefWidth="65.0" text="查看" textOverrun="CLIP">
+      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#check" prefHeight="20.0" prefWidth="65.0" text="查看" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="170.0" layoutY="190.0" text="搜索结果: ">
+      <Label layoutX="241.0" layoutY="159.0" text="搜索结果: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="order_list" layoutX="170.0" layoutY="220.0" prefHeight="270.0" prefWidth="500.0">
+      <TableView fx:id="order_list" layoutX="220.0" layoutY="200.0" prefHeight="270.0" prefWidth="500.0">
          <columns>
             <TableColumn fx:id="id" prefWidth="127.0" text="订单ID" />
             <TableColumn fx:id="user_name" prefWidth="120.0" text="用户名称" />
@@ -64,15 +58,14 @@
             <TableColumn fx:id="hotelname" prefWidth="121.6959228515625" text="下单酒店" />
          </columns>
       </TableView>
-      <Button fx:id="search" layoutX="565.0" layoutY="145.0" mnemonicParsing="false" onAction="#on_search" prefHeight="20.0" prefWidth="65.0" text="搜索" textOverrun="CLIP">
+      <Button fx:id="revoke" layoutX="306.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0" prefWidth="65.0" text="撤销">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="revoke" layoutX="260.0" layoutY="515.0" mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0" prefWidth="65.0" text="撤销">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
+      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unusual_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="web_promotion" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="credit" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.media.*?>
@@ -19,16 +20,24 @@
             <Font size="14.0" />
          </font></Text>
       <TextField fx:id="name" layoutX="164.0" layoutY="141.0" onMouseClicked="#nameModify" prefHeight="25.0" prefWidth="140.0" promptText="name" />
-      <Label layoutX="49.0" layoutY="262.0" text="开始时间 :" />
-      <Label layoutX="49.0" layoutY="322.0" text="结束时间 :" />
-      <DatePicker fx:id="start_time" layoutX="164.0" layoutY="257.0" onMouseClicked="#stimeModify" prefWidth="140.0" promptText="start-time" showWeekNumbers="true" />
-      <DatePicker fx:id="end_time" layoutX="164.0" layoutY="317.0" onMouseClicked="#etimeModify" prefWidth="140.0" promptText="end-time" showWeekNumbers="true" />
-      <Text layoutX="49.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
-      <ComboBox fx:id="discount" layoutX="164.0" layoutY="196.0" onMouseClicked="#discountModify" prefWidth="140.0" promptText="discount" />
+      <Label layoutX="49.0" layoutY="270.0" text="开始时间 :" />
+      <Label layoutX="49.0" layoutY="332.0" text="结束时间 :" />
+      <DatePicker fx:id="start_time" layoutX="164.0" layoutY="263.0" onMouseClicked="#stimeModify" prefWidth="140.0" promptText="start-time" showWeekNumbers="true" />
+      <DatePicker fx:id="end_time" layoutX="164.0" layoutY="327.0" onMouseClicked="#etimeModify" prefWidth="140.0" promptText="end-time" showWeekNumbers="true" />
       
-      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="141.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Label fx:id="discount_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="196.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Label fx:id="stime_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="254.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="131.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="discount_warning" alignment="TOP_LEFT" layoutX="323.0" layoutY="190.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <Label fx:id="stime_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="250.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
       <Label fx:id="etime_warning" alignment="TOP_LEFT" layoutX="311.0" layoutY="314.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
+      <Text layoutX="49.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
+      <Line endX="100.0" layoutX="226.0" layoutY="202.0" startX="-100.0" />
+      <Label layoutX="131.0" layoutY="181.0" text="vip0" />
+      <Label layoutX="180.0" layoutY="181.0" text="vip1" />
+      <Label layoutX="231.0" layoutY="181.0" text="vip2" />
+      <Label layoutX="284.0" layoutY="181.0" text="vip3" />
+      <TextField fx:id="discount_lv0" layoutX="123.0" layoutY="211.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv1" layoutX="172.0" layoutY="211.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv2" layoutX="223.0" layoutY="211.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+      <TextField fx:id="discount_lv3" layoutX="276.0" layoutY="211.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
    </children>
 </AnchorPane>

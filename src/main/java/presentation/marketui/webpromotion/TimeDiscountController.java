@@ -45,9 +45,19 @@ public class TimeDiscountController implements Initializable {
 
 	@FXML
 	private DatePicker end_time;
-
+	
 	@FXML
-	private ComboBox<Integer> discount;
+    private TextField discount_lv2;
+
+    @FXML
+    private TextField discount_lv3;
+
+    @FXML
+    private TextField discount_lv0;
+
+    @FXML
+    private TextField discount_lv1;
+
 
 	@FXML
 	private Label name_warning;
@@ -64,20 +74,17 @@ public class TimeDiscountController implements Initializable {
 			String p_name = name.getText();
 			String startDate = start_time.getEditor().getText();
 			String finishDate = end_time.getEditor().getText();
-			double dis = discount.getSelectionModel().getSelectedItem();
-			PromotionVO vo = new PromotionVO("", p_name, PromotionType.Holiday, null, "", startDate, finishDate);
-			
+		
+			PromotionVO vo = null;
+
 			try {
 				// 初始化所有等级会员的折扣
-				PromotionBLService bl = ControllerFactory.getPromotionBLServiceInstance();
-				int number_of_level = bl.getMemberLevel().size();
 				ArrayList<Double> dis_list = new ArrayList<>();
-				for (int i = 0; i < number_of_level; i++) {
-					dis_list.add(dis);
-				}
-				vo.discount = dis_list;
+				
+				 vo = new PromotionVO("", p_name, PromotionType.Holiday, dis_list, "", startDate, finishDate);
+					
 				//父窗口更新
-				String promotionID = bl.addhotelPromotion(vo);
+				String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(vo);
 				if (promotionID != null) {
 					update.update(promotionID);
 				}
@@ -95,7 +102,7 @@ public class TimeDiscountController implements Initializable {
 	}
 
 	private boolean checkFormatter() {
-		return checkName() && checkDiscount();
+		return checkName() && inputDiscount();
 	}
 
 	private boolean checkName() {
@@ -106,10 +113,23 @@ public class TimeDiscountController implements Initializable {
 		return check;
 	}
 
-	private boolean checkDiscount() {
-		boolean select = CheckUtil.checkSelect(discount);
-		if (!select) {
-			discount_warning.setText("请选择折扣");
+	private boolean inputDiscount() {
+		boolean select = true;
+		if (discount_lv0.getText().isEmpty()) {
+			discount_warning.setText("请输入折扣");
+			select=false;
+		}
+		if (discount_lv1.getText().isEmpty()) {
+			discount_warning.setText("请输入折扣");
+			select=false;
+		}
+		if (discount_lv2.getText().isEmpty()) {
+			discount_warning.setText("请输入折扣");
+			select=false;
+		}
+		if (discount_lv3.getText().isEmpty()) {
+			discount_warning.setText("请输入折扣");
+			select=false;
 		}
 		return select;
 	}
@@ -136,7 +156,6 @@ public class TimeDiscountController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		discount.getItems().addAll(DiscountConfig.DISCOUNT);
 		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
 
 	}

@@ -35,14 +35,14 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="550.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" textOverrun="CLIP">
+      <Button fx:id="cancel" layoutX="550.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
-            <Font size="16.0" />
+            <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="check" contentDisplay="CENTER" layoutX="370.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_check" prefHeight="25.0" prefWidth="70.0" textOverrun="CLIP">
+      <Button fx:id="check" contentDisplay="CENTER" layoutX="370.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_check" prefHeight="25.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
-            <Font size="16.0" />
+            <Font size="15.0" />
          </font>
       </Button>
       <Label layoutX="252.0" layoutY="165.0" text="搜索结果: ">

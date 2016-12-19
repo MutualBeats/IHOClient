@@ -258,8 +258,8 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryUnexecutedOrder(util.Time.getCurrentDate());
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
     	WindowGrab.changeSceneWithBundle(UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, frame, bundle);
@@ -272,8 +272,8 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryAbnormalOrder();
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
     	WindowGrab.changeSceneWithBundle(UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, frame, bundle);
