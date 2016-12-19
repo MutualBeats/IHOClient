@@ -45,13 +45,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="247.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态:" wrappingWidth="82.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
             <Label fx:id="room_price" layoutX="164.0" layoutY="177.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
-            <Label fx:id="room_state" layoutX="336.0" layoutY="176.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
             <DatePicker fx:id="check_in_date" layoutX="202.0" layoutY="229.0" prefHeight="27.0" prefWidth="160.0" />
             <DatePicker fx:id="estimate_check_out_date" layoutX="202.0" layoutY="284.0" prefHeight="27.0" prefWidth="160.0" />
          </children></AnchorPane>

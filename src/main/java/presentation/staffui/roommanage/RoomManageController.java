@@ -116,7 +116,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		WindowGrab.startNoticeWindow(window, "请选择房间");
     		return;
     	}
-		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoBundle(roomVO));
+		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoBundle(roomVO, null));
     }
 
     @FXML
@@ -127,7 +127,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
 
 	@Override
 	public void update(RoomVO room) {
-		room_list.getItems().add(room);
+		room_list.getItems().add(0, room);
 	}
 
 }

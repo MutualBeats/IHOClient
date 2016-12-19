@@ -59,10 +59,10 @@ public class PromotionDataHelper {
 		po.setPromotionID(promotionID);
 		// 更新cache
 		if(po.getHotelID().equals("")) {
-			web_promotion_cache.add(po);
+			web_promotion_cache.add(0, po);
 		} else {
 			if(current_hotel.equals(po.getHotelID()))
-				hotel_promotion_cache.add(po);
+				hotel_promotion_cache.add(0, po);
 		}
 		return promotionID;
 	}

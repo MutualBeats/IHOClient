@@ -17,13 +17,13 @@ import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
+import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
 public class RoomUpdateController implements Initializable, Confirm {
 	
 	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
-	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
 	
 	@FXML
 	private Label room_number;
@@ -33,9 +33,6 @@ public class RoomUpdateController implements Initializable, Confirm {
 	
 	@FXML
 	private Label room_price;
-	
-	@FXML
-	private Label room_state;
 	
 	@FXML
 	private DatePicker check_in_date;
@@ -62,6 +59,7 @@ public class RoomUpdateController implements Initializable, Confirm {
     }
     
     private RoomVO room;
+    private UpdateRoomRecord updateRoomRecord;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -69,8 +67,8 @@ public class RoomUpdateController implements Initializable, Confirm {
 		room_number.setText(room.roomNumber);
 		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
 		room_price.setText("" + room.price);
-		room_state.setText(ROOM_STATE[room.condition.ordinal()]);
 		CheckUtil.init(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
+		updateRoomRecord = (UpdateRoomRecord) resources.getObject("update");
 	}
     
     @FXML
@@ -86,17 +84,32 @@ public class RoomUpdateController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(3);
+		
 		String checkInDate = check_in_date.getEditor().getText();
 		String checkOutDate = estimate_check_out_date.getEditor().getText();
 		
 		RoomRecordVO roomRecord = new RoomRecordVO(checkInDate, checkOutDate, "", room.hotelID, room.roomNumber);
 		try {
-			ControllerFactory.getRoomBLServiceInstance().addRecord(roomRecord);
+			ResultMessage_Room result = ControllerFactory.getRoomBLServiceInstance().addRecord(roomRecord);
+			switch (result) {
+			case Record_Add_Successful:
+				WindowGrab.closeWindow(window);
+				window = WindowGrab.getWindowByStage(2);
+				WindowGrab.startNoticeWindow(window, "添加成功");
+				// 房间记录列表添加
+				updateRoomRecord.update(roomRecord);
+				break;
+			case Time_Conflict_Error:
+				WindowGrab.startNoticeWindow(window, "时间冲突，无法添加");
+				break;
+			default:
+				WindowGrab.startNoticeWindow(window, "异常错误");
+				break;
+			}
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+			WindowGrab.startNetErrorWindow(window);
 		}
-		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
-		// TODO 房间记录列表添加
 		
 	}
 

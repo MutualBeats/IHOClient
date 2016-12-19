@@ -18,6 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 import presentation.bundle.EnterpriseUpdateBundle;
@@ -177,25 +178,27 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			// 更新promotion列表
 			update.update(promotionVO);
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
 		}
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
 	}
 
 	@FXML
 	void addEnterprise(ActionEvent event) {
+		CheckUtil.checkWarningBefore(enterprise_warning);
+		
 		Window window = WindowGrab.getWindow(event);
-
 		WindowGrab.startWindowWithBundle(window, "企业名输入", ENTERPRISE_INPUT_FXML, ENTERPRISE_INPUT_CSS,
 				new EnterpriseUpdateBundle(this));
 	}
 
 	@FXML
-	void nameModify(ActionEvent event) {
+	void nameModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(name_warning);
 	}
 
 	@FXML
-	void discountModify(ActionEvent event) {
+	void discountModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(discount_warning);
 	}
 

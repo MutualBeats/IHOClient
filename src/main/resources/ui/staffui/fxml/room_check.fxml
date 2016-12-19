@@ -13,9 +13,8 @@
          <children>
             <Accordion layoutY="115.0" />
             <Text layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号码：" wrappingWidth="65.0" />
-            <Text layoutX="254.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型：" />
+            <Text layoutX="254.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型：" />
             <Text layoutX="63.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间价格：" />
-            <Text layoutX="254.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态：" />
             <Label fx:id="room_number" layoutX="146.0" layoutY="70.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
             <Button fx:id="cancel" layoutX="350.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
             <Button fx:id="addRecord" layoutX="55.0" layoutY="421.0" mnemonicParsing="false" onAction="#addRecord" prefHeight="27.0" prefWidth="82.0" text="添加记录" />
@@ -35,8 +34,7 @@
                </columns>
             </TableView>
             <Label fx:id="room_price" layoutX="146.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
-            <Label fx:id="room_type" layoutX="332.0" layoutY="70.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
-            <Label fx:id="room_state" layoutX="332.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
+            <Label fx:id="room_type" layoutX="332.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
          </children></AnchorPane>
   </items>
 </SplitPane>

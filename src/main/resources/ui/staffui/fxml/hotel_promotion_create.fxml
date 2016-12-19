@@ -20,7 +20,7 @@
             <Text layoutX="68.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略名称：" />
             <Text layoutX="84.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
             <Text layoutX="68.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="开始时间：" />
-            <TextField fx:id="promotion_name" layoutX="191.0" layoutY="88.0" onAction="#nameModify" prefHeight="15.0" prefWidth="160.0" />
+            <TextField fx:id="promotion_name" layoutX="191.0" layoutY="88.0" onMouseClicked="#nameModify" prefHeight="15.0" prefWidth="160.0" />
             <Button fx:id="cancel" layoutX="266.0" layoutY="419.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
             <Text layoutX="68.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="结束时间：" />
             <Button fx:id="confirm" layoutX="125.0" layoutY="419.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="确认" />
@@ -34,10 +34,10 @@
             <Label layoutX="215.0" layoutY="238.0" text="vip1" />
             <Label layoutX="266.0" layoutY="238.0" text="vip2" />
             <Label layoutX="319.0" layoutY="238.0" text="vip3" />
-            <TextField fx:id="discount_lv0" layoutX="158.0" layoutY="268.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-            <TextField fx:id="discount_lv1" layoutX="207.0" layoutY="268.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-            <TextField fx:id="discount_lv2" layoutX="258.0" layoutY="268.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-            <TextField fx:id="discount_lv3" layoutX="311.0" layoutY="268.0" onAction="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+            <TextField fx:id="discount_lv0" layoutX="158.0" layoutY="268.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+            <TextField fx:id="discount_lv1" layoutX="207.0" layoutY="268.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+            <TextField fx:id="discount_lv2" layoutX="258.0" layoutY="268.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+            <TextField fx:id="discount_lv3" layoutX="311.0" layoutY="268.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
             <Text layoutX="66.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略类型：" />
             <ComboBox fx:id="promotion_type" layoutX="191.0" layoutY="127.0" onAction="#typeModify" prefHeight="27.0" prefWidth="160.0" />
             <Text fx:id="enterprise_label" layoutX="73.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="企业添加:" visible="false" />

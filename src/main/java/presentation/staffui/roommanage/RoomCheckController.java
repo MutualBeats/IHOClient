@@ -27,7 +27,7 @@ import vo.room.RoomVO;
 public class RoomCheckController implements Initializable, UpdateRoomRecord {
 	
 	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
-	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
+//	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
 	
 	@FXML
 	private Label room_number;
@@ -37,9 +37,6 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 	
 	@FXML
 	private Label room_price;
-	
-	@FXML
-	private Label room_state;
 	
 	@FXML
 	private TableColumn<RoomRecordVO, String> order_id;
@@ -88,7 +85,6 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		room_number.setText(room.roomNumber);
 		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
 		room_price.setText("" + room.price);
-		room_state.setText(ROOM_STATE[room.condition.ordinal()]);
 		try {
 			// 未来房间记录获取
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();
@@ -110,7 +106,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     @FXML
     void addRecord(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoBundle(room));
+		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoBundle(room, this));
     }
     
     @FXML
@@ -174,7 +170,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 
 	@Override
 	public void update(RoomRecordVO roomRecord) {
-		room_record_list.getItems().add(roomRecord);
+		room_record_list.getItems().add(0, roomRecord);
 	}
 
 }
