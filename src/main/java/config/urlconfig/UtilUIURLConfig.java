@@ -21,12 +21,6 @@ public class UtilUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
-	//check
-	
-	private static String CHECK_FXML;
-	
-	private static String CHECK_CSS;
-	
 	//confirm
 	
 	private static String CONFIRM_FXML;
@@ -38,6 +32,18 @@ public class UtilUIURLConfig {
 	private static String ERROR_FXML;
 		
 	private static String ERROR_CSS;
+	
+	//notice
+	
+	private static String NOTICE_FXML;
+	
+	private static String NOTICE_CSS;
+	
+	//order information
+	
+	private static String ORDER_INFO_FXML;
+	
+	private static String ORDER_INFO_CSS;
 		
 	static {
 		url_config_parse();
@@ -55,27 +61,21 @@ public class UtilUIURLConfig {
 			FILE_ROOT_PATH = root_path.attributeValue(ROOT_PATH);
 			
 			//Each stage
-			Element check = root.element("check");
 			Element confirm = root.element("confirm");
 			Element error = root.element("error");
+			Element notice = root.element("notice");
+			Element order_info = root.element("order_info");
 			
-			check_init(check);
 			confirm_init(confirm);
 			error_init(error);
+			notice_init(notice);
+			order_info_init(order_info);
 			
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private static void check_init(Element check){
-		Element check_fxml = check.element("fxml");
-		Element check_css = check.element("css");
-		String check_root = check.attributeValue(ROOT_PATH);
-		CHECK_FXML = check_root + check_fxml.attributeValue(FXML_PATH);
-		CHECK_CSS = check_root + check_css.attributeValue(CSS_PATH);
-	}
-	
+
 	private static void confirm_init(Element confirm){
 		Element confirm_fxml = confirm.element("fxml");
 		Element confirm_css = confirm.element("css");
@@ -92,24 +92,23 @@ public class UtilUIURLConfig {
 		ERROR_CSS = error_root + error_css.attributeValue(CSS_PATH);
 	}
 	
-	
-	public static URL check_fxml_url() {
-		try {
-			return new URL(path_combine(CHECK_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
+	private static void notice_init(Element notice){
+		Element notice_fxml = notice.element("fxml");
+		Element notice_css = notice.element("css");
+		String notice_root = notice.attributeValue(ROOT_PATH);
+		NOTICE_FXML = notice_root + notice_fxml.attributeValue(FXML_PATH);
+		NOTICE_CSS = notice_root + notice_css.attributeValue(CSS_PATH);
 	}
 	
-	public static URL check_css_url() {
-		try {
-			return new URL(path_combine(CHECK_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
+	private static void order_info_init(Element order_info){
+		Element order_info_fxml = order_info.element("fxml");
+		Element order_info_css = order_info.element("css");
+		String order_info_root = order_info.attributeValue(ROOT_PATH);
+		ORDER_INFO_FXML = order_info_root + order_info_fxml.attributeValue(FXML_PATH);
+		ORDER_INFO_CSS = order_info_root + order_info_css.attributeValue(CSS_PATH);
 	}
+	
+	
 	
 	public static URL confirm_fxml_url() {
 		try {
@@ -141,6 +140,42 @@ public class UtilUIURLConfig {
 	public static URL error_css_url() {
 		try {
 			return new URL(path_combine(ERROR_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL notice_fxml_url() {
+		try {
+			return new URL(path_combine(NOTICE_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL notice_css_url() {
+		try {
+			return new URL(path_combine(NOTICE_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL order_info_fxml_url() {
+		try {
+			return new URL(path_combine(ORDER_INFO_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL order_info_css_url() {
+		try {
+			return new URL(path_combine(ORDER_INFO_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

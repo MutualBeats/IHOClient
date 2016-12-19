@@ -21,6 +21,12 @@ public class StaffUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
+	//Staff : Enterprise input
+	
+	private static String ENTERPRISE_INPUT_FXML;
+	
+	private static String ENTERPRISE_INPUT_CSS;
+	
 	//Staff : Hotel maintain confirm
 	
 	private static String HOTEL_MAINTAIN_CONFIRM_FXML;
@@ -139,6 +145,7 @@ public class StaffUIURLConfig {
 	private static void staff_init(Element staff) {
 		String staff_root = staff.attributeValue("root_path");
 		
+		Element enterprise_input = staff.element("enterprise_input");
 		Element hotel_maintain_confirm = staff.element("hotel_maintain_confirm");
 		Element hotel_promotion_change = staff.element("hotel_promotion_change");
 		Element hotel_promotion_check = staff.element("hotel_promotion_check");
@@ -157,6 +164,12 @@ public class StaffUIURLConfig {
 		
 		Element fxml;
 		Element css;
+		
+		//Enterprise input
+		fxml = enterprise_input.element("fxml");
+		css = enterprise_input.element("css");
+		ENTERPRISE_INPUT_FXML = staff_root + fxml.attributeValue(FXML_PATH);
+		ENTERPRISE_INPUT_CSS = staff_root + css.attributeValue(CSS_PATH);
 		
 		//Hotel maintain confirm
 		fxml = hotel_maintain_confirm.element("fxml");
@@ -248,6 +261,24 @@ public class StaffUIURLConfig {
 		STAFF_MAIN_FXML = staff_root + fxml.attributeValue(FXML_PATH);
 		STAFF_MAIN_CSS = staff_root + css.attributeValue(CSS_PATH);
 
+	}
+	
+	public static URL staff_enterprise_input_fxml_url(){
+		try {
+			return new URL(path_combine(ENTERPRISE_INPUT_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL staff_enterprise_input_css_url(){
+		try {
+			return new URL(path_combine(ENTERPRISE_INPUT_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public static URL staff_hotel_maintain_confirm_fxml_url(){

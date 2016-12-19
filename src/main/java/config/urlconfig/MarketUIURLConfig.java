@@ -21,11 +21,11 @@ public class MarketUIURLConfig {
 	
 	private static String FILE_ROOT_PATH;
 	
-	//Market : confirm
+	//Market : appeal credit
 	
-	private static String CONFIRM_FXML;
+	private static String APPEAL_CREDIT_FXML;
 	
-	private static String CONFIRM_CSS;
+	private static String APPEAL_CREDIT_CSS;
 	
 	//Market : Credit Execute
 	
@@ -33,11 +33,11 @@ public class MarketUIURLConfig {
 		
 	private static String CREDIT_EXCUTE_CSS;
 		
-	//Market : Credit
+	//Market : field promotion 
 	
-	private static String CREDIT_FXML;
+	private static String FIELD_PROMOTION_FXML;
 		
-	private static String CREDIT_CSS;
+	private static String FIELD_PROMOTION_CSS;
 		
 	//Market : Market menu
 	
@@ -45,17 +45,23 @@ public class MarketUIURLConfig {
 	
 	private static String MARKET_MENU_CSS;
 	
-	//Market : Order
+	//Market : member level
 	
-	private static String ORDER_FXML;
+	private static String MEMBER_LEVEL_FXML;
 	
-	private static String ORDER_CSS;
+	private static String MEMBER_LEVEL_CSS;
 	
-	//Market : Promotion choose
+	//Market : Promotion check
 	
-	private static String PROMOTION_CHOOSE_FXML;
+	private static String PROMOTION_CHECK_FXML;
 	
-	private static String PROMOTION_CHOOSE_CSS;
+	private static String PROMOTION_CHECK_CSS;
+	
+	//Market : time promotion
+	
+	private static String TIME_PROMOTION_FXML;
+	
+	private static String TIME_PROMOTION_CSS;
 		
 	//Market : not executed order
 	
@@ -69,23 +75,11 @@ public class MarketUIURLConfig {
 		
 	private static String UNUSUAL_ORDER_CSS;
 		
-	//Market : web promotion create
+	//Market : web promotion choose
 		
-	private static String WEB_PROMOTION_CREATE_FXML;
+	private static String WEB_PROMOTION_CHOOSE_FXML;
 		
-	private static String WEB_PROMOTION_CREATE_CSS;
-	
-	//Market : web promotion member discount
-	
-	private static String WEB_PROMOTION_MEMBER_DISCOUNT_FXML;
-	
-	private static String WEB_PROMOTION_MEMBER_DISCOUNT_CSS;
-		
-	//Market : web promotion update
-		
-	private static String WEB_PROMOTION_UPDATE_FXML;
-		
-	private static String WEB_PROMOTION_UPDATE_CSS;
+	private static String WEB_PROMOTION_CHOOSE_CSS;
 		
 	//Market : web promotion
 		
@@ -121,27 +115,26 @@ public class MarketUIURLConfig {
 	private static void market_init(Element market){
 		String market_root = market.attributeValue(ROOT_PATH);
 		
-		Element confirm = market.element("confirm");
+		Element appeal_credit = market.element("appeal_credit");
 		Element credit_excute = market.element("credit_excute");
-		Element credit = market.element("credit");
+		Element field_promotion = market.element("field_promotion");
 		Element market_menu = market.element("market_menu");
-		Element order = market.element("order");
-		Element promotion_choose = market.element("promotion_choose");
+		Element member_level = market.element("member_level");
+		Element promotion_check = market.element("promotion_check");
+		Element time_promotion = market.element("time_promotion");
 		Element unexecuted_order = market.element("unexecuted_order");
 		Element unusual_order = market.element("unusual_order");
-		Element web_promotion_create = market.element("web_promotion_create");
-		Element web_promotion_member_discount = market.element("web_promotion_member_discount");
-		Element web_promotion_update = market.element("web_promotion_update");
+		Element web_promotion_choose = market.element("web_promotion_choose");
 		Element web_promotion = market.element("web_promotion");
 		
 		Element fxml;
 		Element css;
 		
-		//Confirm
-		fxml = confirm.element("fxml");
-		css = confirm.element("css");
-		CONFIRM_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		CONFIRM_CSS = market_root + css.attributeValue(CSS_PATH);
+		//appeal credit
+		fxml = appeal_credit.element("fxml");
+		css = appeal_credit.element("css");
+		APPEAL_CREDIT_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		APPEAL_CREDIT_CSS = market_root + css.attributeValue(CSS_PATH);
 		
 		//Credit Execute
 		fxml = credit_excute.element("fxml");
@@ -149,11 +142,11 @@ public class MarketUIURLConfig {
 		CREDIT_EXCUTE_FXML = market_root + fxml.attributeValue(FXML_PATH);
 		CREDIT_EXCUTE_CSS = market_root + css.attributeValue(CSS_PATH);
 		
-		//Credit
-		fxml = credit.element("fxml");
-		css = credit.element("css");
-		CREDIT_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		CREDIT_CSS = market_root + css.attributeValue(CSS_PATH);
+		//field promotion
+		fxml = field_promotion.element("fxml");
+		css = field_promotion.element("css");
+		FIELD_PROMOTION_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		FIELD_PROMOTION_CSS = market_root + css.attributeValue(CSS_PATH);
 		
 		//market menu
 		fxml = market_menu.element("fxml");
@@ -161,17 +154,23 @@ public class MarketUIURLConfig {
 		MARKET_MENU_FXML = market_root + fxml.attributeValue(FXML_PATH);
 		MARKET_MENU_CSS = market_root + css.attributeValue(CSS_PATH);
 		
-		//order
-		fxml = order.element("fxml");
-		css = order.element("css");
-		ORDER_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		ORDER_CSS = market_root + css.attributeValue(CSS_PATH);
+		//member level
+		fxml = member_level.element("fxml");
+		css = member_level.element("css");
+		MEMBER_LEVEL_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		MEMBER_LEVEL_CSS = market_root + css.attributeValue(CSS_PATH);
 		
-		//promotion choose
-		fxml = promotion_choose.element("fxml");
-		css = promotion_choose.element("css");
-		PROMOTION_CHOOSE_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		PROMOTION_CHOOSE_CSS = market_root + css.attributeValue(CSS_PATH);
+		//promotion check
+		fxml = promotion_check.element("fxml");
+		css = promotion_check.element("css");
+		PROMOTION_CHECK_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		PROMOTION_CHECK_CSS = market_root + css.attributeValue(CSS_PATH);
+		
+		//time promotion
+		fxml = time_promotion.element("fxml");
+		css = time_promotion.element("css");
+		TIME_PROMOTION_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		TIME_PROMOTION_CSS = market_root + css.attributeValue(CSS_PATH);
 		
 		//not executed order
 		fxml = unexecuted_order.element("fxml");
@@ -185,23 +184,11 @@ public class MarketUIURLConfig {
 		UNUSUAL_ORDER_FXML = market_root + fxml.attributeValue(FXML_PATH);
 		UNUSUAL_ORDER_CSS = market_root + css.attributeValue(CSS_PATH);
 		
-		//web promotion create
-		fxml = web_promotion_create.element("fxml");
-		css = web_promotion_create.element("css");
-		WEB_PROMOTION_CREATE_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		WEB_PROMOTION_CREATE_CSS = market_root + css.attributeValue(CSS_PATH);
-		
-		//web promotion member discount
-		fxml = web_promotion_member_discount.element("fxml");
-		css = web_promotion_member_discount.element("css");
-		WEB_PROMOTION_MEMBER_DISCOUNT_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		WEB_PROMOTION_MEMBER_DISCOUNT_CSS = market_root + css.attributeValue(CSS_PATH);
-		
-		//web promotion update
-		fxml = web_promotion_update.element("fxml");
-		css = web_promotion_update.element("css");
-		WEB_PROMOTION_UPDATE_FXML = market_root + fxml.attributeValue(FXML_PATH);
-		WEB_PROMOTION_UPDATE_CSS = market_root + css.attributeValue(CSS_PATH);
+		//web promotion choose
+		fxml = web_promotion_choose.element("fxml");
+		css = web_promotion_choose.element("css");
+		WEB_PROMOTION_CHOOSE_FXML = market_root + fxml.attributeValue(FXML_PATH);
+		WEB_PROMOTION_CHOOSE_CSS = market_root + css.attributeValue(CSS_PATH);
 		
 		//web promotion
 		fxml = web_promotion.element("fxml");
@@ -211,18 +198,18 @@ public class MarketUIURLConfig {
 		
 	}
 	
-	public static URL market_confirm_fxml_url(){
+	public static URL market_appeal_credit_fxml_url(){
 		try {
-			return new URL(path_combine(CONFIRM_FXML));
+			return new URL(path_combine(APPEAL_CREDIT_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_confirm_css_url(){
+	public static URL market_appeal_credit_css_url(){
 		try {
-			return new URL(path_combine(CONFIRM_CSS));
+			return new URL(path_combine(APPEAL_CREDIT_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -247,18 +234,18 @@ public class MarketUIURLConfig {
 		return null;
 	}
 	
-	public static URL market_credit_fxml_url(){
+	public static URL market_field_promotion_fxml_url(){
 		try {
-			return new URL(path_combine(CREDIT_FXML));
+			return new URL(path_combine(FIELD_PROMOTION_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_credit_css_url(){
+	public static URL market_field_promotion_css_url(){
 		try {
-			return new URL(path_combine(CREDIT_CSS));
+			return new URL(path_combine(FIELD_PROMOTION_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -283,36 +270,54 @@ public class MarketUIURLConfig {
 		return null;
 	}
 	
-	public static URL market_order_fxml_url(){
+	public static URL market_member_level_fxml_url(){
 		try {
-			return new URL(path_combine(ORDER_FXML));
+			return new URL(path_combine(MEMBER_LEVEL_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_order_css_url(){
+	public static URL market_member_level_css_url(){
 		try {
-			return new URL(path_combine(ORDER_CSS));
+			return new URL(path_combine(MEMBER_LEVEL_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_promotion_choose_fxml_url(){
+	public static URL market_promotion_check_fxml_url(){
 		try {
-			return new URL(path_combine(PROMOTION_CHOOSE_FXML));
+			return new URL(path_combine(PROMOTION_CHECK_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_promotion_choose_css_url(){
+	public static URL market_promotion_check_css_url(){
 		try {
-			return new URL(path_combine(PROMOTION_CHOOSE_CSS));
+			return new URL(path_combine(PROMOTION_CHECK_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL market_time_promotion_fxml_url(){
+		try {
+			return new URL(path_combine(TIME_PROMOTION_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL market_time_promotion_css_url(){
+		try {
+			return new URL(path_combine(TIME_PROMOTION_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -355,54 +360,18 @@ public class MarketUIURLConfig {
 		return null;
 	}
 	
-	public static URL market_web_promotion_create_fxml_url(){
+	public static URL market_web_promotion_choose_fxml_url(){
 		try {
-			return new URL(path_combine(WEB_PROMOTION_CREATE_FXML));
+			return new URL(path_combine(WEB_PROMOTION_CHOOSE_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL market_web_promotion_create_css_url(){
+	public static URL market_web_promotion_choose_css_url(){
 		try {
-			return new URL(path_combine(WEB_PROMOTION_CREATE_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL market_web_promotion_member_discount_fxml_url(){
-		try {
-			return new URL(path_combine(WEB_PROMOTION_MEMBER_DISCOUNT_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL market_web_promotion_member_discount_css_url(){
-		try {
-			return new URL(path_combine(WEB_PROMOTION_MEMBER_DISCOUNT_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL market_web_promotion_update_fxml_url(){
-		try {
-			return new URL(path_combine(WEB_PROMOTION_UPDATE_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL market_web_promotion_update_css_url(){
-		try {
-			return new URL(path_combine(WEB_PROMOTION_UPDATE_CSS));
+			return new URL(path_combine(WEB_PROMOTION_CHOOSE_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

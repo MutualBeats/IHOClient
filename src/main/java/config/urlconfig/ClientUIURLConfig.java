@@ -69,17 +69,29 @@ public class ClientUIURLConfig {
 	
 	private static String EXECUTED_CHECK_CSS;
 	
-	//Client : history
+	//Client : hotel info
 	
-	private static String HISTORY_FXML;
+	private static String HOTEL_INFO_FXML;
 	
-	private static String HISTORY_CSS;
+	private static String HOTEL_INFO_CSS;
+	
+	//Client : hotel list
+	
+	private static String HOTEL_LIST_FXML;
+	
+	private static String HOTEL_LIST_CSS;
 	
 	//Client : maintain message
 	
 	private static String MAINTAIN_MESSAGE_FXML;
 	
 	private static String MAINTAIN_MESSAGE_CSS;
+	
+	//Client : make order
+	
+	private static String MAKE_ORDER_FXML;
+	
+	private static String MAKE_ORDER_CSS;
 	
 	//Client : member
 	
@@ -135,8 +147,10 @@ public class ClientUIURLConfig {
 		Element credit = client.element("credit");
 		Element evaluate_hotel = client.element("evaluate_hotel");
 		Element executed_check = client.element("executed_check");
-		Element history = client.element("history");
+		Element hotel_info = client.element("hotel_info");
+		Element hotel_list = client.element("hotel_list");
 		Element maintain_message = client.element("maintain_message");
+		Element make_order = client.element("make_order");
 		Element member = client.element("member");
 		Element revoke_order = client.element("revoke_order");
 		Element search_hotel = client.element("search_hotel");
@@ -192,17 +206,29 @@ public class ClientUIURLConfig {
 		EXECUTED_CHECK_FXML = client_root + fxml.attributeValue(FXML_PATH);
 		EXECUTED_CHECK_CSS = client_root + css.attributeValue(CSS_PATH);
 		
-		//history
-		fxml = history.element("fxml");
-		css = history.element("css");
-		HISTORY_FXML = client_root + fxml.attributeValue(FXML_PATH);
-		HISTORY_CSS = client_root + css.attributeValue(CSS_PATH);
+		//hotel info
+		fxml = hotel_info.element("fxml");
+		css = hotel_info.element("css");
+		HOTEL_INFO_FXML = client_root + fxml.attributeValue(FXML_PATH);
+		HOTEL_INFO_CSS = client_root + css.attributeValue(CSS_PATH);
+		
+		//hotel list
+		fxml = hotel_list.element("fxml");
+		css = hotel_list.element("css");
+		HOTEL_LIST_FXML = client_root + fxml.attributeValue(FXML_PATH);
+		HOTEL_LIST_CSS = client_root + css.attributeValue(CSS_PATH);
 		
 		//maintain message
 		fxml = maintain_message.element("fxml");
 		css = maintain_message.element("css");
 		MAINTAIN_MESSAGE_FXML = client_root + fxml.attributeValue(FXML_PATH);
 		MAINTAIN_MESSAGE_CSS = client_root + css.attributeValue(CSS_PATH);
+		
+		//make order
+		fxml = make_order.element("fxml");
+		css = make_order.element("css");
+		MAKE_ORDER_FXML = client_root + fxml.attributeValue(FXML_PATH);
+		MAKE_ORDER_CSS = client_root + css.attributeValue(CSS_PATH);
 		
 		//member
 		fxml = member.element("fxml");
@@ -368,18 +394,36 @@ public class ClientUIURLConfig {
 		return null;
 	}
 	
-	public static URL client_history_fxml_url(){
+	public static URL client_hotel_info_fxml_url(){
 		try {
-			return new URL(path_combine(HISTORY_FXML));
+			return new URL(path_combine(HOTEL_INFO_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public static URL client_history_css_url(){
+	public static URL client_hotel_info_css_url(){
 		try {
-			return new URL(path_combine(HISTORY_CSS));
+			return new URL(path_combine(HOTEL_INFO_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_hotel_list_fxml_url(){
+		try {
+			return new URL(path_combine(HOTEL_LIST_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_hotel_list_css_url(){
+		try {
+			return new URL(path_combine(HOTEL_LIST_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -398,6 +442,24 @@ public class ClientUIURLConfig {
 	public static URL client_maintain_message_css_url(){
 		try {
 			return new URL(path_combine(MAINTAIN_MESSAGE_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_make_order_fxml_url(){
+		try {
+			return new URL(path_combine(MAKE_ORDER_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_make_order_css_url(){
+		try {
+			return new URL(path_combine(MAKE_ORDER_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
