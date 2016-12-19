@@ -238,7 +238,6 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 	@Override
 	public void update(String promotionID) {
 		// 更新本地信息
-		
 		PromotionVO vo=null;
 		try {
 			vo = ControllerFactory.getPromotionBLServiceInstance().getPromotionById(promotionID);

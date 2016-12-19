@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogicservice.promotionblservice.PromotionBLService;
-import config.DiscountConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
@@ -37,8 +35,6 @@ public class TimeDiscountController implements Initializable {
 	@FXML
 	private Label discount_warning;
 
-	@FXML
-	private Label etime_warning;
 
 	@FXML
 	private TextField name;
@@ -58,12 +54,9 @@ public class TimeDiscountController implements Initializable {
     @FXML
     private TextField discount_lv1;
 
-
 	@FXML
 	private Label name_warning;
 
-	@FXML
-	private Label stime_warning;
 
 	private PromotionUpdate update;
 
@@ -135,27 +128,19 @@ public class TimeDiscountController implements Initializable {
 	}
 
 	@FXML
-	void nameModify(ActionEvent event) {
+	void nameModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(name_warning);
 	}
 
-	@FXML
-	void stimeModify(ActionEvent event) {
-		CheckUtil.checkWarningBefore(stime_warning);
-	}
 
 	@FXML
-	void etimeModify(ActionEvent event) {
-		CheckUtil.checkWarningBefore(etime_warning);
-	}
-
-	@FXML
-	void discountModify(ActionEvent event) {
+	void discountModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(discount_warning);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
 		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
 
 	}

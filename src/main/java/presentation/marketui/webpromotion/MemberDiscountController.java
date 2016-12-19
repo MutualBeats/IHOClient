@@ -14,7 +14,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
-import presentation.staffui.hotelpromotion.Update;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.CheckUtil;
@@ -52,14 +51,10 @@ public class MemberDiscountController extends LocationBoxController implements C
     @FXML
     private TextField promotionName;
 
-    @FXML
-    private Label startTime_warning;
 
     @FXML
     private DatePicker startTime;
 
-    @FXML
-    private Label finishTime_warning;
 
     @FXML
     private Label name_warning;
@@ -100,15 +95,6 @@ public class MemberDiscountController extends LocationBoxController implements C
 			check = false;
 		}
 		
-		if(finishTime.getValue()==null){
-			finishTime_warning.setText("请选择时间");
-			check = false;
-		}
-		
-		if(startTime.getValue()==null){
-			startTime_warning.setText("请选择时间");
-			check = false;
-		}
 		try {
 			if (Double.parseDouble(discount_lv0.getText()) <= 0 || Double.parseDouble(discount_lv0.getText()) > 10) {
 				discount_warning.setText("折扣数值错误");
