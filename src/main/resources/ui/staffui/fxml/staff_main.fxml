@@ -13,35 +13,37 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.mainstaff.MainStaffController">
    <children>
-      <Pane fx:id="pane" layoutX="260.0" layoutY="155.0" prefHeight="350.0" prefWidth="450.0" />
-      <Label layoutX="35.0" layoutY="160.0" text="Staff Name:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="35.0" layoutY="240.0" text="Staff ID:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="staffName" layoutX="35.0" layoutY="203.0" textFill="#18416e">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="staffID" layoutX="35.0" layoutY="284.0" textFill="#18416e">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="title" layoutX="350.0" layoutY="54.0" prefHeight="80.0" prefWidth="280.0">
+      <Pane fx:id="pane" layoutX="260.0" layoutY="155.0" prefHeight="350.0" prefWidth="450.0">
+         <children>
+            <Label layoutX="100.0" layoutY="30.0" text="姓名 :" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="115.0" text="用户名 :" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="staffName" layoutX="150.0" layoutY="65.0" prefHeight="40.0" prefWidth="200.0" textFill="#18416e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="staffID" layoutX="147.0" layoutY="145.0" prefHeight="40.0" prefWidth="200.0" textFill="#18416e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label fx:id="title" layoutX="35.0" layoutY="25.0" prefHeight="80.0" prefWidth="280.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="hotel_message" layoutX="400.0" layoutY="210.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="40.0" prefWidth="170.0" />
-      <Button fx:id="order" layoutX="400.0" layoutY="275.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="40.0" prefWidth="170.0" />
-      <Button fx:id="room" layoutX="400.0" layoutY="340.0" mnemonicParsing="false" onAction="#manageRoom" prefHeight="40.0" prefWidth="170.0" />
-      <Button fx:id="promotion" layoutX="362.0" layoutY="405.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="40.0" prefWidth="250.0" />
+      <Button fx:id="hotel_message" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="room" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#manageRoom" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="promotion" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>
