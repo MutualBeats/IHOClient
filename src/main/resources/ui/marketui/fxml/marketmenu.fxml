@@ -15,28 +15,37 @@
    <children>
       <Pane fx:id="pane" layoutX="260.0" layoutY="155.0" prefHeight="350.0" prefWidth="450.0">
          <children>
-            <Label layoutX="115.0" layoutY="19.0" text="Marketer Name:">
+            <Label layoutX="65.0" layoutY="20.0" text="Marketer Name:" underline="true">
                <font>
-                  <Font size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="115.0" layoutY="125.0" text="Marketer ID:">
+            <Label layoutX="65.0" layoutY="110.0" text="Marketer ID:" underline="true">
                <font>
-                  <Font size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="staffName" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="200.0">
+            <Label fx:id="marketerName" layoutX="115.0" layoutY="50.0" prefHeight="50.0" prefWidth="200.0">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="staffID" layoutX="115.0" layoutY="159.0" prefHeight="50.0" prefWidth="200.0">
+            <Label fx:id="marketerID" layoutX="115.0" layoutY="140.0" prefHeight="50.0" prefWidth="200.0">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Label layoutX="65.0" layoutY="200.0" text="Contact :" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="marketerContact" layoutX="115.0" layoutY="230.0" prefHeight="50.0" prefWidth="200.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children></Pane>
-      <Label fx:id="title" layoutX="350.0" layoutY="54.0" prefHeight="80.0" prefWidth="280.0">
+      <Label fx:id="title" layoutX="40.0" layoutY="20.0" prefHeight="80.0" prefWidth="280.0">
          <font>
             <Font size="25.0" />
          </font>

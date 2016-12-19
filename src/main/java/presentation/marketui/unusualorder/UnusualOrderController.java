@@ -63,6 +63,9 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 @FXML
 	 private Button credit;
 	 
+	 @FXML
+	 private Button peopleInfo;
+	 
 	 private ObservableList<OrderVO> unusual_orderlist;
 	 final ToggleGroup buttom_group = new ToggleGroup();
 	
@@ -74,7 +77,11 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	    
 	 private static URL WEB_PROMOTION_FXML;
 	 private static URL WEB_PROMOTION_CSS;
-	 
+
+	 private static URL MENU_FXML;
+	 private static URL MENU_CSS;
+	    
+	    
 	 static{
 		 try {
 			APPEAL_FXML=new URL("file: src/main/resources/ui/marketui/fxml/appeal_credit.fxml");
@@ -85,6 +92,9 @@ public class UnusualOrderController extends OrderListView implements Initializab
     		
     		UNEXCUTED_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unexecuted_order.fxml");
     		UNEXCUTED_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unexecuted_order.css");
+    		
+    		MENU_FXML=new URL("file:src/main/resources/ui/marketui/fxml/marketmenu.fxml");
+    		MENU_CSS=new URL("file:src/main/resources/ui/marketui/css/marketmenu.css");
     		
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -214,5 +224,10 @@ public class UnusualOrderController extends OrderListView implements Initializab
     void on_credit(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
     	WindowGrab.startIDInputWindow(window, new CreditIDInputHandle());
+    }
+
+    @FXML
+    void peopleInfo(ActionEvent event) {
+    	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
 }

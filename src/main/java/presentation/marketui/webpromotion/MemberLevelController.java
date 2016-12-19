@@ -1,11 +1,14 @@
 package presentation.marketui.webpromotion;
 
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,7 +20,7 @@ import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 
-public class MemberLevelController implements Confirm{
+public class MemberLevelController implements Confirm,Initializable{
 
     @FXML
     private Button confirm;
@@ -54,6 +57,9 @@ public class MemberLevelController implements Confirm{
     
     @FXML
     private Label credit_warning;
+    
+    ArrayList<Integer> credit_list;
+    ArrayList<Double> discount_list;
     
     @FXML
     void confirm(ActionEvent event) {
@@ -122,24 +128,47 @@ public class MemberLevelController implements Confirm{
 	public void confirm() {
 		//会员等级及对应折扣获取
 		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
-		ArrayList<Integer> credit=new ArrayList<>();
-		credit.add(Integer.valueOf(credit_lv0.getText()));
-		credit.add(Integer.valueOf(credit_lv1.getText()));
-		credit.add(Integer.valueOf(credit_lv2.getText()));
+		credit_list.set(0, Integer.valueOf(credit_lv0.getText()));
+		credit_list.set(1, Integer.valueOf(credit_lv1.getText()));
+		credit_list.set(2, Integer.valueOf(credit_lv1.getText()));
 		
-		ArrayList<Double> discount=new ArrayList<>();
-		discount.add(Double.parseDouble(discount_lv0.getText()));
-		discount.add(Double.parseDouble(discount_lv1.getText()));
-		discount.add(Double.parseDouble(discount_lv2.getText()));
-		discount.add(Double.parseDouble(discount_lv3.getText()));
+		discount_list.set(0, Double.valueOf(discount_lv0.getText()));
+		discount_list.set(1, Double.valueOf(discount_lv1.getText()));
+		discount_list.set(2, Double.valueOf(discount_lv2.getText()));
+		discount_list.set(3, Double.valueOf(discount_lv3.getText()));
+		
+		Window window=WindowGrab.getWindowByStage(0);
 		
 		try {
-			ResultMessage_Promotion levelInfo=ControllerFactory.getPromotionBLServiceInstance().makeLevel(credit, discount);
+			ResultMessage_Promotion levelInfo=ControllerFactory.getPromotionBLServiceInstance().makeLevel(credit_list, discount_list);
+			if(ResultMessage_Promotion.Level_Make_Successful==levelInfo){
+				WindowGrab.startNoticeWindow(window, "会员等级制定成功");
+			}
+			else {
+				WindowGrab.startErrorWindow(window, "会员等级制定失败");
+			}
 		} catch (NetException e) {
 			// TODO Auto-generated catch block
-			Window window=WindowGrab.getWindowByStage(0);
 			WindowGrab.startNetErrorWindow(window);;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// 初始化得到已有的等级和折扣信息
+		credit_list = (ArrayList<Integer>)resources.getObject("credit_list");
+		discount_list = (ArrayList<Double>)resources.getObject("discount_list");
+		
+		discount_lv0.setText(discount_list.get(0).toString());
+		discount_lv1.setText(discount_list.get(1).toString());
+		discount_lv2.setText(discount_list.get(2).toString());
+		discount_lv3.setText(discount_list.get(3).toString());
+		
+		credit_lv0.setText(credit_list.get(0).toString());
+		credit_lv1.setText(credit_list.get(1).toString());
+		credit_lv2.setText(credit_list.get(2).toString());
+		
 	}
 
 

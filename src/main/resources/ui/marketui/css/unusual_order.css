@@ -15,3 +15,52 @@ and open the template in the editor.
 #unusualorder_title{
   	-fx-background-image: url("file:src/main/resources/image/market/unusualorder_title.png");	
 }
+
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+
+#unexecuted_order{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order.png");
+}
+#unexecuted_order:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_hover.png");
+}
+
+#unusual_order{
+	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_hover.png");
+}
+
+#credit{
+	-fx-background-image:url("file:src/main/resources/image/market/credit.png");
+}
+#credit:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/credit_hover.png");
+}
+
+#web_promotion{
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion.png");
+}
+#web_promotion:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_hover.png");
+}
+#check{
+	-fx-background-image:url("file:src/main/resources/image/market/check.png");
+}
+#check:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/check_hover.png");
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/market/cancel.png");
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/cancel_hover.png");
+}
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo.png");	
+}
+#peopleInfo:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}

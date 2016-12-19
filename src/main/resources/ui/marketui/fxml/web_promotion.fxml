@@ -69,10 +69,11 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="level" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#member_level" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="unusual_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="web_promotion" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="credit" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="level" layoutX="35.0" layoutY="370.0" mnemonicParsing="false" onAction="#member_level" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unusual_order" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="web_promotion" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="credit" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="peopleInfo" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

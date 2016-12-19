@@ -46,7 +46,9 @@ public abstract class OrderListView implements Initializable {
 	@FXML
 	private TableColumn<OrderVO, String> hotelname;
 	
-	
+	private static URL MENU_FXML;
+	private static URL MENU_CSS;
+	   
 	private static URL ORDER_INFO_FXML;
     private static URL ORDER_INFO_CSS;
     
@@ -54,7 +56,11 @@ public abstract class OrderListView implements Initializable {
     	try {
 			ORDER_INFO_FXML= new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
 			ORDER_INFO_CSS=new URL("file:src/main/resources/ui/utilui/css/order_information.css");
-		} catch (MalformedURLException e) {
+		
+			MENU_FXML=new URL("file:src/main/resources/ui/marketui/fxml/marketmenu.fxml");
+    		MENU_CSS=new URL("file:src/main/resources/ui/marketui/css/marketmenu.css");
+    		
+    	} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -66,7 +72,7 @@ public abstract class OrderListView implements Initializable {
 	
 	@FXML
 	void cancel(ActionEvent event) {
-		WindowGrab.closeWindow(event);
+		WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
 	}
 
 	@FXML

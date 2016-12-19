@@ -145,6 +145,7 @@ public class MemberDiscountController extends LocationBoxController implements C
 		try {
 			String promotionID=ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(promotionVO);
 			promotionVO.promotionID=promotionID;
+			promotionVO.setPromotionIDProperty(promotionID);
 			update.update(promotionVO);
 			
 		} catch (NetException e) {

@@ -65,6 +65,11 @@ public class UnexcutedOrderController extends OrderListView{
     private static URL UNUSUAL_ORDER_FXML;
     private static URL UNUSUAL_ORDER_CSS;
     
+    
+    private static URL MENU_FXML;
+    private static URL MENU_CSS;
+    
+    
     static{
     	try {
     		WEB_PROMOTION_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion.fxml");
@@ -73,6 +78,8 @@ public class UnexcutedOrderController extends OrderListView{
     		UNUSUAL_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unusual_order.fxml");
     		UNUSUAL_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unusual_order.css");
     		
+    		MENU_FXML=new URL("file:src/main/resources/ui/marketui/fxml/marketmenu.fxml");
+    		MENU_CSS=new URL("file:src/main/resources/ui/marketui/css/marketmenu.css");
     		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -157,4 +164,8 @@ public class UnexcutedOrderController extends OrderListView{
     
     }
 
+    @FXML
+    void peopleInfo(ActionEvent event) {
+    	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
+    }
 }

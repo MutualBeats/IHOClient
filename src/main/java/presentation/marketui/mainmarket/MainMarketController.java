@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -17,11 +19,13 @@ import presentation.bundle.PromotionBundle;
 import presentation.bundle.SingleOrderListBundle;
 import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.utilui.WindowGrab;
+import util.UserCache;
 import util.exception.NetException;
 import vo.order.OrderVO;
 import vo.promotion.PromotionVO;
+import vo.user.MarketerVO;
 
-public class MainMarketController {
+public class MainMarketController implements Initializable{
 
     @FXML
     private Button web_promotion;
@@ -30,7 +34,7 @@ public class MainMarketController {
     private Button unexecuted_order;
 
     @FXML
-    private Label staffName;
+    private Label marketerName;
 
     @FXML
     private Button unusual_order;
@@ -45,8 +49,11 @@ public class MainMarketController {
     private Button credit;
 
     @FXML
-    private Label staffID;
+    private Label marketerID;
 
+    @FXML
+    private Label marketerContact;
+    
     @FXML
     private Button all;
     
@@ -77,17 +84,18 @@ public class MainMarketController {
     }
     @FXML
     void web_promotion(ActionEvent event) {
-    	Window window=WindowGrab.getWindow(event);
+    	Scene frame=WindowGrab.getScene(event);
     	ArrayList<PromotionVO> promotionList=null;
     	try {
 			promotionList=ControllerFactory.getPromotionBLServiceInstance().getWebPromotion();
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new PromotionBundle(promotionList);
-    	WindowGrab.startWindowWithBundle(window, "网站促销策略", WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, bundle);
-    	}
+    	WindowGrab.changeSceneWithBundle(WEB_PROMOTION_FXML, WEB_PROMOTION_CSS, frame, bundle);
+    	
+    }
 
     @FXML
     void credit(ActionEvent event) {
@@ -97,29 +105,45 @@ public class MainMarketController {
 
     @FXML
     void unexecuted_order(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
+    	Scene frame=WindowGrab.getScene(event);
     	ArrayList<OrderVO> order_info=null;
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryUnexecutedOrder(util.Time.getCurrentDate());
 		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
 			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
-    	WindowGrab.startWindowWithBundle(window, "查看未执行订单", UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, bundle);
+    	WindowGrab.changeSceneWithBundle(UNEXCUTED_ORDER_FXML, UNEXCUTED_ORDER_CSS, frame, bundle);
     }
 
     @FXML
     void unusual_order(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
+    	Scene frame=WindowGrab.getScene(event);
     	ArrayList<OrderVO> order_info=null;
 		try {
 			order_info = ControllerFactory.getOrderBLServiceInstance().queryAbnormalOrder();
 		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
 			WindowGrab.startNetErrorWindow(window);
 		}
     	ResourceBundle bundle=new SingleOrderListBundle(order_info);
-    	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, bundle);
+    	WindowGrab.changeSceneWithBundle(UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, frame, bundle);
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		try {
+			MarketerVO vo=ControllerFactory.getMarketerBLServiceInstance().showData(UserCache.getID());
+			marketerName.setText(vo.name);
+			marketerID.setText(vo.id);
+			marketerContact.setText(vo.contactWay);
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
     
 }

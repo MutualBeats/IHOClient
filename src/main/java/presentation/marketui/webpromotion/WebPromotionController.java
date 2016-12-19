@@ -24,6 +24,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
+import presentation.bundle.LevelBundle;
 import presentation.bundle.PromotionInfoBundle;
 import presentation.bundle.PromotionUpdateBundle;
 import presentation.bundle.SingleOrderListBundle;
@@ -89,8 +90,12 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     @FXML
     private Button level;
     
+    @FXML
+    private Button peopleInfo;
     
-    private ObservableList<PromotionVO> total;    
+    private ObservableList<PromotionVO> total;  
+    private ArrayList<Integer> credit_list;
+    private ArrayList<Double>	discount_list;
 
     private static URL WEB_PROMOTION_CHOOSE_CSS;
     private static URL WEB_PROMOTION_CHOOSE_FXML;
@@ -108,6 +113,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     
     private static URL UNEXCUTED_ORDER_FXML;
     private static URL UNEXCUTED_ORDER_CSS;
+    
+    private static URL MENU_FXML;
+    private static URL MENU_CSS;
     
     
     static{
@@ -128,6 +136,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     		UNEXCUTED_ORDER_FXML=new URL("file:src/main/resources/ui/marketui/fxml/unexecuted_order.fxml");
     		UNEXCUTED_ORDER_CSS=new URL("file:src/main/resources/ui/marketui/css/unexecuted_order.css");
     		
+    		MENU_FXML=new URL("file:src/main/resources/ui/marketui/fxml/marketmenu.fxml");
+    		MENU_CSS=new URL("file:src/main/resources/ui/marketui/css/marketmenu.css");
+    		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -139,9 +150,18 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		ArrayList<PromotionVO> total_promotion=(ArrayList<PromotionVO>)resources.getObject("total_promotion");
+		
 		total=FXCollections.observableArrayList();
 		total.addAll(total_promotion);
 		
+		try {
+			credit_list=ControllerFactory.getPromotionBLServiceInstance().getMemberLevel();
+			discount_list=ControllerFactory.getPromotionBLServiceInstance().getMemberDiscount();
+			
+		} catch (NetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		promotion_list.setItems(total);
 		
 		initColumn();
@@ -160,7 +180,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     
     @FXML
     void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
+    	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
 
     @FXML
@@ -232,8 +252,10 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 	@FXML
     void member_level(ActionEvent event) {
 		Window window=WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "制定会员等级折扣", MEMBER_LEVEL_FXML, MEMBER_LEVEL_CSS);
-    }
+		ResourceBundle bundle=new LevelBundle(credit_list, discount_list);
+		WindowGrab.startWindowWithBundle(window, "制定会员等级信息", MEMBER_LEVEL_FXML, MEMBER_LEVEL_CSS, bundle);
+	}
+		
 
 
 	@Override
@@ -277,5 +299,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     	WindowGrab.startIDInputWindow(window, new CreditIDInputHandle());
     }
 	
+    @FXML
+    void peopleInfo(ActionEvent event) {
+    	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
+    }
 }
 

@@ -80,6 +80,7 @@ public class TimeDiscountController implements Initializable {
 				//父窗口更新
 				String promotionID = ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(vo);
 				vo.promotionID=promotionID;
+				vo.setPromotionIDProperty(promotionID);
 				update.update(vo);
 				WindowGrab.startNoticeWindow(owner, "添加成功");
 				WindowGrab.closeWindow(owner);
