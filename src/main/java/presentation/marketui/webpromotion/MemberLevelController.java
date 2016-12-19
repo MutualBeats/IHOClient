@@ -127,15 +127,17 @@ public class MemberLevelController implements Confirm,Initializable{
 	@Override
 	public void confirm() {
 		//会员等级及对应折扣获取
-		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
-		credit_list.set(0, Integer.valueOf(credit_lv0.getText()));
-		credit_list.set(1, Integer.valueOf(credit_lv1.getText()));
-		credit_list.set(2, Integer.valueOf(credit_lv1.getText()));
+		WindowGrab.closeWindow(WindowGrab.getWindowByStage(1));
+		credit_list.clear();
+		credit_list.add(Integer.valueOf(credit_lv0.getText()));
+		credit_list.add(Integer.valueOf(credit_lv1.getText()));
+		credit_list.add(Integer.valueOf(credit_lv2.getText()));
 		
-		discount_list.set(0, Double.valueOf(discount_lv0.getText()));
-		discount_list.set(1, Double.valueOf(discount_lv1.getText()));
-		discount_list.set(2, Double.valueOf(discount_lv2.getText()));
-		discount_list.set(3, Double.valueOf(discount_lv3.getText()));
+		discount_list.clear();
+		discount_list.add(Double.valueOf(discount_lv0.getText()));
+		discount_list.add(Double.valueOf(discount_lv1.getText()));
+		discount_list.add(Double.valueOf(discount_lv2.getText()));
+		discount_list.add(Double.valueOf(discount_lv3.getText()));
 		
 		Window window=WindowGrab.getWindowByStage(0);
 		
