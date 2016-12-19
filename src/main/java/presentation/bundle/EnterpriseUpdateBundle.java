@@ -3,14 +3,14 @@ package presentation.bundle;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
-import presentation.staffui.hotelpromotion.Update;
+import presentation.staffui.hotelpromotion.UpdateEnterList;
 
 public class EnterpriseUpdateBundle extends ResourceBundle {
 	
-	private Update update;
+	private UpdateEnterList update;
 	private final static String BUNDLE = "update";
 	
-	public EnterpriseUpdateBundle(Update update) {
+	public EnterpriseUpdateBundle(UpdateEnterList update) {
 		this.update = update;
 	}
 	

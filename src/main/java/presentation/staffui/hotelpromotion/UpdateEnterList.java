@@ -1,6 +1,6 @@
 package presentation.staffui.hotelpromotion;
 
-public interface Update {
+public interface UpdateEnterList {
 
 	public void update(String enter_name);
 	

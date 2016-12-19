@@ -30,7 +30,7 @@ import util.promotion.PromotionType;
 import vo.promotion.EnterprisePromotionVO;
 import vo.promotion.PromotionVO;
 
-public class HotelPromotionCreateController implements Initializable, Confirm, Update {
+public class HotelPromotionCreateController implements Initializable, Confirm, UpdateEnterList {
 
 	@FXML
 	private Button cancel;
@@ -89,23 +89,24 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 	static {
 		try {
 			ENTERPRISE_INPUT_FXML = new URL("file:src/main/resources/ui/staffui/fxml/enterprise_input.fxml");
-			ENTERPRISE_INPUT_CSS = new URL("file:src/main/resources/ui/staffui/css/enterprise_input.fxml");
+			ENTERPRISE_INPUT_CSS = new URL("file:src/main/resources/ui/staffui/css/enterprise_input.css");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
-
-	@FXML
-	void cancel(ActionEvent event) {
-		WindowGrab.closeWindow(event);
-	}
-
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> promotionTypes = FXCollections.observableArrayList(PromotionType.Birthday.toString(),
 				PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
 		promotion_type.setItems(promotionTypes);
 		CheckUtil.init(start_date, finish_date, LocalDate.now(), LocalDate.now());
+	}
+
+	@FXML
+	void cancel(ActionEvent event) {
+		WindowGrab.closeWindow(event);
 	}
 
 	@FXML
@@ -117,11 +118,11 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 
 	private boolean checkInput() {
 		boolean check = true;
-		if (CheckUtil.checkText(promotion_name)) {
+		if (!CheckUtil.checkText(promotion_name)) {
 			name_warning.setText("请输入名称");
 			check = false;
 		}
-		if (CheckUtil.checkSelect(promotion_type)) {
+		if (!CheckUtil.checkSelect(promotion_type)) {
 			type_warning.setText("请选择类型");
 			check = false;
 		}
@@ -136,7 +137,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		} catch (NumberFormatException e) {
 			discount_warning.setText("折扣格式错误");
 		}
-		if (promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")
+		if (promotion_type.getSelectionModel().getSelectedIndex() == 3
 				&& enterprise_list.getItems().size() == 0) {
 			enterprise_warning.setText("未添加企业");
 			check = false;
@@ -146,7 +147,6 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 
 	@Override
 	public void confirm() {
-		// TODO 企业获取
 		String name = promotion_name.getText();
 		PromotionType type = PromotionType.valueOf(promotion_type.getSelectionModel().getSelectedItem());
 		String startDate = start_date.getEditor().getText();
@@ -200,12 +200,12 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		CheckUtil.checkWarningBefore(type_warning);
 		if (promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")) {
 			enterprise_label.setVisible(true);
-			enterprise_list.setVisible(true);
 			add_enterprise.setVisible(true);
+			enterprise_list.setVisible(true);
 		} else {
 			enterprise_label.setVisible(false);
-			enterprise_list.setVisible(false);
 			add_enterprise.setVisible(false);
+			enterprise_list.setVisible(false);
 		}
 	}
 

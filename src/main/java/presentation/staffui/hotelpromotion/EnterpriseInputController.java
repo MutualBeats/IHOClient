@@ -23,7 +23,7 @@ public class EnterpriseInputController implements Initializable{
     @FXML
     private TextField enterprise_input;
     
-    private Update update;
+    private UpdateEnterList update;
 
     @FXML
     void confirm(ActionEvent event) {
@@ -43,7 +43,7 @@ public class EnterpriseInputController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		update = (Update) resources.getObject("update");
+		update = (UpdateEnterList) resources.getObject("update");
 	}
     
 }
