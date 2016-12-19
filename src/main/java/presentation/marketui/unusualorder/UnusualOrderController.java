@@ -29,15 +29,18 @@ import util.exception.NetException;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 import vo.promotion.PromotionVO;
+import vo.user.ClientVO;
 
 public class UnusualOrderController extends OrderListView implements Initializable{
 
+	@FXML
+	private Button revoke;
 	 
 	 @FXML
-	 private TableColumn<OrderVO,String> user_name;
+	 private TableColumn<OrderVO, String> user_name;
 	 
 	 @FXML
-	 private TableColumn<OrderVO,String> contact;
+	 private TableColumn<OrderVO, String> contact;
 	
 	 @FXML
 	 private Button web_promotion;
@@ -49,7 +52,7 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 private Button unexecuted_order;
 	    
 	 @FXML
-	 private TableColumn<OrderVO,String> order_id;
+	 private TableColumn<OrderVO, String> order_id;
 	 
 	 @FXML
 	 private TableView<OrderVO> order_list;
@@ -58,7 +61,7 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 private Label unusualorder_title;
 
 	 @FXML
-	 private TableColumn<OrderVO,String> hotelname;
+	 private TableColumn<OrderVO, String> hotelname;
 	
 	 @FXML
 	 private Button credit;
@@ -107,7 +110,8 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
 		 // TODO Auto-generated method stub
-		ArrayList< OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("order_list");
+		ArrayList<OrderVO> unusual=(ArrayList<OrderVO>)resources.getObject("order_list");
+		
 		unusual_orderlist=FXCollections.observableArrayList();
 		unusual_orderlist.addAll(unusual);
 		order_list.setItems(unusual_orderlist);
@@ -117,32 +121,30 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	    
 	 private void initColumn(){
 		 order_id.setCellValueFactory(celldata->celldata.getValue().getId_property());
-//		 ControllerFactory.getClientBLServiceInstance().getClientInfo(clientID)
-		user_name.setCellValueFactory(celldata->{
+		 
+		 user_name.setCellValueFactory(cellData -> {
+				try {
+					return ControllerFactory.getClientBLServiceInstance()
+							.getClientInfo(cellData.getValue().clientID).getName_property();
+				} catch (NetException e) {
+					return new SimpleStringProperty("");
+				}
+			});
+		
+		contact.setCellValueFactory(celldata -> {
 			try {
-				return ControllerFactory.getClientBLServiceInstance().getClientInfo(celldata.getValue().clientID).getName_property();
-			} catch (NetException e1) {
-				// TODO Net Exception
+				return ControllerFactory.getClientBLServiceInstance()
+						.getClientInfo(celldata.getValue().clientID).getContact_property();
+			} catch (NetException e) {
 				return new SimpleStringProperty("");
 			}
 		});
 
-		contact.setCellValueFactory(celldata->{
-			try{
-				return ControllerFactory.getClientBLServiceInstance().getClientInfo(celldata.getValue().clientID).getContact_property();
-			}catch (NetException e) {
-				// TODO: Net Exception 
-				return new SimpleStringProperty("");
-			}
-		});
-		
-		hotelname.setCellValueFactory(celldata -> { 
-			try{
+		hotelname.setCellValueFactory(celldata -> {
+			try {
 				return new SimpleStringProperty(ControllerFactory.getHotelBLServiceInstance()
 						.showHotelInfo(celldata.getValue().getHotel_property().getValue()).hotelName);
-			}catch (NetException e) {
-				// TODO: handle exception
-				WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			} catch (NetException e) {
 				return new SimpleStringProperty("");
 			}
 		});
@@ -230,4 +232,10 @@ public class UnusualOrderController extends OrderListView implements Initializab
     void peopleInfo(ActionEvent event) {
     	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
+    
+    @FXML
+    void check(ActionEvent event) {
+    	
+    }
+    
 }

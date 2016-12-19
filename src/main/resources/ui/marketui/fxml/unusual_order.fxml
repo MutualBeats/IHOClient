@@ -52,7 +52,7 @@
       </Label>
       <TableView fx:id="order_list" layoutX="220.0" layoutY="200.0" prefHeight="270.0" prefWidth="500.0">
          <columns>
-            <TableColumn fx:id="id" prefWidth="127.0" text="订单ID" />
+            <TableColumn fx:id="order_id" prefWidth="127.0" text="订单ID" />
             <TableColumn fx:id="user_name" prefWidth="120.0" text="用户名称" />
             <TableColumn fx:id="contact" prefWidth="128.99041748046875" text="联系方式" />
             <TableColumn fx:id="hotelname" prefWidth="121.6959228515625" text="下单酒店" />

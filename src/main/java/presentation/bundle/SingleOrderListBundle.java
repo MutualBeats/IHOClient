@@ -5,25 +5,25 @@ import java.util.Enumeration;
 import java.util.ResourceBundle;
 import vo.order.OrderVO;
 
-public class SingleOrderListBundle extends ResourceBundle{
-	
+public class SingleOrderListBundle extends ResourceBundle {
+
 	private ArrayList<OrderVO> order_list;
-	private static final String orderList = "order_list";
-	
+	private static final String ORDER_LIST = "order_list";
+
 	public SingleOrderListBundle(ArrayList<OrderVO> order_list) {
 		super();
-		this.order_list=order_list;
+		this.order_list = order_list;
 	}
-	
+
 	@Override
 	protected Object handleGetObject(String key) {
-		// TODO Auto-generated method stub
-		return order_list;
+		if (ORDER_LIST.equals(key))
+			return order_list;
+		return null;
 	}
 
 	@Override
 	public Enumeration<String> getKeys() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
