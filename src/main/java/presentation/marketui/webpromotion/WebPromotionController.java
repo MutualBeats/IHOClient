@@ -29,6 +29,7 @@ import presentation.bundle.PromotionUpdateBundle;
 import presentation.bundle.SingleOrderListBundle;
 import presentation.marketui.credit.CreditIDInputHandle;
 import presentation.utilcontroller.Confirm;
+import presentation.utilcontroller.PromotionUpdate;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
@@ -236,17 +237,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 
 
 	@Override
-	public void update(String promotionID) {
-		// 更新本地信息
-		PromotionVO vo=null;
-		try {
-			vo = ControllerFactory.getPromotionBLServiceInstance().getPromotionById(promotionID);
-			total.add(vo);
-			promotion_list.setItems(total);
-		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void update(PromotionVO vo) {
+		total.add(vo);
+		promotion_list.setItems(total);
 		
 	}
 	

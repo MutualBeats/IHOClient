@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
+import presentation.utilcontroller.PromotionUpdate;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
@@ -77,10 +78,9 @@ public class TimeDiscountController implements Initializable {
 				 vo = new PromotionVO("", p_name, PromotionType.Holiday, dis_list, "", startDate, finishDate);
 					
 				//父窗口更新
-				String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(vo);
-				if (promotionID != null) {
-					update.update(promotionID);
-				}
+				String promotionID = ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(vo);
+				vo.promotionID=promotionID;
+				update.update(vo);
 				WindowGrab.startNoticeWindow(owner, "添加成功");
 				WindowGrab.closeWindow(owner);
 			} catch (NetException e) {

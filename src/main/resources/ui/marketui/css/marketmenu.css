@@ -17,34 +17,36 @@
 	-fx-background-image: url("file:src/main/resources/image/market/menutitle.png");	
 }
 #web_promotion{
-	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_menu.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion.png");	
 }
 
 #web_promotion:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_menu_hover.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_hover.png");	
 }
 
 #unusual_order{
-	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_menu.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/unusual_order.png");	
 }
 #unusual_order:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_menu_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_hover.png");
 }
 
 #unexecuted_order{
-	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_menu.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order.png");	
 }
 #unexecuted_order:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_menu_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_hover.png");
 }
 
 #credit{
-	-fx-background-image:url("file:src/main/resources/image/market/credit_menu.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/credit.png");	
 }
 #credit:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/credit_menu_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/market/credit_hover.png");
 }
-
+#all{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}
 
 #pane{
 	-fx-background-image:url("file:src/main/resources/image/market/transpent.png");

@@ -7,7 +7,7 @@ package presentation.bundle;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
-import presentation.marketui.webpromotion.PromotionUpdate;
+import presentation.utilcontroller.PromotionUpdate;
 
 public class PromotionUpdateBundle extends ResourceBundle{
 	private PromotionUpdate update;

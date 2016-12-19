@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
+import presentation.utilcontroller.PromotionUpdate;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
@@ -141,13 +142,14 @@ public class MemberDiscountController extends LocationBoxController implements C
 		districtList.add(group.getEditor().getText());
 		
 		DistrictPromotionVO promotionVO = new DistrictPromotionVO("", name, PromotionType.BusinessDistrict, discount , "", start, finish, districtList);
-
 		try {
-			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(promotionVO);
-			promotionVO.promotionID = promotionID;
-			update.update(promotionID);
+			String promotionID=ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(promotionVO);
+			promotionVO.promotionID=promotionID;
+			update.update(promotionVO);
+			
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

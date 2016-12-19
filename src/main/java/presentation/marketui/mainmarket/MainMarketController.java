@@ -47,6 +47,8 @@ public class MainMarketController {
     @FXML
     private Label staffID;
 
+    @FXML
+    private Button all;
     
     private static URL WEB_PROMOTION_FXML;
     private static URL WEB_PROMOTION_CSS;
@@ -119,5 +121,7 @@ public class MainMarketController {
     	WindowGrab.startWindowWithBundle(window, "撤销异常订单", UNUSUAL_ORDER_FXML, UNUSUAL_ORDER_CSS, bundle);
     }
 
+    
 }
+
 

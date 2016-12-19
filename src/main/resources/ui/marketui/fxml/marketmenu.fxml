@@ -15,35 +15,36 @@
    <children>
       <Pane fx:id="pane" layoutX="260.0" layoutY="155.0" prefHeight="350.0" prefWidth="450.0">
          <children>
-            <Button fx:id="credit" layoutX="105.0" layoutY="113.0" mnemonicParsing="false" onAction="#credit" prefHeight="40.0" prefWidth="250.0" />
-            <Button fx:id="web_promotion" layoutX="105.0" layoutY="40.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="40.0" prefWidth="250.0" />
-            <Button fx:id="unexecuted_order" layoutX="105.0" layoutY="188.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="40.0" prefWidth="250.0" />
-            <Button fx:id="unusual_order" layoutX="105.0" layoutY="260.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="40.0" prefWidth="250.0" />
+            <Label layoutX="115.0" layoutY="19.0" text="Marketer Name:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="115.0" layoutY="125.0" text="Marketer ID:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="staffName" layoutX="115.0" layoutY="60.0" prefHeight="50.0" prefWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="staffID" layoutX="115.0" layoutY="159.0" prefHeight="50.0" prefWidth="200.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children></Pane>
-      <Label layoutX="35.0" layoutY="160.0" text="Marketer Name:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="35.0" layoutY="240.0" text="Marketer ID:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="staffName" layoutX="35.0" layoutY="203.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="staffID" layoutX="35.0" layoutY="284.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
       <Label fx:id="title" layoutX="350.0" layoutY="54.0" prefHeight="80.0" prefWidth="280.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
+      <Button fx:id="credit" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#credit" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="web_promotion" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unusual_order" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="all" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>
