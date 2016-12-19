@@ -111,7 +111,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 			String out_time = es_in.getEditor().getText();
 
 			if (min_price <= max_price) {
-				SearchCondition condition = new SearchCondition(region, group_name, hotelName, star_le, scor, in_time,
+				SearchCondition condition = new SearchCondition(UserCache.getID(), region, group_name, hotelName, star_le, scor, in_time,
 						out_time, min_price, max_price, type, history.isSelected());
 				try {
 					ArrayList<HotelVO> hotelVOs = ControllerFactory.getHotelBLServiceInstance()
