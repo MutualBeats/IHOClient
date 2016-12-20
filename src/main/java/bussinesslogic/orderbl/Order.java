@@ -629,7 +629,7 @@ public class Order {
 		// 订单价格计算
 		double value = 0;
 		try {
-			int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate) + 1;
+			int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate);
 
 			checkRoom();
 			for (String roomNumber : vo.roomNumberList)

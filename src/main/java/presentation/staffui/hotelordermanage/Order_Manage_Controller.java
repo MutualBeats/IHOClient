@@ -155,38 +155,26 @@ public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
 	void execute_order(ActionEvent event) {
-//		hideRevoke();
-//		hideEvalutate();
 		order_list.setItems(execute_list);
 	}
 
 	@FXML
 	void finished_order(ActionEvent event) {
-//		hideRevoke();
-//		evaluate.setVisible(true);
-//		evaluate.setDisable(false);
 		order_list.setItems(finished_list);
 	}
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
-//		hideEvalutate();
-//		// Represent the button
-//		revoke.setVisible(true);
-//		revoke.setDisable(false);
 		order_list.setItems(unexecuted_list);
 	}
 
 	@FXML
 	void revoked_order(ActionEvent event) {
-//		hideRevoke();
-//		hideEvalutate();
 		order_list.setItems(revoked_list);
 	}
 
 	@FXML
 	void exception_order(ActionEvent event) {
-//		hideRevoke();
 		order_list.setItems(exception_list);
 	}
 
@@ -243,7 +231,7 @@ public class Order_Manage_Controller implements Initializable {
 			ResultMessage_Order result = orderBLService.executeOrder(info.orderID);
 			switch (result) {
 			case Execute_Successful:
-				unexecuted_list.remove(info);
+				unexecuted_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				execute_list.add(0, info);
 				order_list.setItems(execute_list);
@@ -281,7 +269,7 @@ public class Order_Manage_Controller implements Initializable {
 			return;
 		}
 		if(info.estimate_checkOutDate.compareTo(Time.getCurrentDate()) < 0) {
-			WindowGrab.startNoticeWindow(window, "已过预计离开日期，无法完成");
+			WindowGrab.startNoticeWindow(window, "已过预计离开日期，无法退房");
 			return;
 		}
 		try {
@@ -289,7 +277,7 @@ public class Order_Manage_Controller implements Initializable {
 			ResultMessage_Order result = orderBLService.finishOrder(info.orderID);
 			switch (result) {
 			case Finish_Successful:
-				execute_list.remove(info);
+				execute_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				finished_list.add(0, info);
 				order_list.setItems(finished_list);
@@ -332,7 +320,7 @@ public class Order_Manage_Controller implements Initializable {
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
 			switch (result) {
 			case Put_Up_Successful:
-				exception_list.remove(info);
+				exception_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				execute_list.add(0, info);
 				order_list.setItems(execute_list);
