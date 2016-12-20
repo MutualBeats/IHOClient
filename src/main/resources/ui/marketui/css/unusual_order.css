@@ -64,3 +64,9 @@ and open the template in the editor.
 #peopleInfo:hover{
 	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
 }
+#revoke{
+	-fx-background-image:url("file:src/main/resources/image/market/revoke.png");	
+}
+#revoke:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/revoke_hover.png");	
+}

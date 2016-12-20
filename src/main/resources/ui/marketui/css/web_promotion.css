@@ -12,14 +12,18 @@ and open the template in the editor.
     -fx-background-image: url("file:src/main/resources/image/market/menubackground.jpg");
         
 }
-#web_promotion_title{
-	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_title.png");
-}
 
 .button {
 	-fx-background-color:transparent;
 	-fx-background-radius: 3px; 
 }
+
+
+#web_promotion_title{
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_title.png");
+}
+
+
 #unexecuted_order{
 	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order.png");
 }

@@ -87,8 +87,8 @@ public class UnusualOrderController extends OrderListView implements Initializab
 	    
 	 static{
 		 try {
-			APPEAL_FXML=new URL("file: src/main/resources/ui/marketui/fxml/appeal_credit.fxml");
-			APPEAL_CSS=new URL("file: src/main/resources/ui/marketui/css/appeal_credit.css");
+			APPEAL_FXML=new URL("file:src/main/resources/ui/marketui/fxml/appeal_credit.fxml");
+			APPEAL_CSS=new URL("file:src/main/resources/ui/marketui/css/appeal_credit.css");
 			
 			WEB_PROMOTION_FXML=new URL("file:src/main/resources/ui/marketui/fxml/web_promotion.fxml");
     		WEB_PROMOTION_CSS=new URL("file:src/main/resources/ui/marketui/css/web_promotion.css");
