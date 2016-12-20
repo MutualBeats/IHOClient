@@ -160,8 +160,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 			discount_list=ControllerFactory.getPromotionBLServiceInstance().getMemberDiscount();
 			
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 		promotion_list.setItems(total);
 		
@@ -197,6 +196,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 
     @FXML
     void create(ActionEvent event) {
+    	//选择新建促销策略类型
      	Window window = WindowGrab.getWindow(event);
      	ResourceBundle bundle=new PromotionUpdateBundle(this);
      	WindowGrab.startWindowWithBundle(window, "选择新建促销策略类型", WEB_PROMOTION_CHOOSE_FXML,WEB_PROMOTION_CHOOSE_CSS, bundle);
@@ -207,6 +207,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 
 	@FXML
     void check(ActionEvent event) {
+		//查看促销策略详情
 		Window window =WindowGrab.getWindow(event);	
 		PromotionVO promotion=null;
 		promotion=promotion_list.getSelectionModel().getSelectedItem();
@@ -258,9 +259,10 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 	}
 		
 
-
+	
 	@Override
 	public void update(PromotionVO vo) {
+		//新建促销策略刷新
 //		total.clear();
 //		total_promotion.add(vo);
 //		total.addAll(total_promotion);
@@ -268,6 +270,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 		promotion_list.getItems().add(vo);
 	}
 	
+	
+	
+	//界面切换
 	@FXML
     void unexecuted_order(ActionEvent event) {
 		Scene frame=WindowGrab.getScene(event);

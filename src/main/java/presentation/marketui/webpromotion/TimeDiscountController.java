@@ -60,11 +60,12 @@ public class TimeDiscountController implements Initializable {
 
 
 	private PromotionUpdate update;
-
+	
 	@FXML
 	void confirm(ActionEvent event) {
 		if (checkInput()) {
 			Window owner = WindowGrab.getWindow(event);
+			WindowGrab.closeWindow(owner);
 			String p_name = name.getText();
 			String startDate = start_time.getEditor().getText();
 			String finishDate = end_time.getEditor().getText();
@@ -74,16 +75,18 @@ public class TimeDiscountController implements Initializable {
 			try {
 				// 初始化所有等级会员的折扣
 				ArrayList<Double> dis_list = new ArrayList<>();
+				dis_list.add(Double.valueOf(discount_lv0.getText()));
+				dis_list.add(Double.valueOf(discount_lv1.getText()));
+				dis_list.add(Double.valueOf(discount_lv2.getText()));
+				dis_list.add(Double.valueOf(discount_lv3.getText()));
 				
-				 vo = new PromotionVO("", p_name, PromotionType.Holiday, dis_list, "", startDate, finishDate);
+				vo = new PromotionVO("", p_name, PromotionType.Holiday, dis_list, "", startDate, finishDate);
 					
 				//父窗口更新
 				String promotionID = ControllerFactory.getPromotionBLServiceInstance().addWebPromotion(vo);
-				vo.promotionID=promotionID;
 				vo.setPromotionIDProperty(promotionID);
 				update.update(vo);
 				WindowGrab.startNoticeWindow(owner, "添加成功");
-				WindowGrab.closeWindow(owner);
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(owner);
 			}
@@ -127,5 +130,6 @@ public class TimeDiscountController implements Initializable {
 		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
 		update=(PromotionUpdate)resources.getObject("update");
 	}
-
+	
+	
 }
