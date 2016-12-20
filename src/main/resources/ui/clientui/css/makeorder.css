@@ -2,14 +2,3 @@
 	-fx-background-image: url("file:src/main/resources/image/client/background.png");
 }
 
-.button{
-	-fx-background-image: transparent;
-}
-
-#make{
-	-fx-background-image: url("file:src/main/resources/image/client/makeOrder.png");	
-}
-
-#make:hover{
-	-fx-background-image: url("file:src/main/resources/image/client/makeOrder_hover.png");	
-}

@@ -41,3 +41,11 @@ and open the template in the editor.
 #search:hover{
 	-fx-background-image:url("file:src/main/resources/image/client/search_pressed.png");
 }
+
+#make_order{
+	-fx-background-image: url("file:src/main/resources/image/client/makeOrder.png");	
+}
+
+#make_order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/makeOrder_hover.png");	
+}
