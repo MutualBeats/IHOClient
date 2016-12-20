@@ -62,17 +62,17 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="347.0" layoutY="167.0" mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0" text="未执行订单">
+      <Button fx:id="unexecuted_order" layoutX="222.0" layoutY="167.0" mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0" text="未执行订单">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="finished_order" layoutX="222.0" layoutY="167.0" mnemonicParsing="false" onAction="#finished_order" prefWidth="100.0" text="已完成订单">
+      <Button fx:id="finished_order" layoutX="347.0" layoutY="167.0" mnemonicParsing="false" onAction="#finished_order" prefWidth="100.0" text="已完成订单">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="all_order" layoutX="97.0" layoutY="167.0" mnemonicParsing="false" onAction="#all_order" prefWidth="100.0" text="所有订单">
+      <Button fx:id="execute_order" layoutX="97.0" layoutY="167.0" mnemonicParsing="false" onAction="#execute_order" prefWidth="100.0" text="执行中订单">
          <font>
             <Font size="15.0" />
          </font>

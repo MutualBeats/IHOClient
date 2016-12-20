@@ -58,7 +58,7 @@ public class Order_Manage_Controller implements Initializable {
 	private TableColumn<OrderVO, String> actual_check_out_date;
 	
 	@FXML
-	private Button all_order;
+	private Button execute_order;
 	
 	@FXML
 	private Button finished_order;
@@ -93,44 +93,47 @@ public class Order_Manage_Controller implements Initializable {
 		}
 	}
 	
-	private ObservableList<OrderVO> total_list;
-	private ObservableList<OrderVO> finished_list;
-	private ObservableList<OrderVO> unexecuted_list;
-	private ObservableList<OrderVO> revoked_list;
-	private ObservableList<OrderVO> exception_list;
+	private OrderBLService orderBLService;
+	
+	private ObservableList<OrderVO> finished_list = FXCollections.observableArrayList();
+	private ObservableList<OrderVO> unexecuted_list = FXCollections.observableArrayList();
+	private ObservableList<OrderVO> execute_list = FXCollections.observableArrayList();
+	private ObservableList<OrderVO> revoked_list = FXCollections.observableArrayList();
+	private ObservableList<OrderVO> exception_list = FXCollections.observableArrayList();
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ArrayList<OrderVO> total = (ArrayList<OrderVO>) resources.getObject("total");
-		ArrayList<OrderVO> finish = (ArrayList<OrderVO>) resources.getObject("finish");
-		ArrayList<OrderVO> unexecuted = (ArrayList<OrderVO>) resources.getObject("unexecute");
-		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
-		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
-		
-		total_list = FXCollections.observableArrayList();
-		finished_list = FXCollections.observableArrayList();
-		unexecuted_list = FXCollections.observableArrayList();
-		revoked_list = FXCollections.observableArrayList();
-		exception_list = FXCollections.observableArrayList();
-		
-		total_list.addAll(total);
-		finished_list.addAll(finish);
-		unexecuted_list.addAll(unexecuted);
-		revoked_list.addAll(revoked);
-		exception_list.addAll(exception);
+		try {
+			orderBLService = ControllerFactory.getOrderBLServiceInstance();
 
-		order_list.setItems(total_list);
+			String hotelID = UserCache.getHotelID();
+			ArrayList<OrderVO> finish = orderBLService.queryHotelOrder(hotelID, OrderState.Finished);
+			ArrayList<OrderVO> unexecuted = orderBLService.queryHotelOrder(hotelID, OrderState.Unexecuted);
+			ArrayList<OrderVO> execute = orderBLService.queryHotelOrder(hotelID, OrderState.Execute);
+			ArrayList<OrderVO> revoked = orderBLService.queryHotelOrder(hotelID, OrderState.Canceled);
+			ArrayList<OrderVO> exception = orderBLService.queryHotelOrder(hotelID, OrderState.Exception);
 
-		initColumn();
+			execute_list.addAll(execute);
+			finished_list.addAll(finish);
+			unexecuted_list.addAll(unexecuted);
+			revoked_list.addAll(revoked);
+			exception_list.addAll(exception);
+
+			order_list.setItems(execute_list);
+
+			initColumn();
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+		}
 	}
 	
 	private void initColumn() {
 		order_id.setCellValueFactory(cellData -> cellData.getValue().getId_property());
 		client_name.setCellValueFactory(cellData -> {
 			try {
-				return new SimpleStringProperty(ControllerFactory.getClientBLServiceInstance()
-						.getClientInfo(cellData.getValue().getClientProperty().getValue()).name);
+				return ControllerFactory.getClientBLServiceInstance()
+						.getClientInfo(cellData.getValue().clientID).getName_property();
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 				return new SimpleStringProperty("");
@@ -143,10 +146,10 @@ public class Order_Manage_Controller implements Initializable {
 	}
 	
 	@FXML
-	void all_order(ActionEvent event) {
+	void execute_order(ActionEvent event) {
 //		hideRevoke();
 //		hideEvalutate();
-		order_list.setItems(total_list);
+		order_list.setItems(execute_list);
 	}
 
 	@FXML
@@ -232,22 +235,22 @@ public class Order_Manage_Controller implements Initializable {
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
 			switch (result) {
 			case Execute_Successful:
-				// TODO 修改TableView中对应订单状态
 				unexecuted_list.remove(info);
 				info = orderBLService.queryOrderById(info.orderID);
-				
+				execute_list.add(0, info);
+				order_list.setItems(execute_list);
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Order_State_Error:
-				WindowGrab.startNoticeWindow(window, "非未执行订单，无法执行");
+				WindowGrab.startErrorWindow(window, "非未执行订单，无法执行");
 				break;
 			case Date_Error:
-				WindowGrab.startNoticeWindow(window, "未到预订入住日期，无法执行");
+				WindowGrab.startErrorWindow(window, "未到预订入住日期，无法执行");
 				break;
 			case Net_Error:
 				WindowGrab.startNetErrorWindow(window);
 			default:
-				WindowGrab.startNoticeWindow(window, "异常错误");
+				WindowGrab.startErrorWindow(window, "异常错误");
 				break;
 			}
 		} catch (NetException e) {
@@ -277,17 +280,20 @@ public class Order_Manage_Controller implements Initializable {
 			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
 			switch (result) {
-			case Execute_Successful:
-				// TODO 修改TableView中对应订单状态
+			case Finish_Successful:
+				execute_list.remove(info);
+				info = orderBLService.queryOrderById(info.orderID);
+				finished_list.add(0, info);
+				order_list.setItems(finished_list);
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Order_State_Error:
-				WindowGrab.startNoticeWindow(window, "非执行中订单，无法完成");
+				WindowGrab.startErrorWindow(window, "非执行中订单，无法完成");
 				break;
 			case Net_Error:
 				WindowGrab.startNetErrorWindow(window);
 			default:
-				WindowGrab.startNoticeWindow(window, "异常错误");
+				WindowGrab.startErrorWindow(window, "异常错误");
 				break;
 			}
 		} catch (NetException e) {
@@ -318,25 +324,25 @@ public class Order_Manage_Controller implements Initializable {
 			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
 			switch (result) {
 			case Put_Up_Successful:
-				// TODO 修改TableView中对应订单状态
 				exception_list.remove(info);
 				info = orderBLService.queryOrderById(info.orderID);
-				
+				execute_list.add(0, info);
+				order_list.setItems(execute_list);
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Room_Already_Ordered:
-				WindowGrab.startNoticeWindow(window, "房间已被预订，无法补录");
+				WindowGrab.startErrorWindow(window, "房间已被预订，无法补录");
 				break;
 			case Order_State_Error:
-				WindowGrab.startNoticeWindow(window, "非异常订单，无法补录");
+				WindowGrab.startErrorWindow(window, "非异常订单，无法补录");
 				break;
 			case Date_Error:
-				WindowGrab.startNoticeWindow(window, "超出时间无法补录");
+				WindowGrab.startErrorWindow(window, "超出时间无法补录");
 				break;
 			case Net_Error:
 				WindowGrab.startNetErrorWindow(window);
 			default:
-				WindowGrab.startNoticeWindow(window, "异常错误");
+				WindowGrab.startErrorWindow(window, "异常错误");
 				break;
 			}
 		} catch (NetException e) {

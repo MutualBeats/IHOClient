@@ -100,30 +100,17 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void manageOrder(ActionEvent event) {
-		Scene frame = WindowGrab.getScene(event);
-		Window window = WindowGrab.getWindowByScene(frame);
-		OrderBLService service = null;
-		try {
-			service = ControllerFactory.getOrderBLServiceInstance();
-		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(window);
-			return;
-		}
-
-		String hotelID = UserCache.getHotelID();
-		try {
-			ArrayList<OrderVO> total_list = service.queryHotelOrder(hotelID, OrderState.All);
-			ArrayList<OrderVO> finish_list = service.queryHotelOrder(hotelID, OrderState.Finished);
-			ArrayList<OrderVO> unexecute_list = service.queryHotelOrder(hotelID, OrderState.Unexecuted);
-			ArrayList<OrderVO> revoked_list = service.queryHotelOrder(hotelID, OrderState.Canceled);
-			ArrayList<OrderVO> exception_list = service.queryHotelOrder(hotelID, OrderState.Exception);
-		
-			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
+		Window owner = WindowGrab.getWindow(event);
+//			ArrayList<OrderVO> total_list = service.queryHotelOrder(hotelID, OrderState.All);
+//			ArrayList<OrderVO> finish_list = service.queryHotelOrder(hotelID, OrderState.Finished);
+//			ArrayList<OrderVO> unexecute_list = service.queryHotelOrder(hotelID, OrderState.Unexecuted);
+//			ArrayList<OrderVO> revoked_list = service.queryHotelOrder(hotelID, OrderState.Canceled);
+//			ArrayList<OrderVO> exception_list = service.queryHotelOrder(hotelID, OrderState.Exception);
+//		
+//			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
 //			WindowGrab.changeSceneWithBundle(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, frame, bundle);
-			WindowGrab.startWindowWithBundle(window, "酒店订单管理", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, bundle);
-		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(window);
-		}
+		WindowGrab.startWindow(owner, "酒店订单管理", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
+
     }
 
     @FXML
