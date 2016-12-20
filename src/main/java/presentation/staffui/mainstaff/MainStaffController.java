@@ -1,32 +1,32 @@
 package presentation.staffui.mainstaff;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogicservice.orderblservice.OrderBLService;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
-import presentation.bundle.OrderListBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
-import util.order.OrderState;
-import vo.order.OrderVO;
 import vo.user.StaffVO;
 
 public class MainStaffController implements Initializable{
 
     @FXML
     private Label staffName;
+    
+    @FXML
+    private Label staffID;
+    
+    @FXML
+    private Label contactWay;
 
     @FXML
     private Button hotel_message;
@@ -36,9 +36,6 @@ public class MainStaffController implements Initializable{
 
     @FXML
     private Label title;
-
-    @FXML
-    private Label staffID;
 
     @FXML
     private Button room;
@@ -87,6 +84,7 @@ public class MainStaffController implements Initializable{
 			UserCache.setHotelID(staff.hotelID);
 			staffID.setText(staff.id);
 			staffName.setText(staff.name);
+			contactWay.setText(staff.contactWay);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
@@ -101,14 +99,6 @@ public class MainStaffController implements Initializable{
     @FXML
     void manageOrder(ActionEvent event) {
 		Window owner = WindowGrab.getWindow(event);
-//			ArrayList<OrderVO> total_list = service.queryHotelOrder(hotelID, OrderState.All);
-//			ArrayList<OrderVO> finish_list = service.queryHotelOrder(hotelID, OrderState.Finished);
-//			ArrayList<OrderVO> unexecute_list = service.queryHotelOrder(hotelID, OrderState.Unexecuted);
-//			ArrayList<OrderVO> revoked_list = service.queryHotelOrder(hotelID, OrderState.Canceled);
-//			ArrayList<OrderVO> exception_list = service.queryHotelOrder(hotelID, OrderState.Exception);
-//		
-//			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list, exception_list); 
-//			WindowGrab.changeSceneWithBundle(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, frame, bundle);
 		WindowGrab.startWindow(owner, "酒店订单管理", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
 
     }

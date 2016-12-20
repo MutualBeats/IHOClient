@@ -7,12 +7,10 @@ import bussinesslogic.controllerfactory.ControllerFactory;
 import config.location.City;
 import config.location.Field;
 import config.location.Province;
-import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -54,12 +52,12 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	@FXML
 	private Label name_warning;
 
-	private static URL CONFIRM_FXML;
-	private static URL CONFIRM_CSS;
-	static {
-		CONFIRM_FXML = StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url();
-		CONFIRM_CSS = StaffUIURLConfig.staff_hotel_maintain_confirm_css_url();
-	}
+//	private static URL CONFIRM_FXML;
+//	private static URL CONFIRM_CSS;
+//	static {
+//		CONFIRM_FXML = StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url();
+//		CONFIRM_CSS = StaffUIURLConfig.staff_hotel_maintain_confirm_css_url();
+//	}
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -70,7 +68,6 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 			String[] region = info.region.split("\\s");
-			// TODO combobox初始化
 			for(Province e_p : province.getItems()) {
 				if(e_p.getProvinceName().equals(region[0])) {
 					province.getSelectionModel().select(e_p);
@@ -100,7 +97,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			
 			hotel_name.setText(info.hotelName);
 			star.getSelectionModel().select(info.starLevel - 1);
-			hotel_score.setText("" + info.score);
+			hotel_score.setText(String.format("%.2f", info.score));
 			
 			name_warning.setText("");
 			address_warning.setText("");

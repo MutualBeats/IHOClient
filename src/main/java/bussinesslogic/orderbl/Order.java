@@ -499,8 +499,6 @@ public class Order {
 		return orderVOList;
 	}
 	
-	private ArrayList<OrderVO> hotel_order_cache;
-
 	/**
 	 * 获得酒店订单列表
 	 * 
@@ -509,13 +507,11 @@ public class Order {
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderVO> queryHotelOrder(String hotelID, OrderState state) throws NetException {
-		if(hotel_order_cache == null)
-			hotel_order_cache = new ArrayList<OrderVO>();
-
+		ArrayList<OrderVO> hotelOrderList = new ArrayList<>();
 		try {
 			ArrayList<OrderPO> orderPOList = order_data_service.findHotelOrder(hotelID);
 			for (OrderPO orderPO : orderPOList) {
-				hotel_order_cache.add(new OrderVO(orderPO));
+				hotelOrderList.add(new OrderVO(orderPO));
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -523,9 +519,10 @@ public class Order {
 		}
 		
 		if(state == OrderState.All)
-			return hotel_order_cache;
+			return hotelOrderList;
+		
 		ArrayList<OrderVO> orderList = new ArrayList<>();
-		for (OrderVO orderVO : hotel_order_cache) {
+		for (OrderVO orderVO : hotelOrderList) {
 			if(orderVO.orderState == state)
 				orderList.add(orderVO);
 		}

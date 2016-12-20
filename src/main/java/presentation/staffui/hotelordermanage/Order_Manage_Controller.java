@@ -101,7 +101,6 @@ public class Order_Manage_Controller implements Initializable {
 	private ObservableList<OrderVO> revoked_list = FXCollections.observableArrayList();
 	private ObservableList<OrderVO> exception_list = FXCollections.observableArrayList();
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
