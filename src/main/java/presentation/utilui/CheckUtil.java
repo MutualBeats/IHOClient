@@ -69,7 +69,19 @@ public class CheckUtil {
 	public static boolean checkSelect(TableView<?> tableView) {
 		return tableView.getSelectionModel().getSelectedIndex() != -1;
 	}
-
+	
+	private static String get_two_bits(int value) {
+ 		if(value > 99) {
+ 			return "";
+ 		} else {
+ 			if((int)(value/10) == 0) {
+ 				return "0" + value;
+ 			} else {
+ 				return "" + value;
+ 			}
+ 		}
+	}
+	
 	public static void init(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s, LocalDate e) {
 		StringConverter<LocalDate> converter = new StringConverter<LocalDate>() {
 			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/mm/dd");
@@ -77,7 +89,7 @@ public class CheckUtil {
 			@Override
 			public String toString(LocalDate date) {
 				if (date != null) {
-					return date.getYear() + "/" + date.getMonthValue() + "/" + date.getDayOfMonth();
+					return date.getYear() + "/" + get_two_bits(date.getMonthValue()) + "/" + get_two_bits(date.getDayOfMonth());
 					// return date.toString();
 				} else {
 					return "";

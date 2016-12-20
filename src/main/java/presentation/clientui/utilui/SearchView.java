@@ -96,7 +96,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 			String field_name = field.getSelectionModel().getSelectedItem().getField_name();
 			String group_name = group.getSelectionModel().getSelectedItem();
 			String region = province_name + " " + city_name + " " + field_name;
-			String hotelName = CheckUtil.checkText(hotel_name) ? hotel_name.getText() : "";
+			String hotelName = CheckUtil.checkText(hotel_name) ? hotel_name.getText() : null;
 			int star_le = CheckUtil.checkSelect(star) ? star.getSelectionModel().getSelectedItem() : -1;
 			double scor = CheckUtil.checkScore(score.getText()) ? Double.parseDouble(score.getText()) : -1;
 			RoomType type = CheckUtil.checkSelect(room_type) ? room_type.getSelectionModel().getSelectedItem()
@@ -105,7 +105,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 			boolean min_p = CheckUtil.checkValue(low_price.getText());
 			boolean max_p = CheckUtil.checkValue(hi_price.getText());
 			int min_price = min_p ? Integer.parseInt(low_price.getText()) : -1;
-			int max_price = max_p ? Integer.parseInt(hi_price.getText()) : -1;
+			int max_price = max_p ? Integer.parseInt(hi_price.getText()) : Integer.MAX_VALUE;
 
 			String in_time = es_in.getEditor().getText();
 			String out_time = es_in.getEditor().getText();
