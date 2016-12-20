@@ -1,6 +1,5 @@
 package presentation.staffui.roommanage;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -42,17 +41,6 @@ public class RoomCreateController implements Initializable, Confirm {
     @FXML
     private Button confirm;
 
-    private static URL ROOM_CREATE_CONFIRM_FXML;
-    private static URL ROOM_CREATE_CONFIRM_CSS;
-    
-    static{
-    	try {
-    		ROOM_CREATE_CONFIRM_FXML = new URL("file:src/main/resources/ui/staffui/fxml/roomcreate_confirm.fxml");
-    		ROOM_CREATE_CONFIRM_CSS = new URL("file:src/main/resources/ui/staffui/css/roomcreate_confirm.css");
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    }
     
     private UpdateRoom update;
 
@@ -104,15 +92,18 @@ public class RoomCreateController implements Initializable, Confirm {
 		try {
 			ArrayList<String> failList = ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
 			if(failList.size() > 0)
-				// TODO 窗口
-				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "房间号已存在");
+				WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(2), "房间号已存在");
 			
+			// 成功提示 房间列表添加
+			WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
+			WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
+			
+			update.update(room);
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
 			return;
 		}
-		// TODO 成功提示 房间列表添加
-		update.update(room);
 	}
+	
 
 }

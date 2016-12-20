@@ -26,7 +26,7 @@
                </font>
             </Label>
             <Text layoutX="63.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间未来预订记录：" />
-            <TableView fx:id="room_record_list" layoutX="61.0" layoutY="170.0" prefHeight="234.0" prefWidth="354.0">
+            <TableView fx:id="room_record_list" layoutX="52.0" layoutY="170.0" prefHeight="234.0" prefWidth="354.0">
                <columns>
                   <TableColumn fx:id="order_id" prefWidth="156.0" text="订单号" />
                   <TableColumn fx:id="check_in_date" prefWidth="102.0" text="入住时间" />

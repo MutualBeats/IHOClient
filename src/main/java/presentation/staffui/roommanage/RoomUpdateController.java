@@ -1,6 +1,5 @@
 package presentation.staffui.roommanage;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -22,9 +21,7 @@ import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
 public class RoomUpdateController implements Initializable, Confirm {
-	
-	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
-	
+		
 	@FXML
 	private Label room_number;
 	
@@ -45,18 +42,6 @@ public class RoomUpdateController implements Initializable, Confirm {
 
     @FXML
     private Button confirm;
-
-    private static URL ROOM_UPDATE_CONFIRM_FXML;
-    private static URL ROOM_UPDATE_CONFIRM_CSS;
-    
-    static{
-    	try {
-    		ROOM_UPDATE_CONFIRM_FXML = new URL("file:src/main/resources/ui/staffui/fxml/roomupdate_confirm.fxml");
-    		ROOM_UPDATE_CONFIRM_CSS = new URL("file:src/main/resources/ui/staffui/css/roomupdate_confirm.css");
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-    }
     
     private RoomVO room;
     private UpdateRoomRecord updateRoomRecord;
@@ -65,7 +50,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 	public void initialize(URL location, ResourceBundle resources) {
 		room = (RoomVO)resources.getObject("room");
 		room_number.setText(room.roomNumber);
-		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
+		room_type.setText(room.type.toString());
 		room_price.setText("" + room.price);
 		CheckUtil.init(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
 		updateRoomRecord = (UpdateRoomRecord) resources.getObject("update");
@@ -96,15 +81,15 @@ public class RoomUpdateController implements Initializable, Confirm {
 			case Record_Add_Successful:
 				WindowGrab.closeWindow(window);
 				window = WindowGrab.getWindowByStage(2);
-				WindowGrab.startNoticeWindow(window, "添加成功");
 				// 房间记录列表添加
 				updateRoomRecord.update(roomRecord);
+				WindowGrab.startNoticeWindow(window, "添加成功");
 				break;
 			case Time_Conflict_Error:
-				WindowGrab.startNoticeWindow(window, "时间冲突，无法添加");
+				WindowGrab.startErrorWindow(window, "时间冲突，无法添加");
 				break;
 			default:
-				WindowGrab.startNoticeWindow(window, "异常错误");
+				WindowGrab.startErrorWindow(window, "异常错误");
 				break;
 			}
 		} catch (NetException e) {
