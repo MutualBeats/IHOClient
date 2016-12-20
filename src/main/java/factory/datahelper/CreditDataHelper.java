@@ -56,7 +56,7 @@ public class CreditDataHelper {
 	
 	private ResultMessage_Credit insert(CreditPO po) {
 		// Cache Update
-		credit_record_cache.add(po);
+		credit_record_cache.add(0, po);
 		// TODO : 留给结束模块、异常模块完成
 		ResultMessage_Credit insert_result = ResultMessage_Credit.Update_Successful;
 		try {

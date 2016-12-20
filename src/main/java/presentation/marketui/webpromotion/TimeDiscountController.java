@@ -141,7 +141,6 @@ public class TimeDiscountController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
 		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
 
 	}

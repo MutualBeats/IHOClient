@@ -35,12 +35,12 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="565.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" text="取消" textOverrun="CLIP">
+      <Button fx:id="cancel" layoutX="565.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#check" prefHeight="20.0" prefWidth="65.0" text="查看" textOverrun="CLIP">
+      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#check" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>
@@ -58,14 +58,15 @@
             <TableColumn fx:id="hotelname" prefWidth="121.6959228515625" text="下单酒店" />
          </columns>
       </TableView>
-      <Button fx:id="revoke" layoutX="306.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0" prefWidth="65.0" text="撤销">
+      <Button fx:id="revoke" layoutX="306.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0" prefWidth="65.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="unusual_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="web_promotion" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="credit" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unusual_order" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="web_promotion" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="credit" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="peopleInfo" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

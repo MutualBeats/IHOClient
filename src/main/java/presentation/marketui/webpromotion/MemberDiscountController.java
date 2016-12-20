@@ -167,12 +167,9 @@ public class MemberDiscountController extends LocationBoxController implements C
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 初始化商圈和时间
-		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
+		// 初始化商圈和Time
 		super.initialize(location, resources);
 		CheckUtil.init(startTime, finishTime, LocalDate.now(), LocalDate.now());
-		
-		
 	}
 	
 

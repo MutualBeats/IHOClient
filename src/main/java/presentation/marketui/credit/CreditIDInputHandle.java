@@ -36,10 +36,11 @@ public class CreditIDInputHandle implements ResultHandle {
 				info = ControllerFactory.getClientBLServiceInstance().getClientInfo(user_name);
 			} catch (Exception e) {
 				WindowGrab.startNetErrorWindow(window);
+				return;
 			}
 			if(info != null) {
 				WindowGrab.closeWindow(window);
-				WindowGrab.startWindowWithBundle(window, "信用充值", CREDIT_EXCUTE_FXML,CREDIT_EXCUTE_CSS, new InformationBundle(info));
+				WindowGrab.startWindowWithBundle(WindowGrab.getWindowByStage(0), "信用充值", CREDIT_EXCUTE_FXML,CREDIT_EXCUTE_CSS, new InformationBundle(info));
 			}
 		} else {
 			String error_message = "请输入正确的用户名";

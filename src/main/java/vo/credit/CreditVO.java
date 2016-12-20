@@ -12,7 +12,7 @@ import po.credit.CreditPO;
 import util.credit.CreditChangeAction;
 
 public class CreditVO {
-	private final static String[] resons = new String[]{"用户注册初始化", "订单执行","订单异常", "撤销订单", "延迟入住", "信用充值"};
+	private final static String[] resons = new String[]{"用户注册初始化", "订单执行","订单异常", "撤销订单", "延迟入住", "订单申诉", "信用充值"};
 	
 	private StringProperty time_property;
 	private StringProperty reson_property;

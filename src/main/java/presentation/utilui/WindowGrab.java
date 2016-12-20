@@ -177,7 +177,8 @@ public class WindowGrab {
 		stage.setTitle(title);
 		stage.centerOnScreen();
 		stage.sizeToScene();
-		stage.showAndWait();
+//		stage.showAndWait();
+		stage.show();
 	}
 
 	/**

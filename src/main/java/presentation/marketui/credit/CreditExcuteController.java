@@ -49,9 +49,15 @@ public class CreditExcuteController implements Initializable, Confirm {
 	@FXML
 	void confirm(ActionEvent event) {
 		if (checkCreditInput()) {
+
 			Window window = WindowGrab.getWindow(event);
 			WindowGrab.startConfirmWindow(window, this, "是否确认充值");
 		}
+	}
+
+	@FXML
+	public void onValueModify(MouseEvent mouseEvent) {
+		CheckUtil.checkWarningBefore(credit_warning);
 	}
 
 	private boolean checkCreditInput() {
@@ -61,14 +67,15 @@ public class CreditExcuteController implements Initializable, Confirm {
 			return false;
 		}
 		try {
-			int credit_add = Integer.parseInt(credit_to_add.getText());
-			if (100 * (credit_add / 100) == credit_add) {
-				credit_warning.setText("输入额度应为100的倍数");
-				return false;
-			} else if (credit_add <= 0) {
-				credit_warning.setText("请输入正整数");
-				return false;
-			}
+			// int credit_add =
+			Integer.parseInt(credit_to_add.getText());
+			// if (100 * (credit_add / 100) == credit_add) {
+			// credit_warning.setText("输入额度应为100的倍数");
+			// return false;
+			// } else if (credit_add <= 0) {
+			// credit_warning.setText("请输入正整数");
+			// return false;
+			// }
 		} catch (Exception e) {
 			credit_warning.setText("请输入整数额度");
 			return false;
@@ -102,9 +109,9 @@ public class CreditExcuteController implements Initializable, Confirm {
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
-		int credit_add = Integer.parseInt(credit_to_add.getText());
-		CreditVO updateVO = new CreditVO(info.id, Time.getCurrentTime(), credit_add, info.credit, CreditChangeAction.Deposit,
-				"");
+		int credit_add = Integer.parseInt(credit_to_add.getText()) * 100;
+		CreditVO updateVO = new CreditVO(info.id, Time.getCurrentTime(), credit_add, info.credit,
+				CreditChangeAction.Deposit, "");
 		ResultMessage_Credit result = ResultMessage_Credit.Update_Successful;
 		try {
 			result = ControllerFactory.getCreditBLServiceInstance().creditUpdate(updateVO);
@@ -114,9 +121,9 @@ public class CreditExcuteController implements Initializable, Confirm {
 		}
 		if (result == ResultMessage_Credit.Update_Successful) {
 			WindowGrab.startNoticeWindow(window, "信用充值成功");
-			//本地刷新一下记录
+			// 本地刷新一下记录
 			info.credit += credit_add;
-			creditnow.setText(info.credit+"");
+			creditnow.setText(info.credit + "");
 			credit_to_add.setText("");
 			credit_warning.setText("");
 		} else if (result == ResultMessage_Credit.Credit_Net_Error) {
