@@ -11,11 +11,14 @@ import bussinesslogic.controllerfactory.ControllerFactory;
 import dataservice.orderdataservice.OrderDataService;
 import factory.datahelper.DataHelperFactory;
 import po.order.OrderPO;
+import po.room.RoomRecordPO;
 import util.Time;
 import util.credit.CreditChangeAction;
 import util.exception.NetException;
+import util.exception.TimeConflictException;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
+import util.resultmessage.ResultMessage_Room;
 import util.user.MemberType;
 import vo.credit.CreditVO;
 import vo.order.OrderMakeVO;
@@ -194,7 +197,7 @@ public class Order {
 				room.onlineCheckOut(orderPO.getHotelID(), roomNumber);
 			}
 
-		} catch (RemoteException e) {
+		} catch (NetException | RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage_Order.Net_Error;
 		}
@@ -266,7 +269,7 @@ public class Order {
 	}
 
 	public ResultMessage_Order appealOrder(String orderID, boolean all) {
-		// TODO 申诉订单 未测试
+		// 申诉订单
 		try {
 			orderPO = order_data_service.findById(orderID);
 			if (orderPO == null)
@@ -598,13 +601,25 @@ public class Order {
 	 * @return OrderVO
 	 * @throws RemoteException
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException {
-		// 错误：客户信用值为负
+	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException {
 		checkClient();
 		ClientVO clientVO = client.getClientInfo(vo.clientID);
-		if (clientVO.credit < 0)
-			return null;
+//		if (clientVO.credit < 0)
+//			return null;
 
+		// 判断房间预订时间是否冲突
+		checkRoom();
+		for (String roomNumber : vo.roomNumberList) {
+			ArrayList<RoomRecordVO> recordList = room.getOrderRecord(vo.hotelID, roomNumber);
+			for (RoomRecordVO each : recordList) {
+				if(vo.estimateCheckOutDate.compareTo(each.checkInDate) < 0
+					|| vo.checkInDate.compareTo(each.estimateCheckOutDate) > 0)
+					continue;
+				// 时间重叠
+				throw new TimeConflictException();
+			}
+		}
+		
 		OrderVO orderVO = new OrderVO(vo);
 
 		// 可用促销策略获取
@@ -635,7 +650,6 @@ public class Order {
 			for (String roomNumber : vo.roomNumberList)
 				value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
 		} catch (ParseException e) {
-			e.printStackTrace();
 			return null;
 		}
 		// 促销策略折扣
@@ -659,11 +673,9 @@ public class Order {
 		orderVO.setIDProperty(orderID);
 		
 		// 添加房间记录
-		checkRoom();
 		for (String roomNumber : vo.roomNumberList) {
 			RoomRecordVO roomRecordVO = new RoomRecordVO(vo.checkInDate, vo.estimateCheckOutDate, orderID, vo.hotelID,
 					roomNumber);
-
 			room.addRecord(roomRecordVO);
 		}
 		
@@ -671,54 +683,29 @@ public class Order {
 		return orderVO;
 	}
 
-	private void checkClient() {
-		if (client == null) {
-			try {
-				client = ControllerFactory.getClientInfoInstance();
-			} catch (NetException e) {
-				e.printStackTrace();
-			}
-		}
+	private void checkClient() throws NetException {
+		if (client == null)
+			client = ControllerFactory.getClientInfoInstance();
 	}
 
-	private void checkCredit() {
-		if (credit == null) {
-			try {
-				credit = ControllerFactory.getCreditUpdateInstance();
-			} catch (NetException e) {
-				e.printStackTrace();
-			}
-		}
+	private void checkCredit() throws NetException {
+		if (credit == null)
+			credit = ControllerFactory.getCreditUpdateInstance();
 	}
 
-	private void checkPromotion() {
-		if (promotion == null) {
-			try {
-				promotion = ControllerFactory.getPromotionGetInstance();
-			} catch (NetException e) {
-				e.printStackTrace();
-			}
-		}
+	private void checkPromotion() throws NetException {
+		if (promotion == null) 
+			promotion = ControllerFactory.getPromotionGetInstance();
 	}
 
-	private void checkRoom() {
-		if (room == null) {
-			try {
-				room = ControllerFactory.getRoomUpdateInstance();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	private void checkRoom() throws NetException {
+		if (room == null)
+			room = ControllerFactory.getRoomUpdateInstance();
 	}
 
-	private void checkHotel() {
-		if (hotel == null) {
-			try {
-				hotel = ControllerFactory.getHotelInfoInstance();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	private void checkHotel() throws NetException {
+		if (hotel == null)
+			hotel = ControllerFactory.getHotelInfoInstance();
 	}
 
 }

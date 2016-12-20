@@ -3,6 +3,7 @@ package bussinesslogicservice.orderblservice;
 import java.util.ArrayList;
 
 import util.exception.NetException;
+import util.exception.TimeConflictException;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
@@ -16,7 +17,7 @@ public interface OrderBLService {
 	 * @param vo
 	 * @return OrderVO
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException;
+	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException;
 	/**
 	 * 撤销订单
 	 * 

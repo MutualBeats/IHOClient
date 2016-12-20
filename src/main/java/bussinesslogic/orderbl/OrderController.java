@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import bussinesslogic.hotelbl.OrderUpdate;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import util.exception.NetException;
+import util.exception.TimeConflictException;
 import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderMakeVO;
@@ -65,7 +66,7 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	}
 
 	@Override
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException {
+	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException {
 		return order.makeOrder(vo);
 	}
 
