@@ -7,3 +7,14 @@
 #order_manage_title{
 	 -fx-background-image: url("file:src/main/resources/image/staff/order_manage_title.png");
 }
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+
+#exception_order{
+	 -fx-background-image: url("file:src/main/resources/image/staff/exception_order.png");
+}
+#exception_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/exception_order_hover.png");
+}
