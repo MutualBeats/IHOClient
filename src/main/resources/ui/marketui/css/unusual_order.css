@@ -65,8 +65,8 @@ and open the template in the editor.
 	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
 }
 #revoke{
-	-fx-background-image:url("file:src/main/resources/image/market/revoke.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_revoke.png");	
 }
 #revoke:hover{
-	-fx-background-image:url("file:src/main/resources/image/market/revoke_hover.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_revoke_hover.png");	
 }

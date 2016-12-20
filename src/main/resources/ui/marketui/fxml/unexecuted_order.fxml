@@ -50,11 +50,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="order_list" layoutX="270.0" layoutY="211.0" prefHeight="260.0" prefWidth="440.0">
+      <TableView fx:id="order_list" layoutX="220.0" layoutY="200.0" prefHeight="280.0" prefWidth="500.0">
          <columns>
-            <TableColumn fx:id="id" prefWidth="110.0" text="订单ID" />
-            <TableColumn fx:id="user_name" prefWidth="110.0" text="用户名称" />
-            <TableColumn fx:id="contact" prefWidth="110.0" text="联系方式" />
+            <TableColumn fx:id="id" prefWidth="140.0" text="订单ID" />
+            <TableColumn fx:id="user_name" prefWidth="100.0" text="用户名称" />
+            <TableColumn fx:id="contact" prefWidth="150.0" text="联系方式" />
             <TableColumn fx:id="hotelname" prefWidth="110.0" text="下单酒店" />
          </columns>
       </TableView>

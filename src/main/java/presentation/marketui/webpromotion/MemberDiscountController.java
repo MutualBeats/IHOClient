@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
@@ -69,51 +70,34 @@ public class MemberDiscountController extends LocationBoxController implements C
     void confirm(ActionEvent event) {
     	Window window=WindowGrab.getWindow(event);
     	if(checkInput())
-    	WindowGrab.startConfirmWindow(window, this, "是否确认新建促销策略");
+    		WindowGrab.startConfirmWindow(window, this, "是否确认新建促销策略");
     }
     //检测输入
     private boolean checkInput() {
     	boolean check = true;
-		if (promotionName.getText() == "") {
+		if (!CheckUtil.checkText(promotionName)) {
 			name_warning.setText("请输入名称");
 			check = false;
 		}
-		if (province.getSelectionModel().getSelectedIndex() == -1) {
-			field_warning.setText("请选择商圈");
-			check = false;
-		}
-		if(city.getSelectionModel().getSelectedIndex()==-1){
-			field_warning.setText("请选择商圈");
-			check = false;
-		}
-		if(field.getSelectionModel().getSelectedIndex()==-1){
-			field_warning.setText("请选择商圈");
-			check = false;
-		}
-		
-		if(group.getSelectionModel().getSelectedIndex()==-1){
+		if (!(CheckUtil.checkSelect(city)&&CheckUtil.checkSelect(field)
+				&&CheckUtil.checkSelect(group)&&CheckUtil.checkSelect(province))) {
 			field_warning.setText("请选择商圈");
 			check = false;
 		}
 		
 		try {
-			if (Double.parseDouble(discount_lv0.getText()) <= 0 || Double.parseDouble(discount_lv0.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
+			if(!(CheckUtil.checkText(discount_lv0)&&CheckUtil.checkText(discount_lv1)
+					&&CheckUtil.checkText(discount_lv2)&&CheckUtil.checkText(discount_lv1))){
+				discount_warning.setText("请输入折扣信息");
 				check = false;
 			}
-			if (Double.parseDouble(discount_lv1.getText()) <= 0 || Double.parseDouble(discount_lv1.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
-				check = false;
-			}
-			if (Double.parseDouble(discount_lv2.getText()) <= 0 || Double.parseDouble(discount_lv2.getText()) > 10) {
-				discount_warning.setText("折扣数值错误");
-				check = false;
-			}
-			if (Double.parseDouble(discount_lv3.getText()) <= 0 || Double.parseDouble(discount_lv3.getText()) > 10) {
+			else if (!(CheckUtil.checkDiscount(discount_lv0.getText())&&CheckUtil.checkDiscount(discount_lv1.getText())
+					&&CheckUtil.checkDiscount(discount_lv2.getText())&&CheckUtil.checkDiscount(discount_lv3.getText()))) {
 				discount_warning.setText("折扣数值错误");
 				check = false;
 			}
     	} catch (NumberFormatException e) {
+			check = false;
     		discount_warning.setText("折扣格式错误");
 		}
     	
@@ -128,7 +112,8 @@ public class MemberDiscountController extends LocationBoxController implements C
 	@Override
 	public void confirm() {
 		// TODO Auto-generated method stub
-		WindowGrab.closeWindow(WindowGrab.getWindowByStage(3));
+		Window window=WindowGrab.getWindowByStage(1);
+		WindowGrab.closeWindow(window);
 		String name=promotionName.getText();
 		String start=startTime.getEditor().getText();
 		String finish=finishTime.getEditor().getText();
@@ -147,29 +132,31 @@ public class MemberDiscountController extends LocationBoxController implements C
 			promotionVO.promotionID=promotionID;
 			promotionVO.setPromotionIDProperty(promotionID);
 			update.update(promotionVO);
-			
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			WindowGrab.startNetErrorWindow(window);
 		}
 		
 	}
 	
 	@FXML
-    void nameModify(ActionEvent event) {
+    void nameModify(MouseEvent event) {
 		CheckUtil.checkWarningBefore(name_warning);
     }
 
 	@FXML
-    void discountModify(ActionEvent event) {
+    void discountModify(MouseEvent event) {
     	CheckUtil.checkWarningBefore(discount_warning);
     }
-	
+	@FXML
+    void  disModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(field_warning);
+    }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 初始化商圈和Time
 		super.initialize(location, resources);
 		CheckUtil.init(startTime, finishTime, LocalDate.now(), LocalDate.now());
+		update=(PromotionUpdate)resources.getObject("update");
 	}
 	
 

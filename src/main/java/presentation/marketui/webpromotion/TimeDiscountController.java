@@ -63,7 +63,7 @@ public class TimeDiscountController implements Initializable {
 
 	@FXML
 	void confirm(ActionEvent event) {
-		if (checkFormatter()) {
+		if (checkInput()) {
 			Window owner = WindowGrab.getWindow(event);
 			String p_name = name.getText();
 			String startDate = start_time.getEditor().getText();
@@ -95,38 +95,21 @@ public class TimeDiscountController implements Initializable {
 		WindowGrab.closeWindow(event);
 	}
 
-	private boolean checkFormatter() {
-		return checkName() && inputDiscount();
-	}
-
-	private boolean checkName() {
-		boolean check = CheckUtil.checkText(name);
-		if (!check) {
+	private boolean checkInput() {
+		boolean select=true;
+		if(!CheckUtil.checkText(name)){
 			name_warning.setText("请输入策略名称");
+			select=false;
 		}
-		return check;
-	}
-
-	private boolean inputDiscount() {
-		boolean select = true;
-		if (discount_lv0.getText().isEmpty()) {
+		if(!(CheckUtil.checkDiscount(discount_lv0.getText())&&CheckUtil.checkDiscount(discount_lv1.getText())
+				&&CheckUtil.checkDiscount(discount_lv2.getText())&&CheckUtil.checkDiscount(discount_lv3.getText()))){
 			discount_warning.setText("请输入折扣");
 			select=false;
 		}
-		if (discount_lv1.getText().isEmpty()) {
-			discount_warning.setText("请输入折扣");
-			select=false;
-		}
-		if (discount_lv2.getText().isEmpty()) {
-			discount_warning.setText("请输入折扣");
-			select=false;
-		}
-		if (discount_lv3.getText().isEmpty()) {
-			discount_warning.setText("请输入折扣");
-			select=false;
-		}
+		
 		return select;
 	}
+
 
 	@FXML
 	void nameModify(MouseEvent event) {
@@ -142,7 +125,7 @@ public class TimeDiscountController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
-
+		update=(PromotionUpdate)resources.getObject("update");
 	}
 
 }

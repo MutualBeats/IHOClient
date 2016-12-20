@@ -38,8 +38,9 @@ public class CheckUtil {
 	}
 
 	public static boolean checkDiscount(String discount) {
-		if(point_pattern.matcher(discount).matches()) {
-			if(Double.parseDouble(discount) > 10) {
+		if (point_pattern.matcher(discount).matches()) {
+			double dis = Double.parseDouble(discount);
+			if (dis > 10 || dis <= 0) {
 				return false;
 			}
 			return true;

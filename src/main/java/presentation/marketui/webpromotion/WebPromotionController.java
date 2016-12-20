@@ -96,7 +96,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     private ObservableList<PromotionVO> total;  
     private ArrayList<Integer> credit_list;
     private ArrayList<Double>	discount_list;
-
+    private ArrayList<PromotionVO> total_promotion;
     private static URL WEB_PROMOTION_CHOOSE_CSS;
     private static URL WEB_PROMOTION_CHOOSE_FXML;
     
@@ -116,6 +116,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     
     private static URL MENU_FXML;
     private static URL MENU_CSS;
+    
     
     
     static{
@@ -149,7 +150,7 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		ArrayList<PromotionVO> total_promotion=(ArrayList<PromotionVO>)resources.getObject("total_promotion");
+		total_promotion=(ArrayList<PromotionVO>)resources.getObject("total_promotion");
 		
 		total=FXCollections.observableArrayList();
 		total.addAll(total_promotion);
@@ -260,9 +261,11 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
 
 	@Override
 	public void update(PromotionVO vo) {
-		total.add(vo);
-		promotion_list.setItems(total);
-		
+//		total.clear();
+//		total_promotion.add(vo);
+//		total.addAll(total_promotion);
+//		promotion_list.setItems(total);
+		promotion_list.getItems().add(vo);
 	}
 	
 	@FXML

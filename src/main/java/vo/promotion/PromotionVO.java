@@ -17,6 +17,7 @@ public class PromotionVO {
 	private StringProperty finishDateProperty;
 	
 	public void setPromotionIDProperty(String promotionID) {
+		this.promotionID = promotionID;
 		promotionIDProperty.set(promotionID);
 	}
 	
