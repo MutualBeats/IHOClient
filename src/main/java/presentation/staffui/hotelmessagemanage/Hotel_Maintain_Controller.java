@@ -21,6 +21,7 @@ import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
+import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelVO;
 
 public class Hotel_Maintain_Controller extends LocationBoxController implements Confirm, Initializable {
@@ -51,18 +52,10 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 	@FXML
 	private Label name_warning;
-
-//	private static URL CONFIRM_FXML;
-//	private static URL CONFIRM_CSS;
-//	static {
-//		CONFIRM_FXML = StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url();
-//		CONFIRM_CSS = StaffUIURLConfig.staff_hotel_maintain_confirm_css_url();
-//	}
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
-		// TODO 测试用
 		try {
 			String hotelID = UserCache.getHotelID();
 			
@@ -137,6 +130,8 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 	@Override
 	public void confirm() {
+		Window window = WindowGrab.getWindowByStage(0);
+		
 		String newName = hotel_name.getText();
 		String newProvince = province.getSelectionModel().getSelectedItem().getProvinceName();
 		String newCity = city.getSelectionModel().getSelectedItem().getCity_name();
@@ -147,12 +142,15 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
 		try {
-			ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
+			ResultMessage_Hotel result = ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
+			if(result == ResultMessage_Hotel.Change_Successful)
+				WindowGrab.startNoticeWindow(window, "修改成功");
+			else 
+				WindowGrab.startNetErrorWindow(window);
 		} catch (NetException e) {
 			e.printStackTrace();
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(window);
 		}
-		WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "修改成功");
 	}
 
 }

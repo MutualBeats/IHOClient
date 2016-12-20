@@ -40,7 +40,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#check" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
+      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_check" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
          </font>

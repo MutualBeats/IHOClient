@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.bundle.OrderInfoBundle;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
 import vo.order.OrderVO;
 
 public abstract class OrderListView implements Initializable {
@@ -88,7 +90,14 @@ public abstract class OrderListView implements Initializable {
 			OrderVO info = model.getSelectedItem();
 			// TODO : the reach of hotel name is waiting to check.
 			String hotel_name = hotelname.getCellData(model.getSelectedIndex());
-			String promotion_name=user_name.getText();
+			String promotion_name="无";
+			if(info.promotionIDList.size() > 0) {
+				try {
+					promotion_name = ControllerFactory.getPromotionBLServiceInstance().getPromotionById(info.promotionIDList.get(0)).promotionName;
+				} catch (NetException e) {
+					WindowGrab.startNetErrorWindow(window);
+				}
+			}
 			OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name, promotion_name);
 			
 			WindowGrab.startWindowWithBundle(window, "订单详情", ORDER_INFO_FXML, ORDER_INFO_CSS, bundle);

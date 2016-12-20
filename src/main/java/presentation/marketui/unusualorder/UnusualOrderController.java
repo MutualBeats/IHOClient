@@ -233,9 +233,4 @@ public class UnusualOrderController extends OrderListView implements Initializab
     	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
     
-    @FXML
-    void check(ActionEvent event) {
-    	
-    }
-    
 }

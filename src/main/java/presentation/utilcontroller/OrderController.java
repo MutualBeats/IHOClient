@@ -105,7 +105,7 @@ public class OrderController implements Initializable {
 		ArrayList<String> rooms = info.roomNumberList;
 		String room = "";
 		for(String roomnumber : rooms) {
-			room = roomnumber + " " ;
+			room += roomnumber + "、 " ;
 		}
 		room_list.setText(room);
 		
