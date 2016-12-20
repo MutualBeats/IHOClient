@@ -39,6 +39,11 @@ public class OrderVO {
 		evaluation_state = new SimpleStringProperty(isEvaluate ? EVA_FINISH : EVA_UNFINISH);
 	}
 
+	public void setIDProperty(String orderID) {
+		this.orderID = orderID;
+		id_property = new SimpleStringProperty(orderID);
+	}
+	
 	public StringProperty getEvaluateState() {
 		return evaluation_state;
 	}

@@ -1,8 +1,12 @@
 package presentation.clientui.member;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -18,7 +22,7 @@ import util.resultmessage.ResultMessage_User;
 import util.user.MemberType;
 import vo.user.MemberVO;
 
-public class MemberController implements Confirm {
+public class MemberController implements Confirm, Initializable {
 
 	@FXML
 	private Button cancel;
@@ -99,5 +103,13 @@ public class MemberController implements Confirm {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		birth.setConverter(CheckUtil.getConverter());
 	}
 }

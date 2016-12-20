@@ -108,7 +108,9 @@ public abstract class InformationLookController implements Initializable, Confir
 	}
 
 	protected boolean checkformatter() {
-		return checkName() && checkPhone();
+		boolean c_n = checkName();
+		boolean c_p = checkPhone();
+		return c_n && c_p;
 	}
 
 	/**

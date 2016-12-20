@@ -47,17 +47,17 @@
             <ComboBox fx:id="field" layoutX="460.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
             <ComboBox fx:id="group" layoutX="90.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
             <Label layoutX="90.0" layoutY="126.0" text="预计入住时间 :" />
-            <DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
+            <DatePicker fx:id="es_in" editable="false" layoutX="200.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
             <Label layoutX="400.0" layoutY="126.0" text="预计离开时间 :" />
-            <DatePicker fx:id="es_leave" layoutX="510.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
+            <DatePicker fx:id="es_leave" editable="false" layoutX="510.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
             <Label layoutX="90.0" layoutY="157.0" text="酒店名称 :" />
             <TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0" prefWidth="100.0" />
             <Label layoutX="400.0" layoutY="157.0" text="评分 :" />
             <TextField fx:id="score" layoutX="510.0" layoutY="152.0" prefWidth="100.0" />
             <Label layoutX="90.0" layoutY="188.0" text="最低价格 :" />
-            <TextField fx:id="low_price" layoutX="200.0" layoutY="183.0" prefWidth="100.0" />
+            <TextField fx:id="low_price" layoutX="200.0" layoutY="183.0" prefWidth="100.0" promptText=" 最低价格" />
             <Label layoutX="400.0" layoutY="188.0" text="最高价格 :" />
-            <TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0" prefWidth="100.0" />
+            <TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0" prefWidth="100.0" promptText="最高价格" />
             <Button fx:id="search" layoutX="653.0" layoutY="182.0" mnemonicParsing="false" onAction="#on_search" prefHeight="30.0" prefWidth="60.0" />
             <ComboBox fx:id="star" layoutX="275.0" layoutY="81.0" prefWidth="120.0" promptText="星级" />
             <ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0" prefWidth="120.0" promptText="房间类型" />

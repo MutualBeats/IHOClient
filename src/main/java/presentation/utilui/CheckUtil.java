@@ -20,7 +20,7 @@ public class CheckUtil {
 
 	private final static Pattern pattern = Pattern.compile("[\\S]+");
 	private final static Pattern point_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
-	private final static Pattern value_pattern = Pattern.compile("^[1-9]\\d*$");
+	private final static Pattern value_pattern = Pattern.compile("^[0-9]\\d*$");
 
 	public static boolean checkWarningBefore(Label label) {
 		String warning = label.getText();
@@ -97,7 +97,7 @@ public class CheckUtil {
  		}
 	}
 	
-	public static void init(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s, LocalDate e) {
+	public static StringConverter<LocalDate> getConverter() {
 		StringConverter<LocalDate> converter = new StringConverter<LocalDate>() {
 			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/mm/dd");
 
@@ -120,8 +120,13 @@ public class CheckUtil {
 				}
 			}
 		};
-		checkInDatePicker.setConverter(converter);
-		checkOutDatePicker.setConverter(converter);
+		return converter;
+	}
+	
+	public static void init(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s, LocalDate e) {
+		
+		checkInDatePicker.setConverter(getConverter());
+		checkOutDatePicker.setConverter(getConverter());
 
 		checkInDatePicker.setValue(s);
 		checkOutDatePicker.setValue(checkInDatePicker.getValue().plusDays(1));

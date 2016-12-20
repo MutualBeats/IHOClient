@@ -73,8 +73,6 @@ public abstract class SearchView extends LocationBoxController implements Initia
 		room_type.getItems().add(RoomType.Double);
 		room_type.getItems().add(RoomType.Triple);
 		room_type.getItems().add(RoomType.Four);
-		low_price.setText("0");
-		hi_price.setText("0");
 		ToggleGroup toggle = new ToggleGroup();
 		all.setToggleGroup(toggle);
 		history.setToggleGroup(toggle);

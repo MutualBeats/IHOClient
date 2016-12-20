@@ -656,8 +656,8 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		orderVO.orderID = orderID;
-
+		orderVO.setIDProperty(orderID);
+		
 		// 添加房间记录
 		checkRoom();
 		for (String roomNumber : vo.roomNumberList) {
