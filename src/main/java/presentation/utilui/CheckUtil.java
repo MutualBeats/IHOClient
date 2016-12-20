@@ -77,8 +77,9 @@ public class CheckUtil {
 		ArrayList<Double> list = new ArrayList<>();
 		list.addAll(discount_list);
 		Collections.sort(list);
-		for(int i = 0; i < discount_list.size(); i ++ ) {
-			if(discount_list.get(i) != list.get(i)) {
+		int size = discount_list.size();
+		for(int i = 0; i < size; i ++ ) {
+			if(discount_list.get(i) != list.get(size - i - 1)) {
 				return false;
 			}
 		}
