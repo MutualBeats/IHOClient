@@ -39,13 +39,16 @@
 }
 
 #promotion{
-	-fx-background-image:url("file:src/main/resources/image/staff/promotion.png");	
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_promotion.png");	
 }
 #promotion:hover{
-	-fx-background-image:url("file:src/main/resources/image/staff/promotion_hover.png");
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_promotion_hover.png");
 }
 
 #pane{
 	-fx-background-image:url("file:src/main/resources/image/staff/transpent.png");
 }
 
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}
