@@ -205,7 +205,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 	@FXML
 	void typeModify(ActionEvent event) {
 		CheckUtil.checkWarningBefore(type_warning);
-		if (promotion_type.getSelectionModel().getSelectedItem().equals("Enterprise")) {
+		if (promotion_type.getSelectionModel().getSelectedItem().equals(PromotionType.Enterprise.toString())) {
 			enterprise_label.setVisible(true);
 			add_enterprise.setVisible(true);
 			enterprise_list.setVisible(true);

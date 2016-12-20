@@ -51,10 +51,10 @@
       <TableView fx:id="promotion_list" layoutX="150.0" layoutY="176.0" prefHeight="294.0" prefWidth="520.0">
          <columns>
             <TableColumn fx:id="promotion_id" editable="false" prefWidth="60.0" text="ID" />
-            <TableColumn fx:id="promotion_name" editable="false" prefWidth="109.0" sortable="false" text="名称" />
-            <TableColumn fx:id="promotion_type" editable="false" prefWidth="105.0" sortable="false" text="类型" />
-            <TableColumn fx:id="start_date" editable="false" prefWidth="122.0" sortable="false" text="开始时间" />
-            <TableColumn fx:id="finish_date" editable="false" prefWidth="123.0" sortable="false" text="结束时间" />
+            <TableColumn fx:id="promotion_name" editable="false" prefWidth="128.0" sortable="false" text="名称" />
+            <TableColumn fx:id="promotion_type" editable="false" prefWidth="114.0" sortable="false" text="类型" />
+            <TableColumn fx:id="start_date" editable="false" prefWidth="108.0" sortable="false" text="开始时间" />
+            <TableColumn fx:id="finish_date" editable="false" prefWidth="109.0" sortable="false" text="结束时间" />
          </columns>
       </TableView>
    </children>
