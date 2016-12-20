@@ -23,9 +23,7 @@ import util.room.RoomType;
 import vo.room.RoomVO;
 
 public class RoomCreateController implements Initializable, Confirm {
-	
-	private static final ObservableList<String> ROOM_TYPE = FXCollections.observableArrayList("单人间", "双人间", "三人间", "四人间");
-	
+		
 	@FXML
 	private ComboBox<String> room_type;
 	
@@ -46,7 +44,14 @@ public class RoomCreateController implements Initializable, Confirm {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		room_type.setItems(ROOM_TYPE);
+		// ComboBox初始化
+		ObservableList<String> roomType = FXCollections.observableArrayList();
+		for (RoomType type : RoomType.values()) {
+			if(type != RoomType.ALL)
+				roomType.add(type.toString());
+		}
+		room_type.setItems(roomType);
+		
 		update = (UpdateRoom) resources.getObject("update");
 	}
     
@@ -93,15 +98,14 @@ public class RoomCreateController implements Initializable, Confirm {
 			ArrayList<String> failList = ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
 			if(failList.size() > 0)
 				WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(2), "房间号已存在");
-			
-			// 成功提示 房间列表添加
-			WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
-			WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
-			
-			update.update(room);
+			else {
+				// 成功提示 房间列表添加
+				update.update(room);
+				WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
+				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
+			}
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
-			return;
 		}
 	}
 	
