@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
@@ -52,6 +53,9 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 	@FXML
 	private Label name_warning;
+	
+	@FXML
+	private Label region_warning;
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -103,14 +107,21 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	void update(ActionEvent event) {
 		boolean name_in = CheckUtil.checkText(hotel_name);
 		boolean adress_in = CheckUtil.checkText(hotel_address);
-		if (!name_in)
+		boolean region_in = CheckUtil.checkSelect(province) && CheckUtil.checkSelect(city) && CheckUtil.checkSelect(field) && CheckUtil.checkSelect(group);
+		if (!name_in) {
 			name_warning.setText("请输入酒店名称");
-		if (!adress_in)
-			address_warning.setText("请输入地址");
-		if(name_in && adress_in) {
-			Window window = WindowGrab.getWindow(event);
-			WindowGrab.startModifyConfirmWindow(window, this);
+			return;
 		}
+		if (!adress_in) {
+			address_warning.setText("请输入地址");
+			return;
+		}
+		if (!region_in) {
+			region_warning.setText("请选择完整地址商圈");
+			return;
+		}
+		Window window = WindowGrab.getWindow(event);
+		WindowGrab.startModifyConfirmWindow(window, this);
 	}
 
 	@FXML
@@ -126,6 +137,11 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	@FXML
 	public void hotelAdressModify() {
 		CheckUtil.checkWarningBefore(address_warning);
+	}
+	
+	@FXML
+	public void regionModify(MouseEvent event) {
+		CheckUtil.checkWarningBefore(region_warning);
 	}
 
 	@Override

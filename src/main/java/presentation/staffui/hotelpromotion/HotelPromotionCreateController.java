@@ -152,7 +152,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 	@Override
 	public void confirm() {
 		String name = promotion_name.getText();
-		PromotionType type = PromotionType.valueOf(promotion_type.getSelectionModel().getSelectedItem());
+		PromotionType type = PromotionType.values()[promotion_type.getSelectionModel().getSelectedIndex()];
 		String startDate = start_date.getEditor().getText();
 		String finishDate = finish_date.getEditor().getText();
 		ArrayList<Double> discount = new ArrayList<>();

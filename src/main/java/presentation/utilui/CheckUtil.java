@@ -2,6 +2,8 @@ package presentation.utilui;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.regex.Pattern;
 
 import javafx.scene.control.ComboBox;
@@ -69,6 +71,18 @@ public class CheckUtil {
 
 	public static boolean checkSelect(TableView<?> tableView) {
 		return tableView.getSelectionModel().getSelectedIndex() != -1;
+	}
+	
+	public static boolean checkDiscount(ArrayList<Double> discount_list) {
+		ArrayList<Double> list = new ArrayList<>();
+		list.addAll(discount_list);
+		Collections.sort(list);
+		for(int i = 0; i < discount_list.size(); i ++ ) {
+			if(discount_list.get(i) != list.get(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	private static String get_two_bits(int value) {
