@@ -25,10 +25,7 @@ import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 
 public class RoomCheckController implements Initializable, UpdateRoomRecord {
-	
-	private static final String[] ROOM_TYPE = {"单人间", "双人间", "三人间", "四人间"};
-//	private static final String[] ROOM_STATE = {"已预订", "未预订", "已入住"};
-	
+		
 	@FXML
 	private Label room_number;
 	
@@ -79,21 +76,28 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 //		room_record_list.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
 		room = (RoomVO)resources.getObject("room");
 		room_number.setText(room.roomNumber);
-		room_type.setText(ROOM_TYPE[room.type.ordinal()]);
+		room_type.setText(room.type.toString());
 		room_price.setText("" + room.price);
 		try {
-			// 未来房间记录获取
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
+		}
+		refresh();
+	}
+	
+	private void refresh() {
+		try {
+			// 未来房间记录获取
 			ArrayList<RoomRecordVO> roomRecordList = roomBLService.getOrderRecord(room.hotelID, room.roomNumber);
 			list.addAll(roomRecordList);
 			room_record_list.setItems(list);
 			initColumn();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
 		}
 	}
 	
@@ -116,7 +120,6 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_In_Successful:
-			// TODO TableView修改
 			WindowGrab.startNoticeWindow(window, "入住成功");
 			break;
 		case Room_State_Error:
@@ -143,7 +146,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_Out_Successful:
-			// TODO TableView修改
+			refresh();
 			WindowGrab.startNoticeWindow(window, "退房成功");
 			break;
 		case Room_State_Error:

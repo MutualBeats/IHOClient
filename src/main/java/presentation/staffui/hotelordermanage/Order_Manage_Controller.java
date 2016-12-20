@@ -231,14 +231,14 @@ public class Order_Manage_Controller implements Initializable {
 		}
 		try {
 			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
-			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
+			ResultMessage_Order result = orderBLService.executeOrder(info.orderID);
 			switch (result) {
 			case Execute_Successful:
 				unexecuted_list.remove(info);
 				info = orderBLService.queryOrderById(info.orderID);
 				execute_list.add(0, info);
 				order_list.setItems(execute_list);
-				WindowGrab.startNoticeWindow(window, "补录成功");
+				WindowGrab.startNoticeWindow(window, "订单执行成功");
 				break;
 			case Order_State_Error:
 				WindowGrab.startErrorWindow(window, "非未执行订单，无法执行");
@@ -263,12 +263,12 @@ public class Order_Manage_Controller implements Initializable {
 		Window window = WindowGrab.getWindow(event);
 		int select_index = model.getSelectedIndex();
 		if (select_index == -1) {
-			WindowGrab.startNoticeWindow(window, "请选择需要完成的订单");
+			WindowGrab.startNoticeWindow(window, "请选择需要退房的订单");
 			return;
 		}
 		OrderVO info = model.getSelectedItem();
 		if(info.orderState != OrderState.Execute) {
-			WindowGrab.startNoticeWindow(window, "非执行中订单，无法完成");
+			WindowGrab.startNoticeWindow(window, "非执行中订单，无法退房");
 			return;
 		}
 		if(info.estimate_checkOutDate.compareTo(Time.getCurrentDate()) < 0) {
@@ -277,17 +277,17 @@ public class Order_Manage_Controller implements Initializable {
 		}
 		try {
 			OrderBLService orderBLService = ControllerFactory.getOrderBLServiceInstance();
-			ResultMessage_Order result = orderBLService.putUpOrder(info.orderID);
+			ResultMessage_Order result = orderBLService.finishOrder(info.orderID);
 			switch (result) {
 			case Finish_Successful:
 				execute_list.remove(info);
 				info = orderBLService.queryOrderById(info.orderID);
 				finished_list.add(0, info);
 				order_list.setItems(finished_list);
-				WindowGrab.startNoticeWindow(window, "补录成功");
+				WindowGrab.startNoticeWindow(window, "退房成功");
 				break;
 			case Order_State_Error:
-				WindowGrab.startErrorWindow(window, "非执行中订单，无法完成");
+				WindowGrab.startErrorWindow(window, "非执行中订单，无法退房");
 				break;
 			case Net_Error:
 				WindowGrab.startNetErrorWindow(window);
@@ -314,7 +314,7 @@ public class Order_Manage_Controller implements Initializable {
 			WindowGrab.startNoticeWindow(window, "非异常订单，无法补录");
 			return;
 		}
-		if(info.estimate_checkOutDate.compareTo(util.Time.getCurrentDate()) < 0) {
+		if(info.estimate_checkOutDate.compareTo(Time.getCurrentDate()) < 0) {
 			WindowGrab.startNoticeWindow(window, "超出时间无法补录");
 			return;
 		}
