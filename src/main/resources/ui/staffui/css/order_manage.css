@@ -18,3 +18,79 @@
 #exception_order:hover{
 	 -fx-background-image: url("file:src/main/resources/image/staff/exception_order_hover.png");
 }
+
+
+
+#execute_order{
+	 -fx-background-image: url("file:src/main/resources/image/staff/execute_order.png");
+}
+#execute_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/execute_order_hover.png");
+}
+
+
+#unexecuted_order{
+	 -fx-background-image: url("file:src/main/resources/image/staff/unexecuted_order.png");
+}																	
+#unexecuted_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/unexecuted_order_hover.png");
+}
+
+#finished_order{
+	 -fx-background-image: url("file:src/main/resources/image/staff/finished_order.png");
+}
+#finished_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/finished_order_hover.png");
+}
+
+
+
+#revoked_order{
+	 -fx-background-image: url("file:src/main/resources/image/staff/revoked_order.png");
+}
+#revoked_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/revoked_order_hover.png");
+}
+
+
+#check{
+	 -fx-background-image: url("file:src/main/resources/image/staff/check.png");
+}
+#check:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/check_hover.png");
+}
+
+#cancel{
+	 -fx-background-image: url("file:src/main/resources/image/staff/cancel.png");
+}
+#cancel:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/cancel_hover.png");
+}
+
+
+#supply_button{
+	 -fx-background-image: url("file:src/main/resources/image/staff/supply_button.png");
+}
+#supply_button:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/supply_button_hover.png");
+}
+
+#execute_button{
+	 -fx-background-image: url("file:src/main/resources/image/staff/execute_button.png");
+}
+#execute_button:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/execute_button_hover.png");
+}
+
+#finish_button{
+	 -fx-background-image: url("file:src/main/resources/image/staff/finish_button.png");
+}
+#finish_button:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/finish_button_hover.png");
+}
+
+
+
+
+
+

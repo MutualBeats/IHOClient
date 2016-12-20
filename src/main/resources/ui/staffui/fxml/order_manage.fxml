@@ -28,11 +28,11 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="603.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消">
+      <Button fx:id="cancel" layoutX="603.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="check" layoutX="147.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="60.0" text="查看">
+      <Button fx:id="check" layoutX="147.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="25.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -46,43 +46,43 @@
             <TableColumn fx:id="actual_check_out_date" prefWidth="139.0" text="实际离开时间" />
          </columns>
       </TableView>
-      <Button layoutX="492.0" layoutY="500.0" mnemonicParsing="false" onAction="#supply" prefWidth="60.0" text="补录">
+      <Button fx:id="supply_button" layoutX="492.0" layoutY="500.0" mnemonicParsing="false" onAction="#supply" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <Line endX="600.0" layoutX="97.0" layoutY="212.0" />
-      <Button fx:id="exception_order" layoutX="597.0" layoutY="167.0" mnemonicParsing="false" onAction="#exception_order" prefWidth="100.0">
+      <Button fx:id="exception_order" layoutX="597.0" layoutY="180.0" mnemonicParsing="false" onAction="#exception_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="revoked_order" layoutX="472.0" layoutY="167.0" mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
+      <Button fx:id="revoked_order" layoutX="472.0" layoutY="180.0" mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="222.0" layoutY="167.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0">
+      <Button fx:id="unexecuted_order" layoutX="222.0" layoutY="180.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="finished_order" layoutX="347.0" layoutY="167.0" mnemonicParsing="false" onAction="#finished_order" prefHeight="30.0" prefWidth="100.0">
+      <Button fx:id="finished_order" layoutX="347.0" layoutY="180.0" mnemonicParsing="false" onAction="#finished_order" prefHeight="30.0" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="execute_order" layoutX="97.0" layoutY="167.0" mnemonicParsing="false" onAction="#execute_order" prefHeight="30.0" prefWidth="100.0">
+      <Button fx:id="execute_order" layoutX="97.0" layoutY="180.0" mnemonicParsing="false" onAction="#execute_order" prefHeight="30.0" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="262.0" layoutY="500.0" mnemonicParsing="false" onAction="#execute" prefWidth="60.0" text="执行">
+      <Button fx:id="execute_button" layoutX="262.0" layoutY="500.0" mnemonicParsing="false" onAction="#execute" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="380.0" layoutY="500.0" mnemonicParsing="false" onAction="#finish" prefWidth="60.0" text="完成">
+      <Button fx:id="finish_button" layoutX="380.0" layoutY="500.0" mnemonicParsing="false" onAction="#finish" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font>

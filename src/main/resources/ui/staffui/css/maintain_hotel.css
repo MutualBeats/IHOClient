@@ -2,6 +2,17 @@
 .root{
     -fx-background-image: url("file:src/main/resources/image/staff/background.jpg");
 }
+
+
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+
 #hotel_maintain_title{
 	 -fx-background-image: url("file:src/main/resources/image/staff/hotel_maintain_title.png");
 }
+
+
+
+#cancel{}

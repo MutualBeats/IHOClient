@@ -7,9 +7,14 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+      <Label fx:id="hotel_maintain_title" layoutX="35.0" layoutY="25.0" prefHeight="45.0" prefWidth="125.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="630.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -22,34 +27,29 @@
          </effect>
       </Rectangle>
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="update" layoutX="175.0" layoutY="435.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="60.0" text="修改" />
-      <Button fx:id="cancel" layoutX="385.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" text="取消" />
-      <Label fx:id="hotel_maintain_title" layoutX="35.0" layoutY="25.0" prefHeight="45.0" prefWidth="125.0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="61.0" layoutY="120.0" text="酒店名称:" />
-      <Label layoutX="61.0" layoutY="170.0" text="酒店所属省份:" />
-      <Label layoutX="61.0" layoutY="75.0" text="酒店ID:" />
-      <Label layoutX="327.0" layoutY="216.0" text="酒店所属商圈 :" />
-      <Label layoutX="61.0" layoutY="263.0" text="详细地址:" />
-      <Label layoutX="327.0" layoutY="75.0" text="酒店星级:" />
-      <Label layoutX="327.0" layoutY="120.0" text="酒店评分:" />
-      <TextField fx:id="hotel_id" disable="true" editable="false" layoutX="155.0" layoutY="70.0" prefWidth="150.0" />
-      <TextField fx:id="hotel_name" layoutX="155.0" layoutY="115.0" onMouseClicked="#hotelNameModify" prefWidth="150.0" />
-      <TextArea fx:id="hotel_address" layoutX="155.0" layoutY="264.0" onMouseClicked="#hotelAdressModify" prefHeight="151.0" prefWidth="416.0" />
-      <ComboBox fx:id="star" disable="true" editable="false" layoutX="421.0" layoutY="70.0" prefWidth="150.0" />
-      <TextField fx:id="hotel_score" disable="true" editable="false" layoutX="421.0" layoutY="115.0" prefWidth="150.0" />
-      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="486.0" layoutY="422.0" prefHeight="27.0" prefWidth="113.0" textFill="#e40c0c" />
-      <ComboBox fx:id="province" layoutX="155.0" layoutY="165.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="group" layoutX="421.0" layoutY="211.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <Label layoutX="327.0" layoutY="170.0" text="酒店所属市 :" />
-      <Label layoutX="61.0" layoutY="216.0" text="酒店所属县 :" />
-      <ComboBox fx:id="city" layoutX="421.0" layoutY="165.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="field" layoutX="155.0" layoutY="211.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="205.0" layoutY="142.0" prefHeight="27.0" prefWidth="125.0" textFill="#e40c0c" />
-      <Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="449.0" layoutY="237.0" prefHeight="27.0" prefWidth="150.0" textFill="#e40c0c" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="610.0" />
+      <Button fx:id="update" layoutX="380.0" layoutY="510.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="65.0" />
+      <Button fx:id="cancel" layoutX="560.0" layoutY="510.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" />
+      <Label layoutX="194.0" layoutY="195.0" text="酒店名称:" />
+      <Label layoutX="194.0" layoutY="245.0" text="酒店所属省份:" />
+      <Label layoutX="194.0" layoutY="150.0" text="酒店ID:" />
+      <Label layoutX="460.0" layoutY="291.0" text="酒店所属商圈 :" />
+      <Label layoutX="194.0" layoutY="338.0" text="详细地址:" />
+      <Label layoutX="460.0" layoutY="150.0" text="酒店星级:" />
+      <Label layoutX="460.0" layoutY="195.0" text="酒店评分:" />
+      <TextField fx:id="hotel_id" disable="true" editable="false" layoutX="288.0" layoutY="145.0" prefWidth="150.0" />
+      <TextField fx:id="hotel_name" layoutX="288.0" layoutY="190.0" onMouseClicked="#hotelNameModify" prefWidth="150.0" />
+      <TextArea fx:id="hotel_address" layoutX="288.0" layoutY="339.0" onMouseClicked="#hotelAdressModify" prefHeight="151.0" prefWidth="416.0" />
+      <ComboBox fx:id="star" disable="true" editable="false" layoutX="554.0" layoutY="145.0" prefWidth="150.0" />
+      <TextField fx:id="hotel_score" disable="true" editable="false" layoutX="554.0" layoutY="190.0" prefWidth="150.0" />
+      <ComboBox fx:id="province" layoutX="288.0" layoutY="240.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="group" layoutX="554.0" layoutY="286.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+      <Label layoutX="460.0" layoutY="245.0" text="酒店所属市 :" />
+      <Label layoutX="194.0" layoutY="291.0" text="酒店所属县 :" />
+      <ComboBox fx:id="city" layoutX="554.0" layoutY="240.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="field" layoutX="288.0" layoutY="286.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="346.0" prefHeight="100.0" prefWidth="70.0" textFill="#e40c0c" />
+      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="145.0" prefHeight="70.0" prefWidth="70.0" textFill="#e40c0c" />
+      <Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="240.0" prefHeight="100.0" prefWidth="70.0" textFill="#e40c0c" />
    </children>
 </AnchorPane>

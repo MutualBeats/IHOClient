@@ -58,6 +58,15 @@ public class Order_Manage_Controller implements Initializable {
 	private TableColumn<OrderVO, String> actual_check_out_date;
 	
 	@FXML
+    private Button execute_button;
+	
+	@FXML
+    private Button finish_button;
+	
+	@FXML
+    private Button supply_button;
+	
+	@FXML
 	private Button execute_order;
 	
 	@FXML
