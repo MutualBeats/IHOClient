@@ -133,6 +133,10 @@ public class SearchHotelController extends SearchView {
 			HotelVO hotel_info = hotel_list.getSelectionModel().getSelectedItem();
 			try {
 				ClientVO client_info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
+				if(client_info.credit < 0) {
+					WindowGrab.startNoticeWindow(window, "您的信用为负，不能下单，请到营业点充值");
+					return;
+				}
 				ArrayList<RoomVO> rooms = ControllerFactory.getRoomBLServiceInstance().getRoomList(hotel_info.hotelID);
 				OrderMakeBundle bundle = new OrderMakeBundle(client_info, hotel_info, rooms);
 				WindowGrab.startWindowWithBundle(window, "生成订单", MAKEORDER_FXML, MAKEORDER_CSS, bundle);
