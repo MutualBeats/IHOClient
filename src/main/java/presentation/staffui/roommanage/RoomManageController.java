@@ -162,11 +162,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
 		room_state.setCellValueFactory(cellData -> cellData.getValue().getRoomStateProperty());
 	}
 
-    @FXML
-    void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
-    }
-
+    
     @FXML
     void check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);

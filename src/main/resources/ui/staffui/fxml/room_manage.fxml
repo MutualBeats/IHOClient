@@ -28,7 +28,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="600.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0">
+      <Button fx:id="cancel" layoutX="600.0" layoutY="500.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>

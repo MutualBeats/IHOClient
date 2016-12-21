@@ -28,12 +28,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="managerName" layoutX="35.0" layoutY="203.0">
+      <Label fx:id="managerName" layoutX="35.0" layoutY="203.0" prefHeight="40.0" prefWidth="200.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="manageID" layoutX="35.0" layoutY="284.0">
+      <Label fx:id="manageID" layoutX="35.0" layoutY="284.0" prefHeight="40.0" prefWidth="200.0">
          <font>
             <Font size="20.0" />
          </font>
