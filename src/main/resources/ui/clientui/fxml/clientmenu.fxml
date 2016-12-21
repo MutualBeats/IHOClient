@@ -7,30 +7,54 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.mainclient.MainClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.mainclient.MainClientController">
 	<children>
-		<Label fx:id="title" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="200.0" />
-		<Button fx:id="logout" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="35.0" />
-		<Label fx:id="user_name" layoutX="640.0" layoutY="20.0" prefHeight="26.0" prefWidth="35.0" />
-		<Button fx:id="first" layoutX="101.0" layoutY="72.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" />
-		<Button fx:id="browse_order" layoutX="281.0" layoutY="72.0" mnemonicParsing="false" onAction="#browse_order" prefHeight="26.0" prefWidth="100.0" />
-		<Button fx:id="member" layoutX="381.0" layoutY="72.0" mnemonicParsing="false" onAction="#member" prefHeight="26.0" prefWidth="100.0" />
-		<Button fx:id="maintain_message" layoutX="181.0" layoutY="72.0" mnemonicParsing="false" onAction="#maintain_message" prefHeight="26.0" prefWidth="100.0" />
-		<Button fx:id="history_hotel" layoutX="481.0" layoutY="72.0" mnemonicParsing="false" onAction="#history" prefHeight="26.0" prefWidth="100.0" />
-		<Pane layoutX="20.0" layoutY="330.0" prefHeight="260.0" prefWidth="760.0">
+		<Label fx:id="title" layoutX="10.0" layoutY="10.0" prefHeight="50.0"
+			prefWidth="200.0" />
+		<Button fx:id="logout" layoutX="700.0" layoutY="20.0"
+			mnemonicParsing="false" onAction="#logout" prefHeight="26.0"
+			prefWidth="35.0" />
+		<Label fx:id="user_name" layoutX="640.0" layoutY="20.0"
+			prefHeight="26.0" prefWidth="35.0" />
+		<Button fx:id="first" layoutX="101.0" layoutY="72.0"
+			mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" />
+		<Button fx:id="browse_order" layoutX="281.0" layoutY="72.0"
+			mnemonicParsing="false" onAction="#browse_order" prefHeight="26.0"
+			prefWidth="100.0" />
+		<Button fx:id="member" layoutX="381.0" layoutY="72.0"
+			mnemonicParsing="false" onAction="#member" prefHeight="26.0"
+			prefWidth="100.0" />
+		<Button fx:id="maintain_message" layoutX="181.0" layoutY="72.0"
+			mnemonicParsing="false" onAction="#maintain_message" prefHeight="26.0"
+			prefWidth="100.0" />
+		<Button fx:id="history_hotel" layoutX="481.0" layoutY="72.0"
+			mnemonicParsing="false" onAction="#history" prefHeight="26.0"
+			prefWidth="100.0" />
+		<Pane layoutX="20.0" layoutY="330.0" prefHeight="260.0"
+			prefWidth="760.0">
 			<children>
 				<Label layoutX="30.0" text="热门酒店">
 					<font>
 						<Font size="15.0" />
 					</font>
 				</Label>
-				<Button fx:id="hotel_one" layoutX="30.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_two" layoutX="130.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_three" layoutX="230.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_four" layoutX="330.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_five" layoutX="430.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_six" layoutX="530.0" layoutY="20.0" pickOnBounds="false" prefHeight="230.0" prefWidth="100.0" />
-				<Button fx:id="hotel_seven" layoutX="630.0" layoutY="20.0" onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_one" layoutX="30.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_two" layoutX="130.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_three" layoutX="230.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_four" layoutX="330.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_five" layoutX="430.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_six" layoutX="530.0" layoutY="20.0"
+					pickOnBounds="false" prefHeight="230.0" prefWidth="100.0" />
+				<Button fx:id="hotel_seven" layoutX="630.0" layoutY="20.0"
+					onAction="#lookHotHotel" prefHeight="230.0" prefWidth="100.0" />
 			</children>
 		</Pane>
 		<Line endX="490.0" layoutX="101.0" layoutY="97.0" />
@@ -42,27 +66,43 @@
 						<Font size="15.0" />
 					</font>
 				</Label>
-				<ComboBox fx:id="province" layoutX="90.0" layoutY="31.0" prefWidth="120.0" promptText="省" />
-				<ComboBox fx:id="city" layoutX="274.0" layoutY="31.0" prefWidth="120.0" promptText="市" />
-				<ComboBox fx:id="field" layoutX="460.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
-				<ComboBox fx:id="group" layoutX="90.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
+				<ComboBox fx:id="province" layoutX="90.0" layoutY="31.0"
+					prefWidth="120.0" promptText="省" />
+				<ComboBox fx:id="city" layoutX="274.0" layoutY="31.0"
+					prefWidth="120.0" promptText="市" />
+				<ComboBox fx:id="field" layoutX="460.0" layoutY="31.0"
+					prefWidth="120.0" promptText="县" />
+				<ComboBox fx:id="group" layoutX="90.0" layoutY="81.0"
+					prefWidth="120.0" promptText="商圈" />
 				<Label layoutX="90.0" layoutY="126.0" text="预计入住时间 :" />
-				<DatePicker fx:id="es_in" editable="false" layoutX="200.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
+				<DatePicker fx:id="es_in" editable="false" layoutX="200.0"
+					layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
 				<Label layoutX="400.0" layoutY="126.0" text="预计离开时间 :" />
-				<DatePicker fx:id="es_leave" editable="false" layoutX="510.0" layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
+				<DatePicker fx:id="es_leave" editable="false" layoutX="510.0"
+					layoutY="121.0" prefWidth="150.0" showWeekNumbers="true" />
 				<Label layoutX="90.0" layoutY="157.0" text="酒店名称 :" />
-				<TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0" prefWidth="100.0" />
+				<TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0"
+					prefWidth="100.0" />
 				<Label layoutX="400.0" layoutY="157.0" text="评分 :" />
-				<TextField fx:id="score" layoutX="510.0" layoutY="152.0" prefWidth="100.0" />
+				<TextField fx:id="score" layoutX="510.0" layoutY="152.0"
+					prefWidth="100.0" />
 				<Label layoutX="90.0" layoutY="188.0" text="最低价格 :" />
-				<TextField fx:id="low_price" layoutX="200.0" layoutY="183.0" prefWidth="100.0" promptText=" 最低价格" />
+				<TextField fx:id="low_price" layoutX="200.0" layoutY="183.0"
+					prefWidth="100.0" promptText=" 最低价格" />
 				<Label layoutX="400.0" layoutY="188.0" text="最高价格 :" />
-				<TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0" prefWidth="100.0" promptText="最高价格" />
-				<Button fx:id="search" layoutX="653.0" layoutY="182.0" mnemonicParsing="false" onAction="#on_search" prefHeight="30.0" prefWidth="60.0" />
-				<ComboBox fx:id="star" layoutX="275.0" layoutY="81.0" prefWidth="120.0" promptText="星级" />
-				<ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0" prefWidth="120.0" promptText="房间类型" />
-				<RadioButton fx:id="all" layoutX="633.0" layoutY="36.0" mnemonicParsing="false" text="全部酒店" />
-				<RadioButton fx:id="history" layoutX="633.0" layoutY="86.0" mnemonicParsing="false" text="历史酒店" />
+				<TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0"
+					prefWidth="100.0" promptText="最高价格" />
+				<Button fx:id="search" layoutX="653.0" layoutY="182.0"
+					mnemonicParsing="false" onAction="#on_search" prefHeight="30.0"
+					prefWidth="60.0" />
+				<ComboBox fx:id="star" layoutX="275.0" layoutY="81.0"
+					prefWidth="120.0" promptText="星级" />
+				<ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0"
+					prefWidth="120.0" promptText="房间类型" />
+				<RadioButton fx:id="all" layoutX="633.0" layoutY="36.0"
+					mnemonicParsing="false" text="全部酒店" />
+				<RadioButton fx:id="history" layoutX="633.0" layoutY="86.0"
+					mnemonicParsing="false" text="历史酒店" />
 			</children>
 		</Pane>
 	</children>

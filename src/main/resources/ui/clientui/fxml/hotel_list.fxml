@@ -9,27 +9,40 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.searchhotel.HotelListController">
-   <children>
-      <Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
-      <Pane layoutX="63.0" layoutY="113.0" prefHeight="375.0" prefWidth="675.0">
-         <children>
-            <Label layoutX="55.0" layoutY="35.0" text="历史酒店详情">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="hotel_list" layoutX="39.0" layoutY="83.0" prefHeight="269.0" prefWidth="597.0">
-               <columns>
-                  <TableColumn fx:id="name" editable="false" prefWidth="190.0" resizable="false" text="酒店名称" />
-                  <TableColumn fx:id="province" editable="false" prefWidth="90.0" resizable="false" text="省" />
-                  <TableColumn fx:id="city" editable="false" prefWidth="90.0" resizable="false" text="市" />
-                  <TableColumn fx:id="field" editable="false" prefWidth="90.0" resizable="false" text="县" />
-                  <TableColumn fx:id="group" editable="false" prefWidth="136.0" resizable="false" text="商圈" />
-               </columns>
-            </TableView>
-         </children></Pane>
-      <Button fx:id="back" layoutX="665.0" layoutY="57.0" mnemonicParsing="false" onAction="#back" prefWidth="60.0" />
-      <Button fx:id="info_look" layoutX="551.0" layoutY="57.0" mnemonicParsing="false" onAction="#info_look" prefWidth="60.0" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.searchhotel.HotelListController">
+	<children>
+		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0"
+			prefWidth="200.0" />
+		<Pane layoutX="63.0" layoutY="113.0" prefHeight="375.0"
+			prefWidth="675.0">
+			<children>
+				<Label layoutX="55.0" layoutY="35.0" text="历史酒店详情">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Label>
+				<TableView fx:id="hotel_list" layoutX="39.0" layoutY="83.0"
+					prefHeight="269.0" prefWidth="597.0">
+					<columns>
+						<TableColumn fx:id="name" editable="false" prefWidth="190.0"
+							resizable="false" text="酒店名称" />
+						<TableColumn fx:id="province" editable="false"
+							prefWidth="90.0" resizable="false" text="省" />
+						<TableColumn fx:id="city" editable="false" prefWidth="90.0"
+							resizable="false" text="市" />
+						<TableColumn fx:id="field" editable="false" prefWidth="90.0"
+							resizable="false" text="县" />
+						<TableColumn fx:id="group" editable="false" prefWidth="136.0"
+							resizable="false" text="商圈" />
+					</columns>
+				</TableView>
+			</children>
+		</Pane>
+		<Button fx:id="back" layoutX="665.0" layoutY="57.0"
+			mnemonicParsing="false" onAction="#back" prefWidth="60.0" />
+		<Button fx:id="info_look" layoutX="551.0" layoutY="57.0"
+			mnemonicParsing="false" onAction="#info_look" prefWidth="60.0" />
+	</children>
 </AnchorPane>

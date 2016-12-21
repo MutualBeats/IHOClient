@@ -6,30 +6,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.browseorder.ExecuteCheckController">
-   <children>
-      <Label layoutX="50.0" layoutY="45.0" text="订单详情">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="74.0" layoutY="106.0" text="Order ID :" />
-      <Label layoutX="74.0" layoutY="136.0" text="酒店名称 :" />
-      <Label layoutX="74.0" layoutY="166.0" text="订单状态 :" />
-      <Label layoutX="74.0" layoutY="196.0" text="预计入住时间 :" />
-      <Label layoutX="74.0" layoutY="226.0" text="预计离开时间 :" />
-      <Label layoutX="74.0" layoutY="256.0" text="最晚订单执行时间 :" />
-      <Label layoutX="74.0" layoutY="286.0" text="预计入住人数 :" />
-      <Label layoutX="74.0" layoutY="316.0" text="有无儿童 :" />
-      <Button fx:id="return_" layoutX="275.0" layoutY="375.0" mnemonicParsing="false" onAction="#return_" prefWidth="60.0" />
-      <Label fx:id="order_id" layoutX="210.0" layoutY="105.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="hotel_name" layoutX="210.0" layoutY="135.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="order_status" layoutX="210.0" layoutY="165.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="expect_check_in" layoutX="210.0" layoutY="195.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="expect_leave_time" layoutX="210.0" layoutY="225.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="last_execute_time" layoutX="210.0" layoutY="255.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="expect_population" layoutX="210.0" layoutY="285.0" prefHeight="20.0" prefWidth="150.0" />
-      <Label fx:id="order_id7" layoutX="210.0" layoutY="315.0" prefHeight="20.0" prefWidth="150.0" />
-      <Button fx:id="evaluate" layoutX="135.0" layoutY="375.0" mnemonicParsing="false" onAction="#evaluate" prefWidth="60.0" />
-   </children>
+<AnchorPane prefHeight="475.0" prefWidth="460.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.browseorder.ExecuteCheckController">
+	<children>
+		<Label layoutX="50.0" layoutY="45.0" text="订单详情">
+			<font>
+				<Font size="16.0" />
+			</font>
+		</Label>
+		<Label layoutX="74.0" layoutY="106.0" text="Order ID :" />
+		<Label layoutX="74.0" layoutY="136.0" text="酒店名称 :" />
+		<Label layoutX="74.0" layoutY="166.0" text="订单状态 :" />
+		<Label layoutX="74.0" layoutY="196.0" text="预计入住时间 :" />
+		<Label layoutX="74.0" layoutY="226.0" text="预计离开时间 :" />
+		<Label layoutX="74.0" layoutY="256.0" text="最晚订单执行时间 :" />
+		<Label layoutX="74.0" layoutY="286.0" text="预计入住人数 :" />
+		<Label layoutX="74.0" layoutY="316.0" text="有无儿童 :" />
+		<Button fx:id="return_" layoutX="275.0" layoutY="375.0"
+			mnemonicParsing="false" onAction="#return_" prefWidth="60.0" />
+		<Label fx:id="order_id" layoutX="210.0" layoutY="105.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="hotel_name" layoutX="210.0" layoutY="135.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="order_status" layoutX="210.0" layoutY="165.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="expect_check_in" layoutX="210.0" layoutY="195.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="expect_leave_time" layoutX="210.0" layoutY="225.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="last_execute_time" layoutX="210.0" layoutY="255.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="expect_population" layoutX="210.0" layoutY="285.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Label fx:id="order_id7" layoutX="210.0" layoutY="315.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<Button fx:id="evaluate" layoutX="135.0" layoutY="375.0"
+			mnemonicParsing="false" onAction="#evaluate" prefWidth="60.0" />
+	</children>
 </AnchorPane>

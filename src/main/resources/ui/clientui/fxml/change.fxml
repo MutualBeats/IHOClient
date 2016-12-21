@@ -6,21 +6,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.maintainmessage.ChangeController">
-   <children>
-      <Label layoutX="75.0" layoutY="75.0" text="个人信息">
-         <font>
-            <Font size="16.0" />
-         </font></Label>
-      <Label layoutX="75.0" layoutY="140.0" text="姓名 :" />
-      <Label layoutX="75.0" layoutY="180.0" text="名称 :" />
-      <Button fx:id="cancel" layoutX="256.0" layoutY="355.0" mnemonicParsing="false" onAction="#cancel" prefWidth="60.0" />
-      <Label layoutX="75.0" layoutY="220.0" text="信用值 :" />
-      <Label layoutX="75.0" layoutY="260.0" text="联系方式 :" />
-      <Label fx:id="credit" layoutX="183.0" layoutY="220.0" prefHeight="20.0" prefWidth="150.0" />
-      <TextField layoutX="185.0" layoutY="255.0" prefWidth="150.0" />
-      <TextField layoutX="183.0" layoutY="175.0" prefWidth="150.0" />
-      <TextField layoutX="183.0" layoutY="135.0" prefWidth="150.0" />
-      <Button fx:id="confirm" layoutX="140.0" layoutY="355.0" mnemonicParsing="false" onAction="#confirm" prefWidth="60.0" />
-   </children>
+<AnchorPane prefHeight="475.0" prefWidth="460.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.maintainmessage.ChangeController">
+	<children>
+		<Label layoutX="75.0" layoutY="75.0" text="个人信息">
+			<font>
+				<Font size="16.0" />
+			</font>
+		</Label>
+		<Label layoutX="75.0" layoutY="140.0" text="姓名 :" />
+		<Label layoutX="75.0" layoutY="180.0" text="名称 :" />
+		<Button fx:id="cancel" layoutX="256.0" layoutY="355.0"
+			mnemonicParsing="false" onAction="#cancel" prefWidth="60.0" />
+		<Label layoutX="75.0" layoutY="220.0" text="信用值 :" />
+		<Label layoutX="75.0" layoutY="260.0" text="联系方式 :" />
+		<Label fx:id="credit" layoutX="183.0" layoutY="220.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<TextField layoutX="185.0" layoutY="255.0" prefWidth="150.0" />
+		<TextField layoutX="183.0" layoutY="175.0" prefWidth="150.0" />
+		<TextField layoutX="183.0" layoutY="135.0" prefWidth="150.0" />
+		<Button fx:id="confirm" layoutX="140.0" layoutY="355.0"
+			mnemonicParsing="false" onAction="#confirm" prefWidth="60.0" />
+	</children>
 </AnchorPane>

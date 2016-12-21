@@ -57,31 +57,28 @@ public class MainClientController extends SearchView {
 	private Button history_hotel;
 
 	@FXML
-	private Label hotel_one;
-
-	@FXML
-	private Label hotel_four;
-
-	@FXML
 	private Label user_name;
-
-	@FXML
-	private Label hotel_five;
 
 	@FXML
 	private Label title;
 
 	@FXML
-	private Label hotel_six;
+	private Button hotel_one;
+	@FXML
+	private Button hotel_two;
+	@FXML
+	private Button hotel_three;
 
 	@FXML
-	private Label hotel_three;
+	private Button hotel_four;
+	@FXML
+	private Button hotel_five;
 
 	@FXML
-	private Label hotel_seven;
+	private Button hotel_six;
 
 	@FXML
-	private Label hotel_two;
+	private Button hotel_seven;
 
 	// 浏览订单
 	private static URL BROWSE_ORDER_FXML;
