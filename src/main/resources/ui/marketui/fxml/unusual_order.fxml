@@ -12,29 +12,8 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.unusualorder.UnusualOrderController">
    <children>
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0" />
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="480.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="600.0">
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant color="#bfe5a5" />
-               </light>
-            </Lighting>
-         </effect>
-      </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="580.0">
-         <effect>
-            <InnerShadow color="#c3ba84" />
-         </effect>
-      </Rectangle>
-      <Label fx:id="unusualorder_title" layoutX="35.0" layoutY="25.0" prefHeight="50.0" prefWidth="200.0" style="-fx-font-style: Adobe黑体;" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
       <Button fx:id="cancel" layoutX="565.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
@@ -63,10 +42,10 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="unusual_order" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="web_promotion" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="credit" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="peopleInfo" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="credit" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
    </children>
 </AnchorPane>

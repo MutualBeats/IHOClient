@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.bundle.LevelBundle;
 import presentation.bundle.PromotionInfoBundle;
@@ -92,6 +93,9 @@ public class WebPromotionController implements Initializable,Confirm,PromotionUp
     
     @FXML
     private Button peopleInfo;
+    
+    @FXML
+    private Pane pane;
     
     private ObservableList<PromotionVO> total;  
     private ArrayList<Integer> credit_list;

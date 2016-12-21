@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.bundle.PromotionBundle;
 import presentation.bundle.SingleOrderListBundle;
@@ -67,6 +68,9 @@ public class UnusualOrderController extends OrderListView implements Initializab
 
 	@FXML
 	private Button peopleInfo;
+	
+	@FXML
+    private Pane pane;
 
 	private ObservableList<OrderVO> unusual_orderlist;
 	final ToggleGroup buttom_group = new ToggleGroup();

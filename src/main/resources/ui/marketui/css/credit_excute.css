@@ -8,6 +8,65 @@ and open the template in the editor.
     Author     : apple
 */
 
-.root{
-      -fx-background-image: url("file:src/main/resources/image/market/menubackground.jpg");
- }
+
+.root {
+	-fx-background-image:url("file:src/main/resources/image/market/menubackground.jpg");
+}
+
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/market/pane.png");	
+}
+#photo{
+	-fx-background-image:url("file:src/main/resources/image/market/photo.png");	
+}
+
+#web_promotion{
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion.png");	
+}
+
+#web_promotion:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/web_promotion_hover.png");	
+}
+
+#unusual_order{
+	-fx-background-image:url("file:src/main/resources/image/market/unusual_order.png");	
+}
+#unusual_order:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/unusual_order_hover.png");
+}
+
+#unexecuted_order{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order.png");	
+}
+#unexecuted_order:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/unexecuted_order_hover.png");
+}
+
+#credit{
+	-fx-background-image:url("file:src/main/resources/image/market/credit_hover.png");
+}
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo.png");	
+}
+#peopleInfo:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}
+#confirm{
+	-fx-background-image:url("file:src/main/resources/image/market/confirm.png");	
+}
+#confirm:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/confirm_hover.png");	
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/market/cancel.png");	
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/cancel_hover.png");	
+}
+
+

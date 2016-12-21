@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import presentation.bundle.PromotionBundle;
 import presentation.bundle.SingleOrderListBundle;
@@ -59,6 +60,9 @@ public class UnexcutedOrderController extends OrderListView{
     @FXML
     private Button unusual_order;
 
+    @FXML
+    private Pane pane;
+    
     private static URL WEB_PROMOTION_FXML;
     private static URL WEB_PROMOTION_CSS;
     

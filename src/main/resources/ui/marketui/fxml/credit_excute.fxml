@@ -7,24 +7,30 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.credit.CreditExcuteController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.credit.CreditExcuteController">
    <children>
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0" />
       <Accordion layoutY="115.0" />
-      <TextField fx:id="credit_to_add" layoutX="170.0" layoutY="312.0" onMouseClicked="#onValueModify" prefHeight="15.0" prefWidth="150.0" />
-      <Button fx:id="confirm" layoutX="135.0" layoutY="400.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" text="确认" />
-      <Button fx:id="cancel" layoutX="265.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" text="取消" />
-      <Label layoutX="70.0" layoutY="153.0" text="用户名称 :" />
-      <Label layoutX="70.0" layoutY="260.0" text="当前信用值 :" />
-      <Label layoutX="70.0" layoutY="317.0" text="充值额度 :" />
-      <Label layoutX="70.0" layoutY="85.0" text="详细信息">
+      <TextField fx:id="credit_to_add" layoutX="440.0" layoutY="380.0" onMouseClicked="#onValueModify" prefHeight="15.0" prefWidth="150.0" />
+      <Button fx:id="confirm" layoutX="405.0" layoutY="468.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" />
+      <Button fx:id="cancel" layoutX="535.0" layoutY="468.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="25.0" prefWidth="65.0" />
+      <Label layoutX="340.0" layoutY="221.0" text="用户名称 :" />
+      <Label layoutX="340.0" layoutY="328.0" text="当前信用值 :" />
+      <Label layoutX="340.0" layoutY="385.0" text="充值额度 :" />
+      <Label layoutX="340.0" layoutY="153.0" text="详细信息">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="208.0" text="用户名称 :" />
-      <Label fx:id="user_name" layoutX="170.0" layoutY="147.0" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="name" layoutX="170.0" layoutY="204.0" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="creditnow" layoutX="170.0" layoutY="257.0" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="credit_warning" layoutX="330.0" layoutY="312.0" prefHeight="27.0" prefWidth="120.0" textFill="#e40c0c" wrapText="true" />
+      <Label layoutX="340.0" layoutY="276.0" text="用户名称 :" />
+      <Label fx:id="user_name" layoutX="440.0" layoutY="215.0" prefHeight="27.0" prefWidth="150.0" />
+      <Label fx:id="name" layoutX="440.0" layoutY="272.0" prefHeight="27.0" prefWidth="150.0" />
+      <Label fx:id="creditnow" layoutX="440.0" layoutY="325.0" prefHeight="27.0" prefWidth="150.0" />
+      <Label fx:id="credit_warning" layoutX="600.0" layoutY="380.0" prefHeight="27.0" prefWidth="120.0" textFill="#e40c0c" wrapText="true" />
+      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="credit" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
    </children>
 </AnchorPane>

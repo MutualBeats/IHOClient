@@ -40,7 +40,7 @@ public class CreditIDInputHandle implements ResultHandle {
 			}
 			if(info != null) {
 				WindowGrab.closeWindow(window);
-				WindowGrab.startWindowWithBundle(WindowGrab.getWindowByStage(0), "信用充值", CREDIT_EXCUTE_FXML,CREDIT_EXCUTE_CSS, new InformationBundle(info));
+				WindowGrab.changeSceneWithBundle(CREDIT_EXCUTE_FXML, CREDIT_EXCUTE_CSS, WindowGrab.getSceneByStage(0), new InformationBundle(info));
 			}
 		} else {
 			String error_message = "请输入正确的用户名";

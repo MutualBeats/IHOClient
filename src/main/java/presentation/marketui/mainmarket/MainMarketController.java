@@ -55,6 +55,9 @@ public class MainMarketController implements Initializable{
     private Label marketerContact;
     
     @FXML
+    private Label photo;
+    
+    @FXML
     private Button all;
     
     private static URL WEB_PROMOTION_FXML;
