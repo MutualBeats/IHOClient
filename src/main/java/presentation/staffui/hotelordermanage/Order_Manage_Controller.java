@@ -93,10 +93,18 @@ public class Order_Manage_Controller implements Initializable {
     private static URL ORDER_CHECK_FXML;
     private static URL ORDER_CHECK_CSS;
     
+    //人员信息界面
+    private static URL MENU_FXML;
+    private static URL MENU_CSS;
+    
 	static {
 		try {
 			ORDER_CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
 			ORDER_CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
+		
+			MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
+    		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");
+    		
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -181,7 +189,7 @@ public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
     void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
+    	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
 
     @FXML

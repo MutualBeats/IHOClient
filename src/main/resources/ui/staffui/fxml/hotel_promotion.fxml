@@ -9,7 +9,7 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelpromotion.HotelPromotionController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="100.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="620.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="480.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="600.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -22,8 +22,8 @@
          </effect>
       </Rectangle>
       <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="110.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Button fx:id="delete" layoutX="446.0" layoutY="500.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="60.0" text="删除">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="580.0" />
+      <Button fx:id="delete" layoutX="510.0" layoutY="500.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -32,23 +32,23 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="578.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" text="取消">
+      <Button fx:id="cancel" layoutX="630.0" layoutY="500.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Label layoutX="150.0" layoutY="129.0" prefHeight="27.0" text="促销策略列表:">
+      <Label layoutX="200.0" layoutY="129.0" prefHeight="27.0" text="促销策略列表:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <Button fx:id="check" layoutX="314.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="60.0" text="查看">
+      <Button fx:id="check" layoutX="390.0" layoutY="500.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="create" layoutX="182.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0" text="新建">
+      <Button fx:id="create" layoutX="270.0" layoutY="500.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <TableView fx:id="promotion_list" layoutX="150.0" layoutY="176.0" prefHeight="294.0" prefWidth="520.0">
+      <TableView fx:id="promotion_list" layoutX="215.0" layoutY="176.0" prefHeight="294.0" prefWidth="520.0">
          <columns>
             <TableColumn fx:id="promotion_id" editable="false" prefWidth="60.0" text="ID" />
             <TableColumn fx:id="promotion_name" editable="false" prefWidth="128.0" sortable="false" text="名称" />
@@ -57,5 +57,10 @@
             <TableColumn fx:id="finish_date" editable="false" prefWidth="109.0" sortable="false" text="结束时间" />
          </columns>
       </TableView>
+      <Button fx:id="peopleInfo" layoutX="35.0" layoutY="120.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="promotion" layoutX="35.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="room" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#manageRoom" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="order" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="hotel_message" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="30.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

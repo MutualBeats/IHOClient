@@ -45,9 +45,37 @@ and open the template in the editor.
 }
 
 #peopleInfo{
-	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo.png");	
 }
 
 #peopleInfo:hover{
 	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}
+
+#create{
+	-fx-background-image:url("file:src/main/resources/image/staff/new.png");	
+}
+#create:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/new_hover.png");
+}
+
+#check{
+	 -fx-background-image: url("file:src/main/resources/image/staff/check.png");
+}
+#check:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/check_hover.png");
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/staff/cancel.png");	
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/cancel_hover.png");	
+}
+
+#refresh{
+	-fx-background-image:url("file:src/main/resources/image/staff/refresh.png");	
+}
+#refresh:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/refresh_hover.png");	
 }

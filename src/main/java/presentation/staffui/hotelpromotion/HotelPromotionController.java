@@ -74,12 +74,42 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
     private static URL HOTEL_PROMOTION_LOOK_FXML;
     private static URL HOTEL_PROMOTION_LOOK_CSS;
 
+    //人员信息界面
+    private static URL MENU_FXML;
+    private static URL MENU_CSS;
+    
+    //订单管理
+    private static URL ORDER_MANAGE_FXML;
+    private static URL ORDER_MANAGE_CSS;
+    
+    //酒店信息管理
+    private static URL MAINTAIN_HOTEL_FXML;
+	private static URL MAINTAIN_HOTEL_CSS;
+
+    //房间管理
+    private static URL ROOM_MANAGE_FXML;
+    private static URL ROOM_MANAGE_CSS;
+    
+	
 	static {
 		HOTEL_PROMOTION_CREATE_FXML = StaffUIURLConfig.staff_hotel_promotion_create_fxml_url();
 		HOTEL_PROMOTION_CREATE_CSS = StaffUIURLConfig.staff_hotel_promotion_create_css_url();
 		HOTEL_PROMOTION_LOOK_FXML = StaffUIURLConfig.staff_hotel_promotion_check_fxml_url();
 		HOTEL_PROMOTION_LOOK_CSS = StaffUIURLConfig.staff_hotel_promotion_check_css_url();
-    }
+		
+		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
+		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_room_manage_css_url();
+
+		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+
+		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
+		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
+
+		MENU_FXML = StaffUIURLConfig.staff_main_fxml_url();
+		MENU_CSS =  StaffUIURLConfig.staff_main_css_url();
+		
+	}
 	
 	private ObservableList<PromotionVO> list = FXCollections.observableArrayList();
 	
@@ -115,10 +145,7 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
     	WindowGrab.startConfirmWindow(window, this, "是否确认删除");
 	}
 
-    @FXML
-    void cancel(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
-    }
+   
 
     @FXML
     void check(ActionEvent event) {
@@ -170,5 +197,25 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 	public void update(PromotionVO vo) {
 		promotion_list.getItems().add(0, vo);
 	}
+	
+	@FXML
+    void peopleInfo(ActionEvent event) {
+		WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
+    }
 
+    @FXML
+    void manageRoom(ActionEvent event) {
+    	WindowGrab.changeScene(ROOM_MANAGE_FXML, ROOM_MANAGE_CSS, event);
+    }
+
+    @FXML
+    void manageOrder(ActionEvent event) {
+    	WindowGrab.changeScene(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, event);
+    }
+
+    @FXML
+    void maintainMessage(ActionEvent event) {
+    	WindowGrab.changeScene(MAINTAIN_HOTEL_FXML, MAINTAIN_HOTEL_CSS, event);
+    }
+	
 }
