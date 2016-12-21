@@ -128,10 +128,7 @@ public class MakeOrderController implements Initializable, Confirm {
 
 		/* DatePicker初始化 */
 		CheckUtil.init(in_time, ou_time, LocalDate.now(), LocalDate.now());
-		action_init();
-
-		/* 可选房间列表初始化 */
-		updateRoom(WindowGrab.getWindowByStage(2));
+		action_init();	
 	}
 
 	private void action_init() {

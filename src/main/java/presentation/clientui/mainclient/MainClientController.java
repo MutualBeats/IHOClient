@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import javax.swing.text.View;
-
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.event.ActionEvent;
@@ -18,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
-import presentation.bundle.HotelInfoBundle;
 import presentation.bundle.HotelListBundle;
 import presentation.bundle.InformationBundle;
 import presentation.bundle.OrderListBundle;
@@ -64,13 +61,16 @@ public class MainClientController extends SearchView {
 
 	@FXML
 	private Button hotel_one;
+	
 	@FXML
 	private Button hotel_two;
+	
 	@FXML
 	private Button hotel_three;
 
 	@FXML
 	private Button hotel_four;
+	
 	@FXML
 	private Button hotel_five;
 
