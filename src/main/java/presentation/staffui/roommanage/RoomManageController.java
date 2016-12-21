@@ -81,8 +81,8 @@ public class RoomManageController implements Initializable, UpdateRoom {
     private static URL ROOM_CHECK_FXML;
     private static URL ROOM_CHECK_CSS;
     
-    private static URL ROOM_UPDATE_FXML;
-    private static URL ROOM_UPDATE_CSS;
+//    private static URL ROOM_UPDATE_FXML;
+//    private static URL ROOM_UPDATE_CSS;
     //人员信息界面
     private static URL MENU_FXML;
     private static URL MENU_CSS;
@@ -109,8 +109,8 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		ROOM_CHECK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_check.fxml");
     		ROOM_CHECK_CSS = new URL("file:src/main/resources/ui/staffui/css/room_check.css");
     		
-    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
-    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
+//    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
+//    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
     		
     		MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
     		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");

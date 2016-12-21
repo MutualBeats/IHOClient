@@ -12,9 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
 import presentation.utilcontroller.Confirm;
+import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -38,6 +41,15 @@ public class RoomCreateController implements Initializable, Confirm {
 
     @FXML
     private Button confirm;
+    
+    @FXML
+    private Label type_warning;
+    
+    @FXML
+    private Label roomnumber_warning;
+    
+    @FXML
+    private Label price_warning;
 
     
     private UpdateRoom update;
@@ -63,26 +75,43 @@ public class RoomCreateController implements Initializable, Confirm {
     @FXML
     void confirm(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-    	int roomTypeIndex = room_type.getSelectionModel().getSelectedIndex();
-    	if(roomTypeIndex == -1) {
-    		WindowGrab.startNoticeWindow(window, "请选择房间类型");
-    		return;
+    	boolean type = CheckUtil.checkSelect(room_type);
+    	boolean number = CheckUtil.checkText(room_number);
+    	if(!type) {
+    		type_warning.setText("请选择房间类型");
     	}
-    	if(room_number.getText() == "") {
-    		WindowGrab.startNoticeWindow(window, "房间号不可为空");
-    		return;
+    	if(!number) {
+    		roomnumber_warning.setText("房间号不可为空");
     	}
     	try {
     		int roomPrice = Integer.parseInt(room_price.getText());
     		if(roomPrice < 0) {
-    			WindowGrab.startNoticeWindow(window, "房间价格不可为负");
+    			price_warning.setText("价格不可为负");
     			return;
     		}
     	} catch (NumberFormatException e) {
-    		WindowGrab.startNoticeWindow(window, "请输入正确的价格");
+    		price_warning.setText("价格必须为正整数");
     		return;
     	}
-    	WindowGrab.startConfirmWindow(window, this, "是否确认录入");
+    	
+    	if(type && number) {
+    		WindowGrab.startConfirmWindow(window, this, "是否确认录入");
+    	}
+    }
+    
+    @FXML
+    void roomTypeModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(type_warning);
+    }
+    
+    @FXML
+    void roomNumberModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(roomnumber_warning);
+    }
+    
+    @FXML
+    void roomPriceModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(price_warning);
     }
 
 	@Override
@@ -97,15 +126,15 @@ public class RoomCreateController implements Initializable, Confirm {
 		try {
 			ArrayList<String> failList = ControllerFactory.getRoomBLServiceInstance().importRoom(importList);
 			if(failList.size() > 0)
-				WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(2), "房间号已存在");
+				WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(1), "房间号已存在");
 			else {
 				// 成功提示 房间列表添加
 				update.update(room);
-				WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
-				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
+				WindowGrab.closeWindow(WindowGrab.getWindowByStage(1));
+				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "添加成功");
 			}
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
 	}
 	

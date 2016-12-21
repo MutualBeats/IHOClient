@@ -35,6 +35,9 @@
                 <TableColumn fx:id="member_level" prefWidth="59.0" text="等级" />
                 <TableColumn fx:id="discount" prefWidth="57.0" text="折扣" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
             <Text fx:id="enterprise_text" layoutX="239.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="合作企业:" visible="false" />
             <ListView fx:id="enterprise_list" layoutX="309.0" layoutY="262.0" prefHeight="144.0" prefWidth="118.0" visible="false" />

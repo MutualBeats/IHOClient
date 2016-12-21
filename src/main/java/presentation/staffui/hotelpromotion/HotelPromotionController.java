@@ -167,7 +167,7 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(1);
+		Window window = WindowGrab.getWindowByStage(0);
 		PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
 		int index = promotion_list.getSelectionModel().getSelectedIndex();
 		try {

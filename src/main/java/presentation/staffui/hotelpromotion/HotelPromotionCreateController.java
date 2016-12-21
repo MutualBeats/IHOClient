@@ -177,10 +177,10 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			promotionVO.setPromotionIDProperty(promotionID);
 			// 更新promotion列表
 			update.update(promotionVO);
+			WindowGrab.closeWindow(WindowGrab.getWindowByStage(1));
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
-		WindowGrab.closeWindow(WindowGrab.getWindowByStage(2));
 	}
 
 	@FXML

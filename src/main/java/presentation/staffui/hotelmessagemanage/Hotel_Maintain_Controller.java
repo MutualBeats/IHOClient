@@ -220,4 +220,5 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
     void room(ActionEvent event) {
 		WindowGrab.changeScene(ROOM_MANAGE_FXML, ROOM_MANAGE_CSS, event);
     }
+	
 }

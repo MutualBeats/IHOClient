@@ -47,11 +47,14 @@
       </Label>
       <TableView fx:id="room_list" layoutX="280.0" layoutY="180.0" prefHeight="295.0" prefWidth="400.0">
          <columns>
-            <TableColumn fx:id="room_number" prefWidth="100.0" text="房间号" />
-            <TableColumn fx:id="room_type" prefWidth="100.0" text="房间类型" />
-            <TableColumn fx:id="room_price" prefWidth="100.0" text="价格" />
-            <TableColumn fx:id="room_state" prefWidth="100.0" text="状态" />
+            <TableColumn fx:id="room_number" prefWidth="119.0" text="房间号" />
+            <TableColumn fx:id="room_type" prefWidth="94.0" text="房间类型" />
+            <TableColumn fx:id="room_price" prefWidth="94.0" text="价格" />
+            <TableColumn fx:id="room_state" prefWidth="94.0" text="状态" />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Button fx:id="refresh" layoutX="305.0" layoutY="136.0" mnemonicParsing="false" onAction="#refresh" prefHeight="23.0" prefWidth="55.0" underline="true">
          <font>
