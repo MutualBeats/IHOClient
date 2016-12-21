@@ -16,6 +16,16 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	private Order order = new Order();
 
 	@Override
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException {
+		return order.getOrderVOBeforeMake(vo);
+	}
+
+	@Override
+	public String makeOrder(OrderVO vo) throws NetException {
+		return order.makeOrder(vo);
+	}
+
+	@Override
 	public ResultMessage_Order cancelOrder(String orderID) {
 		return order.cancelOrder(orderID);
 	}
@@ -79,20 +89,5 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException {
 		return order.queryAbnormalOrder();
 	}
-
-	@Override
-	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException {
-		return order.getOrderVOBeforeMake(vo);
-	}
-
-	/* (non-Javadoc)
-	 * @see bussinesslogicservice.orderblservice.OrderBLService#makeOrder(vo.order.OrderVO)
-	 */
-	@Override
-	public String makeOrder(OrderVO vo) throws NetException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 }

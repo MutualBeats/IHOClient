@@ -499,7 +499,7 @@ public class Order {
 
 		return orderVOList;
 	}
-	
+
 	/**
 	 * 获得酒店订单列表
 	 * 
@@ -518,13 +518,13 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		
-		if(state == OrderState.All)
+
+		if (state == OrderState.All)
 			return hotelOrderList;
-		
+
 		ArrayList<OrderVO> orderList = new ArrayList<>();
 		for (OrderVO orderVO : hotelOrderList) {
-			if(orderVO.orderState == state)
+			if (orderVO.orderState == state)
 				orderList.add(orderVO);
 		}
 		return orderList;
@@ -593,31 +593,33 @@ public class Order {
 	}
 
 	/**
-	 * 生成订单
+	 * 获取未生成订单具体信息
 	 * 
 	 * @param vo
 	 * @return OrderVO
-	 * @throws RemoteException
+	 * @throws NetException
+	 * @throws TimeConflictException
 	 */
-	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException {
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException {
 		checkClient();
 		ClientVO clientVO = client.getClientInfo(vo.clientID);
-//		if (clientVO.credit < 0)
-//			return null;
+		// if (clientVO.credit < 0)
+		// return null;
 
 		// 判断房间预订时间是否冲突
 		checkRoom();
 		for (String roomNumber : vo.roomNumberList) {
 			ArrayList<RoomRecordVO> recordList = room.getOrderRecord(vo.hotelID, roomNumber);
 			for (RoomRecordVO each : recordList) {
-				if(vo.estimateCheckOutDate.compareTo(each.checkInDate) < 0
-					|| vo.checkInDate.compareTo(each.estimateCheckOutDate) > 0)
+				if (vo.estimateCheckOutDate.compareTo(each.checkInDate) < 0
+						|| vo.checkInDate.compareTo(each.estimateCheckOutDate) > 0)
 					continue;
 				// 时间重叠
-//				throw new TimeConflictException();
+				throw new TimeConflictException(
+						each.roomNumber + "在" + each.checkInDate + "到" + each.estimateCheckOutDate + "期间已被预订或以及有人住");
 			}
 		}
-		
+
 		OrderVO orderVO = new OrderVO(vo);
 
 		// 可用促销策略获取
@@ -643,24 +645,35 @@ public class Order {
 		double value = 0;
 		try {
 			int days = Time.deltaDate(vo.checkInDate, vo.estimateCheckOutDate);
-
 			checkRoom();
 			for (String roomNumber : vo.roomNumberList)
 				value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
 		} catch (ParseException e) {
 			return null;
 		}
+
 		// 促销策略折扣
 		double promotionDiscount = 10;
 		if (availablePromotion.size() > 0)
 			promotionDiscount = availablePromotion.get(0).discount.get(vipLevel);
 		// 会员等级折扣
 		double memberDiscount = promotion.getDiscount(vipLevel);
-		// 折扣后价格计算
-		orderVO.value = (int)(value * (promotionDiscount * 0.1) * (memberDiscount * 0.1) * 100) / 100.0;
+		// 折扣后价格计算（精确到小数点后两位）
+		orderVO.value = (int) (value * (promotionDiscount * 0.1) * (memberDiscount * 0.1) * 100) / 100.0;
 
+		return orderVO;
+	}
+
+	/**
+	 * 生成订单
+	 * 
+	 * @param vo
+	 * @return orderID
+	 * @throws NetException
+	 */
+	public String makeOrder(OrderVO vo) throws NetException {
 		// 数据库记录订单信息，获取订单号
-		OrderPO po = new OrderPO(orderVO);
+		OrderPO po = new OrderPO(vo);
 		String orderID;
 		try {
 			orderID = order_data_service.addOrder(po);
@@ -668,20 +681,23 @@ public class Order {
 			e.printStackTrace();
 			throw new NetException();
 		}
-		orderVO.setIDProperty(orderID);
-		
+
 		// 添加房间记录
 		for (String roomNumber : vo.roomNumberList) {
-			RoomRecordVO roomRecordVO = new RoomRecordVO(vo.checkInDate, vo.estimateCheckOutDate, orderID, vo.hotelID,
-					roomNumber);
+			RoomRecordVO roomRecordVO = new RoomRecordVO(vo.estimate_checkInDate, vo.estimate_checkOutDate, orderID,
+					vo.hotelID, roomNumber);
 			room.addRecord(roomRecordVO);
 		}
-		
-		unexcute_cache.add(orderVO);
-		return orderVO;
-		
+
+		vo.setIDProperty(orderID);
+		unexcute_cache.add(vo);
+
+		return orderID;
 	}
 
+	/**
+	 * 接口检测
+	 */
 	private void checkClient() throws NetException {
 		if (client == null)
 			client = ControllerFactory.getClientInfoInstance();
@@ -693,7 +709,7 @@ public class Order {
 	}
 
 	private void checkPromotion() throws NetException {
-		if (promotion == null) 
+		if (promotion == null)
 			promotion = ControllerFactory.getPromotionGetInstance();
 	}
 

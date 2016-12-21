@@ -13,15 +13,19 @@ public interface OrderBLService {
 	
 	/**
 	 * 获取未生成订单具体信息
+	 * 
 	 * @param vo
-	 * @return
+	 * @return OrderVO
+	 * @throws NetException
+	 * @throws TimeConflictException
 	 */
 	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException;
 	/**
-	 * 添加订单
+	 * 生成订单
 	 * 
 	 * @param vo
-	 * @return
+	 * @return orderID
+	 * @throws NetException
 	 */
 	public String makeOrder(OrderVO vo) throws NetException;
 	/**
@@ -36,9 +40,9 @@ public interface OrderBLService {
 	 * 
 	 * @param orderID
 	 * @param all
-	 * @return
+	 * @return ResultMessage
 	 */
-	public ResultMessage_Order appeal(String orderID,boolean all); 
+	public ResultMessage_Order appeal(String orderID, boolean all); 
 	/**
 	 * 执行订单
 	 * 
@@ -64,6 +68,7 @@ public interface OrderBLService {
 	 * 
 	 * @param orderID
 	 * @return OrderVO
+	 * @throws NetException
 	 */
 	public OrderVO queryOrderById(String orderID) throws NetException;
 	/**
@@ -71,7 +76,8 @@ public interface OrderBLService {
 	 * 
 	 * @param hotelID
 	 * @param clientID
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
+	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws NetException;
 	/**
@@ -79,32 +85,36 @@ public interface OrderBLService {
 	 * 
 	 * @param hotelID
 	 * @param roomNumber
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
+	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException;
 	/**
 	 * 查询用户订单
 	 * 
 	 * @param clientID
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
+	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException;
 	/**
 	 * 酒店管理人员查询酒店订单
 	 * 
 	 * @param hotelID
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
+	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryHotelOrder(String hotelID, OrderState state) throws NetException;
 	/**
 	 * 网站营销人员查看某天未执行订单
 	 * @param date
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
+	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException;
 	/**
 	 * 获取所有异常订单
-	 * @return ArrayList
+	 * @return ArrayList<OrderVO>
 	 * @throws NetException
 	 */
 	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException;

@@ -6,7 +6,6 @@ package bussinesslogicservice.hotelblservice;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import util.exception.NetException;
 import util.hotel.SearchCondition;
