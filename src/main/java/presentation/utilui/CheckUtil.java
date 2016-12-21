@@ -18,7 +18,7 @@ import javafx.util.StringConverter;
 
 public class CheckUtil {
 
-	private final static Pattern pattern = Pattern.compile("[\\S]+");
+	private final static Pattern pattern = Pattern.compile("[\\s]+");
 	private final static Pattern point_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
 	private final static Pattern value_pattern = Pattern.compile("^[0-9]\\d*$");
 
@@ -56,12 +56,12 @@ public class CheckUtil {
 
 	public static boolean checkText(TextField text) {
 		String content = text.getText();
-		return pattern.matcher(content).matches();
+		return !pattern.matcher(content).matches();
 	}
 
 	public static boolean checkText(TextArea text) {
 		String content = text.getText();
-		return pattern.matcher(content).matches();
+		return !pattern.matcher(content).matches();
 	}
 
 	public static boolean checkSelect(DatePicker picker) {

@@ -21,7 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
 import presentation.bundle.EvaluatedOrderBundle;
-import presentation.bundle.OrderInfoBundle;
+import presentation.clientui.utilui.ViewUtil;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
@@ -31,7 +31,7 @@ import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
-public class BrowseOrderController implements Initializable, Confirm {
+public class BrowseOrderController implements Initializable, Confirm, UpdateEvaluation{
 	@FXML
 	private TableColumn<OrderVO, String> make_time;
 
@@ -83,8 +83,8 @@ public class BrowseOrderController implements Initializable, Confirm {
 	@FXML
 	private Button unexecuted_order;
 
-	private static URL CHECK_FXML;
-	private static URL CHECK_CSS;
+//	private static URL CHECK_FXML;
+//	private static URL CHECK_CSS;
 
 	private static URL CLIENTMENU_FXML;
 	private static URL CLIENTMENU_CSS;
@@ -92,8 +92,8 @@ public class BrowseOrderController implements Initializable, Confirm {
 	static {
 		try {
 
-			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
-			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
+//			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
+//			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
 
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS = new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
@@ -159,6 +159,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 			}
 		});
 		state.setCellValueFactory(cellData -> cellData.getValue().getState_property());
+		evaluation_state.setCellValueFactory(cellData->cellData.getValue().getEvaluateState());
 	}
 
 	private void hideRevoke() {
@@ -220,14 +221,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 			OrderVO info = model.getSelectedItem();
 			// TODO : the reach of hotel name is waiting to check.
 			String hotel_name = hotel.getCellData(model.getSelectedIndex());
-			try {
-				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
-						.getPromotionById(info.promotionIDList.get(0)).promotionName;
-				OrderInfoBundle bundle = new OrderInfoBundle(info, hotel_name, promotion_name);
-				WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
-			} catch (NetException e) {
-				WindowGrab.startNetErrorWindow(window);
-			}
+			ViewUtil.showOrder(info, hotel_name, window);
 		}
 	}
 
@@ -244,7 +238,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
 			if (!vo.isEvaluate) {
 				// 检查是否为未评价
-				ResourceBundle bundle = new EvaluatedOrderBundle(null);
+				ResourceBundle bundle = new EvaluatedOrderBundle(this, vo);
 				WindowGrab.startWindowWithBundle(window, "评价酒店", ClientUIURLConfig.client_evaluate_hotel_fxml_url(),
 						ClientUIURLConfig.client_evaluate_hotel_css_url(), bundle);
 			} else {
@@ -287,6 +281,14 @@ public class BrowseOrderController implements Initializable, Confirm {
 				WindowGrab.startNetErrorWindow(window);
 			}
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see presentation.clientui.browseorder.UpdateEvaluation#update()
+	 */
+	@Override
+	public void update() {
+		order_list.refresh();
 	}
 
 }

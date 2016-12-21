@@ -27,7 +27,7 @@
 		<Label layoutX="340.0" layoutY="80.0" prefHeight="27.0" text="酒店评分:" />
 		<TextField fx:id="hotel_id" disable="true" editable="false" layoutX="130.0" layoutY="40.0" prefWidth="150.0" />
 		<TextField fx:id="hotel_name" disable="true" layoutX="130.0" layoutY="80.0" prefWidth="150.0" />
-		<TextArea fx:id="hotel_address" disable="true" layoutX="130.0" layoutY="200.0" prefHeight="27.0" prefWidth="454.0" />
+		<TextField fx:id="hotel_address" disable="true" layoutX="130.0" layoutY="200.0" prefHeight="27.0" prefWidth="454.0" />
 		<TextField fx:id="hotel_score" disable="true" editable="false" layoutX="430.0" layoutY="80.0" prefWidth="150.0" />
 		<ComboBox fx:id="hotel_province" disable="true" layoutX="130.0" layoutY="120.0" prefHeight="27.0" prefWidth="150.0" />
 		<ComboBox fx:id="hotel_group" disable="true" layoutX="430.0" layoutY="160.0" prefHeight="27.0" prefWidth="150.0" />

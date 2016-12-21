@@ -1,6 +1,5 @@
 package presentation.clientui.createorder;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -23,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
-import presentation.bundle.OrderInfoBundle;
+import presentation.clientui.utilui.ViewUtil;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
@@ -89,20 +88,7 @@ public class MakeOrderController implements Initializable, Confirm {
 
 	private ArrayList<RoomVO> rooms;
 
-	private static URL CHECK_FXML;
-	private static URL CHECK_CSS;
-
-	static {
-		try {
-
-			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
-			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
-
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 	@SuppressWarnings({ "unchecked" })
 	@Override
@@ -128,7 +114,7 @@ public class MakeOrderController implements Initializable, Confirm {
 
 		/* DatePicker初始化 */
 		CheckUtil.init(in_time, ou_time, LocalDate.now(), LocalDate.now());
-		action_init();	
+		action_init();
 	}
 
 	private void action_init() {
@@ -180,14 +166,7 @@ public class MakeOrderController implements Initializable, Confirm {
 			/* 订单生成窗口关闭 */
 			WindowGrab.closeWindow(window);
 			Window info_window = WindowGrab.getWindowByStage(0);
-			try {
-				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
-						.getPromotionById(vo.promotionIDList.get(0)).promotionName;
-				OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_n, promotion_name);
-				WindowGrab.startWindowWithBundle(info_window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
-			} catch (NetException e) {
-				WindowGrab.startNetErrorWindow(info_window);
-			}
+			ViewUtil.showOrder(vo, hotel_n, info_window);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		} catch (TimeConflictException e1) {

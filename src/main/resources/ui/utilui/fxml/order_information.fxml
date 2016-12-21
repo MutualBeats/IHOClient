@@ -44,7 +44,7 @@
       <Label layoutX="20.0" layoutY="350.0" prefHeight="20.0" prefWidth="85.0" text="房间列表       :" />
       <Label layoutX="20.0" layoutY="390.0" prefHeight="20.0" prefWidth="85.0" text="促销策略       :" />
       <Label fx:id="promotion" layoutX="110.0" layoutY="390.0" prefHeight="20.0" prefWidth="375.0" />
-      <Label layoutX="305.0" layoutY="310.0" prefHeight="20.0" prefWidth="90.0" text="折扣              :" />
-      <Label fx:id="discount" layoutX="395.0" layoutY="307.0" prefHeight="20.0" prefWidth="185.0" />
+      <Label layoutX="305.0" layoutY="310.0" prefHeight="20.0" prefWidth="90.0" text="价格              :" />
+      <Label fx:id="price" layoutX="395.0" layoutY="307.0" prefHeight="20.0" prefWidth="185.0" />
    </children>
 </AnchorPane>

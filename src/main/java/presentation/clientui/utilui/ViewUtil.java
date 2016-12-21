@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.stage.Window;
 import presentation.bundle.HotelInfoBundle;
+import presentation.bundle.OrderInfoBundle;
 import presentation.bundle.OrderMakeBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
@@ -37,6 +38,21 @@ public class ViewUtil {
 			e.printStackTrace();
 		}
 	}
+	
+	private static URL CHECK_FXML;
+	private static URL CHECK_CSS;
+
+	static {
+		try {
+
+			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
+			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void showHotelInfo(HotelVO hotel, Window window) {
 		try {
@@ -64,4 +80,20 @@ public class ViewUtil {
 		}
 	}
 
+	public static void showOrder(OrderVO vo, String hotel_name, Window window) {
+		String promotion_name = "无可用促销策略";
+		if (vo.promotionIDList.size() != 0) {
+			try {
+				promotion_name = ControllerFactory.getPromotionBLServiceInstance()
+						.getPromotionById(vo.promotionIDList.get(0)).promotionName;
+
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+				return;
+			}
+		}
+		OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name, promotion_name);
+		WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
+	}
+	
 }

@@ -59,6 +59,8 @@ public class OrderController implements Initializable {
 	@FXML
 	private Label children;
 	
+	@FXML
+	private Label price;
 	
 	@FXML
 	private Label room_list;
@@ -101,6 +103,8 @@ public class OrderController implements Initializable {
 		
 		people_num.setText(info.numOfPeople+"");
 		children.setText(info.children ? "有" : "无");
+		
+		price.setText(info.value + " 元");
 		
 		ArrayList<String> rooms = info.roomNumberList;
 		String room = "";

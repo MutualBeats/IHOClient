@@ -13,9 +13,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Window;
+import presentation.clientui.browseorder.UpdateEvaluation;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.Time;
 import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Hotel;
@@ -41,6 +43,8 @@ public class EvaluateHotelController implements Initializable, Confirm {
 
 //	private String hotel_id;
 	private OrderVO order;
+	
+	private UpdateEvaluation update;
 
 	@FXML
 	void confirm(ActionEvent event) {
@@ -55,6 +59,7 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		update = (UpdateEvaluation) resources.getObject("update");
 		marks.getItems().addAll(StarConfig.SCORE_SEPERATE);
 //		hotel_id = resources.getString("hotel_id");
 		order = (OrderVO) resources.getObject("order_info");
@@ -65,7 +70,7 @@ public class EvaluateHotelController implements Initializable, Confirm {
 		Window window = WindowGrab.getWindowByStage(1);
 		if (CheckUtil.checkSelect(marks) && CheckUtil.checkText(evaluation)) {
 			int mark = marks.getSelectionModel().getSelectedItem();
-			HotelEvaluationVO vo = new HotelEvaluationVO(order.hotelID, UserCache.getID(), order.orderID, "", mark,
+			HotelEvaluationVO vo = new HotelEvaluationVO(order.hotelID, UserCache.getID(), order.orderID, Time.getCurrentTime(), mark,
 					evaluation.getText());
 			ResultMessage_Hotel result = ResultMessage_Hotel.Evaluate_Successful;
 			try {
@@ -77,11 +82,14 @@ public class EvaluateHotelController implements Initializable, Confirm {
 				WindowGrab.startNetErrorWindow(window);
 			} else if (result == ResultMessage_Hotel.Evaluate_Successful) {
 				order.setEvaluationState(true);
+				update.update();
 				WindowGrab.closeWindow(window);
 				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "成功评论");
 			} else {
 				WindowGrab.startErrorWindow(window, "评论失败");
 			}
+		} else {
+			WindowGrab.startNoticeWindow(window, "请输入评价");
 		}
 	}
 

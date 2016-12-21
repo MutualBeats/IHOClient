@@ -14,11 +14,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.bundle.EvaluationBundle;
-import presentation.bundle.OrderInfoBundle;
 import presentation.clientui.utilui.ViewUtil;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
@@ -63,7 +61,7 @@ public class HotelInfoController implements Initializable {
 	private TextField hotel_id;
 
 	@FXML
-	private TextArea hotel_address;
+	private TextField hotel_address;
 
 	@FXML
 	private TextField hotel_name;
@@ -87,9 +85,9 @@ public class HotelInfoController implements Initializable {
 
 	@FXML
 	private Button check_evaluate;
-
-	private static URL CHECK_FXML;
-	private static URL CHECK_CSS;
+//
+//	private static URL CHECK_FXML;
+//	private static URL CHECK_CSS;
 	//
 	private static URL EVALUATION_FXML;
 	private static URL EVALUATION_CSS;
@@ -97,8 +95,8 @@ public class HotelInfoController implements Initializable {
 	static {
 		try {
 
-			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
-			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
+//			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
+//			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
 
 			EVALUATION_FXML = new URL("file:src/main/resources/ui/clientui/fxml/evaluation.fxml");
 			EVALUATION_CSS = new URL("file:src/main/resources/ui/clientui/css/evaluation.css");
@@ -112,16 +110,7 @@ public class HotelInfoController implements Initializable {
 	void check(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		if (CheckUtil.checkSelect(order_list)) {
-			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
-			try {
-				String promotion_name = ControllerFactory.getPromotionBLServiceInstance()
-						.getPromotionById(vo.promotionIDList.get(0)).promotionName;
-				OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name.getText(), promotion_name);
-				WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
-			} catch (NetException e) {
-				WindowGrab.startNetErrorWindow(window);
-			}
-
+			ViewUtil.showOrder(order_list.getSelectionModel().getSelectedItem(), hotel_name.getText(), window);
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}

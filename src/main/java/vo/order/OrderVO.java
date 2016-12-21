@@ -201,7 +201,7 @@ public class OrderVO {
 
 		make_time_property = new SimpleStringProperty(makeTime);
 		finish_time_property = new SimpleStringProperty(finishTime);
-		hotel_property = new SimpleStringProperty(hotelID);
+		hotel_property = new SimpleStringProperty(hotelID);;
 		state_property = new SimpleStringProperty(STATES[orderState.ordinal()]);
 		id_property = new SimpleStringProperty(orderID);
 		evaluation_state = new SimpleStringProperty(isEvaluate ? EVA_FINISH : EVA_UNFINISH);
