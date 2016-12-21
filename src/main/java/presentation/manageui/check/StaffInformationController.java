@@ -24,6 +24,13 @@ public class StaffInformationController extends InformationLookController {
 		info = (StaffVO) resources.getObject("info");
 		init();
 	}
+	
+	@Override
+	protected void toInfoState() {
+		super.toInfoState();
+		name.setText(info.name);
+		phone.setText(info.contactWay);
+	}
 
 	private void init() {
 		this.user_name.setText(info.id);

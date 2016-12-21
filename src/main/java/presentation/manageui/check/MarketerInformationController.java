@@ -22,8 +22,15 @@ public class MarketerInformationController extends InformationLookController {
 	private void init() {
 		this.user_name.setText(info.id);
 		this.name.setText(info.name);
-		this.type.setText("网站管理人员");
+		this.type.setText("网站营销人员");
 		this.phone.setText(info.contactWay);
+	}
+	
+	@Override
+	protected void toInfoState() {
+		super.toInfoState();
+		name.setText(info.name);
+		phone.setText(info.contactWay);
 	}
 
 	@Override
@@ -38,6 +45,7 @@ public class MarketerInformationController extends InformationLookController {
 				info.setContactProperty(phone.getText());
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			WindowGrab.startErrorWindow(window, "网络错误，请检查您的网络");
 			return;
 		}

@@ -20,15 +20,15 @@ import vo.user.MarketerVO;
 public class Marketer {
 
 	private MarketerDataService marketerDataService;
-	
+
 	private MarketerPO cache;
-	
+
 	public Marketer() throws NetException {
 		marketerDataService = DataHelperFactory.getDataFactoryHelperInstance().getMarketerDatabase();
 	}
 
 	public MarketerVO showData(String marketerID) throws NetException {
-		if(!checkCacheHit(marketerID)) {
+		if (!checkCacheHit(marketerID)) {
 			try {
 				cache = marketerDataService.getMarketerInfo(marketerID);
 			} catch (RemoteException e) {
@@ -39,8 +39,7 @@ public class Marketer {
 		MarketerVO vo = MarketerPO.transformPOToVO(cache);
 		return vo;
 	}
-		
-	
+
 	public ResultMessage_User changeData(MarketerVO vo) {
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		MarketerPO po = MarketerVO.transformVOToPO(vo);
@@ -50,8 +49,12 @@ public class Marketer {
 			e.printStackTrace();
 			return ResultMessage_User.Net_Error;
 		}
-		if(result == ResultMessage_User.UpdateSuccess) {
-			cache.updateInfo(vo);
+		if (result == ResultMessage_User.UpdateSuccess) {
+			if (cache != null) {
+				cache.updateInfo(vo);
+			} else {
+				cache = po;
+			}
 		}
 		return result;
 	}
@@ -64,10 +67,10 @@ public class Marketer {
 		} catch (RemoteException e) {
 			return ResultMessage_User.Net_Error;
 		}
-		
+
 		return result;
 	}
-	
+
 	public ArrayList<MarketerVO> getMarketerList() throws NetException {
 		ArrayList<MarketerPO> pos;
 		try {
@@ -77,7 +80,7 @@ public class Marketer {
 			throw new NetException();
 		}
 		ArrayList<MarketerVO> vos = new ArrayList<>();
-		for(MarketerPO each : pos) {
+		for (MarketerPO each : pos) {
 			MarketerVO vo = MarketerPO.transformPOToVO(each);
 			vos.add(vo);
 		}
@@ -87,5 +90,5 @@ public class Marketer {
 	private boolean checkCacheHit(String tocheckID) {
 		return cache != null && cache.getMarketerID().equals(tocheckID);
 	}
-	
+
 }

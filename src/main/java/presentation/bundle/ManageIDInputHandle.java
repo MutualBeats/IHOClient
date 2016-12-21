@@ -7,6 +7,7 @@ import javafx.stage.Window;
 import presentation.utilcontroller.ResultHandle;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
+import vo.user.ManagerVO;
 
 public class ManageIDInputHandle implements ResultHandle {
 

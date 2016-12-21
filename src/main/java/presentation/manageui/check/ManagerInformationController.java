@@ -25,6 +25,13 @@ public class ManagerInformationController extends InformationLookController {
 		this.type.setText("网站管理人员");
 		this.phone.setText(info.contactWay);
 	}
+	
+	@Override
+	protected void toInfoState() {
+		super.toInfoState();
+		name.setText(info.name);
+		phone.setText(info.contactWay);
+	}
 
 	@Override
 	public void confirm() {

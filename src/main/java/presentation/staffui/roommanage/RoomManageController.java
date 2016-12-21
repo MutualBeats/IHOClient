@@ -124,7 +124,6 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
     		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
 
-    		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

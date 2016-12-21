@@ -44,7 +44,14 @@ public class ClientInformationController extends InformationLookController {
 		this.member_level.setText(info.level + "");
 		this.type.setText("客户");
 	}
-
+	
+	@Override
+	protected void toInfoState() {
+		super.toInfoState();
+		name.setText(info.name);
+		phone.setText(info.contactWay);
+	}
+	
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);
