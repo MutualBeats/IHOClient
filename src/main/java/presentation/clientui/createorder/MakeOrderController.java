@@ -30,6 +30,7 @@ import presentation.utilui.WindowGrab;
 import util.Time;
 import util.UserCache;
 import util.exception.NetException;
+import util.exception.TimeConflictException;
 import vo.hotel.HotelVO;
 import vo.order.OrderMakeVO;
 import vo.order.OrderVO;
@@ -128,6 +129,9 @@ public class MakeOrderController implements Initializable, Confirm {
 		/* DatePicker初始化 */
 		CheckUtil.init(in_time, ou_time, LocalDate.now(), LocalDate.now());
 		action_init();
+
+		/* 可选房间列表初始化 */
+		updateRoom(WindowGrab.getWindowByStage(2));
 	}
 
 	private void action_init() {
@@ -189,53 +193,62 @@ public class MakeOrderController implements Initializable, Confirm {
 			}
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
+		} catch (TimeConflictException e1) {
+			WindowGrab.startErrorWindow(window, "对不起，所选房间时间有冲突");
 		}
-		// checkInDate, estimateCheckOutDate, numOfPeople, children)
 	}
 
 	private class RoomUpdateHandle implements EventHandler<ActionEvent> {
 
 		@Override
 		public void handle(ActionEvent event) {
-			String es_in_time = in_time.getEditor().getText();
-			String es_out_time = ou_time.getEditor().getText();
-
-			ArrayList<RoomVO> satisfy_rooms = new ArrayList<>();
-
-			/* 房间列表更新 */
-			for (RoomVO each : rooms) {
-				try {
-					ArrayList<RoomRecordVO> records = ControllerFactory.getRoomBLServiceInstance()
-							.getOrderRecord(hotel_id, each.roomNumber);
-					boolean ok = true;
-					for (RoomRecordVO record : records) {
-						boolean later = Time.deltaDate(es_out_time, record.checkInDate) > 0;
-						boolean earlier = Time.deltaDate(record.estimateCheckOutDate, es_in_time) > 0;
-						if (!(later && earlier)) {
-							ok = false;
-							break;
-						}
-					}
-					if (ok) {
-						satisfy_rooms.add(each);
-					}
-				} catch (NetException e) {
-					Window window = WindowGrab.getWindow(event);
-					WindowGrab.startNetErrorWindow(window);
-					break;
-				} catch (ParseException e) {
-					Window window = WindowGrab.getWindow(event);
-					WindowGrab.startErrorWindow(window, "时间格式错误");
-					break;
-				}
-			}
-
-			/* Update */
-			room_list.getItems().clear();
-			room_list.getItems().addAll(satisfy_rooms);
-
+			Window window = WindowGrab.getWindow(event);
+			updateRoom(window);
 		}
 
+	}
+
+	/**
+	 * 更新时间选择后房间列表
+	 * 
+	 * @param window
+	 *            : 错误信息承载窗口
+	 */
+	private void updateRoom(Window window) {
+		String es_in_time = in_time.getEditor().getText();
+		String es_out_time = ou_time.getEditor().getText();
+
+		ArrayList<RoomVO> satisfy_rooms = new ArrayList<>();
+
+		/* 房间列表更新 */
+		for (RoomVO each : rooms) {
+			try {
+				ArrayList<RoomRecordVO> records = ControllerFactory.getRoomBLServiceInstance().getOrderRecord(hotel_id,
+						each.roomNumber);
+				boolean ok = true;
+				for (RoomRecordVO record : records) {
+					boolean later = Time.deltaDate(es_out_time, record.checkInDate) > 0;
+					boolean earlier = Time.deltaDate(record.estimateCheckOutDate, es_in_time) > 0;
+					if (!(later && earlier)) {
+						ok = false;
+						break;
+					}
+				}
+				if (ok) {
+					satisfy_rooms.add(each);
+				}
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+				break;
+			} catch (ParseException e) {
+				WindowGrab.startErrorWindow(window, "时间格式错误");
+				break;
+			}
+		}
+
+		/* Update */
+		room_list.getItems().clear();
+		room_list.getItems().addAll(satisfy_rooms);
 	}
 
 }
