@@ -5,15 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="435.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TableView fx:id="evaluation_list" layoutX="14.0" layoutY="14.0" prefHeight="368.0" prefWidth="559.0">
-        <columns>
-            <TableColumn fx:id="order_id" prefWidth="177.0" text="订单号" />
-          <TableColumn fx:id="score" prefWidth="69.0" text="评分" />
-          <TableColumn fx:id="evaluation" prefWidth="312.0" text="评论" />
-        </columns>
-      </TableView>
-      <Button fx:id="back" layoutX="272.0" layoutY="394.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="60.0" />
-   </children>
+<AnchorPane prefHeight="435.0" prefWidth="586.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.evaluatehotel.EvaluateController">
+	<children>
+		<TableView fx:id="evaluation_list" layoutX="14.0" layoutY="14.0"
+			prefHeight="368.0" prefWidth="559.0">
+			<columns>
+				<TableColumn fx:id="order_id" prefWidth="177.0" text="订单号" />
+				<TableColumn fx:id="score" prefWidth="69.0" text="评分" />
+				<TableColumn fx:id="evaluation" prefWidth="312.0" text="评论" />
+			</columns>
+		</TableView>
+		<Button fx:id="back" layoutX="272.0" layoutY="394.0"
+			mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="60.0" />
+	</children>
 </AnchorPane>
