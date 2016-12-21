@@ -41,7 +41,7 @@ public interface HotelBLService {
 	 * 
 	 * @throws RemoteException
 	 */
-	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException;
+	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException;
 
 	/**
 	 * 评价酒店

@@ -17,11 +17,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import presentation.bundle.EvaluationBundle;
 import presentation.bundle.OrderInfoBundle;
 import presentation.clientui.utilui.ViewUtil;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
+import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
@@ -82,15 +84,15 @@ public class HotelInfoController implements Initializable {
 	private Button back;
 
 	private HotelVO hotel_info;
-	
+
 	@FXML
-    private Button check_evaluate;
+	private Button check_evaluate;
 
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
-//
-//	private static URL MAKEORDER_FXML;
-//	private static URL MAKEORDER_CSS;
+	//
+	private static URL EVALUATION_FXML;
+	private static URL EVALUATION_CSS;
 
 	static {
 		try {
@@ -98,11 +100,10 @@ public class HotelInfoController implements Initializable {
 			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
 			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
 
-//			MAKEORDER_FXML = new URL("file:src/main/resources/ui/clientui/fxml/makeorder.fxml");
-//			MAKEORDER_CSS = new URL("file:src/main/resources/ui/clientui/css/makeorder.css");
+			EVALUATION_FXML = new URL("file:src/main/resources/ui/clientui/fxml/evaluation.fxml");
+			EVALUATION_CSS = new URL("file:src/main/resources/ui/clientui/css/evaluation.css");
 
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -124,6 +125,21 @@ public class HotelInfoController implements Initializable {
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		}
+	}
+
+	@FXML
+	void evaluations_look(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+
+		try {
+			ArrayList<HotelEvaluationVO> evaluationVOs = ControllerFactory.getHotelBLServiceInstance()
+					.getHotelEvalutions(hotel_info.hotelID);
+			WindowGrab.startWindowWithBundle(window, "酒店评价列表", EVALUATION_FXML, EVALUATION_CSS,
+					new EvaluationBundle(evaluationVOs));
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+
 	}
 
 	@FXML

@@ -1,30 +1,32 @@
 package presentation.bundle;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
-import vo.order.OrderVO;
+import vo.hotel.HotelEvaluationVO;
 
 public class EvaluationBundle extends ResourceBundle {
-	
-	private OrderVO order;
-	private final static String INFO = "order_info";
 
-	public EvaluationBundle(OrderVO order) {
+	private ArrayList<HotelEvaluationVO> evaluations;
+	private final static String EVA = "evaluations";
+
+	public EvaluationBundle(ArrayList<HotelEvaluationVO> evaluations) {
 		super();
-		this.order = order;
+		this.evaluations = evaluations;
 	}
 
 	@Override
 	protected Object handleGetObject(String key) {
-		if(INFO.equals(key)) {
-			return order;
+		if (EVA.equals(key)) {
+			return evaluations;
 		}
 		return null;
 	}
 
 	@Override
 	public Enumeration<String> getKeys() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

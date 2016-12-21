@@ -111,7 +111,7 @@ public class Hotel {
 	 * @throws RemoteException
 	 *             : Net Error
 	 */
-	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
+	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
 		Iterator<HotelEvaluationPO> iterator = hotel_data_service.getHotelEvaluation(hotelID);
 		ArrayList<HotelEvaluationVO> evaluationVOs = new ArrayList<>();
 		int count = 0;
@@ -121,7 +121,7 @@ public class Hotel {
 			HotelEvaluationVO each = new HotelEvaluationVO(iterator.next());
 			evaluationVOs.add(each);
 		}
-		return evaluationVOs.iterator();
+		return evaluationVOs;
 	}
 
 	/**

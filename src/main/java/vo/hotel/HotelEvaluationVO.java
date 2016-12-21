@@ -4,9 +4,29 @@
  */
 package vo.hotel;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import po.hotel.HotelEvaluationPO;
 
 public class HotelEvaluationVO {
+	
+	private StringProperty order_property;
+	private StringProperty evaluation_property;
+	private IntegerProperty score_property;
+	
+	public StringProperty getOrder_property() {
+		return order_property;
+	}
+	
+	public StringProperty getEvaluation_property() {
+		return evaluation_property;
+	}
+	
+	public IntegerProperty getScore_property() {
+		return score_property;
+	}
 
 	/**
 	 * 被评论酒店id
@@ -50,6 +70,9 @@ public class HotelEvaluationVO {
 		this.evaluateTime = evaluateTime;
 		this.evaluateScore = evaluateScore;
 		this.evaluateInfo = evaluateInfo;
+		order_property = new SimpleStringProperty(orderID);
+		evaluation_property = new SimpleStringProperty(evaluateInfo);
+		score_property = new SimpleIntegerProperty(evaluateScore);
 	}
 
 

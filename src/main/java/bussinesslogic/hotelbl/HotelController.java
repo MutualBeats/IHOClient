@@ -1,7 +1,6 @@
 package bussinesslogic.hotelbl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import bussinesslogic.orderbl.HotelInfo;
 import bussinesslogic.userbl.manager.entrust.HotelAdd;
@@ -41,7 +40,7 @@ public class HotelController implements HotelBLService, HotelAdd, HotelInfo {
 	}
 
 	@Override
-	public Iterator<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
+	public ArrayList<HotelEvaluationVO> getHotelEvalutions(String hotelID) throws NetException {
 		return hotel.getHotelEvalutions(hotelID);
 	}
 

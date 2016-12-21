@@ -45,6 +45,6 @@
 			</columns>
 		</TableView>
 		<ComboBox fx:id="hotel_star" disable="true" layoutX="430.0" layoutY="40.0" prefHeight="27.0" prefWidth="150.0" />
-      <Button fx:id="check_evaluate" layoutX="360.0" layoutY="445.0" mnemonicParsing="false" prefWidth="70.0" />
+      <Button fx:id="check_evaluate" layoutX="360.0" layoutY="445.0" mnemonicParsing="false" onAction="#evaluations_look" prefWidth="70.0" />
 	</children>
 </AnchorPane>

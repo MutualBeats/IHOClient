@@ -20,7 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.stage.Window;
-import presentation.bundle.EvaluationBundle;
+import presentation.bundle.EvaluatedOrderBundle;
 import presentation.bundle.OrderInfoBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
@@ -244,7 +244,7 @@ public class BrowseOrderController implements Initializable, Confirm {
 			OrderVO vo = order_list.getSelectionModel().getSelectedItem();
 			if (!vo.isEvaluate) {
 				// 检查是否为未评价
-				ResourceBundle bundle = new EvaluationBundle(null);
+				ResourceBundle bundle = new EvaluatedOrderBundle(null);
 				WindowGrab.startWindowWithBundle(window, "评价酒店", ClientUIURLConfig.client_evaluate_hotel_fxml_url(),
 						ClientUIURLConfig.client_evaluate_hotel_css_url(), bundle);
 			} else {
