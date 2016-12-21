@@ -25,6 +25,7 @@
 		<fxml fxml_path="fxml/order_information.fxml"></fxml>
 		<css css_path="css/order_information.css"></css>
 	</order_info>
+	
 	<!-- This is Client UI config -->
 	<client root_path="clientui/">
 	<!-- Browse order-->
@@ -107,16 +108,11 @@
 
 	<!-- This is Staff UI config -->
 	<staff root_path="staffui/">
-		<!-- enterprise inpit -->
+		<!-- enterprise input -->
 		<enterprise_input>
 			<fxml fxml_path="fxml/enterprise_input.fxml"></fxml>
 			<css css_path="css/enterprise_input.css"></css>
 		</enterprise_input>
-		<!-- Hotel maintain confirm -->
-		<hotel_maintain_confirm>
-			<fxml fxml_path="fxml/hotel_maintain_confirm.fxml"></fxml>
-			<css css_path="css/hotel_maintain_confirm.css"></css>
-		</hotel_maintain_confirm>
 		<!-- Hotel promotion change-->
 		<hotel_promotion_change>
 			<fxml fxml_path="fxml/hotel_promotion_change.fxml"></fxml>

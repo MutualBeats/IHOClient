@@ -27,12 +27,6 @@ public class StaffUIURLConfig {
 	
 	private static String ENTERPRISE_INPUT_CSS;
 	
-	//Staff : Hotel maintain confirm
-	
-	private static String HOTEL_MAINTAIN_CONFIRM_FXML;
-	
-	private static String HOTEL_MAINTAIN_CONFIRM_CSS;
-	
 	//Staff : Hotel promotion change
 	
 	private static String HOTEL_PROMOTION_CHANGE_FXML;
@@ -146,7 +140,6 @@ public class StaffUIURLConfig {
 		String staff_root = staff.attributeValue("root_path");
 		
 		Element enterprise_input = staff.element("enterprise_input");
-		Element hotel_maintain_confirm = staff.element("hotel_maintain_confirm");
 		Element hotel_promotion_change = staff.element("hotel_promotion_change");
 		Element hotel_promotion_check = staff.element("hotel_promotion_check");
 		Element hotel_promotion_create = staff.element("hotel_promotion_create");
@@ -170,12 +163,6 @@ public class StaffUIURLConfig {
 		css = enterprise_input.element("css");
 		ENTERPRISE_INPUT_FXML = staff_root + fxml.attributeValue(FXML_PATH);
 		ENTERPRISE_INPUT_CSS = staff_root + css.attributeValue(CSS_PATH);
-		
-		//Hotel maintain confirm
-		fxml = hotel_maintain_confirm.element("fxml");
-		css = hotel_maintain_confirm.element("css");
-		HOTEL_MAINTAIN_CONFIRM_FXML = staff_root + fxml.attributeValue(FXML_PATH);
-		HOTEL_MAINTAIN_CONFIRM_CSS = staff_root + css.attributeValue(CSS_PATH);
 		
 		//Hotel Promotion Change
 		fxml = hotel_promotion_change.element("fxml");
@@ -275,24 +262,6 @@ public class StaffUIURLConfig {
 	public static URL staff_enterprise_input_css_url(){
 		try {
 			return new URL(path_combine(ENTERPRISE_INPUT_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_hotel_maintain_confirm_fxml_url(){
-		try {
-			return new URL(path_combine(HOTEL_MAINTAIN_CONFIRM_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_hotel_maintain_confirm_css_url(){
-		try {
-			return new URL(path_combine(HOTEL_MAINTAIN_CONFIRM_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

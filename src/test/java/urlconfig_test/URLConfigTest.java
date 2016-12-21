@@ -70,8 +70,6 @@ public class URLConfigTest {
 	public void StaffUIURLConfigTest() throws MalformedURLException{
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/enterprise_input.fxml"), StaffUIURLConfig.staff_enterprise_input_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/enterprise_input.css"), StaffUIURLConfig.staff_enterprise_input_css_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_maintain_confirm.fxml"), StaffUIURLConfig.staff_hotel_maintain_confirm_fxml_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/css/hotel_maintain_confirm.css"), StaffUIURLConfig.staff_hotel_maintain_confirm_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_change.fxml"), StaffUIURLConfig.staff_hotel_promotion_change_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_change.css"), StaffUIURLConfig.staff_hotel_promotion_change_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_check.fxml"), StaffUIURLConfig.staff_hotel_promotion_check_fxml_url());
