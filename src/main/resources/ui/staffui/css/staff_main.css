@@ -45,10 +45,6 @@
 	-fx-background-image:url("file:src/main/resources/image/staff/hotel_promotion_hover.png");
 }
 
-#pane{
-	-fx-background-image:url("file:src/main/resources/image/staff/transpent.png");
-}
-
 #peopleInfo{
 	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
 }

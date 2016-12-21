@@ -1,5 +1,6 @@
 package presentation.staffui.hotelmessagemanage;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,6 +8,7 @@ import bussinesslogic.controllerfactory.ControllerFactory;
 import config.location.City;
 import config.location.Field;
 import config.location.Province;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,6 +59,39 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	@FXML
 	private Label region_warning;
 		
+	//酒店促销策略
+    private static URL HOTEL_PROMOTION_FXML;
+    private static URL HOTEL_PROMOTION_CSS;
+    
+    //房间管理
+    private static URL ROOM_MANAGE_FXML;
+    private static URL ROOM_MANAGE_CSS;
+    
+    //订单管理
+    private static URL ORDER_MANAGE_FXML;
+    private static URL ORDER_MANAGE_CSS;
+    
+	
+	 //人员信息
+    private static URL MENU_FXML;
+	private static URL MENU_CSS;
+	
+	static{
+    	try {
+    		MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
+    		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");
+    		
+    		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
+    		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
+
+    		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+    		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+
+
+    	} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+    }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
@@ -124,10 +159,6 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		WindowGrab.startModifyConfirmWindow(window, this);
 	}
 
-	@FXML
-	void cancel(ActionEvent event) {
-		WindowGrab.closeWindow(event);
-	}
 	
 	@FXML
 	public void hotelNameModify() {
@@ -169,4 +200,24 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		}
 	}
 
+
+	//界面跳转
+	 @FXML
+	 void manageOrder(ActionEvent event) {
+		 WindowGrab.changeScene(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, event);
+	 }	
+
+	 @FXML
+	 void hotelPromotion(ActionEvent event) {
+		 WindowGrab.changeScene(HOTEL_PROMOTION_FXML, HOTEL_PROMOTION_CSS, event);
+	 }
+
+	@FXML
+	void peopleInfo(ActionEvent event) {
+		WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
+	}
+	@FXML
+    void room(ActionEvent event) {
+		WindowGrab.changeScene(ROOM_MANAGE_FXML, ROOM_MANAGE_CSS, event);
+    }
 }

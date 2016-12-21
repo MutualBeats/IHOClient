@@ -1,0 +1,37 @@
+
+.root{
+  -fx-background-image: url("file:src/main/resources/image/client/background.png");
+ }
+ 
+.button{
+	-fx-background-color: transparent;
+}
+
+#back{
+	-fx-background-image: url("file:src/main/resources/image/client/cancel.png");
+}
+#back:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/cancel_hover.png");
+}
+
+#check{
+	-fx-background-image: url("file:src/main/resources/image/client/checkOrder.png");
+}
+#check:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/checkOrder_hover.png");
+}
+
+#order{
+	-fx-background-image: url("file:src/main/resources/image/client/advance.png");
+}
+#order:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/advance_hover.png");
+}
+
+#check_evaluate{
+	-fx-background-image: url("file:src/main/resources/image/client/check_evaluate.png");
+}
+#check_evaluate:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/check_evaluate_hover.png");
+}
+

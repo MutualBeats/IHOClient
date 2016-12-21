@@ -92,27 +92,23 @@ public class MainStaffController implements Initializable{
     
     @FXML
     void maintainMessage(ActionEvent event) {
-    	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, "酒店信息", MAINTAIN_HOTEL_FXML, MAINTAIN_HOTEL_CSS);
+    	WindowGrab.changeScene(MAINTAIN_HOTEL_FXML, MAINTAIN_HOTEL_CSS, event);
     }
 
     @FXML
     void manageOrder(ActionEvent event) {
-		Window owner = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(owner, "酒店订单管理", ORDER_MANAGE_FXML, ORDER_MANAGE_CSS);
+		WindowGrab.changeScene( ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, event);
 
     }
 
     @FXML
     void manageRoom(ActionEvent event) {
-    	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, "管理房间",ROOM_MANAGE_FXML, ROOM_MANAGE_CSS);
+    	WindowGrab.changeScene(ROOM_MANAGE_FXML, ROOM_MANAGE_CSS, event);
     }
 
     @FXML
     void hotelPromotion(ActionEvent event) {
-    	Window owner = WindowGrab.getWindow(event);
-    	WindowGrab.startWindow(owner, "酒店促销策略", HOTEL_PROMOTION_FXML, HOTEL_PROMOTION_CSS);
+    	WindowGrab.changeScene( HOTEL_PROMOTION_FXML, HOTEL_PROMOTION_CSS, event);
     }
 
 

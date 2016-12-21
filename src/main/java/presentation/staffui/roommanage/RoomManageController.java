@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.roomblservice.RoomBLService;
+import config.urlconfig.StaffUIURLConfig;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,7 +58,22 @@ public class RoomManageController implements Initializable, UpdateRoom {
     private Button create;
 
     @FXML
-    private Button look;
+    private Button check;
+    
+    @FXML
+    private Button peopleInfo;
+
+    @FXML
+    private Button hotel_message;
+    
+    @FXML
+    private Button room;
+    
+    @FXML
+    private Button promotion;
+
+    @FXML
+    private Button order;
     
     private static URL ROOM_CREATE_FXML;
     private static URL ROOM_CREATE_CSS;
@@ -67,7 +83,22 @@ public class RoomManageController implements Initializable, UpdateRoom {
     
     private static URL ROOM_UPDATE_FXML;
     private static URL ROOM_UPDATE_CSS;
+    //人员信息界面
+    private static URL MENU_FXML;
+    private static URL MENU_CSS;
     
+  //酒店促销策略
+    private static URL HOTEL_PROMOTION_FXML;
+    private static URL HOTEL_PROMOTION_CSS;
+    
+  //订单管理
+    private static URL ORDER_MANAGE_FXML;
+    private static URL ORDER_MANAGE_CSS;
+    
+  //酒店信息管理
+    private static URL MAINTAIN_HOTEL_FXML;
+	private static URL MAINTAIN_HOTEL_CSS;
+	
     static{
     	try {
     		ROOM_CREATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_create.fxml");
@@ -78,6 +109,19 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		
     		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
     		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
+    		
+    		MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
+    		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");
+    		
+    		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
+    		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
+
+    		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+    		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+
+    		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
+    		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
+
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +161,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     }
 
     @FXML
-    void look(ActionEvent event) {
+    void check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
     	RoomVO roomVO = room_list.getSelectionModel().getSelectedItem();
     	if(roomVO == null) {
@@ -138,4 +182,25 @@ public class RoomManageController implements Initializable, UpdateRoom {
 		room_list.getItems().add(0, room);
 	}
 
+	
+	//界面跳转
+	@FXML
+    void peopleInfo(ActionEvent event) {
+		WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
+    }
+
+    @FXML
+    void hotelPromotion(ActionEvent event) {
+    	WindowGrab.changeScene(HOTEL_PROMOTION_FXML, HOTEL_PROMOTION_CSS, event);
+    }
+
+    @FXML
+    void manageOrder(ActionEvent event) {
+    	WindowGrab.changeScene(ORDER_MANAGE_FXML, ORDER_MANAGE_CSS, event);
+    }
+
+    @FXML
+    void maintainMessage(ActionEvent event) {
+    	WindowGrab.changeScene(MAINTAIN_HOTEL_FXML, MAINTAIN_HOTEL_CSS, event);
+    }
 }

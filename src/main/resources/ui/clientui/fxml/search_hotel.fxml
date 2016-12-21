@@ -10,12 +10,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="presentation.clientui.searchhotel.SearchHotelController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.searchhotel.SearchHotelController">
 	<children>
-		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0"
-			prefWidth="200.0" />
+		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
 		<Line endX="700.0" layoutX="50.0" layoutY="280.0" />
 		<Pane layoutX="20.0" layoutY="58.0" prefHeight="234.0" prefWidth="760.0">
 			<children>
@@ -24,73 +21,43 @@
 						<Font size="15.0" />
 					</font>
 				</Label>
-				<ComboBox fx:id="province" layoutX="90.0" layoutY="31.0"
-					prefWidth="120.0" promptText="省" />
-				<ComboBox fx:id="city" layoutX="274.0" layoutY="31.0"
-					prefWidth="120.0" promptText="市" />
-				<ComboBox fx:id="field" layoutX="460.0" layoutY="31.0"
-					prefWidth="120.0" promptText="县" />
-				<ComboBox fx:id="group" layoutX="90.0" layoutY="81.0"
-					prefWidth="120.0" promptText="商圈" />
+				<ComboBox fx:id="province" layoutX="90.0" layoutY="31.0" prefWidth="120.0" promptText="省" />
+				<ComboBox fx:id="city" layoutX="274.0" layoutY="31.0" prefWidth="120.0" promptText="市" />
+				<ComboBox fx:id="field" layoutX="460.0" layoutY="31.0" prefWidth="120.0" promptText="县" />
+				<ComboBox fx:id="group" layoutX="90.0" layoutY="81.0" prefWidth="120.0" promptText="商圈" />
 				<Label layoutX="90.0" layoutY="126.0" text="预计入住时间 :" />
-				<DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0"
-					prefWidth="150.0" />
+				<DatePicker fx:id="es_in" layoutX="200.0" layoutY="121.0" prefWidth="150.0" />
 				<Label layoutX="400.0" layoutY="126.0" text="预计离开时间 :" />
-				<DatePicker fx:id="es_leave" layoutX="510.0" layoutY="121.0"
-					prefWidth="150.0" />
+				<DatePicker fx:id="es_leave" layoutX="510.0" layoutY="121.0" prefWidth="150.0" />
 				<Label layoutX="90.0" layoutY="157.0" text="酒店名称 :" />
-				<TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0"
-					prefWidth="100.0" />
+				<TextField fx:id="hotel_name" layoutX="200.0" layoutY="152.0" prefWidth="100.0" />
 				<Label layoutX="400.0" layoutY="157.0" text="评分 :" />
-				<TextField fx:id="score" layoutX="510.0" layoutY="152.0"
-					prefWidth="100.0" />
+				<TextField fx:id="score" layoutX="510.0" layoutY="152.0" prefWidth="100.0" />
 				<Label layoutX="90.0" layoutY="188.0" text="最低价格 :" />
-				<TextField fx:id="low_price" layoutX="200.0" layoutY="183.0"
-					prefWidth="100.0" />
+				<TextField fx:id="low_price" layoutX="200.0" layoutY="183.0" prefWidth="100.0" />
 				<Label layoutX="400.0" layoutY="188.0" text="最高价格 :" />
-				<TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0"
-					prefWidth="100.0" />
-				<Button fx:id="search" layoutX="653.0" layoutY="182.0"
-					mnemonicParsing="false" onAction="#on_search" prefHeight="30.0"
-					prefWidth="60.0" />
-				<ComboBox fx:id="star" layoutX="275.0" layoutY="81.0"
-					prefWidth="120.0" promptText="星级" />
-				<ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0"
-					prefWidth="120.0" promptText="房间类型" />
-				<RadioButton fx:id="all" layoutX="633.0" layoutY="36.0"
-					mnemonicParsing="false" text="全部酒店" />
-				<RadioButton fx:id="history" layoutX="633.0" layoutY="86.0"
-					mnemonicParsing="false" text="历史酒店" />
+				<TextField fx:id="hi_price" layoutX="510.0" layoutY="183.0" prefWidth="100.0" />
+				<Button fx:id="search" layoutX="653.0" layoutY="182.0" mnemonicParsing="false" onAction="#on_search" prefHeight="30.0" prefWidth="60.0" />
+				<ComboBox fx:id="star" layoutX="275.0" layoutY="81.0" prefWidth="120.0" promptText="星级" />
+				<ComboBox fx:id="room_type" layoutX="460.0" layoutY="81.0" prefWidth="120.0" promptText="房间类型" />
+				<RadioButton fx:id="all" layoutX="633.0" layoutY="36.0" mnemonicParsing="false" text="全部酒店" />
+				<RadioButton fx:id="history" layoutX="633.0" layoutY="86.0" mnemonicParsing="false" text="历史酒店" />
 			</children>
 		</Pane>
-		<Button fx:id="info_look" layoutX="675.0" layoutY="564.0"
-			mnemonicParsing="false" onAction="#info_look" prefHeight="30.0"
-			prefWidth="60.0" />
-		<Button fx:id="back" layoutX="675.0" layoutY="20.0"
-			mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="60.0" />
-		<TableView fx:id="hotel_list" layoutX="50.0" layoutY="300.0"
-			prefHeight="254.0" prefWidth="701.0">
+		<Button fx:id="info_look" layoutX="675.0" layoutY="564.0" mnemonicParsing="false" onAction="#info_look" prefHeight="30.0" prefWidth="60.0" />
+		<Button fx:id="back" layoutX="675.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="60.0" />
+		<TableView fx:id="hotel_list" layoutX="50.0" layoutY="300.0" prefHeight="254.0" prefWidth="701.0">
 			<columns>
-				<TableColumn fx:id="hotel_name_col" editable="false"
-					prefWidth="190.0" resizable="false" text="酒店名称" />
-				<TableColumn fx:id="province_col" editable="false"
-					resizable="false" text="省" />
-				<TableColumn fx:id="city_col" editable="false"
-					resizable="false" text="市" />
-				<TableColumn fx:id="field_col" editable="false"
-					resizable="false" text="县" />
-				<TableColumn fx:id="group_col" editable="false"
-					prefWidth="100.0" resizable="false" text="商圈" />
-				<TableColumn fx:id="star_col" editable="false"
-					prefWidth="55.0" resizable="false" text="星级" />
-				<TableColumn fx:id="score_col" editable="false"
-					prefWidth="55.0" resizable="false" text="评分" />
-				<TableColumn fx:id="book_before" editable="false"
-					prefWidth="60.0" resizable="false" text="曾预定" />
+				<TableColumn fx:id="hotel_name_col" editable="false" prefWidth="190.0" resizable="false" text="酒店名称" />
+				<TableColumn fx:id="province_col" editable="false" resizable="false" text="省" />
+				<TableColumn fx:id="city_col" editable="false" resizable="false" text="市" />
+				<TableColumn fx:id="field_col" editable="false" resizable="false" text="县" />
+				<TableColumn fx:id="group_col" editable="false" prefWidth="100.0" resizable="false" text="商圈" />
+				<TableColumn fx:id="star_col" editable="false" prefWidth="55.0" resizable="false" text="星级" />
+				<TableColumn fx:id="score_col" editable="false" prefWidth="55.0" resizable="false" text="评分" />
+				<TableColumn fx:id="book_before" editable="false" prefWidth="60.0" resizable="false" text="曾预定" />
 			</columns>
 		</TableView>
-		<Button fx:id="make_order" layoutX="585.0" layoutY="564.0"
-			mnemonicParsing="false" onAction="#make_order" prefHeight="30.0"
-			prefWidth="60.0" />
+		<Button fx:id="make_order" layoutX="585.0" layoutY="560.0" mnemonicParsing="false" onAction="#make_order" prefHeight="30.0" prefWidth="60.0" />
 	</children>
 </AnchorPane>

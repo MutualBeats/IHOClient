@@ -17,3 +17,37 @@ and open the template in the editor.
 	-fx-background-color:transparent;
 	-fx-background-radius: 3px; 
 }
+
+
+#room{
+	-fx-background-image:url("file:src/main/resources/image/staff/room_hover.png");	
+}
+
+#hotel_message{
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_message.png");	
+}
+#hotel_message:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_message_hover.png");
+}
+
+#order{
+	-fx-background-image:url("file:src/main/resources/image/staff/order.png");	
+}
+#order:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/order_hover.png");
+}
+
+#promotion{
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_promotion.png");	
+}
+#promotion:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/hotel_promotion_hover.png");
+}
+
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}
+
+#peopleInfo:hover{
+	-fx-background-image:url("file:src/main/resources/image/market/peopleInfo_hover.png");	
+}

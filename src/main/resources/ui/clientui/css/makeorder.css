@@ -1,4 +1,21 @@
 .root{
 	-fx-background-image: url("file:src/main/resources/image/client/background.png");
 }
+.button{
+	-fx-background-color: transparent;
+}
+#back{
+	-fx-background-image: url("file:src/main/resources/image/client/return.png");
+}
 
+#back:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/return_hover.png");
+}
+
+#make{
+	-fx-background-image: url("file:src/main/resources/image/client/makeOrder.png");
+}
+
+#make:hover{
+	-fx-background-image: url("file:src/main/resources/image/client/makeOrder_hover.png");
+}

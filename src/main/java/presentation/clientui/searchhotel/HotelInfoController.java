@@ -82,6 +82,9 @@ public class HotelInfoController implements Initializable {
 	private Button back;
 
 	private HotelVO hotel_info;
+	
+	@FXML
+    private Button check_evaluate;
 
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
