@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="435.0" prefWidth="586.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="presentation.clientui.evaluatehotel.EvaluateController">
+	fx:controller="presentation.clientui.evaluatehotel.EvaluationsInfo">
 	<children>
 		<TableView fx:id="evaluation_list" layoutX="14.0" layoutY="14.0"
 			prefHeight="368.0" prefWidth="559.0">
