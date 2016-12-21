@@ -95,6 +95,8 @@ public class RoomManageController implements Initializable, UpdateRoom {
     private static URL ORDER_MANAGE_FXML;
     private static URL ORDER_MANAGE_CSS;
     
+	RoomBLService roomBLService;
+    
   //酒店信息管理
     private static URL MAINTAIN_HOTEL_FXML;
 	private static URL MAINTAIN_HOTEL_CSS;
@@ -122,6 +124,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
     		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
 
+    		
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -131,14 +134,18 @@ public class RoomManageController implements Initializable, UpdateRoom {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			roomBLService = ControllerFactory.getRoomBLServiceInstance();
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+		}
 		refresh(null);
 	}
 	
 	@FXML
 	void refresh(ActionEvent event) {
 		try {
-			RoomBLService roomBL = ControllerFactory.getRoomBLServiceInstance();
-			ArrayList<RoomVO> roomVOList = roomBL.getRoomList(UserCache.getHotelID());
+			ArrayList<RoomVO> roomVOList = roomBLService.getRoomList(UserCache.getHotelID());
 			list.clear();
 			list.addAll(roomVOList);
 			room_list.setItems(list);
