@@ -657,7 +657,7 @@ public class Order {
 		// 会员等级折扣
 		double memberDiscount = promotion.getDiscount(vipLevel);
 		// 折扣后价格计算
-		orderVO.value = value * (promotionDiscount * 0.1) * (memberDiscount * 0.1);
+		orderVO.value = (int)(value * (promotionDiscount * 0.1) * (memberDiscount * 0.1) * 100) / 100.0;
 
 		// 数据库记录订单信息，获取订单号
 		OrderPO po = new OrderPO(orderVO);

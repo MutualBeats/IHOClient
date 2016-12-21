@@ -12,12 +12,18 @@ import vo.order.OrderVO;
 public interface OrderBLService {
 	
 	/**
+	 * 获取未生成订单具体信息
+	 * @param vo
+	 * @return
+	 */
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo);
+	/**
 	 * 添加订单
 	 * 
 	 * @param vo
-	 * @return OrderVO
+	 * @return
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException;
+	public String makeOrder(OrderVO vo) throws NetException, TimeConflictException;
 	/**
 	 * 撤销订单
 	 * 
