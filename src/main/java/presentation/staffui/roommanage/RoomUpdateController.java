@@ -69,7 +69,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(3);
+		Window window = WindowGrab.getWindowByStage(2);
 		
 		String checkInDate = check_in_date.getEditor().getText();
 		String checkOutDate = estimate_check_out_date.getEditor().getText();
@@ -80,7 +80,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 			switch (result) {
 			case Record_Add_Successful:
 				WindowGrab.closeWindow(window);
-				window = WindowGrab.getWindowByStage(2);
+				window = WindowGrab.getWindowByStage(1);
 				// 房间记录列表添加
 				updateRoomRecord.update(roomRecord);
 				WindowGrab.startNoticeWindow(window, "添加成功");

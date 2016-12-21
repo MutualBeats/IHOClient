@@ -1,11 +1,14 @@
 package bl_test.orderbl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import bussinesslogic.orderbl.Order;
+import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
@@ -16,11 +19,7 @@ public class OrderBlTest {
 
 	@Before
 	public void init() {
-		try {
-			order = new Order();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		order = new Order();
 	}
 	
 	@Test
@@ -53,9 +52,9 @@ public class OrderBlTest {
 		ResultMessage_Order res;
 		try {
 			// 订单号不存在情形
-			res = order.cancelOrder("abc");
+			res = order.cancelOrder("invalid");
 			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
-			// TODO 订单状态错误情形
+			// 订单状态错误情形
 //			res = order.cancelOrder("");
 //			assertEquals(ResultMessage_Order.Order_State_Error, res);
 			// 正常情形（不扣除信用，仅可测试一次）测试通过
@@ -71,18 +70,13 @@ public class OrderBlTest {
 			e.printStackTrace();
 		}
 	}
-//
-//	@Test
-//	public void testMake() {
-//		// TODO
-//	}
-//
+
 	@Test
 	public void testExecute() {
 		ResultMessage_Order res;
 		try {
 			// 订单号不存在情形
-			res = order.executeOrder("abc");
+			res = order.executeOrder("invalid");
 			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
 			// 订单状态错误情形
 //			res = order.executeOrder("1");
@@ -97,45 +91,52 @@ public class OrderBlTest {
 			e.printStackTrace();
 		}
 	}
-//
-//	@Test
-//	public void testPutUp() {
-//		// TODO
-//		ResultMessage_Order res;
-//		try {
-//			// 订单号不存在情形
-//			res = order.putUpOrder("abc");
-//			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
+
+	@Test
+	public void testPutUp() {
+		ResultMessage_Order res;
+		try {
+			// 订单号不存在情形
+			res = order.putUpOrder("invalid");
+			assertEquals(ResultMessage_Order.Order_Not_Exist, res);
 //			// 订单状态错误情形
 //			res = order.putUpOrder("1");
 //			assertEquals(ResultMessage_Order.Order_State_Error, res);
 //			// 时间错误情形
 //			res = order.putUpOrder("4");
 //			assertEquals(ResultMessage_Order.Date_Error, res);
-//			// TODO 房间已被预订情形
-//			
-//			// 正常情形（测试已完成，仅可测试一次）
-////			res = order.putUpOrder("5");
-////			OrderVO newVO = order.queryOrderById("5");
-////			assertEquals(OrderState.Execute, newVO.orderState);
-////			assertEquals("", newVO.finishTime);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
+			// 房间已被预订情形
+			
+			// 正常情形（测试已完成，仅可测试一次）
+//			res = order.putUpOrder("5");
+//			OrderVO newVO = order.queryOrderById("5");
+//			assertEquals(OrderState.Execute, newVO.orderState);
+//			assertEquals("", newVO.finishTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 //	@Test
 //	public void testFinish() {
-//		// TODO
+//		
 //	}
-//
-//	@Test
-//	public void testQueryOrder() {
-//		try {
-//			// TODO
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	
+	@Test
+	public void testQueryOrder() {
+		try {
+			// 订单号不存在情形
+			OrderVO orderVO = order.queryOrderById("invalid");
+			assertNull(orderVO);
+			// 客户订单
+			ArrayList<OrderVO> orderList = order.queryUserOrder("0000000001", OrderState.All);
+			assertNotNull(orderList);
+			if(orderList.size() == 0)
+				fail();
+			
+		} catch (Exception e) {
+			
+		}
+	}
 
 }

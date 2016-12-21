@@ -48,9 +48,9 @@
       <Label layoutX="194.0" layoutY="291.0" text="酒店所属县 :" />
       <ComboBox fx:id="city" layoutX="554.0" layoutY="240.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
       <ComboBox fx:id="field" layoutX="288.0" layoutY="286.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="346.0" prefHeight="100.0" prefWidth="70.0" textFill="#e40c0c" />
-      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="145.0" prefHeight="70.0" prefWidth="70.0" textFill="#e40c0c" />
-      <Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="710.0" layoutY="240.0" prefHeight="100.0" prefWidth="70.0" textFill="#e40c0c" />
+      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="632.0" layoutY="490.0" prefHeight="30.0" prefWidth="127.0" textFill="#e40c0c" />
+      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="372.0" layoutY="217.0" prefHeight="27.0" prefWidth="106.0" textFill="#e40c0c" />
+      <Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="593.0" layoutY="313.0" prefHeight="27.0" prefWidth="141.0" textFill="#e40c0c" />
       <Button fx:id="hotel_message" layoutX="35.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
       <Button fx:id="order" layoutX="35.0" layoutY="220.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="30.0" prefWidth="100.0" />
       <Button fx:id="room" layoutX="35.0" layoutY="270.0" mnemonicParsing="false" onAction="#room" prefHeight="30.0" prefWidth="100.0" />

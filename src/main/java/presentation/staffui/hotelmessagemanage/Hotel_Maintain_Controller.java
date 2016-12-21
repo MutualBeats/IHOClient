@@ -87,6 +87,8 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
     		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
     		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
 
+    		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
+    		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_enterprise_input_css_url();
 
     	} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -145,18 +147,17 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		boolean region_in = CheckUtil.checkSelect(province) && CheckUtil.checkSelect(city) && CheckUtil.checkSelect(field) && CheckUtil.checkSelect(group);
 		if (!name_in) {
 			name_warning.setText("请输入酒店名称");
-			return;
 		}
 		if (!adress_in) {
 			address_warning.setText("请输入地址");
-			return;
 		}
 		if (!region_in) {
 			region_warning.setText("请选择完整地址商圈");
-			return;
 		}
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startModifyConfirmWindow(window, this);
+		if (name_in && adress_in && region_in) {
+			Window window = WindowGrab.getWindow(event);
+			WindowGrab.startModifyConfirmWindow(window, this);
+		}
 	}
 
 	
