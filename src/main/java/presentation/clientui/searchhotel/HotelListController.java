@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import bussinesslogic.controllerfactory.ControllerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,13 +14,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
-import presentation.bundle.HotelInfoBundle;
+import presentation.clientui.utilui.ViewUtil;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
-import util.UserCache;
-import util.exception.NetException;
 import vo.hotel.HotelVO;
-import vo.order.OrderVO;
 
 public class HotelListController implements Initializable {
 
@@ -52,16 +48,16 @@ public class HotelListController implements Initializable {
 	@FXML
 	private Label title;
 
-	private static URL HOTEL_FXML;
-	private static URL HOTEL_CSS;
+//	private static URL HOTEL_FXML;
+//	private static URL HOTEL_CSS;
 
 	private static URL CLIENTMENU_FXML;
 	private static URL CLIENTMENU_CSS;
 
 	static {
 		try {
-			HOTEL_FXML = new URL("file:src/main/resources/ui/clientui/fxml/hotel_info.fxml");
-			HOTEL_CSS = new URL("file:src/main/resources/ui/clientui/css/hotel_info.css");
+//			HOTEL_FXML = new URL("file:src/main/resources/ui/clientui/fxml/hotel_info.fxml");
+//			HOTEL_CSS = new URL("file:src/main/resources/ui/clientui/css/hotel_info.css");
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS = new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
 		} catch (MalformedURLException e) {
@@ -74,14 +70,7 @@ public class HotelListController implements Initializable {
 		Window window = WindowGrab.getWindow(event);
 		if (CheckUtil.checkSelect(hotel_list)) {
 			HotelVO hotel = hotel_list.getSelectionModel().getSelectedItem();
-			try {
-				ArrayList<OrderVO> order_list = ControllerFactory.getOrderBLServiceInstance()
-						.queryOrderByHotel(hotel.hotelID, UserCache.getID());
-				HotelInfoBundle bundle = new HotelInfoBundle(hotel, order_list);
-				WindowGrab.startWindowWithBundle(window, "", HOTEL_FXML, HOTEL_CSS, bundle);
-			} catch (NetException e) {
-				WindowGrab.startNetErrorWindow(window);
-			}
+			ViewUtil.showHotelInfo(hotel, window);
 		} else {
 			WindowGrab.startNoticeWindow(window, "请选择你要查看的酒店信息");
 		}

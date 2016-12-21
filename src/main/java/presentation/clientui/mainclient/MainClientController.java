@@ -7,18 +7,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javax.swing.text.View;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Window;
+import presentation.bundle.HotelInfoBundle;
 import presentation.bundle.HotelListBundle;
 import presentation.bundle.InformationBundle;
 import presentation.bundle.OrderListBundle;
 import presentation.clientui.utilui.SearchView;
+import presentation.clientui.utilui.ViewUtil;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -124,6 +129,13 @@ public class MainClientController extends SearchView {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
+		hotel_one.setUserData("00000001");
+		hotel_two.setUserData("00000002");
+		hotel_three.setUserData("00000003");
+		hotel_four.setUserData("00000004");
+		hotel_five.setUserData("00000005");
+		hotel_six.setUserData("00000006");
+		hotel_seven.setUserData("00000007");
 	}
 
 	@FXML
@@ -153,6 +165,18 @@ public class MainClientController extends SearchView {
 			ResourceBundle bundle = new OrderListBundle(total_list, finish_list, unexecute_list, revoked_list,
 					exception_list);
 			WindowGrab.changeSceneWithBundle(BROWSE_ORDER_FXML, BROWSE_ORDER_CSS, frame, bundle);
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
+		}
+	}
+
+	@FXML
+	void lookHotHotel(ActionEvent event) {
+		String hot_hotel_id = (String) ((Node) event.getSource()).getUserData();
+		Window window = WindowGrab.getWindow(event);
+		try {
+			HotelVO hotel = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hot_hotel_id);
+			ViewUtil.showHotelInfo(hotel, window);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
