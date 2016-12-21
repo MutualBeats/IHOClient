@@ -66,11 +66,6 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	}
 
 	@Override
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException {
-		return order.makeOrder(vo);
-	}
-
-	@Override
 	public ArrayList<OrderVO> queryUnexecutedOrder(String date) throws NetException {
 		return order.queryUnexecutedOrder(date);
 	}
@@ -84,5 +79,20 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	public ArrayList<OrderVO> queryAbnormalOrder() throws NetException {
 		return order.queryAbnormalOrder();
 	}
+
+	@Override
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException {
+		return order.getOrderVOBeforeMake(vo);
+	}
+
+	/* (non-Javadoc)
+	 * @see bussinesslogicservice.orderblservice.OrderBLService#makeOrder(vo.order.OrderVO)
+	 */
+	@Override
+	public String makeOrder(OrderVO vo) throws NetException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

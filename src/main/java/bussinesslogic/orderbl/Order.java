@@ -599,7 +599,7 @@ public class Order {
 	 * @return OrderVO
 	 * @throws RemoteException
 	 */
-	public OrderVO makeOrder(OrderMakeVO vo) throws NetException, TimeConflictException {
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException {
 		checkClient();
 		ClientVO clientVO = client.getClientInfo(vo.clientID);
 //		if (clientVO.credit < 0)
@@ -614,7 +614,7 @@ public class Order {
 					|| vo.checkInDate.compareTo(each.estimateCheckOutDate) > 0)
 					continue;
 				// 时间重叠
-				throw new TimeConflictException();
+//				throw new TimeConflictException();
 			}
 		}
 		
@@ -679,6 +679,7 @@ public class Order {
 		
 		unexcute_cache.add(orderVO);
 		return orderVO;
+		
 	}
 
 	private void checkClient() throws NetException {

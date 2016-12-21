@@ -16,14 +16,14 @@ public interface OrderBLService {
 	 * @param vo
 	 * @return
 	 */
-	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo);
+	public OrderVO getOrderVOBeforeMake(OrderMakeVO vo) throws NetException, TimeConflictException;
 	/**
 	 * 添加订单
 	 * 
 	 * @param vo
 	 * @return
 	 */
-	public String makeOrder(OrderVO vo) throws NetException, TimeConflictException;
+	public String makeOrder(OrderVO vo) throws NetException;
 	/**
 	 * 撤销订单
 	 * 
