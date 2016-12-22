@@ -121,8 +121,7 @@ public class RoomCreateController implements Initializable, Confirm {
 			else {
 				// 成功提示 房间列表添加
 				updateRoom.update(room);
-				WindowGrab.closeWindow(WindowGrab.getWindowByStage(1));
-				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "添加成功");
+				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(1), "添加成功");
 			}
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
