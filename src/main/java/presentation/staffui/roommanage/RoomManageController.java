@@ -102,31 +102,26 @@ public class RoomManageController implements Initializable, UpdateRoom {
 	private static URL MAINTAIN_HOTEL_CSS;
 	
     static{
-    	try {
-    		ROOM_CREATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_create.fxml");
-    		ROOM_CREATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_create.css");
-    		
-    		ROOM_CHECK_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_check.fxml");
-    		ROOM_CHECK_CSS = new URL("file:src/main/resources/ui/staffui/css/room_check.css");
-    		
+    	ROOM_CREATE_FXML = StaffUIURLConfig.staff_room_create_fxml_url();
+		ROOM_CREATE_CSS = StaffUIURLConfig.staff_room_create_css_url();
+		
+		ROOM_CHECK_FXML =StaffUIURLConfig.staff_room_check_fxml_url();
+		ROOM_CHECK_CSS = StaffUIURLConfig.staff_room_check_css_url();
+		
 //    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
 //    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
-    		
-    		MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
-    		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");
-    		
-    		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
-    		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
+		
+		MENU_FXML = StaffUIURLConfig.staff_main_fxml_url();
+		MENU_CSS =  StaffUIURLConfig.staff_main_css_url();
+		
+		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
+		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
 
-    		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
-    		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
 
-    		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
-    		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
-
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+		MAINTAIN_HOTEL_FXML = StaffUIURLConfig.staff_maintain_hotel_fxml_url();
+		MAINTAIN_HOTEL_CSS = StaffUIURLConfig.staff_maintain_hotel_css_url();
     }
         
     private ObservableList<RoomVO> list = FXCollections.observableArrayList();

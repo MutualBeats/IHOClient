@@ -60,6 +60,9 @@ public class MainMarketController implements Initializable{
     @FXML
     private Button all;
     
+    @FXML
+    private Button logout;
+    
     private static URL WEB_PROMOTION_FXML;
     private static URL WEB_PROMOTION_CSS;
     
@@ -148,7 +151,10 @@ public class MainMarketController implements Initializable{
 		}
 	}
 
-    
+	@FXML
+    void logout(ActionEvent event) {
+    	WindowGrab.closeWindow(event);
+    }
 }
 
 

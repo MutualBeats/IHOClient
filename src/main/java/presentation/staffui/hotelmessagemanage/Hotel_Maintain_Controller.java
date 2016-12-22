@@ -77,22 +77,17 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	private static URL MENU_CSS;
 	
 	static{
-    	try {
-    		MENU_FXML = new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml");
-    		MENU_CSS = new URL("file:src/main/resources/ui/staffui/css/staff_main.css");
-    		
-    		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
-    		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
+    	MENU_FXML = StaffUIURLConfig.staff_main_fxml_url();
+		MENU_CSS = StaffUIURLConfig.staff_main_css_url();
+		
+		HOTEL_PROMOTION_FXML = StaffUIURLConfig.staff_hotel_promotion_fxml_url();
+		HOTEL_PROMOTION_CSS = StaffUIURLConfig.staff_hotel_promotion_css_url();
 
-    		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
-    		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
+		ORDER_MANAGE_FXML = StaffUIURLConfig.staff_order_manage_fxml_url();
+		ORDER_MANAGE_CSS = StaffUIURLConfig.staff_order_manage_css_url();
 
-    		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
-    		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_enterprise_input_css_url();
-
-    	} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
+		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_room_manage_css_url();
     }
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

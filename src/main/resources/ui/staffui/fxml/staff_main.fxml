@@ -13,7 +13,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.mainstaff.MainStaffController">
    <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0" />
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
+         <children>
+            <Button fx:id="logout" layoutX="487.0" layoutY="384.0" mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
+         </children></Pane>
       <Label fx:id="photo" layoutX="320.0" layoutY="190.0" prefHeight="70.0" prefWidth="70.0" />
       <Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0" prefWidth="80.0" />

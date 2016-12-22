@@ -45,6 +45,9 @@ public class MainStaffController implements Initializable{
     @FXML
     private Label photo;
     
+    @FXML
+    private Button logout;
+    
     //酒店促销策略
     private static URL HOTEL_PROMOTION_FXML;
     private static URL HOTEL_PROMOTION_CSS;
@@ -110,5 +113,9 @@ public class MainStaffController implements Initializable{
     	WindowGrab.changeScene( HOTEL_PROMOTION_FXML, HOTEL_PROMOTION_CSS, event);
     }
 
+    @FXML
+    void logout(ActionEvent event) {
+    	WindowGrab.closeWindow(event);
+    }
 
 }
