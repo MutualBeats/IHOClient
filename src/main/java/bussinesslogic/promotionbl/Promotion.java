@@ -137,9 +137,9 @@ public class Promotion {
 		int lv3 = memberLevel.get(2);
 		if (credit <= lv1) {
 			return 0;
-		} else if (lv1 < credit && credit <= lv2)
+		} else if (lv1 < credit && credit <= lv2) {
 			return 1;
-		else if (lv2 < credit && credit <= lv3) {
+		} else if (lv2 < credit && credit <= lv3) {
 			return 2;
 		} else {
 			return 3;

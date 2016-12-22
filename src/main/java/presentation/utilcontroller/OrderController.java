@@ -107,13 +107,12 @@ public class OrderController implements Initializable {
 		price.setText(info.value + " 元");
 		
 		ArrayList<String> rooms = info.roomNumberList;
-		String room = "";
-		for(String roomnumber : rooms) {
-			room += roomnumber + "、 " ;
+		
+		String room = rooms.get(0);
+		for(int i = 1; i < rooms.size(); i++) {
+			room += "、" + rooms.get(i);
 		}
 		room_list.setText(room);
-		
-
 		
 	}
 

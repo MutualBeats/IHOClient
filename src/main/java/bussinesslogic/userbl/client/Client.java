@@ -3,6 +3,7 @@ package bussinesslogic.userbl.client;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogic.promotionbl.MemberLevelGet;
 import dataservice.userdataservice.ClientDataService;
 import factory.datahelper.DataHelperFactory;
@@ -182,6 +183,9 @@ public class Client {
 	public void updateCacheCredit(String clientID, int credit) throws NetException {
 		if(checkCacheHit(clientID)) {
 			cache.setCredit(credit);
+			if(levelGet == null) {
+				levelGet = ControllerFactory.getMemberLevel();
+			}
 			cache.setLevel(levelGet.getLevelInfo(credit));
 		}
 	}
