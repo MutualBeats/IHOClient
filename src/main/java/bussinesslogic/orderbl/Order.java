@@ -695,9 +695,8 @@ public class Order {
 		return orderID;
 	}
 
-	/**
-	 * 接口检测
-	 */
+	/********************* 接口检测 *********************/
+	
 	private void checkClient() throws NetException {
 		if (client == null)
 			client = ControllerFactory.getClientInfoInstance();

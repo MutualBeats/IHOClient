@@ -1,6 +1,5 @@
 package presentation.staffui.hotelmessagemanage;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -89,32 +88,38 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
 		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_room_manage_css_url();
     }
+	
+	/**
+	 * 维护酒店信息界面初始化
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
 		try {
 			String hotelID = UserCache.getHotelID();
 			
+			// 酒店具体信息获取
 			HotelVO info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 			String[] region = info.region.split("\\s");
+			// 所在省份初始化
 			for(Province e_p : province.getItems()) {
 				if(e_p.getProvinceName().equals(region[0])) {
 					province.getSelectionModel().select(e_p);
 				}
 			}
-			
+			// 所在市初始化
 			for(City e_c : city.getItems()) {
 				if(e_c.getCity_name().equals(region[1])){
 					city.getSelectionModel().select(e_c);
 				}
 			}
-			
+			// 所在县初始化
 			for(Field e_f : field.getItems()) {
 				if(e_f.getField_name().equals(region[2])){
 					field.getSelectionModel().select(e_f);
 				}
 			}
-			
+			// 所在商圈初始化
 			for(String e_g : group.getItems()) {
 				if(e_g.equals(info.businessDistrict)) {
 					group.getSelectionModel().select(e_g);
@@ -123,11 +128,10 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			
 			hotel_id.setText(hotelID);
 			hotel_address.setText(info.address);
-			
 			hotel_name.setText(info.hotelName);
 			star.getSelectionModel().select(info.starLevel - 1);
-			hotel_score.setText(String.format("%.2f", info.score));
-			
+			hotel_score.setText("" + info.score);
+			// 警告信息初始化
 			name_warning.setText("");
 			address_warning.setText("");
 		} catch (NetException e) {
@@ -137,18 +141,17 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 	@FXML
 	void update(ActionEvent event) {
+		// 输入信息检测
 		boolean name_in = CheckUtil.checkText(hotel_name);
 		boolean adress_in = CheckUtil.checkText(hotel_address);
 		boolean region_in = CheckUtil.checkSelect(province) && CheckUtil.checkSelect(city) && CheckUtil.checkSelect(field) && CheckUtil.checkSelect(group);
-		if (!name_in) {
+		if (!name_in)
 			name_warning.setText("请输入酒店名称");
-		}
-		if (!adress_in) {
+		if (!adress_in)
 			address_warning.setText("请输入地址");
-		}
-		if (!region_in) {
+		if (!region_in)
 			region_warning.setText("请选择完整地址商圈");
-		}
+		// 信息无误，显示确认窗口
 		if (name_in && adress_in && region_in) {
 			Window window = WindowGrab.getWindow(event);
 			WindowGrab.startModifyConfirmWindow(window, this);
@@ -175,6 +178,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(0);
 		
+		// 修改后信息获取
 		String newName = hotel_name.getText();
 		String newProvince = province.getSelectionModel().getSelectedItem().getProvinceName();
 		String newCity = city.getSelectionModel().getSelectedItem().getCity_name();
@@ -185,17 +189,16 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 		HotelVO vo = new HotelVO(hotel_id.getText(), newName, newAdress, newRegion, newDistrcit, 0, 0);
 		try {
+			// 更新酒店信息
 			ResultMessage_Hotel result = ControllerFactory.getHotelBLServiceInstance().changeHotelInfo(vo);
 			if(result == ResultMessage_Hotel.Change_Successful)
 				WindowGrab.startNoticeWindow(window, "修改成功");
 			else 
-				WindowGrab.startNetErrorWindow(window);
+				WindowGrab.startErrorWindow(window, "修改失败");
 		} catch (NetException e) {
-			e.printStackTrace();
 			WindowGrab.startNetErrorWindow(window);
 		}
 	}
-
 
 	//界面跳转
 	 @FXML

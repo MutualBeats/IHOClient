@@ -18,7 +18,7 @@ import javafx.util.StringConverter;
 
 public class CheckUtil {
 
-	private final static Pattern pattern = Pattern.compile("[\\s]+");
+	private final static Pattern pattern = Pattern.compile("[\\s]*");
 	private final static Pattern point_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
 	private final static Pattern value_pattern = Pattern.compile("^[0-9]\\d*$");
 

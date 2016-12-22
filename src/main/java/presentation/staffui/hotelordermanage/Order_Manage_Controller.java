@@ -118,29 +118,32 @@ public class Order_Manage_Controller implements Initializable {
 	private ObservableList<OrderVO> revoked_list = FXCollections.observableArrayList();
 	private ObservableList<OrderVO> exception_list = FXCollections.observableArrayList();
 
+	/**
+	 * 订单管理界面初始化
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			orderBLService = ControllerFactory.getOrderBLServiceInstance();
-
+			
+			// 不同类型订单获取
 			String hotelID = UserCache.getHotelID();
 			ArrayList<OrderVO> finish = orderBLService.queryHotelOrder(hotelID, OrderState.Finished);
 			ArrayList<OrderVO> unexecuted = orderBLService.queryHotelOrder(hotelID, OrderState.Unexecuted);
 			ArrayList<OrderVO> execute = orderBLService.queryHotelOrder(hotelID, OrderState.Execute);
 			ArrayList<OrderVO> revoked = orderBLService.queryHotelOrder(hotelID, OrderState.Canceled);
 			ArrayList<OrderVO> exception = orderBLService.queryHotelOrder(hotelID, OrderState.Exception);
-
+			// 列表初始化
 			execute_list.addAll(execute);
 			finished_list.addAll(finish);
 			unexecuted_list.addAll(unexecuted);
 			revoked_list.addAll(revoked);
 			exception_list.addAll(exception);
-
+			// 初始显示执行中订单
 			order_list.setItems(execute_list);
-
 			initColumn();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 	}
 	
@@ -163,26 +166,31 @@ public class Order_Manage_Controller implements Initializable {
 	
 	@FXML
 	void execute_order(ActionEvent event) {
+		// 显示执行中订单
 		order_list.setItems(execute_list);
 	}
 
 	@FXML
 	void finished_order(ActionEvent event) {
+		// 显示已完成订单
 		order_list.setItems(finished_list);
 	}
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
+		// 显示未执行订单
 		order_list.setItems(unexecuted_list);
 	}
 
 	@FXML
 	void revoked_order(ActionEvent event) {
+		// 显示已撤销订单
 		order_list.setItems(revoked_list);
 	}
 
 	@FXML
 	void exception_order(ActionEvent event) {
+		// 显示异常订单
 		order_list.setItems(exception_list);
 	}
 
@@ -192,6 +200,9 @@ public class Order_Manage_Controller implements Initializable {
     	WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);
     }
 
+	/**
+	 * 查看订单
+	 */
     @FXML
     void check(ActionEvent event) {
     	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
@@ -216,6 +227,9 @@ public class Order_Manage_Controller implements Initializable {
 		}
     }
     
+    /**
+     * 执行订单
+     */
     @FXML
     void execute(ActionEvent event) {
     	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
@@ -262,6 +276,9 @@ public class Order_Manage_Controller implements Initializable {
 		}
     }
     
+    /**
+     * 完成订单
+     */
     @FXML 
     void finish(ActionEvent event) {
     	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
@@ -305,6 +322,9 @@ public class Order_Manage_Controller implements Initializable {
 		}
     }
     
+    /**
+     * 补录订单
+     */
     @FXML
     void supply(ActionEvent event) {
     	TableViewSelectionModel<OrderVO> model = order_list.getSelectionModel();
@@ -351,7 +371,7 @@ public class Order_Manage_Controller implements Initializable {
 			}
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
-		}		
+		}
     	
     }
 

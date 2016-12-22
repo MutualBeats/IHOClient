@@ -114,7 +114,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 				try {
 					ArrayList<HotelVO> hotelVOs = ControllerFactory.getHotelBLServiceInstance()
 							.getHotelsSatisfyCondition(condition);
-
+										
 					// 酒店是否曾预定判断
 					ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance()
 							.queryUserOrder(UserCache.getID(), OrderState.All);
