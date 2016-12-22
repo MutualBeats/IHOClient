@@ -37,7 +37,7 @@ import vo.user.ClientVO;
  * @author heleninsa
  *
  */
-class MainClientController extends SearchView {
+public class MainClientController extends SearchView {
 
 	@FXML
 	private Button first;

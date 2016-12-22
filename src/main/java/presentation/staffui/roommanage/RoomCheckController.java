@@ -110,6 +110,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		try {
 			// 未来房间记录获取
 			ArrayList<RoomRecordVO> roomRecordList = roomBLService.getOrderRecord(room.hotelID, room.roomNumber);
+			list.clear();
 			list.addAll(roomRecordList);
 			room_record_list.setItems(list);
 			initColumn();

@@ -75,7 +75,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
-		CheckUtil.inAndOutDatePickerInit(es_in, es_leave, LocalDate.now(), LocalDate.now());
+//		CheckUtil.inAndOutDatePickerInit(es_in, es_leave, LocalDate.now(), LocalDate.now());
 		room_type.getItems().add(RoomType.Single);
 		room_type.getItems().add(RoomType.Double);
 		room_type.getItems().add(RoomType.Triple);

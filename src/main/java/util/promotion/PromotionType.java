@@ -11,13 +11,6 @@ public enum PromotionType {
 			return "生日特惠折扣";
 		}
 	}, 
-
-	Enterprise {
-		@Override
-		public String toString() {
-			return "合作企业客户折扣";
-		}
-	},
 	
 	Room {
 		@Override
@@ -30,6 +23,13 @@ public enum PromotionType {
 		@Override
 		public String toString() {
 			return "普通限时折扣";
+		}
+	},
+	
+	Enterprise {
+		@Override
+		public String toString() {
+			return "合作企业客户折扣";
 		}
 	},
 	
