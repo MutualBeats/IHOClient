@@ -9,7 +9,7 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.StaffInformationController">
 	<children>
-      <Pane layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
          <children>
       		<Text layoutX="78.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
       			<font>
