@@ -18,13 +18,18 @@
 #exception_order:hover{
 	 -fx-background-image: url("file:src/main/resources/image/staff/exception_order_hover.png");
 }
-
+#exception_order_pressed{
+	 -fx-background-image: url("file:src/main/resources/image/staff/exception_order_hover.png");
+}
 
 
 #execute_order{
 	 -fx-background-image: url("file:src/main/resources/image/staff/execute_order.png");
 }
 #execute_order:hover{
+	 -fx-background-image: url("file:src/main/resources/image/staff/execute_order_hover.png");
+}
+#execute_order_pressed{
 	 -fx-background-image: url("file:src/main/resources/image/staff/execute_order_hover.png");
 }
 
@@ -35,6 +40,9 @@
 #unexecuted_order:hover{
 	 -fx-background-image: url("file:src/main/resources/image/staff/unexecuted_order_hover.png");
 }
+#unexecuted_order_pressed{
+	 -fx-background-image: url("file:src/main/resources/image/staff/unexecuted_order_hover.png");
+}
 
 #finished_order{
 	 -fx-background-image: url("file:src/main/resources/image/staff/finished_order.png");
@@ -42,7 +50,9 @@
 #finished_order:hover{
 	 -fx-background-image: url("file:src/main/resources/image/staff/finished_order_hover.png");
 }
-
+#finished_order_pressed{
+	 -fx-background-image: url("file:src/main/resources/image/staff/finished_order_hover.png");
+}
 
 
 #revoked_order{
@@ -51,7 +61,9 @@
 #revoked_order:hover{
 	 -fx-background-image: url("file:src/main/resources/image/staff/revoked_order_hover.png");
 }
-
+#revoked_order_pressed{
+	 -fx-background-image: url("file:src/main/resources/image/staff/revoked_order_hover.png");
+}
 
 #check{
 	 -fx-background-image: url("file:src/main/resources/image/staff/check.png");

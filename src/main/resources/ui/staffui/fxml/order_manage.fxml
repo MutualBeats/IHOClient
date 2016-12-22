@@ -9,18 +9,11 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelordermanage.Order_Manage_Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="500.0" layoutX="20.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="760.0">
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow color="#d9a96a" />
-               </bumpInput>
-               <light>
-                  <Light.Distant color="#bfe5a5" />
-               </light>
-            </Lighting>
-         </effect>
-      </Rectangle>
+      <Label fx:id="unexecuted_order_pressed" layoutX="223.0" layoutY="150.0" prefHeight="32.0" prefWidth="100.0" visible="false" />
+      <Label fx:id="revoked_order_pressed" layoutX="473.0" layoutY="150.0" prefHeight="32.0" prefWidth="100.0" visible="false" />
+      <Label fx:id="exception_order_pressed" layoutX="598.0" layoutY="150.0" prefHeight="32.0" prefWidth="100.0" visible="false" />
+      <Label fx:id="finished_order_pressed" layoutX="348.0" layoutY="150.0" prefHeight="32.0" prefWidth="100.0" visible="false" />
+      <Label fx:id="execute_order_pressed" layoutX="98.0" layoutY="150.0" prefHeight="32.0" prefWidth="100.0" visible="false" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="480.0" layoutX="30.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="740.0" />
       <Accordion layoutY="115.0" />
       <Label fx:id="order_manage_title" layoutX="5.0" layoutY="35.0" prefHeight="45.0" prefWidth="200.0">
@@ -62,12 +55,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="unexecuted_order" layoutX="223.0" layoutY="150.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0">
+      <Button fx:id="finished_order" layoutX="348.0" layoutY="150.0" mnemonicParsing="false" onAction="#finished_order" prefHeight="30.0" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="finished_order" layoutX="348.0" layoutY="150.0" mnemonicParsing="false" onAction="#finished_order" prefHeight="30.0" prefWidth="100.0">
+      <Button fx:id="unexecuted_order" layoutX="223.0" layoutY="150.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="30.0" prefWidth="100.0">
          <font>
             <Font size="15.0" />
          </font>

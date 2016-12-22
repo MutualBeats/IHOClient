@@ -70,17 +70,33 @@ public class Order_Manage_Controller implements Initializable {
 	private Button execute_order;
 	
 	@FXML
+	private Label execute_order_pressed;
+	
+	@FXML
 	private Button finished_order;
 
+	@FXML
+	private Label finished_order_pressed;
+	
 	@FXML
 	private Button revoked_order;
 
 	@FXML
+	private Label revoked_order_pressed;
+	
+	@FXML
 	private Button exception_order;
+	
+	@FXML
+	private Label exception_order_pressed;
 
 	@FXML
 	private Button unexecuted_order;
 
+	@FXML
+	private Label unexecuted_order_pressed;
+
+	
     @FXML
     private Button cancel;
 
@@ -168,30 +184,91 @@ public class Order_Manage_Controller implements Initializable {
 	void execute_order(ActionEvent event) {
 		// 显示执行中订单
 		order_list.setItems(execute_list);
+		
+		exception_order.setVisible(true);
+		execute_order.setVisible(false);
+		unexecuted_order.setVisible(true);
+		finished_order.setVisible(true);
+		revoked_order.setVisible(true);
+		
+		exception_order_pressed.setVisible(false);
+		execute_order_pressed.setVisible(true);
+		unexecuted_order_pressed.setVisible(false);
+		finished_order_pressed.setVisible(false);
+		revoked_order_pressed.setVisible(false);
+		
 	}
 
 	@FXML
 	void finished_order(ActionEvent event) {
 		// 显示已完成订单
 		order_list.setItems(finished_list);
+		
+		exception_order.setVisible(true);
+		execute_order.setVisible(true);
+		unexecuted_order.setVisible(true);
+		finished_order.setVisible(false);
+		revoked_order.setVisible(true);
+		
+		exception_order_pressed.setVisible(false);
+		execute_order_pressed.setVisible(false);
+		unexecuted_order_pressed.setVisible(false);
+		finished_order_pressed.setVisible(true);
+		revoked_order_pressed.setVisible(false);
 	}
 
 	@FXML
 	void unexecuted_order(ActionEvent event) {
 		// 显示未执行订单
 		order_list.setItems(unexecuted_list);
+		
+		exception_order.setVisible(true);
+		execute_order.setVisible(true);
+		unexecuted_order.setVisible(false);
+		finished_order.setVisible(true);
+		revoked_order.setVisible(true);
+		
+		exception_order_pressed.setVisible(false);
+		execute_order_pressed.setVisible(false);
+		unexecuted_order_pressed.setVisible(true);
+		finished_order_pressed.setVisible(false);
+		revoked_order_pressed.setVisible(false);
 	}
 
 	@FXML
 	void revoked_order(ActionEvent event) {
 		// 显示已撤销订单
 		order_list.setItems(revoked_list);
+		
+		exception_order.setVisible(true);
+		execute_order.setVisible(true);
+		unexecuted_order.setVisible(true);
+		finished_order.setVisible(true);
+		revoked_order.setVisible(false);
+		
+		exception_order_pressed.setVisible(false);
+		execute_order_pressed.setVisible(false);
+		unexecuted_order_pressed.setVisible(false);
+		finished_order_pressed.setVisible(false);
+		revoked_order_pressed.setVisible(true);
 	}
 
 	@FXML
 	void exception_order(ActionEvent event) {
 		// 显示异常订单
 		order_list.setItems(exception_list);
+		
+		exception_order.setVisible(false);
+		execute_order.setVisible(true);
+		unexecuted_order.setVisible(true);
+		finished_order.setVisible(true);
+		revoked_order.setVisible(true);
+		
+		exception_order_pressed.setVisible(true);
+		execute_order_pressed.setVisible(false);
+		unexecuted_order_pressed.setVisible(false);
+		finished_order_pressed.setVisible(false);
+		revoked_order_pressed.setVisible(false);
 	}
 
 	
