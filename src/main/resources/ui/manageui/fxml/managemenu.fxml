@@ -13,7 +13,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.mainmanager.ManageMenuController">
    <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0" />
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
+         <children>
+            <Button fx:id="logout" layoutX="472.0" layoutY="383.0" mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
+         </children></Pane>
       <Label layoutX="280.0" layoutY="350.0" text="网站管理人员ID：">
          <font>
             <Font size="12.0" />

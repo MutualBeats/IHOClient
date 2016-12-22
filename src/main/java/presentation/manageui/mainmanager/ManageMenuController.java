@@ -37,6 +37,9 @@ public class ManageMenuController implements Initializable {
     private Button change;
 
     @FXML
+    private Button logout;
+    
+    @FXML
     private Label contact;
 
     @FXML
@@ -74,9 +77,7 @@ public class ManageMenuController implements Initializable {
 
 	@FXML
 	void add_people(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "添加营销人员", ManageUIURLConfig.manage_add_people_fxml(),
-				ManageUIURLConfig.manage_add_people_css());
+		WindowGrab.changeScene(ManageUIURLConfig.manage_add_people_fxml(), ManageUIURLConfig.manage_add_people_css(), event);
 	}
 
 	@FXML
@@ -87,11 +88,15 @@ public class ManageMenuController implements Initializable {
 
 	@FXML
 	void add_hotel(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "添加酒店", ManageUIURLConfig.manage_add_hotel_one_fxml(),
-				ManageUIURLConfig.manage_add_hotel_one_css());
+		WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_one_fxml(), ManageUIURLConfig.manage_add_hotel_one_css(), event);
 	}
 
+	@FXML
+	void logout(ActionEvent event) {
+		WindowGrab.closeWindow(event);
+	}
+
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		manageID.setText(UserCache.getID());

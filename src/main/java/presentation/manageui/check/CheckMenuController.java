@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
+import config.urlconfig.ManageUIURLConfig;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Window;
+import presentation.bundle.ManageIDInputHandle;
 import presentation.utilui.WindowGrab;
 import vo.user.BaseVO;
 import vo.user.ClientVO;
@@ -42,7 +44,7 @@ public class CheckMenuController implements Initializable {
 	private Button cancel;
 
 	@FXML
-	private Button check;
+	private Button check_button;
 
 	@FXML
 	private Button search;
@@ -77,6 +79,15 @@ public class CheckMenuController implements Initializable {
 	@FXML
 	private TableColumn<BaseVO, String> name;
 
+    @FXML
+    private Button addhotel;
+
+    @FXML
+    private Button addpeople;
+
+    @FXML
+    private Button peopleInfo;
+	
 	final ToggleGroup buttom_group = new ToggleGroup();
 
 	private ArrayList<ClientVO> clientVOs;
@@ -144,10 +155,7 @@ public class CheckMenuController implements Initializable {
 		name.setCellValueFactory(cellData->cellData.getValue().getName_property());
 	}
 
-	@FXML
-	void cancel(ActionEvent event) {
-		WindowGrab.closeWindow(event);
-	}
+	
 
 	@FXML
 	void on_check(ActionEvent event) {
@@ -205,5 +213,28 @@ public class CheckMenuController implements Initializable {
 		}
 		return baseVOs;
 	}
+	
+	//界面跳转
+	@FXML
+    void peopleInfo(ActionEvent event) {
+		WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(), ManageUIURLConfig.manage_menu_css(), event);
+    }
+
+
+    @FXML
+    void add_people(ActionEvent event) {
+    	WindowGrab.changeScene(ManageUIURLConfig.manage_add_people_fxml(), ManageUIURLConfig.manage_add_people_css(), event);
+    }
+
+    @FXML
+    void add_hotel(ActionEvent event) {
+    	WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_one_fxml(), ManageUIURLConfig.manage_add_hotel_one_css(), event);
+    }
+
+    @FXML
+    void on_change(ActionEvent event) {
+    	Window window = WindowGrab.getWindow(event);
+		WindowGrab.startIDInputWindow(window, new ManageIDInputHandle());
+    }
 
 }

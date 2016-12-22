@@ -46,7 +46,3 @@
 #check:hover{
 	-fx-background-image:url("file:src/main/resources/image/manage/check_hover.png");
 }
-
-#pane{
-	-fx-background-image:url("file:src/main/resources/image/manage/pane.png");
-}

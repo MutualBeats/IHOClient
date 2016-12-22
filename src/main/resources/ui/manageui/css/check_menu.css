@@ -11,6 +11,68 @@ and open the template in the editor.
 	-fx-background-image:url("file:src/main/resources/image/manage/menubackground.jpg");
 }
 
-#check_title{
-	-fx-background-image: url("file:src/main/resources/image/manage/check_title.png");
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
 }
+
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/manage/peopleInfo.png");	
+}
+#peopleInfo:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/peopleInfo_hover.png");	
+}
+
+#addhotel{
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel.png");	
+}
+#addhotel:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel_hover.png");	
+}
+
+#addpeople{
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople.png");	
+}
+#addpeople:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople_hover.png");
+}
+
+#change{
+	-fx-background-image:url("file:src/main/resources/image/manage/change.png");	
+}
+#change:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/change_hover.png");
+}
+
+#check_button{
+	-fx-background-image:url("file:src/main/resources/image/manage/check_button.png");
+}
+#check_button:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/check_button_hover.png");
+}
+
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/manage/pane.png");
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/manage/return.png");
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/return_hover.png");
+}
+
+#search{
+	-fx-background-image:url("file:src/main/resources/image/manage/search.png");
+}
+#search:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/search_hover.png");
+}
+
+
+
+
+
+
+
+
