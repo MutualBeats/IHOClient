@@ -1,7 +1,6 @@
 package presentation.clientui.createorder;
 
 import java.net.URL;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -22,14 +21,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import presentation.clientui.utilui.ViewUtil;
 import presentation.utilcontroller.Confirm;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
-import util.Time;
 import util.UserCache;
 import util.exception.NetException;
 import util.exception.TimeConflictException;
@@ -52,7 +49,7 @@ public class MakeOrderController implements Initializable, Confirm {
 	private Button back;
 
 	@FXML
-	private TextArea hotel_address;
+	private TextField hotel_address;
 
 	@FXML
 	private DatePicker ou_time;
@@ -217,7 +214,7 @@ public class MakeOrderController implements Initializable, Confirm {
 				} catch (NetException e) {
 					WindowGrab.startNetErrorWindow(window);
 				} catch (TimeConflictException e1) {
-					WindowGrab.startErrorWindow(window, "对不起，所选房间时间有冲突");
+					WindowGrab.startErrorWindow(window, e1.getMessage());
 				}
 			}
 		}
@@ -242,29 +239,43 @@ public class MakeOrderController implements Initializable, Confirm {
 				ArrayList<RoomRecordVO> records = ControllerFactory.getRoomBLServiceInstance().getOrderRecord(hotel_id,
 						each.roomNumber);
 				boolean ok = true;
-				for (RoomRecordVO record : records) {
-					boolean later = Time.deltaDate(es_out_time, record.checkInDate) > 0;
-					boolean earlier = Time.deltaDate(record.estimateCheckOutDate, es_in_time) > 0;
-					if (!(later && earlier)) {
-						ok = false;
-						break;
-					}
+				for (RoomRecordVO vo : records) {
+					if (es_out_time.compareTo(vo.checkInDate) < 0
+							|| es_in_time.compareTo(vo.estimateCheckOutDate) > 0)
+						continue;
+					// 时间重叠
+					ok = false;
+					break;
 				}
-				if (ok) {
+				if(ok) {
 					satisfy_rooms.add(each);
 				}
+//				boolean ok = true;
+//				for (RoomRecordVO record : records) {
+//					boolean later = Time.deltaDate(es_out_time, record.checkInDate) > 0;
+//					boolean earlier = Time.deltaDate(record.estimateCheckOutDate, es_in_time) > 0;
+//					if (!(later && earlier)) {
+//						ok = false;
+//						break;
+//					}
+//				}
+//				if (ok) {
+//					satisfy_rooms.add(each);
+//				}
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 				break;
-			} catch (ParseException e) {
-				WindowGrab.startErrorWindow(window, "时间格式错误");
-				break;
 			}
+//			} catch (ParseException e) {
+//				WindowGrab.startErrorWindow(window, "时间格式错误");
+//				break;
+//			}
 		}
 
 		/* Update */
 		room_list.getItems().clear();
 		room_list.getItems().addAll(satisfy_rooms);
+		room_list.refresh();
 	}
 
 }

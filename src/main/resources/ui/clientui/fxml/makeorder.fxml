@@ -14,15 +14,15 @@
 			</font>
 		</Label>
 		<Label layoutX="30.0" layoutY="77.0" text="姓名:" />
-		<ComboBox fx:id="hotel_star" disable="true" layoutX="422.0" layoutY="111.0" prefHeight="27.0" prefWidth="150.0" />
-		<TextArea fx:id="hotel_address" disable="true" layoutX="132.0" layoutY="149.0" prefHeight="27.0" prefWidth="438.0" />
-		<TextField fx:id="hotel_name" disable="true" layoutX="132.0" layoutY="111.0" prefWidth="150.0" />
+		<ComboBox fx:id="hotel_star" layoutX="422.0" layoutY="111.0" prefHeight="27.0" prefWidth="150.0" />
+		<TextField fx:id="hotel_address" editable="false" layoutX="132.0" layoutY="149.0" prefHeight="27.0" prefWidth="438.0" />
+		<TextField fx:id="hotel_name" editable="false" layoutX="132.0" layoutY="111.0" prefWidth="150.0" />
 		<Label layoutX="312.0" layoutY="111.0" prefHeight="27.0" text="酒店星级:" />
 		<Label layoutX="30.0" layoutY="149.0" prefHeight="27.0" text="详细地址:" />
 		<Label layoutX="30.0" layoutY="111.0" prefHeight="27.0" text="酒店名称:" />
-		<TextField fx:id="name" disable="true" layoutX="132.0" layoutY="72.0" prefWidth="150.0" />
+		<TextField fx:id="name" editable="false" layoutX="132.0" layoutY="72.0" prefWidth="150.0" />
 		<Label layoutX="312.0" layoutY="72.0" prefHeight="27.0" text="联系方式:" />
-		<TextField fx:id="contact" disable="true" layoutX="422.0" layoutY="72.0" prefWidth="150.0" />
+		<TextField fx:id="contact" editable="false" layoutX="422.0" layoutY="72.0" prefWidth="150.0" />
 		<DatePicker fx:id="ou_time" editable="false" layoutX="422.0" layoutY="227.0" prefWidth="150.0" showWeekNumbers="true" />
 		<Label layoutX="312.0" layoutY="232.0" text="离开时间:" />
 		<DatePicker fx:id="in_time" editable="false" layoutX="131.0" layoutY="227.0" prefWidth="150.0" showWeekNumbers="true" />

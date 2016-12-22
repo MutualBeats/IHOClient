@@ -616,7 +616,7 @@ public class Order {
 					continue;
 				// 时间重叠
 				throw new TimeConflictException(
-						each.roomNumber + "在" + each.checkInDate + "到" + each.estimateCheckOutDate + "期间已被预订或以及有人住");
+						each.roomNumber + "在" + each.checkInDate + "到" + each.estimateCheckOutDate + "期间已被预订或已有人住");
 			}
 		}
 
