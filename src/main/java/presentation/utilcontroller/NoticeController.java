@@ -17,7 +17,7 @@ public class NoticeController implements Initializable{
     private Button confirm;
 
     @FXML
-    private Label error_info;
+    private Label notice;
     
     @FXML
     void confirm(ActionEvent event) {
@@ -27,7 +27,7 @@ public class NoticeController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		String error_message = resources.getString("error_message");
-		error_info.setText(error_message);
+		notice.setText(error_message);
 	}
 
 }

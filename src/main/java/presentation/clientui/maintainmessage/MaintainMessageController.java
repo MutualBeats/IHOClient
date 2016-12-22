@@ -67,14 +67,4 @@ public class MaintainMessageController extends ClientInformationController {
 		handleResult(result, window);
 	}
 
-//	@Override
-//	public void initialize(URL location, ResourceBundle resources) {
-//		info = (ClientVO) resources.getObject("info");
-//		user_name.setText(info.id);
-//		name.setText(info.name);
-//		phone.setText(info.contactWay);
-//		type.setText(info.credit + "");
-//	}
-//	
-
 }

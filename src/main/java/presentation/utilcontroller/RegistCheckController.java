@@ -14,6 +14,13 @@ import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
 
+/**
+ * 
+ * 通用用户注册界面
+ * 
+ * @author heleninsa
+ *
+ */
 public abstract class RegistCheckController {
 	
 	@FXML

@@ -17,6 +17,13 @@ import vo.order.OrderVO;
 import vo.room.RoomVO;
 import vo.user.ClientVO;
 
+/**
+ * 
+ * Client可复用界面工具
+ * 
+ * @author heleninsa
+ *
+ */
 public class ViewUtil {
 
 	private static URL HOTEL_FXML;

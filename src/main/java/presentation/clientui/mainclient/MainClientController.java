@@ -239,6 +239,7 @@ class MainClientController extends SearchView {
 					hotel_ids.put(hotelID, hotelID);
 					HotelVO hotel_info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 					hotel_list.add(hotel_info);
+					hotel_info.setBook_before(true);
 				}
 			}
 			HotelListBundle hotelListBundle = new HotelListBundle(hotel_list);

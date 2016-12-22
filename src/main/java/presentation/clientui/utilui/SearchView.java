@@ -30,6 +30,13 @@ import util.room.RoomType;
 import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 
+/**
+ * 
+ * 酒店搜索界面
+ * 
+ * @author heleninsa
+ *
+ */
 public abstract class SearchView extends LocationBoxController implements Initializable {
 
 	@FXML
@@ -89,35 +96,15 @@ public abstract class SearchView extends LocationBoxController implements Initia
 		Window window = WindowGrab.getWindow(event);
 		// Must select
 		if (pro_sele && city_sele && field_sele && group_sele) {
-			String province_name = province.getSelectionModel().getSelectedItem().getProvinceName();
-			String city_name = city.getSelectionModel().getSelectedItem().getCity_name();
-			String field_name = field.getSelectionModel().getSelectedItem().getField_name();
-			String group_name = group.getSelectionModel().getSelectedItem();
-			String region = province_name + " " + city_name + " " + field_name;
-			String hotelName = CheckUtil.checkText(hotel_name) ? hotel_name.getText() : null;
-			int star_le = CheckUtil.checkSelect(star) ? star.getSelectionModel().getSelectedItem() : -1;
-			double scor = CheckUtil.checkScore(score.getText()) ? Double.parseDouble(score.getText()) : -1;
-			RoomType type = CheckUtil.checkSelect(room_type) ? room_type.getSelectionModel().getSelectedItem()
-					: RoomType.ALL;
-
-			boolean min_p = CheckUtil.checkValue(low_price.getText());
-			boolean max_p = CheckUtil.checkValue(hi_price.getText());
-			int min_price = min_p ? Integer.parseInt(low_price.getText()) : -1;
-			int max_price = max_p ? Integer.parseInt(hi_price.getText()) : Integer.MAX_VALUE;
-
-			String in_time = es_in.getEditor().getText();
-			String out_time = es_in.getEditor().getText();
-
-			if (min_price <= max_price) {
-				SearchCondition condition = new SearchCondition(UserCache.getID(), region, group_name, hotelName, star_le, scor, in_time,
-						out_time, min_price, max_price, type, history.isSelected());
+			SearchCondition condition = create_condition();
+			if (condition != null) {
 				try {
 					ArrayList<HotelVO> hotelVOs = ControllerFactory.getHotelBLServiceInstance()
 							.getHotelsSatisfyCondition(condition);
-										
 					// 酒店是否曾预定判断
 					ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance()
 							.queryUserOrder(UserCache.getID(), OrderState.All);
+					
 					Map<String, String> hotel_ids = new HashMap<>();
 					for (OrderVO each : vos) {
 						String hotelID = each.hotelID;
@@ -125,7 +112,7 @@ public abstract class SearchView extends LocationBoxController implements Initia
 							hotel_ids.put(hotelID, hotelID);
 						}
 					}
-
+					
 					for (HotelVO each : hotelVOs) {
 						each.setBook_before(hotel_ids.containsKey(each.hotelID));
 					}
@@ -141,6 +128,39 @@ public abstract class SearchView extends LocationBoxController implements Initia
 			WindowGrab.startNoticeWindow(window, "请选择地址、商圈");
 		}
 
+	}
+
+	/**
+	 * 生成搜索条件
+	 * 
+	 * @return 若价格信息错误返回为null
+	 */
+	private SearchCondition create_condition() {
+		String province_name = province.getSelectionModel().getSelectedItem().getProvinceName();
+		String city_name = city.getSelectionModel().getSelectedItem().getCity_name();
+		String field_name = field.getSelectionModel().getSelectedItem().getField_name();
+		String group_name = group.getSelectionModel().getSelectedItem();
+		String region = province_name + " " + city_name + " " + field_name;
+		String hotelName = CheckUtil.checkText(hotel_name) ? hotel_name.getText() : null;
+		int star_le = CheckUtil.checkSelect(star) ? star.getSelectionModel().getSelectedItem() : -1;
+		double scor = CheckUtil.checkScore(score.getText()) ? Double.parseDouble(score.getText()) : -1;
+		RoomType type = CheckUtil.checkSelect(room_type) ? room_type.getSelectionModel().getSelectedItem()
+				: RoomType.ALL;
+
+		boolean min_p = CheckUtil.checkValue(low_price.getText());
+		boolean max_p = CheckUtil.checkValue(hi_price.getText());
+		int min_price = min_p ? Integer.parseInt(low_price.getText()) : -1;
+		int max_price = max_p ? Integer.parseInt(hi_price.getText()) : Integer.MAX_VALUE;
+
+		String in_time = es_in.getEditor().getText();
+		String out_time = es_in.getEditor().getText();
+		if (min_price <= max_price) {
+			SearchCondition condition = new SearchCondition(UserCache.getID(), region, group_name, hotelName, star_le,
+					scor, in_time, out_time, min_price, max_price, type, history.isSelected());
+			return condition;
+		} else {
+			return null;
+		}
 	}
 
 	public abstract void handle(ArrayList<HotelVO> hotel_vos);

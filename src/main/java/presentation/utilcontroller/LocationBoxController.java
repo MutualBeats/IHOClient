@@ -53,6 +53,10 @@ public abstract class LocationBoxController implements Initializable {
 		SelectionModel<Province> pro_model = province.getSelectionModel();
 		SelectionModel<City> city_model = city.getSelectionModel();
 		SelectionModel<Field> field_model = field.getSelectionModel();
+		
+		/*
+		 * 地区对应
+		 */
 		pro_model.selectedItemProperty().addListener(new ChangeListener<Province>() {
 			@Override
 			public void changed(ObservableValue<? extends Province> observable, Province oldValue, Province newValue) {

@@ -87,33 +87,38 @@ public class LoginController implements Initializable {
 				} else if (type == ResultMessage_Verify.PASSWORD_WRONG) {
 					pass_warning.setText("密码错误");
 				}else {
-					Stage stage = WindowGrab.getStage(0);
-					stage.setTitle(type.toString());
 					UserCache.init_Cache(name);
-					switch (type) {
-					case CLIENT:
-						WindowGrab.changeScene(ClientUIURLConfig.client_menu_fxml_url(),
-								ClientUIURLConfig.client_menu_css_url(), event);
-						break;
-					case STAFF:
-						WindowGrab.changeScene(StaffUIURLConfig.staff_main_fxml_url(),
-								StaffUIURLConfig.staff_main_css_url(), event);
-						break;
-					case MARKETER:
-						WindowGrab.changeScene(MarketUIURLConfig.market_market_menu_fxml_url(),
-								MarketUIURLConfig.market_market_menu_css_url(), event);
-						break;
-					case MANAGER:
-						WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(),
-								ManageUIURLConfig.manage_menu_css(), event);
-						break;
-					default:
-						break;
-					}
+					change_menu(type, event);
 				}
 			} catch (NetException | RemoteException e) {
 				WindowGrab.startNetErrorWindow(window);
 			}
+		}
+	}
+	
+	private void change_menu(ResultMessage_Verify type, ActionEvent event){
+		Stage stage = WindowGrab.getStage(0);
+		stage.setTitle(type.toString());
+		
+		switch (type) {
+		case CLIENT:
+			WindowGrab.changeScene(ClientUIURLConfig.client_menu_fxml_url(),
+					ClientUIURLConfig.client_menu_css_url(), event);
+			break;
+		case STAFF:
+			WindowGrab.changeScene(StaffUIURLConfig.staff_main_fxml_url(),
+					StaffUIURLConfig.staff_main_css_url(), event);
+			break;
+		case MARKETER:
+			WindowGrab.changeScene(MarketUIURLConfig.market_market_menu_fxml_url(),
+					MarketUIURLConfig.market_market_menu_css_url(), event);
+			break;
+		case MANAGER:
+			WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(),
+					ManageUIURLConfig.manage_menu_css(), event);
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -121,10 +126,6 @@ public class LoginController implements Initializable {
 	public void visit(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		WindowGrab.startNoticeWindow(window, "该功能暂时还未开通");
-		// TODO : Change to user stage
-		// ObservableList<Stage> stage = FXRobotHelper.getStages();
-		// Dialog dialog = new Dialog("Test", stage.get(0), "Test");
-		// dialog.showDialog();
 	}
 
 	@FXML
