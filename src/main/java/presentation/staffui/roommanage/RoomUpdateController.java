@@ -49,7 +49,12 @@ public class RoomUpdateController implements Initializable, Confirm {
     private RoomVO room;
     
     /**
-     * 房间记录列表更新接口
+     * 房间列表界面更新接口
+     */
+    private UpdateRoom updateRoom;
+    
+    /**
+     * 房间记录列表界面更新接口
      */
     private UpdateRoomRecord updateRoomRecord;
 
@@ -60,7 +65,8 @@ public class RoomUpdateController implements Initializable, Confirm {
 		room_type.setText(room.type.toString());
 		room_price.setText("" + room.price);
 		CheckUtil.inAndOutDatePickerInit(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
-		updateRoomRecord = (UpdateRoomRecord) resources.getObject("update");
+		updateRoom = (UpdateRoom) resources.getObject("updateRoom");
+		updateRoomRecord = (UpdateRoomRecord) resources.getObject("updateRoomRecord");
 	}
     
     @FXML
@@ -90,6 +96,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 				window = WindowGrab.getWindowByStage(1);
 				// 房间记录列表添加
 				updateRoomRecord.update(roomRecord);
+				updateRoom.update(null);
 				WindowGrab.startNoticeWindow(window, "添加成功");
 				break;
 			case Time_Conflict_Error:

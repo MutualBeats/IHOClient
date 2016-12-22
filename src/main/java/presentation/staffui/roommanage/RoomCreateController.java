@@ -51,8 +51,10 @@ public class RoomCreateController implements Initializable, Confirm {
     @FXML
     private Label price_warning;
 
-    
-    private UpdateRoom update;
+    /**
+     * 房间列表界面更新接口
+     */
+    private UpdateRoom updateRoom;
 
     /**
      * 录入客房界面初始化
@@ -67,7 +69,7 @@ public class RoomCreateController implements Initializable, Confirm {
 		}
 		room_type.setItems(roomType);
 		// 房间列表更新接口
-		update = (UpdateRoom) resources.getObject("update");
+		updateRoom = (UpdateRoom) resources.getObject("updateRoom");
 	}
     
     @FXML
@@ -118,7 +120,7 @@ public class RoomCreateController implements Initializable, Confirm {
 				WindowGrab.startErrorWindow(WindowGrab.getWindowByStage(1), "房间号已存在");
 			else {
 				// 成功提示 房间列表添加
-				update.update(room);
+				updateRoom.update(room);
 				WindowGrab.closeWindow(WindowGrab.getWindowByStage(1));
 				WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "添加成功");
 			}

@@ -21,8 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
-import presentation.bundle.RoomInfoBundle;
-import presentation.bundle.RoomUpdateBundle;
+import presentation.bundle.RoomInfoUpdateBundle;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -170,7 +169,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     		WindowGrab.startNoticeWindow(window, "请选择房间");
     		return;
     	}
-		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoBundle(roomVO, null));
+		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoUpdateBundle(roomVO, this, null));
     }
 
     /**
@@ -179,17 +178,19 @@ public class RoomManageController implements Initializable, UpdateRoom {
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindowWithBundle(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS, new RoomUpdateBundle(this));
+		WindowGrab.startWindowWithBundle(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS, new RoomInfoUpdateBundle(null, this, null));
     }
 
     /**
-     * 房间列表添加录入房间
+     * 房间列表更新
      */
 	@Override
 	public void update(RoomVO room) {
-		room_list.getItems().add(0, room);
+		if(room == null)
+			refresh(null);
+		else
+			room_list.getItems().add(0, room);
 	}
-	
 	
 	/***********************其他菜单跳转************************/
 	

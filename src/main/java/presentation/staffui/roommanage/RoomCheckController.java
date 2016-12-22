@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Window;
-import presentation.bundle.RoomInfoBundle;
+import presentation.bundle.RoomInfoUpdateBundle;
 import presentation.utilui.WindowGrab;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
@@ -68,11 +68,19 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 	}
     
 	/**
-	 * 查看房间具体信息
+	 * 房间具体信息
 	 */
     private RoomVO room;
     
+    /**
+     * Room逻辑层接口
+     */
     private RoomBLService roomBLService;
+    
+    /**
+     * 房间列表界面更新接口
+     */
+    private UpdateRoom updateRoom;
     
     private ObservableList<RoomRecordVO> list = FXCollections.observableArrayList();
 
@@ -88,10 +96,11 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		try {
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
 		// 房间记录列表更新（初始化）
 		refresh();
+		updateRoom = (UpdateRoom) resources.getObject("updateRoom");
 	}
 	
 	/**
@@ -121,7 +130,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     @FXML
     void addRecord(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
-		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoBundle(room, this));
+		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoUpdateBundle(room, updateRoom, this));
     }
     
     /**
@@ -133,6 +142,8 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_In_Successful:
+			// 刷新房间列表
+			updateRoom.update(null);
 			WindowGrab.startNoticeWindow(window, "入住成功");
 			break;
 		case Room_State_Error:
@@ -161,7 +172,10 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
     	switch (result) {
 		case Check_Out_Successful:
+			// 刷新房间记录列表
 			refresh();
+			// 刷新房间列表
+			updateRoom.update(null);
 			WindowGrab.startNoticeWindow(window, "退房成功");
 			break;
 		case Room_State_Error:

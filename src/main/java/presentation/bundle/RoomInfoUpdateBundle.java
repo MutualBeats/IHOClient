@@ -7,21 +7,25 @@ package presentation.bundle;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
+import presentation.staffui.roommanage.UpdateRoom;
 import presentation.staffui.roommanage.UpdateRoomRecord;
 import vo.room.RoomVO;
 
-public class RoomInfoBundle extends ResourceBundle {
+public class RoomInfoUpdateBundle extends ResourceBundle {
 	
 	private RoomVO room;
-	
-	private UpdateRoomRecord updateRoomRecord;
-	
 	private static final String ROOM = "room";
-	private static final String UPDATE = "update";
+	
+	private UpdateRoom updateRoom;
+	private static final String UPDATE_ROOM = "updateRoom";
 
-	public RoomInfoBundle(RoomVO room, UpdateRoomRecord updateRoomRecord) {
+	private UpdateRoomRecord updateRoomRecord;
+	private static final String UPDATE_RECORD = "updateRoomRecord";
+	
+	public RoomInfoUpdateBundle(RoomVO room, UpdateRoom updateRoom, UpdateRoomRecord updateRoomRecord) {
 		super();
 		this.room = room;
+		this.updateRoom = updateRoom;
 		this.updateRoomRecord = updateRoomRecord;
 	}
 	
@@ -29,7 +33,9 @@ public class RoomInfoBundle extends ResourceBundle {
 	protected Object handleGetObject(String key) {
 		if (ROOM.equals(key))
 			return room;
-		else if(UPDATE.equals(key))
+		else if(UPDATE_ROOM.equals(key))
+			return updateRoom;
+		else if(UPDATE_RECORD.equals(key))
 			return updateRoomRecord;
 		
 		return null;
