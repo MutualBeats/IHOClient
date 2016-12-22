@@ -43,5 +43,6 @@
       <Button fx:id="room" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#room" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="promotion" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="evaluation" layoutX="231.0" layoutY="510.0" mnemonicParsing="false" onAction="#evaluation" prefHeight="27.0" prefWidth="82.0" text="酒店评价" />
    </children>
 </AnchorPane>

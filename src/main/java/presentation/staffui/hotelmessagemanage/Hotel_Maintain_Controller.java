@@ -1,6 +1,8 @@
 package presentation.staffui.hotelmessagemanage;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
@@ -17,6 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
+import presentation.bundle.EvaluationBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.CheckUtil;
@@ -24,6 +27,7 @@ import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Hotel;
+import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
 
 public class Hotel_Maintain_Controller extends LocationBoxController implements Confirm, Initializable {
@@ -36,6 +40,9 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 	@FXML
 	private Button update;
+	
+	@FXML
+	private Button evaluation;
 
 	@FXML
 	private Label address_warning;
@@ -62,18 +69,21 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
     private static URL HOTEL_PROMOTION_FXML;
     private static URL HOTEL_PROMOTION_CSS;
     
-    //房间管理
+    // 房间管理
     private static URL ROOM_MANAGE_FXML;
     private static URL ROOM_MANAGE_CSS;
     
-    //订单管理
+    // 订单管理
     private static URL ORDER_MANAGE_FXML;
     private static URL ORDER_MANAGE_CSS;
     
-	
-	 //人员信息
+	 // 人员信息
     private static URL MENU_FXML;
 	private static URL MENU_CSS;
+	
+	// 查看酒店评价
+	private static URL EVALUATION_FXML;
+	private static URL EVALUATION_CSS;
 	
 	static{
     	MENU_FXML = StaffUIURLConfig.staff_main_fxml_url();
@@ -87,6 +97,13 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 
 		ROOM_MANAGE_FXML = StaffUIURLConfig.staff_room_manage_fxml_url();
 		ROOM_MANAGE_CSS = StaffUIURLConfig.staff_room_manage_css_url();
+		
+		try {
+			EVALUATION_FXML = new URL("file:src/main/resources/ui/clientui/fxml/evaluation.fxml");
+			EVALUATION_CSS = new URL("file:src/main/resources/ui/clientui/css/evaluation.css");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
     }
 	
 	/**
@@ -136,6 +153,22 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 			address_warning.setText("");
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
+		}
+	}
+	
+	/**
+	 * 查看酒店评价
+	 */
+	@FXML
+	void evaluation(ActionEvent event) {
+		Window window = WindowGrab.getWindow(event);
+		try {
+			ArrayList<HotelEvaluationVO> evaluationVOs = ControllerFactory.getHotelBLServiceInstance()
+					.getHotelEvalutions(UserCache.getHotelID());
+			WindowGrab.startWindowWithBundle(window, "酒店评价列表", EVALUATION_FXML, EVALUATION_CSS,
+					new EvaluationBundle(evaluationVOs));
+		} catch (NetException e) {
+			WindowGrab.startNetErrorWindow(window);
 		}
 	}
 
