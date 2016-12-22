@@ -157,6 +157,7 @@ public class Order_Manage_Controller implements Initializable {
 			exception_list.addAll(exception);
 			// 初始显示执行中订单
 			order_list.setItems(execute_list);
+			execute_order_pressed.setVisible(true);
 			initColumn();
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
