@@ -43,7 +43,14 @@ public class RoomUpdateController implements Initializable, Confirm {
     @FXML
     private Button confirm;
     
+    /**
+     * 房间信息
+     */
     private RoomVO room;
+    
+    /**
+     * 房间记录列表更新接口
+     */
     private UpdateRoomRecord updateRoomRecord;
 
 	@Override
@@ -95,8 +102,6 @@ public class RoomUpdateController implements Initializable, Confirm {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
 		}
-		
 	}
-
 
 }

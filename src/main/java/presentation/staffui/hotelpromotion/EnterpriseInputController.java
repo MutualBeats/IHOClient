@@ -23,7 +23,15 @@ public class EnterpriseInputController implements Initializable{
     @FXML
     private TextField enterprise_input;
     
+    /**
+     * 酒店列表更新接口
+     */
     private UpdateEnterList update;
+    
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		update = (UpdateEnterList) resources.getObject("update");
+	}
 
     @FXML
     void confirm(ActionEvent event) {
@@ -40,10 +48,5 @@ public class EnterpriseInputController implements Initializable{
     void cancel(ActionEvent event) {
     	WindowGrab.closeWindow(event);
     }
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		update = (UpdateEnterList) resources.getObject("update");
-	}
     
 }

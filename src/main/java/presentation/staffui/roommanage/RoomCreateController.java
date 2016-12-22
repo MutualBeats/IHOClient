@@ -54,6 +54,9 @@ public class RoomCreateController implements Initializable, Confirm {
     
     private UpdateRoom update;
 
+    /**
+     * 录入客房界面初始化
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// ComboBox初始化
@@ -63,7 +66,7 @@ public class RoomCreateController implements Initializable, Confirm {
 				roomType.add(type.toString());
 		}
 		room_type.setItems(roomType);
-		
+		// 房间列表更新接口
 		update = (UpdateRoom) resources.getObject("update");
 	}
     
@@ -74,6 +77,7 @@ public class RoomCreateController implements Initializable, Confirm {
 
     @FXML
     void confirm(ActionEvent event) {
+    	// 房间信息输入检测
     	Window window = WindowGrab.getWindow(event);
     	boolean type = CheckUtil.checkSelect(room_type);
     	boolean number = CheckUtil.checkText(room_number);
@@ -99,21 +103,6 @@ public class RoomCreateController implements Initializable, Confirm {
     	}
     }
     
-    @FXML
-    void roomTypeModify(MouseEvent event) {
-    	CheckUtil.checkWarningBefore(type_warning);
-    }
-    
-    @FXML
-    void roomNumberModify(MouseEvent event) {
-    	CheckUtil.checkWarningBefore(roomnumber_warning);
-    }
-    
-    @FXML
-    void roomPriceModify(MouseEvent event) {
-    	CheckUtil.checkWarningBefore(price_warning);
-    }
-
 	@Override
 	public void confirm() {
 		String hotelID = UserCache.getHotelID();
@@ -137,6 +126,20 @@ public class RoomCreateController implements Initializable, Confirm {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
 	}
-	
+    
+    @FXML
+    void roomTypeModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(type_warning);
+    }
+    
+    @FXML
+    void roomNumberModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(roomnumber_warning);
+    }
+    
+    @FXML
+    void roomPriceModify(MouseEvent event) {
+    	CheckUtil.checkWarningBefore(price_warning);
+    }
 
 }

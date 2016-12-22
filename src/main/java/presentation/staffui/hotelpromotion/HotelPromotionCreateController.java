@@ -97,6 +97,9 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		}
 	}
 	
+	/**
+	 * 酒店促销策略更新接口
+	 */
 	private PromotionUpdate update;
 	
 	@Override
@@ -120,6 +123,10 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			WindowGrab.startConfirmWindow(window, this, "是否确认新建促销策略");
 	}
 
+	/**
+	 * 检查促销策略输入是否合法
+	 * @return boolean
+	 */
 	private boolean checkInput() {
 		boolean check = true;
 		if (!CheckUtil.checkText(promotion_name)) {
@@ -132,6 +139,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		}
 
 		try {
+			// 检测折扣输入
 			if (!(CheckUtil.checkDiscount(discount_lv0.getText()) && CheckUtil.checkDiscount(discount_lv1.getText())
 					&& CheckUtil.checkDiscount(discount_lv2.getText())
 					&& CheckUtil.checkDiscount(discount_lv3.getText()))) {
@@ -149,6 +157,9 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		return check;
 	}
 
+	/**
+	 * 添加促销策略确认
+	 */
 	@Override
 	public void confirm() {
 		String name = promotion_name.getText();
@@ -172,8 +183,8 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		} else
 			promotionVO = new PromotionVO(null, name, type, discount, UserCache.getHotelID(), startDate, finishDate);
 		try {
+			// 促销策略id获取
 			String promotionID = ControllerFactory.getPromotionBLServiceInstance().addhotelPromotion(promotionVO);
-//			promotionVO.promotionID = promotionID;
 			promotionVO.setPromotionIDProperty(promotionID);
 			// 更新promotion列表
 			update.update(promotionVO);
@@ -183,6 +194,9 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		}
 	}
 
+	/**
+	 * 企业名输入
+	 */
 	@FXML
 	void addEnterprise(ActionEvent event) {
 		CheckUtil.checkWarningBefore(enterprise_warning);
@@ -190,6 +204,14 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindowWithBundle(window, "企业名输入", ENTERPRISE_INPUT_FXML, ENTERPRISE_INPUT_CSS,
 				new EnterpriseUpdateBundle(this));
+	}
+	
+	/**
+	 * 企业名称列表添加企业名
+	 */
+	@Override
+	public void update(String enter_name) {
+		enterprise_list.getItems().add(enter_name);
 	}
 
 	@FXML
@@ -205,6 +227,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 	@FXML
 	void typeModify(ActionEvent event) {
 		CheckUtil.checkWarningBefore(type_warning);
+		// 若选择企业类促销策略，显示添加企业标签、列表和按钮
 		if (promotion_type.getSelectionModel().getSelectedItem().equals(PromotionType.Enterprise.toString())) {
 			enterprise_label.setVisible(true);
 			add_enterprise.setVisible(true);
@@ -214,11 +237,6 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 			add_enterprise.setVisible(false);
 			enterprise_list.setVisible(false);
 		}
-	}
-
-	@Override
-	public void update(String enter_name) {
-		enterprise_list.getItems().add(enter_name);
 	}
 
 }

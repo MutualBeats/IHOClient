@@ -113,6 +113,9 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 	
 	private ObservableList<PromotionVO> list = FXCollections.observableArrayList();
 	
+	/**
+	 * 酒店促销策略界面初始化
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
@@ -134,6 +137,9 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 		finish_date.setCellValueFactory(cellData-> cellData.getValue().getFinishDateProperty());
 	}
 	
+	/**
+	 * 删除促销策略
+	 */
     @FXML
     void delete(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
@@ -144,27 +150,7 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
     	}
     	WindowGrab.startConfirmWindow(window, this, "是否确认删除");
 	}
-
-   
-
-    @FXML
-    void check(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-    	PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
-    	if(promotionVO == null) {
-    		WindowGrab.startNoticeWindow(window, "请选择促销策略");
-    		return;
-    	}
-    	WindowGrab.startWindowWithBundle(window, "查看促销策略", HOTEL_PROMOTION_LOOK_FXML, HOTEL_PROMOTION_LOOK_CSS, new PromotionInfoBundle(promotionVO));
-    }
-
-    @FXML
-    void create(ActionEvent event) {
-    	Window window = WindowGrab.getWindow(event);
-//		WindowGrab.startWindow(window, "新建促销策略",HOTEL_PROMOTION_CREATE_FXML,HOTEL_PROMOTION_CREATE_CSS);
-		WindowGrab.startWindowWithBundle(window, "", HOTEL_PROMOTION_CREATE_FXML, HOTEL_PROMOTION_CREATE_CSS, new PromotionUpdateBundle(this));
-    }
-
+    
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(0);
@@ -175,7 +161,6 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 			switch (result) {
 			case Delete_Successful:
 				promotion_list.getItems().remove(index);
-				// TODO 提示窗口问题
 				WindowGrab.startNoticeWindow(window, "删除成功");
 				break;
 			case Promotion_Not_Exist:
@@ -193,10 +178,36 @@ public class HotelPromotionController implements Initializable, PromotionUpdate,
 		}
 	}
 
+    /**
+     * 查看促销策略
+     */
+    @FXML
+    void check(ActionEvent event) {
+    	Window window = WindowGrab.getWindow(event);
+    	PromotionVO promotionVO = promotion_list.getSelectionModel().getSelectedItem();
+    	if(promotionVO == null) {
+    		WindowGrab.startNoticeWindow(window, "请选择促销策略");
+    		return;
+    	}
+    	WindowGrab.startWindowWithBundle(window, "查看促销策略", HOTEL_PROMOTION_LOOK_FXML, HOTEL_PROMOTION_LOOK_CSS, new PromotionInfoBundle(promotionVO));
+    }
+
+    /**
+     * 新建促销策略
+     */
+    @FXML
+    void create(ActionEvent event) {
+    	Window window = WindowGrab.getWindow(event);
+		WindowGrab.startWindowWithBundle(window, "新建促销策略", HOTEL_PROMOTION_CREATE_FXML, HOTEL_PROMOTION_CREATE_CSS, new PromotionUpdateBundle(this));
+    }
+
 	@Override
 	public void update(PromotionVO vo) {
 		promotion_list.getItems().add(0, vo);
 	}
+	
+	
+	/********************其他菜单界面跳转********************/
 	
 	@FXML
     void peopleInfo(ActionEvent event) {

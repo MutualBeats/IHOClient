@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package presentation.staffui.roommanage;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -83,6 +82,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     
 //    private static URL ROOM_UPDATE_FXML;
 //    private static URL ROOM_UPDATE_CSS;
+    
     //人员信息界面
     private static URL MENU_FXML;
     private static URL MENU_CSS;
@@ -108,8 +108,8 @@ public class RoomManageController implements Initializable, UpdateRoom {
 		ROOM_CHECK_FXML =StaffUIURLConfig.staff_room_check_fxml_url();
 		ROOM_CHECK_CSS = StaffUIURLConfig.staff_room_check_css_url();
 		
-//    		ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
-//    		ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
+//    	ROOM_UPDATE_FXML = new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml");
+//    	ROOM_UPDATE_CSS = new URL("file:src/main/resources/ui/staffui/css/room_update.css");
 		
 		MENU_FXML = StaffUIURLConfig.staff_main_fxml_url();
 		MENU_CSS =  StaffUIURLConfig.staff_main_css_url();
@@ -126,12 +126,15 @@ public class RoomManageController implements Initializable, UpdateRoom {
         
     private ObservableList<RoomVO> list = FXCollections.observableArrayList();
 
+    /**
+     * 房间管理界面初始化
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			roomBLService = ControllerFactory.getRoomBLServiceInstance();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 		refresh(null);
 	}
@@ -145,7 +148,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
 			room_list.setItems(list);
 			initColumn();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 	}
 	
@@ -156,7 +159,9 @@ public class RoomManageController implements Initializable, UpdateRoom {
 		room_state.setCellValueFactory(cellData -> cellData.getValue().getRoomStateProperty());
 	}
 
-    
+    /**
+     * 查看房间信息
+     */
     @FXML
     void check(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
@@ -168,19 +173,26 @@ public class RoomManageController implements Initializable, UpdateRoom {
 		WindowGrab.startWindowWithBundle(window, "查看客房信息",ROOM_CHECK_FXML,ROOM_CHECK_CSS, new RoomInfoBundle(roomVO, null));
     }
 
+    /**
+     * 录入客房
+     */
     @FXML
     void create(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindowWithBundle(window, "录入客房", ROOM_CREATE_FXML,ROOM_CREATE_CSS, new RoomUpdateBundle(this));
     }
 
+    /**
+     * 房间列表添加录入房间
+     */
 	@Override
 	public void update(RoomVO room) {
 		room_list.getItems().add(0, room);
 	}
-
 	
-	//界面跳转
+	
+	/***********************其他菜单跳转************************/
+	
 	@FXML
     void peopleInfo(ActionEvent event) {
 		WindowGrab.changeScene(MENU_FXML, MENU_CSS, event);

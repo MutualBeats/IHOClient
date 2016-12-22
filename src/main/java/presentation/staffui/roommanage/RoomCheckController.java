@@ -63,20 +63,24 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     private static URL ROOM_RECORD_ADD_CSS;
     
 	static {
-		// TODO 文件名字修改
 		ROOM_RECORD_ADD_FXML = StaffUIURLConfig.staff_room_update_fxml_url();
 		ROOM_RECORD_ADD_CSS = StaffUIURLConfig.staff_room_update_css_url();
 	}
     
+	/**
+	 * 查看房间具体信息
+	 */
     private RoomVO room;
     
     private RoomBLService roomBLService;
     
     private ObservableList<RoomRecordVO> list = FXCollections.observableArrayList();
 
+    /**
+     * 查看房间信息界面初始化
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		room_record_list.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
 		room = (RoomVO)resources.getObject("room");
 		room_number.setText(room.roomNumber);
 		room_type.setText(room.type.toString());
@@ -86,9 +90,13 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
 		}
+		// 房间记录列表更新（初始化）
 		refresh();
 	}
 	
+	/**
+	 * 刷新房间记录列表
+	 */
 	private void refresh() {
 		try {
 			// 未来房间记录获取
@@ -97,7 +105,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 			room_record_list.setItems(list);
 			initColumn();
 		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(2));
+			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(1));
 		}
 	}
 	
@@ -107,15 +115,20 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		estimate_check_out_date.setCellValueFactory(cellData -> cellData.getValue().getCheckOutDateProperty());
 	}
     
+	/**
+	 * 添加房间记录
+	 */
     @FXML
     void addRecord(ActionEvent event) {
     	Window window = WindowGrab.getWindow(event);
 		WindowGrab.startWindowWithBundle(window,"更新客房信息", ROOM_RECORD_ADD_FXML,ROOM_RECORD_ADD_CSS, new RoomInfoBundle(room, this));
     }
     
+    /**
+     * 线下房间入住
+     */
     @FXML
     void checkIn(ActionEvent event) {
-    	// 线下入住
     	Window window = WindowGrab.getWindow(event);
     	ResultMessage_Room result = roomBLService.checkIn(room.hotelID, room.roomNumber);
     	switch (result) {
@@ -139,9 +152,11 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 		}
     }
     
+    /**
+     * 线下退房
+     */
     @FXML
     void checkOut(ActionEvent event) {
-    	// 线下退房
     	Window window = WindowGrab.getWindow(event);
     	ResultMessage_Room result = roomBLService.checkOut(room.hotelID, room.roomNumber);
     	switch (result) {
@@ -171,6 +186,9 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	WindowGrab.closeWindow(event);
     }
 
+    /**
+     * 房间记录添加
+     */
 	@Override
 	public void update(RoomRecordVO roomRecord) {
 		room_record_list.getItems().add(0, roomRecord);

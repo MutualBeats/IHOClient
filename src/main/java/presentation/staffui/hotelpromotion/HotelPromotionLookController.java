@@ -66,6 +66,9 @@ public class HotelPromotionLookController implements Initializable {
     private ObservableList<Discount> discountItems = FXCollections.observableArrayList();
     private ObservableList<String> enterpriseItems = FXCollections.observableArrayList();
     
+    /**
+     * 酒店促销策略查看界面初始化
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		PromotionVO promotion = (PromotionVO)resources.getObject("promotion");
@@ -83,6 +86,7 @@ public class HotelPromotionLookController implements Initializable {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
 		
+		// 折扣列表显示
 		for (int i = 0; i < promotion.discount.size(); i++)
 			discountItems.add(new Discount(i, promotion.discount.get(i)));
 		
@@ -90,6 +94,7 @@ public class HotelPromotionLookController implements Initializable {
 		member_level.setCellValueFactory(cellData -> cellData.getValue().getLevelProperty());
 		discount.setCellValueFactory(cellData -> cellData.getValue().getDiscountProperty());
 		
+		// 若为企业促销策略，显示企业列表
 		if(promotion.type == PromotionType.Enterprise) {
 			enterprise_text.setVisible(true);
 			enterprise_list.setVisible(true);
@@ -106,8 +111,13 @@ public class HotelPromotionLookController implements Initializable {
     	WindowGrab.closeWindow(event);
     }
     
+    /**
+     * 折扣信息类
+     */
     private class Discount {
+    	// 等级
     	private StringProperty levelProperty;
+    	// 对应折扣
     	private StringProperty discountProperty;
     	
     	public StringProperty getLevelProperty() {
