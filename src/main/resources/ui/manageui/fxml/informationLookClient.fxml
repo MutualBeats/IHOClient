@@ -36,7 +36,7 @@
             <Label fx:id="member_info" layoutX="159.0" layoutY="246.0" prefHeight="60.0" prefWidth="170.0" />
             <Label fx:id="credit" layoutX="159.0" layoutY="322.0" prefHeight="25.0" prefWidth="170.0" />
             <Label fx:id="type" layoutX="159.0" layoutY="360.0" prefHeight="25.0" prefWidth="170.0" />
-            <Button fx:id="confirm" disable="true" layoutX="141.0" layoutY="409.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="确认" visible="false" />
+            <Button fx:id="confirm" disable="true" layoutX="141.0" layoutY="409.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
          </children>
       </Pane>
       <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />

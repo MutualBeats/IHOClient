@@ -29,11 +29,12 @@ import vo.user.StaffVO;
 
 public class AddPeopleController extends RegistCheckController implements Initializable, Confirm {
 
-
 	@FXML
     private Button cancel;
+	
 	@FXML
 	protected void confirm(ActionEvent event) {
+		//确认窗口
 		boolean inputOK = checkInputFormatter();
 		if (inputOK) {
 			Window window = WindowGrab.getWindow(event);
@@ -45,13 +46,12 @@ public class AddPeopleController extends RegistCheckController implements Initia
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
 	}
 
 	@Override
 	public void confirm() {
 		ResultMessage_User result = ResultMessage_User.Register_Success;
-
 		Window window = WindowGrab.getWindowByStage(0);
 		String id = user_name.getText();
 		String u_name = name.getText();

@@ -34,6 +34,7 @@ public class IDInputController implements Initializable{
 	
 	@FXML
 	protected void on_search(ActionEvent event) {
+		WindowGrab.closeWindow(event);
 		String id = id_input.getText();
 		ResultMessage_Verify result = ResultMessage_Verify.USER_NOT_EXIST;
 		Window window = WindowGrab.getWindow(event);

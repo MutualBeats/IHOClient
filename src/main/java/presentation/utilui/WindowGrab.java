@@ -137,7 +137,8 @@ public class WindowGrab {
 	}
 
 	private static void openInformation(ResourceBundle bundle, URL fxml, Window window) {
-		WindowGrab.startWindowWithBundle(window, "人员信息", fxml, info_css, bundle);
+		Scene frame=WindowGrab.getSceneByStage(0);
+		WindowGrab.changeSceneWithBundle(fxml, info_css, frame, bundle);
 	}
 
 	public static void startWindowWithBundle(Window owner, String title, URL fxml_path, URL css_path,

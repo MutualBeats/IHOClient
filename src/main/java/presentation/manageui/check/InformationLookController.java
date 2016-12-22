@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import config.NumberConfig;
+import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,7 +56,7 @@ public abstract class InformationLookController implements Initializable, Confir
 		if (modify_state) {
 			toInfoState();
 		} else {
-			WindowGrab.closeWindow(event);
+			WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(), ManageUIURLConfig.manage_menu_css(), event);;
 		}
 	}
 

@@ -24,7 +24,7 @@
       		<TextField fx:id="phone" editable="false" layoutX="165.0" layoutY="201.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
       		<Button fx:id="cancel" layoutX="325.0" layoutY="379.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" />
       		<Button fx:id="change" layoutX="145.0" layoutY="379.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="60.0" />
-      		<Button fx:id="confirm" disable="true" layoutX="145.0" layoutY="379.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="确认" visible="false" />
+      		<Button fx:id="confirm" disable="true" layoutX="145.0" layoutY="379.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
       		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="350.0" layoutY="144.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
       		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="350.0" layoutY="201.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
             <Text layoutX="80.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />

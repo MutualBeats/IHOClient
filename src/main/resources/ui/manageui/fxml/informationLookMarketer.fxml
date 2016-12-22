@@ -28,7 +28,7 @@
       		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="384.0" layoutY="222.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
             <Label fx:id="user_name" layoutX="199.0" layoutY="110.0" prefHeight="25.0" prefWidth="170.0" />
             <Label fx:id="type" layoutX="199.0" layoutY="275.0" prefHeight="25.0" prefWidth="170.0" />
-            <Button fx:id="confirm" disable="true" layoutX="179.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="确认" visible="false" />
+            <Button fx:id="confirm" disable="true" layoutX="179.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
          </children>
       </Pane>
       <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
