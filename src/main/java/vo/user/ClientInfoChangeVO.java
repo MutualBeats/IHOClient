@@ -2,6 +2,13 @@ package vo.user;
 
 import po.user.ClientInfoChangePO;
 
+/**
+ * 
+ * 信息改变VO
+ * 
+ * @author heleninsa
+ *
+ */
 public class ClientInfoChangeVO {
 	
 	public String clientID;

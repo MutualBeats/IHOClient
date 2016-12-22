@@ -4,8 +4,15 @@ import po.user.ClientPO;
 import util.resultmessage.ResultMessage_Verify;
 import util.user.MemberType;
 
-public class ClientVO extends BaseVO{
-	
+/**
+ * 
+ * 客户信息
+ * 
+ * @author heleninsa
+ *
+ */
+public class ClientVO extends BaseVO {
+
 	/*
 	 * 用户信用值
 	 */
@@ -25,6 +32,7 @@ public class ClientVO extends BaseVO{
 
 	/**
 	 * 构造方法
+	 * 
 	 * @param clientID
 	 * @param clientname
 	 * @param contactWay
@@ -45,5 +53,5 @@ public class ClientVO extends BaseVO{
 	public static ClientPO transformVOToPO(ClientVO vo) {
 		return new ClientPO(vo.id, vo.name, vo.contactWay, vo.credit, vo.memberType, vo.level, vo.memberMessage);
 	}
-	
+
 }
