@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -121,6 +123,7 @@ public class MakeOrderController implements Initializable, Confirm {
 		RoomUpdateHandle handle = new RoomUpdateHandle();
 		in_time.setOnAction(handle);
 		ou_time.setOnAction(handle);
+		room_list.getSelectionModel().selectedItemProperty().addListener(new PriceCalHandle());
 	}
 
 	@FXML
@@ -182,6 +185,15 @@ public class MakeOrderController implements Initializable, Confirm {
 			updateRoom(window);
 		}
 
+	}
+	
+	private class PriceCalHandle implements ChangeListener<RoomVO> {
+
+		@Override
+		public void changed(ObservableValue<? extends RoomVO> observable, RoomVO oldValue, RoomVO newValue) {
+			
+		}
+		
 	}
 
 	/**
