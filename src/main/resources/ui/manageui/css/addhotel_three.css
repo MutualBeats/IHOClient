@@ -9,6 +9,38 @@ and open the template in the editor.
 */
 
  .root{
-	-fx-background-image: url("file:src/main/resources/image/manage/addhotelbackground.jpg");
+	-fx-background-image: url("file:src/main/resources/image/manage/menubackground.jpg");
 }
        
+ .button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}       
+       
+#third_cancel{
+	-fx-background-image:url("file:src/main/resources/image/manage/lastStep.png");
+}
+#third_cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/lastStep_hover.png");
+}      
+
+
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/manage/peopleInfo.png");	
+}
+#addhotel{
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel_hover.png");	
+}
+#addpeople{
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople.png");	
+}
+#change{
+	-fx-background-image:url("file:src/main/resources/image/manage/change.png");	
+}
+#check{
+	-fx-background-image:url("file:src/main/resources/image/manage/check.png");
+}
+
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/manage/pane.png");
+}

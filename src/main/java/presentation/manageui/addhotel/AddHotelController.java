@@ -1,8 +1,11 @@
 package presentation.manageui.addhotel;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.userblservice.ManagerBLService;
 import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,10 +15,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Window;
+import presentation.bundle.ManageIDInputHandle;
+import presentation.bundle.PeopleListBundle;
 import presentation.utilcontroller.LocationBoxController;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
+import util.exception.NetException;
 import vo.hotel.HotelVO;
+import vo.user.ClientVO;
+import vo.user.ManagerVO;
+import vo.user.MarketerVO;
+import vo.user.StaffVO;
 
 public class AddHotelController extends LocationBoxController {
 
@@ -52,13 +64,28 @@ public class AddHotelController extends LocationBoxController {
 	@FXML
 	private Button next_step;
 
-
+	@FXML
+    private Pane pane;
 
 	@FXML
 	private AnchorPane first_pane;
 
+	 @FXML
+	    private Button addhotel;
 
+	    @FXML
+	    private Button addpeople;
 
+	    @FXML
+	    private Button peopleInfo;
+		
+	    @FXML
+	    private Button change;
+	    
+	    @FXML
+	    private Button check;
+	    
+	
 	private boolean checkInputFormater() {
 		boolean city_check = checkCitySelect();
 		boolean province_check = checkProvinceSelect();
@@ -217,4 +244,38 @@ public class AddHotelController extends LocationBoxController {
 		star.getSelectionModel().select(star_id);
 	}
 
+	//界面跳转
+	@FXML
+	void peopleInfo(ActionEvent event) {
+		WindowGrab.changeScene(ManageUIURLConfig.manage_menu_fxml(), ManageUIURLConfig.manage_menu_css(), event);
+	}
+	
+	
+	@FXML
+	void add_people(ActionEvent event) {
+		WindowGrab.changeScene(ManageUIURLConfig.manage_add_people_fxml(), ManageUIURLConfig.manage_add_people_css(), event);
+	}
+
+    @FXML
+    void on_change(ActionEvent event) {
+    	Window window = WindowGrab.getWindow(event);
+		WindowGrab.startIDInputWindow(window, new ManageIDInputHandle());
+    }
+
+    @FXML
+    void on_check(ActionEvent event) {
+    	Scene frame=WindowGrab.getScene(event);
+		try {
+			ManagerBLService mService = ControllerFactory.getManagerBLServiceInstance();
+			ArrayList<ClientVO> clientVOs = mService.getClientList();
+			ArrayList<StaffVO> staffVOs = mService.getStaffList();
+			ArrayList<MarketerVO> marketerVOs = mService.getMarketerList();
+			ManagerVO managerVO = mService.getManagerInfor();
+			PeopleListBundle bundle = new PeopleListBundle(clientVOs, staffVOs, marketerVOs, managerVO);
+			WindowGrab.changeSceneWithBundle(ManageUIURLConfig.manage_check_menu_fxml(), ManageUIURLConfig.manage_check_menu_css(), frame, bundle);
+		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
+			WindowGrab.startNetErrorWindow(window);
+		}
+    }
 }

@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="first_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="first_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController">
    <children>
-      <Pane layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
+      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
          <children>
             <TextField fx:id="address" alignment="TOP_LEFT" layoutX="150.0" layoutY="273.0" onMouseClicked="#addressModify" prefHeight="54.0" prefWidth="170.0" />
             <TextField fx:id="hotel_name" layoutX="150.0" layoutY="99.0" onMouseClicked="#nameModify" prefHeight="20.0" prefWidth="170.0" />
@@ -26,16 +26,8 @@
             <Label fx:id="group_warning" layoutX="335.0" layoutY="237.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
             <Label fx:id="address_warning" layoutX="335.0" layoutY="267.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
             <Label fx:id="star_warning" layoutX="335.0" layoutY="338.0" prefHeight="27.0" prefWidth="244.0" textFill="#e40c0c" wrapText="true" />
-            <Button fx:id="next_step" layoutX="154.0" layoutY="397.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="25.0" prefWidth="90.0" text="下一步">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="cancel" layoutX="334.0" layoutY="397.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="90.0" text="取消">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            <Button fx:id="next_step" layoutX="154.0" layoutY="397.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="26.0" prefWidth="60.0" />
+            <Button fx:id="cancel" layoutX="334.0" layoutY="397.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="25.0" prefWidth="60.0" />
             <Text layoutX="40.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所在省份：" wrappingWidth="90.0">
                <font>
                   <Font size="14.0" />
@@ -84,5 +76,10 @@
             </Label>
          </children>
       </Pane>
+      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#add_people" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#on_change" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#on_check" prefHeight="60.0" prefWidth="80.0" />
    </children>
 </AnchorPane>

@@ -11,4 +11,58 @@ and open the template in the editor.
  .root{
 	-fx-background-image: url("file:src/main/resources/image/manage/menubackground.jpg");
 }
+.button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 3px; 
+}   
        
+#next_step{
+	-fx-background-image:url("file:src/main/resources/image/manage/next_step.png");	
+}
+#next_step:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/next_step_hover.png");	
+}
+
+#peopleInfo{
+	-fx-background-image:url("file:src/main/resources/image/manage/peopleInfo.png");	
+}
+#peopleInfo:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/peopleInfo_hover.png");	
+}
+
+
+#addhotel{
+	-fx-background-image:url("file:src/main/resources/image/manage/addhotel_hover.png");	
+}
+
+#addpeople{
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople.png");	
+}
+#addpeople:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/addpeople_hover.png");
+}
+
+#change{
+	-fx-background-image:url("file:src/main/resources/image/manage/change.png");	
+}
+#change:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/change_hover.png");
+}
+
+#check{
+	-fx-background-image:url("file:src/main/resources/image/manage/check.png");
+}
+#check:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/check_hover.png");
+}
+
+#cancel{
+	-fx-background-image:url("file:src/main/resources/image/manage/cancel.png");
+}
+#cancel:hover{
+	-fx-background-image:url("file:src/main/resources/image/manage/cancel_hover.png");
+}
+
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/manage/pane.png");
+}

@@ -88,6 +88,12 @@ public class CheckMenuController implements Initializable {
     @FXML
     private Button peopleInfo;
 	
+    @FXML
+    private Button change;
+    
+    @FXML
+    private Button check;
+    
 	final ToggleGroup buttom_group = new ToggleGroup();
 
 	private ArrayList<ClientVO> clientVOs;
