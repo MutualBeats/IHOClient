@@ -34,9 +34,6 @@ public class MainStaffController implements Initializable{
     private Pane pane;
 
     @FXML
-    private Label title;
-
-    @FXML
     private Button room;
 
     @FXML
@@ -45,6 +42,9 @@ public class MainStaffController implements Initializable{
     @FXML
     private Button promotion;
         
+    @FXML
+    private Label photo;
+    
     //酒店促销策略
     private static URL HOTEL_PROMOTION_FXML;
     private static URL HOTEL_PROMOTION_CSS;

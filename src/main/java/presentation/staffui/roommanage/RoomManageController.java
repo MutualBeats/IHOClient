@@ -52,7 +52,7 @@ public class RoomManageController implements Initializable, UpdateRoom {
     private Button cancel;
 
     @FXML
-    private Label promotion_title;
+    private Label pane;
 
     @FXML
     private Button create;

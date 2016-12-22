@@ -48,7 +48,7 @@ public class Hotel_Maintain_Controller extends LocationBoxController implements 
 	private TextField hotel_name;
 
 	@FXML
-	private Label hotel_maintain_title;
+	private Label pane;
 
 	@FXML
 	private TextField hotel_score;

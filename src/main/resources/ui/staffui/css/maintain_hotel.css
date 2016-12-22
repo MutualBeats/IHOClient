@@ -1,6 +1,6 @@
 
 .root{
-    -fx-background-image: url("file:src/main/resources/image/staff/background.jpg");
+    -fx-background-image: url("file:src/main/resources/image/staff/menubackground.jpg");
 }
 
 
@@ -9,10 +9,9 @@
 	-fx-background-radius: 3px; 
 }
 
-#hotel_maintain_title{
-	 -fx-background-image: url("file:src/main/resources/image/staff/hotel_maintain_title.png");
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/staff/pane.png");	
 }
-
 
 
 #room{

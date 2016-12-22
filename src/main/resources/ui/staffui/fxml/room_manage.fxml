@@ -9,25 +9,12 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.roommanage.RoomManageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffbe5" height="480.0" layoutX="170.0" layoutY="90.0" stroke="#bfbe97" strokeType="INSIDE" width="600.0">
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow color="#d9a96a" />
-               </bumpInput>
-               <light>
-                  <Light.Distant color="#bfe5a5" />
-               </light>
-            </Lighting>
-         </effect>
-      </Rectangle>
-      <Accordion layoutY="115.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="460.0" layoutX="180.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="580.0" />
-      <Label fx:id="room_title" layoutX="5.0" layoutY="35.0" prefHeight="45.0" prefWidth="200.0">
+      <Label fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
+      <Accordion layoutY="115.0" />
       <Button fx:id="cancel" layoutX="600.0" layoutY="500.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
          <font>
             <Font size="15.0" />
@@ -61,10 +48,10 @@
             <Font size="12.0" />
          </font>
       </Button>
-      <Button fx:id="peopleInfo" layoutX="35.0" layoutY="130.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="promotion" layoutX="35.0" layoutY="330.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="room" layoutX="35.0" layoutY="280.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="order" layoutX="35.0" layoutY="230.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="30.0" prefWidth="100.0" />
-      <Button fx:id="hotel_message" layoutX="35.0" layoutY="180.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="30.0" prefWidth="100.0" />
+      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="promotion" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="room" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="60.0" prefWidth="80.0" />
    </children>
 </AnchorPane>

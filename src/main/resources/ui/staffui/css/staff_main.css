@@ -6,16 +6,14 @@
 	-fx-background-color:transparent;
 	-fx-background-radius: 3px; 
 }
-.label{
-	-fx-font-size: 20px;
-    -fx-font-weight: bolder;
-    -fx-text-fill: darkslategray;
+#pane{
+	-fx-background-image:url("file:src/main/resources/image/staff/pane.png");	
+}
+#photo{
+	-fx-background-image:url("file:src/main/resources/image/staff/photo.png");	
 }
 
-#title{
-	-fx-font-size: 32px;
-	-fx-background-image: url("file:src/main/resources/image/staff/menutitle.png");	
-}
+
 #room{
 	-fx-background-image:url("file:src/main/resources/image/staff/room.png");	
 }
