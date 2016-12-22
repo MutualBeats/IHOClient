@@ -127,7 +127,7 @@ public class TimeDiscountController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		CheckUtil.init(start_time, end_time, LocalDate.now(), LocalDate.now());
+		CheckUtil.inAndOutDatePickerInit(start_time, end_time, LocalDate.now(), LocalDate.now());
 		update=(PromotionUpdate)resources.getObject("update");
 	}
 	

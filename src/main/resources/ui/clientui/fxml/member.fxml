@@ -8,60 +8,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="475.0" prefWidth="460.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="presentation.clientui.member.MemberController">
+<AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.member.MemberController">
 	<children>
-		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0"
-			prefWidth="200.0" />
-		<Button fx:id="cancel" layoutX="273.0" layoutY="369.0"
-			mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
-			prefWidth="60.0" />
+		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
+		<Button fx:id="cancel" layoutX="273.0" layoutY="369.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" />
 		<Label layoutX="77.0" layoutY="111.0" text="会员类型 :">
 			<font>
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<RadioButton layoutX="177.0" layoutY="114.0"
-			mnemonicParsing="false" onAction="#original_member" selected="true"
-			text="普通会员">
+		<RadioButton layoutX="177.0" layoutY="114.0" mnemonicParsing="false" onAction="#original_member" selected="true" text="普通会员">
 			<font>
 				<Font size="15.0" />
 			</font>
+         <toggleGroup>
+            <ToggleGroup fx:id="member" />
+         </toggleGroup>
 			<!-- <toggleGroup> <ToggleGroup fx:id="member" /> </toggleGroup> -->
 		</RadioButton>
-		<RadioButton layoutX="297.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#business_member" text="企业会员"
-			toggleGroup="$member">
+		<RadioButton layoutX="297.0" layoutY="115.0" mnemonicParsing="false" onAction="#business_member" text="企业会员" toggleGroup="$member">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</RadioButton>
-		<Pane fx:id="original_pane" layoutX="80.0" layoutY="156.0"
-			prefHeight="200.0" prefWidth="300.0">
+		<Pane fx:id="original_pane" layoutX="80.0" layoutY="156.0" prefHeight="200.0" prefWidth="300.0">
 			<children>
 				<Label layoutX="45.0" layoutY="45.0" text="生日:">
 					<font>
 						<Font size="15.0" />
 					</font>
 				</Label>
-				<DatePicker fx:id="birth" layoutX="65.0" layoutY="90.0"
-					prefWidth="180.0" />
+				<DatePicker fx:id="birth" layoutX="65.0" layoutY="90.0" prefWidth="180.0" />
 			</children>
 		</Pane>
-		<Pane fx:id="business_pane" layoutX="80.0" layoutY="156.0"
-			prefHeight="200.0" prefWidth="300.0" visible="false">
+		<Pane fx:id="business_pane" layoutX="80.0" layoutY="156.0" prefHeight="200.0" prefWidth="300.0" visible="false">
 			<children>
 				<Label layoutX="45.0" layoutY="45.0" text="企业名称 :">
 					<font>
 						<Font size="15.0" />
 					</font>
 				</Label>
-				<TextField fx:id="enterprise" layoutX="65.0" layoutY="90.0"
-					prefWidth="180.0" />
+				<TextField fx:id="enterprise" layoutX="65.0" layoutY="90.0" prefWidth="180.0" />
 			</children>
 		</Pane>
-		<Button fx:id="confirm" layoutX="128.0" layoutY="369.0"
-			mnemonicParsing="false" onAction="#confirm" prefWidth="60.0" />
+		<Button fx:id="confirm" layoutX="128.0" layoutY="369.0" mnemonicParsing="false" onAction="#confirm" prefWidth="60.0" />
 	</children>
 </AnchorPane>

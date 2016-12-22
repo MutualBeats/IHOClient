@@ -107,7 +107,7 @@ public class HotelPromotionCreateController implements Initializable, Confirm, U
 		ObservableList<String> promotionTypes = FXCollections.observableArrayList(PromotionType.Birthday.toString(),
 				PromotionType.Room.toString(), PromotionType.Holiday.toString(), PromotionType.Enterprise.toString());
 		promotion_type.setItems(promotionTypes);
-		CheckUtil.init(start_date, finish_date, LocalDate.now(), LocalDate.now());
+		CheckUtil.inAndOutDatePickerInit(start_date, finish_date, LocalDate.now(), LocalDate.now());
 		update = (PromotionUpdate) resources.getObject("update");
 	}
 

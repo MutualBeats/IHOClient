@@ -30,7 +30,14 @@ import vo.hotel.HotelVO;
 import vo.order.OrderVO;
 import vo.user.ClientVO;
 
-public class MainClientController extends SearchView {
+/**
+ * 
+ * 客户端主界面
+ * 
+ * @author heleninsa
+ *
+ */
+class MainClientController extends SearchView {
 
 	@FXML
 	private Button first;
@@ -146,12 +153,15 @@ public class MainClientController extends SearchView {
 			WindowGrab.startNetErrorWindow(window);
 			return;
 		}
-
+		
 		String client_id = UserCache.getID();
 		if (client_id == null) {
 			WindowGrab.startErrorWindow(window, "当前无用户登陆");
 			return;
 		}
+		/*
+		 *订单列表获取 
+		 */
 		try {
 			ArrayList<OrderVO> total_list = service.queryUserOrder(client_id, OrderState.All);
 			ArrayList<OrderVO> finish_list = service.queryUserOrder(client_id, OrderState.Finished);
@@ -183,6 +193,7 @@ public class MainClientController extends SearchView {
 	void member(ActionEvent event) {
 		Window window = WindowGrab.getWindow(event);
 		try {
+			/*判断是否已是会员*/
 			if (ControllerFactory.getClientBLServiceInstance()
 					.getClientInfo(UserCache.getID()).memberType == MemberType.Not) {
 				WindowGrab.startWindow(window, "注册会员", MEMBER_FXML, MEMBER_CSS);
@@ -217,11 +228,14 @@ public class MainClientController extends SearchView {
 		try {
 			ArrayList<OrderVO> vos = ControllerFactory.getOrderBLServiceInstance().queryUserOrder(UserCache.getID(),
 					OrderState.All);
+			//酒店Hashmap，避免重复酒店
 			Map<String, String> hotel_ids = new HashMap<>();
 			ArrayList<HotelVO> hotel_list = new ArrayList<>();
+			//筛选 
 			for (OrderVO each : vos) {
 				String hotelID = each.hotelID;
 				if (!hotel_ids.containsKey(hotelID)) {
+					//重复检测
 					hotel_ids.put(hotelID, hotelID);
 					HotelVO hotel_info = ControllerFactory.getHotelBLServiceInstance().showHotelInfo(hotelID);
 					hotel_list.add(hotel_info);

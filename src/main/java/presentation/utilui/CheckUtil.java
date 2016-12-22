@@ -16,29 +16,62 @@ import javafx.scene.control.TextField;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
+/**
+ * 
+ * 用于界面输入以及界面检查的工具类
+ * 
+ * @author heleninsa
+ *
+ */
 public class CheckUtil {
 
+	/* 筛选 */
 	private final static Pattern pattern = Pattern.compile("[\\s]*");
 	private final static Pattern point_pattern = Pattern.compile("^\\d+(\\.\\d+)?$");
 	private final static Pattern value_pattern = Pattern.compile("^[0-9]\\d*$");
 
-	public static boolean checkWarningBefore(Label label) {
-		String warning = label.getText();
+	/**
+	 * 检查是否有过警告
+	 * 
+	 * @param warning_label
+	 *            : 警告显示的Label
+	 * @return
+	 */
+	public static boolean checkWarningBefore(Label warning_label) {
+		String warning = warning_label.getText();
 		if (warning.length() != 0) {
-			label.setText("");
+			warning_label.setText("");
 			return true;
 		}
 		return false;
 	}
 
+	/**
+	 * 检查输入价格是否为正整数
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public static boolean checkValue(String value) {
 		return value_pattern.matcher(value).matches();
 	}
 
+	/**
+	 * 检查评分是否为正double
+	 * 
+	 * @param score
+	 * @return
+	 */
 	public static boolean checkScore(String score) {
 		return point_pattern.matcher(score).matches();
 	}
 
+	/**
+	 * 检查折扣是否符合0～10
+	 * 
+	 * @param discount
+	 * @return
+	 */
 	public static boolean checkDiscount(String discount) {
 		if (point_pattern.matcher(discount).matches()) {
 			double dis = Double.parseDouble(discount);
@@ -50,6 +83,12 @@ public class CheckUtil {
 		return false;
 	}
 
+	/**
+	 * 检查是否选中
+	 * 
+	 * @param comboBox
+	 * @return
+	 */
 	public static boolean checkSelect(ComboBox<?> comboBox) {
 		return comboBox.getSelectionModel().getSelectedIndex() != -1;
 	}
@@ -72,32 +111,37 @@ public class CheckUtil {
 	public static boolean checkSelect(TableView<?> tableView) {
 		return tableView.getSelectionModel().getSelectedIndex() != -1;
 	}
-	
+
 	public static boolean checkDiscount(ArrayList<Double> discount_list) {
 		ArrayList<Double> list = new ArrayList<>();
 		list.addAll(discount_list);
 		Collections.sort(list);
 		int size = discount_list.size();
-		for(int i = 0; i < size; i ++ ) {
-			if(discount_list.get(i) != list.get(size - i - 1)) {
+		for (int i = 0; i < size; i++) {
+			if (discount_list.get(i) != list.get(size - i - 1)) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	private static String get_two_bits(int value) {
- 		if(value > 99) {
- 			return "";
- 		} else {
- 			if((int)(value/10) == 0) {
- 				return "0" + value;
- 			} else {
- 				return "" + value;
- 			}
- 		}
+		if (value > 99) {
+			return "";
+		} else {
+			if ((int) (value / 10) == 0) {
+				return "0" + value;
+			} else {
+				return "" + value;
+			}
+		}
 	}
-	
+
+	/**
+	 * 获取Converter
+	 * 
+	 * @return
+	 */
 	public static StringConverter<LocalDate> getConverter() {
 		StringConverter<LocalDate> converter = new StringConverter<LocalDate>() {
 			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/mm/dd");
@@ -105,7 +149,8 @@ public class CheckUtil {
 			@Override
 			public String toString(LocalDate date) {
 				if (date != null) {
-					return date.getYear() + "/" + get_two_bits(date.getMonthValue()) + "/" + get_two_bits(date.getDayOfMonth());
+					return date.getYear() + "/" + get_two_bits(date.getMonthValue()) + "/"
+							+ get_two_bits(date.getDayOfMonth());
 					// return date.toString();
 				} else {
 					return "";
@@ -123,9 +168,18 @@ public class CheckUtil {
 		};
 		return converter;
 	}
-	
-	public static void init(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s, LocalDate e) {
-		
+
+	/**
+	 * 入住和离开日期的DatePicker的初始化
+	 * 
+	 * @param checkInDatePicker
+	 * @param checkOutDatePicker
+	 * @param s
+	 * @param e
+	 */
+	public static void inAndOutDatePickerInit(DatePicker checkInDatePicker, DatePicker checkOutDatePicker, LocalDate s,
+			LocalDate e) {
+
 		checkInDatePicker.setConverter(getConverter());
 		checkOutDatePicker.setConverter(getConverter());
 
@@ -160,7 +214,7 @@ public class CheckUtil {
 					@Override
 					public void updateItem(LocalDate item, boolean empty) {
 						super.updateItem(item, empty);
-
+						// 设置out比in晚
 						if (item.isBefore(checkInDatePicker.getValue().plusDays(1))) {
 							setDisable(true);
 							setStyle("-fx-background-color: #ffc0cb;");

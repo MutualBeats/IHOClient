@@ -27,6 +27,7 @@ import presentation.utilcontroller.ResultHandle;
 /**
  * 
  * UITitl for window
+ * 界面跳转以及通用窗口的创建
  * 
  * @author heleninsa
  *

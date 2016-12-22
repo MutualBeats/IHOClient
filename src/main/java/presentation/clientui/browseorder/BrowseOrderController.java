@@ -83,23 +83,17 @@ public class BrowseOrderController implements Initializable, Confirm, UpdateEval
 	@FXML
 	private Button unexecuted_order;
 
-//	private static URL CHECK_FXML;
-//	private static URL CHECK_CSS;
 
 	private static URL CLIENTMENU_FXML;
 	private static URL CLIENTMENU_CSS;
-
+	
 	static {
 		try {
-
-//			CHECK_FXML = new URL("file:src/main/resources/ui/utilui/fxml/order_information.fxml");
-//			CHECK_CSS = new URL("file:src/main/resources/ui/utilui/css/order_information.css");
-
+			
 			CLIENTMENU_FXML = new URL("file:src/main/resources/ui/clientui/fxml/clientmenu.fxml");
 			CLIENTMENU_CSS = new URL("file:src/main/resources/ui/clientui/css/clientmenu.css");
 
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -120,6 +114,7 @@ public class BrowseOrderController implements Initializable, Confirm, UpdateEval
 		ArrayList<OrderVO> revoked = (ArrayList<OrderVO>) resources.getObject("revoked");
 		ArrayList<OrderVO> exception = (ArrayList<OrderVO>) resources.getObject("exception");
 
+		/* 界面缓存初始化 */
 		total_list = FXCollections.observableArrayList();
 		finished_list = FXCollections.observableArrayList();
 		unexecuted_list = FXCollections.observableArrayList();
@@ -219,7 +214,7 @@ public class BrowseOrderController implements Initializable, Confirm, UpdateEval
 			WindowGrab.startNoticeWindow(window, "请选择要查看的订单");
 		} else {
 			OrderVO info = model.getSelectedItem();
-			// TODO : the reach of hotel name is waiting to check.
+			//
 			String hotel_name = hotel.getCellData(model.getSelectedIndex());
 			ViewUtil.showOrder(info, hotel_name, window);
 		}

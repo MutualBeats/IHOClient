@@ -59,7 +59,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 		room_number.setText(room.roomNumber);
 		room_type.setText(room.type.toString());
 		room_price.setText("" + room.price);
-		CheckUtil.init(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
+		CheckUtil.inAndOutDatePickerInit(check_in_date, estimate_check_out_date, LocalDate.now(), LocalDate.now());
 		updateRoomRecord = (UpdateRoomRecord) resources.getObject("update");
 	}
     
