@@ -30,14 +30,14 @@ public class Credit {
 	public ResultMessage_Credit creditUpdate(CreditVO updateVO) {
 		ResultMessage_Credit result = credit_data_service.creditUpdate(updateVO);
 		if (result == ResultMessage_Credit.Update_Successful) {
-			if (notify == null) {
-				try {
+			try {
+				if (notify == null) {
 					notify = ControllerFactory.getClientCreditNotifier();
-				} catch (NetException e) {
-					return ResultMessage_Credit.Credit_Net_Error;
 				}
+				notify.notifyCreditChange(updateVO.clientID, updateVO.credit);
+			} catch (NetException e) {
+				return ResultMessage_Credit.Credit_Net_Error;
 			}
-			notify.notifyCreditChange(updateVO.clientID, updateVO.credit);
 		}
 		return result;
 	}

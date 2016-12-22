@@ -10,6 +10,7 @@ import bussinesslogic.orderbl.HotelInfo;
 import bussinesslogic.orderbl.OrderController;
 import bussinesslogic.orderbl.PromotionGet;
 import bussinesslogic.orderbl.RoomUpdate;
+import bussinesslogic.promotionbl.MemberLevelGet;
 import bussinesslogic.promotionbl.PromotionController;
 import bussinesslogic.roombl.RoomController;
 import bussinesslogic.userbl.client.ClientController;
@@ -87,6 +88,13 @@ public class ControllerFactory {
 	}
 	
 	public static PromotionBLService getPromotionBLServiceInstance() throws NetException {
+		if(promotionController == null) {
+			promotionController = new PromotionController();
+		}
+		return promotionController;
+	}
+	
+	public static MemberLevelGet getMemberLevel() throws NetException {
 		if(promotionController == null) {
 			promotionController = new PromotionController();
 		}

@@ -11,21 +11,21 @@ public enum ResultMessage_Verify {
 	CLIENT {
 		@Override
 		public String toString() {
-			return "-IHO-";
+			return "用户";
 		}
 	},
 
 	STAFF {
 		@Override
 		public String toString() {
-			return "酒店工作人员操作界面";
+			return "酒店工作人员";
 		}
 	},
 
 	MARKETER {
 		@Override
 		public String toString() {
-			return "营销人员操作界面";
+			return "网站营销人员";
 		}
 	},
 

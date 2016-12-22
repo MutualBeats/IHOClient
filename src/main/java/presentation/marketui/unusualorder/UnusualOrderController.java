@@ -177,6 +177,8 @@ public class UnusualOrderController extends OrderListView implements Initializab
 			return;
 		}
 		if (result == ResultMessage_Order.Appeal_Successful) {
+			unusual_orderlist.remove(order_list.getSelectionModel().getSelectedIndex());
+			order_list.refresh();
 			WindowGrab.startNoticeWindow(window, "撤销订单成功！");
 		} else {
 			WindowGrab.startNoticeWindow(window, "撤销订单失败！");

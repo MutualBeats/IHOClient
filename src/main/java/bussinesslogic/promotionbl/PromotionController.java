@@ -9,7 +9,7 @@ import util.exception.NetException;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
 
-public class PromotionController implements PromotionBLService, PromotionGet{
+public class PromotionController implements PromotionBLService, PromotionGet, MemberLevelGet{
 	
 	private Promotion promotion;
 
@@ -70,6 +70,14 @@ public class PromotionController implements PromotionBLService, PromotionGet{
 	@Override
 	public double getDiscount(int level) throws NetException {
 		return promotion.getMemberDiscount().get(level);
+	}
+
+	/* (non-Javadoc)
+	 * @see bussinesslogic.promotionbl.MemberLevelGet#getLevelInfo(int)
+	 */
+	@Override
+	public int getLevelInfo(int credit) throws NetException {
+		return promotion.getLevelInfo(credit);
 	}
 	
 }

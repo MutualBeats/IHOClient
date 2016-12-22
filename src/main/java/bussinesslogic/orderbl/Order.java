@@ -649,6 +649,7 @@ public class Order {
 			for (String roomNumber : vo.roomNumberList)
 				value += room.getRoomPrice(vo.hotelID, roomNumber) * days;
 		} catch (ParseException e) {
+			System.out.println("null");
 			return null;
 		}
 

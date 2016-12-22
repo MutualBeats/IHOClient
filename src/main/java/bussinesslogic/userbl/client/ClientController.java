@@ -49,10 +49,9 @@ public class ClientController implements ClientBLService, ClientInfoGet, ClientI
 	}
 
 	@Override
-	public void notifyCreditChange(String clientID, int credit) {
+	public void notifyCreditChange(String clientID, int credit) throws NetException {
 		client.updateCacheCredit(clientID, credit);
 	}
-	
 
 
 	

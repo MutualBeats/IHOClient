@@ -151,18 +151,20 @@ public class MakeOrderController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(1);
-		try {
-			OrderBLService service = ControllerFactory.getOrderBLServiceInstance();
-			String order_id = service.makeOrder(order_waiting_to_make);
-			OrderVO vo = service.queryOrderById(order_id);
-			String hotel_n = hotel_name.getText();
-			/* 订单生成窗口关闭 */
-			WindowGrab.closeWindow(window);
-			Window info_window = WindowGrab.getWindowByStage(0);
-			ViewUtil.showOrder(vo, hotel_n, info_window);
-		} catch (NetException e) {
-			WindowGrab.startNetErrorWindow(window);
+		if (checkOrder()) {
+			Window window = WindowGrab.getWindowByStage(1);
+			try {
+				OrderBLService service = ControllerFactory.getOrderBLServiceInstance();
+				String order_id = service.makeOrder(order_waiting_to_make);
+				OrderVO vo = service.queryOrderById(order_id);
+				String hotel_n = hotel_name.getText();
+				/* 订单生成窗口关闭 */
+				WindowGrab.closeWindow(window);
+				Window info_window = WindowGrab.getWindowByStage(0);
+				ViewUtil.showOrder(vo, hotel_n, info_window);
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+			}
 		}
 	}
 
@@ -180,45 +182,53 @@ public class MakeOrderController implements Initializable, Confirm {
 
 		@Override
 		public void changed(ObservableValue<? extends RoomVO> observable, RoomVO oldValue, RoomVO newValue) {
-			boolean nums = CheckUtil.checkValue(people_num.getText());
-			boolean select_rooms = room_list.getSelectionModel().getSelectedItems().size() != 0;
-			if (nums && select_rooms) {
-				// 生成订单信息
-				String clientID = UserCache.getID();
-				ObservableList<RoomVO> room_nl = room_list.getSelectionModel().getSelectedItems();
-				ArrayList<String> roomNumberList = new ArrayList<>();
-				for (RoomVO each : room_nl)
-					roomNumberList.add(each.roomNumber);
-
-				int numOfPeople = Integer.parseInt(people_num.getText());
-				boolean be_children = children.isSelected();
-
-				String checkInDate = in_time.getEditor().getText();
-				String estimateCheckOutDate = ou_time.getEditor().getText();
-
-				OrderMakeVO makeVO = new OrderMakeVO(clientID, hotel_id, roomNumberList, checkInDate,
-						estimateCheckOutDate, numOfPeople, be_children);
-				Window window = WindowGrab.getWindowByStage(1);
-				try {
-					OrderVO vo = ControllerFactory.getOrderBLServiceInstance().getOrderVOBeforeMake(makeVO);
-					order_waiting_to_make = vo;
-					value.setText(vo.value + " 元");
-					String promotion_name = "无可用促销策略";
-					if (vo.promotionIDList.size() != 0) {
-
-						promotion_name = ControllerFactory.getPromotionBLServiceInstance()
-								.getPromotionById(vo.promotionIDList.get(0)).promotionName;
-
-					}
-					promotion.setText(promotion_name);
-				} catch (NetException e) {
-					WindowGrab.startNetErrorWindow(window);
-				} catch (TimeConflictException e1) {
-					WindowGrab.startErrorWindow(window, e1.getMessage());
-				}
-			}
+			checkOrder();
 		}
 
+	}
+
+	private boolean checkOrder() {
+		boolean nums = CheckUtil.checkValue(people_num.getText());
+		boolean select_rooms = room_list.getSelectionModel().getSelectedItems().size() != 0;
+		if (nums && select_rooms) {
+			// 生成订单信息
+			String clientID = UserCache.getID();
+			ObservableList<RoomVO> room_nl = room_list.getSelectionModel().getSelectedItems();
+			ArrayList<String> roomNumberList = new ArrayList<>();
+			for (RoomVO each : room_nl)
+				roomNumberList.add(each.roomNumber);
+
+			int numOfPeople = Integer.parseInt(people_num.getText());
+			boolean be_children = children.isSelected();
+
+			String checkInDate = in_time.getEditor().getText();
+			String estimateCheckOutDate = ou_time.getEditor().getText();
+
+			OrderMakeVO makeVO = new OrderMakeVO(clientID, hotel_id, roomNumberList, checkInDate, estimateCheckOutDate,
+					numOfPeople, be_children);
+			Window window = WindowGrab.getWindowByStage(1);
+			try {
+				OrderVO vo = ControllerFactory.getOrderBLServiceInstance().getOrderVOBeforeMake(makeVO);
+				order_waiting_to_make = vo;
+				value.setText(vo.value + " 元");
+				String promotion_name = "无可用促销策略";
+				if (vo.promotionIDList.size() != 0) {
+
+					promotion_name = ControllerFactory.getPromotionBLServiceInstance()
+							.getPromotionById(vo.promotionIDList.get(0)).promotionName;
+
+				}
+				promotion.setText(promotion_name);
+				return true;
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+				return false;
+			} catch (TimeConflictException e1) {
+				WindowGrab.startErrorWindow(window, e1.getMessage());
+				return false;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -240,36 +250,37 @@ public class MakeOrderController implements Initializable, Confirm {
 						each.roomNumber);
 				boolean ok = true;
 				for (RoomRecordVO vo : records) {
-					if (es_out_time.compareTo(vo.checkInDate) < 0
-							|| es_in_time.compareTo(vo.estimateCheckOutDate) > 0)
+					if (es_out_time.compareTo(vo.checkInDate) < 0 || es_in_time.compareTo(vo.estimateCheckOutDate) > 0)
 						continue;
 					// 时间重叠
 					ok = false;
 					break;
 				}
-				if(ok) {
+				if (ok) {
 					satisfy_rooms.add(each);
 				}
-//				boolean ok = true;
-//				for (RoomRecordVO record : records) {
-//					boolean later = Time.deltaDate(es_out_time, record.checkInDate) > 0;
-//					boolean earlier = Time.deltaDate(record.estimateCheckOutDate, es_in_time) > 0;
-//					if (!(later && earlier)) {
-//						ok = false;
-//						break;
-//					}
-//				}
-//				if (ok) {
-//					satisfy_rooms.add(each);
-//				}
+				// boolean ok = true;
+				// for (RoomRecordVO record : records) {
+				// boolean later = Time.deltaDate(es_out_time,
+				// record.checkInDate) > 0;
+				// boolean earlier = Time.deltaDate(record.estimateCheckOutDate,
+				// es_in_time) > 0;
+				// if (!(later && earlier)) {
+				// ok = false;
+				// break;
+				// }
+				// }
+				// if (ok) {
+				// satisfy_rooms.add(each);
+				// }
 			} catch (NetException e) {
 				WindowGrab.startNetErrorWindow(window);
 				break;
 			}
-//			} catch (ParseException e) {
-//				WindowGrab.startErrorWindow(window, "时间格式错误");
-//				break;
-//			}
+			// } catch (ParseException e) {
+			// WindowGrab.startErrorWindow(window, "时间格式错误");
+			// break;
+			// }
 		}
 
 		/* Update */

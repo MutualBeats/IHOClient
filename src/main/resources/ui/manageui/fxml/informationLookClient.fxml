@@ -23,7 +23,7 @@
       		<TextField fx:id="name" editable="false" layoutX="159.0" layoutY="86.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
       		<TextField fx:id="phone" editable="false" layoutX="159.0" layoutY="126.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
       		<Button fx:id="cancel" layoutX="319.0" layoutY="409.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="60.0" />
-      		<Button fx:id="change_button" layoutX="141.0" layoutY="409.0" mnemonicParsing="false" onAction="#change" prefHeight="25.0" prefWidth="60.0" />
+      		<Button fx:id="change" layoutX="141.0" layoutY="409.0" mnemonicParsing="false" onAction="#change" prefHeight="25.0" prefWidth="60.0" />
       		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="346.0" layoutY="83.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
       		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="346.0" layoutY="126.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
             <Text layoutX="74.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
@@ -40,7 +40,7 @@
          </children>
       </Pane>
       <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#on_change" prefHeight="60.0" prefWidth="80.0" />
+      <Button fx:id="change_button" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#on_change" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#addhotel" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#add_people" prefHeight="60.0" prefWidth="80.0" />
       <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />

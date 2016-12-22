@@ -49,9 +49,9 @@ public class AddHotelController_three {
 		if (result == ResultMessage_User.Net_Error) {
 			WindowGrab.startErrorWindow(window, "网络异常，请检查网络连接");
 		} else if (result == ResultMessage_User.Register_Success) {
-			WindowGrab.closeWindow(event);
 			ViewCache.clearCache();
-			WindowGrab.startNoticeWindow(window, "酒店添加成功");
+			WindowGrab.changeScene(ManageUIURLConfig.manage_add_hotel_one_fxml(), ManageUIURLConfig.manage_add_hotel_one_css(), event);
+			WindowGrab.startNoticeWindow(WindowGrab.getWindowByStage(0), "酒店添加成功");
 		} else {
 			WindowGrab.startErrorWindow(window, "酒店添加失败");
 		}

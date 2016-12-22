@@ -52,7 +52,7 @@ public class AddPeopleController extends RegistCheckController implements Initia
 	public void confirm() {
 		ResultMessage_User result = ResultMessage_User.Register_Success;
 
-		Window window = WindowGrab.getWindowByStage(1);
+		Window window = WindowGrab.getWindowByStage(0);
 		String id = user_name.getText();
 		String u_name = name.getText();
 		String contactWay = phone.getText();
