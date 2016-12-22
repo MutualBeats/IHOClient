@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.orderblservice.OrderBLService;
+import config.urlconfig.LoginUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -219,7 +220,8 @@ public class MainClientController extends SearchView {
 
 	@FXML
 	void logout(ActionEvent event) {
-		System.exit(0);
+		Window window =WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
 	}
 
 	@FXML

@@ -25,7 +25,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button fx:id="cancel" layoutX="502.0" layoutY="34.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
+            <Button fx:id="cancel" layoutX="502.0" layoutY="37.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="check_button" layoutX="412.0" layoutY="34.0" mnemonicParsing="false" onAction="#on_check" prefHeight="26.0" prefWidth="60.0">
+            <Button fx:id="check_button" layoutX="412.0" layoutY="36.0" mnemonicParsing="false" onAction="#on_check" prefHeight="26.0" prefWidth="60.0">
                <font>
                   <Font size="15.0" />
                </font>

@@ -46,3 +46,10 @@
 #check:hover{
 	-fx-background-image:url("file:src/main/resources/image/manage/check_hover.png");
 }
+
+#logout{
+	-fx-background-image:url("file:src/main/resources/image/staff/logout.png");	
+}
+#logout:hover{
+	-fx-background-image:url("file:src/main/resources/image/staff/logout_hover.png");
+}

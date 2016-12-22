@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.LoginUIURLConfig;
 import config.urlconfig.StaffUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -115,7 +117,9 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void logout(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
+    	Window window =WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
+	
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.userblservice.ManagerBLService;
+import config.urlconfig.LoginUIURLConfig;
 import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -93,7 +94,8 @@ public class ManageMenuController implements Initializable {
 
 	@FXML
 	void logout(ActionEvent event) {
-		WindowGrab.closeWindow(event);
+		Window window =WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
 	}
 
 	

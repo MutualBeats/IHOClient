@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import config.urlconfig.LoginUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -153,7 +154,9 @@ public class MainMarketController implements Initializable{
 
 	@FXML
     void logout(ActionEvent event) {
-    	WindowGrab.closeWindow(event);
+		Window window =WindowGrab.getWindow(event);
+		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
+	
     }
 }
 
