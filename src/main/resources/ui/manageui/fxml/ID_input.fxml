@@ -7,25 +7,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.IDInputController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="325.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.IDInputController">
    <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Text layoutX="159.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输入人员ID :">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="243.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <Button fx:id="search" layoutX="179.0" layoutY="223.0" mnemonicParsing="false" onAction="#on_search" prefHeight="26.0" prefWidth="65.0" text="搜索" />
-            <Button fx:id="cancel" layoutX="319.0" layoutY="223.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
-            <TextField fx:id="id_input" layoutX="259.0" layoutY="148.0" />
-         </children>
-      </Pane>
-      <Button fx:id="check" layoutX="84.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输入人员ID :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="search" layoutX="61.0" layoutY="142.0" mnemonicParsing="false" onAction="#on_search" prefHeight="26.0" prefWidth="65.0" text="搜索" />
+      <Button fx:id="cancel" layoutX="201.0" layoutY="142.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
+      <TextField fx:id="id_input" layoutX="141.0" layoutY="67.0" />
    </children>
 </AnchorPane>
