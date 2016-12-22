@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogicservice.orderblservice.OrderBLService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -78,6 +79,12 @@ public class MakeOrderController implements Initializable, Confirm {
 	private TextField name;
 
 	@FXML
+	private TextField value;
+
+	@FXML
+	private TextField promotion;
+
+	@FXML
 	private Button make;
 
 	@FXML
@@ -90,7 +97,7 @@ public class MakeOrderController implements Initializable, Confirm {
 
 	private ArrayList<RoomVO> rooms;
 
-	
+	private OrderVO order_waiting_to_make;
 
 	@SuppressWarnings({ "unchecked" })
 	@Override
@@ -147,24 +154,11 @@ public class MakeOrderController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		String clientID = UserCache.getID();
-		ObservableList<RoomVO> room_nl = room_list.getSelectionModel().getSelectedItems();
-		ArrayList<String> roomNumberList = new ArrayList<>();
-		for (RoomVO each : room_nl)
-			roomNumberList.add(each.roomNumber);
-
-		int numOfPeople = Integer.parseInt(people_num.getText());
-		boolean be_children = children.isSelected();
-
-		String checkInDate = in_time.getEditor().getText();
-		String estimateCheckOutDate = ou_time.getEditor().getText();
-
-		OrderMakeVO makeVO = new OrderMakeVO(clientID, hotel_id, roomNumberList, checkInDate, estimateCheckOutDate,
-				numOfPeople, be_children);
-
 		Window window = WindowGrab.getWindowByStage(1);
 		try {
-			OrderVO vo = ControllerFactory.getOrderBLServiceInstance().makeOrder(makeVO);
+			OrderBLService service = ControllerFactory.getOrderBLServiceInstance();
+			String order_id = service.makeOrder(order_waiting_to_make);
+			OrderVO vo = service.queryOrderById(order_id);
 			String hotel_n = hotel_name.getText();
 			/* 订单生成窗口关闭 */
 			WindowGrab.closeWindow(window);
@@ -172,8 +166,6 @@ public class MakeOrderController implements Initializable, Confirm {
 			ViewUtil.showOrder(vo, hotel_n, info_window);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(window);
-		} catch (TimeConflictException e1) {
-			WindowGrab.startErrorWindow(window, "对不起，所选房间时间有冲突");
 		}
 	}
 
@@ -186,14 +178,46 @@ public class MakeOrderController implements Initializable, Confirm {
 		}
 
 	}
-	
+
 	private class PriceCalHandle implements ChangeListener<RoomVO> {
 
 		@Override
 		public void changed(ObservableValue<? extends RoomVO> observable, RoomVO oldValue, RoomVO newValue) {
-			
+			// 生成订单信息
+			String clientID = UserCache.getID();
+			ObservableList<RoomVO> room_nl = room_list.getSelectionModel().getSelectedItems();
+			ArrayList<String> roomNumberList = new ArrayList<>();
+			for (RoomVO each : room_nl)
+				roomNumberList.add(each.roomNumber);
+
+			int numOfPeople = Integer.parseInt(people_num.getText());
+			boolean be_children = children.isSelected();
+
+			String checkInDate = in_time.getEditor().getText();
+			String estimateCheckOutDate = ou_time.getEditor().getText();
+
+			OrderMakeVO makeVO = new OrderMakeVO(clientID, hotel_id, roomNumberList, checkInDate, estimateCheckOutDate,
+					numOfPeople, be_children);
+			Window window = WindowGrab.getWindowByStage(1);
+			try {
+				OrderVO vo = ControllerFactory.getOrderBLServiceInstance().getOrderVOBeforeMake(makeVO);
+				order_waiting_to_make = vo;
+				value.setText(vo.value + " 元");
+				String promotion_name = "无可用促销策略";
+				if (vo.promotionIDList.size() != 0) {
+
+					promotion_name = ControllerFactory.getPromotionBLServiceInstance()
+							.getPromotionById(vo.promotionIDList.get(0)).promotionName;
+
+				}
+				promotion.setText(promotion_name);
+			} catch (NetException e) {
+				WindowGrab.startNetErrorWindow(window);
+			} catch (TimeConflictException e1) {
+				WindowGrab.startErrorWindow(window, "对不起，所选房间时间有冲突");
+			}
 		}
-		
+
 	}
 
 	/**
