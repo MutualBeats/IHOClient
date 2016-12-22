@@ -105,7 +105,7 @@ public class CheckUtil {
 
 	public static boolean checkSelect(DatePicker picker) {
 		String date = picker.getEditor().getText();
-		return date.length() == 0;
+		return date.length() != 0;
 	}
 
 	public static boolean checkSelect(TableView<?> tableView) {

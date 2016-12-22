@@ -3,6 +3,7 @@ package bussinesslogic.creditbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogic.controllerfactory.ControllerFactory;
 import factory.datahelper.CreditDataHelper;
 import factory.datahelper.DataHelperFactory;
 import util.Time;
@@ -16,18 +17,29 @@ import vo.credit.CreditVO;
  * 
  * @author Saltwater
  */
-public class Credit{
-	
+public class Credit {
+
 	private CreditDataHelper credit_data_service;
-	
+
+	private Notify notify;
+
 	public Credit() throws NetException {
-	
 		credit_data_service = DataHelperFactory.getDataFactoryHelperInstance().getCreditDatabase();
-		
 	}
-	
+
 	public ResultMessage_Credit creditUpdate(CreditVO updateVO) {
-		return credit_data_service.creditUpdate(updateVO);
+		ResultMessage_Credit result = credit_data_service.creditUpdate(updateVO);
+		if (result == ResultMessage_Credit.Update_Successful) {
+			if (notify == null) {
+				try {
+					notify = ControllerFactory.getClientCreditNotifier();
+				} catch (NetException e) {
+					return ResultMessage_Credit.Credit_Net_Error;
+				}
+			}
+			notify.notifyCreditChange(updateVO.clientID, updateVO.credit);
+		}
+		return result;
 	}
 
 	/**
@@ -35,17 +47,15 @@ public class Credit{
 	 * 
 	 * @param clientID
 	 * @return Iterator of Credit Record
-	 * @throws RemoteException 
+	 * @throws RemoteException
 	 */
 	public ArrayList<CreditVO> checkCreditRecord(String clientID) throws NetException {
 		return credit_data_service.find(clientID);
 	}
-	
-	
+
 	public ResultMessage_Credit addCreditRegister(String clientID) {
 		CreditVO vo = new CreditVO(clientID, Time.getCurrentTime(), 0, 0, CreditChangeAction.Register, "");
 		return credit_data_service.creditRegist(vo);
 	}
-	
 
 }

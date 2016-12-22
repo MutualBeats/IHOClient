@@ -12,7 +12,7 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.NoticeController">
    <children>
       <Accordion layoutY="115.0" />
-      <Button fx:id="confirm" layoutX="115.0" layoutY="109.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="70.0" text="确认" textFill="#0d0d0d">
+      <Button fx:id="confirm" layoutX="115.0" layoutY="131.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="70.0" text="确认" textFill="#0d0d0d">
          <effect>
             <Lighting>
                <bumpInput>
@@ -27,7 +27,7 @@
                </light>
             </Lighting>
          </effect></Button>
-      <Label fx:id="notice" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="36.0" prefHeight="39.0" prefWidth="280.0" text="Notice" textFill="#0275cd">
+      <Label fx:id="notice" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="12.0" prefHeight="109.0" prefWidth="280.0" text="Notice" textAlignment="CENTER" textFill="#0275cd" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>

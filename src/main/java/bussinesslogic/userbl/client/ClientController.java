@@ -3,6 +3,7 @@ package bussinesslogic.userbl.client;
 import java.util.ArrayList;
 
 import bussinesslogic.controllerfactory.ControllerFactory;
+import bussinesslogic.creditbl.Notify;
 import bussinesslogic.orderbl.ClientInfo;
 import bussinesslogic.userbl.manager.entrust.ClientInfoGet;
 import bussinesslogicservice.userblservice.ClientBLService;
@@ -13,7 +14,7 @@ import vo.user.ClientRegistVO;
 import vo.user.ClientVO;
 import vo.user.MemberVO;
 
-public class ClientController implements ClientBLService, ClientInfoGet, ClientInfo{
+public class ClientController implements ClientBLService, ClientInfoGet, ClientInfo, Notify{
 	
 	private Client client;
 	
@@ -45,6 +46,11 @@ public class ClientController implements ClientBLService, ClientInfoGet, ClientI
 	@Override
 	public ResultMessage_User regist(ClientRegistVO info) {
 		return client.regist(info);
+	}
+
+	@Override
+	public void notifyCreditChange(String clientID, int credit) {
+		client.updateCacheCredit(clientID, credit);
 	}
 	
 

@@ -175,5 +175,10 @@ public class Client {
 		}
 		return vos;
 	}
+	
+	public void updateCacheCredit(String clientID, int credit) {
+		if(checkCacheHit(clientID))
+			cache.setCredit(credit);
+	}
 
 }

@@ -1,6 +1,7 @@
 package bussinesslogic.controllerfactory;
 
 import bussinesslogic.creditbl.CreditController;
+import bussinesslogic.creditbl.Notify;
 import bussinesslogic.hotelbl.HotelController;
 import bussinesslogic.hotelbl.OrderUpdate;
 import bussinesslogic.orderbl.ClientInfo;
@@ -170,6 +171,13 @@ public class ControllerFactory {
 	}
 	
 	public static ClientInfo getClientInfoInstance() throws NetException {
+		if(clientController == null) {
+			clientController = new ClientController();
+		}
+		return clientController;
+	}
+	
+	public static Notify getClientCreditNotifier() throws NetException {
 		if(clientController == null) {
 			clientController = new ClientController();
 		}

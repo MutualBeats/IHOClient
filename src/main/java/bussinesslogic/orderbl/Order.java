@@ -691,7 +691,7 @@ public class Order {
 
 		vo.setIDProperty(orderID);
 		unexcute_cache.add(vo);
-
+		totalList_cache.add(vo);
 		return orderID;
 	}
 

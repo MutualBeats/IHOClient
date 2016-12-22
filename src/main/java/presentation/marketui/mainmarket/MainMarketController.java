@@ -140,23 +140,19 @@ public class MainMarketController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		try {
 			MarketerVO vo=ControllerFactory.getMarketerBLServiceInstance().showData(UserCache.getID());
 			marketerName.setText(vo.name);
 			marketerID.setText(vo.id);
 			marketerContact.setText(vo.contactWay);
 		} catch (NetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@FXML
     void logout(ActionEvent event) {
-		Window window =WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
-	
+		WindowGrab.changeScene(LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url(), event);
     }
 }
 

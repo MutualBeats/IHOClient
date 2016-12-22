@@ -150,7 +150,7 @@ public class CreditExcuteController implements Initializable, Confirm {
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(1);
+		Window window = WindowGrab.getWindowByStage(0);
 		int credit_add = Integer.parseInt(credit_to_add.getText()) * 100;
 		CreditVO updateVO = new CreditVO(info.id, Time.getCurrentTime(), credit_add, info.credit,
 				CreditChangeAction.Deposit, "");

@@ -19,6 +19,7 @@ public class CreditBLTest {
 	@Before
 	public void init() {
 		try {
+			// TODO
 			credit = new Credit();
 		} catch (NetException e) {
 			e.printStackTrace();

@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.UserCache;
 import util.exception.NetException;
@@ -117,9 +116,6 @@ public class MainStaffController implements Initializable{
 
     @FXML
     void logout(ActionEvent event) {
-    	Window window =WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
-	
+		WindowGrab.changeScene(LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url(), event);
     }
-
 }

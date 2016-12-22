@@ -220,8 +220,7 @@ public class MainClientController extends SearchView {
 
 	@FXML
 	void logout(ActionEvent event) {
-		Window window =WindowGrab.getWindow(event);
-		WindowGrab.startWindow(window, "Login", LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url());
+		WindowGrab.changeScene(LoginUIURLConfig.login_fxml_url(), LoginUIURLConfig.login_css_url(), event);
 	}
 
 	@FXML
