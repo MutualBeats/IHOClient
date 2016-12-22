@@ -1,6 +1,5 @@
 package presentation.manageui.mainmanager;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -11,6 +10,7 @@ import config.urlconfig.ManageUIURLConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -28,49 +28,36 @@ import vo.user.StaffVO;
 public class ManageMenuController implements Initializable {
 
 	@FXML
-	private Button addhotel;
+    private Button addhotel;
 
-	@FXML
-	private Button addpeople;
+    @FXML
+    private Button addpeople;
 
-	@FXML
-	private Button change;
+    @FXML
+    private Button change;
 
-	@FXML
-	private Label manageID;
+    @FXML
+    private Label contact;
 
-	@FXML
-	private Pane hotel_pane;
+    @FXML
+    private Label manageID;
 
-	@FXML
-	private Pane people_pane;
+    @FXML
+    private Pane pane;
 
-	@FXML
-	private Button check;
+    @FXML
+    private Label photo;
 
-	@FXML
-	private Label managerName;
+    @FXML
+    private Button check;
 
-	@FXML
-	private Label title;
+    @FXML
+    private Label managerName;
 
-	private static URL menu_fxml;
-	private static URL menu_css;
-
-	static {
-
-		try {
-			menu_fxml = new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml");
-			menu_css = new URL("file:src/main/resources/ui/manageui/css/check_menu.css");
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	@FXML
 	void on_check(ActionEvent event) {
-		Window window = WindowGrab.getWindow(event);
+		Scene frame=WindowGrab.getScene(event);
 		try {
 			ManagerBLService mService = ControllerFactory.getManagerBLServiceInstance();
 			ArrayList<ClientVO> clientVOs = mService.getClientList();
@@ -78,8 +65,9 @@ public class ManageMenuController implements Initializable {
 			ArrayList<MarketerVO> marketerVOs = mService.getMarketerList();
 			ManagerVO managerVO = mService.getManagerInfor();
 			PeopleListBundle bundle = new PeopleListBundle(clientVOs, staffVOs, marketerVOs, managerVO);
-			WindowGrab.startWindowWithBundle(window, "查询人员信息", menu_fxml, menu_css, bundle);
+			WindowGrab.changeSceneWithBundle(ManageUIURLConfig.manage_check_menu_fxml(), ManageUIURLConfig.manage_check_menu_css(), frame, bundle);
 		} catch (NetException e) {
+			Window window=WindowGrab.getWindow(event);
 			WindowGrab.startNetErrorWindow(window);
 		}
 	}
@@ -109,6 +97,7 @@ public class ManageMenuController implements Initializable {
 		manageID.setText(UserCache.getID());
 		try {
 			managerName.setText(ControllerFactory.getManagerBLServiceInstance().getManagerInfor().name);
+			contact.setText(ControllerFactory.getManagerBLServiceInstance().getManagerInfor().contactWay);
 		} catch (NetException e) {
 			WindowGrab.startNetErrorWindow(WindowGrab.getWindowByStage(0));
 		}
