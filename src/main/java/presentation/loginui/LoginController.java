@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
@@ -58,7 +59,7 @@ public class LoginController implements Initializable {
 		Window owner = WindowGrab.getWindow(event);
 		WindowGrab.startWindow(owner, "注册", fxml, css);
 	}
-
+	
 	@FXML
 	public void login(ActionEvent event) {
 		String name = user_name.getText();
@@ -86,6 +87,8 @@ public class LoginController implements Initializable {
 				} else if (type == ResultMessage_Verify.PASSWORD_WRONG) {
 					pass_warning.setText("密码错误");
 				}else {
+					Stage stage = WindowGrab.getStage(0);
+					stage.setTitle(type.toString());
 					UserCache.init_Cache(name);
 					switch (type) {
 					case CLIENT:
