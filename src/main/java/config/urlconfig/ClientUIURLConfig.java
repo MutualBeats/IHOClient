@@ -63,6 +63,12 @@ public class ClientUIURLConfig {
 	
 	private static String EVALUATE_HOTEL_CSS;
 	
+	//Client : evaluation
+	
+	private static String EVALUATION_FXML;
+		
+	private static String EVALUATION_CSS;
+	
 	//Client : executed check
 	
 	private static String EXECUTED_CHECK_FXML;
@@ -146,6 +152,7 @@ public class ClientUIURLConfig {
 		Element create_order_confirm = client.element("create_order_confirm");
 		Element credit = client.element("credit");
 		Element evaluate_hotel = client.element("evaluate_hotel");
+		Element evaluation = client.element("evaluation");
 		Element executed_check = client.element("executed_check");
 		Element hotel_info = client.element("hotel_info");
 		Element hotel_list = client.element("hotel_list");
@@ -199,6 +206,12 @@ public class ClientUIURLConfig {
 		css = evaluate_hotel.element("css");
 		EVALUATE_HOTEL_FXML = client_root + fxml.attributeValue(FXML_PATH);
 		EVALUATE_HOTEL_CSS = client_root + css.attributeValue(CSS_PATH);
+		
+		//evaluation
+		fxml = evaluation.element("fxml");
+		css = evaluation.element("css");
+		EVALUATION_FXML = client_root + fxml.attributeValue(FXML_PATH);
+		EVALUATION_CSS = client_root + css.attributeValue(CSS_PATH);
 		
 		//executed check
 		fxml = executed_check.element("fxml");
@@ -370,6 +383,24 @@ public class ClientUIURLConfig {
 	public static URL client_evaluate_hotel_css_url(){
 		try {
 			return new URL(path_combine(EVALUATE_HOTEL_CSS));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_evaluation_fxml_url(){
+		try {
+			return new URL(path_combine(EVALUATION_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL client_evaluation_css_url(){
+		try {
+			return new URL(path_combine(EVALUATION_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

@@ -51,12 +51,6 @@ public class ManageUIURLConfig {
 		
 	private static String ADD_PEOPLE_CSS;
 		
-	//Manage : change message
-		
-	private static String CHANGE_MESSAGE_FXML;
-		
-	private static String CHANGE_MESSAGE_CSS;
-	
 	//Manage : change message confirm
 	
 	private static String CHANGE_MESSAGE_CONFIRM_FXML;
@@ -75,12 +69,26 @@ public class ManageUIURLConfig {
 		
 	private static String ID_INPUT_CSS;
 		
-	//Manage : information look client
-		
-	private static String INFO_LOOK_FXML;
+	//Manage : information look
 		
 	private static String INFO_LOOK_CSS;
 		
+	//Manage : information look client
+	
+	private static String INFO_LOOK_CLIENT_FXML;
+	
+	//Manage : information look staff
+	
+	private static String INFO_LOOK_STAFF_FXML;
+		
+	//Manage : information look marketer
+		
+	private static String INFO_LOOK_MARKETER_FXML;
+		
+	//Manage : information look manager
+		
+	private static String INFO_LOOK_MANAGER_FXML;
+	
 	//Manage menu
 		
 	private static String MANAGE_MENU_FXML;
@@ -120,11 +128,14 @@ public class ManageUIURLConfig {
 		Element add_hotel_three = manage.element("add_hotel_three");
 		Element add_hotel_two = manage.element("add_hotel_two");
 		Element add_people = manage.element("add_people");
-		Element change_message = manage.element("change_message");
 		Element change_message_confirm = manage.element("change_message_confirm");
 		Element check_menu = manage.element("check_menu");
 		Element ID_input = manage.element("ID_input");
 		Element info_look = manage.element("info_look");
+		Element info_look_client = manage.element("info_look_client");
+		Element info_look_staff = manage.element("info_look_staff");
+		Element info_look_marketer = manage.element("info_look_marketer");
+		Element info_look_manager = manage.element("info_look_manager");
 		Element manage_menu = manage.element("manage_menu");
 		
 		Element fxml;
@@ -160,12 +171,6 @@ public class ManageUIURLConfig {
 		ADD_PEOPLE_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		ADD_PEOPLE_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
-		//change message
-		fxml = change_message.element("fxml");
-		css = change_message.element("css");
-		CHANGE_MESSAGE_FXML = manage_root + fxml.attributeValue(FXML_PATH);
-		CHANGE_MESSAGE_CSS = manage_root + css.attributeValue(CSS_PATH);
-		
 		//change message confirm
 		fxml = change_message_confirm.element("fxml");
 		css = change_message_confirm.element("css");
@@ -184,11 +189,25 @@ public class ManageUIURLConfig {
 		ID_INPUT_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		ID_INPUT_CSS = manage_root + css.attributeValue(CSS_PATH);
 		
-		//info look client
-		fxml = info_look.element("fxml");
+		//info look 
 		css = info_look.element("css");
-		INFO_LOOK_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		INFO_LOOK_CSS = manage_root + css.attributeValue(CSS_PATH);
+		
+		//info look client
+		fxml = info_look_client.element("fxml");
+		INFO_LOOK_CLIENT_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		
+		//info look staff
+		fxml = info_look_staff.element("fxml");
+		INFO_LOOK_STAFF_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		
+		//info look marketer
+		fxml = info_look_marketer.element("fxml");
+		INFO_LOOK_MARKETER_FXML = manage_root + fxml.attributeValue(FXML_PATH);
+		
+		//info look manager
+		fxml = info_look_manager.element("fxml");
+		INFO_LOOK_MANAGER_FXML = manage_root + fxml.attributeValue(FXML_PATH);
 		
 		//manage menu
 		fxml = manage_menu.element("fxml");
@@ -288,24 +307,6 @@ public class ManageUIURLConfig {
 		return null;
 	}
 	
-	public static URL manage_change_message_fxml(){
-		try {
-			return new URL(path_combine(CHANGE_MESSAGE_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL manage_change_message_css(){
-		try {
-			return new URL(path_combine(CHANGE_MESSAGE_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public static URL manage_change_message_confirm_fxml(){
 		try {
 			return new URL(path_combine(CHANGE_MESSAGE_CONFIRM_FXML));
@@ -360,9 +361,36 @@ public class ManageUIURLConfig {
 		return null;
 	}
 	
-	public static URL manage_info_look_fxml(){
+	public static URL manage_info_look_client_fxml(){
 		try {
-			return new URL(path_combine(INFO_LOOK_FXML));
+			return new URL(path_combine(INFO_LOOK_CLIENT_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL manage_info_look_staff_fxml(){
+		try {
+			return new URL(path_combine(INFO_LOOK_STAFF_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL manage_info_look_marketer_fxml(){
+		try {
+			return new URL(path_combine(INFO_LOOK_MARKETER_FXML));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static URL manage_info_look_manager_fxml(){
+		try {
+			return new URL(path_combine(INFO_LOOK_MANAGER_FXML));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

@@ -48,6 +48,8 @@ public class URLConfigTest {
 		assertEquals(new URL("file:src/main/resources/ui/clientui/css/credit.css"), ClientUIURLConfig.client_credit_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/clientui/fxml/evaluate_hotel.fxml"), ClientUIURLConfig.client_evaluate_hotel_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/clientui/css/evaluate_hotel.css"), ClientUIURLConfig.client_evaluate_hotel_css_url());
+		assertEquals(new URL("file:src/main/resources/ui/clientui/fxml/evaluation.fxml"), ClientUIURLConfig.client_evaluation_fxml_url());
+		assertEquals(new URL("file:src/main/resources/ui/clientui/css/evaluation.css"), ClientUIURLConfig.client_evaluation_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/clientui/fxml/executed_check.fxml"), ClientUIURLConfig.client_executed_check_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/clientui/css/executed_check.css"), ClientUIURLConfig.client_executed_check_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/clientui/fxml/hotel_info.fxml"), ClientUIURLConfig.client_hotel_info_fxml_url());
@@ -70,8 +72,6 @@ public class URLConfigTest {
 	public void StaffUIURLConfigTest() throws MalformedURLException{
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/enterprise_input.fxml"), StaffUIURLConfig.staff_enterprise_input_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/enterprise_input.css"), StaffUIURLConfig.staff_enterprise_input_css_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_change.fxml"), StaffUIURLConfig.staff_hotel_promotion_change_fxml_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_change.css"), StaffUIURLConfig.staff_hotel_promotion_change_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_check.fxml"), StaffUIURLConfig.staff_hotel_promotion_check_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/hotel_promotion_check.css"), StaffUIURLConfig.staff_hotel_promotion_check_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/hotel_promotion_create.fxml"), StaffUIURLConfig.staff_hotel_promotion_create_fxml_url());
@@ -92,10 +92,6 @@ public class URLConfigTest {
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/room_manage.css"), StaffUIURLConfig.staff_room_manage_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/room_update.fxml"), StaffUIURLConfig.staff_room_update_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/room_update.css"), StaffUIURLConfig.staff_room_update_css_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/roomcreate_confirm.fxml"), StaffUIURLConfig.staff_room_create_confirm_fxml_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/css/roomcreate_confirm.css"), StaffUIURLConfig.staff_room_create_confirm_css_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/roomupdate_confirm.fxml"), StaffUIURLConfig.staff_room_update_confirm_fxml_url());
-		assertEquals(new URL("file:src/main/resources/ui/staffui/css/roomupdate_confirm.css"), StaffUIURLConfig.staff_room_update_confirm_css_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/fxml/staff_main.fxml"), StaffUIURLConfig.staff_main_fxml_url());
 		assertEquals(new URL("file:src/main/resources/ui/staffui/css/staff_main.css"), StaffUIURLConfig.staff_main_css_url());
 	}
@@ -128,7 +124,7 @@ public class URLConfigTest {
 	
 	@Test
 	public void ManageUIURLConfigTest() throws MalformedURLException{
-		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/add_people_confirm.fxml"), ManageUIURLConfig.manage_add_people_confirm_fxml());
+		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/addpeopleconfirm.fxml"), ManageUIURLConfig.manage_add_people_confirm_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/add_people_confirm.css"), ManageUIURLConfig.manage_add_people_confirm_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/addhotel_one.fxml"), ManageUIURLConfig.manage_add_hotel_one_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/addhotel_one.css"), ManageUIURLConfig.manage_add_hotel_one_css());
@@ -138,15 +134,16 @@ public class URLConfigTest {
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/addhotel_two.css"), ManageUIURLConfig.manage_add_hotel_two_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/addpeople.fxml"), ManageUIURLConfig.manage_add_people_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/addpeople.css"), ManageUIURLConfig.manage_add_people_css());
-		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/changemessage.fxml"), ManageUIURLConfig.manage_change_message_fxml());
-		assertEquals(new URL("file:src/main/resources/ui/manageui/css/changemessage.css"), ManageUIURLConfig.manage_change_message_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/changemessageconfirm.fxml"), ManageUIURLConfig.manage_change_message_confirm_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/changemessageconfirm.css"), ManageUIURLConfig.manage_change_message_confirm_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/check_menu.fxml"), ManageUIURLConfig.manage_check_menu_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/check_menu.css"), ManageUIURLConfig.manage_check_menu_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/ID_input.fxml"), ManageUIURLConfig.manage_ID_input_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/ID_input.css"), ManageUIURLConfig.manage_ID_input_css());
-		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/informationLook.fxml"), ManageUIURLConfig.manage_info_look_fxml());
+		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/informationLookClient.fxml"), ManageUIURLConfig.manage_info_look_client_fxml());
+		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/informationLookStaff.fxml"), ManageUIURLConfig.manage_info_look_staff_fxml());
+		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/informationLookMarketer.fxml"), ManageUIURLConfig.manage_info_look_marketer_fxml());
+		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/informationLookManager.fxml"), ManageUIURLConfig.manage_info_look_manager_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/informationLook.css"), ManageUIURLConfig.manage_info_look_css());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/fxml/managemenu.fxml"), ManageUIURLConfig.manage_menu_fxml());
 		assertEquals(new URL("file:src/main/resources/ui/manageui/css/managemenu.css"), ManageUIURLConfig.manage_menu_css());

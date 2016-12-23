@@ -63,6 +63,11 @@
 			<fxml fxml_path="fxml/evaluate_hotel.fxml"></fxml>
 			<css css_path="css/evaluate_hotel.css"></css>
 		</evaluate_hotel>
+		<!-- Evaluation -->
+		<evaluation>
+			<fxml fxml_path="fxml/evaluation.fxml"></fxml>
+			<css css_path="css/evaluation.css"></css>
+		</evaluation>
 		<!-- executed check -->
 		<executed_check>
 			<fxml fxml_path="fxml/executed_check.fxml"></fxml>
@@ -113,11 +118,6 @@
 			<fxml fxml_path="fxml/enterprise_input.fxml"></fxml>
 			<css css_path="css/enterprise_input.css"></css>
 		</enterprise_input>
-		<!-- Hotel promotion change-->
-		<hotel_promotion_change>
-			<fxml fxml_path="fxml/hotel_promotion_change.fxml"></fxml>
-			<css css_path="css/hotel_promotion_change.css"></css>
-		</hotel_promotion_change>
 		<!-- Hotel promotion check-->
 		<hotel_promotion_check>
 			<fxml fxml_path="fxml/hotel_promotion_check.fxml"></fxml>
@@ -168,16 +168,6 @@
 			<fxml fxml_path="fxml/room_update.fxml"></fxml>
 			<css css_path="css/room_update.css"></css>
 		</room_update>
-		<!-- room create confirm -->
-		<room_create_confirm>
-			<fxml fxml_path="fxml/roomcreate_confirm.fxml"></fxml>
-			<css css_path="css/roomcreate_confirm.css"></css>
-		</room_create_confirm>
-		<!-- room update confirm -->
-		<room_update_confirm>
-			<fxml fxml_path="fxml/roomupdate_confirm.fxml"></fxml>
-			<css css_path="css/roomupdate_confirm.css"></css>
-		</room_update_confirm>
 		<!-- Staff main -->
 		<staff_main>
 			<fxml fxml_path="fxml/staff_main.fxml"></fxml>
@@ -250,7 +240,7 @@
 	<manage root_path="manageui/">
 	<!--Add people confirm -->
 		<add_people_confirm>
-			<fxml fxml_path="fxml/add_people_confirm.fxml"></fxml>
+			<fxml fxml_path="fxml/addpeopleconfirm.fxml"></fxml>
 			<css css_path="css/add_people_confirm.css"></css>
 		</add_people_confirm>
 		<!--Add hotel one-->
@@ -273,11 +263,6 @@
 			<fxml fxml_path="fxml/addpeople.fxml"></fxml>
 			<css css_path="css/addpeople.css"></css>
 		</add_people>
-		<!--Change message-->
-		<change_message>
-			<fxml fxml_path="fxml/changemessage.fxml"></fxml>
-			<css css_path="css/changemessage.css"></css>
-		</change_message>
 		<!--Change message confirm -->
 		<change_message_confirm>
 			<fxml fxml_path="fxml/changemessageconfirm.fxml"></fxml>
@@ -295,9 +280,24 @@
 		</ID_input>
 		<!--Info look -->
 		<info_look>
-			<fxml fxml_path="fxml/informationLook.fxml"></fxml>
 			<css css_path="css/informationLook.css"></css>
 		</info_look>
+		<!--Info look client -->
+		<info_look_client>
+			<fxml fxml_path="fxml/informationLookClient.fxml"></fxml>
+		</info_look_client>
+		<!--Info look staff -->
+		<info_look_staff>
+			<fxml fxml_path="fxml/informationLookStaff.fxml"></fxml>
+		</info_look_staff>
+		<!--Info look marketer -->
+		<info_look_marketer>
+			<fxml fxml_path="fxml/informationLookMarketer.fxml"></fxml>
+		</info_look_marketer>
+		<!--Info look manager -->
+		<info_look_manager>
+			<fxml fxml_path="fxml/informationLookManager.fxml"></fxml>
+		</info_look_manager>
 		<!--Manage menu-->
 		<manage_menu>
 			<fxml fxml_path="fxml/managemenu.fxml"></fxml>

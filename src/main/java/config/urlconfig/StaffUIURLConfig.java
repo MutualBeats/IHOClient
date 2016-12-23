@@ -26,12 +26,6 @@ public class StaffUIURLConfig {
 	private static String ENTERPRISE_INPUT_FXML;
 	
 	private static String ENTERPRISE_INPUT_CSS;
-	
-	//Staff : Hotel promotion change
-	
-	private static String HOTEL_PROMOTION_CHANGE_FXML;
-		
-	private static String HOTEL_PROMOTION_CHANGE_CSS;
 		
 	//Staff : Hotel promotion check
 		
@@ -92,18 +86,6 @@ public class StaffUIURLConfig {
 	private static String ROOM_UPDATE_FXML;
 		
 	private static String ROOM_UPDATE_CSS;
-	
-	//Staff : room create confirm
-	
-	private static String ROOM_CREATE_CONFIRM_FXML;
-	
-	private static String ROOM_CREATE_CONFIRM_CSS;
-	
-	//Staff : room update confirm
-	
-	private static String ROOM_UPDATE_CONFIRM_FXML;
-	
-	private static String ROOM_UPDATE_CONFIRM_CSS;
 
 	//Staff main
 		
@@ -140,7 +122,6 @@ public class StaffUIURLConfig {
 		String staff_root = staff.attributeValue("root_path");
 		
 		Element enterprise_input = staff.element("enterprise_input");
-		Element hotel_promotion_change = staff.element("hotel_promotion_change");
 		Element hotel_promotion_check = staff.element("hotel_promotion_check");
 		Element hotel_promotion_create = staff.element("hotel_promotion_create");
 		Element hotel_promotion = staff.element("hotel_promotion");
@@ -151,8 +132,6 @@ public class StaffUIURLConfig {
 		Element room_create = staff.element("room_create");
 		Element room_manage = staff.element("room_manage");
 		Element room_update = staff.element("room_update");
-		Element room_create_confirm = staff.element("room_create_confirm");
-		Element room_update_confirm = staff.element("room_update_confirm");
 		Element staff_main = staff.element("staff_main");
 		
 		Element fxml;
@@ -163,12 +142,6 @@ public class StaffUIURLConfig {
 		css = enterprise_input.element("css");
 		ENTERPRISE_INPUT_FXML = staff_root + fxml.attributeValue(FXML_PATH);
 		ENTERPRISE_INPUT_CSS = staff_root + css.attributeValue(CSS_PATH);
-		
-		//Hotel Promotion Change
-		fxml = hotel_promotion_change.element("fxml");
-		css = hotel_promotion_change.element("css");
-		HOTEL_PROMOTION_CHANGE_FXML = staff_root + fxml.attributeValue(FXML_PATH);
-		HOTEL_PROMOTION_CHANGE_CSS = staff_root + css.attributeValue(CSS_PATH);
 		
 		//Hotel Promotion Check
 		fxml = hotel_promotion_check.element("fxml");
@@ -230,18 +203,6 @@ public class StaffUIURLConfig {
 		ROOM_UPDATE_FXML = staff_root + fxml.attributeValue(FXML_PATH);
 		ROOM_UPDATE_CSS = staff_root + css.attributeValue(CSS_PATH);
 		
-		//Room Create confirm
-		fxml = room_create_confirm.element("fxml");
-		css = room_create_confirm.element("css");
-		ROOM_CREATE_CONFIRM_FXML = staff_root + fxml.attributeValue(FXML_PATH);
-		ROOM_CREATE_CONFIRM_CSS = staff_root + css.attributeValue(CSS_PATH);
-		
-		//Room Update confirm
-		fxml = room_update_confirm.element("fxml");
-		css = room_update_confirm.element("css");
-		ROOM_UPDATE_CONFIRM_FXML = staff_root + fxml.attributeValue(FXML_PATH);
-		ROOM_UPDATE_CONFIRM_CSS = staff_root + css.attributeValue(CSS_PATH);
-		
 		//Main
 		fxml = staff_main.element("fxml");
 		css = staff_main.element("css");
@@ -262,24 +223,6 @@ public class StaffUIURLConfig {
 	public static URL staff_enterprise_input_css_url(){
 		try {
 			return new URL(path_combine(ENTERPRISE_INPUT_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_hotel_promotion_change_fxml_url(){
-		try {
-			return new URL(path_combine(HOTEL_PROMOTION_CHANGE_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_hotel_promotion_change_css_url(){
-		try {
-			return new URL(path_combine(HOTEL_PROMOTION_CHANGE_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -460,42 +403,6 @@ public class StaffUIURLConfig {
 	public static URL staff_room_update_css_url() {
 		try {
 			return new URL(path_combine(ROOM_UPDATE_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_room_create_confirm_fxml_url() {
-		try {
-			return new URL(path_combine(ROOM_CREATE_CONFIRM_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_room_create_confirm_css_url() {
-		try {
-			return new URL(path_combine(ROOM_CREATE_CONFIRM_CSS));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_room_update_confirm_fxml_url() {
-		try {
-			return new URL(path_combine(ROOM_UPDATE_CONFIRM_FXML));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static URL staff_room_update_confirm_css_url() {
-		try {
-			return new URL(path_combine(ROOM_UPDATE_CONFIRM_CSS));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
