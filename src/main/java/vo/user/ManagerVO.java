@@ -6,7 +6,7 @@ import util.resultmessage.ResultMessage_Verify;
 public class ManagerVO extends BaseVO{
 	
 	public ManagerVO(String managerID, String managerName, String contactWay) {
-		super(managerID, managerName, contactWay, ResultMessage_Verify.MARKETER);
+		super(managerID, managerName, contactWay, ResultMessage_Verify.MANAGER);
 	}
 	
 	public static ManagerPO transformVOToPO(ManagerVO vo) {

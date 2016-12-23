@@ -33,6 +33,9 @@ public class ManagerInformationController extends InformationLookController {
     @FXML
     private Button check;
     
+    @FXML
+    private Button change_button;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		info = (ManagerVO) resources.getObject("info");

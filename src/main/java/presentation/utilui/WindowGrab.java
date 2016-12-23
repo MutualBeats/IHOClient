@@ -23,6 +23,7 @@ import javafx.stage.WindowEvent;
 import presentation.bundle.InformationBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.ResultHandle;
+import vo.user.BaseVO;
 
 /**
  * 
@@ -51,7 +52,6 @@ public class WindowGrab {
 			NOTICE_FXML = new URL("file:src/main/resources/ui/utilui/fxml/notice.fxml");
 			NOTICE_CSS = new URL("file:src/main/resources/ui/utilui/css/notice.css");
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -115,7 +115,6 @@ public class WindowGrab {
 			client_fxml = new URL("file:src/main/resources/ui/manageui/fxml/informationLookClient.fxml");
 			info_css = new URL("file:src/main/resources/ui/manageui/css/informationLook.css");
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
