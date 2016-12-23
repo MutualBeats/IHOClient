@@ -73,7 +73,7 @@ public class ClientInformationController extends InformationLookController {
 	
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(1);
+		Window window = WindowGrab.getWindowByStage(0);
 		ClientInfoChangeVO vo = new ClientInfoChangeVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {
@@ -87,6 +87,12 @@ public class ClientInformationController extends InformationLookController {
 			return;
 		}
 		handleResult(result, window);
+	}
+	
+	@FXML
+	protected void cancel(ActionEvent event) {
+		// TODO Auto-generated method stub
+		super.cancel(event);
 	}
 	
 	@FXML

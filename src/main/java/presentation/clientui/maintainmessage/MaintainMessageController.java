@@ -49,6 +49,11 @@ public class MaintainMessageController extends ClientInformationController {
 		}
 	}
 	
+	@FXML
+	protected void cancel(ActionEvent event) {
+		WindowGrab.closeWindow(event);
+	}
+	
 	@Override
 	public void confirm() {
 		Window window = WindowGrab.getWindowByStage(1);

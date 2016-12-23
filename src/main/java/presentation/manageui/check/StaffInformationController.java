@@ -61,7 +61,7 @@ public class StaffInformationController extends InformationLookController {
 
 	@Override
 	public void confirm() {
-		Window window = WindowGrab.getWindowByStage(1);
+		Window window = WindowGrab.getWindowByStage(0);
 		StaffChangeVO vo = new StaffChangeVO(info.id, name.getText(), phone.getText());
 		ResultMessage_User result = ResultMessage_User.UpdateSuccess;
 		try {

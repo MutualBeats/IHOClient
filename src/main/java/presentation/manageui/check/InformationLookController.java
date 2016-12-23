@@ -52,7 +52,7 @@ public abstract class InformationLookController implements Initializable, Confir
 	// private
 
 	@FXML
-	void cancel(ActionEvent event) {
+	protected void cancel(ActionEvent event) {
 		if (modify_state) {
 			toInfoState();
 		} else {

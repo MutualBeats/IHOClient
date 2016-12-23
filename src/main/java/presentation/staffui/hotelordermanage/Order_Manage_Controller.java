@@ -334,7 +334,7 @@ public class Order_Manage_Controller implements Initializable {
 				unexecuted_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				execute_list.add(0, info);
-				order_list.setItems(execute_list);
+//				order_list.setItems(execute_list);
 				WindowGrab.startNoticeWindow(window, "订单执行成功");
 				break;
 			case Order_State_Error:
@@ -383,7 +383,7 @@ public class Order_Manage_Controller implements Initializable {
 				execute_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				finished_list.add(0, info);
-				order_list.setItems(finished_list);
+//				order_list.setItems(finished_list);
 				WindowGrab.startNoticeWindow(window, "退房成功");
 				break;
 			case Order_State_Error:
@@ -429,7 +429,7 @@ public class Order_Manage_Controller implements Initializable {
 				exception_list.remove(select_index);
 				info = orderBLService.queryOrderById(info.orderID);
 				execute_list.add(0, info);
-				order_list.setItems(execute_list);
+//				order_list.setItems(execute_list);
 				WindowGrab.startNoticeWindow(window, "补录成功");
 				break;
 			case Room_Already_Ordered:
