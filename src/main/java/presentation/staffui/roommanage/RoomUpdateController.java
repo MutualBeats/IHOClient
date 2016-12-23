@@ -96,7 +96,7 @@ public class RoomUpdateController implements Initializable, Confirm {
 				window = WindowGrab.getWindowByStage(1);
 				// 房间记录列表添加
 				updateRoomRecord.update(roomRecord);
-				updateRoom.update(null);
+				updateRoom.update();
 				WindowGrab.startNoticeWindow(window, "添加成功");
 				break;
 			case Time_Conflict_Error:

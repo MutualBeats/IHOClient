@@ -144,7 +144,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
     	switch (result) {
 		case Check_In_Successful:
 			// 刷新房间列表
-			updateRoom.update(null);
+			updateRoom.update();
 			WindowGrab.startNoticeWindow(window, "入住成功");
 			break;
 		case Room_State_Error:
@@ -176,7 +176,7 @@ public class RoomCheckController implements Initializable, UpdateRoomRecord {
 			// 刷新房间记录列表
 			refresh();
 			// 刷新房间列表
-			updateRoom.update(null);
+			updateRoom.update();
 			WindowGrab.startNoticeWindow(window, "退房成功");
 			break;
 		case Room_State_Error:

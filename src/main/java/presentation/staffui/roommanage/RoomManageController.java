@@ -185,11 +185,8 @@ public class RoomManageController implements Initializable, UpdateRoom {
      * 房间列表更新
      */
 	@Override
-	public void update(RoomVO room) {
-		if(room == null)
-			refresh(null);
-		else
-			room_list.getItems().add(0, room);
+	public void update() {
+		refresh(null);
 	}
 	
 	/***********************其他菜单跳转************************/

@@ -12,34 +12,48 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
          <children>
             <Accordion layoutY="115.0" />
-            <Button fx:id="cancel" layoutX="265.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
-            <Button fx:id="confirm" layoutX="135.0" layoutY="380.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="确认" />
-            <Label ellipsisString="" layoutX="51.0" layoutY="89.0" prefHeight="26.0" prefWidth="134.0" text="录入客房信息">
+            <Button fx:id="cancel" layoutX="262.0" layoutY="410.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
+            <Button fx:id="confirm" layoutX="132.0" layoutY="410.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="确认" />
+            <Label ellipsisString="" layoutX="51.0" layoutY="38.0" prefHeight="26.0" prefWidth="134.0" text="录入客房信息">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label ellipsisString="" layoutX="71.0" layoutY="217.0" prefHeight="26.0" prefWidth="94.0" text="房间号:">
+            <Label ellipsisString="" layoutX="71.0" layoutY="219.0" prefHeight="26.0" prefWidth="94.0" text="起始号码:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label ellipsisString="" layoutX="71.0" layoutY="151.0" prefHeight="26.0" prefWidth="94.0" text="房间类型:">
+            <Label ellipsisString="" layoutX="71.0" layoutY="98.0" prefHeight="26.0" prefWidth="94.0" text="房间类型:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label ellipsisString="" layoutX="71.0" layoutY="287.0" prefHeight="26.0" prefWidth="94.0" text="房间价格:">
+            <Label ellipsisString="" layoutX="71.0" layoutY="343.0" prefHeight="26.0" prefWidth="94.0" text="房间价格:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="room_type" layoutX="190.0" layoutY="151.0" onMouseClicked="#roomTypeModify" prefWidth="150.0" />
-            <TextField fx:id="room_number" layoutX="190.0" layoutY="217.0" onMouseClicked="#roomNumberModify" prefHeight="27.0" prefWidth="150.0" />
-            <TextField fx:id="room_price" layoutX="190.0" layoutY="287.0" onMouseClicked="#roomPriceModify" prefHeight="27.0" prefWidth="150.0" />
-            <Label fx:id="type_warning" layoutX="298.0" layoutY="184.0" prefHeight="26.0" prefWidth="104.0" textFill="RED" />
-            <Label fx:id="roomnumber_warning" layoutX="298.0" layoutY="253.0" prefHeight="26.0" prefWidth="104.0" textFill="RED" />
-            <Label fx:id="price_warning" layoutX="298.0" layoutY="323.0" prefHeight="26.0" prefWidth="104.0" textFill="RED" />
+            <ComboBox fx:id="room_type" layoutX="190.0" layoutY="98.0" onMouseClicked="#roomTypeModify" prefWidth="150.0" />
+            <TextField fx:id="start_number" layoutX="190.0" layoutY="219.0" onMouseClicked="#startNumberModify" prefHeight="27.0" prefWidth="150.0" />
+            <TextField fx:id="room_price" layoutX="190.0" layoutY="343.0" onMouseClicked="#roomPriceModify" prefHeight="27.0" prefWidth="150.0" />
+            <Label fx:id="type_warning" layoutX="298.0" layoutY="131.0" prefHeight="20.0" prefWidth="104.0" textFill="RED" />
+            <Label fx:id="startnumber_warning" layoutX="298.0" layoutY="255.0" prefHeight="20.0" prefWidth="104.0" textFill="RED" />
+            <Label fx:id="price_warning" layoutX="298.0" layoutY="376.0" prefHeight="20.0" prefWidth="104.0" textFill="RED" />
+            <Label fx:id="roomnumber_warning" layoutX="298.0" layoutY="191.0" prefHeight="20.0" prefWidth="104.0" textFill="RED" />
+            <TextField fx:id="room_number" layoutX="190.0" layoutY="157.0" onMouseClicked="#roomNumberModify" prefHeight="27.0" prefWidth="150.0" />
+            <Label ellipsisString="" layoutX="71.0" layoutY="157.0" prefHeight="26.0" prefWidth="94.0" text="房间编号:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalnumber_warning" layoutX="298.0" layoutY="315.0" prefHeight="20.0" prefWidth="104.0" textFill="RED" />
+            <TextField fx:id="total_number" layoutX="190.0" layoutY="282.0" onMouseClicked="#totalNumberModify" prefHeight="27.0" prefWidth="150.0" />
+            <Label ellipsisString="" layoutX="71.0" layoutY="282.0" prefHeight="26.0" prefWidth="94.0" text="房间数量:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </items>
 </SplitPane>

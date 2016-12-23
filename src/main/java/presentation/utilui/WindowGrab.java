@@ -23,7 +23,6 @@ import javafx.stage.WindowEvent;
 import presentation.bundle.InformationBundle;
 import presentation.utilcontroller.Confirm;
 import presentation.utilcontroller.ResultHandle;
-import vo.user.BaseVO;
 
 /**
  * 
