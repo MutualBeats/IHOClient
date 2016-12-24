@@ -54,7 +54,6 @@ public class CreditExcuteController implements Initializable, Confirm {
 
 	private ClientVO info;
 
-
 	@FXML
     private Pane pane;
 	
