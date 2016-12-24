@@ -61,11 +61,6 @@ public class OrderController implements OrderBLService, OrderUpdate {
 	}
 
 	@Override
-	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException {
-		return order.queryRoomOrder(hotelID, roomNumber);
-	}
-
-	@Override
 	public ArrayList<OrderVO> queryUserOrder(String clientID, OrderState state) throws NetException {
 		return order.queryUserOrder(clientID, state);
 	}

@@ -6,6 +6,7 @@ package vo.promotion;
 
 import java.util.ArrayList;
 
+import po.promotion.DistrictPromotionPO;
 import po.promotion.PromotionPO;
 import util.promotion.PromotionType;
 
@@ -34,6 +35,6 @@ public class DistrictPromotionVO extends PromotionVO {
 	
 	public DistrictPromotionVO(PromotionPO po) {
 		super(po);
-		districtList = po.getDistrictList();
+		districtList = ((DistrictPromotionPO) po).getDistrictList();
 	}
 }

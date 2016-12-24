@@ -127,20 +127,5 @@ public class PromotionPO implements Serializable {
 		this.finishDate = finishDate;
 	}
 	
-	public ArrayList<String> getDistrictList() {
-		DistrictPromotionPO po = (DistrictPromotionPO)this;
-		return po.getDistrictList();
-	}
-	
-	public void setDistrictList(ArrayList<String> districtList) {
-	}
-	
-	public ArrayList<String> getEnterpriseList() {
-		EnterprisePromotionPO po = (EnterprisePromotionPO)this;
-		return po.getEnterpriseList();
-	}
-
-	public void setEnterpriseList(ArrayList<String> enterpriseList) {
-	}
 	
 }

@@ -343,32 +343,6 @@ public class Order {
 		return orderVOList;
 	}
 
-	/**
-	 * 获得酒店房间的订单列表
-	 * 
-	 * @param hotelID
-	 * @param roomNumber
-	 * @return
-	 * @throws RemoteException
-	 */
-	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException {
-		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
-
-		ArrayList<OrderPO> orderPOList;
-		try {
-			orderPOList = order_data_service.findByRoom(hotelID, roomNumber);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			throw new NetException();
-		}
-
-		for (OrderPO orderPO : orderPOList) {
-			orderVOList.add(new OrderVO(orderPO));
-		}
-
-		return orderVOList;
-	}
-
 	public ResultMessage_Order orderEvaluate(String orderID) {
 		try {
 			ResultMessage_Order result = order_data_service.orderEvaluate(orderID);

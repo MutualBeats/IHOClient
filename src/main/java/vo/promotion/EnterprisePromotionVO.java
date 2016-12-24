@@ -6,6 +6,7 @@ package vo.promotion;
 
 import java.util.ArrayList;
 
+import po.promotion.EnterprisePromotionPO;
 import po.promotion.PromotionPO;
 import util.promotion.PromotionType;
 
@@ -35,7 +36,7 @@ public class EnterprisePromotionVO extends PromotionVO {
 	
 	public EnterprisePromotionVO(PromotionPO po) {
 		super(po);
-		enterpriseList = po.getEnterpriseList();
+		enterpriseList = ((EnterprisePromotionPO)po).getEnterpriseList();
 	}
 
 }

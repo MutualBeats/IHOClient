@@ -81,15 +81,6 @@ public interface OrderBLService {
 	 */
 	public ArrayList<OrderVO> queryOrderByHotel(String hotelID, String clientID) throws NetException;
 	/**
-	 * 查询房间订单
-	 * 
-	 * @param hotelID
-	 * @param roomNumber
-	 * @return ArrayList<OrderVO>
-	 * @throws NetException
-	 */
-	public ArrayList<OrderVO> queryRoomOrder(String hotelID, String roomNumber) throws NetException;
-	/**
 	 * 查询用户订单
 	 * 
 	 * @param clientID
