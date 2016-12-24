@@ -18,6 +18,13 @@ import presentation.utilui.CheckUtil;
 import presentation.utilui.WindowGrab;
 import vo.hotel.HotelVO;
 
+/**
+ * 
+ * 搜索酒店界面控制器
+ * 
+ * @author heleninsa
+ *
+ */
 public class SearchHotelController extends SearchView {
 
 	@FXML

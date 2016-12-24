@@ -4,6 +4,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 
+ * 通用时间处理类
+ * 
+ * @author heleninsa
+ *
+ */
 public class Time {
 	
 	public static String getCurrentTime(){

@@ -35,6 +35,13 @@ import vo.user.ManagerVO;
 import vo.user.MarketerVO;
 import vo.user.StaffVO;
 
+/**
+ * 
+ * 查看人员信息界面控制器
+ * 
+ * @author heleninsa
+ *
+ */
 public class CheckMenuController implements Initializable {
 
 	@FXML
@@ -96,6 +103,7 @@ public class CheckMenuController implements Initializable {
     
 	final ToggleGroup buttom_group = new ToggleGroup();
 
+	/*界面缓存*/
 	private ArrayList<ClientVO> clientVOs;
 	private ArrayList<StaffVO> staffVOs;
 	private ArrayList<MarketerVO> marketerVOs;

@@ -11,6 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
+/**
+ * 
+ * 通用错误信息界面控制
+ * 
+ * @author heleninsa
+ *
+ */
 public class ErrorController implements Initializable{
 
     @FXML

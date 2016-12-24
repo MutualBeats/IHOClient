@@ -24,6 +24,11 @@ import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
 import vo.order.OrderVO;
 
+/**
+ * 评价酒店界面控制器
+ * @author heleninsa
+ *
+ */
 public class EvaluateHotelController implements Initializable, Confirm {
 
 	@FXML
@@ -41,7 +46,6 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	@FXML
 	private Label title;
 
-//	private String hotel_id;
 	private OrderVO order;
 	
 	private UpdateEvaluation update;
@@ -61,7 +65,6 @@ public class EvaluateHotelController implements Initializable, Confirm {
 	public void initialize(URL location, ResourceBundle resources) {
 		update = (UpdateEvaluation) resources.getObject("update");
 		marks.getItems().addAll(StarConfig.SCORE_SEPERATE);
-//		hotel_id = resources.getString("hotel_id");
 		order = (OrderVO) resources.getObject("order_info");
 	}
 

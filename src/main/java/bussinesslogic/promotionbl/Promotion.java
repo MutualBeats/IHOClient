@@ -28,6 +28,13 @@ public class Promotion {
 		}
 	}
 
+	/**
+	 * 新增酒店促销策略
+	 * 
+	 * @param vo
+	 * @return
+	 * @throws NetException
+	 */
 	public String addhotelPromotion(PromotionVO vo) throws NetException {
 		PromotionPO po;
 		if (vo.type.equals(PromotionType.Enterprise))
@@ -46,6 +53,13 @@ public class Promotion {
 		return promotion_service.addPromotion(po);
 	}
 
+	/**
+	 * 获取酒店促销策略列表
+	 * 
+	 * @param hotelID
+	 * @return
+	 * @throws NetException
+	 */
 	public ArrayList<PromotionVO> getHotelPromotion(String hotelID) throws NetException {
 		Iterator<PromotionPO> iterator = promotion_service.getHotelPromotion(hotelID);
 		ArrayList<PromotionVO> hotelPromotionList = new ArrayList<>();
@@ -56,6 +70,12 @@ public class Promotion {
 		return hotelPromotionList;
 	}
 
+	/**
+	 * 获取网站促销策略列表
+	 * 
+	 * @return
+	 * @throws NetException
+	 */
 	public ArrayList<PromotionVO> getWebPromotion() throws NetException {
 		Iterator<PromotionPO> iterator = promotion_service.getWebPromotion();
 		ArrayList<PromotionVO> webPromotionList = new ArrayList<>();
@@ -66,15 +86,23 @@ public class Promotion {
 		return webPromotionList;
 	}
 
+	
 	public PromotionVO getPromotionById(String promotionID) throws NetException {
 		PromotionPO po = promotion_service.getPromotionById(promotionID);
 		return promotionPOtoVO(po);
 	}
 
+	/**
+	 * 撤销订单
+	 * 
+	 * @param promotionID
+	 * @return
+	 */
 	public ResultMessage_Promotion cancel(String promotionID) {
 		return promotion_service.deletePromotion(promotionID);
 	}
 
+	
 	public ArrayList<Integer> getMemberLevel() throws NetException {
 		return promotion_service.getMemberLevel();
 	}
@@ -86,7 +114,14 @@ public class Promotion {
 	public ResultMessage_Promotion makeLevel(ArrayList<Integer> level, ArrayList<Double> discount) {
 		return promotion_service.levelMake(level, discount);
 	}
-
+	
+	/**
+	 * 获取当前的酒店促销策略
+	 * 
+	 * @param hotelID
+	 * @return
+	 * @throws NetException
+	 */
 	public Iterator<PromotionVO> getUnderwayPromotion(String hotelID) throws NetException {
 		String currentDate = Time.getCurrentDate();
 		ArrayList<PromotionVO> hotelPromotionList = getHotelPromotion(hotelID);

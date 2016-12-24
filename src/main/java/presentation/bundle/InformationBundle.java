@@ -3,8 +3,18 @@ package presentation.bundle;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
+/**
+ * 
+ * 人员信息Bundle
+ * 
+ * @author heleninsa
+ *
+ */
 public class InformationBundle extends ResourceBundle {
-
+	
+	/**
+	 * 根据不同类型的人员，传递对应VO
+	 */
 	private Object information;
 	private final static String INFOR_MATION_KEY = "info";
 

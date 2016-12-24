@@ -74,11 +74,13 @@ public class AddPeopleController extends RegistCheckController implements Initia
     void on_check(ActionEvent event) {
 		Scene frame=WindowGrab.getScene(event);
 		try {
+			//获取展示人员信息
 			ManagerBLService mService = ControllerFactory.getManagerBLServiceInstance();
 			ArrayList<ClientVO> clientVOs = mService.getClientList();
 			ArrayList<StaffVO> staffVOs = mService.getStaffList();
 			ArrayList<MarketerVO> marketerVOs = mService.getMarketerList();
 			ManagerVO managerVO = mService.getManagerInfor();
+			
 			PeopleListBundle bundle = new PeopleListBundle(clientVOs, staffVOs, marketerVOs, managerVO);
 			WindowGrab.changeSceneWithBundle(ManageUIURLConfig.manage_check_menu_fxml(), ManageUIURLConfig.manage_check_menu_css(), frame, bundle);
 		} catch (NetException e) {

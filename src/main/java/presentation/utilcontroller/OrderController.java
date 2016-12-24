@@ -12,6 +12,14 @@ import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 import vo.order.OrderVO;
 
+
+/**
+ * 
+ * 通用订单信息显示界面
+ * 
+ * @author heleninsa
+ *
+ */
 public class OrderController implements Initializable {
 	
 	@FXML

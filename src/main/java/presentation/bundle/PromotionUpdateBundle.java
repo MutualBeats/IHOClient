@@ -15,13 +15,11 @@ public class PromotionUpdateBundle extends ResourceBundle{
 	
 	
 	public PromotionUpdateBundle(PromotionUpdate update) {
-		// TODO Auto-generated constructor stub
 		this.update=update;
 	}
 	
 	@Override
 	protected Object handleGetObject(String key) {
-		// TODO Auto-generated method stub
 		if(Key.equals(key)){
 			return update;
 		}
@@ -31,7 +29,6 @@ public class PromotionUpdateBundle extends ResourceBundle{
 	
 	@Override
 	public Enumeration<String> getKeys() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -6,6 +6,13 @@ import java.util.ResourceBundle;
 
 import vo.credit.CreditVO;
 
+/**
+ * 
+ * 信用列表传递bundle
+ * 
+ * @author heleninsa
+ *
+ */
 public class CreditListBundle extends ResourceBundle{
 
 	private ArrayList<CreditVO> credit_record;

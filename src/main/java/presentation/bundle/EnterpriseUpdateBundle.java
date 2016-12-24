@@ -5,6 +5,13 @@ import java.util.ResourceBundle;
 
 import presentation.staffui.hotelpromotion.UpdateEnterList;
 
+/**
+ * 
+ * 会员记录更新接口bundle
+ * 
+ * @author heleninsa
+ *
+ */
 public class EnterpriseUpdateBundle extends ResourceBundle {
 	
 	private UpdateEnterList update;

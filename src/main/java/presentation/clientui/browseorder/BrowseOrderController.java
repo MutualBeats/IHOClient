@@ -31,6 +31,13 @@ import util.order.OrderState;
 import util.resultmessage.ResultMessage_Order;
 import vo.order.OrderVO;
 
+/**
+ * 
+ * 浏览订单控制器
+ * 
+ * @author heleninsa
+ *
+ */
 public class BrowseOrderController implements Initializable, Confirm, UpdateEvaluation{
 	@FXML
 	private TableColumn<OrderVO, String> make_time;
@@ -138,6 +145,9 @@ public class BrowseOrderController implements Initializable, Confirm, UpdateEval
 
 	}
 
+	/**
+	 * 表格初始化
+	 */
 	private void initColumn() {
 		make_time.setCellValueFactory(cellData -> cellData.getValue().getMake_time_property());
 		finish_time.setCellValueFactory(cellData -> cellData.getValue().getFinish_time_property());

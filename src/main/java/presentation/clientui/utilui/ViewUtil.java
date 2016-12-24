@@ -45,7 +45,7 @@ public class ViewUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static URL CHECK_FXML;
 	private static URL CHECK_CSS;
 
@@ -61,6 +61,12 @@ public class ViewUtil {
 		}
 	}
 
+	/**
+	 * 酒店信息界面启动器
+	 * 
+	 * @param hotel
+	 * @param window
+	 */
 	public static void showHotelInfo(HotelVO hotel, Window window) {
 		try {
 			ArrayList<OrderVO> order_list = ControllerFactory.getOrderBLServiceInstance()
@@ -72,6 +78,12 @@ public class ViewUtil {
 		}
 	}
 
+	/**
+	 * 生成订单界面启动器
+	 * 
+	 * @param hotel_info
+	 * @param window
+	 */
 	public static void orderMake(HotelVO hotel_info, Window window) {
 		try {
 			ClientVO client_info = ControllerFactory.getClientBLServiceInstance().getClientInfo(UserCache.getID());
@@ -87,6 +99,13 @@ public class ViewUtil {
 		}
 	}
 
+	/**
+	 * 订单详细信息界面启动器
+	 * 
+	 * @param vo
+	 * @param hotel_name
+	 * @param window
+	 */
 	public static void showOrder(OrderVO vo, String hotel_name, Window window) {
 		String promotion_name = "无可用促销策略";
 		if (vo.promotionIDList.size() != 0) {
@@ -102,5 +121,5 @@ public class ViewUtil {
 		OrderInfoBundle bundle = new OrderInfoBundle(vo, hotel_name, promotion_name);
 		WindowGrab.startWindowWithBundle(window, "订单详情", CHECK_FXML, CHECK_CSS, bundle);
 	}
-	
+
 }

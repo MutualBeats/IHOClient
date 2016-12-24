@@ -11,6 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import presentation.utilui.WindowGrab;
 
+/**
+ * 
+ * 通用信息提示界面
+ * 
+ * @author heleninsa
+ *
+ */
 public class NoticeController implements Initializable{
 
     @FXML

@@ -2,7 +2,7 @@ package util;
 
 /**
  * 
- * Cache for 
+ * 当前操作人员界面缓存
  * 
  * @author heleninsa
  *

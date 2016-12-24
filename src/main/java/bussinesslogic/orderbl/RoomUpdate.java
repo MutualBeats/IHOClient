@@ -6,6 +6,13 @@ import util.exception.NetException;
 import util.resultmessage.ResultMessage_Room;
 import vo.room.RoomRecordVO;
 
+/**
+ * 
+ * 提供给订单的同步更新房间信息的接口
+ * 
+ * @author heleninsa
+ *
+ */
 public interface RoomUpdate {
 	
 	public int getRoomPrice(String hotelID, String roomNumber) throws NetException;

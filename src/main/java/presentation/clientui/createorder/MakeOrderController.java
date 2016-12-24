@@ -37,6 +37,13 @@ import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
 import vo.user.ClientVO;
 
+/**
+ * 
+ * 订单生成界面控制器
+ * 
+ * @author heleninsa
+ *
+ */
 public class MakeOrderController implements Initializable, Confirm {
 
 	@FXML
@@ -123,6 +130,9 @@ public class MakeOrderController implements Initializable, Confirm {
 		action_init();
 	}
 
+	/**
+	 * 实时更新触发器设置
+	 */
 	private void action_init() {
 		RoomUpdateHandle handle = new RoomUpdateHandle();
 		in_time.setOnAction(handle);
@@ -187,6 +197,11 @@ public class MakeOrderController implements Initializable, Confirm {
 
 	}
 
+	/**
+	 * 订单检查及计算
+	 * 
+	 * @return
+	 */
 	private boolean checkOrder() {
 		boolean nums = CheckUtil.checkValue(people_num.getText());
 		boolean select_rooms = room_list.getSelectionModel().getSelectedItems().size() != 0;

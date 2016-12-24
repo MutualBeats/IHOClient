@@ -8,6 +8,13 @@ import vo.hotel.HotelVO;
 import vo.room.RoomVO;
 import vo.user.ClientVO;
 
+/**
+ * 
+ * 生成订单所需信息
+ * 
+ * @author heleninsa
+ *
+ */
 public class OrderMakeBundle extends ResourceBundle {
 
 	private HotelVO hotel_info;

@@ -14,6 +14,13 @@ import util.resultmessage.ResultMessage_User;
 import vo.hotel.HotelVO;
 import vo.user.StaffVO;
 
+/**
+ * 
+ * 添加酒店确认界面
+ * 
+ * @author heleninsa
+ *
+ */
 public class AddHotelController_three {
 
 	@FXML

@@ -8,6 +8,12 @@ import util.resultmessage.ResultMessage_Order;
 
 public interface OrderUpdate {
 	
+	/**
+	 * Evaluate Order
+	 * 
+	 * @param orderID
+	 * @return
+	 */
 	public ResultMessage_Order orderEvaluate(String orderID);
 
 }

@@ -96,6 +96,12 @@ public class LoginController implements Initializable {
 		}
 	}
 	
+	/**
+	 * 各人员操作界面跳转
+	 * 
+	 * @param type
+	 * @param event
+	 */
 	private void change_menu(ResultMessage_Verify type, ActionEvent event){
 		Stage stage = WindowGrab.getStage(0);
 		stage.setTitle(type.toString());

@@ -6,6 +6,13 @@ import java.util.ResourceBundle;
 import presentation.clientui.browseorder.UpdateEvaluation;
 import vo.order.OrderVO;
 
+/**
+ * 
+ * 评价酒店所需订单信息的bundle
+ * 
+ * @author heleninsa
+ *
+ */
 public class EvaluatedOrderBundle extends ResourceBundle {
 	
 	private UpdateEvaluation update;

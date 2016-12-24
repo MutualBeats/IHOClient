@@ -14,6 +14,13 @@ import javafx.stage.Window;
 import presentation.utilui.WindowGrab;
 import util.resultmessage.ResultMessage_Verify;
 
+/**
+ * 
+ * 通用ID输入界面
+ * 
+ * @author heleninsa
+ *
+ */
 public class IDInputController implements Initializable{
 	
 	@FXML

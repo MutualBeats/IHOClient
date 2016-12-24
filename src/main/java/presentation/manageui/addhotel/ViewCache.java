@@ -3,6 +3,13 @@ package presentation.manageui.addhotel;
 import vo.hotel.HotelVO;
 import vo.user.StaffVO;
 
+/**
+ * 
+ * 添加酒店界面Cache
+ * 
+ * @author heleninsa
+ *
+ */
 public class ViewCache {
 
 	//Hotel
@@ -55,6 +62,9 @@ public class ViewCache {
 		star_index = s_index;
 	}
 
+	/**
+	 * 清除Cache
+	 */
 	public static void clearCache() {
 		clearHotelCache();
 		clearStaffCache();
