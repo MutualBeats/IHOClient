@@ -9,7 +9,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.credit.CreditPO;
-import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 
 public interface CreditDataService extends Remote{
@@ -18,14 +17,14 @@ public interface CreditDataService extends Remote{
 	 * @param po
 	 * @throws RemoteException
 	 */
-	public ResultMessage_Credit insert(CreditPO po) throws NetException;
+	public ResultMessage_Credit insert(CreditPO po) throws RemoteException;
 	/**
 	 * Check the Credit Rrecord
 	 * @param clientID
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<CreditPO> find(String clientID) throws NetException;
+	public ArrayList<CreditPO> find(String clientID) throws RemoteException;
 	
 	
 }

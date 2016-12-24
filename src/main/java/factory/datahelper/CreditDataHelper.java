@@ -39,7 +39,7 @@ public class CreditDataHelper {
 		//Check local data
 		try {
 			checkAndUpdateCache(vo.clientID);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			return ResultMessage_Credit.Credit_Net_Error;
 		}
 		//Change Create
@@ -61,7 +61,7 @@ public class CreditDataHelper {
 		ResultMessage_Credit insert_result = ResultMessage_Credit.Update_Successful;
 		try {
 			insert_result = data_service.insert(po);
-		} catch (NetException e) {
+		} catch (RemoteException e) {
 			System.err.println("Fail To Update Credit");
 			e.printStackTrace();
 			return ResultMessage_Credit.Credit_Net_Error;
@@ -70,7 +70,12 @@ public class CreditDataHelper {
 	}
 
 	public ArrayList<CreditVO> find(String clientID) throws NetException {
-		checkAndUpdateCache(clientID);
+		try {
+			checkAndUpdateCache(clientID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		// Copy And Change To VO.
 		ArrayList<CreditVO> record_copy = new ArrayList<>();
 		for (Iterator<CreditPO> it = credit_record_cache.iterator(); it.hasNext();) {
@@ -80,7 +85,12 @@ public class CreditDataHelper {
 	}
 
 	public CreditPO getNewestCredit(String clientID) throws NetException {
-		checkAndUpdateCache(clientID);
+		try {
+			checkAndUpdateCache(clientID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			throw new NetException();
+		}
 		// Return a copy right;
 		return CreditPO.copy(credit_record_cache.get(0));
 	}
@@ -91,7 +101,7 @@ public class CreditDataHelper {
 	 * @param clientID
 	 * @throws RemoteException 
 	 */
-	private void checkAndUpdateCache(String clientID) throws NetException {
+	private void checkAndUpdateCache(String clientID) throws RemoteException {
 		if (checkOldCache(clientID)) {
 			credit_record_cache = data_service.find(clientID);
 		}
