@@ -486,22 +486,14 @@ public class Order {
 		try {
 			ArrayList<OrderPO> orderPOList = order_data_service.findHotelOrder(hotelID);
 			for (OrderPO orderPO : orderPOList) {
-				hotelOrderList.add(new OrderVO(orderPO));
+				if(state == OrderState.All || state == orderPO.getOrderState())
+					hotelOrderList.add(new OrderVO(orderPO));
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			throw new NetException();
 		}
-
-		if (state == OrderState.All)
-			return hotelOrderList;
-
-		ArrayList<OrderVO> orderList = new ArrayList<>();
-		for (OrderVO orderVO : hotelOrderList) {
-			if (orderVO.orderState == state)
-				orderList.add(orderVO);
-		}
-		return orderList;
+		return hotelOrderList;
 	}
 
 	/**
