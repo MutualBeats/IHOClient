@@ -14,6 +14,8 @@ public enum ResultMessage_Promotion {
 	
 	Promotion_Not_Exist,
 	
-	Net_Error
+	Net_Error, 
+	
+	Add_Failed
 
 }
