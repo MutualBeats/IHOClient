@@ -66,19 +66,19 @@ public class RoomBlTest {
 //	public void testCheckInAndOut() {
 //		ResultMessage_Room result = null;
 //		// In
-//		result = controller.checkIn("00000001", "3B323");
+//		result = driver.checkIn("00000001", "3B323");
 //		if (!result.equals(ResultMessage_Room.Net_Error)) {
 //			assertEquals(ResultMessage_Room.Check_In_Successful,result);
-//			result = controller.checkOut("00000001", "3B323");
+//			result = driver.checkOut("00000001", "3B323");
 //			if (!result.equals(ResultMessage_Room.Net_Error)) {
 //				assertEquals(ResultMessage_Room.Check_Out_Successful,result);
 //			}
 //		}
-//		result = controller.checkIn("00000001", "3B322");
+//		result = driver.checkIn("00000001", "3B322");
 //		if (!result.equals(ResultMessage_Room.Net_Error)) {
 //			assertEquals( ResultMessage_Room.Check_In_Failed,result);
 //		}
-//		result = controller.checkIn("00000001", "3B321");
+//		result = driver.checkIn("00000001", "3B321");
 //		if (!result.equals(ResultMessage_Room.Net_Error)) {
 //			assertEquals(ResultMessage_Room.Check_In_Failed,result);
 //		}
