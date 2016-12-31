@@ -6,39 +6,55 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.searchhotel.HotelInfoController">
-   <children>
-      <Label layoutX="23.0" layoutY="22.0" text="酒店信息详情">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="24.0" layoutY="101.0" text="所在省 :" />
-      <Label layoutX="239.0" layoutY="101.0" text="所在市 :" />
-      <Label layoutX="239.0" layoutY="141.0" text="所属商圈 :" />
-      <Label layoutX="24.0" layoutY="181.0" text="有无空房间 :" />
-      <Label layoutX="239.0" layoutY="181.0" text="星级 :" />
-      <Label layoutX="24.0" layoutY="221.0" text="评分 :" />
-      <Button fx:id="back" layoutX="294.0" layoutY="425.0" mnemonicParsing="false" onAction="#back" prefWidth="60.0" text="返回" />
-      <Label fx:id="province" layoutX="99.0" layoutY="98.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="city" layoutX="310.0" layoutY="98.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="group" layoutX="310.0" layoutY="138.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="space_room" layoutX="110.0" layoutY="178.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="star" layoutX="310.0" layoutY="178.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="score" layoutX="110.0" layoutY="218.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label fx:id="field" layoutX="110.0" layoutY="138.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label layoutX="24.0" layoutY="141.0" text="所属县 :" />
-      <Label fx:id="hotel_name" layoutX="114.0" layoutY="58.0" prefHeight="20.0" prefWidth="120.0" />
-      <Label layoutX="24.0" layoutY="61.0" text="酒店名称 :" />
-      <TableView layoutX="7.0" layoutY="258.0" prefHeight="154.0" prefWidth="446.0">
-        <columns>
-          <TableColumn editable="false" prefWidth="158.0" resizable="false" text="订单号" />
-          <TableColumn prefWidth="106.0" text="订单生成时间" />
-            <TableColumn prefWidth="107.0" text="订单完成时间" />
-            <TableColumn editable="false" prefWidth="74.0" resizable="false" text="订单状态" />
-        </columns>
-      </TableView>
-      <Button fx:id="check" layoutX="202.0" layoutY="425.0" mnemonicParsing="false" onAction="#check" prefWidth="60.0" text="查看" />
-      <Button fx:id="order" layoutX="107.0" layoutY="425.0" mnemonicParsing="false" onAction="#order" prefWidth="60.0" text="预定" />
-   </children>
+<AnchorPane prefHeight="475.0" prefWidth="460.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.clientui.searchhotel.HotelInfoController">
+	<children>
+		<Label layoutX="23.0" layoutY="22.0" text="酒店信息详情">
+			<font>
+				<Font size="16.0" />
+			</font>
+		</Label>
+		<Label layoutX="24.0" layoutY="101.0" text="所在省 :" />
+		<Label layoutX="239.0" layoutY="101.0" text="所在市 :" />
+		<Label layoutX="239.0" layoutY="141.0" text="所属商圈 :" />
+		<Label layoutX="24.0" layoutY="181.0" text="有无空房间 :" />
+		<Label layoutX="239.0" layoutY="181.0" text="星级 :" />
+		<Label layoutX="24.0" layoutY="221.0" text="评分 :" />
+		<Button fx:id="back" layoutX="294.0" layoutY="425.0"
+			mnemonicParsing="false" onAction="#back" prefWidth="60.0" text="返回" />
+		<Label fx:id="province" layoutX="99.0" layoutY="98.0"
+			prefHeight="20.0" prefWidth="120.0" />
+		<Label fx:id="city" layoutX="310.0" layoutY="98.0" prefHeight="20.0"
+			prefWidth="120.0" />
+		<Label fx:id="group" layoutX="310.0" layoutY="138.0" prefHeight="20.0"
+			prefWidth="120.0" />
+		<Label fx:id="space_room" layoutX="110.0" layoutY="178.0"
+			prefHeight="20.0" prefWidth="120.0" />
+		<Label fx:id="star" layoutX="310.0" layoutY="178.0" prefHeight="20.0"
+			prefWidth="120.0" />
+		<Label fx:id="score" layoutX="110.0" layoutY="218.0" prefHeight="20.0"
+			prefWidth="120.0" />
+		<Label fx:id="field" layoutX="110.0" layoutY="138.0" prefHeight="20.0"
+			prefWidth="120.0" />
+		<Label layoutX="24.0" layoutY="141.0" text="所属县 :" />
+		<Label fx:id="hotel_name" layoutX="114.0" layoutY="58.0"
+			prefHeight="20.0" prefWidth="120.0" />
+		<Label layoutX="24.0" layoutY="61.0" text="酒店名称 :" />
+		<TableView layoutX="7.0" layoutY="258.0" prefHeight="154.0"
+			prefWidth="446.0">
+			<columns>
+				<TableColumn editable="false" prefWidth="158.0"
+					resizable="false" text="订单号" />
+				<TableColumn prefWidth="106.0" text="订单生成时间" />
+				<TableColumn prefWidth="107.0" text="订单完成时间" />
+				<TableColumn editable="false" prefWidth="74.0"
+					resizable="false" text="订单状态" />
+			</columns>
+		</TableView>
+		<Button fx:id="check" layoutX="202.0" layoutY="425.0"
+			mnemonicParsing="false" onAction="#check" prefWidth="60.0" text="查看" />
+		<Button fx:id="order" layoutX="107.0" layoutY="425.0"
+			mnemonicParsing="false" onAction="#order" prefWidth="60.0" text="预定" />
+	</children>
 </AnchorPane>

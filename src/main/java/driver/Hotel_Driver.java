@@ -1,15 +1,14 @@
 package driver;
 
+import java.util.ArrayList;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.hotelblservice.HotelBLService;
 import util.Time;
 import util.exception.NetException;
-import util.hotel.SearchCondition;
 import util.resultmessage.ResultMessage_Hotel;
 import vo.hotel.HotelEvaluationVO;
 import vo.hotel.HotelVO;
-
-import java.util.ArrayList;
 
 /**
  * Created by heleninsa on 2016/12/25.

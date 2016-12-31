@@ -7,47 +7,68 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.roommanage.RoomUpdateController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
-         <children>
-            <Accordion layoutY="115.0" />
-            <Text layoutX="79.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号:" wrappingWidth="72.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="247.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型：" wrappingWidth="82.0">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
-            <Button fx:id="cancel" layoutX="265.0" layoutY="350.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
-            <Button fx:id="confirm" layoutX="135.0" layoutY="350.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" text="添加" />
-            <Label ellipsisString="" layoutX="63.0" layoutY="72.0" prefHeight="25.0" prefWidth="120.0" text="房间记录添加">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="room_number" layoutX="164.0" layoutY="137.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
-            <Label fx:id="room_type" layoutX="336.0" layoutY="137.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
-            <Text layoutX="89.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="入住日期:" wrappingWidth="72.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="79.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="预计离开日期:" wrappingWidth="101.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="79.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间价格:" wrappingWidth="72.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Label fx:id="room_price" layoutX="164.0" layoutY="177.0" prefHeight="17.0" prefWidth="65.0" text="Label" />
-            <DatePicker fx:id="check_in_date" layoutX="202.0" layoutY="229.0" prefHeight="27.0" prefWidth="160.0" />
-            <DatePicker fx:id="estimate_check_out_date" layoutX="202.0" layoutY="284.0" prefHeight="27.0" prefWidth="160.0" />
-         </children></AnchorPane>
-  </items>
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0"
+	prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.staffui.roommanage.RoomUpdateController">
+	<items>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0"
+			prefWidth="606.0">
+			<children>
+				<Accordion layoutY="115.0" />
+				<Text layoutX="79.0" layoutY="151.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间号:" wrappingWidth="72.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<Text layoutX="247.0" layoutY="151.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间类型：" wrappingWidth="82.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<Button fx:id="cancel" layoutX="265.0" layoutY="350.0"
+					mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+					prefWidth="65.0" text="返回" />
+				<Button fx:id="confirm" layoutX="135.0" layoutY="350.0"
+					mnemonicParsing="false" onAction="#confirm" prefHeight="26.0"
+					prefWidth="65.0" text="添加" />
+				<Label ellipsisString="" layoutX="63.0" layoutY="72.0"
+					prefHeight="25.0" prefWidth="120.0" text="房间记录添加">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label fx:id="room_number" layoutX="164.0" layoutY="137.0"
+					prefHeight="17.0" prefWidth="65.0" text="Label" />
+				<Label fx:id="room_type" layoutX="336.0" layoutY="137.0"
+					prefHeight="17.0" prefWidth="65.0" text="Label" />
+				<Text layoutX="89.0" layoutY="248.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="入住日期:" wrappingWidth="72.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<Text layoutX="79.0" layoutY="303.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="预计离开日期:" wrappingWidth="101.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<Text layoutX="79.0" layoutY="191.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间价格:" wrappingWidth="72.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<Label fx:id="room_price" layoutX="164.0" layoutY="177.0"
+					prefHeight="17.0" prefWidth="65.0" text="Label" />
+				<DatePicker fx:id="check_in_date" layoutX="202.0"
+					layoutY="229.0" prefHeight="27.0" prefWidth="160.0" />
+				<DatePicker fx:id="estimate_check_out_date" layoutX="202.0"
+					layoutY="284.0" prefHeight="27.0" prefWidth="160.0" />
+			</children>
+		</AnchorPane>
+	</items>
 </SplitPane>

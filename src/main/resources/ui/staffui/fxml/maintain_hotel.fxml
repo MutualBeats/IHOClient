@@ -7,42 +7,71 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
-   <children>
-      <Label fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Accordion layoutY="115.0" />
-      <Button fx:id="update" layoutX="380.0" layoutY="510.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="65.0" />
-      <Button fx:id="cancel" layoutX="560.0" layoutY="510.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="25.0" prefWidth="65.0" />
-      <Label layoutX="194.0" layoutY="195.0" text="酒店名称:" />
-      <Label layoutX="194.0" layoutY="245.0" text="酒店所属省份:" />
-      <Label layoutX="194.0" layoutY="150.0" text="酒店ID:" />
-      <Label layoutX="460.0" layoutY="291.0" text="酒店所属商圈 :" />
-      <Label layoutX="194.0" layoutY="338.0" text="详细地址:" />
-      <Label layoutX="460.0" layoutY="150.0" text="酒店星级:" />
-      <Label layoutX="460.0" layoutY="195.0" text="酒店评分:" />
-      <TextField fx:id="hotel_id" disable="true" editable="false" layoutX="288.0" layoutY="145.0" prefWidth="150.0" />
-      <TextField fx:id="hotel_name" layoutX="288.0" layoutY="190.0" onMouseClicked="#hotelNameModify" prefWidth="150.0" />
-      <TextArea fx:id="hotel_address" layoutX="288.0" layoutY="339.0" onMouseClicked="#hotelAdressModify" prefHeight="151.0" prefWidth="416.0" />
-      <ComboBox fx:id="star" disable="true" editable="false" layoutX="554.0" layoutY="145.0" prefWidth="150.0" />
-      <TextField fx:id="hotel_score" disable="true" editable="false" layoutX="554.0" layoutY="190.0" prefWidth="150.0" />
-      <ComboBox fx:id="province" layoutX="288.0" layoutY="240.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="group" layoutX="554.0" layoutY="286.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <Label layoutX="460.0" layoutY="245.0" text="酒店所属市 :" />
-      <Label layoutX="194.0" layoutY="291.0" text="酒店所属县 :" />
-      <ComboBox fx:id="city" layoutX="554.0" layoutY="240.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="field" layoutX="288.0" layoutY="286.0" onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
-      <Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="632.0" layoutY="490.0" prefHeight="30.0" prefWidth="127.0" textFill="#e40c0c" />
-      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="372.0" layoutY="217.0" prefHeight="27.0" prefWidth="106.0" textFill="#e40c0c" />
-      <Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="593.0" layoutY="313.0" prefHeight="27.0" prefWidth="141.0" textFill="#e40c0c" />
-      <Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="room" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#room" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="promotion" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="evaluation" layoutX="231.0" layoutY="510.0" mnemonicParsing="false" onAction="#evaluation" prefHeight="27.0" prefWidth="82.0" text="酒店评价" />
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.staffui.hotelmessagemanage.Hotel_Maintain_Controller">
+	<children>
+		<Label fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Label>
+		<Accordion layoutY="115.0" />
+		<Button fx:id="update" layoutX="380.0" layoutY="510.0"
+			mnemonicParsing="false" onAction="#update" prefHeight="25.0"
+			prefWidth="65.0" />
+		<Button fx:id="cancel" layoutX="560.0" layoutY="510.0"
+			mnemonicParsing="false" onAction="#peopleInfo" prefHeight="25.0"
+			prefWidth="65.0" />
+		<Label layoutX="194.0" layoutY="195.0" text="酒店名称:" />
+		<Label layoutX="194.0" layoutY="245.0" text="酒店所属省份:" />
+		<Label layoutX="194.0" layoutY="150.0" text="酒店ID:" />
+		<Label layoutX="460.0" layoutY="291.0" text="酒店所属商圈 :" />
+		<Label layoutX="194.0" layoutY="338.0" text="详细地址:" />
+		<Label layoutX="460.0" layoutY="150.0" text="酒店星级:" />
+		<Label layoutX="460.0" layoutY="195.0" text="酒店评分:" />
+		<TextField fx:id="hotel_id" disable="true" editable="false"
+			layoutX="288.0" layoutY="145.0" prefWidth="150.0" />
+		<TextField fx:id="hotel_name" layoutX="288.0" layoutY="190.0"
+			onMouseClicked="#hotelNameModify" prefWidth="150.0" />
+		<TextArea fx:id="hotel_address" layoutX="288.0" layoutY="339.0"
+			onMouseClicked="#hotelAdressModify" prefHeight="151.0" prefWidth="416.0" />
+		<ComboBox fx:id="star" disable="true" editable="false"
+			layoutX="554.0" layoutY="145.0" prefWidth="150.0" />
+		<TextField fx:id="hotel_score" disable="true" editable="false"
+			layoutX="554.0" layoutY="190.0" prefWidth="150.0" />
+		<ComboBox fx:id="province" layoutX="288.0" layoutY="240.0"
+			onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+		<ComboBox fx:id="group" layoutX="554.0" layoutY="286.0"
+			onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+		<Label layoutX="460.0" layoutY="245.0" text="酒店所属市 :" />
+		<Label layoutX="194.0" layoutY="291.0" text="酒店所属县 :" />
+		<ComboBox fx:id="city" layoutX="554.0" layoutY="240.0"
+			onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+		<ComboBox fx:id="field" layoutX="288.0" layoutY="286.0"
+			onMouseClicked="#regionModify" prefHeight="27.0" prefWidth="150.0" />
+		<Label fx:id="address_warning" alignment="TOP_LEFT" layoutX="632.0"
+			layoutY="490.0" prefHeight="30.0" prefWidth="127.0" textFill="#e40c0c" />
+		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="372.0"
+			layoutY="217.0" prefHeight="27.0" prefWidth="106.0" textFill="#e40c0c" />
+		<Label fx:id="region_warning" alignment="TOP_LEFT" layoutX="593.0"
+			layoutY="313.0" prefHeight="27.0" prefWidth="141.0" textFill="#e40c0c" />
+		<Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="order" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="room" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#room" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="promotion" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="evaluation" layoutX="231.0" layoutY="510.0"
+			mnemonicParsing="false" onAction="#evaluation" prefHeight="27.0"
+			prefWidth="82.0" text="酒店评价" />
+	</children>
 </AnchorPane>

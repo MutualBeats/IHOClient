@@ -8,14 +8,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.ConfirmController">
-   <children>
-      <Accordion layoutY="115.0" />
-      <Label fx:id="confirm_text" alignment="CENTER" layoutX="54.0" layoutY="61.0" prefHeight="52.0" prefWidth="243.0" text="是否确认修改 ?" textFill="#7c5353">
-         <font>
-            <Font size="19.0" />
-         </font></Label>
-      <Button fx:id="confirm" layoutX="75.0" layoutY="140.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" />
-      <Button fx:id="cancel" layoutX="215.0" layoutY="140.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" />
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0"
+	prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.utilcontroller.ConfirmController">
+	<children>
+		<Accordion layoutY="115.0" />
+		<Label fx:id="confirm_text" alignment="CENTER" layoutX="54.0"
+			layoutY="61.0" prefHeight="52.0" prefWidth="243.0" text="是否确认修改 ?"
+			textFill="#7c5353">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Label>
+		<Button fx:id="confirm" layoutX="75.0" layoutY="140.0"
+			mnemonicParsing="false" onAction="#confirm" prefHeight="26.0"
+			prefWidth="65.0" />
+		<Button fx:id="cancel" layoutX="215.0" layoutY="140.0"
+			mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+			prefWidth="65.0" />
+	</children>
 </AnchorPane>

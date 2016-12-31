@@ -11,40 +11,62 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.mainstaff.MainStaffController">
-   <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Button fx:id="logout" layoutX="487.0" layoutY="384.0" mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
-         </children></Pane>
-      <Label fx:id="photo" layoutX="320.0" layoutY="190.0" prefHeight="70.0" prefWidth="70.0" />
-      <Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#maintainMessage" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="room" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#manageRoom" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="promotion" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Label layoutX="280.0" layoutY="277.0" text="酒店工作人员姓名 :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="280.0" layoutY="350.0" text="酒店工作人员ID :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="280.0" layoutY="420.0" text="酒店工作人员联系方式 :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="staffName" layoutX="400.0" layoutY="290.0" prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
-      <Label fx:id="staffID" layoutX="400.0" layoutY="365.0" prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
-      <Label fx:id="contactWay" layoutX="400.0" layoutY="440.0" prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
-      <Label layoutX="245.0" layoutY="145.0" text="酒店工作人员信息">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.staffui.mainstaff.MainStaffController">
+	<children>
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Button fx:id="logout" layoutX="487.0" layoutY="384.0"
+					mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
+			</children>
+		</Pane>
+		<Label fx:id="photo" layoutX="320.0" layoutY="190.0" prefHeight="70.0"
+			prefWidth="70.0" />
+		<Button fx:id="hotel_message" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" onAction="#maintainMessage" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="order" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" onAction="#manageOrder" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="room" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#manageRoom" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="promotion" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#hotelPromotion" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Label layoutX="280.0" layoutY="277.0" text="酒店工作人员姓名 :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label layoutX="280.0" layoutY="350.0" text="酒店工作人员ID :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label layoutX="280.0" layoutY="420.0" text="酒店工作人员联系方式 :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="staffName" layoutX="400.0" layoutY="290.0"
+			prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
+		<Label fx:id="staffID" layoutX="400.0" layoutY="365.0"
+			prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
+		<Label fx:id="contactWay" layoutX="400.0" layoutY="440.0"
+			prefHeight="40.0" prefWidth="200.0" textFill="#18416e" />
+		<Label layoutX="245.0" layoutY="145.0" text="酒店工作人员信息">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Label>
+	</children>
 </AnchorPane>

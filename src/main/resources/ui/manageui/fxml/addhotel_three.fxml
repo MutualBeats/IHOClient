@@ -8,29 +8,48 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="third_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_three">
-   <children>
-      <Pane layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Text layoutX="200.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="是否确认添加?" wrappingWidth="200.0">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Text>
-            <Button fx:id="third_confirm" layoutX="150.0" layoutY="340.0" mnemonicParsing="false" onAction="#third_confirm" prefHeight="25.0" prefWidth="60.0" />
-            <Button fx:id="third_cancel" layoutX="360.0" layoutY="340.0" mnemonicParsing="false" onAction="#third_cancel" prefHeight="25.0" prefWidth="60.0" />
-            <Circle fill="#70ace4" layoutX="483.0" layoutY="66.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#b7cee4" layoutX="83.0" layoutY="66.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#b7cee4" layoutX="283.0" layoutY="66.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text layoutX="78.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
-            <Text layoutX="278.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
-            <Text layoutX="478.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
-         </children>
-      </Pane>
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-   </children>
+<AnchorPane fx:id="third_pane" minHeight="0.0" minWidth="0.0"
+	prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_three">
+	<children>
+		<Pane layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Text layoutX="200.0" layoutY="215.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="是否确认添加?" wrappingWidth="200.0">
+					<font>
+						<Font size="30.0" />
+					</font>
+				</Text>
+				<Button fx:id="third_confirm" layoutX="150.0" layoutY="340.0"
+					mnemonicParsing="false" onAction="#third_confirm" prefHeight="25.0"
+					prefWidth="60.0" />
+				<Button fx:id="third_cancel" layoutX="360.0" layoutY="340.0"
+					mnemonicParsing="false" onAction="#third_cancel" prefHeight="25.0"
+					prefWidth="60.0" />
+				<Circle fill="#70ace4" layoutX="483.0" layoutY="66.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Circle fill="#b7cee4" layoutX="83.0" layoutY="66.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Circle fill="#b7cee4" layoutX="283.0" layoutY="66.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Text layoutX="78.0" layoutY="71.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="1" />
+				<Text layoutX="278.0" layoutY="71.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="2" />
+				<Text layoutX="478.0" layoutY="71.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="3" />
+			</children>
+		</Pane>
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="addpeople" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="addhotel" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="change" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="check" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+	</children>
 </AnchorPane>

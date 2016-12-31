@@ -25,10 +25,10 @@
 		<fxml fxml_path="fxml/order_information.fxml"></fxml>
 		<css css_path="css/order_information.css"></css>
 	</order_info>
-	
+
 	<!-- This is Client UI config -->
 	<client root_path="clientui/">
-	<!-- Browse order-->
+		<!-- Browse order -->
 		<browse_order>
 			<fxml fxml_path="fxml/browse_order.fxml"></fxml>
 			<css css_path="css/browse_order.css"></css>
@@ -38,12 +38,12 @@
 			<fxml fxml_path="fxml/change.fxml"></fxml>
 			<css css_path="css/change.css"></css>
 		</change>
-		<!-- Check-->
+		<!-- Check -->
 		<check>
 			<fxml fxml_path="fxml/check.fxml"></fxml>
 			<css css_path="css/check.css"></css>
 		</check>
-		<!-- Client menu-->
+		<!-- Client menu -->
 		<client_menu>
 			<fxml fxml_path="fxml/clientmenu.fxml"></fxml>
 			<css css_path="css/clientmenu.css"></css>
@@ -118,12 +118,12 @@
 			<fxml fxml_path="fxml/enterprise_input.fxml"></fxml>
 			<css css_path="css/enterprise_input.css"></css>
 		</enterprise_input>
-		<!-- Hotel promotion check-->
+		<!-- Hotel promotion check -->
 		<hotel_promotion_check>
 			<fxml fxml_path="fxml/hotel_promotion_check.fxml"></fxml>
 			<css css_path="css/hotel_promotion_check.css"></css>
 		</hotel_promotion_check>
-		<!-- Hotel promotion create-->
+		<!-- Hotel promotion create -->
 		<hotel_promotion_create>
 			<fxml fxml_path="fxml/hotel_promotion_create.fxml"></fxml>
 			<css css_path="css/hotel_promotion_create.css"></css>
@@ -133,17 +133,17 @@
 			<fxml fxml_path="fxml/hotel_promotion.fxml"></fxml>
 			<css css_path="css/hotel_promotion.css"></css>
 		</hotel_promotion>
-		<!-- Maintain Hotel-->
+		<!-- Maintain Hotel -->
 		<maintain_hotel>
 			<fxml fxml_path="fxml/maintain_hotel.fxml"></fxml>
 			<css css_path="css/maintain_hotel.css"></css>
 		</maintain_hotel>
-		<!-- Order check-->
+		<!-- Order check -->
 		<order_check>
 			<fxml fxml_path="fxml/order_check.fxml"></fxml>
 			<css css_path="css/order_check.css"></css>
 		</order_check>
-		<!-- Order manage-->
+		<!-- Order manage -->
 		<order_manage>
 			<fxml fxml_path="fxml/order_manage.fxml"></fxml>
 			<css css_path="css/order_manage.css"></css>
@@ -183,7 +183,7 @@
 			<fxml fxml_path="fxml/appeal_credit.fxml"></fxml>
 			<css css_path="css/appeal_credit.css"></css>
 		</appeal_credit>
-		<!-- Credit excute-->
+		<!-- Credit excute -->
 		<credit_excute>
 			<fxml fxml_path="fxml/credit_excute.fxml"></fxml>
 			<css css_path="css/credit_excute.css"></css>
@@ -193,7 +193,7 @@
 			<fxml fxml_path="fxml/field_promotion.fxml"></fxml>
 			<css css_path="css/field_promotion.css"></css>
 		</field_promotion>
-		<!-- Market menu-->
+		<!-- Market menu -->
 		<market_menu>
 			<fxml fxml_path="fxml/marketmenu.fxml"></fxml>
 			<css css_path="css/marketmenu.css"></css>
@@ -218,7 +218,7 @@
 			<fxml fxml_path="fxml/unexecuted_order.fxml"></fxml>
 			<css css_path="css/unexecuted_order.css"></css>
 		</unexecuted_order>
-		<!--Unusual order-->
+		<!--Unusual order -->
 		<unusual_order>
 			<fxml fxml_path="fxml/unusual_order.fxml"></fxml>
 			<css css_path="css/unusual_order.css"></css>
@@ -228,7 +228,7 @@
 			<fxml fxml_path="fxml/web_promotion_choose.fxml"></fxml>
 			<css css_path="css/web_promotion_choose.css"></css>
 		</web_promotion_choose>
-		<!--web promotion-->
+		<!--web promotion -->
 		<web_promotion>
 			<fxml fxml_path="fxml/web_promotion.fxml"></fxml>
 			<css css_path="css/web_promotion.css"></css>
@@ -238,27 +238,27 @@
 
 	<!-- This is Manager UI config -->
 	<manage root_path="manageui/">
-	<!--Add people confirm -->
+		<!--Add people confirm -->
 		<add_people_confirm>
 			<fxml fxml_path="fxml/addpeopleconfirm.fxml"></fxml>
 			<css css_path="css/add_people_confirm.css"></css>
 		</add_people_confirm>
-		<!--Add hotel one-->
+		<!--Add hotel one -->
 		<add_hotel_one>
 			<fxml fxml_path="fxml/addhotel_one.fxml"></fxml>
 			<css css_path="css/addhotel_one.css"></css>
 		</add_hotel_one>
-		<!--Add hotel three-->
+		<!--Add hotel three -->
 		<add_hotel_three>
 			<fxml fxml_path="fxml/addhotel_three.fxml"></fxml>
 			<css css_path="css/addhotel_three.css"></css>
 		</add_hotel_three>
-		<!--Add hotel two-->
+		<!--Add hotel two -->
 		<add_hotel_two>
 			<fxml fxml_path="fxml/addhotel_two.fxml"></fxml>
 			<css css_path="css/addhotel_two.css"></css>
 		</add_hotel_two>
-		<!--Add people-->
+		<!--Add people -->
 		<add_people>
 			<fxml fxml_path="fxml/addpeople.fxml"></fxml>
 			<css css_path="css/addpeople.css"></css>
@@ -268,12 +268,12 @@
 			<fxml fxml_path="fxml/changemessageconfirm.fxml"></fxml>
 			<css css_path="css/changemessageconfirm.css"></css>
 		</change_message_confirm>
-		<!--Check menu-->
+		<!--Check menu -->
 		<check_menu>
 			<fxml fxml_path="fxml/check_menu.fxml"></fxml>
 			<css css_path="css/check_menu.css"></css>
 		</check_menu>
-		<!--ID input-->
+		<!--ID input -->
 		<ID_input>
 			<fxml fxml_path="fxml/ID_input.fxml"></fxml>
 			<css css_path="css/ID_input.css"></css>
@@ -298,7 +298,7 @@
 		<info_look_manager>
 			<fxml fxml_path="fxml/informationLookManager.fxml"></fxml>
 		</info_look_manager>
-		<!--Manage menu-->
+		<!--Manage menu -->
 		<manage_menu>
 			<fxml fxml_path="fxml/managemenu.fxml"></fxml>
 			<css css_path="css/managemenu.css"></css>

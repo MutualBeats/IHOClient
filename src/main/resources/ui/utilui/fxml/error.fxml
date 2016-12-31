@@ -8,31 +8,38 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.ErrorController">
-   <children>
-      <Accordion layoutY="115.0" />
-      <Button fx:id="confirm" layoutX="165.0" layoutY="123.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="70.0" text="确认">
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Glow>
-                     <input>
-                        <Blend />
-                     </input>
-                  </Glow>
-               </bumpInput>
-               <light>
-                  <Light.Distant color="#9e9696" />
-               </light>
-            </Lighting>
-         </effect></Button>
-      <Label fx:id="error_info" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="101.0" prefWidth="356.0" text="Error" textAlignment="CENTER" textFill="#eb0404" wrapText="true">
-         <font>
-            <Font size="21.0" />
-         </font>
-         <effect>
-            <Glow />
-         </effect>
-      </Label>
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0"
+	prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.utilcontroller.ErrorController">
+	<children>
+		<Accordion layoutY="115.0" />
+		<Button fx:id="confirm" layoutX="165.0" layoutY="123.0"
+			mnemonicParsing="false" onAction="#confirm" prefHeight="30.0"
+			prefWidth="70.0" text="确认">
+			<effect>
+				<Lighting>
+					<bumpInput>
+						<Glow>
+							<input>
+								<Blend />
+							</input>
+						</Glow>
+					</bumpInput>
+					<light>
+						<Light.Distant color="#9e9696" />
+					</light>
+				</Lighting>
+			</effect>
+		</Button>
+		<Label fx:id="error_info" alignment="CENTER" contentDisplay="CENTER"
+			layoutX="22.0" layoutY="14.0" prefHeight="101.0" prefWidth="356.0"
+			text="Error" textAlignment="CENTER" textFill="#eb0404" wrapText="true">
+			<font>
+				<Font size="21.0" />
+			</font>
+			<effect>
+				<Glow />
+			</effect>
+		</Label>
+	</children>
 </AnchorPane>

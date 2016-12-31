@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.ArrayList;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.creditblservice.CreditBLService;
 import util.Time;
@@ -7,8 +9,6 @@ import util.credit.CreditChangeAction;
 import util.exception.NetException;
 import util.resultmessage.ResultMessage_Credit;
 import vo.credit.CreditVO;
-
-import java.util.ArrayList;
 
 /**
  * Created by heleninsa on 2016/12/25.

@@ -7,34 +7,67 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.MarketerInformationController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.manageui.check.MarketerInformationController">
 	<children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-      		<Text layoutX="114.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
-      			<font>
-      				<Font size="16.0" />
-      			</font>
-      		</Text>
-      		<Text layoutX="114.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
-      		<Text layoutX="114.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" />
-      		<Text layoutX="114.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：" />
-      		<Text layoutX="114.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="人员类型：" />
-      		<TextField fx:id="name" editable="false" layoutX="199.0" layoutY="165.0" onMouseClicked="#nameModify" prefHeight="16.0" prefWidth="170.0" />
-      		<TextField fx:id="phone" editable="false" layoutX="199.0" layoutY="222.0" onMouseClicked="#phoneModify" prefHeight="16.0" prefWidth="170.0" />
-      		<Button fx:id="cancel" layoutX="359.0" layoutY="360.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" />
-      		<Button fx:id="change" layoutX="179.0" layoutY="360.0" mnemonicParsing="false" onAction="#change" prefHeight="26.0" prefWidth="65.0" />
-      		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="384.0" layoutY="165.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="384.0" layoutY="222.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-            <Label fx:id="user_name" layoutX="199.0" layoutY="110.0" prefHeight="25.0" prefWidth="170.0" />
-            <Label fx:id="type" layoutX="199.0" layoutY="275.0" prefHeight="25.0" prefWidth="170.0" />
-            <Button fx:id="confirm" disable="true" layoutX="179.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="65.0" visible="false" />
-         </children>
-      </Pane>
-      <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change_button" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#on_change" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#addhotel" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#add_people" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Text layoutX="114.0" layoutY="58.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="人员信息" wrappingWidth="70.0">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Text>
+				<Text layoutX="114.0" layoutY="128.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="用户名：" wrappingWidth="53.0" />
+				<Text layoutX="114.0" layoutY="183.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="姓名：" />
+				<Text layoutX="114.0" layoutY="238.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="联系方式：" />
+				<Text layoutX="114.0" layoutY="293.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="人员类型：" />
+				<TextField fx:id="name" editable="false" layoutX="199.0"
+					layoutY="165.0" onMouseClicked="#nameModify" prefHeight="16.0"
+					prefWidth="170.0" />
+				<TextField fx:id="phone" editable="false" layoutX="199.0"
+					layoutY="222.0" onMouseClicked="#phoneModify" prefHeight="16.0"
+					prefWidth="170.0" />
+				<Button fx:id="cancel" layoutX="359.0" layoutY="360.0"
+					mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+					prefWidth="65.0" />
+				<Button fx:id="change" layoutX="179.0" layoutY="360.0"
+					mnemonicParsing="false" onAction="#change" prefHeight="26.0"
+					prefWidth="65.0" />
+				<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="384.0"
+					layoutY="165.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="384.0"
+					layoutY="222.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Label fx:id="user_name" layoutX="199.0" layoutY="110.0"
+					prefHeight="25.0" prefWidth="170.0" />
+				<Label fx:id="type" layoutX="199.0" layoutY="275.0"
+					prefHeight="25.0" prefWidth="170.0" />
+				<Button fx:id="confirm" disable="true" layoutX="179.0"
+					layoutY="360.0" mnemonicParsing="false" onAction="#confirm"
+					prefHeight="26.0" prefWidth="65.0" visible="false" />
+			</children>
+		</Pane>
+		<Button fx:id="check" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="change_button" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#on_change" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="addhotel" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#addhotel" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="addpeople" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" onAction="#add_people" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0"
+			prefWidth="80.0" />
 	</children>
 </AnchorPane>

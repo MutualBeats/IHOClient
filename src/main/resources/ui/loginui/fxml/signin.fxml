@@ -11,53 +11,86 @@
 
 <!-- Sign in UI -->
 
-<AnchorPane onMouseClicked="#passwordAgainModify" prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.loginui.SigninController">
-   <children>
-      <Button fx:id="confirm" contentDisplay="TOP" defaultButton="true" layoutX="110.0" layoutY="425.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="80.0" text="Confirm">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-      <Button fx:id="cancel" alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="310.0" layoutY="425.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="Cancel">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-      <TextField fx:id="name" layoutX="160.0" layoutY="170.0" onMouseClicked="#nameModify" prefHeight="27.0" prefWidth="180.0" />
-      <PasswordField fx:id="ps" layoutX="160.0" layoutY="280.0" onMouseClicked="#passwordModify" prefHeight="27.0" prefWidth="180.0" />
-      <PasswordField fx:id="ps_again" layoutX="160.0" layoutY="335.0" onMouseClicked="#passwordAgainModify" prefHeight="27.0" prefWidth="180.0" />
-      <TextField fx:id="phone" layoutX="160.0" layoutY="225.0" onMouseClicked="#phoneModify" prefHeight="27.0" prefWidth="180.0" />
-      <TextField fx:id="user_name" layoutX="160.0" layoutY="115.0" onMouseClicked="#userNameModify" prefHeight="27.0" prefWidth="180.0" />
-      <Label layoutX="30.0" layoutY="115.0" prefHeight="27.0" text="UserName:" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label layoutX="30.0" layoutY="170.0" prefHeight="27.0" text="Name:" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label layoutX="30.0" layoutY="280.0" prefHeight="27.0" text="Password:" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label layoutX="30.0" layoutY="335.0" prefHeight="27.0" text="PasswordAgain:" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label layoutX="194.0" layoutY="28.0" text="SignIn" textFill="WHITE">
-         <font>
-            <Font size="38.0" />
-         </font>
-         <effect>
-            <InnerShadow color="#b42e2e" />
-         </effect>
-      </Label>
-      <Label layoutX="30.0" layoutY="225.0" prefHeight="27.0" text="Phone:" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="user_name_warning" alignment="TOP_LEFT" layoutX="360.0" layoutY="115.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="360.0" layoutY="170.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="360.0" layoutY="225.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-      <Label fx:id="ps_warning" alignment="TOP_LEFT" layoutX="360.0" layoutY="280.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c" wrapText="true" />
-   </children>
+<AnchorPane onMouseClicked="#passwordAgainModify" prefHeight="550.0"
+	prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.loginui.SigninController">
+	<children>
+		<Button fx:id="confirm" contentDisplay="TOP" defaultButton="true"
+			layoutX="110.0" layoutY="425.0" maxHeight="1.7976931348623157E308"
+			maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm"
+			prefHeight="30.0" prefWidth="80.0" text="Confirm">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Button>
+		<Button fx:id="cancel" alignment="CENTER" contentDisplay="TOP"
+			defaultButton="true" layoutX="310.0" layoutY="425.0" maxHeight="1.7976931348623157E308"
+			maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+			nodeOrientation="LEFT_TO_RIGHT" onAction="#cancel" prefHeight="30.0"
+			prefWidth="80.0" text="Cancel">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Button>
+		<TextField fx:id="name" layoutX="160.0" layoutY="170.0"
+			onMouseClicked="#nameModify" prefHeight="27.0" prefWidth="180.0" />
+		<PasswordField fx:id="ps" layoutX="160.0" layoutY="280.0"
+			onMouseClicked="#passwordModify" prefHeight="27.0" prefWidth="180.0" />
+		<PasswordField fx:id="ps_again" layoutX="160.0" layoutY="335.0"
+			onMouseClicked="#passwordAgainModify" prefHeight="27.0" prefWidth="180.0" />
+		<TextField fx:id="phone" layoutX="160.0" layoutY="225.0"
+			onMouseClicked="#phoneModify" prefHeight="27.0" prefWidth="180.0" />
+		<TextField fx:id="user_name" layoutX="160.0" layoutY="115.0"
+			onMouseClicked="#userNameModify" prefHeight="27.0" prefWidth="180.0" />
+		<Label layoutX="30.0" layoutY="115.0" prefHeight="27.0" text="UserName:"
+			textFill="WHITE">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label layoutX="30.0" layoutY="170.0" prefHeight="27.0" text="Name:"
+			textFill="WHITE">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label layoutX="30.0" layoutY="280.0" prefHeight="27.0" text="Password:"
+			textFill="WHITE">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label layoutX="30.0" layoutY="335.0" prefHeight="27.0"
+			text="PasswordAgain:" textFill="WHITE">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label layoutX="194.0" layoutY="28.0" text="SignIn" textFill="WHITE">
+			<font>
+				<Font size="38.0" />
+			</font>
+			<effect>
+				<InnerShadow color="#b42e2e" />
+			</effect>
+		</Label>
+		<Label layoutX="30.0" layoutY="225.0" prefHeight="27.0" text="Phone:"
+			textFill="WHITE">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label fx:id="user_name_warning" alignment="TOP_LEFT" layoutX="360.0"
+			layoutY="115.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+			wrapText="true" />
+		<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="360.0"
+			layoutY="170.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+			wrapText="true" />
+		<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="360.0"
+			layoutY="225.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+			wrapText="true" />
+		<Label fx:id="ps_warning" alignment="TOP_LEFT" layoutX="360.0"
+			layoutY="280.0" prefHeight="50.0" prefWidth="135.0" textFill="#e40c0c"
+			wrapText="true" />
+	</children>
 </AnchorPane>

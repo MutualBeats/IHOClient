@@ -11,52 +11,74 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.mainmarket.MainMarketController">
-   <children>
-      <Button fx:id="credit" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#credit" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" onAction="#unusual_order" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="all" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Button fx:id="logout" layoutX="487.0" layoutY="384.0" mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
-         </children></Pane>
-      <Label layoutX="280.0" layoutY="277.0" text="网站营销人员姓名 :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="280.0" layoutY="350.0" text="网站营销人员ID :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="marketerName" layoutX="400.0" layoutY="290.0" prefHeight="35.0" prefWidth="200.0">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="marketerID" layoutX="400.0" layoutY="365.0" prefHeight="35.0" prefWidth="200.0">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="280.0" layoutY="420.0" text="网站营销人员联系方式 :" underline="true">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="marketerContact" layoutX="400.0" layoutY="440.0" prefHeight="35.0" prefWidth="200.0">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="245.0" layoutY="145.0" text="网站营销人员个人信息">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="photo" layoutX="320.0" layoutY="190.0" prefHeight="70.0" prefWidth="70.0" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.marketui.mainmarket.MainMarketController">
+	<children>
+		<Button fx:id="credit" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#credit" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" onAction="#unusual_order" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="all" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Button fx:id="logout" layoutX="487.0" layoutY="384.0"
+					mnemonicParsing="false" onAction="#logout" prefWidth="65.0" />
+			</children>
+		</Pane>
+		<Label layoutX="280.0" layoutY="277.0" text="网站营销人员姓名 :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label layoutX="280.0" layoutY="350.0" text="网站营销人员ID :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="marketerName" layoutX="400.0" layoutY="290.0"
+			prefHeight="35.0" prefWidth="200.0">
+			<font>
+				<Font name="System Bold" size="13.0" />
+			</font>
+		</Label>
+		<Label fx:id="marketerID" layoutX="400.0" layoutY="365.0"
+			prefHeight="35.0" prefWidth="200.0">
+			<font>
+				<Font name="System Bold" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="280.0" layoutY="420.0" text="网站营销人员联系方式 :"
+			underline="true">
+			<font>
+				<Font size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="marketerContact" layoutX="400.0" layoutY="440.0"
+			prefHeight="35.0" prefWidth="200.0">
+			<font>
+				<Font name="System Bold" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="245.0" layoutY="145.0" text="网站营销人员个人信息">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Label>
+		<Label fx:id="photo" layoutX="320.0" layoutY="190.0" prefHeight="70.0"
+			prefWidth="70.0" />
+	</children>
 </AnchorPane>

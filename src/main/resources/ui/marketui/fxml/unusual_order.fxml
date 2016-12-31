@@ -10,42 +10,63 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.unusualorder.UnusualOrderController">
-   <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0" />
-      <Accordion layoutY="115.0" />
-      <Button fx:id="cancel" layoutX="565.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="check" contentDisplay="CENTER" layoutX="435.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_check" prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="241.0" layoutY="159.0" text="搜索结果: ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TableView fx:id="order_list" layoutX="220.0" layoutY="200.0" prefHeight="270.0" prefWidth="500.0">
-         <columns>
-            <TableColumn fx:id="order_id" prefWidth="144.0" text="订单ID" />
-            <TableColumn fx:id="user_name" prefWidth="117.0" text="用户名称" />
-            <TableColumn fx:id="contact" prefWidth="115.0" text="联系方式" />
-            <TableColumn fx:id="hotelname" prefWidth="121.6959228515625" text="下单酒店" />
-         </columns>
-      </TableView>
-      <Button fx:id="revoke" layoutX="306.0" layoutY="499.0" mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0" prefWidth="65.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="credit" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#on_credit" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
-   </children>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+	minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.marketui.unusualorder.UnusualOrderController">
+	<children>
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0" />
+		<Accordion layoutY="115.0" />
+		<Button fx:id="cancel" layoutX="565.0" layoutY="499.0"
+			mnemonicParsing="false" onAction="#cancel" prefHeight="20.0"
+			prefWidth="65.0" textOverrun="CLIP">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Button>
+		<Button fx:id="check" contentDisplay="CENTER" layoutX="435.0"
+			layoutY="499.0" mnemonicParsing="false" onAction="#on_check"
+			prefHeight="20.0" prefWidth="65.0" textOverrun="CLIP">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Button>
+		<Label layoutX="241.0" layoutY="159.0" text="搜索结果: ">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Label>
+		<TableView fx:id="order_list" layoutX="220.0" layoutY="200.0"
+			prefHeight="270.0" prefWidth="500.0">
+			<columns>
+				<TableColumn fx:id="order_id" prefWidth="144.0" text="订单ID" />
+				<TableColumn fx:id="user_name" prefWidth="117.0" text="用户名称" />
+				<TableColumn fx:id="contact" prefWidth="115.0" text="联系方式" />
+				<TableColumn fx:id="hotelname" prefWidth="121.6959228515625"
+					text="下单酒店" />
+			</columns>
+		</TableView>
+		<Button fx:id="revoke" layoutX="306.0" layoutY="499.0"
+			mnemonicParsing="false" onAction="#on_revoke" prefHeight="20.0"
+			prefWidth="65.0">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Button>
+		<Button fx:id="unexecuted_order" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" onAction="#unexecuted_order" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="unusual_order" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="web_promotion" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#web_promotion" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="credit" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#on_credit" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0"
+			prefWidth="80.0" />
+	</children>
 </AnchorPane>

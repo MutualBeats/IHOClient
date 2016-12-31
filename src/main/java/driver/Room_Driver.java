@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.ArrayList;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
 import bussinesslogicservice.roomblservice.RoomBLService;
 import util.exception.NetException;
@@ -8,8 +10,6 @@ import util.room.RoomState;
 import util.room.RoomType;
 import vo.room.RoomRecordVO;
 import vo.room.RoomVO;
-
-import java.util.ArrayList;
 
 /**
  * Created by heleninsa on 2016/12/25.

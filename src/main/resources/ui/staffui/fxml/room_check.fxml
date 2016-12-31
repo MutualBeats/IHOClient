@@ -7,34 +7,58 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.staffui.roommanage.RoomCheckController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
-         <children>
-            <Accordion layoutY="115.0" />
-            <Text layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号码：" wrappingWidth="65.0" />
-            <Text layoutX="254.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型：" />
-            <Text layoutX="63.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间价格：" />
-            <Label fx:id="room_number" layoutX="146.0" layoutY="70.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
-            <Button fx:id="cancel" layoutX="350.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
-            <Button fx:id="addRecord" layoutX="55.0" layoutY="421.0" mnemonicParsing="false" onAction="#addRecord" prefHeight="27.0" prefWidth="82.0" text="添加记录" />
-            <Button fx:id="checkIn" layoutX="164.0" layoutY="421.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="26.0" prefWidth="65.0" text="入住" />
-            <Button fx:id="checkOut" layoutX="254.0" layoutY="421.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="26.0" prefWidth="65.0" text="退房" />
-            <Label ellipsisString="" layoutX="51.0" layoutY="30.0" prefHeight="25.0" prefWidth="90.0" text="客房信息">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Text layoutX="63.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间未来预订记录：" />
-            <TableView fx:id="room_record_list" layoutX="52.0" layoutY="170.0" prefHeight="234.0" prefWidth="354.0">
-               <columns>
-                  <TableColumn fx:id="order_id" prefWidth="156.0" text="订单号" />
-                  <TableColumn fx:id="check_in_date" prefWidth="102.0" text="入住时间" />
-                  <TableColumn fx:id="estimate_check_out_date" prefWidth="94.0" text="预计离开时间" />
-               </columns>
-            </TableView>
-            <Label fx:id="room_price" layoutX="146.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
-            <Label fx:id="room_type" layoutX="332.0" layoutY="103.0" prefHeight="25.0" prefWidth="65.0" text="Label" />
-         </children></AnchorPane>
-  </items>
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0"
+	prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.staffui.roommanage.RoomCheckController">
+	<items>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0"
+			prefWidth="606.0">
+			<children>
+				<Accordion layoutY="115.0" />
+				<Text layoutX="63.0" layoutY="87.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间号码：" wrappingWidth="65.0" />
+				<Text layoutX="254.0" layoutY="120.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间类型：" />
+				<Text layoutX="63.0" layoutY="120.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间价格：" />
+				<Label fx:id="room_number" layoutX="146.0" layoutY="70.0"
+					prefHeight="25.0" prefWidth="65.0" text="Label" />
+				<Button fx:id="cancel" layoutX="350.0" layoutY="421.0"
+					mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+					prefWidth="65.0" text="返回" />
+				<Button fx:id="addRecord" layoutX="55.0" layoutY="421.0"
+					mnemonicParsing="false" onAction="#addRecord" prefHeight="27.0"
+					prefWidth="82.0" text="添加记录" />
+				<Button fx:id="checkIn" layoutX="164.0" layoutY="421.0"
+					mnemonicParsing="false" onAction="#checkIn" prefHeight="26.0"
+					prefWidth="65.0" text="入住" />
+				<Button fx:id="checkOut" layoutX="254.0" layoutY="421.0"
+					mnemonicParsing="false" onAction="#checkOut" prefHeight="26.0"
+					prefWidth="65.0" text="退房" />
+				<Label ellipsisString="" layoutX="51.0" layoutY="30.0"
+					prefHeight="25.0" prefWidth="90.0" text="客房信息">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Text layoutX="63.0" layoutY="153.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="房间未来预订记录：" />
+				<TableView fx:id="room_record_list" layoutX="52.0"
+					layoutY="170.0" prefHeight="234.0" prefWidth="354.0">
+					<columns>
+						<TableColumn fx:id="order_id" prefWidth="156.0" text="订单号" />
+						<TableColumn fx:id="check_in_date" prefWidth="102.0"
+							text="入住时间" />
+						<TableColumn fx:id="estimate_check_out_date"
+							prefWidth="94.0" text="预计离开时间" />
+					</columns>
+				</TableView>
+				<Label fx:id="room_price" layoutX="146.0" layoutY="103.0"
+					prefHeight="25.0" prefWidth="65.0" text="Label" />
+				<Label fx:id="room_type" layoutX="332.0" layoutY="103.0"
+					prefHeight="25.0" prefWidth="65.0" text="Label" />
+			</children>
+		</AnchorPane>
+	</items>
 </SplitPane>

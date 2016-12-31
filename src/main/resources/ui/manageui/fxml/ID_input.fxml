@@ -7,15 +7,22 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="325.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.utilcontroller.IDInputController">
-   <children>
-      <Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输入人员ID :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Button fx:id="search" layoutX="61.0" layoutY="142.0" mnemonicParsing="false" onAction="#on_search" prefHeight="26.0" prefWidth="65.0" text="搜索" />
-      <Button fx:id="cancel" layoutX="201.0" layoutY="142.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="取消" />
-      <TextField fx:id="id_input" layoutX="141.0" layoutY="67.0" />
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0"
+	prefWidth="325.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.utilcontroller.IDInputController">
+	<children>
+		<Text layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="输入人员ID :">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Text>
+		<Button fx:id="search" layoutX="61.0" layoutY="142.0"
+			mnemonicParsing="false" onAction="#on_search" prefHeight="26.0"
+			prefWidth="65.0" text="搜索" />
+		<Button fx:id="cancel" layoutX="201.0" layoutY="142.0"
+			mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+			prefWidth="65.0" text="取消" />
+		<TextField fx:id="id_input" layoutX="141.0" layoutY="67.0" />
+	</children>
 </AnchorPane>

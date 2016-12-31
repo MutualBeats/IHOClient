@@ -8,42 +8,64 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.MemberDiscountController">
-   <children>
-      <Accordion layoutY="115.0" />
-      <Button fx:id="confirm" layoutX="135.0" layoutY="400.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="65.0" />
-      <Button fx:id="cancel" layoutX="265.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="65.0" />
-      <TextField fx:id="promotionName" layoutX="154.0" layoutY="75.0" onMouseClicked="#nameModify" prefHeight="25.0" prefWidth="140.0" />
-      <ComboBox fx:id="province" layoutX="65.0" layoutY="201.0" onMouseClicked="#disModify" prefWidth="130.0" promptText="省份" />
-      <ComboBox fx:id="city" layoutX="220.0" layoutY="201.0" onMouseClicked="#disModify" prefWidth="130.0" promptText="市" />
-      <ComboBox fx:id="field" layoutX="65.0" layoutY="247.0" onMouseClicked="#disModify" prefWidth="130.0" promptText="县" />
-      <ComboBox fx:id="group" layoutX="220.0" layoutY="247.0" onMouseClicked="#disModify" prefWidth="130.0" promptText="商圈" />
-      <ComboBox fx:id="star" layoutX="293.0" layoutY="261.0" prefWidth="130.0" promptText="商圈" visible="false" />
-      
-      <Label layoutX="50.0" layoutY="281.0" text="会员等级及其对应折扣 :" />
-      <Label layoutX="58.0" layoutY="80.0" text="策略名称 ：" />
-      <Label layoutX="110.0" layoutY="47.0" text="策略类型 ：" />
-      <Label layoutX="233.0" layoutY="46.0" text="会员商圈策略" underline="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="58.0" layoutY="118.0" text="开始时间 ：" />
-      <Label layoutX="58.0" layoutY="163.0" text="结束时间 ：" />
-      <DatePicker fx:id="startTime" layoutX="154.0" layoutY="113.0" prefHeight="20.0" prefWidth="150.0" />
-      <DatePicker fx:id="finishTime" layoutX="154.0" layoutY="156.0" prefWidth="150.0" />
-      <TextField fx:id="discount_lv3" layoutX="285.0" layoutY="344.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv2" layoutX="232.0" layoutY="344.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv1" layoutX="181.0" layoutY="344.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <TextField fx:id="discount_lv0" layoutX="132.0" layoutY="344.0" onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
-      <Label layoutX="293.0" layoutY="314.0" text="vip3" />
-      <Label layoutX="240.0" layoutY="314.0" text="vip2" />
-      <Label layoutX="189.0" layoutY="314.0" text="vip1" />
-      <Label layoutX="140.0" layoutY="314.0" text="vip0" />
-      <Line endX="100.0" layoutX="235.0" layoutY="335.0" startX="-100.0" />
-      <Text layoutX="58.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
-      <Label fx:id="name_warning" ellipsisString="10" layoutX="325.0" layoutY="73.0" prefHeight="30.0" prefWidth="100.0" textFill="#f20101" />
-      <Label fx:id="discount_warning" ellipsisString="10" layoutX="340.0" layoutY="342.0" prefHeight="30.0" prefWidth="100.0" textFill="#f50202" />
-      <Label fx:id="field_warning" ellipsisString="10" layoutX="351.0" layoutY="223.0" prefHeight="30.0" prefWidth="100.0" textFill="#f50505" />
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0"
+	prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.marketui.webpromotion.MemberDiscountController">
+	<children>
+		<Accordion layoutY="115.0" />
+		<Button fx:id="confirm" layoutX="135.0" layoutY="400.0"
+			mnemonicParsing="false" onAction="#confirm" prefHeight="25.0"
+			prefWidth="65.0" />
+		<Button fx:id="cancel" layoutX="265.0" layoutY="400.0"
+			mnemonicParsing="false" onAction="#cancel" prefHeight="25.0"
+			prefWidth="65.0" />
+		<TextField fx:id="promotionName" layoutX="154.0" layoutY="75.0"
+			onMouseClicked="#nameModify" prefHeight="25.0" prefWidth="140.0" />
+		<ComboBox fx:id="province" layoutX="65.0" layoutY="201.0"
+			onMouseClicked="#disModify" prefWidth="130.0" promptText="省份" />
+		<ComboBox fx:id="city" layoutX="220.0" layoutY="201.0"
+			onMouseClicked="#disModify" prefWidth="130.0" promptText="市" />
+		<ComboBox fx:id="field" layoutX="65.0" layoutY="247.0"
+			onMouseClicked="#disModify" prefWidth="130.0" promptText="县" />
+		<ComboBox fx:id="group" layoutX="220.0" layoutY="247.0"
+			onMouseClicked="#disModify" prefWidth="130.0" promptText="商圈" />
+		<ComboBox fx:id="star" layoutX="293.0" layoutY="261.0"
+			prefWidth="130.0" promptText="商圈" visible="false" />
+
+		<Label layoutX="50.0" layoutY="281.0" text="会员等级及其对应折扣 :" />
+		<Label layoutX="58.0" layoutY="80.0" text="策略名称 ：" />
+		<Label layoutX="110.0" layoutY="47.0" text="策略类型 ：" />
+		<Label layoutX="233.0" layoutY="46.0" text="会员商圈策略" underline="true">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+		<Label layoutX="58.0" layoutY="118.0" text="开始时间 ：" />
+		<Label layoutX="58.0" layoutY="163.0" text="结束时间 ：" />
+		<DatePicker fx:id="startTime" layoutX="154.0" layoutY="113.0"
+			prefHeight="20.0" prefWidth="150.0" />
+		<DatePicker fx:id="finishTime" layoutX="154.0" layoutY="156.0"
+			prefWidth="150.0" />
+		<TextField fx:id="discount_lv3" layoutX="285.0" layoutY="344.0"
+			onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+		<TextField fx:id="discount_lv2" layoutX="232.0" layoutY="344.0"
+			onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+		<TextField fx:id="discount_lv1" layoutX="181.0" layoutY="344.0"
+			onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+		<TextField fx:id="discount_lv0" layoutX="132.0" layoutY="344.0"
+			onMouseClicked="#discountModify" prefHeight="27.0" prefWidth="44.0" />
+		<Label layoutX="293.0" layoutY="314.0" text="vip3" />
+		<Label layoutX="240.0" layoutY="314.0" text="vip2" />
+		<Label layoutX="189.0" layoutY="314.0" text="vip1" />
+		<Label layoutX="140.0" layoutY="314.0" text="vip0" />
+		<Line endX="100.0" layoutX="235.0" layoutY="335.0" startX="-100.0" />
+		<Text layoutX="58.0" layoutY="362.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="折扣 :" />
+		<Label fx:id="name_warning" ellipsisString="10" layoutX="325.0"
+			layoutY="73.0" prefHeight="30.0" prefWidth="100.0" textFill="#f20101" />
+		<Label fx:id="discount_warning" ellipsisString="10" layoutX="340.0"
+			layoutY="342.0" prefHeight="30.0" prefWidth="100.0" textFill="#f50202" />
+		<Label fx:id="field_warning" ellipsisString="10" layoutX="351.0"
+			layoutY="223.0" prefHeight="30.0" prefWidth="100.0" textFill="#f50505" />
+	</children>
 </AnchorPane>

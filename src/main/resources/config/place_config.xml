@@ -12,13 +12,13 @@
 				<group group_name="玄武商圈"></group>
 			</field>
 		</city>
-		
+
 		<city city_name="苏州市">
 			<field field_name="苏州市">
 				<group group_name="姑苏商圈"></group>
 			</field>
 		</city>
-		
+
 		<city city_name="南通市">
 			<field field_name="如皋市">
 				<group group_name="如城商圈"></group>
@@ -26,9 +26,9 @@
 				<group group_name="白蒲商圈"></group>
 			</field>
 		</city>
-		
+
 	</province>
-	
+
 	<province province_name="广西省">
 		<city city_name="桂林市">
 			<field field_name="桂林市">
@@ -36,7 +36,7 @@
 			</field>
 		</city>
 	</province>
-	
+
 	<province province_name="浙江省">
 		<city city_name="杭州市">
 			<field field_name="杭州市">
@@ -44,13 +44,13 @@
 			</field>
 		</city>
 	</province>
-	
+
 	<province province_name="云南省">
 		<city city_name="大理市">
 			<field field_name="双廊镇">
 				<group group_name="双廊商圈"></group>
 			</field>
 		</city>
-	</province>	
-	
+	</province>
+
 </placeconfig>

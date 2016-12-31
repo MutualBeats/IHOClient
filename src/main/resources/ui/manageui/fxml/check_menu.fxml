@@ -11,53 +11,77 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.check.CheckMenuController">
-   <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Label layoutX="12.0" layoutY="34.0" prefHeight="35.0" text="ID/酒店名称 :">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField fx:id="search_text" layoutX="115.0" layoutY="34.0" prefHeight="35.0" prefWidth="165.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <Button fx:id="cancel" layoutX="502.0" layoutY="37.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0" prefWidth="60.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <TableView fx:id="people" layoutX="67.0" layoutY="120.0" prefHeight="320.0" prefWidth="480.0">
-               <columns>
-                  <TableColumn fx:id="id" prefWidth="94.0" text="ID" />
-                  <TableColumn fx:id="name" prefWidth="125.0" text="姓名" />
-                  <TableColumn fx:id="contact" prefWidth="121.0" text="联系方式" />
-                  <TableColumn fx:id="type" prefWidth="140.0" text="人员类型" />
-               </columns>
-            </TableView>
-            <Button fx:id="search" layoutX="320.0" layoutY="34.0" mnemonicParsing="false" onAction="#on_search" prefHeight="26.0" prefWidth="60.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="check_button" layoutX="412.0" layoutY="36.0" mnemonicParsing="false" onAction="#on_check" prefHeight="26.0" prefWidth="60.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <RadioButton fx:id="total" layoutX="67.0" layoutY="83.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="全部" />
-            <RadioButton fx:id="client" layoutX="179.0" layoutY="83.0" mnemonicParsing="false" text="普通用户" />
-            <RadioButton fx:id="marketer" layoutX="441.0" layoutY="83.0" mnemonicParsing="false" text="网站营销人员" />
-            <RadioButton fx:id="staff" layoutX="297.0" layoutY="83.0" mnemonicParsing="false" text="酒店工作人员" />
-         </children>
-      </Pane>
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#add_people" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" onAction="#add_hotel" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" onAction="#on_change" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="check" layoutX="84.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-   </children>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0"
+	prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.manageui.check.CheckMenuController">
+	<children>
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Label layoutX="12.0" layoutY="34.0" prefHeight="35.0" text="ID/酒店名称 :">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Label>
+				<TextField fx:id="search_text" layoutX="115.0" layoutY="34.0"
+					prefHeight="35.0" prefWidth="165.0">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</TextField>
+				<Button fx:id="cancel" layoutX="502.0" layoutY="37.0"
+					mnemonicParsing="false" onAction="#peopleInfo" prefHeight="26.0"
+					prefWidth="60.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Button>
+				<TableView fx:id="people" layoutX="67.0" layoutY="120.0"
+					prefHeight="320.0" prefWidth="480.0">
+					<columns>
+						<TableColumn fx:id="id" prefWidth="94.0" text="ID" />
+						<TableColumn fx:id="name" prefWidth="125.0" text="姓名" />
+						<TableColumn fx:id="contact" prefWidth="121.0" text="联系方式" />
+						<TableColumn fx:id="type" prefWidth="140.0" text="人员类型" />
+					</columns>
+				</TableView>
+				<Button fx:id="search" layoutX="320.0" layoutY="34.0"
+					mnemonicParsing="false" onAction="#on_search" prefHeight="26.0"
+					prefWidth="60.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Button>
+				<Button fx:id="check_button" layoutX="412.0" layoutY="36.0"
+					mnemonicParsing="false" onAction="#on_check" prefHeight="26.0"
+					prefWidth="60.0">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Button>
+				<RadioButton fx:id="total" layoutX="67.0" layoutY="83.0"
+					mnemonicParsing="false" prefHeight="18.0" prefWidth="50.0" text="全部" />
+				<RadioButton fx:id="client" layoutX="179.0" layoutY="83.0"
+					mnemonicParsing="false" text="普通用户" />
+				<RadioButton fx:id="marketer" layoutX="441.0" layoutY="83.0"
+					mnemonicParsing="false" text="网站营销人员" />
+				<RadioButton fx:id="staff" layoutX="297.0" layoutY="83.0"
+					mnemonicParsing="false" text="酒店工作人员" />
+			</children>
+		</Pane>
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" onAction="#peopleInfo" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="addpeople" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" onAction="#add_people" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="addhotel" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" onAction="#add_hotel" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="change" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" onAction="#on_change" prefHeight="60.0"
+			prefWidth="80.0" />
+		<Button fx:id="check" layoutX="84.0" layoutY="253.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+	</children>
 </AnchorPane>

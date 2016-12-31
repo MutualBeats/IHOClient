@@ -7,26 +7,45 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.marketui.webpromotion.PromotionCheckController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0" prefWidth="606.0">
-         <children>
-            <Accordion layoutY="115.0" />
-            <Text layoutX="70.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略信息" wrappingWidth="120.0">
-               <font>
-                  <Font size="18.0" />
-               </font></Text>
-            <Text layoutX="100.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promotion ID：" wrappingWidth="100.0" />
-            <Text layoutX="100.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="促销策略名称：" />
-            <Text layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="折扣 :" />
-            <Text layoutX="100.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="开始时间：" />
-            <Button fx:id="cancel" layoutX="200.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="65.0" text="返回" />
-            <Text layoutX="100.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="结束时间：" />
-            <Label fx:id="promotion_ID" ellipsisString="" layoutX="229.0" layoutY="130.0" prefHeight="20.0" prefWidth="160.0" />
-            <Label fx:id="promotion_name" layoutX="229.0" layoutY="180.0" prefHeight="20.0" prefWidth="160.0" />
-            <Label fx:id="time_start" layoutX="232.0" layoutY="230.0" prefHeight="20.0" prefWidth="160.0" />
-            <Label fx:id="time_end" layoutX="229.0" layoutY="280.0" prefHeight="20.0" prefWidth="160.0" />
-            <Label fx:id="discount" layoutX="229.0" layoutY="330.0" prefHeight="20.0" prefWidth="160.0" />
-         </children></AnchorPane>
-  </items>
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0"
+	prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="presentation.marketui.webpromotion.PromotionCheckController">
+	<items>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="516.0"
+			prefWidth="606.0">
+			<children>
+				<Accordion layoutY="115.0" />
+				<Text layoutX="70.0" layoutY="100.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="促销策略信息" wrappingWidth="120.0">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Text>
+				<Text layoutX="100.0" layoutY="140.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Promotion ID：" wrappingWidth="100.0" />
+				<Text layoutX="100.0" layoutY="190.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="促销策略名称：" />
+				<Text layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="折扣 :" />
+				<Text layoutX="100.0" layoutY="240.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="开始时间：" />
+				<Button fx:id="cancel" layoutX="200.0" layoutY="380.0"
+					mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+					prefWidth="65.0" text="返回" />
+				<Text layoutX="100.0" layoutY="290.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="结束时间：" />
+				<Label fx:id="promotion_ID" ellipsisString="" layoutX="229.0"
+					layoutY="130.0" prefHeight="20.0" prefWidth="160.0" />
+				<Label fx:id="promotion_name" layoutX="229.0" layoutY="180.0"
+					prefHeight="20.0" prefWidth="160.0" />
+				<Label fx:id="time_start" layoutX="232.0" layoutY="230.0"
+					prefHeight="20.0" prefWidth="160.0" />
+				<Label fx:id="time_end" layoutX="229.0" layoutY="280.0"
+					prefHeight="20.0" prefWidth="160.0" />
+				<Label fx:id="discount" layoutX="229.0" layoutY="330.0"
+					prefHeight="20.0" prefWidth="160.0" />
+			</children>
+		</AnchorPane>
+	</items>
 </SplitPane>

@@ -8,58 +8,94 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="second_pane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_two">
-   <children>
-      <Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0" prefWidth="580.0">
-         <children>
-            <Text layoutX="83.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="用户名:" wrappingWidth="80.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="83.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="90.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="83.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式：">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="name" layoutX="229.0" layoutY="143.0" onMouseClicked="#nameModify" prefHeight="30.0" prefWidth="170.0" />
-            <TextField fx:id="phone" layoutX="229.0" layoutY="198.0" onMouseClicked="#phoneModify" prefHeight="30.0" prefWidth="170.0" />
-            <TextField fx:id="user_name" layoutX="229.0" layoutY="88.0" onMouseClicked="#userNameModify" prefHeight="30.0" prefWidth="170.0" />
-            <PasswordField fx:id="ps" layoutX="229.0" layoutY="253.0" onMouseClicked="#passwordModify" prefHeight="30.0" prefWidth="170.0" />
-            <PasswordField fx:id="ps_again" layoutX="229.0" layoutY="308.0" prefHeight="30.0" prefWidth="170.0" />
-            <Button fx:id="cancel" layoutX="160.0" layoutY="390.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="60.0" />
-            <Button fx:id="confirm" layoutX="360.0" layoutY="390.0" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="60.0" />
-            <Text layoutX="83.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="密码：">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="83.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="再次输入密码：">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Label fx:id="user_name_warning" alignment="TOP_LEFT" layoutX="425.0" layoutY="81.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c" wrapText="true" />
-            <Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="425.0" layoutY="136.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c" wrapText="true" />
-            <Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="425.0" layoutY="191.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c" wrapText="true" />
-            <Label fx:id="ps_warning" alignment="TOP_LEFT" layoutX="425.0" layoutY="246.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c" wrapText="true" />
-            <Circle fill="#70ace4" layoutX="304.0" layoutY="38.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#b7cee4" layoutX="104.0" layoutY="38.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#b7cee4" layoutX="504.0" layoutY="38.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text layoutX="99.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
-            <Text layoutX="299.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
-            <Text layoutX="499.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
-         </children>
-      </Pane>
-      <Button fx:id="check" layoutX="85.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="change" layoutX="5.0" layoutY="290.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addhotel" layoutX="90.0" layoutY="340.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="addpeople" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-      <Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
-   </children>
+<AnchorPane fx:id="second_pane" minHeight="0.0" minWidth="0.0"
+	prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.manageui.addhotel.AddHotelController_two">
+	<children>
+		<Pane fx:id="pane" layoutX="180.0" layoutY="100.0" prefHeight="460.0"
+			prefWidth="580.0">
+			<children>
+				<Text layoutX="83.0" layoutY="107.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="用户名:" wrappingWidth="80.0">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Text>
+				<Text layoutX="83.0" layoutY="162.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="姓名：" wrappingWidth="90.0">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Text>
+				<Text layoutX="83.0" layoutY="217.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="联系方式：">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Text>
+				<TextField fx:id="name" layoutX="229.0" layoutY="143.0"
+					onMouseClicked="#nameModify" prefHeight="30.0" prefWidth="170.0" />
+				<TextField fx:id="phone" layoutX="229.0" layoutY="198.0"
+					onMouseClicked="#phoneModify" prefHeight="30.0" prefWidth="170.0" />
+				<TextField fx:id="user_name" layoutX="229.0" layoutY="88.0"
+					onMouseClicked="#userNameModify" prefHeight="30.0" prefWidth="170.0" />
+				<PasswordField fx:id="ps" layoutX="229.0" layoutY="253.0"
+					onMouseClicked="#passwordModify" prefHeight="30.0" prefWidth="170.0" />
+				<PasswordField fx:id="ps_again" layoutX="229.0"
+					layoutY="308.0" prefHeight="30.0" prefWidth="170.0" />
+				<Button fx:id="cancel" layoutX="160.0" layoutY="390.0"
+					mnemonicParsing="false" onAction="#cancel" prefHeight="26.0"
+					prefWidth="60.0" />
+				<Button fx:id="confirm" layoutX="360.0" layoutY="390.0"
+					mnemonicParsing="false" onAction="#confirm" prefHeight="26.0"
+					prefWidth="60.0" />
+				<Text layoutX="83.0" layoutY="272.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="密码：">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Text>
+				<Text layoutX="83.0" layoutY="327.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="再次输入密码：">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Text>
+				<Label fx:id="user_name_warning" alignment="TOP_LEFT" layoutX="425.0"
+					layoutY="81.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Label fx:id="name_warning" alignment="TOP_LEFT" layoutX="425.0"
+					layoutY="136.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Label fx:id="phone_warning" alignment="TOP_LEFT" layoutX="425.0"
+					layoutY="191.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Label fx:id="ps_warning" alignment="TOP_LEFT" layoutX="425.0"
+					layoutY="246.0" prefHeight="50.0" prefWidth="140.0" textFill="#e40c0c"
+					wrapText="true" />
+				<Circle fill="#70ace4" layoutX="304.0" layoutY="38.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Circle fill="#b7cee4" layoutX="104.0" layoutY="38.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Circle fill="#b7cee4" layoutX="504.0" layoutY="38.0" radius="15.0"
+					stroke="BLACK" strokeType="INSIDE" />
+				<Text layoutX="99.0" layoutY="43.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="1" />
+				<Text layoutX="299.0" layoutY="43.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="2" />
+				<Text layoutX="499.0" layoutY="43.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="3" />
+			</children>
+		</Pane>
+		<Button fx:id="check" layoutX="85.0" layoutY="253.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="change" layoutX="5.0" layoutY="290.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="addhotel" layoutX="90.0" layoutY="340.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="addpeople" layoutX="5.0" layoutY="220.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+		<Button fx:id="peopleInfo" layoutX="87.0" layoutY="175.0"
+			mnemonicParsing="false" prefHeight="60.0" prefWidth="80.0" />
+	</children>
 </AnchorPane>

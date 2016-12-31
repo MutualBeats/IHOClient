@@ -1,16 +1,14 @@
 package driver;
 
+import java.util.ArrayList;
+
 import bussinesslogic.controllerfactory.ControllerFactory;
-import bussinesslogic.promotionbl.Promotion;
 import bussinesslogicservice.promotionblservice.PromotionBLService;
 import util.Time;
 import util.exception.NetException;
 import util.promotion.PromotionType;
-import util.resultmessage.ResultMessage_Hotel;
 import util.resultmessage.ResultMessage_Promotion;
 import vo.promotion.PromotionVO;
-
-import java.util.ArrayList;
 
 /**
  * Created by heleninsa on 2016/12/25.
@@ -41,7 +39,7 @@ public class Promotion_Driver {
         vo.hotelID = "江苏省 南京市 南京市 栖霞商圈";
         vo.type = PromotionType.BusinessDistrict;
         String w_id = service.addWebPromotion(vo);
-        System.out.println("商圈促销策略ID : " + h_id);
+        System.out.println("商圈促销策略ID : " + w_id);
 
         ArrayList<PromotionVO> h_vo = service.getHotelPromotion("00000001");
         System.out.println("当前酒店促销策略数目 ： " + h_vo.size());
