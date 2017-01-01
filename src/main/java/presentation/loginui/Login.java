@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Login extends Application{
@@ -19,7 +20,7 @@ public class Login extends Application{
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(LoginUIURLConfig.login_css_url().toExternalForm());
 		primaryStage.setTitle("Login");
-		
+		primaryStage.getIcons().add(new Image("file:src/main/resources/image/staff/photo.png"));
 		primaryStage.setScene(scene);
 		primaryStage.centerOnScreen();
 		primaryStage.show();
