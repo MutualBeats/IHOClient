@@ -142,7 +142,8 @@ public class BrowseOrderController implements Initializable, Confirm, UpdateEval
 		// Revoke button default
 		revoke.setVisible(false);
 		revoke.setDisable(true);
-
+		evaluate.setVisible(false);
+		evaluate.setDisable(true);
 	}
 
 	/**

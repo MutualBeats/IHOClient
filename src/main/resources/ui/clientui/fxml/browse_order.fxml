@@ -9,73 +9,51 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="presentation.clientui.browseorder.BrowseOrderController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.clientui.browseorder.BrowseOrderController">
 	<children>
-		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0"
-			prefWidth="200.0" />
-		<Button fx:id="all_order" layoutX="100.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#all_order" prefWidth="100.0">
+		<Label fx:id="title" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" />
+		<Button fx:id="all_order" layoutX="100.0" layoutY="115.0" mnemonicParsing="false" onAction="#all_order" prefWidth="100.0">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</Button>
-		<Button fx:id="finished_order" layoutX="225.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#finished_order" prefWidth="100.0">
+		<Button fx:id="finished_order" layoutX="225.0" layoutY="115.0" mnemonicParsing="false" onAction="#finished_order" prefWidth="100.0">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</Button>
-		<Button fx:id="unexecuted_order" layoutX="350.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0">
+		<Button fx:id="unexecuted_order" layoutX="350.0" layoutY="115.0" mnemonicParsing="false" onAction="#unexecuted_order" prefWidth="100.0">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</Button>
-		<Button fx:id="revoked_order" layoutX="475.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
+		<Button fx:id="revoked_order" layoutX="475.0" layoutY="115.0" mnemonicParsing="false" onAction="#revoked_order" prefWidth="100.0">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</Button>
-		<Button fx:id="exception_order" layoutX="600.0" layoutY="115.0"
-			mnemonicParsing="false" onAction="#exception_order" prefWidth="100.0">
+		<Button fx:id="exception_order" layoutX="600.0" layoutY="115.0" mnemonicParsing="false" onAction="#exception_order" prefWidth="100.0">
 			<font>
 				<Font size="15.0" />
 			</font>
 		</Button>
 		<Line endX="600.0" layoutX="100.0" layoutY="144.0" />
-		<TableView fx:id="order_list" layoutX="19.0" layoutY="181.0"
-			prefHeight="321.0" prefWidth="762.0">
+		<TableView fx:id="order_list" layoutX="19.0" layoutY="181.0" prefHeight="321.0" prefWidth="762.0">
 			<columns>
-				<TableColumn fx:id="order_id" editable="false"
-					prefWidth="160.0" resizable="false" text="订单号" />
-				<TableColumn fx:id="hotel" editable="false" prefWidth="126.0"
-					resizable="false" text="酒店" />
-				<TableColumn fx:id="state" editable="false" prefWidth="90.0"
-					resizable="false" text="订单状态" />
-				<TableColumn fx:id="make_time" editable="false"
-					prefWidth="156.0" resizable="false" text="订单生成时间" />
-				<TableColumn fx:id="finish_time" editable="false"
-					prefWidth="156.0" resizable="false" text="订单完成时间" />
-				<TableColumn fx:id="evaluation_state" editable="false"
-					prefWidth="73.0" resizable="false" text="评论状态" />
+				<TableColumn fx:id="order_id" editable="false" prefWidth="160.0" resizable="false" text="订单号" />
+				<TableColumn fx:id="hotel" editable="false" prefWidth="126.0" resizable="false" text="酒店" />
+				<TableColumn fx:id="state" editable="false" prefWidth="90.0" resizable="false" text="订单状态" />
+				<TableColumn fx:id="make_time" editable="false" prefWidth="156.0" resizable="false" text="订单生成时间" />
+				<TableColumn fx:id="finish_time" editable="false" prefWidth="156.0" resizable="false" text="订单完成时间" />
+				<TableColumn fx:id="evaluation_state" editable="false" prefWidth="73.0" resizable="false" text="评论状态" />
 			</columns>
 			<columnResizePolicy>
 				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
 			</columnResizePolicy>
 		</TableView>
-		<Button fx:id="back" layoutX="636.0" layoutY="533.0"
-			mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="65.0" />
-		<Button fx:id="check" layoutX="543.0" layoutY="533.0"
-			mnemonicParsing="false" onAction="#check" prefHeight="26.0"
-			prefWidth="65.0" />
-		<Button fx:id="revoke" layoutX="450.0" layoutY="533.0"
-			mnemonicParsing="false" onAction="#unexecuted_revoke" prefHeight="26.0"
-			prefWidth="65.0" />
-		<Button fx:id="evaluate" layoutX="450.0" layoutY="533.0"
-			mnemonicParsing="false" onAction="#evaluate" prefHeight="26.0"
-			prefWidth="65.0" />
+		<Button fx:id="back" layoutX="636.0" layoutY="533.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="65.0" />
+		<Button fx:id="check" layoutX="543.0" layoutY="533.0" mnemonicParsing="false" onAction="#check" prefHeight="26.0" prefWidth="65.0" />
+		<Button fx:id="revoke" layoutX="450.0" layoutY="533.0" mnemonicParsing="false" onAction="#unexecuted_revoke" prefHeight="26.0" prefWidth="65.0" />
+		<Button fx:id="evaluate" disable="true" layoutX="450.0" layoutY="533.0" mnemonicParsing="false" onAction="#evaluate" prefHeight="26.0" prefWidth="65.0" visible="false" />
 	</children>
 </AnchorPane>
